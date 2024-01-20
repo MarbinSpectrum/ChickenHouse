@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DragChickenStrainter : MonoBehaviour
+public class DragChickenStrainter : Mgr
 {
     [System.Serializable]
     public struct SPITE_IMG

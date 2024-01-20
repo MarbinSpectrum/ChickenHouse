@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [ExecuteInEditMode]
-public class Oil_Zone_Shader : MonoBehaviour
+public class Oil_Zone_Shader : Mgr
 {
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Texture        readyChicken;       //조리중인 치킨

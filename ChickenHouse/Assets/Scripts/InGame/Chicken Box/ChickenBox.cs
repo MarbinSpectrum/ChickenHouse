@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChickenBox : MonoBehaviour
+public class ChickenBox : Mgr
 {
 
     private void OnMouseDrag()

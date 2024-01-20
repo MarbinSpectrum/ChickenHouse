@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DragChicken : MonoBehaviour
+public class DragChicken : Mgr
 {
     [SerializeField] private SpriteRenderer chickenImg;
 

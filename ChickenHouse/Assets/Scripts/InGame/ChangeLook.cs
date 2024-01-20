@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChangeLook : MonoBehaviour
+public class ChangeLook : Mgr
 {
     [SerializeField] private float          duration;
     [SerializeField] private AnimationCurve animationCurve;

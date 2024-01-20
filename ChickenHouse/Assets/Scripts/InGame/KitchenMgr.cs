@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KitchenMgr : MonoBehaviour
+public class KitchenMgr : Mgr
 {
     public static KitchenMgr Instance;
 

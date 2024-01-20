@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DontDrag : MonoBehaviour
+public class DontDrag : Mgr
 {
     //드래그 금지 구역
 

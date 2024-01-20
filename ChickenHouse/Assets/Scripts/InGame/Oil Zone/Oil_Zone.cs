@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Oil_Zone : MonoBehaviour
+public class Oil_Zone : Mgr
 {
     [System.Serializable]
     public struct SPITE_IMG

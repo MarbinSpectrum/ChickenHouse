@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InGameCamera : MonoBehaviour
+public class InGameCamera : Mgr
 {
     [SerializeField] private ChangeLook changeLook;
     [SerializeField] private DragCamera dragCamera;

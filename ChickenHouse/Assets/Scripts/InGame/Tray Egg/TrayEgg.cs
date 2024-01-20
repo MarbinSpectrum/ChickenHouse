@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TrayEgg : MonoBehaviour
+public class TrayEgg : Mgr
 {
     private const int MAX_CHICKEN_SLOT = 4;
 

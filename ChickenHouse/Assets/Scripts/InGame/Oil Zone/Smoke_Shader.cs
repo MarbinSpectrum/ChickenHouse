@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [ExecuteInEditMode]
-public class Smoke_Shader : MonoBehaviour
+public class Smoke_Shader : Mgr
 {
     [SerializeField] private SpriteRenderer spriteRenderer;
 

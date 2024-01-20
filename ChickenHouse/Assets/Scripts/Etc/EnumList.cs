@@ -57,3 +57,9 @@ public enum ChickenState
     /** 맛있는치킨 **/
     GoodChicken = 1,
 }
+
+public enum Language
+{
+    Korea   = 100,
+    English = 200,
+}

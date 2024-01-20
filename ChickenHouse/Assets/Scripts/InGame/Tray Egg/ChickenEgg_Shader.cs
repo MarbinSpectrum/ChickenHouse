@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [ExecuteInEditMode]
-public class ChickenEgg_Shader : MonoBehaviour
+public class ChickenEgg_Shader : Mgr
 {
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Texture chickenNormal;

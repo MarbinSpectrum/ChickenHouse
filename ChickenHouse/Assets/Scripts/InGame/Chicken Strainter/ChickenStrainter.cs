@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChickenStrainter : MonoBehaviour
+public class ChickenStrainter : Mgr
 {
     private const int MAX_CHICKEN_SLOT = 6;
 

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DragCamera : MonoBehaviour
+public class DragCamera : Mgr
 {
     //카메라 드래그
 
