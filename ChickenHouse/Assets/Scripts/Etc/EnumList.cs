@@ -13,17 +13,21 @@ public enum LookArea
 public enum DragArea
 {
     /** None **/
-    None            = 0,
+    None                = 0,
     /** 치킨 박스 **/
-    Chicken_Box     = 1,
+    Chicken_Box         = 1,
     /** 계란물 **/
-    Tray_Egg        = 2,
+    Tray_Egg            = 2,
     /** 밀가루 **/
-    Tray_Flour      = 3,
+    Tray_Flour          = 3,
     /** 치킨 건지 **/
-    Chicken_Strainter = 4,
+    Chicken_Strainter   = 4,
     /** 기름 **/
-    Oil_Zone = 5,
+    Oil_Zone            = 5,
+    /** 버리기 버튼 **/
+    Trash_Btn           = 6,
+    /** 치킨 팩 **/
+    Chicken_Pack        = 7,
 }
 
 public enum DragState

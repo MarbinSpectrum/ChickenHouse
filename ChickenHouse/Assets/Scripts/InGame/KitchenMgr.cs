@@ -10,12 +10,6 @@ public class KitchenMgr : Mgr
     [System.NonSerialized] public DragState        dragState;
     /** 보고있는 지역 **/
     [System.NonSerialized] public LookArea         lookArea;
-
-    /** 치킨 드래그 **/
-    public DragChicken          dragChicken;
-    /** 치킨 건지 드래그 **/
-    public DragChickenStrainter dragChickenStrainter;
-
     /** 계란물 통 **/
     [System.NonSerialized] public TrayEgg          trayEgg;
     /** 밀가루 통 **/
@@ -24,15 +18,41 @@ public class KitchenMgr : Mgr
     [System.NonSerialized] public ChickenStrainter chickenStrainter;
     /** 기름 **/
     [System.NonSerialized] public Oil_Zone         oilZone;
+    /** 치킨 포장 박스 **/
+    [System.NonSerialized] public ChickenPack      chickenPack;
+
 
     /** 마우스 포인터의 위치 **/
     public  DragArea        mouseArea { get; private set; }
     /** 마우스 포인터 위치 판단 용 **/
     private RaycastHit2D[]  raycastHit2D = new RaycastHit2D[20];
 
+    /** 치킨 드래그 **/
+    public DragChicken          dragChicken;
+    /** 치킨 건지 드래그 **/
+    public DragChickenStrainter dragChickenStrainter;
+
+    [System.Serializable]
+    public struct UI
+    {
+        //주방 관련 UI
+
+        /** 쓰레기 버리기 버튼 **/
+        public TakeOut_UI takeOut;
+    }
+    public UI ui;
+
     protected void Awake()
     {
         SetSingleton();
+    }
+    protected void SetSingleton()
+    {
+        //싱글톤 선언
+        if (Instance == null)
+        {
+            Instance = gameObject.GetComponent<KitchenMgr>();
+        }
     }
 
     protected void Update()
@@ -91,19 +111,21 @@ public class KitchenMgr : Mgr
                             mouseArea = DragArea.Oil_Zone;
                         }
                         return;
+                    case "Trash_Btn":
+                        {
+                            mouseArea = DragArea.Trash_Btn;
+                        }
+                        return;
+                    case "Chicken_Pack":
+                        {
+                            chickenPack = hid2D.transform.GetComponent<ChickenPack>();
+                            mouseArea = DragArea.Chicken_Pack;
+                        }
+                        return;
                 }
             }
             mouseArea = DragArea.None;
             return;
-        }
-    }
-
-    protected void SetSingleton()
-    {
-        //싱글톤 선언
-        if (Instance == null)
-        {
-            Instance = gameObject.GetComponent<KitchenMgr>();
         }
     }
 }

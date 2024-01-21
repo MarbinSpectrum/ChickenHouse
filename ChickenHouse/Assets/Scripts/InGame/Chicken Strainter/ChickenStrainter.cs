@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -55,6 +56,8 @@ public class ChickenStrainter : Mgr
             //치킨 튀기기 시작
             if (kitchenMgr.oilZone.Cook_Start(chickenCnt))
             {
+                kitchenMgr.ui.takeOut.SetData(kitchenMgr.oilZone, this);
+
                 for (int i = 0; i < chickenCnt; i++)
                 {
                     RemoveChicken();
@@ -135,6 +138,16 @@ public class ChickenStrainter : Mgr
         if (chickenCnt <= 0)
             return false;
         chickenCnt--;
+        chickenAni[chickenCnt].gameObject.SetActive(false);
         return true;
+    }
+
+    public void Init()
+    {
+        //초기화 함
+        chickenCnt = 0;
+        Array.ForEach(chickenAni, x => x.gameObject.SetActive(false));
+        isRun = true;
+        obj.gameObject.SetActive(true);
     }
 }

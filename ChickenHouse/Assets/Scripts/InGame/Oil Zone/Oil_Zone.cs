@@ -48,6 +48,9 @@ public class Oil_Zone : Mgr
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
         kitchenMgr.dragChickenStrainter.DragStart(chickenCnt, chickenState, DragState.FryChicken);
 
+        //버리기 버튼도 표시해준다.
+        kitchenMgr.ui.takeOut.OpenBtn();
+
         notCookSprite.ForEach((x) => x.enabled = true);
         runCookSprite.ForEach((x) => x.enabled = false);
     }
@@ -62,13 +65,23 @@ public class Oil_Zone : Mgr
             return;
         }
 
+        //버리기 버튼 비활성
+        kitchenMgr.ui.takeOut.CloseBtn();
+
         kitchenMgr.dragState = DragState.None;
+        if(kitchenMgr.mouseArea == DragArea.Trash_Btn)
+        {
+            //버리기 버튼처리
+            kitchenMgr.ui.takeOut.RunBtn();
+            return;
+        }
 
         if (pauseCook)
         {
             //요리 다시시작
             Cook_Pause(false);
         }
+
 
         notCookSprite.ForEach((x) => x.enabled = false);
         runCookSprite.ForEach((x) => x.enabled = true);
@@ -194,8 +207,8 @@ public class Oil_Zone : Mgr
     public void Cook_Stop()
     {
         //요리 종료
-        notCookSprite.ForEach((x) => x.enabled = false);
-        runCookSprite.ForEach((x) => x.enabled = true);
+        notCookSprite.ForEach((x) => x.enabled = true);
+        runCookSprite.ForEach((x) => x.enabled = false);
 
         if (cookCor != null)
         {

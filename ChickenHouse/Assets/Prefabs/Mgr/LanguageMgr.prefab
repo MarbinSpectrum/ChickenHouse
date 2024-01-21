@@ -47,4 +47,4 @@ MonoBehaviour:
   KoreaFont: {fileID: 11400000, guid: 243c93de180b2ce44a7beb27c5b21101, type: 2}
   EnglishFont: {fileID: 11400000, guid: 243c93de180b2ce44a7beb27c5b21101, type: 2}
   filePath: LanguageData/Language
-  nowLanguage: 200
+  nowLanguage: 100

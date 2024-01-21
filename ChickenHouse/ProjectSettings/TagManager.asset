@@ -9,6 +9,8 @@ TagManager:
   - Tray_Flour
   - Chicken_Strainter
   - Oil_Zone
+  - Trash_Btn
+  - Chicken_Pack
   layers:
   - Default
   - TransparentFX
@@ -48,4 +50,7 @@ TagManager:
     locked: 0
   - name: Chicken
     uniqueID: 2632439963
+    locked: 0
+  - name: UI
+    uniqueID: 1882695513
     locked: 0
