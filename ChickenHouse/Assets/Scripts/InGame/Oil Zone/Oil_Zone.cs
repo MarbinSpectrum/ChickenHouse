@@ -14,9 +14,10 @@ public class Oil_Zone : Mgr
     }
     [SerializeField] private SPITE_IMG sprite;
 
-    [SerializeField] private List<SpriteRenderer> notCookSprite;
-    [SerializeField] private List<SpriteRenderer> runCookSprite;
-    [SerializeField] private Animator   animator;
+    [SerializeField] private List<SpriteRenderer>   notCookSprite;
+    [SerializeField] private List<SpriteRenderer>   runCookSprite;
+    [SerializeField] private Animator               animator;
+    [SerializeField] private Oil_Zone_Shader        oilShader;
 
     /**닭 갯수 **/
     private int         chickenCnt;
@@ -46,7 +47,7 @@ public class Oil_Zone : Mgr
 
         //오일존에서 치킨건지를 꺼낸다. 드래그 시작
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
-        kitchenMgr.dragChickenStrainter.DragStart(chickenCnt, chickenState, DragState.FryChicken);
+        kitchenMgr.dragChickenStrainter.DragStart(chickenCnt, DragState.FryChicken, oilShader.Mode, oilShader.LerpValue);
 
         //버리기 버튼도 표시해준다.
         kitchenMgr.ui.takeOut.OpenBtn();

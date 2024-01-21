@@ -5,13 +5,14 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class Oil_Zone_Shader : Mgr
 {
-    [SerializeField] private SpriteRenderer spriteRenderer;
+    public                   SpriteRenderer spriteRenderer;
     [SerializeField] private Texture        readyChicken;       //조리중인 치킨
     [SerializeField] private Texture        goodChicken;        //잘만든 치킨
     [SerializeField] private Texture        badChicken;         //태운 치킨
 
-    private float   LerpValue = -1;
-    private bool    Mode = false;
+    public float    LerpValue   { get; private set; } = -1;
+    public bool     Mode        { get; private set; } = false;
+
     [SerializeField] private bool mode; //true면 치킨을 조리 중
                                         //false면 치킨을 태우는 중
 
@@ -25,17 +26,30 @@ public class Oil_Zone_Shader : Mgr
             return;
         LerpValue   = lerpValue;
         Mode        = mode;
+
+        Set_Shader(Mode, LerpValue);
+    }
+
+    public void Set_Shader(bool pMode,float v)
+    {
+        lerpValue = v;
+        mode      = pMode;
+        LerpValue   = lerpValue;
+        Mode        = mode;
+
+        //쉐이더 값 설정
+
         mpb ??= new MaterialPropertyBlock();
 
-        if(mode)
+        if (mode)
         {
-            mpb.SetTexture("_MainTex",  readyChicken);
-            mpb.SetTexture("_SubTex",   goodChicken);
+            mpb.SetTexture("_MainTex", readyChicken);
+            mpb.SetTexture("_SubTex", goodChicken);
         }
         else
         {
-            mpb.SetTexture("_MainTex",  goodChicken);
-            mpb.SetTexture("_SubTex",   badChicken);
+            mpb.SetTexture("_MainTex", goodChicken);
+            mpb.SetTexture("_SubTex", badChicken);
         }
 
         mpb.SetFloat("_LerpValue", lerpValue);

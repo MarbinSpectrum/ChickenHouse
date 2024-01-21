@@ -4,18 +4,8 @@ using UnityEngine;
 
 public class DragChickenStrainter : Mgr
 {
-    [System.Serializable]
-    public struct SPITE_IMG
-    {
-        public Sprite badChicken_0; //덜 익힌 치킨
-        public Sprite badChicken_1; //조금 태운 치킨
-        public Sprite badChicken_2; //태운 치킨
-        public Sprite goodChicken;  //잘 튀긴 치킨
-    }
-    [SerializeField] private SPITE_IMG spriteImg;
-
-    [SerializeField] private GameObject         strainterObj;
-    [SerializeField] private SpriteRenderer[]   chickenObj;
+    [SerializeField] private GameObject             strainterObj;
+    [SerializeField] private Oil_Zone_Shader[]      chickenObj;
 
     private void Update()
     {
@@ -43,35 +33,19 @@ public class DragChickenStrainter : Mgr
         }
     }
 
-    public void DragStart(int pChickenCnt, ChickenState pChickenState, DragState pDragState)
+    public void DragStart(int pChickenCnt, DragState pDragState)
     {
-        Sprite chickenSprite = null;
-        switch (pChickenState)
-        {
-            case ChickenState.NotCook:
-            case ChickenState.BadChicken_0:
-                //조리안하거나 덜익은 경우
-                chickenSprite = spriteImg.badChicken_0;
-                break;
-            case ChickenState.BadChicken_1:
-                //조금 태운 치킨
-                chickenSprite = spriteImg.badChicken_1;
-                break;
-            case ChickenState.BadChicken_2:
-                //태운 치킨
-                chickenSprite = spriteImg.badChicken_2;
-                break;
-            case ChickenState.GoodChicken:
-                //잘튀긴 치킨
-                chickenSprite = spriteImg.goodChicken;
-                break;
-        }
+        DragStart(pChickenCnt, pDragState, true, 0);
+    }
+
+    public void DragStart(int pChickenCnt, DragState pDragState, bool mode, float lerpValue)
+    {
         for (int i = 0; i < chickenObj.Length; i++)
         {
             //치킨 갯수만큼만 치킨을 보여주자.
             bool actChicken = (i < pChickenCnt);
             chickenObj[i].gameObject.SetActive(actChicken);
-            chickenObj[i].sprite = chickenSprite;
+            chickenObj[i].Set_Shader(mode, lerpValue);
         }
 
 

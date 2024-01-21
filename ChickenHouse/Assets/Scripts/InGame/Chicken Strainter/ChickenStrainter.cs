@@ -35,7 +35,7 @@ public class ChickenStrainter : Mgr
         {
             obj.gameObject.SetActive(false);
             isRun = false;
-            kitchenMgr.dragChickenStrainter.DragStart(chickenCnt,ChickenState.NotCook, DragState.ChickenStrainter);
+            kitchenMgr.dragChickenStrainter.DragStart(chickenCnt, DragState.ChickenStrainter);
         }
     }
 
