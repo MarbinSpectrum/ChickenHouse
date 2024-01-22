@@ -28,8 +28,8 @@ public class DragChicken : Mgr
                     chickenImg.enabled = false;
                 }
                 return;
-            case DragState.FryChicken:
-            case DragState.ChickenStrainter:
+            case DragState.Fry_Chicken:
+            case DragState.Chicken_Strainter:
                 {
                     //치킨이 아닌것을 드래그한 경우
                     chickenImg.enabled = false;

@@ -20,6 +20,8 @@ public class KitchenMgr : Mgr
     [System.NonSerialized] public Oil_Zone         oilZone;
     /** 치킨 포장 박스 **/
     [System.NonSerialized] public ChickenPack      chickenPack;
+    /** 치킨 소스 **/
+    [System.NonSerialized] public ChickenSource    chickenSource;
 
 
     /** 마우스 포인터의 위치 **/
@@ -122,6 +124,12 @@ public class KitchenMgr : Mgr
                             mouseArea = DragArea.Chicken_Pack;
                         }
                         return;
+                    case "Chicken_Source":
+                        {
+                            chickenSource = hid2D.transform.GetComponent<ChickenSource>();
+                            mouseArea = DragArea.Chicken_Source;
+                        }
+                        break;
                 }
             }
             mouseArea = DragArea.None;

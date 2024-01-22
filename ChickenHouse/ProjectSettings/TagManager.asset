@@ -11,6 +11,7 @@ TagManager:
   - Oil_Zone
   - Trash_Btn
   - Chicken_Pack
+  - Chicken_Source
   layers:
   - Default
   - TransparentFX

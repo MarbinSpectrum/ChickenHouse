@@ -5,15 +5,15 @@ using UnityEngine;
 public class DragChickenStrainter : Mgr
 {
     [SerializeField] private GameObject             strainterObj;
-    [SerializeField] private Oil_Zone_Shader[]      chickenObj;
+    [SerializeField] private Chicken_Shader[]       chickenObj;
 
     private void Update()
     {
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
         switch (kitchenMgr.dragState)
         {
-            case DragState.FryChicken:
-            case DragState.ChickenStrainter:
+            case DragState.Fry_Chicken:
+            case DragState.Chicken_Strainter:
                 {
                     //해당 상태에서만 치킨이 드래그됨
 
@@ -47,7 +47,6 @@ public class DragChickenStrainter : Mgr
             chickenObj[i].gameObject.SetActive(actChicken);
             chickenObj[i].Set_Shader(mode, lerpValue);
         }
-
 
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
         kitchenMgr.dragState = pDragState;

@@ -35,7 +35,7 @@ public class ChickenStrainter : Mgr
         {
             obj.gameObject.SetActive(false);
             isRun = false;
-            kitchenMgr.dragChickenStrainter.DragStart(chickenCnt, DragState.ChickenStrainter);
+            kitchenMgr.dragChickenStrainter.DragStart(chickenCnt, DragState.Chicken_Strainter);
         }
     }
 
@@ -43,7 +43,7 @@ public class ChickenStrainter : Mgr
     {
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
 
-        if (kitchenMgr.dragState != DragState.ChickenStrainter)
+        if (kitchenMgr.dragState != DragState.Chicken_Strainter)
         {
             //해당 오브젝트를 드래그중이라고 판단되었을때만 적용
             return;

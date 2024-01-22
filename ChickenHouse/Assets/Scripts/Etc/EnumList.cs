@@ -28,6 +28,8 @@ public enum DragArea
     Trash_Btn           = 6,
     /** 치킨 팩 **/
     Chicken_Pack        = 7,
+    /** 치킨 소스 **/
+    Chicken_Source      = 8,
 }
 
 public enum DragState
@@ -43,9 +45,11 @@ public enum DragState
     /** 밀가루 묻힘 **/
     Flour           = 4,
     /** 치킨 건지 **/
-    ChickenStrainter = 5,
+    Chicken_Strainter = 5,
     /** 튀긴 치킨 **/
-    FryChicken       = 6,
+    Fry_Chicken       = 6,
+    /** 치킨 소스 **/
+    Chicken_Source    = 7,
 }
 
 public enum ChickenState
