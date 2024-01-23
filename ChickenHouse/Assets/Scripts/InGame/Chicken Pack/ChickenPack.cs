@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class ChickenPack : MonoBehaviour
 {
+    /** 담겨있는 치킨 갯수 **/
     private int     chickenCnt;
-    private bool    isRun;
+    /** 치킨 양념 여부 **/
+    private bool    hasSource;
+    /** 치킨 무 여부 **/
+    private bool    hasRadish;
 
     [System.Serializable]
     public struct SPITE_IMG
@@ -39,9 +43,25 @@ public class ChickenPack : MonoBehaviour
         if (kitchenMgr.mouseArea == DragArea.Chicken_Pack &&
             (kitchenMgr.chickenPack != null && kitchenMgr.chickenPack == this))
         {
-            if (kitchenMgr.dragState == DragState.Fry_Chicken && isRun == false)
+            if (kitchenMgr.dragState == DragState.Fry_Chicken 
+                && chickenCnt <= 0)
             {
+                //치킨이 포장되어있지 않음
                 //해당 용기를 사용 가능하다.
+                sprite.spriteImg.sprite = sprite.canUseSprite;
+            }
+            else if (kitchenMgr.dragState == DragState.Chicken_Source 
+                && chickenCnt > 0 && hasSource == false)
+            {
+                //치킨이 들어있음
+                //치킨 소스 사용 가능
+                sprite.spriteImg.sprite = sprite.canUseSprite;
+            }
+            else if (kitchenMgr.dragState == DragState.Chicken_Radish
+                && hasRadish == false)
+            {
+                //치킨 무가 안들어가있음
+                //치킨무를 넣을 수 있음
                 sprite.spriteImg.sprite = sprite.canUseSprite;
             }
             else
@@ -59,18 +79,51 @@ public class ChickenPack : MonoBehaviour
 
     public bool PackCkicken(int pChickenCnt)
     {
-        if (isRun)
+        if (chickenCnt > 0)
+        {
+            //이미 치킨이 담겨있다.
             return false;
-        isRun = true;
+        }
 
+        //치킨을 담는데 성공
         chickenCnt = pChickenCnt;
 
         return true;
     }
 
-    public void Set_ChickenShader(bool pMode , float pLerpValue,bool isSource)
+    public bool AddChickenSource()
     {
-        //치킨 갯수만큼만 치킨을 보여주자.
+        if (chickenCnt <= 0)
+        {
+            //치킨이 없다.
+            return false;
+        }
+
+        if (hasSource)
+        {
+            //치킨이 소스가 이미 뿌려져있다.
+            return false;
+        }
+        hasSource = true;
+
+        return true;
+    }
+
+    public bool AddChickenRadish()
+    {
+        if(hasRadish)
+        {
+            //이미 치킨무가 들어있다.
+            return false;
+        }
+        hasRadish = true;
+
+        return true;
+    }
+
+    public void Show_Chicken(bool isSource)
+    {
+        //치킨을 표시
         if (isSource)
         {
             normalChicken.group.gameObject.SetActive(false);
@@ -90,9 +143,19 @@ public class ChickenPack : MonoBehaviour
                 bool actChicken = (i < chickenCnt);
                 Chicken_Shader chickenShader = normalChicken.chickenObj[i].GetComponent<Chicken_Shader>();
                 chickenShader.gameObject.SetActive(actChicken);
-                chickenShader.Set_Shader(pMode, pLerpValue);
             }
         }
+    }
 
+    public void Set_ChickenShader(bool pMode , float pLerpValue)
+    {
+        //치킨 갯수만큼만 치킨을 보여주자.
+        for (int i = 0; i < normalChicken.chickenObj.Length; i++)
+        {
+            bool actChicken = (i < chickenCnt);
+            Chicken_Shader chickenShader = normalChicken.chickenObj[i].GetComponent<Chicken_Shader>();
+            chickenShader.gameObject.SetActive(actChicken);
+            chickenShader.Set_Shader(pMode, pLerpValue);
+        }
     }
 }

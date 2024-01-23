@@ -50,6 +50,8 @@ public enum DragState
     Fry_Chicken       = 6,
     /** 치킨 소스 **/
     Chicken_Source    = 7,
+    /** 치킨 무 **/
+    Chicken_Radish    = 8,
 }
 
 public enum ChickenState

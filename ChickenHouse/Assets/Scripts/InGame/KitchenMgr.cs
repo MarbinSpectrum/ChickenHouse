@@ -29,10 +29,8 @@ public class KitchenMgr : Mgr
     /** 마우스 포인터 위치 판단 용 **/
     private RaycastHit2D[]  raycastHit2D = new RaycastHit2D[20];
 
-    /** 치킨 드래그 **/
-    public DragChicken          dragChicken;
-    /** 치킨 건지 드래그 **/
-    public DragChickenStrainter dragChickenStrainter;
+    /** 오브젝트 드래그 **/
+    public DragObj          dragObj;
 
     [System.Serializable]
     public struct UI

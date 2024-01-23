@@ -47,7 +47,7 @@ public class Oil_Zone : Mgr
 
         //오일존에서 치킨건지를 꺼낸다. 드래그 시작
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
-        kitchenMgr.dragChickenStrainter.DragStart(chickenCnt, DragState.Fry_Chicken, oilShader.Mode, oilShader.LerpValue);
+        kitchenMgr.dragObj.DragStrainter(chickenCnt, DragState.Fry_Chicken, oilShader.Mode, oilShader.LerpValue);
 
         //버리기 버튼도 표시해준다.
         kitchenMgr.ui.takeOut.OpenBtn();
@@ -82,7 +82,8 @@ public class Oil_Zone : Mgr
             if(kitchenMgr.chickenPack.PackCkicken(chickenCnt))
             {
                 //치킨팩에 치킨 넣기
-                kitchenMgr.chickenPack.Set_ChickenShader(oilShader.Mode, oilShader.LerpValue, false);
+                kitchenMgr.chickenPack.Set_ChickenShader(oilShader.Mode, oilShader.LerpValue);
+                kitchenMgr.chickenPack.Show_Chicken(false);
 
                 //요리 종료
                 Cook_Stop();
