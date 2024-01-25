@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChickenPack : MonoBehaviour
+public class ChickenPack : Mgr
 {
     /** 담겨있는 치킨 갯수 **/
     private int     chickenCnt;
@@ -147,7 +147,7 @@ public class ChickenPack : MonoBehaviour
         }
     }
 
-    public void Set_ChickenShader(bool pMode , float pLerpValue)
+    public void Set_ChickenShader(bool pMode, float pLerpValue)
     {
         //치킨 갯수만큼만 치킨을 보여주자.
         for (int i = 0; i < normalChicken.chickenObj.Length; i++)

@@ -6,73 +6,53 @@ public class DragCamera : Mgr
 {
     //카메라 드래그
 
-    [SerializeField] private float Speed = 0.25f;
+    [SerializeField] private float Speed1 = 0.25f;
+    [SerializeField] private float Speed2 = 0.25f;
+    [SerializeField] private float dragDis = 150f;
+    [SerializeField] private float sideArea = 200f;
     [SerializeField] private Transform leftTrans;
     [SerializeField] private Transform rightTrans;
 
     private Vector2 nowPos, prePos;
     private Vector3 movePos;
 
+    private void Awake()
+    {
+        MinMaxPos();
+    }
+
     public void ViewMoving()
     {
-        KitchenMgr kitchenMgr = KitchenMgr.Instance;
-
-        if (kitchenMgr.dragState != DragState.None)
-            return;
-
         if (Application.platform == RuntimePlatform.Android)
         {
             if (Input.touchCount == 1)
             {
                 Touch touch = Input.GetTouch(0);
+                Vector2 calPos = touch.position - touch.deltaPosition;
                 if (touch.phase == TouchPhase.Began)
                 {
-                    prePos = touch.position - touch.deltaPosition;
+                    prePos = calPos;
                 }
                 else if (touch.phase == TouchPhase.Moved)
                 {
-                    nowPos = touch.position - touch.deltaPosition;
-                    movePos = (Vector3)(prePos - nowPos) * Time.deltaTime * Speed;
-                    movePos = new Vector3(movePos.x, Camera.main.transform.position.y, movePos.z);
-                    Camera.main.transform.Translate(movePos);
-
-                    Vector3 cPos = Camera.main.transform.position;
-                    float moveX = cPos.x;
-                    moveX = Mathf.Min(moveX, rightTrans.position.x);
-                    moveX = Mathf.Max(moveX, leftTrans.position.x);
-                    cPos = new Vector3(moveX, cPos.y, cPos.z);
-
-                    Camera.main.transform.position = cPos;
-
-                    prePos = touch.position - touch.deltaPosition;
+                    nowPos = calPos;
+                    MoveCamera(nowPos, calPos);
                 }
             }
             else if (Input.touchCount == 2)
             {
                 Touch touchZero = Input.GetTouch(0);
                 Touch touchOne = Input.GetTouch(1);
-
+                Vector2 calPos = ((touchZero.position + touchOne.position) / 2) - ((touchZero.deltaPosition + touchOne.deltaPosition) / 2);
                 if (touchZero.phase == TouchPhase.Began || touchOne.phase == TouchPhase.Began)//터치 시작하면
                 {
-                    prePos = ((touchZero.position + touchOne.position) / 2) - ((touchZero.deltaPosition + touchOne.deltaPosition) / 2);
+                    prePos = calPos;
                 }
 
                 else if (touchZero.phase == TouchPhase.Moved || touchOne.phase == TouchPhase.Moved)//드래그 중이면
                 {
-                    nowPos = ((touchZero.position + touchOne.position) / 2) - ((touchZero.deltaPosition + touchOne.deltaPosition) / 2);
-                    movePos = (Vector3)(prePos - nowPos);
-                    movePos = new Vector3(movePos.x, Camera.main.transform.position.y, movePos.z);
-                    Camera.main.transform.Translate(movePos * Time.deltaTime * Speed);
-
-                    Vector3 cPos = Camera.main.transform.position;
-                    float moveX = cPos.x;
-                    moveX = Mathf.Min(moveX, rightTrans.position.x);
-                    moveX = Mathf.Max(moveX, leftTrans.position.x);
-                    cPos = new Vector3(moveX, cPos.y, cPos.z);
-
-                    Camera.main.transform.position = cPos;
-
-                    prePos = ((touchZero.position + touchOne.position) / 2) - ((touchZero.deltaPosition + touchOne.deltaPosition) / 2);
+                    nowPos = calPos;
+                    MoveCamera(nowPos, calPos);
                 }
             }
         }
@@ -85,20 +65,55 @@ public class DragCamera : Mgr
             else if (Input.GetMouseButton(0))
             {
                 nowPos = Input.mousePosition;
-                movePos = (Vector3)(prePos - nowPos) * Time.deltaTime * Speed;
-                movePos = new Vector3(movePos.x, Camera.main.transform.position.y, movePos.z);
-                Camera.main.transform.Translate(movePos);
-
-                Vector3 cPos = Camera.main.transform.position;
-                float moveX = cPos.x;
-                moveX = Mathf.Min(moveX, rightTrans.position.x);
-                moveX = Mathf.Max(moveX, leftTrans.position.x);
-                cPos = new Vector3(moveX, cPos.y, cPos.z);
-
-                Camera.main.transform.position = cPos;
-
-                prePos = Input.mousePosition;
+                MoveCamera(nowPos, Input.mousePosition);
             }
         }
+    }
+
+    private void MoveCamera(Vector2 nowPos,Vector2 pPrevPos)
+    {
+        bool        updatePrePos    = false;
+        KitchenMgr  kitchenMgr      = KitchenMgr.Instance;
+        Vector3     movePos         = Vector3.zero;
+
+        float rate = ((float)Screen.width / (float)(Screen.height)) * (16.0f / 9.0f);
+        float fSpeed1   = rate * Speed1;
+        float fSpeed2   = rate * Speed2;
+        float fDrag     = rate * dragDis;
+        if (kitchenMgr.dragState != DragState.None)
+        {
+            if (fDrag < nowPos.x && nowPos.x < Screen.width - fDrag)
+                return;
+
+            movePos = (Vector3)(nowPos - prePos).normalized * Time.deltaTime * fSpeed1;
+            movePos = new Vector3(movePos.x, Camera.main.transform.position.y, movePos.z);
+        }
+        else
+        {
+            updatePrePos = true;
+            movePos = (Vector3)(prePos - nowPos) * Time.deltaTime * fSpeed2;
+            movePos = new Vector3(movePos.x, Camera.main.transform.position.y, movePos.z);
+        }
+        Camera.main.transform.Translate(movePos);
+
+        MinMaxPos();
+
+        if (updatePrePos)
+        {
+            prePos = pPrevPos;
+        }
+    }
+
+    private void MinMaxPos()
+    {
+        Vector3 cPos = Camera.main.transform.position;
+
+        float height = Camera.main.orthographicSize;
+        float width = height * Screen.width / Screen.height;
+        float clampX = Mathf.Clamp(Camera.main.transform.position.x, leftTrans.position.x + width, rightTrans.position.x - width);
+
+        cPos = new Vector3(clampX, cPos.y, cPos.z);
+
+        Camera.main.transform.position = cPos;
     }
 }
