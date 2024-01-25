@@ -82,7 +82,8 @@ public class DragCamera : Mgr
         float fDrag     = rate * dragDis;
         if (kitchenMgr.dragState != DragState.None)
         {
-            if (fDrag < nowPos.x && nowPos.x < Screen.width - fDrag)
+            if (!(prePos.x - nowPos.x < 0 && nowPos.x >= Screen.width - fDrag)
+                && !(prePos.x - nowPos.x > 0 && nowPos.x <= fDrag))
                 return;
 
             movePos = (Vector3)(nowPos - prePos).normalized * Time.deltaTime * fSpeed1;

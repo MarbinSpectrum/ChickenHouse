@@ -7448,7 +7448,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed1: 6
   Speed2: 0.5
-  dragDis: 50
+  dragDis: 70
   sideArea: 15
   leftTrans: {fileID: 1775855893}
   rightTrans: {fileID: 1381533501}
@@ -10277,7 +10277,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.16073346, y: 1.0349948}
+  m_Offset: {x: -0.3962593, y: 1.8985934}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -10288,7 +10288,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 7.042523, y: 15.096962}
+  m_Size: {x: 8.141647, y: 15.25398}
   m_EdgeRadius: 0
 --- !u!114 &1971976256
 MonoBehaviour:
