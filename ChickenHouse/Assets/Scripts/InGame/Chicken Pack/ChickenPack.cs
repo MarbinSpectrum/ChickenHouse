@@ -5,11 +5,14 @@ using UnityEngine;
 public class ChickenPack : Mgr
 {
     /** 담겨있는 치킨 갯수 **/
-    private int     chickenCnt;
-    /** 치킨 양념 여부 **/
-    private bool    hasSource;
-    /** 치킨 무 여부 **/
-    private bool    hasRadish;
+    private int         chickenCnt;
+    /** 치킨 상태 **/
+    private ChickenState chickenState;
+
+    /** 소스0 **/
+    private ChickenSpicy source0;
+    /** 소스1 **/
+    private ChickenSpicy source1;
 
     [System.Serializable]
     public struct SPITE_IMG
@@ -24,13 +27,74 @@ public class ChickenPack : Mgr
     public struct CHICKEN_OBJ
     {
         //오브젝트 스프라이트 이미지
-        public GameObject           group;
         public GameObject[]         chickenObj;
+        public SpriteRenderer       bottomSource;
     }
 
     [SerializeField] private SPITE_IMG          sprite;
     [SerializeField] private CHICKEN_OBJ        normalChicken;
-    [SerializeField] private CHICKEN_OBJ        sourceChicken;
+    [SerializeField] private CHICKEN_OBJ        hotChicken;
+    [SerializeField] private SpriteRenderer     smoke;
+    [SerializeField] private GameObject         obj;
+    private void OnMouseDrag()
+    {
+        if (chickenCnt == 0)
+        {
+            //치킨이 내부에 존재해야지 드래그가 가능
+            return;
+        }
+
+        KitchenMgr kitchenMgr = KitchenMgr.Instance;
+        kitchenMgr.dragState = DragState.Chicken_Pack;
+
+        obj.gameObject.SetActive(false);
+
+        //버리기 버튼도 표시해준다.
+        kitchenMgr.ui.takeOut.OpenBtn();
+    }
+
+    private void OnMouseUp()
+    {
+        KitchenMgr kitchenMgr = KitchenMgr.Instance;
+
+        if (kitchenMgr.dragState != DragState.Chicken_Pack)
+        {
+            //해당 오브젝트를 드래그중이라고 판단되었을때만 적용
+            return;
+        }
+
+        obj.gameObject.SetActive(true);
+
+        //버리기 버튼 비활성
+        kitchenMgr.ui.takeOut.CloseBtn();
+
+        //손을때면 치킨 박스 떨어짐
+        kitchenMgr.dragState = DragState.None;
+        if (kitchenMgr.mouseArea == DragArea.Trash_Btn)
+        {
+            //버리기 버튼처리
+            kitchenMgr.ui.takeOut.ChickenPack_TakeOut();
+            return;
+        }
+
+        //if (kitchenMgr.mouseArea == DragArea.Oil_Zone)
+        //{
+        //    //치킨 튀기기 시작
+        //    if (kitchenMgr.oilZone.Cook_Start(chickenCnt))
+        //    {
+        //        kitchenMgr.ui.takeOut.SetData(kitchenMgr.oilZone, this);
+
+        //        for (int i = 0; i < chickenCnt; i++)
+        //        {
+        //            RemoveChicken();
+        //        }
+        //        return;
+        //    }
+        //}
+
+        //isRun = true;
+        //obj.gameObject.SetActive(true);
+    }
 
     private void Update()
     {
@@ -50,18 +114,11 @@ public class ChickenPack : Mgr
                 //해당 용기를 사용 가능하다.
                 sprite.spriteImg.sprite = sprite.canUseSprite;
             }
-            else if (kitchenMgr.dragState == DragState.Chicken_Source 
-                && chickenCnt > 0 && hasSource == false)
+            else if (kitchenMgr.dragState == DragState.Hot_Spicy
+                && chickenCnt > 0 && (source0 == ChickenSpicy.None || source1 == ChickenSpicy.None))
             {
                 //치킨이 들어있음
                 //치킨 소스 사용 가능
-                sprite.spriteImg.sprite = sprite.canUseSprite;
-            }
-            else if (kitchenMgr.dragState == DragState.Chicken_Radish
-                && hasRadish == false)
-            {
-                //치킨 무가 안들어가있음
-                //치킨무를 넣을 수 있음
                 sprite.spriteImg.sprite = sprite.canUseSprite;
             }
             else
@@ -77,7 +134,7 @@ public class ChickenPack : Mgr
         }
     }
 
-    public bool PackCkicken(int pChickenCnt)
+    public bool PackCkicken(int pChickenCnt, ChickenState pChickenState)
     {
         if (chickenCnt > 0)
         {
@@ -87,11 +144,31 @@ public class ChickenPack : Mgr
 
         //치킨을 담는데 성공
         chickenCnt = pChickenCnt;
+        chickenState = pChickenState;
+
+        if (chickenState == ChickenState.GoodChicken || chickenState == ChickenState.BadChicken_1)
+        {
+            Color newColor = smoke.color;
+            newColor.r = 1;
+            newColor.g = 1;
+            newColor.b = 1;
+            smoke.color = newColor;
+            smoke.gameObject.SetActive(true);
+        }
+        else if (chickenState == ChickenState.BadChicken_2)
+        {
+            Color newColor = smoke.color;
+            newColor.r = 0;
+            newColor.g = 0;
+            newColor.b = 0;
+            smoke.color = newColor;
+            smoke.gameObject.SetActive(true);
+        }
 
         return true;
     }
 
-    public bool AddChickenSource()
+    public bool AddChickenSource(ChickenSpicy spicy)
     {
         if (chickenCnt <= 0)
         {
@@ -99,50 +176,54 @@ public class ChickenPack : Mgr
             return false;
         }
 
-        if (hasSource)
+        if (source0 != ChickenSpicy.None && source1 != ChickenSpicy.None)
         {
             //치킨이 소스가 이미 뿌려져있다.
             return false;
         }
-        hasSource = true;
 
-        return true;
-    }
-
-    public bool AddChickenRadish()
-    {
-        if(hasRadish)
+        if(source0 == ChickenSpicy.None)
         {
-            //이미 치킨무가 들어있다.
-            return false;
+            source0 = spicy;
+            return true;
         }
-        hasRadish = true;
+        if (source1 == ChickenSpicy.None)
+        {
+            source1 = spicy;
+            return true;
+        }
 
-        return true;
+        return false;
     }
 
-    public void Show_Chicken(bool isSource)
+    public void UpdatePack()
     {
         //치킨을 표시
-        if (isSource)
+        System.Array.ForEach(normalChicken.chickenObj, (x) => x.gameObject.SetActive(false));
+        System.Array.ForEach(hotChicken.chickenObj, (x) => x.gameObject.SetActive(false));
+
+        for (int i = 0; i < chickenCnt; i++)
         {
-            normalChicken.group.gameObject.SetActive(false);
-            sourceChicken.group.gameObject.SetActive(true);
-            for (int i = 0; i < sourceChicken.chickenObj.Length; i++)
+            ChickenSpicy chickenSpicy = ChickenSpicy.None;
+            if (i < chickenCnt / 2)
             {
-                bool actChicken = (i < chickenCnt);
-                sourceChicken.chickenObj[i].SetActive(actChicken);
+                chickenSpicy = source0;
             }
-        }
-        else
-        {
-            normalChicken.group.gameObject.SetActive(true);
-            sourceChicken.group.gameObject.SetActive(false);
-            for (int i = 0; i < normalChicken.chickenObj.Length; i++)
+            else
             {
-                bool actChicken = (i < chickenCnt);
-                Chicken_Shader chickenShader = normalChicken.chickenObj[i].GetComponent<Chicken_Shader>();
-                chickenShader.gameObject.SetActive(actChicken);
+                chickenSpicy = source1;
+            }
+
+            switch (chickenSpicy)
+            {
+                case ChickenSpicy.None:
+                    normalChicken.bottomSource.gameObject.SetActive(true);
+                    normalChicken.chickenObj[i].gameObject.SetActive(true);
+                    break;
+                case ChickenSpicy.Hot:
+                    hotChicken.bottomSource.gameObject.SetActive(true);
+                    hotChicken.chickenObj[i].gameObject.SetActive(true);
+                    break;
             }
         }
     }
@@ -157,5 +238,19 @@ public class ChickenPack : Mgr
             chickenShader.gameObject.SetActive(actChicken);
             chickenShader.Set_Shader(pMode, pLerpValue);
         }
+    }
+
+    public void Init()
+    {
+        //초기화 함
+        chickenCnt = 0;
+        source0 = ChickenSpicy.None;
+        source1 = ChickenSpicy.None;
+        System.Array.ForEach(normalChicken.chickenObj, (x) => x.gameObject.SetActive(false));
+        System.Array.ForEach(hotChicken.chickenObj, (x) => x.gameObject.SetActive(false));
+        normalChicken.bottomSource.gameObject.SetActive(false);
+        hotChicken.bottomSource.gameObject.SetActive(false);
+
+        smoke.gameObject.SetActive(false);
     }
 }

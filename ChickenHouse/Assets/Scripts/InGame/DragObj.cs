@@ -25,7 +25,8 @@ public class DragObj : Mgr
     [SerializeField] private GameObject         strainterObj;
     [SerializeField] private Chicken_Shader[]   chickenObj;
 
-
+    /** 치킨 박스 */
+    [SerializeField] private GameObject         chickenBox;
 
     private void Update()
     {
@@ -40,6 +41,7 @@ public class DragObj : Mgr
                     strainterObj.gameObject.SetActive(false);
                     chickenSource.gameObject.SetActive(false);
                     chickenRadish.gameObject.SetActive(false);
+                    chickenBox.gameObject.SetActive(false);
 
                     MoveMousePos();
                 }
@@ -52,6 +54,7 @@ public class DragObj : Mgr
                     strainterObj.gameObject.SetActive(false);
                     chickenSource.gameObject.SetActive(false);
                     chickenRadish.gameObject.SetActive(false);
+                    chickenBox.gameObject.SetActive(false);
 
                     MoveMousePos();
                 }
@@ -64,6 +67,7 @@ public class DragObj : Mgr
                     strainterObj.gameObject.SetActive(false);
                     chickenSource.gameObject.SetActive(false);
                     chickenRadish.gameObject.SetActive(false);
+                    chickenBox.gameObject.SetActive(false);
 
                     MoveMousePos();
                 }
@@ -76,17 +80,19 @@ public class DragObj : Mgr
                     strainterObj.gameObject.SetActive(true);
                     chickenSource.gameObject.SetActive(false);
                     chickenRadish.gameObject.SetActive(false);
+                    chickenBox.gameObject.SetActive(false);
 
                     MoveMousePos();
                 }
                 return;
-            case DragState.Chicken_Source:
+            case DragState.Hot_Spicy:
                 {
                     //치킨 양념을 드래그한 상태
                     chickenImg.gameObject.SetActive(false);
                     strainterObj.gameObject.SetActive(false);
                     chickenSource.gameObject.SetActive(true);
                     chickenRadish.gameObject.SetActive(false);
+                    chickenBox.gameObject.SetActive(false);
 
                     MoveMousePos();
                 }
@@ -98,6 +104,19 @@ public class DragObj : Mgr
                     strainterObj.gameObject.SetActive(false);
                     chickenSource.gameObject.SetActive(false);
                     chickenRadish.gameObject.SetActive(true);
+                    chickenBox.gameObject.SetActive(false);
+
+                    MoveMousePos();
+                }
+                return;
+            case DragState.Chicken_Pack:
+                {
+                    //치킨 박스를 드래그한 상태
+                    chickenImg.gameObject.SetActive(false);
+                    strainterObj.gameObject.SetActive(false);
+                    chickenSource.gameObject.SetActive(false);
+                    chickenRadish.gameObject.SetActive(false);
+                    chickenBox.gameObject.SetActive(true);
 
                     MoveMousePos();
                 }
@@ -108,6 +127,7 @@ public class DragObj : Mgr
         strainterObj.gameObject.SetActive(false);
         chickenSource.gameObject.SetActive(false);
         chickenRadish.gameObject.SetActive(false);
+        chickenBox.gameObject.SetActive(false);
     }
 
     private void MoveMousePos()

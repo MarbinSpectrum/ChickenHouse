@@ -29,7 +29,7 @@ public enum DragArea
     /** 치킨 팩 **/
     Chicken_Pack        = 7,
     /** 치킨 소스 **/
-    Chicken_Source      = 8,
+    Hot_Spicy           = 8,
 }
 
 public enum DragState
@@ -49,9 +49,11 @@ public enum DragState
     /** 튀긴 치킨 **/
     Fry_Chicken       = 6,
     /** 치킨 소스 **/
-    Chicken_Source    = 7,
+    Hot_Spicy       = 7,
     /** 치킨 무 **/
     Chicken_Radish    = 8,
+    /** 치킨 박스(포장) **/
+    Chicken_Pack    = 9,
 }
 
 public enum ChickenState
@@ -66,6 +68,15 @@ public enum ChickenState
     BadChicken_2 = 3,
     /** 맛있는치킨 **/
     GoodChicken = 1,
+}
+
+public enum ChickenSpicy
+{
+    /** 소스 없음 **/
+    None        = 0,
+    /** 양념 치킨 소스 **/
+    Hot         = 1,
+
 }
 
 public enum Language

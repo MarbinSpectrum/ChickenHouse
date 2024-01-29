@@ -82,6 +82,13 @@ public class DragCamera : Mgr
         float fDrag     = rate * dragDis;
         if (kitchenMgr.dragState != DragState.None)
         {
+            if (kitchenMgr.mouseArea == DragArea.Trash_Btn)
+            {
+                //쓰레기 버튼위에서는 이동이안됨
+                return;
+            }
+
+
             if (!(prePos.x - nowPos.x < 0 && nowPos.x >= Screen.width - fDrag)
                 && !(prePos.x - nowPos.x > 0 && nowPos.x <= fDrag))
                 return;

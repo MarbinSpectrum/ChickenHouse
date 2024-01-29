@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChickenSource : MonoBehaviour
+public class ChickenHotSpicy : MonoBehaviour
 {
     [SerializeField] private GameObject obj;
 
@@ -14,14 +14,14 @@ public class ChickenSource : MonoBehaviour
             //빈손인 상태에서 드래그해야됨
             return;
         }
-        kitchenMgr.dragState = DragState.Chicken_Source;
+        kitchenMgr.dragState = DragState.Hot_Spicy;
         obj.gameObject.SetActive(false);
     }
 
     private void OnMouseUp()
     {
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
-        if (kitchenMgr.dragState != DragState.Chicken_Source)
+        if (kitchenMgr.dragState != DragState.Hot_Spicy)
         {
             //해당 오브젝트를 드래그중이라고 판단되었을때만 적용
             return;
@@ -32,9 +32,9 @@ public class ChickenSource : MonoBehaviour
         if (kitchenMgr.mouseArea == DragArea.Chicken_Pack)
         {
             //치킨 양념 넣기
-            if (kitchenMgr.chickenPack.AddChickenSource())
+            if (kitchenMgr.chickenPack.AddChickenSource(ChickenSpicy.Hot))
             {
-                kitchenMgr.chickenPack.Show_Chicken(true);
+                kitchenMgr.chickenPack.UpdatePack();
             }
         }
 

@@ -73,17 +73,20 @@ public class Oil_Zone : Mgr
         if(kitchenMgr.mouseArea == DragArea.Trash_Btn)
         {
             //버리기 버튼처리
-            kitchenMgr.ui.takeOut.RunBtn();
+            kitchenMgr.ui.takeOut.ChickenStrainter_TakeOut();
             return;
         }
         else if(kitchenMgr.mouseArea == DragArea.Chicken_Pack)
         {
             //치킨통에 치킨 넣기
-            if(kitchenMgr.chickenPack.PackCkicken(chickenCnt))
+            if(kitchenMgr.chickenPack.PackCkicken(chickenCnt, chickenState))
             {
+                //버려야될수도있으니 등록
+                kitchenMgr.ui.takeOut.ChickenPack_SetData(kitchenMgr.chickenPack);
+
                 //치킨팩에 치킨 넣기
                 kitchenMgr.chickenPack.Set_ChickenShader(oilShader.Mode, oilShader.LerpValue);
-                kitchenMgr.chickenPack.Show_Chicken(false);
+                kitchenMgr.chickenPack.UpdatePack();
 
                 //요리 종료
                 Cook_Stop();

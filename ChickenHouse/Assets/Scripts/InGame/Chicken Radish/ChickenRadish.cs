@@ -18,11 +18,7 @@ public class ChickenRadish : MonoBehaviour
         kitchenMgr.dragState = DragState.None;
         if (kitchenMgr.mouseArea == DragArea.Chicken_Pack)
         {
-            //치킨 무 넣기
-            if (kitchenMgr.chickenPack.AddChickenRadish())
-            {
 
-            }
         }
     } 
 }
