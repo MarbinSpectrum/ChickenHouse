@@ -12,6 +12,7 @@ TagManager:
   - Trash_Btn
   - Chicken_Pack
   - Hot_Spicy
+  - Chicken_Slot
   layers:
   - Default
   - TransparentFX

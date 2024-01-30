@@ -30,6 +30,8 @@ public enum DragArea
     Chicken_Pack        = 7,
     /** 치킨 소스 **/
     Hot_Spicy           = 8,
+    /** 치킨 슬롯 **/
+    Chicken_Slot        = 9,
 }
 
 public enum DragState

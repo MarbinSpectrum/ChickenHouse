@@ -36,6 +36,7 @@ public class ChickenPack : Mgr
     [SerializeField] private CHICKEN_OBJ        hotChicken;
     [SerializeField] private SpriteRenderer     smoke;
     [SerializeField] private GameObject         obj;
+
     private void OnMouseDrag()
     {
         if (chickenCnt == 0)
@@ -77,23 +78,17 @@ public class ChickenPack : Mgr
             return;
         }
 
-        //if (kitchenMgr.mouseArea == DragArea.Oil_Zone)
-        //{
-        //    //치킨 튀기기 시작
-        //    if (kitchenMgr.oilZone.Cook_Start(chickenCnt))
-        //    {
-        //        kitchenMgr.ui.takeOut.SetData(kitchenMgr.oilZone, this);
+        if (kitchenMgr.mouseArea == DragArea.Chicken_Slot)
+        {
+            //치킨을 올려놓는다.
+            if (kitchenMgr.chickenSlot.Put_ChickenPack(chickenCnt, chickenState, source0, source1))
+            {
+                Init();
+                return;
+            }
+        }
 
-        //        for (int i = 0; i < chickenCnt; i++)
-        //        {
-        //            RemoveChicken();
-        //        }
-        //        return;
-        //    }
-        //}
-
-        //isRun = true;
-        //obj.gameObject.SetActive(true);
+        obj.gameObject.SetActive(true);
     }
 
     private void Update()
@@ -148,6 +143,8 @@ public class ChickenPack : Mgr
 
         if (chickenState == ChickenState.GoodChicken || chickenState == ChickenState.BadChicken_1)
         {
+            //좋은 치킨 or 조금 태운 치킨
+            //하얀 스모크
             Color newColor = smoke.color;
             newColor.r = 1;
             newColor.g = 1;
@@ -157,6 +154,8 @@ public class ChickenPack : Mgr
         }
         else if (chickenState == ChickenState.BadChicken_2)
         {
+            //태운 치킨
+            //검은 스모크
             Color newColor = smoke.color;
             newColor.r = 0;
             newColor.g = 0;
