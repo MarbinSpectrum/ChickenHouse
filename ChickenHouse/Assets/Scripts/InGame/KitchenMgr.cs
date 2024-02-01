@@ -26,7 +26,10 @@ public class KitchenMgr : Mgr
 
     /** 치킨 슬롯 **/
     [System.NonSerialized] public TableChickenSlot chickenSlot;
-
+    /** 치킨 무 슬롯 **/
+    [System.NonSerialized] public TablePickleSlot  pickleSlot;
+    /** 음료 슬롯 **/
+    [System.NonSerialized] public TableDrinkSlot   drinkSlot;
 
     /** 마우스 포인터의 위치 **/
     public  DragArea        mouseArea { get; private set; }
@@ -136,6 +139,18 @@ public class KitchenMgr : Mgr
                         {
                             chickenSlot = hid2D.transform.GetComponent<TableChickenSlot>();
                             mouseArea = DragArea.Chicken_Slot;
+                        }
+                        return;
+                    case "Pickle_Slot":
+                        {
+                            pickleSlot = hid2D.transform.GetComponent<TablePickleSlot>();
+                            mouseArea = DragArea.Pickle_Slot;
+                        }
+                        return;
+                    case "Drink_Slot":
+                        {
+                            drinkSlot = hid2D.transform.GetComponent<TableDrinkSlot>();
+                            mouseArea = DragArea.Drink_Slot;
                         }
                         return;
                 }

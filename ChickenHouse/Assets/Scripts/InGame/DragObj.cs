@@ -28,9 +28,14 @@ public class DragObj : Mgr
     /** 치킨 박스 */
     [SerializeField] private GameObject         chickenBox;
 
+    /** 콜라 **/
+    [SerializeField] private GameObject         cola;
+
     private void Update()
     {
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
+        All_Disable();
+
         switch (kitchenMgr.dragState)
         {
             case DragState.Normal:
@@ -38,10 +43,6 @@ public class DragObj : Mgr
                     //치킨을 드래그한 상태
                     chickenImg.sprite = chickenSprite.normal;
                     chickenImg.gameObject.SetActive(true);
-                    strainterObj.gameObject.SetActive(false);
-                    chickenSource.gameObject.SetActive(false);
-                    chickenRadish.gameObject.SetActive(false);
-                    chickenBox.gameObject.SetActive(false);
 
                     MoveMousePos();
                 }
@@ -51,10 +52,6 @@ public class DragObj : Mgr
                     //계란물 묻힌 치킨을 드래그한 상태
                     chickenImg.sprite = chickenSprite.egg;
                     chickenImg.gameObject.SetActive(true);
-                    strainterObj.gameObject.SetActive(false);
-                    chickenSource.gameObject.SetActive(false);
-                    chickenRadish.gameObject.SetActive(false);
-                    chickenBox.gameObject.SetActive(false);
 
                     MoveMousePos();
                 }
@@ -64,10 +61,6 @@ public class DragObj : Mgr
                     //밀라구를 묻힌 치킨을 드래그한 상태
                     chickenImg.sprite = chickenSprite.flour;
                     chickenImg.gameObject.SetActive(true);
-                    strainterObj.gameObject.SetActive(false);
-                    chickenSource.gameObject.SetActive(false);
-                    chickenRadish.gameObject.SetActive(false);
-                    chickenBox.gameObject.SetActive(false);
 
                     MoveMousePos();
                 }
@@ -76,11 +69,7 @@ public class DragObj : Mgr
             case DragState.Chicken_Strainter:
                 {
                     //치킨 건지를 드래그한 상태
-                    chickenImg.gameObject.SetActive(false);
                     strainterObj.gameObject.SetActive(true);
-                    chickenSource.gameObject.SetActive(false);
-                    chickenRadish.gameObject.SetActive(false);
-                    chickenBox.gameObject.SetActive(false);
 
                     MoveMousePos();
                 }
@@ -88,23 +77,15 @@ public class DragObj : Mgr
             case DragState.Hot_Spicy:
                 {
                     //치킨 양념을 드래그한 상태
-                    chickenImg.gameObject.SetActive(false);
-                    strainterObj.gameObject.SetActive(false);
                     chickenSource.gameObject.SetActive(true);
-                    chickenRadish.gameObject.SetActive(false);
-                    chickenBox.gameObject.SetActive(false);
 
                     MoveMousePos();
                 }
                 return;
-            case DragState.Chicken_Radish:
+            case DragState.Chicken_Pickle:
                 {
                     //치킨 무를 드래그한 상태
-                    chickenImg.gameObject.SetActive(false);
-                    strainterObj.gameObject.SetActive(false);
-                    chickenSource.gameObject.SetActive(false);
                     chickenRadish.gameObject.SetActive(true);
-                    chickenBox.gameObject.SetActive(false);
 
                     MoveMousePos();
                 }
@@ -112,22 +93,30 @@ public class DragObj : Mgr
             case DragState.Chicken_Pack:
                 {
                     //치킨 박스를 드래그한 상태
-                    chickenImg.gameObject.SetActive(false);
-                    strainterObj.gameObject.SetActive(false);
-                    chickenSource.gameObject.SetActive(false);
-                    chickenRadish.gameObject.SetActive(false);
                     chickenBox.gameObject.SetActive(true);
 
                     MoveMousePos();
                 }
                 return;
-        }
+            case DragState.Cola:
+                {
+                    //음료를 드래그한 상태
+                    cola.gameObject.SetActive(true);
 
+                    MoveMousePos();
+                }
+                return;
+        }
+    }
+
+    private void All_Disable()
+    {
         chickenImg.gameObject.SetActive(false);
         strainterObj.gameObject.SetActive(false);
         chickenSource.gameObject.SetActive(false);
         chickenRadish.gameObject.SetActive(false);
         chickenBox.gameObject.SetActive(false);
+        cola.gameObject.SetActive(false);
     }
 
     private void MoveMousePos()

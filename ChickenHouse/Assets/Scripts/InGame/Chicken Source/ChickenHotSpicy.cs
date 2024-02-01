@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChickenHotSpicy : MonoBehaviour
+public class ChickenHotSpicy : Mgr
 {
     [SerializeField] private GameObject obj;
 

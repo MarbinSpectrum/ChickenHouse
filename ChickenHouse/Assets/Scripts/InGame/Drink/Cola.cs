@@ -2,27 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChickenRadish : Mgr
+public class Cola : Mgr
 {
     private void OnMouseDrag()
     {
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
-        kitchenMgr.dragState = DragState.Chicken_Pickle;
+        kitchenMgr.dragState = DragState.Cola;
     }
 
     private void OnMouseUp()
     {
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
 
-        //손을때면 치킨 무가 떨어짐
+        //손을때면 음료가 떨어짐
         kitchenMgr.dragState = DragState.None;
-        if (kitchenMgr.mouseArea == DragArea.Pickle_Slot)
+        if (kitchenMgr.mouseArea == DragArea.Drink_Slot)
         {
-            //치킨 무를 올려놓는다.
-            if (kitchenMgr.pickleSlot.Put_Pickle())
+            //음료를 올려놓는다.
+            if (kitchenMgr.drinkSlot.Put_Drinkt())
             {
                 return;
             }
         }
-    } 
+    }
 }

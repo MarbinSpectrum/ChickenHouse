@@ -13,6 +13,8 @@ TagManager:
   - Chicken_Pack
   - Hot_Spicy
   - Chicken_Slot
+  - Pickle_Slot
+  - Drink_Slot
   layers:
   - Default
   - TransparentFX

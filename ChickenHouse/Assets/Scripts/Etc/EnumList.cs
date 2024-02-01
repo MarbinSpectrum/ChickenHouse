@@ -32,6 +32,10 @@ public enum DragArea
     Hot_Spicy           = 8,
     /** 치킨 슬롯 **/
     Chicken_Slot        = 9,
+    /** 치킨 무 슬롯 **/
+    Pickle_Slot         = 10,
+    /** 음료 슬롯 **/
+    Drink_Slot          = 11,
 }
 
 public enum DragState
@@ -53,9 +57,11 @@ public enum DragState
     /** 치킨 소스 **/
     Hot_Spicy       = 7,
     /** 치킨 무 **/
-    Chicken_Radish    = 8,
+    Chicken_Pickle   = 8,
     /** 치킨 박스(포장) **/
     Chicken_Pack    = 9,
+    /** 콜라 **/
+    Cola            = 10,
 }
 
 public enum ChickenState

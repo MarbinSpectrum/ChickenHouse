@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TableChickenSlot : MonoBehaviour
+public class TableChickenSlot : Mgr
 {
     /** 담겨있는 치킨 갯수 **/
     private int chickenCnt;
@@ -15,6 +15,7 @@ public class TableChickenSlot : MonoBehaviour
     private ChickenSpicy source1;
 
     [SerializeField] private SpriteRenderer boxImg;
+    [SerializeField] private GameObject     slotUI;
 
     private void Update()
     {
@@ -27,6 +28,7 @@ public class TableChickenSlot : MonoBehaviour
         {
             //치킨이 이미 놓여있음
             boxImg.color = new Color(1, 1, 1, 1);
+            slotUI.gameObject.SetActive(false);
             return;
         }
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
@@ -34,11 +36,13 @@ public class TableChickenSlot : MonoBehaviour
         {
             //치킨을 놓을수있는 상태이긴하다.
             boxImg.color = new Color(1, 1, 1, 0.5f);
+            slotUI.gameObject.SetActive(true);
         }
         else
         {
             //마우스를 밖으로 내보내면 이펙트 비활성화
             boxImg.color = new Color(0, 0, 0, 0);
+            slotUI.gameObject.SetActive(true);
         }
     }
 
