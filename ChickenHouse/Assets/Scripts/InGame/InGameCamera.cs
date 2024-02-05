@@ -8,49 +8,27 @@ public class InGameCamera : Mgr
     [SerializeField] private DragCamera dragCamera;
     [SerializeField] private LookArea   startArea;
 
+    /** 보고있는 지역 **/
+    [System.NonSerialized] public LookArea lookArea;
+
     private void Awake()
     {
-        KitchenMgr kitchenMgr = KitchenMgr.Instance;
-        kitchenMgr.lookArea = startArea;
-        changeLook.ChangeCamera(kitchenMgr.lookArea, 0);
+        lookArea = startArea;
+        changeLook.ChangeCamera(lookArea, 0);
     }
-
-#if UNITY_EDITOR
-    private void Update()
-    {
-        //에디터에서 테스트용
-        //카메라 전환
-
-        KitchenMgr kitchenMgr = KitchenMgr.Instance;
-
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            switch (kitchenMgr.lookArea)
-            {
-                case LookArea.Counter:
-                    {
-                        kitchenMgr.lookArea = LookArea.Kitchen;
-                    }
-                    break;
-                case LookArea.Kitchen:
-                    {
-                        kitchenMgr.lookArea = LookArea.Counter;
-                    }
-                    break;
-            }
-            changeLook.ChangeCamera(kitchenMgr.lookArea);
-        }
-    }
-#endif
 
     private void LateUpdate()
     {
         //오브젝트 드래그중에는 화면이동이 되지 않도록하자 
-
-        KitchenMgr kitchenMgr = KitchenMgr.Instance;
-        if (kitchenMgr.lookArea == LookArea.Kitchen)
+        if (lookArea == LookArea.Kitchen)
         {
             dragCamera.ViewMoving();
         }
+    }
+
+    public void ChangeLook(LookArea pLookArea)
+    {
+        lookArea = pLookArea;
+        changeLook.ChangeCamera(lookArea);
     }
 }

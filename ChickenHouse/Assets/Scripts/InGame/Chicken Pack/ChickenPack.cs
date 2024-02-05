@@ -47,6 +47,11 @@ public class ChickenPack : Mgr
 
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
         kitchenMgr.dragState = DragState.Chicken_Pack;
+        if (kitchenMgr.cameraObj.lookArea != LookArea.Kitchen)
+        {
+            //주방을 보고있는 상태에서만 상호 작용 가능
+            return;
+        }
 
         obj.gameObject.SetActive(false);
 
@@ -74,7 +79,7 @@ public class ChickenPack : Mgr
         if (kitchenMgr.mouseArea == DragArea.Trash_Btn)
         {
             //버리기 버튼처리
-            kitchenMgr.ui.takeOut.ChickenPack_TakeOut();
+            Init();
             return;
         }
 
@@ -84,6 +89,9 @@ public class ChickenPack : Mgr
             if (kitchenMgr.chickenSlot.Put_ChickenPack(chickenCnt, chickenState, source0, source1))
             {
                 Init();
+
+                kitchenMgr.ui.goCounter.OpenBtn();
+
                 return;
             }
         }

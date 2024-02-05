@@ -7,6 +7,12 @@ public class ChickenRadish : Mgr
     private void OnMouseDrag()
     {
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
+        if (kitchenMgr.cameraObj.lookArea != LookArea.Kitchen)
+        {
+            //주방을 보고있는 상태에서만 상호 작용 가능
+            return;
+        }
+
         kitchenMgr.dragState = DragState.Chicken_Pickle;
     }
 

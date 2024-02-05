@@ -33,6 +33,13 @@ public class Oil_Zone : Mgr
 
     private void OnMouseDrag()
     {
+        KitchenMgr kitchenMgr = KitchenMgr.Instance;
+        if (kitchenMgr.cameraObj.lookArea != LookArea.Kitchen)
+        {
+            //주방을 보고있는 상태에서만 상호 작용 가능
+            return;
+        }
+
         if (chickenState == ChickenState.NotCook)
         {
             //조리 시작전이면 당연히 드래그안됨
@@ -46,7 +53,6 @@ public class Oil_Zone : Mgr
         }
 
         //오일존에서 치킨건지를 꺼낸다. 드래그 시작
-        KitchenMgr kitchenMgr = KitchenMgr.Instance;
         kitchenMgr.dragObj.DragStrainter(chickenCnt, DragState.Fry_Chicken, oilShader.Mode, oilShader.LerpValue);
 
         //버리기 버튼도 표시해준다.
@@ -81,9 +87,6 @@ public class Oil_Zone : Mgr
             //치킨통에 치킨 넣기
             if(kitchenMgr.chickenPack.PackCkicken(chickenCnt, chickenState))
             {
-                //버려야될수도있으니 등록
-                kitchenMgr.ui.takeOut.ChickenPack_SetData(kitchenMgr.chickenPack);
-
                 //치킨팩에 치킨 넣기
                 kitchenMgr.chickenPack.Set_ChickenShader(oilShader.Mode, oilShader.LerpValue);
                 kitchenMgr.chickenPack.UpdatePack();

@@ -17,6 +17,55 @@ public class TableChickenSlot : Mgr
     [SerializeField] private SpriteRenderer boxImg;
     [SerializeField] private GameObject     slotUI;
 
+    private void OnMouseDrag()
+    {
+        if (chickenCnt == 0)
+        {
+            //치킨이 내부에 존재해야지 드래그가 가능
+            return;
+        }
+
+        KitchenMgr kitchenMgr = KitchenMgr.Instance;
+        if (kitchenMgr.cameraObj.lookArea != LookArea.Kitchen)
+        {
+            //주방을 보고있는 상태에서만 상호 작용 가능
+            return;
+        }
+        kitchenMgr.dragState = DragState.Chicken_Pack;
+
+        boxImg.gameObject.SetActive(false);
+
+        //버리기 버튼도 표시해준다.
+        kitchenMgr.ui.takeOut.OpenBtn();
+    }
+
+    private void OnMouseUp()
+    {
+        KitchenMgr kitchenMgr = KitchenMgr.Instance;
+
+        if (kitchenMgr.dragState != DragState.Chicken_Pack)
+        {
+            //해당 오브젝트를 드래그중이라고 판단되었을때만 적용
+            return;
+        }
+
+        boxImg.gameObject.SetActive(true);
+
+        //버리기 버튼 비활성
+        kitchenMgr.ui.takeOut.CloseBtn();
+
+        //손을때면 치킨 박스 떨어짐
+        kitchenMgr.dragState = DragState.None;
+        if (kitchenMgr.mouseArea == DragArea.Trash_Btn)
+        {
+            //버리기 버튼처리
+            Init();
+            kitchenMgr.ui.goCounter.CloseBtn();
+            return;
+        }
+    }
+
+
     private void Update()
     {
         UpdateChickenSlot();
@@ -60,5 +109,16 @@ public class TableChickenSlot : Mgr
         source1 = pSource1;
 
         return true;
+    }
+
+    public void Init()
+    {
+        //초기화 함
+        chickenCnt = 0;
+        chickenState = ChickenState.NotCook;
+        source0 = ChickenSpicy.None;
+        source1 = ChickenSpicy.None;
+
+        boxImg.gameObject.SetActive(true);
     }
 }

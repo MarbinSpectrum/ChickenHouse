@@ -10,6 +10,14 @@ public class TableDrinkSlot : Mgr
     [SerializeField] private SpriteRenderer drinkImg;
     [SerializeField] private GameObject     slotUI;
 
+    private void OnMouseDown()
+    {
+        //올려져있는 음료를 제거할때 사용
+        if (hasDrink == false)
+            return;
+        hasDrink = false;
+    }
+
     private void Update()
     {
         UpdateDrinkSlot();

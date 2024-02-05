@@ -31,7 +31,12 @@ public class ChickenStrainter : Mgr
             return;
 
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
-        if(chickenCnt >= 4)
+        if (kitchenMgr.cameraObj.lookArea != LookArea.Kitchen)
+        {
+            //주방을 보고있는 상태에서만 상호 작용 가능
+            return;
+        }
+        if (chickenCnt >= 4)
         {
             obj.gameObject.SetActive(false);
             isRun = false;

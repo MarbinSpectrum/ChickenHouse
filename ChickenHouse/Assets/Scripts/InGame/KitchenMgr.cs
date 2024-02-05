@@ -8,8 +8,6 @@ public class KitchenMgr : Mgr
 
     /** 드래그중인 오브젝트 **/
     [System.NonSerialized] public DragState        dragState;
-    /** 보고있는 지역 **/
-    [System.NonSerialized] public LookArea         lookArea;
     /** 계란물 통 **/
     [System.NonSerialized] public TrayEgg          trayEgg;
     /** 밀가루 통 **/
@@ -36,6 +34,8 @@ public class KitchenMgr : Mgr
     /** 마우스 포인터 위치 판단 용 **/
     private RaycastHit2D[]  raycastHit2D = new RaycastHit2D[20];
 
+    /** 카메라 오브젝트 **/
+    public InGameCamera     cameraObj;
     /** 오브젝트 드래그 **/
     public DragObj          dragObj;
 
@@ -45,7 +45,9 @@ public class KitchenMgr : Mgr
         //주방 관련 UI
 
         /** 쓰레기 버리기 버튼 **/
-        public TakeOut_UI takeOut;
+        public TakeOut_UI   takeOut;
+        /** 카운터로 이동하기 버튼 **/
+        public GoCounter_UI goCounter;
     }
     public UI ui;
 

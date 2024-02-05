@@ -10,6 +10,14 @@ public class TablePickleSlot : Mgr
     [SerializeField] private SpriteRenderer pickleImg;
     [SerializeField] private GameObject     slotUI;
 
+    private void OnMouseDown()
+    {
+        //올려져있는 피클을 제거할때 사용
+        if (hasPickle == false)
+            return;
+        hasPickle = false;
+    }
+
     private void Update()
     {
         UpdatePickleSlot();

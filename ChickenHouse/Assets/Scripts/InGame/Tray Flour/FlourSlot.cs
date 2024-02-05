@@ -33,6 +33,11 @@ public class FlourSlot : Mgr
             //빈손인 상태에서 드래그해야됨
             return;
         }
+        if (kitchenMgr.cameraObj.lookArea != LookArea.Kitchen)
+        {
+            //주방을 보고있는 상태에서만 상호 작용 가능
+            return;
+        }
         kitchenMgr.dragState = DragState.Flour;
         spriteRenderer.enabled = false;
     }

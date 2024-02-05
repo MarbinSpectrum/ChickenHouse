@@ -9,8 +9,6 @@ public class TakeOut_UI : Mgr
     private Oil_Zone                    oilZone;
     private ChickenStrainter            chickenStrainter;
 
-    private ChickenPack                 chickenPack;
-
     private void Awake()
     {
         //SafeArea.SetSafeArea(GetComponent<RectTransform>());
@@ -39,14 +37,6 @@ public class TakeOut_UI : Mgr
         chickenStrainter = pChickenStrainter;
     }
 
-    public void ChickenPack_SetData(ChickenPack pChickenPack)
-    {
-        //버렸을때 치킨박스에서 치킨을 빼야되므로
-        chickenPack = pChickenPack;
-    }
-
-
-
     public void ChickenStrainter_TakeOut()
     {
         //인스펙터에 끌어서 사용하는 함수입니다.
@@ -65,21 +55,5 @@ public class TakeOut_UI : Mgr
         //null값으로 비워줌
         oilZone             = null;
         chickenStrainter    = null;
-    }
-
-    public void ChickenPack_TakeOut()
-    {
-        //인스펙터에 끌어서 사용하는 함수입니다.
-        //버리기 버튼 활성화시 실행됩니다.
-
-        if (chickenPack == null)
-            return;
-
-        //치킨 건지를 사용을 끝냈으니 초기화
-        chickenPack.Init();
-
-        //사용했을때 중복사용하면 곤란하므로
-        //null값으로 비워줌
-        chickenPack = null;
     }
 }
