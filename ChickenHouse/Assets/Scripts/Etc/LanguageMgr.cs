@@ -20,9 +20,7 @@ public class LanguageMgr : AwakeSingleton<LanguageMgr>
     protected override void Awake()
     {
         base.Awake();
-#if UNITY_EDITOR
         StartCoroutine(runLoadData());
-#endif
     }
 
     public IEnumerator runLoadData()

@@ -80,6 +80,8 @@ public enum ChickenState
 
 public enum ChickenSpicy
 {
+    /** 없음 **/
+    Not         = -1,
     /** 소스 없음 **/
     None        = 0,
     /** 양념 치킨 소스 **/
@@ -98,6 +100,8 @@ public enum Guest
     Dog      = 2,
     /** 고양이 **/
     Cat      = 3,
+
+    MAX
 }
 
 public enum GuestType
