@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [ExecuteInEditMode]
-public class GoCounter_UI : MonoBehaviour
+public class GoCounter_UI : Mgr
 {
     [SerializeField] private Animator   animator;
     [SerializeField] private Button     btn;

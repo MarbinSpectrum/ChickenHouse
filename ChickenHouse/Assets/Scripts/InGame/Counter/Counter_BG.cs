@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [ExecuteInEditMode]
-public class Counter_BG : MonoBehaviour
+public class Counter_BG : Mgr
 {
     private void Awake()
     {
