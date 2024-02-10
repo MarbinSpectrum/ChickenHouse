@@ -8,6 +8,10 @@ public class GoCounter_UI : Mgr
 {
     [SerializeField] private Animator   animator;
     [SerializeField] private Button     btn;
+    [SerializeField] private TableChickenSlot   tableChicken;
+    [SerializeField] private TableDrinkSlot     tableDrinkSlot;
+    [SerializeField] private TablePickleSlot    tablePickleSlot;
+
     private RectTransform   rect        = null;
 
     private void Awake()
@@ -35,18 +39,22 @@ public class GoCounter_UI : Mgr
         rect ??= GetComponent<RectTransform>();
         rect.sizeDelta = new Vector2(width, height);
         SafeArea.SetSafeArea(rect);
+
+        rect.anchoredPosition = new Vector2(73, 0);
     }
 
-    public void OpenBtn()
+    public void OpenBtn(NoParaDel fun = null)
     {
         //버튼 활성화
         animator.SetBool("Open", true);
+        fun?.Invoke();
     }
 
-    public void CloseBtn()
+    public void CloseBtn(NoParaDel fun = null)
     {
         //버튼 비활성화
         animator.SetBool("Open", false);
+        fun?.Invoke();
     }
 
     private void GoCounter()
@@ -54,6 +62,15 @@ public class GoCounter_UI : Mgr
         //카운터로 화면 전환
         CloseBtn();
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
-        kitchenMgr.cameraObj.ChangeLook(LookArea.Counter);
+        kitchenMgr.cameraObj.ChangeLook(LookArea.Counter,()=>
+        {
+            GuestMgr guestMgr = GuestMgr.Instance;
+            guestMgr.GiveChicken(tableChicken.chickenCnt, tableChicken.source0, tableChicken.source1, tableChicken.chickenState,
+                tableDrinkSlot.hasDrink, tablePickleSlot.hasPickle);
+
+            tableChicken.Init();
+            tableDrinkSlot.Init();
+            tablePickleSlot.Init();
+        });
     }
 }

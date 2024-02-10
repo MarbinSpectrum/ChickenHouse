@@ -170,4 +170,50 @@ public class RequireMenu
         //여기 오면 안되는데 만약 오게되면 기본 맛 호출
         return ChickenSpicy.None;
     }
+
+    public string GetChickenName()
+    {
+        //주문한 치킨 이름 반환
+        switch(chickenSpicy[0])
+        {
+            case ChickenSpicy.None:
+                {
+                    switch (chickenSpicy[1])
+                    {
+                        case ChickenSpicy.None:
+                            return LanguageMgr.GetText("FRIED_CHICKEN");
+                        case ChickenSpicy.Hot:
+                            return LanguageMgr.GetText("FRIED_AND_SEASONED_CHICKEN_IN_HALF_AND_HALF_EACH");
+                    }
+                }
+                break;
+            case ChickenSpicy.Hot:
+                {
+                    switch (chickenSpicy[1])
+                    {
+                        case ChickenSpicy.None:
+                            return LanguageMgr.GetText("FRIED_AND_SEASONED_CHICKEN_IN_HALF_AND_HALF_EACH");
+                        case ChickenSpicy.Hot:
+                            return LanguageMgr.GetText("HOT_SPICY_CHICKEN");
+                    }
+                }
+                break;
+        }
+        return string.Empty;
+    }
+
+    public List<string> GetSideMenuName()
+    {
+        //보조 메뉴들의 이름을 반환
+        List<string> result = new List<string>();
+        if(cola)
+        {
+            result.Add(LanguageMgr.GetText("COLA"));
+        }
+        if (pickle)
+        {
+            result.Add(LanguageMgr.GetText("PICKLE"));
+        }
+        return result;
+    }
 }

@@ -18,8 +18,8 @@ public class ChangeLook : Mgr
 
     private IEnumerator lookCor;
 
-    public void ChangeCamera(LookArea pLookArea) => ChangeCamera(pLookArea, duration);
-    public void ChangeCamera(LookArea pLookArea,float pDuration)
+    public void ChangeCamera(LookArea pLookArea, NoParaDel fun = null) => ChangeCamera(pLookArea, duration, fun);
+    public void ChangeCamera(LookArea pLookArea,float pDuration, NoParaDel fun = null)
     {
         //특정 방향으로 카메라 이동
 
@@ -29,12 +29,12 @@ public class ChangeLook : Mgr
             StopCoroutine(lookCor);
             lookCor = null;
         }
-        lookCor = Run_LookAni(pLookArea, pDuration);
+        lookCor = Run_LookAni(pLookArea, pDuration, fun);
 
         StartCoroutine(lookCor);
     }
 
-    private IEnumerator Run_LookAni(LookArea pLookArea, float pDuration)
+    private IEnumerator Run_LookAni(LookArea pLookArea, float pDuration, NoParaDel fun = null)
     {
         //특정 방향으로 카메라 이동하는 애니메이션 처리
 
@@ -75,5 +75,7 @@ public class ChangeLook : Mgr
             yield return null;
         }
         Camera.main.transform.position = endPos;
+
+        fun?.Invoke();
     }
 }

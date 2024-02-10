@@ -5,7 +5,7 @@ using UnityEngine;
 public class TableDrinkSlot : Mgr
 {
     /** 음료가 올려졌는지 여부 **/
-    private bool hasDrink;
+    public bool hasDrink { get; private set; }
 
     [SerializeField] private SpriteRenderer drinkImg;
     [SerializeField] private GameObject     slotUI;
@@ -47,7 +47,7 @@ public class TableDrinkSlot : Mgr
         }
     }
 
-    public bool Put_Drinkt()
+    public bool Put_Drink()
     {
         if (hasDrink)
         {
@@ -56,5 +56,10 @@ public class TableDrinkSlot : Mgr
         }
         hasDrink = true;
         return true;
+    }
+
+    public void Init()
+    {
+        hasDrink = false;
     }
 }

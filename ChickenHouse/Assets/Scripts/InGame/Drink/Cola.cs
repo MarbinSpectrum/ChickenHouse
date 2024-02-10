@@ -25,7 +25,7 @@ public class Cola : Mgr
         if (kitchenMgr.mouseArea == DragArea.Drink_Slot)
         {
             //음료를 올려놓는다.
-            if (kitchenMgr.drinkSlot.Put_Drinkt())
+            if (kitchenMgr.drinkSlot.Put_Drink())
             {
                 return;
             }

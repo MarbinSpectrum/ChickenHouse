@@ -1,2 +1,20 @@
 Key,Korea,English
 TAKE_OUT,버리기,Take\nOut
+COLA,콜라,Cola
+PICKLE,치킨무,Pickle
+CHICKEN,치킨,Chicken
+FRIED_CHICKEN,후라이드 치킨,Fried Chicken
+HOT_SPICY_CHICKEN,양념치킨,Hot Spicy Chicken
+FRIED_AND_SEASONED_CHICKEN_IN_HALF_AND_HALF_EACH,양념반 후라이드반,fried and seasoned chicken in half and half each
+FOX_ORDER_1,{0} 한마리 주세요.,{0}
+FOX_ORDER_2,{0} 그리고\n{1} 부탁해요.,{0} {1}
+FOX_ORDER_3,{0}\n{1} 그리고 {2} 부탁해요.,{0} {1} {2}
+FOX_THANK_YOU,감사합니다.,Thank you
+DOG_ORDER_1,{0},{0}
+DOG_ORDER_2,{0}\n그리고 {1},{0} {1}
+DOG_ORDER_3,{0}\n{1} 그리고 {2},{0} {1} {2}
+DOG_THANK_YOU,오. 맛있는 치킨,Oh! God Chicken
+CAT_ORDER_1,{0} 주세요.,{0}
+CAT_ORDER_2,{0} 그리고 \n{1} 주세요.,{0} {1}
+CAT_ORDER_3,{0} \n{1} 그리고 {2} 주세요.,{0} {1} {2}
+CAT_THANK_YOU,고마워요.,Thank you

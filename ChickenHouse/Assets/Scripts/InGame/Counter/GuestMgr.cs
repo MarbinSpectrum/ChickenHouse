@@ -8,10 +8,24 @@ public class GuestMgr : Mgr
 
     [SerializeField] private Dictionary<Guest, GuestObj> guests;
 
+    [SerializeField] private Animator vinylAni;
+
+    [System.Serializable]
+    public struct UI
+    {
+        //카운터 관련 UI
+
+        /** 주방으로 이동하기 버튼 **/
+        public GoKitchen_UI goKitchen;
+    }
+    public UI ui;
+
     /** 오늘 방문한 손님 **/
     private HashSet<Guest>  visitedGuest = new HashSet<Guest>();
     /** 현재 주문중인 여부 **/
     private bool            nowOrder     = false;
+    /** 현재 손님 **/
+    private GuestObj        guestObj;
 
     private void Awake()
     {
@@ -29,7 +43,7 @@ public class GuestMgr : Mgr
 
     //-------------------------------------------------------------------------------------
 
-    private void Start()
+    public void StartGuestCycle()
     {
         StartCoroutine(RunGuestCycle());
     }
@@ -42,7 +56,7 @@ public class GuestMgr : Mgr
         while(close == false)
         {
             //가게 평점이 높을수록 손님 딜레이가 적어지게할 예정
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(2f);
 
             //손님을 생성해준다.
             CreateGuest();
@@ -56,6 +70,7 @@ public class GuestMgr : Mgr
     public void CreateGuest()
     {
         //손님을 만듬
+        vinylAni.gameObject.SetActive(false);
 
         //랜덤하게 손님을호출하되
         //오늘방문한 손님은 다시 오지않음
@@ -85,6 +100,8 @@ public class GuestMgr : Mgr
         //손님을 호출
         int guestRandom = Random.Range(0, guests.Count);
         Guest nowGuest = guests[guestRandom];
+        visitedGuest.Add(nowGuest);
+
         ShowGuest(nowGuest);
     }
 
@@ -97,10 +114,9 @@ public class GuestMgr : Mgr
             return;
         }
 
-        GuestObj findObj = null;
         if(guests.ContainsKey(pGuest))
         {
-            findObj = guests[pGuest];
+            guestObj = guests[pGuest];
         }
         else
         {
@@ -109,16 +125,49 @@ public class GuestMgr : Mgr
         }
 
         nowOrder = true;
-        findObj.gameObject.SetActive(true);
-        findObj.ShowGuest();
-        findObj.CreateMenu();
+        guestObj.gameObject.SetActive(true);
+        guestObj.ShowGuest();
+        guestObj.CreateMenu();
 
         StartCoroutine(RunCor());
         IEnumerator RunCor()
         {
             yield return new WaitForSeconds(1f);
 
-            findObj.OrderGuest();
+            guestObj.OrderGuest();
+
+            ui.goKitchen.OpenBtn();
+        }
+    }
+
+    public void CloseTalkBox()
+    {
+        if (guestObj == null)
+            return;
+        guestObj.CloseTalkBox();
+    }
+
+    public void GiveChicken(int chickenCnt, ChickenSpicy spicy0, ChickenSpicy spicy1, ChickenState chickenState,
+                            bool hasDrink, bool hasPickle)
+    {
+        vinylAni.gameObject.SetActive(true);
+
+        StartCoroutine(RunCor());
+        IEnumerator RunCor()
+        {
+            yield return new WaitForSeconds(1.5f);
+
+            guestObj.ThankGuest();
+
+            yield return new WaitForSeconds(3f);
+
+            CloseTalkBox();
+            yield return new WaitForSeconds(0.5f);
+
+            guestObj.LeaveGuest();
+            vinylAni.gameObject.SetActive(false);
+
+            nowOrder = false;
         }
     }
 }

@@ -4,4 +4,12 @@ using UnityEngine;
 
 public class StartGame : Mgr
 {
+    private void Start()
+    {
+        GuestMgr guestMgr = GuestMgr.Instance;
+        if(guestMgr != null)
+        {
+            guestMgr.StartGuestCycle();
+        }
+    }
 }

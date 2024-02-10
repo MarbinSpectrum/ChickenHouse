@@ -5,14 +5,14 @@ using UnityEngine;
 public class TableChickenSlot : Mgr
 {
     /** 담겨있는 치킨 갯수 **/
-    private int chickenCnt;
+    public int chickenCnt { get; private set; }
     /** 치킨 상태 **/
-    private ChickenState chickenState;
+    public ChickenState chickenState { get; private set; }
 
     /** 소스0 **/
-    private ChickenSpicy source0;
+    public ChickenSpicy source0 { get; private set; }
     /** 소스1 **/
-    private ChickenSpicy source1;
+    public ChickenSpicy source1 { get; private set; }
 
     [SerializeField] private SpriteRenderer boxImg;
     [SerializeField] private GameObject     slotUI;

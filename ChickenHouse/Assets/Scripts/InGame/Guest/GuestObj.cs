@@ -30,8 +30,26 @@ public abstract class GuestObj : Mgr
         requireMenu.CreateMenu(guestData, 0);
     }
 
+    public void CloseTalkBox()
+    {
+        talkBox.CloseTalkBox();
+    }
+
     public virtual void OrderGuest()
     {
-        talkBox.ShowText("ÇÖ Ä¡Å² ÇÑ¸¶¸®¶û\nÄÝ¶ó ºÎÅ¹ÇØ¿ä.");
+        animator.SetTrigger("Talk");
+        talkBox.ShowText("ÇÖ Ä¡Å² ÇÑ¸¶¸®¶û\nÄÝ¶ó ºÎÅ¹ÇØ¿ä.",()=>
+        {
+            animator.SetTrigger("TalkEnd");
+        });
+    }
+
+    public virtual void ThankGuest()
+    {
+        animator.SetTrigger("Talk");
+        talkBox.ShowText("ÇÖ Ä¡Å² ÇÑ¸¶¸®¶û\nÄÝ¶ó ºÎÅ¹ÇØ¿ä.", () =>
+        {
+            animator.SetTrigger("TalkEnd");
+        });
     }
 }

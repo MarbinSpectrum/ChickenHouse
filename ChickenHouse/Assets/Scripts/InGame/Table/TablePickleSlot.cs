@@ -5,7 +5,7 @@ using UnityEngine;
 public class TablePickleSlot : Mgr
 {
     /** 피클이 올려졌는지 여부 **/
-    private bool hasPickle;
+    public bool hasPickle { get; private set; }
 
     [SerializeField] private SpriteRenderer pickleImg;
     [SerializeField] private GameObject     slotUI;
@@ -56,5 +56,10 @@ public class TablePickleSlot : Mgr
         }
         hasPickle = true;
         return true;
+    }
+
+    public void Init()
+    {
+        hasPickle = false;
     }
 }

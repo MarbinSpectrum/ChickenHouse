@@ -8,7 +8,7 @@ public class TalkBox_UI : Mgr
     [SerializeField] private TextMeshProUGUI    textUI;
     [SerializeField] private GameObject         obj;
 
-    public void ShowText(string str)
+    public void ShowText(string str, NoParaDel fun)
     {
         obj.gameObject.SetActive(true);
 
@@ -27,8 +27,14 @@ public class TalkBox_UI : Mgr
 
                 yield return new WaitForSeconds(delayTime);
             }
-        }
 
+            fun?.Invoke();
+        }
+    }
+
+    public void CloseTalkBox()
+    {
+        obj.gameObject.SetActive(false);
     }
 
 }
