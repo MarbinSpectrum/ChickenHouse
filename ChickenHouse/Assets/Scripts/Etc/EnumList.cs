@@ -168,6 +168,8 @@ public enum Sound
 
     /** 格家府 格废 **/
     Voice0_SE = 250,
+    Voice1_SE = 251,
+    Voice2_SE = 252,
 
 }
 

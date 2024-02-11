@@ -26,9 +26,11 @@ public class Fox : GuestObj
             showStr = string.Format(showStr, chickenName, sideMenuName[0], sideMenuName[1]);
         }
 
+        soundMgr.PlayLoopSE(Sound.Voice2_SE);
         animator.SetTrigger("Talk");
         talkBox.ShowText(showStr, () =>
         {
+            soundMgr.StopLoopSE(Sound.Voice2_SE);
             animator.SetTrigger("TalkEnd");
         });
     }
@@ -36,9 +38,12 @@ public class Fox : GuestObj
     public override void ThankGuest()
     {
         string showStr = LanguageMgr.GetText("FOX_THANK_YOU");
+
+        soundMgr.PlayLoopSE(Sound.Voice1_SE);
         animator.SetTrigger("Talk");
         talkBox.ShowText(showStr, () =>
         {
+            soundMgr.StopLoopSE(Sound.Voice1_SE);
             animator.SetTrigger("TalkEnd");
         });
     }
