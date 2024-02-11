@@ -148,6 +148,7 @@ public class ChickenPack : Mgr
         //치킨을 담는데 성공
         chickenCnt = pChickenCnt;
         chickenState = pChickenState;
+        soundMgr.PlaySE(Sound.Put_SE);
 
         if (chickenState == ChickenState.GoodChicken || chickenState == ChickenState.BadChicken_1)
         {
@@ -191,11 +192,13 @@ public class ChickenPack : Mgr
 
         if(source0 == ChickenSpicy.None)
         {
+            soundMgr.PlaySE(Sound.Put_SE);
             source0 = spicy;
             return true;
         }
         if (source1 == ChickenSpicy.None)
         {
+            soundMgr.PlaySE(Sound.Put_SE);
             source1 = spicy;
             return true;
         }

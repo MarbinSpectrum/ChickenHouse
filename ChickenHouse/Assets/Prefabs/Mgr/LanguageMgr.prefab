@@ -44,6 +44,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9ad4382d3b04ac4d96118f594f250ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
   KoreaFont: {fileID: 11400000, guid: 243c93de180b2ce44a7beb27c5b21101, type: 2}
   EnglishFont: {fileID: 11400000, guid: 243c93de180b2ce44a7beb27c5b21101, type: 2}
   filePath: LanguageData/Language

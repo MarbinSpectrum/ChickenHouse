@@ -152,8 +152,7 @@ public class Oil_Zone : Mgr
 
         //요리 시작
 
-        pauseCook = false;
-        animator.speed = 1;
+        Cook_Pause(false);
 
         //넣은 치킨갯수 파악
         chickenCnt = pChickenCnt;
@@ -253,11 +252,13 @@ public class Oil_Zone : Mgr
         {
             //애니메이션도 일시정지
             animator.speed = 0;
+            soundMgr.StopLoopSE(Sound.Oil_SE);
         }
         else
         {
             //애니메이션 다시 실행
             animator.speed = 1;
+            soundMgr.PlayLoopSE(Sound.Oil_SE);
         }
     }
 }

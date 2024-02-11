@@ -54,6 +54,8 @@ public class TablePickleSlot : Mgr
             //이미 치킨무가 놓임
             return false;
         }
+
+        soundMgr.PlaySE(Sound.Put_SE);
         hasPickle = true;
         return true;
     }

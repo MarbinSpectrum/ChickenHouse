@@ -41,6 +41,7 @@ public class GoCounter_UI : Mgr
         SafeArea.SetSafeArea(rect);
 
         rect.anchoredPosition = new Vector2(73, 0);
+        btn.GetComponent<RectTransform>().anchoredPosition = Vector3.zero;
     }
 
     public void OpenBtn(NoParaDel fun = null)

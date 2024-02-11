@@ -59,6 +59,7 @@ public class TrayFlour : Mgr
 
         //트레이에 올려져있는 닭 증가
         chickenCnt++;
+        soundMgr.PlaySE(Sound.Put_SE);
 
         foreach (FlourSlot flourSlot in flourSlots)
         {

@@ -103,6 +103,7 @@ public class TableChickenSlot : Mgr
             return false;
         }
 
+        soundMgr.PlaySE(Sound.Put_SE);
         chickenCnt = pChickenCnt;
         chickenState = pChickenState;
         source0 = pSource0;

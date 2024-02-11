@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Sirenix.OdinInspector;
 
-public class AwakeSingleton<T> : MonoBehaviour where T : MonoBehaviour
+public class AwakeSingleton<T> : SerializedMonoBehaviour where T : SerializedMonoBehaviour
 {
     public static T Instance;
     protected virtual void Awake()

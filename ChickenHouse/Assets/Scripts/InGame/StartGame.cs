@@ -10,6 +10,7 @@ public class StartGame : Mgr
         if(guestMgr != null)
         {
             guestMgr.StartGuestCycle();
+            soundMgr.PlayBGM(Sound.InGame_BG);
         }
     }
 }

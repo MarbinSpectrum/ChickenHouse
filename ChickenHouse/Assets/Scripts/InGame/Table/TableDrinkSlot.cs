@@ -54,6 +54,8 @@ public class TableDrinkSlot : Mgr
             //이미 음료가 놓임
             return false;
         }
+
+        soundMgr.PlaySE(Sound.Put_SE);
         hasDrink = true;
         return true;
     }
