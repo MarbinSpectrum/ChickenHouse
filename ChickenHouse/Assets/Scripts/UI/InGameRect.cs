@@ -24,6 +24,7 @@ public class InGameRect : Mgr
         //화면 비율을 계산해서
         //canvas의 크기를 조정한다.
         rectTrans ??= GetComponent<RectTransform>();
+        //rectTrans.sizeDelta = new Vector2(SafeArea.SCREEN_WIDTH, SafeArea.SCREEN_HEIGHT);
         SafeArea.SetSafeArea(rectTrans);
     }
 }

@@ -57,10 +57,10 @@ public class SafeAreaZone : Mgr
             newMaxPos = new Vector2(maxX, maxY);
         }
 
-        newMinPos.x /= Screen.width;
-        newMinPos.y /= Screen.height;
-        newMaxPos.x /= Screen.width;
-        newMaxPos.y /= Screen.height;
+        newMinPos.x /= Mathf.Max(0.001f, (float)Screen.width);
+        newMinPos.y /= Mathf.Max(0.001f, (float)Screen.height);
+        newMaxPos.x /= Mathf.Max(0.001f, (float)Screen.width);
+        newMaxPos.y /= Mathf.Max(0.001f, (float)Screen.height);
 
         if (rectBox0 != null && rectBox1 != null)
         {
