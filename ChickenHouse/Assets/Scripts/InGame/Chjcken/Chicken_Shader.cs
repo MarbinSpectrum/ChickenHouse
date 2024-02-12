@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[ExecuteInEditMode]
 public class Chicken_Shader : Mgr
 {
-    public                      SpriteRenderer  spriteRenderer;
-    [SerializeField] private    Texture         readyChicken;       //조리중인 치킨
-    [SerializeField] private    Texture         goodChicken;        //잘만든 치킨
-    [SerializeField] private    Texture         badChicken;         //태운 치킨
+    public                   SpriteRenderer     spriteRenderer;
+    [SerializeField] private Sprite             readyChicken;       //조리중인 치킨
+    [SerializeField] private Sprite             goodChicken;        //잘만든 치킨
+    [SerializeField] private Sprite             badChicken;         //태운 치킨
 
     public float LerpValue { get; private set; } = -1;
     public bool Mode { get; private set; } = false;
@@ -42,13 +43,15 @@ public class Chicken_Shader : Mgr
 
         if (mode)
         {
-            mpb.SetTexture("_MainTex", readyChicken);
-            mpb.SetTexture("_SubTex", goodChicken);
+            spriteRenderer.sprite = readyChicken;
+            mpb.SetTexture("_MainTex", readyChicken.texture);
+            mpb.SetTexture("_SubTex", goodChicken.texture);
         }
         else
         {
-            mpb.SetTexture("_MainTex", goodChicken);
-            mpb.SetTexture("_SubTex", badChicken);
+            spriteRenderer.sprite = goodChicken;
+            mpb.SetTexture("_MainTex", goodChicken.texture);
+            mpb.SetTexture("_SubTex", badChicken.texture);
         }
 
         mpb.SetFloat("_LerpValue", lerpValue);

@@ -646,9 +646,9 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   spriteRenderer: {fileID: 56688109}
-  readyChicken: {fileID: 2800000, guid: 8ce73fc4aae3542438aa8f44c3f356dc, type: 3}
-  goodChicken: {fileID: 2800000, guid: 2f9f11a5311595f4f9d78274d2241b10, type: 3}
-  badChicken: {fileID: 2800000, guid: e3701df3feb55fc4a9ae886b3309051c, type: 3}
+  readyChicken: {fileID: 21300000, guid: 8ce73fc4aae3542438aa8f44c3f356dc, type: 3}
+  goodChicken: {fileID: 21300000, guid: 2f9f11a5311595f4f9d78274d2241b10, type: 3}
+  badChicken: {fileID: 21300000, guid: e3701df3feb55fc4a9ae886b3309051c, type: 3}
   mode: 1
   lerpValue: 0
 --- !u!1 &89414076
@@ -1565,9 +1565,9 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   spriteRenderer: {fileID: 179996362}
-  readyChicken: {fileID: 2800000, guid: 8ce73fc4aae3542438aa8f44c3f356dc, type: 3}
-  goodChicken: {fileID: 2800000, guid: 2f9f11a5311595f4f9d78274d2241b10, type: 3}
-  badChicken: {fileID: 2800000, guid: e3701df3feb55fc4a9ae886b3309051c, type: 3}
+  readyChicken: {fileID: 21300000, guid: 8ce73fc4aae3542438aa8f44c3f356dc, type: 3}
+  goodChicken: {fileID: 21300000, guid: 2f9f11a5311595f4f9d78274d2241b10, type: 3}
+  badChicken: {fileID: 21300000, guid: e3701df3feb55fc4a9ae886b3309051c, type: 3}
   mode: 0
   lerpValue: 0
 --- !u!1 &190046458
@@ -1761,9 +1761,9 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   spriteRenderer: {fileID: 195016766}
-  readyChicken: {fileID: 2800000, guid: 8ce73fc4aae3542438aa8f44c3f356dc, type: 3}
-  goodChicken: {fileID: 2800000, guid: 2f9f11a5311595f4f9d78274d2241b10, type: 3}
-  badChicken: {fileID: 2800000, guid: e3701df3feb55fc4a9ae886b3309051c, type: 3}
+  readyChicken: {fileID: 21300000, guid: 8ce73fc4aae3542438aa8f44c3f356dc, type: 3}
+  goodChicken: {fileID: 21300000, guid: 2f9f11a5311595f4f9d78274d2241b10, type: 3}
+  badChicken: {fileID: 21300000, guid: e3701df3feb55fc4a9ae886b3309051c, type: 3}
   mode: 0
   lerpValue: 0
 --- !u!1 &200745210
@@ -2013,7 +2013,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.64, y: 0.64}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -2041,9 +2041,9 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   spriteRenderer: {fileID: 226765425}
-  readyChicken: {fileID: 2800000, guid: 8ce73fc4aae3542438aa8f44c3f356dc, type: 3}
-  goodChicken: {fileID: 2800000, guid: 2f9f11a5311595f4f9d78274d2241b10, type: 3}
-  badChicken: {fileID: 2800000, guid: e3701df3feb55fc4a9ae886b3309051c, type: 3}
+  readyChicken: {fileID: 21300000, guid: 8ce73fc4aae3542438aa8f44c3f356dc, type: 3}
+  goodChicken: {fileID: 21300000, guid: 2f9f11a5311595f4f9d78274d2241b10, type: 3}
+  badChicken: {fileID: 21300000, guid: e3701df3feb55fc4a9ae886b3309051c, type: 3}
   mode: 1
   lerpValue: 0
 --- !u!1 &230675064
@@ -2172,7 +2172,7 @@ GameObject:
   - component: {fileID: 265866207}
   - component: {fileID: 265866208}
   m_Layer: 0
-  m_Name: Obj
+  m_Name: Chicken Strainter
   m_TagString: Chicken_Strainter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2548,7 +2548,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.2755618, y: 1.2997475}
+  m_Size: {x: 2.74, y: 1.6}
   m_EdgeRadius: 0
 --- !u!114 &348817321
 MonoBehaviour:
@@ -2655,7 +2655,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.6117724, y: 0.44833025}
+  m_Size: {x: 0.98, y: 0.76}
   m_EdgeRadius: 0
 --- !u!1 &379256793
 GameObject:
@@ -5090,7 +5090,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.86724865, y: 2.4022527}
+  m_Size: {x: 1.38, y: 3.03}
   m_EdgeRadius: 0
 --- !u!114 &714291999
 MonoBehaviour:
@@ -5716,9 +5716,9 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   spriteRenderer: {fileID: 790329532}
-  readyChicken: {fileID: 2800000, guid: 8ce73fc4aae3542438aa8f44c3f356dc, type: 3}
-  goodChicken: {fileID: 2800000, guid: 2f9f11a5311595f4f9d78274d2241b10, type: 3}
-  badChicken: {fileID: 2800000, guid: e3701df3feb55fc4a9ae886b3309051c, type: 3}
+  readyChicken: {fileID: 21300000, guid: 8ce73fc4aae3542438aa8f44c3f356dc, type: 3}
+  goodChicken: {fileID: 21300000, guid: 2f9f11a5311595f4f9d78274d2241b10, type: 3}
+  badChicken: {fileID: 21300000, guid: e3701df3feb55fc4a9ae886b3309051c, type: 3}
   mode: 1
   lerpValue: 0
 --- !u!1 &790807411
@@ -6954,9 +6954,9 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   spriteRenderer: {fileID: 868934597}
-  readyChicken: {fileID: 2800000, guid: 8ce73fc4aae3542438aa8f44c3f356dc, type: 3}
-  goodChicken: {fileID: 2800000, guid: 2f9f11a5311595f4f9d78274d2241b10, type: 3}
-  badChicken: {fileID: 2800000, guid: e3701df3feb55fc4a9ae886b3309051c, type: 3}
+  readyChicken: {fileID: 21300000, guid: 8ce73fc4aae3542438aa8f44c3f356dc, type: 3}
+  goodChicken: {fileID: 21300000, guid: 2f9f11a5311595f4f9d78274d2241b10, type: 3}
+  badChicken: {fileID: 21300000, guid: e3701df3feb55fc4a9ae886b3309051c, type: 3}
   mode: 0
   lerpValue: 0
 --- !u!1 &869253542
@@ -8746,9 +8746,9 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   spriteRenderer: {fileID: 1137299915}
-  readyChicken: {fileID: 2800000, guid: 38e84704c1655954c80f0eb742025e68, type: 3}
-  goodChicken: {fileID: 2800000, guid: 11b831fd27497454a8ba64e08127212f, type: 3}
-  badChicken: {fileID: 2800000, guid: 310c1a12045eb7f41bfb8d86c0847daa, type: 3}
+  readyChicken: {fileID: 21300000, guid: 38e84704c1655954c80f0eb742025e68, type: 3}
+  goodChicken: {fileID: 21300000, guid: 11b831fd27497454a8ba64e08127212f, type: 3}
+  badChicken: {fileID: 21300000, guid: 310c1a12045eb7f41bfb8d86c0847daa, type: 3}
   mode: 1
   lerpValue: 0
 --- !u!212 &1137299915
@@ -8858,7 +8858,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -95.68005, y: -43.02002}
+  m_AnchoredPosition: {x: -95.680176, y: -43.02002}
   m_SizeDelta: {x: 191.37, y: 86.03}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1148209170
@@ -9269,7 +9269,7 @@ SpriteRenderer:
   m_SortingLayerID: -1662527333
   m_SortingLayer: 1
   m_SortingOrder: 9
-  m_Sprite: {fileID: 21300000, guid: 8ce73fc4aae3542438aa8f44c3f356dc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2f9f11a5311595f4f9d78274d2241b10, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -9302,9 +9302,9 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   spriteRenderer: {fileID: 1216800049}
-  readyChicken: {fileID: 2800000, guid: 8ce73fc4aae3542438aa8f44c3f356dc, type: 3}
-  goodChicken: {fileID: 2800000, guid: 2f9f11a5311595f4f9d78274d2241b10, type: 3}
-  badChicken: {fileID: 2800000, guid: e3701df3feb55fc4a9ae886b3309051c, type: 3}
+  readyChicken: {fileID: 21300000, guid: 8ce73fc4aae3542438aa8f44c3f356dc, type: 3}
+  goodChicken: {fileID: 21300000, guid: 2f9f11a5311595f4f9d78274d2241b10, type: 3}
+  badChicken: {fileID: 21300000, guid: e3701df3feb55fc4a9ae886b3309051c, type: 3}
   mode: 1
   lerpValue: 0
 --- !u!1 &1226491110
@@ -9716,9 +9716,9 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   spriteRenderer: {fileID: 1273981349}
-  readyChicken: {fileID: 2800000, guid: 8ce73fc4aae3542438aa8f44c3f356dc, type: 3}
-  goodChicken: {fileID: 2800000, guid: 2f9f11a5311595f4f9d78274d2241b10, type: 3}
-  badChicken: {fileID: 2800000, guid: e3701df3feb55fc4a9ae886b3309051c, type: 3}
+  readyChicken: {fileID: 21300000, guid: 8ce73fc4aae3542438aa8f44c3f356dc, type: 3}
+  goodChicken: {fileID: 21300000, guid: 2f9f11a5311595f4f9d78274d2241b10, type: 3}
+  badChicken: {fileID: 21300000, guid: e3701df3feb55fc4a9ae886b3309051c, type: 3}
   mode: 0
   lerpValue: 0
 --- !u!1 &1278084567
@@ -10062,7 +10062,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.66522396, y: 0.5087069}
+  m_Size: {x: 1.21, y: 0.87}
   m_EdgeRadius: 0
 --- !u!114 &1291674116
 MonoBehaviour:
@@ -10360,7 +10360,7 @@ SpriteRenderer:
   m_SortingLayerID: -1662527333
   m_SortingLayer: 1
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: 8ce73fc4aae3542438aa8f44c3f356dc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2f9f11a5311595f4f9d78274d2241b10, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -10393,10 +10393,10 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   spriteRenderer: {fileID: 1347117037}
-  readyChicken: {fileID: 2800000, guid: 8ce73fc4aae3542438aa8f44c3f356dc, type: 3}
-  goodChicken: {fileID: 2800000, guid: 2f9f11a5311595f4f9d78274d2241b10, type: 3}
-  badChicken: {fileID: 2800000, guid: e3701df3feb55fc4a9ae886b3309051c, type: 3}
-  mode: 1
+  readyChicken: {fileID: 21300000, guid: 8ce73fc4aae3542438aa8f44c3f356dc, type: 3}
+  goodChicken: {fileID: 21300000, guid: 2f9f11a5311595f4f9d78274d2241b10, type: 3}
+  badChicken: {fileID: 21300000, guid: e3701df3feb55fc4a9ae886b3309051c, type: 3}
+  mode: 0
   lerpValue: 0
 --- !u!1 &1379867287
 GameObject:
@@ -11298,9 +11298,9 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   spriteRenderer: {fileID: 1503474798}
-  readyChicken: {fileID: 2800000, guid: 8ce73fc4aae3542438aa8f44c3f356dc, type: 3}
-  goodChicken: {fileID: 2800000, guid: 2f9f11a5311595f4f9d78274d2241b10, type: 3}
-  badChicken: {fileID: 2800000, guid: e3701df3feb55fc4a9ae886b3309051c, type: 3}
+  readyChicken: {fileID: 21300000, guid: 8ce73fc4aae3542438aa8f44c3f356dc, type: 3}
+  goodChicken: {fileID: 21300000, guid: 2f9f11a5311595f4f9d78274d2241b10, type: 3}
+  badChicken: {fileID: 21300000, guid: e3701df3feb55fc4a9ae886b3309051c, type: 3}
   mode: 0
   lerpValue: 0
 --- !u!1 &1507900251
@@ -15570,9 +15570,9 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   spriteRenderer: {fileID: 2089989905}
-  readyChicken: {fileID: 2800000, guid: 8ce73fc4aae3542438aa8f44c3f356dc, type: 3}
-  goodChicken: {fileID: 2800000, guid: 2f9f11a5311595f4f9d78274d2241b10, type: 3}
-  badChicken: {fileID: 2800000, guid: e3701df3feb55fc4a9ae886b3309051c, type: 3}
+  readyChicken: {fileID: 21300000, guid: 8ce73fc4aae3542438aa8f44c3f356dc, type: 3}
+  goodChicken: {fileID: 21300000, guid: 2f9f11a5311595f4f9d78274d2241b10, type: 3}
+  badChicken: {fileID: 21300000, guid: e3701df3feb55fc4a9ae886b3309051c, type: 3}
   mode: 0
   lerpValue: 0
 --- !u!1 &2112974340
@@ -15993,9 +15993,9 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   spriteRenderer: {fileID: 2138343152}
-  readyChicken: {fileID: 2800000, guid: 8ce73fc4aae3542438aa8f44c3f356dc, type: 3}
-  goodChicken: {fileID: 2800000, guid: 2f9f11a5311595f4f9d78274d2241b10, type: 3}
-  badChicken: {fileID: 2800000, guid: e3701df3feb55fc4a9ae886b3309051c, type: 3}
+  readyChicken: {fileID: 21300000, guid: 8ce73fc4aae3542438aa8f44c3f356dc, type: 3}
+  goodChicken: {fileID: 21300000, guid: 2f9f11a5311595f4f9d78274d2241b10, type: 3}
+  badChicken: {fileID: 21300000, guid: e3701df3feb55fc4a9ae886b3309051c, type: 3}
   mode: 1
   lerpValue: 0
 --- !u!1001 &1134346738803963202
