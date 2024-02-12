@@ -6,7 +6,7 @@ public class FlourSlot : Mgr
 {
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Animation      animation;
-    [SerializeField] private Collider2D     collider;
+    public BoxCollider2D     collider;
 
     public bool isEmpty;
 

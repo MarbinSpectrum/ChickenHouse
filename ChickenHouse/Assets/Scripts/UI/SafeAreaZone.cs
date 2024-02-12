@@ -2,23 +2,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SafeArea
+[ExecuteInEditMode]
+public class SafeAreaZone : Mgr
 {
-    public const float SCREEN_WIDTH    = 1280;
-    public const float SCREEN_HEIGHT   = 720;
-    public static void SetSafeArea(RectTransform rectTransform)
-    {
-        //rectTransform에 해당하는 UI를 safeArea에 맞춘다.
+    [SerializeField] private RectTransform rectBox0;
+    [SerializeField] private RectTransform rectBox1;
+    [SerializeField] private RectTransform rectBox2;
+    [SerializeField] private RectTransform rectBox3;
 
+    private void Awake()
+    {
+        SetZone();
+    }
+
+#if UNITY_EDITOR
+    private void Update()
+    {
+        SetZone();
+    }
+#endif
+
+    private void SetZone()
+    {
         Rect safeArea = Screen.safeArea;
         Vector2 minAnchor = safeArea.position;
         Vector2 maxAnchor = minAnchor + safeArea.size;
         Vector2 newMinPos = minAnchor;
         Vector2 newMaxPos = maxAnchor;
 
-        if (safeArea.width * SCREEN_HEIGHT < SCREEN_WIDTH * safeArea.height)
+        if (safeArea.width * SafeArea.SCREEN_HEIGHT < SafeArea.SCREEN_WIDTH * safeArea.height)
         {
-            float newHeight = safeArea.width * (SCREEN_HEIGHT / SCREEN_WIDTH);
+            float newHeight = safeArea.width * (SafeArea.SCREEN_HEIGHT / SafeArea.SCREEN_WIDTH);
 
             float minX = minAnchor.x;
             float minY = minAnchor.y + (safeArea.height - newHeight) / 2.0f;
@@ -31,7 +45,7 @@ public class SafeArea
         }
         else
         {
-            float newWidth = safeArea.height * (SCREEN_WIDTH / SCREEN_HEIGHT);
+            float newWidth = safeArea.height * (SafeArea.SCREEN_WIDTH / SafeArea.SCREEN_HEIGHT);
 
             float minY = minAnchor.y;
             float minX = minAnchor.x + (safeArea.width - newWidth) / 2.0f;
@@ -48,9 +62,15 @@ public class SafeArea
         newMaxPos.x /= Screen.width;
         newMaxPos.y /= Screen.height;
 
-        rectTransform.anchorMin = newMinPos;
-        rectTransform.anchorMax = newMaxPos;
+        if (rectBox0 != null && rectBox1 != null)
+        {
+            rectBox0.transform.localScale = new Vector3(newMinPos.x, 1, 1);
+            rectBox1.transform.localScale = new Vector3(1.0f - newMaxPos.x, 1, 1);
+        }
+        if (rectBox2 != null && rectBox3 != null)
+        {
+            rectBox2.transform.localScale = new Vector3(1, newMinPos.y, 1);
+            rectBox3.transform.localScale = new Vector3(1, 1.0f - newMaxPos.y, 1);
+        }
     }
-
-
 }

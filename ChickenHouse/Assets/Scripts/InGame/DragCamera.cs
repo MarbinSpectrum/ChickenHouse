@@ -76,7 +76,7 @@ public class DragCamera : Mgr
         KitchenMgr  kitchenMgr      = KitchenMgr.Instance;
         Vector3     movePos         = Vector3.zero;
 
-        float rate = ((float)Screen.width / (float)(Screen.height)) * (16.0f / 9.0f);
+        float rate = ((float)Screen.width / (float)(Screen.height)) * (SafeArea.SCREEN_WIDTH / SafeArea.SCREEN_HEIGHT);
         float fSpeed1   = rate * Speed1;
         float fSpeed2   = rate * Speed2;
         float fDrag     = rate * dragDis;
@@ -117,7 +117,7 @@ public class DragCamera : Mgr
         Vector3 cPos = Camera.main.transform.position;
 
         float height = Camera.main.orthographicSize;
-        float width = height * Screen.width / Screen.height;
+        float width = height * SafeArea.SCREEN_WIDTH / SafeArea.SCREEN_HEIGHT;
         float clampX = Mathf.Clamp(Camera.main.transform.position.x, leftTrans.position.x + width, rightTrans.position.x - width);
 
         cPos = new Vector3(clampX, cPos.y, cPos.z);

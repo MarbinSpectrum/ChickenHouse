@@ -17,12 +17,20 @@ public class InGameCamera : Mgr
     {
         lookArea = startArea;
         changeLook.ChangeCamera(lookArea, 0);
+        SetCamera();
     }
 
     private void Start()
     {
         defaultPos = Camera.main.transform.position;
     }
+
+#if UNITY_EDITOR
+    private void Update()
+    {
+        SetCamera();
+    }
+#endif
 
     private void LateUpdate()
     {
@@ -33,14 +41,27 @@ public class InGameCamera : Mgr
         }
     }
 
+    private void SetCamera()
+    {
+        if ((float)Screen.height / (float)Screen.width > SafeArea.SCREEN_HEIGHT / SafeArea.SCREEN_WIDTH)
+        {
+            float scaleRate = Mathf.Min(1, (float)Screen.height / (float)Screen.width);
+            float newValue = Mathf.Lerp(15, 25, scaleRate);
+            Camera.main.orthographicSize = newValue;
+        }
+        else
+        {
+            Camera.main.orthographicSize = 15;
+        }
+    }
+
     public void ChangeLook(LookArea pLookArea, NoParaDel fun = null)
     {
-        if(pLookArea == LookArea.Kitchen)
+        if (pLookArea == LookArea.Kitchen)
         {
             Camera.main.transform.position = defaultPos;
         }
 
-        lookArea = pLookArea;
-        changeLook.ChangeCamera(lookArea, fun);
+        changeLook.ChangeCamera(pLookArea, fun);
     }
 }

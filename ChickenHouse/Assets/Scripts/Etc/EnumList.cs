@@ -173,6 +173,15 @@ public enum Sound
 
 }
 
+public enum Upgrade
+{
+    None                = 0,
+
+    OIL_Zone_Upgrade_0  = 1,
+    
+    MAX
+}
+
 public enum Language
 {
     Korea   = 100,

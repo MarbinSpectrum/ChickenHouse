@@ -13,9 +13,9 @@ public class TrayFlour : Mgr
     public struct SPITE_IMG
     {
         //오브젝트 스프라이트 이미지
-        public SpriteRenderer   spriteImg;
-        public Sprite           normalSprite;
-        public Sprite           canUseSprite;
+        public SpriteRenderer spriteImg;
+        public Sprite normalSprite;
+        public Sprite canUseSprite;
     }
     [SerializeField] private SPITE_IMG sprite;
 
@@ -68,6 +68,7 @@ public class TrayFlour : Mgr
                 //빈슬롯에 해당하는 곳에 닭을 넣는다.
                 flourSlot.isEmpty = false;
                 flourSlot.SpawnChicken();
+                RefreshSlotCollider();
                 break;
             }
         }
@@ -80,7 +81,47 @@ public class TrayFlour : Mgr
         //트레이에 올려져있는 닭 감소
         if (chickenCnt <= 0)
             return false;
+        RefreshSlotCollider();
         chickenCnt--;
         return true;
+    }
+
+    public void RefreshSlotCollider()
+    {
+        //슬롯 콜라이더 수정하는 부분임
+        //트레이 전체에서 드래그 가능할수있도록 수정함
+
+        bool frontCheck = false;
+        for (int i = 0; i < 4; i++)
+        {
+            if (flourSlots[i].isEmpty)
+                continue;
+            float headValue = 0;
+            float tailValue = 0;
+            if (frontCheck == false)
+            {
+                frontCheck = true;
+
+                for (int j = 0; j < i - 1; j++)
+                {
+                    if (flourSlots[j].isEmpty == false)
+                        break;
+                    headValue++;
+                }
+            }
+
+            for (int j = i + 1; j < MAX_CHICKEN_SLOT; j++)
+            {
+                if (flourSlots[j].isEmpty == false)
+                    break;
+                tailValue++;
+            }
+
+            Vector2 newOffset = new Vector2(0,
+                (headValue * (headValue + 1) / 2 - tailValue * (tailValue + 1) / 2) / (headValue + 1 + tailValue)) * 0.4f;
+            Vector2 newSize = new Vector2(1, (headValue + 1 + tailValue) * 0.4f);
+            flourSlots[i].collider.offset = newOffset;
+            flourSlots[i].collider.size = newSize;
+        }
     }
 }

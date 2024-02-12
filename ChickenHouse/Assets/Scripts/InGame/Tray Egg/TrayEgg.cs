@@ -68,6 +68,7 @@ public class TrayEgg : Mgr
                 //빈슬롯에 해당하는 곳에 닭을 넣는다.
                 eggSlot.isEmpty = false;
                 eggSlot.SpawnChicken();
+                RefreshSlotCollider();
                 break;
             }
         }
@@ -81,6 +82,46 @@ public class TrayEgg : Mgr
         if (chickenCnt <= 0)
             return false;
         chickenCnt--;
+        RefreshSlotCollider();
         return true;
+    }
+
+    public void RefreshSlotCollider()
+    {
+        //슬롯 콜라이더 수정하는 부분임
+        //트레이 전체에서 드래그 가능할수있도록 수정함
+
+        bool frontCheck = false;
+        for (int i = 0; i < 4; i++)
+        {
+            if (eggSlots[i].isEmpty)
+                continue;
+            float headValue = 0;
+            float tailValue = 0;
+            if (frontCheck == false)
+            {
+                frontCheck = true;
+
+                for (int j = 0; j < i - 1; j++)
+                {
+                    if (eggSlots[j].isEmpty == false)
+                        break;
+                    headValue++;
+                }
+            }
+
+            for (int j = i + 1; j < MAX_CHICKEN_SLOT; j++)
+            {
+                if (eggSlots[j].isEmpty == false)
+                    break;
+                tailValue++;
+            }
+
+            Vector2 newOffset = new Vector2(0, 
+                (headValue * (headValue + 1) / 2 - tailValue * (tailValue + 1) / 2) / (headValue + 1 + tailValue)) * 0.4f;
+            Vector2 newSize = new Vector2(1, (headValue + 1 + tailValue) * 0.4f);
+            eggSlots[i].collider.offset = newOffset;
+            eggSlots[i].collider.size = newSize;
+        }
     }
 }

@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Oil_Zone : Mgr
 {
+    private const float COOK_TIME_0 = 14f;
+    private const float COOK_TIME_1 = 5f;
+    private const float COOK_TIME_2 = 4.5f;
+
     [System.Serializable]
     public struct SPITE_IMG
     {
@@ -20,16 +24,13 @@ public class Oil_Zone : Mgr
     [SerializeField] private Oil_Zone_Shader        oilShader;
 
     /**닭 갯수 **/
-    private int         chickenCnt;
-
-
-        
+    private int             chickenCnt;     
     /** 치킨 요리 정도 **/
-    private ChickenState chickenState = ChickenState.NotCook;
+    private ChickenState    chickenState = ChickenState.NotCook;
     /** 요리 일시 정지 여부 **/
-    private bool        pauseCook;
+    private bool            pauseCook;
     /** 요리 코루틴 **/
-    private IEnumerator cookCor;
+    private IEnumerator     cookCor;
 
     private void OnMouseDrag()
     {
@@ -186,7 +187,7 @@ public class Oil_Zone : Mgr
         //------------------------------------------------------------------
         //20초 경과 조리완료부
         float tTime = 0;
-        while(tTime < 20)
+        while(tTime < COOK_TIME_0)
         {
             yield return null;
             if(pauseCook == false)
@@ -200,7 +201,7 @@ public class Oil_Zone : Mgr
         //------------------------------------------------------------------
         //5초 경과 타기 시작하는 부분
         tTime = 0;
-        while (tTime < 5)
+        while (tTime < COOK_TIME_1)
         {
             yield return null;
             if (pauseCook == false)
@@ -216,7 +217,7 @@ public class Oil_Zone : Mgr
         //------------------------------------------------------------------
         //4.5초 경과 타기 쓰레기 치킨이 되는 부분
         tTime = 0;
-        while (tTime < 4.5f)
+        while (tTime < COOK_TIME_2)
         {
             yield return null;
             if (pauseCook == false)

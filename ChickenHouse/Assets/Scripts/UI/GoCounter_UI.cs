@@ -14,6 +14,8 @@ public class GoCounter_UI : Mgr
 
     private RectTransform   rect        = null;
 
+    private bool canUse = false;
+
     private void Awake()
     {
         SetScale();
@@ -48,6 +50,7 @@ public class GoCounter_UI : Mgr
     {
         //버튼 활성화
         animator.SetBool("Open", true);
+        canUse = true;
         fun?.Invoke();
     }
 
@@ -55,12 +58,16 @@ public class GoCounter_UI : Mgr
     {
         //버튼 비활성화
         animator.SetBool("Open", false);
+        canUse = false;
         fun?.Invoke();
     }
 
     private void GoCounter()
     {
         //카운터로 화면 전환
+        if (canUse == false)
+            return;
+
         CloseBtn();
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
         kitchenMgr.cameraObj.ChangeLook(LookArea.Counter,()=>
@@ -73,5 +80,6 @@ public class GoCounter_UI : Mgr
             tableDrinkSlot.Init();
             tablePickleSlot.Init();
         });
+        kitchenMgr.cameraObj.lookArea = LookArea.Counter;
     }
 }
