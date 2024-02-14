@@ -94,13 +94,13 @@ public class DragCamera : Mgr
                 return;
 
             movePos = (Vector3)(nowPos - prePos).normalized * Time.deltaTime * fSpeed1;
-            movePos = new Vector3(movePos.x, Camera.main.transform.position.y, movePos.z);
+            movePos = new Vector3(movePos.x, 0, 0);
         }
         else
         {
             updatePrePos = true;
             movePos = (Vector3)(prePos - nowPos) * Time.deltaTime * fSpeed2;
-            movePos = new Vector3(movePos.x, Camera.main.transform.position.y, movePos.z);
+            movePos = new Vector3(movePos.x, 0, 0);
         }
         Camera.main.transform.Translate(movePos);
 

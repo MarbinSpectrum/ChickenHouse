@@ -7,34 +7,34 @@ public class RequireMenu
     //손님이 원하는 메뉴에 대한 정보가 담긴 객체입니다.
 
     /** 손님이 기다려주는 시간 값임 **/
-    private const int WAIT_TIME = 90;
+    private const int WAIT_TIME = 40;
 
     /** 기본 메뉴 가중치 **/
-    private const int BASE_MENU_WEIGHT          = 1000;
+    private const int BASE_MENU_WEIGHT = 1000;
     /** 매운맛 매니아 특성 보유시 메뉴 가중치 **/
-    private const int HOT_MANIA_MENU_WEIGHT     = 5000;
+    private const int HOT_MANIA_MENU_WEIGHT = 5000;
     /** 단맛 매니아 특성 보유시 메뉴 가중치 **/
-    private const int SWEET_MANIA_MENU_WEIGHT   = 5000;
+    private const int SWEET_MANIA_MENU_WEIGHT = 5000;
 
     /** 반은 다른 맛 치킨을 시킬 확률 **/
-    private const int HALF_PER                  = 25;
+    private const int HALF_PER = 25;
 
     /** 피클을 요구할 확률 **/
-    private const int PICKLE_PER                = 60;
+    private const int PICKLE_PER = 60;
 
     /** 콜라를 요구할 확률 **/
-    private const int COLA_PER                  = 60;
+    private const int COLA_PER = 60;
 
     /** 해당 시간 전까지 메뉴가 나와야된다. **/
-    private float           utilTime;
+    private float utilTime;
     /** 원하는 치킨 갯수(0이면 아무 갯수나 상관없다) **/
-    private int             chickenCnt;
+    private int chickenCnt;
     /** 원하는 치킨 소스 **/
-    private ChickenSpicy[]  chickenSpicy = new ChickenSpicy[2];
+    private ChickenSpicy[] chickenSpicy = new ChickenSpicy[2];
     /** 콜라 필요 여부 **/
-    private bool            cola;
+    private bool cola;
     /** 피클 필요 여부 **/
-    private bool            pickle;
+    private bool pickle;
 
     public void CreateMenu(GuestData pGuestData, float nowTime)
     {
@@ -123,12 +123,12 @@ public class RequireMenu
 
     private ChickenSpicy GetSpicy(HashSet<GuestType> pGuestSet, ChickenSpicy ignoreSpicy)
     {
-        List<int>           randomRangeValue    = new List<int>();
-        List<ChickenSpicy>  randomChickenValue  = new List<ChickenSpicy>();
+        List<int> randomRangeValue = new List<int>();
+        List<ChickenSpicy> randomChickenValue = new List<ChickenSpicy>();
 
         //-------------------------------------------------------------------------------------
         //기본맛
-        if(ignoreSpicy != ChickenSpicy.None)
+        if (ignoreSpicy != ChickenSpicy.None)
         {
             randomRangeValue.Add(BASE_MENU_WEIGHT);
             randomChickenValue.Add(ChickenSpicy.None);
@@ -156,10 +156,10 @@ public class RequireMenu
         randomRangeValue.ForEach((x) => randomRange += x);
 
         int randomValue = Random.Range(0, randomRange);
-        for(int i = 0; i < randomChickenValue.Count; i++)
+        for (int i = 0; i < randomChickenValue.Count; i++)
         {
             int checkValue = randomRangeValue[i];
-            if(randomValue < checkValue)
+            if (randomValue < checkValue)
             {
                 return randomChickenValue[i];
             }
@@ -174,7 +174,7 @@ public class RequireMenu
     public string GetChickenName()
     {
         //주문한 치킨 이름 반환
-        switch(chickenSpicy[0])
+        switch (chickenSpicy[0])
         {
             case ChickenSpicy.None:
                 {
@@ -206,7 +206,7 @@ public class RequireMenu
     {
         //보조 메뉴들의 이름을 반환
         List<string> result = new List<string>();
-        if(cola)
+        if (cola)
         {
             result.Add(LanguageMgr.GetText("COLA"));
         }
@@ -215,5 +215,145 @@ public class RequireMenu
             result.Add(LanguageMgr.GetText("PICKLE"));
         }
         return result;
+    }
+
+    public bool ChickenCntCheck(int pChickenCnt)
+    {
+        //치킨 갯수 검사
+        if (chickenCnt == 0)
+            return true;
+        return chickenCnt == pChickenCnt;
+    }
+
+    public bool ChickenSpicyCheck(ChickenSpicy pSpicy0, ChickenSpicy pSpicy1)
+    {
+        //치킨 양념 검사
+        if ((pSpicy0 == chickenSpicy[0] && pSpicy1 == chickenSpicy[1]) || (pSpicy0 == chickenSpicy[1] && pSpicy1 == chickenSpicy[0]))
+            return true;
+        return false;
+    }
+
+    public bool TimeCheck(float endTime)
+    {
+        //치킨 나올때까지의 시간 검사
+        if (utilTime > endTime)
+            return true;
+        return false;
+    }
+
+    public float MenuPoint(GuestData pGuestData, float defaultPoint, bool notListen,
+        int pChickenCnt, ChickenSpicy pSpicy0, ChickenSpicy pSpicy1, ChickenState pChickenState, bool hasDrink, bool hasPickle, float endTime)
+    {
+        //손님이 생각한 치킨 점수
+        //손님 정보를 토대로 원하는 맛을 도출한다.
+        HashSet<GuestType> guestTypes = new HashSet<GuestType>();
+        foreach (GuestType type in pGuestData.guestTypes)
+        {
+            //보유여부 파악을 편하게하기 위해서 set으로 넣어줌
+            guestTypes.Add(type);
+        }
+
+        float point = defaultPoint;
+
+        //--------------------------------------------------------------------------------
+        //나올때까지 시간
+        if (TimeCheck(endTime) == false)
+        {
+            if (guestTypes.Contains(GuestType.Haste))
+            {
+                //주문을 내고 빨리 안나오면 평점을 나쁘게줌
+                point -= 2;
+            }
+            else if (guestTypes.Contains(GuestType.Leisurely))
+            {
+                //주문이 아무리 늦게 나와도 평점을 나쁘게 주지 않음
+            }
+            else
+            {
+                point -= 1f;
+            }
+        }
+
+        //--------------------------------------------------------------------------------
+        //닭고기 갯수
+        if (ChickenCntCheck(pChickenCnt) == false)
+        {
+            if (guestTypes.Contains(GuestType.Thoroughness))
+            {
+                //손님의 요청이랑 다른 주문메뉴가 나오면 별점을 매우 나쁘게줌
+                point -= 2;
+            }
+            else
+            {
+                point -= 1;
+            }
+        }
+
+        //--------------------------------------------------------------------------------
+        //양념 검사
+        if (ChickenSpicyCheck(pSpicy0, pSpicy1) == false)
+        {
+            if (guestTypes.Contains(GuestType.Thoroughness))
+            {
+                //손님의 요청이랑 다른 주문메뉴가 나오면 별점을 매우 나쁘게줌
+                point -= 2;
+            }
+            else
+            {
+                point -= 1;
+            }
+        }
+
+        //--------------------------------------------------------------------------------
+        //피클이나 콜라 검사
+        if (cola != hasDrink || pickle != hasPickle)
+        {
+            if (guestTypes.Contains(GuestType.Thoroughness))
+            {
+                //손님의 요청이랑 다른 주문메뉴가 나오면 별점을 매우 나쁘게줌
+                point -= 2;
+            }
+            else
+            {
+                point -= 1;
+            }
+        }
+
+        //--------------------------------------------------------------------------------
+        //치킨 상태
+        if (pChickenState != ChickenState.GoodChicken)
+        {
+            point -= 1;
+        }
+
+        //--------------------------------------------------------------------------------
+        //주인장 태도
+        if (guestTypes.Contains(GuestType.Too_Much_Talker))
+        {
+            if(notListen)
+            {
+                //이야기를 다 듣지 않고 주방으로가서 별점을 매우 나쁘게 줌
+                point -= 2;
+            }
+        }
+
+        //--------------------------------------------------------------------------------
+        //마지막에 처리해야하는 속성 처리
+        if (guestTypes.Contains(GuestType.Devil))
+        {
+            if (ChickenCntCheck(pChickenCnt) == false || ChickenSpicyCheck(pSpicy0, pSpicy1) == false
+                || cola != hasDrink || pickle != hasPickle || TimeCheck(endTime) == false)
+            {
+                //조금이여도 메뉴가 틀리면 0점 별점을 줌
+                point = Mathf.Min(0, point);
+            }
+        }
+        //else if (guestTypes.Contains(GuestType.Angel))
+        //{
+        //    //엉터리로 메뉴를 꺼내도 최소 3점 별점은 줌
+        //    point = Mathf.Max(3, point);
+        //}
+
+        return point;
     }
 }

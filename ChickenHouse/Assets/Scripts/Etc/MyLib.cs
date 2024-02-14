@@ -531,25 +531,40 @@ namespace MyLib
             return JsonUtility.FromJson<T>(jsonData);
         }
 
-        public static void CreateJsonFile(string createPath, string fileName, string jsonData)
+        public static void CreateJsonFile(string fileName, string jsonData)
         {
-            FileStream fileStream = new FileStream(string.Format("{0}/{1}.json", createPath, fileName), FileMode.Create);
+#if UNITY_EDITOR
+            string filePath = string.Format("{0}/{1}.json", Application.dataPath + "/Resources", fileName);
+#else
+            string filePath = string.Format("{0}/{1}.json", Application.persistentDataPath, fileName);
+#endif
+            if (File.Exists(filePath))
+            {
+                File.Delete(filePath);
+            }
+
             byte[] data = Encoding.UTF8.GetBytes(jsonData);
-            fileStream.Write(data, 0, data.Length);
-            fileStream.Close();
+            string encodeJson = Convert.ToBase64String(data);
+
+            File.WriteAllText(filePath, encodeJson);
         }
 
-        public static T LoadJsonFile<T>(string loadPath, string fileName)
+        public static T LoadJsonFile<T>(string fileName)
         {
-            string filePath = string.Format("{0}/{1}.json", loadPath, fileName);
+#if UNITY_EDITOR
+            string filePath = string.Format("{0}/{1}.json", Application.dataPath + "/Resources", fileName);
+#else
+            string filePath = string.Format("{0}/{1}.json", Application.persistentDataPath, fileName);
+#endif
             if (File.Exists(filePath) == false)
                 return default(T);
-            FileStream fileStream = new FileStream(filePath, FileMode.Open);
-            byte[] data = new byte[fileStream.Length];
-            fileStream.Read(data, 0, data.Length);
-            fileStream.Close();
-            string jsonData = Encoding.UTF8.GetString(data);
-            return JsonUtility.FromJson<T>(jsonData);
+
+            string jsonFile = File.ReadAllText(filePath);
+            byte[] data = Convert.FromBase64String(jsonFile);
+
+            string decodeJson = Encoding.UTF8.GetString(data);
+
+            return JsonUtility.FromJson<T>(decodeJson);
         }
 
         [System.Serializable]
@@ -597,12 +612,12 @@ namespace MyLib
                 this.target = target;
             }
         }
-        #endregion
+#endregion
     }
 
     public static class Action2D
     {
-        #region[MoveTo]
+#region[MoveTo]
         public static IEnumerator MoveTo(Transform target, Vector3 to, float duration)
         {
             Vector2 from = target.position;
@@ -623,6 +638,6 @@ namespace MyLib
 
 
         }
-        #endregion
+#endregion
     }
 }

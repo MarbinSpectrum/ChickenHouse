@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Dog : GuestObj
 {
-    public override void OrderGuest()
+    public override void OrderGuest(NoParaDel fun = null)
     {
         List<string> sideMenuName = requireMenu.GetSideMenuName();
         string chickenName = requireMenu.GetChickenName();
@@ -32,10 +32,17 @@ public class Dog : GuestObj
         {
             soundMgr.StopLoopSE(Sound.Voice0_SE);
             animator.SetTrigger("TalkEnd");
+            fun?.Invoke();
         });
     }
 
-    public override void ThankGuest()
+    public override void CloseTalkBox()
+    {
+        soundMgr.StopLoopSE(Sound.Voice0_SE);
+        talkBox.CloseTalkBox();
+    }
+
+    public override void ThankGuest(NoParaDel fun = null)
     {
         soundMgr.PlayLoopSE(Sound.Voice0_SE);
         string showStr = LanguageMgr.GetText("DOG_THANK_YOU");
@@ -44,6 +51,20 @@ public class Dog : GuestObj
         {
             soundMgr.StopLoopSE(Sound.Voice0_SE);
             animator.SetTrigger("TalkEnd");
+            fun?.Invoke();
+        });
+    }
+
+    public override void AngryGuest(NoParaDel fun = null)
+    {
+        string showStr = LanguageMgr.GetText("DOG_ANGRY");
+
+        soundMgr.PlayLoopSE(Sound.Voice0_SE);
+        animator.SetTrigger("Angry");
+        talkBox.ShowText(showStr, () =>
+        {
+            soundMgr.StopLoopSE(Sound.Voice0_SE);
+            fun?.Invoke();
         });
     }
 }

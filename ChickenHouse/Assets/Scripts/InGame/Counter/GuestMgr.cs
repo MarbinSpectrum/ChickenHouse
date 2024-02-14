@@ -17,6 +17,10 @@ public class GuestMgr : Mgr
 
         /** 주방으로 이동하기 버튼 **/
         public GoKitchen_UI goKitchen;
+        /** 현재 금화 **/
+        public Money_UI     nowMoney;
+        /** 시간 및 날짜 표시 **/
+        public Timer_UI     timer;
     }
     public UI ui;
 
@@ -26,6 +30,10 @@ public class GuestMgr : Mgr
     private bool            nowOrder     = false;
     /** 현재 손님 **/
     private GuestObj        guestObj;
+    /** 손님의 대화를 다 안들었으면 true **/
+    private bool            notListenGuest;
+    private bool            talkGuest;
+
 
     private void Awake()
     {
@@ -127,14 +135,21 @@ public class GuestMgr : Mgr
         nowOrder = true;
         guestObj.gameObject.SetActive(true);
         guestObj.ShowGuest();
-        guestObj.CreateMenu();
+
+        float orderTime = ui.timer.time;
+        guestObj.CreateMenu(orderTime);
 
         StartCoroutine(RunCor());
         IEnumerator RunCor()
         {
             yield return new WaitForSeconds(1f);
 
-            guestObj.OrderGuest();
+            talkGuest = true;
+            notListenGuest = false;
+            guestObj.OrderGuest(()=>
+            {
+                talkGuest = false;
+            });
 
             ui.goKitchen.OpenBtn();
         }
@@ -144,6 +159,13 @@ public class GuestMgr : Mgr
     {
         if (guestObj == null)
             return;
+        if(talkGuest)
+        {
+            //말이 끝나기전에 말풍선을 닫아버림
+            //손님말을 끝까지 듣자
+            notListenGuest = true;
+        }
+
         guestObj.CloseTalkBox();
     }
 
@@ -151,13 +173,27 @@ public class GuestMgr : Mgr
                             bool hasDrink, bool hasPickle)
     {
         vinylAni.gameObject.SetActive(true);
+        float orderEndTime = ui.timer.time;
 
         StartCoroutine(RunCor());
         IEnumerator RunCor()
         {
             yield return new WaitForSeconds(1.5f);
 
-            guestObj.ThankGuest();
+            float defaultPoint = gameMgr.playData.GetDefaultPoint();
+            float menuPoint = guestObj.ChickenPoint(notListenGuest, chickenCnt, spicy0, spicy1, chickenState, hasDrink, hasPickle, orderEndTime);
+            if(menuPoint < defaultPoint)
+            {
+                guestObj.AngryGuest();
+            }
+            else
+            {
+                guestObj.ThankGuest();
+
+            }
+
+            gameMgr.playData.money += 100;
+            ui.nowMoney.SetMoney(gameMgr.playData.money);
 
             yield return new WaitForSeconds(3f);
 

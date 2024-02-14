@@ -52,12 +52,12 @@ public class LanguageMgr : AwakeSingleton<LanguageMgr>
         }
 
         //제목줄
-        string[] subjects = rowList[0].Split(',');
+        string[] subjects = rowList[0].Split("\t");
 
         for (int r = 1; r < rowList.Count; r++)
         {
             //해당 줄부터 데이터다.
-            string[] values = rowList[r].Split(',');
+            string[] values = rowList[r].Split("\t");
 
             //키값을 얻는다.
             string keyValue = values[0].Replace('\r', ' ').Trim();
@@ -104,18 +104,21 @@ public class LanguageMgr : AwakeSingleton<LanguageMgr>
     public static void SetString(TextMeshProUGUI textUI,string pKey)
     {
         //textUI에 해당하는 TextMeshUI의 글자를 정해준다.
+        //pKey에 해당하는 문자를 넣어줌
         string str = GetText(pKey);
-        if (str == string.Empty)
-        {
-            textUI.text = "No Text";
-            return;
-        }
-        textUI.text = str;
+        SetText(textUI, str);
+    }
+
+    public static void SetText(TextMeshProUGUI textUI, string pStr)
+    {
+        //textUI에 해당하는 TextMeshUI의 글자를 정해준다.
+        //pStr를 그대로 넣어줌
+        textUI.text = pStr;
 
         //언어에 맞는 폰트를 설정해준다.
-        LanguageMgr     languageMgr     = Instance;
-        Language        nowLanguage     = languageMgr.nowLanguage;
-        TMP_FontAsset   fontAsset       = null;
+        LanguageMgr languageMgr = Instance;
+        Language nowLanguage = languageMgr.nowLanguage;
+        TMP_FontAsset fontAsset = null;
 
         switch (nowLanguage)
         {
