@@ -63,15 +63,15 @@ public abstract class GuestObj : Mgr
         });
     }
 
-    public float ChickenPoint(bool notListen, int chickenCnt, ChickenSpicy spicy0, ChickenSpicy spicy1, ChickenState chickenState,
-                            bool hasDrink, bool hasPickle, float endTime)
+    public float ChickenPoint(int chickenCnt, ChickenSpicy spicy0, ChickenSpicy spicy1, ChickenState chickenState,
+                            bool hasDrink, bool hasPickle)
     {
         //손님이 생각한 치킨 점수
 
         //기본 치킨 점수
         float defaultPoint = gameMgr.playData.GetDefaultPoint();
 
-        float point = requireMenu.MenuPoint(guestData, defaultPoint, notListen, chickenCnt, spicy0, spicy1, chickenState, hasDrink, hasPickle, endTime);
+        float point = requireMenu.MenuPoint(guestData, defaultPoint, chickenCnt, spicy0, spicy1, chickenState, hasDrink, hasPickle);
 
         return point;
     }

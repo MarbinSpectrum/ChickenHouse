@@ -7,6 +7,19 @@ public class Counter_BG : Mgr
 {
     [SerializeField,Range(0,1)] private float rateValue;
 
+    [SerializeField, Range(0, 1)] private float lerpValue;
+
+    [System.Serializable] public struct BG_Lerp
+    {
+        public SpriteRenderer bgSprite;
+        public SpriteRenderer deepSprite;
+        public SpriteRenderer lightSprite;
+        public Gradient bgGradient;
+        public Gradient deepGradient;
+        public Gradient lightGradient;
+    }
+    [SerializeField] private BG_Lerp bgLerp;
+
     private void Awake()
     {
         SetScale();
@@ -16,6 +29,7 @@ public class Counter_BG : Mgr
     private void Update()
     {
         SetScale();
+        SetLerpValue(lerpValue);
     }
 #endif
 
@@ -32,5 +46,14 @@ public class Counter_BG : Mgr
         {
             transform.localScale = Vector3.one * addRate * rateValue;
         }
+    }
+
+    public void SetLerpValue(float t)
+    {
+        lerpValue = Mathf.Min(1, t);
+
+        bgLerp.lightSprite.color = bgLerp.lightGradient.Evaluate(lerpValue);
+        bgLerp.bgSprite.color = bgLerp.bgGradient.Evaluate(lerpValue);
+        bgLerp.deepSprite.color = bgLerp.deepGradient.Evaluate(lerpValue);
     }
 }

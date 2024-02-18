@@ -30,9 +30,6 @@ public class GuestMgr : Mgr
     private bool            nowOrder     = false;
     /** 현재 손님 **/
     private GuestObj        guestObj;
-    /** 손님의 대화를 다 안들었으면 true **/
-    private bool            notListenGuest;
-    private bool            talkGuest;
 
 
     private void Awake()
@@ -144,12 +141,7 @@ public class GuestMgr : Mgr
         {
             yield return new WaitForSeconds(1f);
 
-            talkGuest = true;
-            notListenGuest = false;
-            guestObj.OrderGuest(()=>
-            {
-                talkGuest = false;
-            });
+            guestObj.OrderGuest();
 
             ui.goKitchen.OpenBtn();
         }
@@ -159,12 +151,6 @@ public class GuestMgr : Mgr
     {
         if (guestObj == null)
             return;
-        if(talkGuest)
-        {
-            //말이 끝나기전에 말풍선을 닫아버림
-            //손님말을 끝까지 듣자
-            notListenGuest = true;
-        }
 
         guestObj.CloseTalkBox();
     }
@@ -173,7 +159,6 @@ public class GuestMgr : Mgr
                             bool hasDrink, bool hasPickle)
     {
         vinylAni.gameObject.SetActive(true);
-        float orderEndTime = ui.timer.time;
 
         StartCoroutine(RunCor());
         IEnumerator RunCor()
@@ -181,7 +166,7 @@ public class GuestMgr : Mgr
             yield return new WaitForSeconds(1.5f);
 
             float defaultPoint = gameMgr.playData.GetDefaultPoint();
-            float menuPoint = guestObj.ChickenPoint(notListenGuest, chickenCnt, spicy0, spicy1, chickenState, hasDrink, hasPickle, orderEndTime);
+            float menuPoint = guestObj.ChickenPoint(chickenCnt, spicy0, spicy1, chickenState, hasDrink, hasPickle);
             if(menuPoint < defaultPoint)
             {
                 guestObj.AngryGuest();
@@ -189,7 +174,6 @@ public class GuestMgr : Mgr
             else
             {
                 guestObj.ThankGuest();
-
             }
 
             gameMgr.playData.money += 100;

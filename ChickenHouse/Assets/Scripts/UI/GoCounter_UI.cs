@@ -11,7 +11,8 @@ public class GoCounter_UI : Mgr
     [SerializeField] private TableChickenSlot   tableChicken;
     [SerializeField] private TableDrinkSlot     tableDrinkSlot;
     [SerializeField] private TablePickleSlot    tablePickleSlot;
-
+    [SerializeField] private Transform followTrans;
+    
     private RectTransform   rect        = null;
 
     private bool canUse = false;
@@ -24,12 +25,16 @@ public class GoCounter_UI : Mgr
         btn.onClick.AddListener(() => GoCounter());
     }
 
-#if UNITY_EDITOR
     private void Update()
     {
+#if UNITY_EDITOR
         SetScale();
-    }
 #endif
+        if(followTrans != null)
+        {
+            transform.position = new Vector3(followTrans.position.x, transform.position.y, transform.position.y);
+        }
+    }
 
     private void SetScale()
     {
@@ -42,7 +47,7 @@ public class GoCounter_UI : Mgr
         rect.sizeDelta = new Vector2(width, height);
         SafeArea.SetSafeArea(rect);
 
-        rect.anchoredPosition = new Vector2(73, 0);
+        rect.anchoredPosition = new Vector2(42, 3);
         btn.GetComponent<RectTransform>().anchoredPosition = Vector3.zero;
     }
 

@@ -11,18 +11,11 @@ public class InGameCamera : Mgr
     /** 보고있는 지역 **/
     [System.NonSerialized] public LookArea lookArea;
 
-    private Vector3 defaultPos;
-
     private void Awake()
     {
         lookArea = startArea;
         changeLook.ChangeCamera(lookArea, 0);
         SetCamera();
-    }
-
-    private void Start()
-    {
-        defaultPos = Camera.main.transform.position;
     }
 
 #if UNITY_EDITOR
@@ -31,15 +24,6 @@ public class InGameCamera : Mgr
         SetCamera();
     }
 #endif
-
-    private void LateUpdate()
-    {
-        //주방에서만 화면 드래그가되도록 설정
-        if (lookArea == LookArea.Kitchen)
-        {
-            dragCamera.ViewMoving();
-        }
-    }
 
     private void SetCamera()
     {
@@ -59,7 +43,7 @@ public class InGameCamera : Mgr
     {
         if (pLookArea == LookArea.Kitchen)
         {
-            Camera.main.transform.position = defaultPos;
+            dragCamera.SetInitPos();
         }
 
         changeLook.ChangeCamera(pLookArea, fun);

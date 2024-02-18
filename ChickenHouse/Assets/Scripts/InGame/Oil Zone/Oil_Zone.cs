@@ -22,6 +22,9 @@ public class Oil_Zone : Mgr
     [SerializeField] private List<SpriteRenderer>   runCookSprite;
     [SerializeField] private Animator               animator;
     [SerializeField] private Oil_Zone_Shader        oilShader;
+    [SerializeField] private Collider2D             onCollider2D;
+    [SerializeField] private Collider2D             offCollider2D;
+
 
     /**닭 갯수 **/
     private int             chickenCnt;     
@@ -59,6 +62,8 @@ public class Oil_Zone : Mgr
         //버리기 버튼도 표시해준다.
         kitchenMgr.ui.takeOut.OpenBtn();
 
+        onCollider2D.enabled = false;
+        offCollider2D.enabled = true;
         notCookSprite.ForEach((x) => x.enabled = true);
         runCookSprite.ForEach((x) => x.enabled = false);
     }
@@ -108,7 +113,8 @@ public class Oil_Zone : Mgr
             Cook_Pause(false);
         }
 
-
+        onCollider2D.enabled = true;
+        offCollider2D.enabled = false;
         notCookSprite.ForEach((x) => x.enabled = false);
         runCookSprite.ForEach((x) => x.enabled = true);
     }
@@ -158,6 +164,8 @@ public class Oil_Zone : Mgr
         //넣은 치킨갯수 파악
         chickenCnt = pChickenCnt;
 
+        onCollider2D.enabled = true;
+        offCollider2D.enabled = false;
         notCookSprite.ForEach((x) => x.enabled = false);
         runCookSprite.ForEach((x) => x.enabled = true);
 
@@ -232,6 +240,8 @@ public class Oil_Zone : Mgr
     public void Cook_Stop()
     {
         //요리 종료
+        onCollider2D.enabled = false;
+        offCollider2D.enabled = true;
         notCookSprite.ForEach((x) => x.enabled = true);
         runCookSprite.ForEach((x) => x.enabled = false);
 

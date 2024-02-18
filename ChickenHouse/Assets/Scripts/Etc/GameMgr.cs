@@ -25,6 +25,11 @@ public class GameMgr : AwakeSingleton<GameMgr>
         return MyLib.Json.LoadJsonFile<PlayData>(string.Format("PlayData{0}", select));
     }
 
+    public void DeleteData(int select)
+    {
+        MyLib.Json.DeleteJsonFile(string.Format("PlayData{0}", select));
+    }
+
     public void OnApplicationQuit()
     {
         if (playData == null)

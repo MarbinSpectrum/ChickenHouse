@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ChickenStrainter : Mgr
 {
-    private const int MAX_CHICKEN_SLOT = 6;
+    private const int MAX_CHICKEN_SLOT = 4;
 
     /**닭 갯수 **/
     private int chickenCnt;
@@ -36,7 +36,7 @@ public class ChickenStrainter : Mgr
             //주방을 보고있는 상태에서만 상호 작용 가능
             return;
         }
-        if (chickenCnt >= 4)
+        if (chickenCnt >= MAX_CHICKEN_SLOT)
         {
             obj.gameObject.SetActive(false);
             isRun = false;

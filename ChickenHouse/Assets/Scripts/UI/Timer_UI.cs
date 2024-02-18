@@ -11,7 +11,7 @@ public class Timer_UI : Mgr
     [SerializeField] private Image              guage;
     [SerializeField] private RectTransform      clockHand;
     [SerializeField] private TextMeshProUGUI    textMesh;
-
+    [SerializeField] private Counter_BG         counterBg;
     public float time = 0;
 
     private void Update()
@@ -19,7 +19,7 @@ public class Timer_UI : Mgr
         time += Time.deltaTime;
 
         SetTime(time, MAX_TIME);
-
+        counterBg.SetLerpValue(time / MAX_TIME);
         if (gameMgr?.playData != null)
         {
             string dayText = string.Format(LanguageMgr.GetText("DAY"), gameMgr.playData.day);

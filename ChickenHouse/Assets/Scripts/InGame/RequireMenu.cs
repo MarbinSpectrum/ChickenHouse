@@ -233,16 +233,8 @@ public class RequireMenu
         return false;
     }
 
-    public bool TimeCheck(float endTime)
-    {
-        //치킨 나올때까지의 시간 검사
-        if (utilTime > endTime)
-            return true;
-        return false;
-    }
-
-    public float MenuPoint(GuestData pGuestData, float defaultPoint, bool notListen,
-        int pChickenCnt, ChickenSpicy pSpicy0, ChickenSpicy pSpicy1, ChickenState pChickenState, bool hasDrink, bool hasPickle, float endTime)
+    public float MenuPoint(GuestData pGuestData, float defaultPoint,
+        int pChickenCnt, ChickenSpicy pSpicy0, ChickenSpicy pSpicy1, ChickenState pChickenState, bool hasDrink, bool hasPickle)
     {
         //손님이 생각한 치킨 점수
         //손님 정보를 토대로 원하는 맛을 도출한다.
@@ -254,25 +246,6 @@ public class RequireMenu
         }
 
         float point = defaultPoint;
-
-        //--------------------------------------------------------------------------------
-        //나올때까지 시간
-        if (TimeCheck(endTime) == false)
-        {
-            if (guestTypes.Contains(GuestType.Haste))
-            {
-                //주문을 내고 빨리 안나오면 평점을 나쁘게줌
-                point -= 2;
-            }
-            else if (guestTypes.Contains(GuestType.Leisurely))
-            {
-                //주문이 아무리 늦게 나와도 평점을 나쁘게 주지 않음
-            }
-            else
-            {
-                point -= 1f;
-            }
-        }
 
         //--------------------------------------------------------------------------------
         //닭고기 갯수
@@ -327,22 +300,11 @@ public class RequireMenu
         }
 
         //--------------------------------------------------------------------------------
-        //주인장 태도
-        if (guestTypes.Contains(GuestType.Too_Much_Talker))
-        {
-            if(notListen)
-            {
-                //이야기를 다 듣지 않고 주방으로가서 별점을 매우 나쁘게 줌
-                point -= 2;
-            }
-        }
-
-        //--------------------------------------------------------------------------------
         //마지막에 처리해야하는 속성 처리
         if (guestTypes.Contains(GuestType.Devil))
         {
             if (ChickenCntCheck(pChickenCnt) == false || ChickenSpicyCheck(pSpicy0, pSpicy1) == false
-                || cola != hasDrink || pickle != hasPickle || TimeCheck(endTime) == false)
+                || cola != hasDrink || pickle != hasPickle)
             {
                 //조금이여도 메뉴가 틀리면 0점 별점을 줌
                 point = Mathf.Min(0, point);

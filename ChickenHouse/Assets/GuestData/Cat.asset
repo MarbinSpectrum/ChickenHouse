@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04698e8fab843ca4f97de157c35a91e2, type: 3}
   m_Name: Cat
   m_EditorClassIdentifier: 
-  guestTypes: 0100000005000000090000000d000000
+  guestTypes: 010000000d000000

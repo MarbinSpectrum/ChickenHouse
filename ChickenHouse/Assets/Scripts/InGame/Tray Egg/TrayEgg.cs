@@ -69,11 +69,11 @@ public class TrayEgg : Mgr
                 eggSlot.isEmpty = false;
                 eggSlot.SpawnChicken();
                 RefreshSlotCollider();
-                break;
+                return true;
             }
         }
 
-        return true;
+        return false;
     }
 
     public bool RemoveChicken()
@@ -118,8 +118,8 @@ public class TrayEgg : Mgr
             }
 
             Vector2 newOffset = new Vector2(0, 
-                (headValue * (headValue + 1) / 2 - tailValue * (tailValue + 1) / 2) / (headValue + 1 + tailValue)) * 0.4f;
-            Vector2 newSize = new Vector2(1, (headValue + 1 + tailValue) * 0.4f);
+                (headValue * (headValue + 1) / 2 - tailValue * (tailValue + 1) / 2) / (headValue + 1 + tailValue)) * 0.35f;
+            Vector2 newSize = new Vector2(1, (headValue + 1 + tailValue) * 0.37f);
             eggSlots[i].collider.offset = newOffset;
             eggSlots[i].collider.size = newSize;
         }

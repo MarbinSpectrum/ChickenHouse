@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04698e8fab843ca4f97de157c35a91e2, type: 3}
   m_Name: Fox
   m_EditorClassIdentifier: 
-  guestTypes: 02000000080000000b0000000c000000
+  guestTypes: 020000000b0000000c000000

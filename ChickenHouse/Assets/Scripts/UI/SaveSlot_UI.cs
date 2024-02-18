@@ -21,10 +21,11 @@ public class SaveSlot_UI : Mgr
         public TextMeshProUGUI  dayText;
         public TextMeshProUGUI  moneyText;
         public Button           loadBtn;
+        public Button           deleteBtn;
     }
 
-    [SerializeField] private List<SlotObj> slotObjs = new List<SlotObj>();
-    [SerializeField] private Button closeBtn;
+    [SerializeField] private List<SlotObj>  slotObjs = new List<SlotObj>();
+    [SerializeField] private Button         closeBtn;
 
 
     public void SetSlot_UI(List<PlayData> playDatas)
@@ -39,10 +40,13 @@ public class SaveSlot_UI : Mgr
             SlotObj slotObj = slotObjs[i];
             if (data == null)
             {
+                //빈슬롯으로 설정
                 slotObj.emptyObj.gameObject.SetActive(true);
                 slotObj.saveObj.gameObject.SetActive(false);
                 continue;
             }
+
+            //저장 슬롯 표시
             slotObj.emptyObj.gameObject.SetActive(false);
             slotObj.saveObj.gameObject.SetActive(true);
 
@@ -56,9 +60,13 @@ public class SaveSlot_UI : Mgr
 
     private void SetButtonEvent()
     {
+        //버튼 이벤트 등록
+
+        //닫기 버튼 처리
         closeBtn.onClick.RemoveAllListeners();
         closeBtn.onClick.AddListener(() => gameObject.SetActive(false));
 
+        //슬롯 선택시 처리
         for(int i = 0; i < slotObjs.Count; i++)
         {
             SlotObj slotObj = slotObjs[i];
@@ -68,6 +76,13 @@ public class SaveSlot_UI : Mgr
             {
                 gameMgr.selectSaveSlot = num;
                 SceneManager.LoadScene("InGame");
+            });
+            slotObj.deleteBtn.onClick.RemoveAllListeners();
+            slotObj.deleteBtn.onClick.AddListener(() =>
+            {
+                gameMgr.DeleteData(num);
+                slotObjs[num].emptyObj.gameObject.SetActive(true);
+                slotObjs[num].saveObj.gameObject.SetActive(false);
             });
         }
     }

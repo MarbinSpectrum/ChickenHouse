@@ -549,6 +549,19 @@ namespace MyLib
             File.WriteAllText(filePath, encodeJson);
         }
 
+        public static void DeleteJsonFile(string fileName)
+        {
+#if UNITY_EDITOR
+            string filePath = string.Format("{0}/{1}.json", Application.dataPath + "/Resources", fileName);
+#else
+            string filePath = string.Format("{0}/{1}.json", Application.persistentDataPath, fileName);
+#endif
+            if (File.Exists(filePath))
+            {
+                File.Delete(filePath);
+            }
+        }
+
         public static T LoadJsonFile<T>(string fileName)
         {
 #if UNITY_EDITOR
