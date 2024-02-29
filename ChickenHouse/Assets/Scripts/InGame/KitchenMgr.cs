@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class KitchenMgr : Mgr
 {
@@ -8,6 +9,8 @@ public class KitchenMgr : Mgr
 
     /** 드래그중인 오브젝트 **/
     [System.NonSerialized] public DragState        dragState;
+    /** 치킨 통 **/
+    [System.NonSerialized] public ChickenBox       chickenBox;
     /** 계란물 통 **/
     [System.NonSerialized] public TrayEgg          trayEgg;
     /** 밀가루 통 **/
@@ -30,7 +33,7 @@ public class KitchenMgr : Mgr
     [System.NonSerialized] public TableDrinkSlot   drinkSlot;
 
     /** 마우스 포인터의 위치 **/
-    public  DragArea        mouseArea { get; private set; }
+    public DragArea mouseArea;// { get; private set; }
     /** 마우스 포인터 위치 판단 용 **/
     private RaycastHit2D[]  raycastHit2D = new RaycastHit2D[20];
 
@@ -38,6 +41,9 @@ public class KitchenMgr : Mgr
     public InGameCamera     cameraObj;
     /** 오브젝트 드래그 **/
     public DragObj          dragObj;
+    /** 주방 Rect **/
+    public ScrollRect       kitchenRect;
+
 
     [System.Serializable]
     public struct UI
@@ -48,6 +54,8 @@ public class KitchenMgr : Mgr
         public TakeOut_UI   takeOut;
         /** 카운터로 이동하기 버튼 **/
         public GoCounter_UI goCounter;
+
+
     }
     public UI ui;
 
@@ -66,7 +74,7 @@ public class KitchenMgr : Mgr
 
     protected void Update()
     {
-        UpdateCheckMouseArea();
+        //UpdateCheckMouseArea();
     }
 
     private void UpdateCheckMouseArea()

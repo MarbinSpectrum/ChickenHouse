@@ -11,8 +11,6 @@ public class PlayData
     public long money;
     /** 업그레이드 상태 **/
     public bool[] upgradeState = new bool[(int)Upgrade.MAX];
-    /** 튜토리얼 진행 여부 **/
-    public bool showTuto;
 
     public float GetDefaultPoint()
     {

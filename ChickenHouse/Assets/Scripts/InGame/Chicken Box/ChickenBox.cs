@@ -5,8 +5,15 @@ using UnityEngine;
 public class ChickenBox : Mgr
 {
 
-    private void OnMouseDrag()
+    public void OnMouseDrag()
     {
+        if (tutoMgr.tutoComplete == false && tutoMgr.nowTuto != Tutorial.Tuto_1)
+        {
+            //튜토리얼이 아직 완료안된듯
+            //혹시모르니 튜토리얼 타이밍때만 작동하도록 막아놓자
+            return;
+        }
+
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
         if (kitchenMgr.dragState != DragState.None)
         {
@@ -22,7 +29,7 @@ public class ChickenBox : Mgr
         kitchenMgr.dragState = DragState.Normal;
     }
 
-    private void OnMouseUp()
+    public void OnMouseUp()
     {
         //손을때면 치킨이 떨어짐
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
@@ -40,5 +47,19 @@ public class ChickenBox : Mgr
 
         //손을때면 치킨이 떨어짐
         kitchenMgr.dragState = DragState.None;
+    }
+
+    public void OnMouseEnter()
+    {
+        KitchenMgr kitchenMgr = KitchenMgr.Instance;
+        kitchenMgr.chickenBox = this;
+        kitchenMgr.mouseArea = DragArea.Chicken_Box;
+    }
+
+    public void OnMouseExit()
+    {
+        KitchenMgr kitchenMgr = KitchenMgr.Instance;
+        kitchenMgr.chickenBox = null;
+        kitchenMgr.mouseArea = DragArea.None;
     }
 }

@@ -36,7 +36,7 @@ public class RequireMenu
     /** 피클 필요 여부 **/
     private bool pickle;
 
-    public void CreateMenu(GuestData pGuestData, float nowTime)
+    public void CreateMenu(GuestData pGuestData, float nowTime,bool isTuto)
     {
         //pGuestData를 토대로 손님이 원하는 메뉴를 생성합니다.
         HashSet<GuestType> guestTypes = new HashSet<GuestType>();
@@ -53,58 +53,90 @@ public class RequireMenu
         //-------------------------------------------------------------------------------------
         //원하는 치킨 갯수 설정
         chickenCnt = 0;
-        if (guestTypes.Contains(GuestType.Big_Eater))
+        if (isTuto)
         {
-            //대식가 속성 보유
-            chickenCnt = 6;
+            //튜토리얼은 치킨 갯수 상관없다.
         }
-        else if (guestTypes.Contains(GuestType.Light_Eater))
+        else
         {
-            //소식가 속성 보유
-            chickenCnt = 4;
+            if (guestTypes.Contains(GuestType.Big_Eater))
+            {
+                //대식가 속성 보유
+                chickenCnt = 6;
+            }
+            else if (guestTypes.Contains(GuestType.Light_Eater))
+            {
+                //소식가 속성 보유
+                chickenCnt = 4;
+            }
         }
 
         //-------------------------------------------------------------------------------------
         //치킨 맛 설정
-        ChickenSpicy spicy = GetSpicy(guestTypes, ChickenSpicy.Not);
-        chickenSpicy[0] = spicy;
-        chickenSpicy[1] = spicy;
-
-        int halfRandomRange = Random.Range(0, 100);
-        if (halfRandomRange < HALF_PER)
+        if(isTuto)
         {
-            //반반치킨을 선택함
-            //다른 소스로 선택하도록함
-            ChickenSpicy spicy2 = GetSpicy(guestTypes, spicy);
-            chickenSpicy[1] = spicy2;
+            //튜토리얼은 무조건 프라이드 치킨
+            chickenSpicy[0] = ChickenSpicy.None;
+            chickenSpicy[1] = ChickenSpicy.None;
+        }
+        else
+        {
+            ChickenSpicy spicy = GetSpicy(guestTypes, ChickenSpicy.Not);
+            chickenSpicy[0] = spicy;
+            chickenSpicy[1] = spicy;
+
+            int halfRandomRange = Random.Range(0, 100);
+            if (halfRandomRange < HALF_PER)
+            {
+                //반반치킨을 선택함
+                //다른 소스로 선택하도록함
+                ChickenSpicy spicy2 = GetSpicy(guestTypes, spicy);
+                chickenSpicy[1] = spicy2;
+            }
         }
 
         //-------------------------------------------------------------------------------------
         //콜라 설정
-        int colaRandomRange = Random.Range(0, 100);
-        if (colaRandomRange < COLA_PER || guestTypes.Contains(GuestType.Cola_Mania))
+        if (isTuto)
         {
-            //콜라를 주문하도록 결정
+            //튜토리얼은 무조건 콜라시킴
             cola = true;
         }
         else
         {
-            //콜라 안시킴
-            cola = false;
+            int colaRandomRange = Random.Range(0, 100);
+            if (colaRandomRange < COLA_PER || guestTypes.Contains(GuestType.Cola_Mania))
+            {
+                //콜라를 주문하도록 결정
+                cola = true;
+            }
+            else
+            {
+                //콜라 안시킴
+                cola = false;
+            }
         }
 
         //-------------------------------------------------------------------------------------
         //피클 설정
-        int pickleRandomRange = Random.Range(0, 100);
-        if (pickleRandomRange < PICKLE_PER || guestTypes.Contains(GuestType.Pickle_Mania))
+        if (isTuto)
         {
-            //피클을 주문하도록 결정
+            //튜토리얼은 무조건 피클시킴
             pickle = true;
         }
         else
         {
-            //피클 안시킴
-            pickle = false;
+            int pickleRandomRange = Random.Range(0, 100);
+            if (pickleRandomRange < PICKLE_PER || guestTypes.Contains(GuestType.Pickle_Mania))
+            {
+                //피클을 주문하도록 결정
+                pickle = true;
+            }
+            else
+            {
+                //피클 안시킴
+                pickle = false;
+            }
         }
     }
 

@@ -27,7 +27,9 @@ public abstract class GuestObj : Mgr
 
     public virtual void CreateMenu(float orderTime)
     {
-        requireMenu.CreateMenu(guestData, orderTime);
+        bool isTuto = tutoMgr.tutoComplete == false;
+
+        requireMenu.CreateMenu(guestData, orderTime, isTuto);
     }
 
     public virtual void CloseTalkBox()

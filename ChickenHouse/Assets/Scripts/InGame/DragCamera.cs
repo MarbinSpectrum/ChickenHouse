@@ -9,39 +9,36 @@ public class DragCamera : Mgr
 
     [SerializeField] private float speed = 0.25f;
     [SerializeField] private float dragDis = 150f;
-    [SerializeField] private ScrollRect scroll;
 
     private Vector2 prevPos;
 
     private void Update()
     {
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
-        if (kitchenMgr == null)
-        {
-            scroll.enabled = false;
-            return;
-        }
         if (kitchenMgr.dragState == DragState.None)
         {
             prevPos = Input.mousePosition;
-            scroll.enabled = true;  
+     
         }
         else
         {
             MoveCamera();
-            scroll.enabled = false;
         }
     }
 
     public void SetInitPos()
     {
-        scroll.content.offsetMin = new Vector2(0, scroll.content.offsetMin.y);
-        scroll.content.offsetMax = new Vector2(scroll.content.offsetMin.x + 51, scroll.content.offsetMax.y);
+        KitchenMgr kitchenMgr = KitchenMgr.Instance;
+        ScrollRect kitchenRect = kitchenMgr.kitchenRect;
+
+        kitchenRect.content.offsetMin = new Vector2(0, kitchenRect.content.offsetMin.y);
+        kitchenRect.content.offsetMax = new Vector2(kitchenRect.content.offsetMin.x + 36, kitchenRect.content.offsetMax.y);
     }
 
     private void MoveCamera()
     {
         KitchenMgr  kitchenMgr      = KitchenMgr.Instance;
+        ScrollRect kitchenRect      = kitchenMgr.kitchenRect;
         Vector3     movePos         = Vector3.zero;
         Vector2     nowPos          = Input.mousePosition;
 
@@ -54,8 +51,8 @@ public class DragCamera : Mgr
             movePos = new Vector3(movePos.x, 0, 0);
         }
 
-        scroll.content.transform.Translate(movePos);
-        scroll.content.offsetMin = new Vector2(Mathf.Clamp(scroll.content.offsetMin.x, -51, 0), scroll.content.offsetMin.y);
-        scroll.content.offsetMax = new Vector2(scroll.content.offsetMin.x + 51, scroll.content.offsetMax.y);
+        kitchenRect.content.transform.Translate(movePos);
+        kitchenRect.content.offsetMin = new Vector2(Mathf.Clamp(kitchenRect.content.offsetMin.x, -36, 0), kitchenRect.content.offsetMin.y);
+        kitchenRect.content.offsetMax = new Vector2(kitchenRect.content.offsetMin.x + 36, kitchenRect.content.offsetMax.y);
     }
 }

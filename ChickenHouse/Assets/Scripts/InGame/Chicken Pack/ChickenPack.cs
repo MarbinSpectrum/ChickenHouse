@@ -1,24 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ChickenPack : Mgr
 {
     /** 담겨있는 치킨 갯수 **/
-    private int         chickenCnt;
+    public int chickenCnt { get; private set; }
     /** 치킨 상태 **/
-    private ChickenState chickenState;
+    public ChickenState chickenState { get; private set; }
 
     /** 소스0 **/
-    private ChickenSpicy source0;
+    public ChickenSpicy source0 { get; private set; }
     /** 소스1 **/
-    private ChickenSpicy source1;
+    public ChickenSpicy source1 { get; private set; }
 
     [System.Serializable]
     public struct SPITE_IMG
     {
         //오브젝트 스프라이트 이미지
-        public SpriteRenderer   spriteImg;
         public Sprite           normalSprite;
         public Sprite           canUseSprite;
     }
@@ -28,17 +28,62 @@ public class ChickenPack : Mgr
     {
         //오브젝트 스프라이트 이미지
         public GameObject[]         chickenObj;
-        public SpriteRenderer       bottomSource;
+        public Image                bottomSource;
     }
 
     [SerializeField] private SPITE_IMG          sprite;
+    [SerializeField] private Image              image;
     [SerializeField] private CHICKEN_OBJ        normalChicken;
     [SerializeField] private CHICKEN_OBJ        hotChicken;
-    [SerializeField] private SpriteRenderer     smoke;
+    [SerializeField] private Image              smoke;
+    [SerializeField] private ScrollObj[]        scrollObj;
     [SerializeField] private GameObject         obj;
 
-    private void OnMouseDrag()
+    public void OnMouseEnter()
     {
+        KitchenMgr kitchenMgr = KitchenMgr.Instance;
+
+        if (kitchenMgr.dragState == DragState.Fry_Chicken&& chickenCnt <= 0)
+        {
+            //치킨이 포장되어있지 않음
+            //해당 용기를 사용 가능하다.
+            image.sprite = sprite.canUseSprite;
+        }
+        else if (kitchenMgr.dragState == DragState.Hot_Spicy
+            && chickenCnt > 0 && (source0 == ChickenSpicy.None || source1 == ChickenSpicy.None))
+        {
+            //치킨이 들어있음
+            //치킨 소스 사용 가능
+            image.sprite = sprite.canUseSprite;
+        }
+        else
+        {
+            //치킨 포장박스를 사용 중이다.
+            image.sprite = sprite.normalSprite;
+        }
+
+        kitchenMgr.chickenPack = this;
+        kitchenMgr.mouseArea = DragArea.Chicken_Pack;
+    }
+
+    public void OnMouseExit()
+    {
+        image.sprite = sprite.normalSprite;
+
+        KitchenMgr kitchenMgr = KitchenMgr.Instance;
+        kitchenMgr.chickenPack = null;
+        kitchenMgr.mouseArea = DragArea.None;
+    }
+
+
+    public void OnMouseDrag()
+    {
+        if (tutoMgr.tutoComplete == false)
+        {
+            //튜토리얼 중에는 드래그 불가능
+            return;
+        }
+
         if (chickenCnt == 0)
         {
             //치킨이 내부에 존재해야지 드래그가 가능
@@ -47,6 +92,7 @@ public class ChickenPack : Mgr
 
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
         kitchenMgr.dragState = DragState.Chicken_Pack;
+
         if (kitchenMgr.cameraObj.lookArea != LookArea.Kitchen)
         {
             //주방을 보고있는 상태에서만 상호 작용 가능
@@ -59,8 +105,14 @@ public class ChickenPack : Mgr
         kitchenMgr.ui.takeOut.OpenBtn();
     }
 
-    private void OnMouseUp()
+    public void OnMouseUp()
     {
+        if (tutoMgr.tutoComplete == false)
+        {
+            //튜토리얼 중에는 드래그 불가능
+            return;
+        }
+
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
 
         if (kitchenMgr.dragState != DragState.Chicken_Pack)
@@ -76,10 +128,14 @@ public class ChickenPack : Mgr
 
         //손을때면 치킨 박스 떨어짐
         kitchenMgr.dragState = DragState.None;
+
         if (kitchenMgr.mouseArea == DragArea.Trash_Btn)
         {
             //버리기 버튼처리
             Init();
+
+            //카운터 버튼이 비활성화됨
+            kitchenMgr.ui.goCounter.CloseBtn();
             return;
         }
 
@@ -97,44 +153,6 @@ public class ChickenPack : Mgr
         }
 
         obj.gameObject.SetActive(true);
-    }
-
-    private void Update()
-    {
-        UpdateChickenPack();
-    }
-
-    private void UpdateChickenPack()
-    {
-        KitchenMgr kitchenMgr = KitchenMgr.Instance;
-        if (kitchenMgr.mouseArea == DragArea.Chicken_Pack &&
-            (kitchenMgr.chickenPack != null && kitchenMgr.chickenPack == this))
-        {
-            if (kitchenMgr.dragState == DragState.Fry_Chicken 
-                && chickenCnt <= 0)
-            {
-                //치킨이 포장되어있지 않음
-                //해당 용기를 사용 가능하다.
-                sprite.spriteImg.sprite = sprite.canUseSprite;
-            }
-            else if (kitchenMgr.dragState == DragState.Hot_Spicy
-                && chickenCnt > 0 && (source0 == ChickenSpicy.None || source1 == ChickenSpicy.None))
-            {
-                //치킨이 들어있음
-                //치킨 소스 사용 가능
-                sprite.spriteImg.sprite = sprite.canUseSprite;
-            }
-            else
-            {
-                //치킨 포장박스를 사용 중이다.
-                sprite.spriteImg.sprite = sprite.normalSprite;
-            }
-        }
-        else
-        {
-            //마우스를 밖으로 내보내면 이펙트 비활성화
-            sprite.spriteImg.sprite = sprite.normalSprite;
-        }
     }
 
     public bool PackCkicken(int pChickenCnt, ChickenState pChickenState)
@@ -173,6 +191,13 @@ public class ChickenPack : Mgr
             smoke.gameObject.SetActive(true);
         }
 
+        foreach (ScrollObj sObj in scrollObj)
+        {
+            sObj.isRun = false;
+        }
+
+        image.sprite = sprite.normalSprite;
+
         return true;
     }
 
@@ -194,12 +219,18 @@ public class ChickenPack : Mgr
         {
             soundMgr.PlaySE(Sound.Put_SE);
             source0 = spicy;
+
+            image.sprite = sprite.normalSprite;
+
             return true;
         }
         if (source1 == ChickenSpicy.None)
         {
             soundMgr.PlaySE(Sound.Put_SE);
             source1 = spicy;
+
+            image.sprite = sprite.normalSprite;
+
             return true;
         }
 
@@ -260,6 +291,11 @@ public class ChickenPack : Mgr
         System.Array.ForEach(hotChicken.chickenObj, (x) => x.gameObject.SetActive(false));
         normalChicken.bottomSource.gameObject.SetActive(false);
         hotChicken.bottomSource.gameObject.SetActive(false);
+
+        foreach (ScrollObj sObj in scrollObj)
+        {
+            sObj.isRun = true;
+        }
 
         smoke.gameObject.SetActive(false);
     }

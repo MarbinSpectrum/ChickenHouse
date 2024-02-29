@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ChickenStrainter : Mgr
 {
@@ -16,17 +17,52 @@ public class ChickenStrainter : Mgr
     public struct SPITE_IMG
     {
         //오브젝트 스프라이트 이미지
-        public SpriteRenderer   spriteImg;
         public Sprite           normalSprite;
         public Sprite           canUseSprite;
     }
-    [SerializeField] private SPITE_IMG sprite;
-
+    [SerializeField] private SPITE_IMG      sprite;
+    [SerializeField] private Image          image;
     [SerializeField] private Animation[]    chickenAni;
+    [SerializeField] private ScrollObj[]    scrollObj;
     [SerializeField] private GameObject     obj;
+    [SerializeField] private TutoObj        tutoObj;
 
-    private void OnMouseDrag()
+    public void OnMouseEnter()
     {
+        KitchenMgr kitchenMgr = KitchenMgr.Instance;
+        if (kitchenMgr.dragState == DragState.Flour && chickenCnt < MAX_CHICKEN_SLOT)
+        {
+            //치킨을 드래그해서 가져왔으며
+            //슬롯이 비어져있다.
+            image.sprite = sprite.canUseSprite;
+        }
+        else
+        {
+            //나머지 상태면 이미지가 보이지 않는다.
+            image.sprite = sprite.normalSprite;
+        }
+        kitchenMgr.chickenStrainter = this;
+        kitchenMgr.mouseArea = DragArea.Chicken_Strainter;
+    }
+
+    public void OnMouseExit()
+    {
+        image.sprite = sprite.normalSprite;
+
+        KitchenMgr kitchenMgr = KitchenMgr.Instance;
+        kitchenMgr.chickenStrainter = null;
+        kitchenMgr.mouseArea = DragArea.None;
+    }
+
+    public void OnMouseDrag()
+    {
+        if (tutoMgr.tutoComplete == false && tutoMgr.nowTuto != Tutorial.Tuto_4)
+        {
+            //튜토리얼이 아직 완료안된듯
+            //혹시모르니 튜토리얼 타이밍때만 작동하도록 막아놓자
+            return;
+        }
+
         if (isRun == false)
             return;
 
@@ -44,8 +80,15 @@ public class ChickenStrainter : Mgr
         }
     }
 
-    private void OnMouseUp()
+    public void OnMouseUp()
     {
+        if (tutoMgr.tutoComplete == false && tutoMgr.nowTuto != Tutorial.Tuto_4)
+        {
+            //튜토리얼이 아직 완료안된듯
+            //혹시모르니 튜토리얼 타이밍때만 작동하도록 막아놓자
+            return;
+        }
+
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
 
         if (kitchenMgr.dragState != DragState.Chicken_Strainter)
@@ -59,7 +102,7 @@ public class ChickenStrainter : Mgr
         if (kitchenMgr.mouseArea == DragArea.Oil_Zone)
         {
             //치킨 튀기기 시작
-            if (kitchenMgr.oilZone.Cook_Start(chickenCnt))
+            if (kitchenMgr.oilZone.Cook_Start(chickenCnt,this))
             {
                 kitchenMgr.ui.takeOut.ChickenStrainter_SetData(kitchenMgr.oilZone, this);
 
@@ -75,40 +118,6 @@ public class ChickenStrainter : Mgr
         obj.gameObject.SetActive(true);
     }
 
-    private void Update()
-    {
-        UpdateChickenTray();
-    }
-
-    private void UpdateChickenTray()
-    {
-        if (isRun == false)
-            return;
-
-        KitchenMgr kitchenMgr = KitchenMgr.Instance;
-        if (kitchenMgr.mouseArea == DragArea.Chicken_Strainter &&
-            (kitchenMgr.chickenStrainter != null && kitchenMgr.chickenStrainter == this))
-        {
-            if (kitchenMgr.dragState == DragState.Flour &&
-                    chickenCnt < MAX_CHICKEN_SLOT)
-            {
-                //치킨을 드래그해서 가져왔으며
-                //슬롯이 비어져있다.
-                sprite.spriteImg.sprite = sprite.canUseSprite;
-            }
-            else
-            {
-                //나머지 상태면 이미지가 보이지 않는다.
-                sprite.spriteImg.sprite = sprite.normalSprite;
-            }
-        }
-        else
-        {
-            //마우스를 밖으로 내보내면 이펙트 비활성화
-            sprite.spriteImg.sprite = sprite.normalSprite;
-        }
-    }
-
     public bool AddChicken()
     {
         if (isRun == false)
@@ -119,8 +128,9 @@ public class ChickenStrainter : Mgr
 
         //기름 건지에 올려져있는 닭 증가
         chickenCnt++;
+        image.sprite = sprite.normalSprite;
 
-        for(int i = 0; i < chickenAni.Length; i++)
+        for (int i = 0; i < chickenAni.Length; i++)
         {
             if(i < chickenCnt)
                 chickenAni[i].gameObject.SetActive(true);
@@ -134,6 +144,21 @@ public class ChickenStrainter : Mgr
             chickenAni[chickenCnt - 1].Play("ToChickenStrainter");
         }
 
+        if (chickenCnt == MAX_CHICKEN_SLOT)
+        {
+            foreach (ScrollObj sObj in scrollObj)
+            {
+                sObj.isRun = false;
+            }
+
+            if (tutoMgr.tutoComplete == false)
+            {
+                //튜토리얼을 진행안한듯?
+                //튜토리얼로 진입
+                tutoObj.PlayTuto();
+            }
+        }
+
         return true;
     }
 
@@ -142,6 +167,12 @@ public class ChickenStrainter : Mgr
         //트레이에 올려져있는 닭 감소
         if (chickenCnt <= 0)
             return false;
+
+        foreach(ScrollObj sObj in scrollObj)
+        {
+            sObj.isRun = true;
+        }
+
         chickenCnt--;
         chickenAni[chickenCnt].gameObject.SetActive(false);
         return true;
@@ -154,5 +185,10 @@ public class ChickenStrainter : Mgr
         Array.ForEach(chickenAni, x => x.gameObject.SetActive(false));
         isRun = true;
         obj.gameObject.SetActive(true);
+
+        foreach (ScrollObj sObj in scrollObj)
+        {
+            sObj.isRun = true;
+        }
     }
 }

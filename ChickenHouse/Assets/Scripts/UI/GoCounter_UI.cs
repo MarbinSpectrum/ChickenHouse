@@ -8,11 +8,11 @@ public class GoCounter_UI : Mgr
 {
     [SerializeField] private Animator   animator;
     [SerializeField] private Button     btn;
-    [SerializeField] private TableChickenSlot   tableChicken;
+    [SerializeField] private ChickenPack        tableChicken;
     [SerializeField] private TableDrinkSlot     tableDrinkSlot;
     [SerializeField] private TablePickleSlot    tablePickleSlot;
     [SerializeField] private Transform followTrans;
-    
+    [SerializeField] private TutoObj tutoObj;
     private RectTransform   rect        = null;
 
     private bool canUse = false;
@@ -47,7 +47,7 @@ public class GoCounter_UI : Mgr
         rect.sizeDelta = new Vector2(width, height);
         SafeArea.SetSafeArea(rect);
 
-        rect.anchoredPosition = new Vector2(42, 3);
+        //rect.anchoredPosition = new Vector2(-3.6f, 3);
         btn.GetComponent<RectTransform>().anchoredPosition = Vector3.zero;
     }
 
@@ -69,6 +69,11 @@ public class GoCounter_UI : Mgr
 
     private void GoCounter()
     {
+        if(tutoMgr.tutoComplete == false)
+        {
+            tutoObj.CloseTuto();
+        }
+
         //카운터로 화면 전환
         if (canUse == false)
             return;

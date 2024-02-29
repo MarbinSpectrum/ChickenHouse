@@ -1,50 +1,72 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TableDrinkSlot : Mgr
 {
     /** 음료가 올려졌는지 여부 **/
     public bool hasDrink { get; private set; }
 
-    [SerializeField] private SpriteRenderer drinkImg;
-    [SerializeField] private GameObject     slotUI;
+    [SerializeField] private TablePickleSlot    pickleSlot;
+    [SerializeField] private Image              drinkImg;
+    [SerializeField] private GameObject         slotUI;
+    [SerializeField] private TutoObj            tutoObj;
+    [SerializeField] private ScrollObj          scrollObj;
 
-    private void OnMouseDown()
+    public void OnMouseEnter()
     {
-        //올려져있는 음료를 제거할때 사용
-        if (hasDrink == false)
-            return;
-        hasDrink = false;
-    }
+        KitchenMgr kitchenMgr = KitchenMgr.Instance;
+        kitchenMgr.mouseArea = DragArea.Drink_Slot;
+        kitchenMgr.drinkSlot = this;
 
-    private void Update()
-    {
-        UpdateDrinkSlot();
-    }
-
-    private void UpdateDrinkSlot()
-    {
         if (hasDrink)
         {
             //음료가 이미 놓여있음
-            drinkImg.color = new Color(1, 1, 1, 1);
-            slotUI.gameObject.SetActive(false);
             return;
         }
-        KitchenMgr kitchenMgr = KitchenMgr.Instance;
+
         if (kitchenMgr.dragState == DragState.Cola)
         {
             //음료를 놓을수있는 상태이긴하다.
             drinkImg.color = new Color(1, 1, 1, 0.5f);
             slotUI.gameObject.SetActive(true);
         }
-        else
+    }
+
+    public void OnMouseExit()
+    {
+        KitchenMgr kitchenMgr = KitchenMgr.Instance;
+        kitchenMgr.mouseArea = DragArea.None;
+        kitchenMgr.drinkSlot = null;
+
+        if (hasDrink)
         {
-            //음료를 밖으로 내보내면 이펙트 비활성화
-            drinkImg.color = new Color(0, 0, 0, 0);
-            slotUI.gameObject.SetActive(true);
+            //음료가 이미 놓여있음
+            return;
         }
+        drinkImg.color = new Color(0, 0, 0, 0);
+        slotUI.gameObject.SetActive(true);
+    }
+
+    public void OnMouseDown()
+    {
+        if (tutoMgr.tutoComplete == false)
+        {
+            //튜토리얼에서는 제거가 되지않음
+            return;
+        }
+
+        //올려져있는 음료를 제거할때 사용
+        if (hasDrink == false)
+            return;
+
+        drinkImg.color = new Color(0, 0, 0, 0);
+        slotUI.gameObject.SetActive(true);
+
+        hasDrink = false;
+
+        scrollObj.isRun = true;
     }
 
     public bool Put_Drink()
@@ -56,12 +78,32 @@ public class TableDrinkSlot : Mgr
         }
 
         soundMgr.PlaySE(Sound.Put_SE);
+
+        if (tutoMgr.tutoComplete == false && tutoMgr.nowTuto == Tutorial.Tuto_6 && pickleSlot.hasPickle)
+        {
+            tutoObj.PlayTuto();
+
+            KitchenMgr kitchenMgr = KitchenMgr.Instance;
+            kitchenMgr.ui.goCounter.OpenBtn();
+        }
+
+        drinkImg.color = new Color(1, 1, 1, 1);
+        slotUI.gameObject.SetActive(false);
+
         hasDrink = true;
+
+        scrollObj.isRun = false;
+
         return true;
     }
 
     public void Init()
     {
+        drinkImg.color = new Color(0, 0, 0, 0);
+        slotUI.gameObject.SetActive(true);
+
         hasDrink = false;
+
+        scrollObj.isRun = true;
     }
 }

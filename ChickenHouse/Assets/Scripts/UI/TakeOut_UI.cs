@@ -9,9 +9,16 @@ public class TakeOut_UI : Mgr
     private Oil_Zone                    oilZone;
     private ChickenStrainter            chickenStrainter;
 
-    private void Awake()
+    public void OnMouseEnter()
     {
-        //SafeArea.SetSafeArea(GetComponent<RectTransform>());
+        KitchenMgr kitchenMgr = KitchenMgr.Instance;
+        kitchenMgr.mouseArea = DragArea.Trash_Btn;
+    }
+
+    public void OnMouseExit()
+    {
+        KitchenMgr kitchenMgr = KitchenMgr.Instance;
+        kitchenMgr.mouseArea = DragArea.None;
     }
 
     public void OpenBtn()

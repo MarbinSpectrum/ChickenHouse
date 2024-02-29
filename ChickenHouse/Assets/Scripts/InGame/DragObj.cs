@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DragObj : Mgr
 {
@@ -13,7 +14,7 @@ public class DragObj : Mgr
         public Sprite flour;
     }
     [SerializeField] private CHICKEN_SPRITE chickenSprite;
-    [SerializeField] private SpriteRenderer chickenImg;
+    [SerializeField] private Image chickenImg;
 
     /** 치킨 소스 **/
     [SerializeField] private GameObject     chickenSource;

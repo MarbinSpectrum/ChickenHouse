@@ -1,50 +1,71 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TablePickleSlot : Mgr
 {
     /** 피클이 올려졌는지 여부 **/
     public bool hasPickle { get; private set; }
 
-    [SerializeField] private SpriteRenderer pickleImg;
+    [SerializeField] private TableDrinkSlot drinkSlot;
+    [SerializeField] private Image          pickleImg;
     [SerializeField] private GameObject     slotUI;
+    [SerializeField] private TutoObj        tutoObj;
+    [SerializeField] private ScrollObj      scrollObj;
 
-    private void OnMouseDown()
+    public void OnMouseEnter()
     {
-        //올려져있는 피클을 제거할때 사용
-        if (hasPickle == false)
-            return;
-        hasPickle = false;
-    }
+        KitchenMgr kitchenMgr = KitchenMgr.Instance;
+        kitchenMgr.mouseArea = DragArea.Pickle_Slot;
+        kitchenMgr.pickleSlot = this;
 
-    private void Update()
-    {
-        UpdatePickleSlot();
-    }
-
-    private void UpdatePickleSlot()
-    {
         if (hasPickle)
         {
-            //치킨무가 이미 놓여있음
-            pickleImg.color = new Color(1, 1, 1, 1);
-            slotUI.gameObject.SetActive(false);
+            //음료가 이미 놓여있음
             return;
         }
-        KitchenMgr kitchenMgr = KitchenMgr.Instance;
         if (kitchenMgr.dragState == DragState.Chicken_Pickle)
         {
-            //치킨무를 놓을수있는 상태이긴하다.
+            //음료를 놓을수있는 상태이긴하다.
             pickleImg.color = new Color(1, 1, 1, 0.5f);
             slotUI.gameObject.SetActive(true);
         }
-        else
+    }
+
+    public void OnMouseExit()
+    {
+        KitchenMgr kitchenMgr = KitchenMgr.Instance;
+        kitchenMgr.mouseArea = DragArea.None;
+        kitchenMgr.pickleSlot = null;
+
+        if (hasPickle)
         {
-            //치킨무를 밖으로 내보내면 이펙트 비활성화
-            pickleImg.color = new Color(0, 0, 0, 0);
-            slotUI.gameObject.SetActive(true);
+            //음료가 이미 놓여있음
+            return;
         }
+        pickleImg.color = new Color(0, 0, 0, 0);
+        slotUI.gameObject.SetActive(true);
+    }
+
+    public void OnMouseDown()
+    {
+        if (tutoMgr.tutoComplete == false)
+        {
+            //튜토리얼에서는 제거가 되지않음
+            return;
+        }
+
+        //올려져있는 피클을 제거할때 사용
+        if (hasPickle == false)
+            return;
+
+        pickleImg.color = new Color(0, 0, 0, 0);
+        slotUI.gameObject.SetActive(true);
+
+        hasPickle = false;
+
+        scrollObj.isRun = true;
     }
 
     public bool Put_Pickle()
@@ -56,12 +77,32 @@ public class TablePickleSlot : Mgr
         }
 
         soundMgr.PlaySE(Sound.Put_SE);
+
+        if (tutoMgr.tutoComplete == false && tutoMgr.nowTuto == Tutorial.Tuto_6 && drinkSlot.hasDrink)
+        {
+            tutoObj.PlayTuto();
+
+            KitchenMgr kitchenMgr = KitchenMgr.Instance;
+            kitchenMgr.ui.goCounter.OpenBtn();
+        }
+
+        pickleImg.color = new Color(1, 1, 1, 1);
+        slotUI.gameObject.SetActive(false);
+
         hasPickle = true;
+
+        scrollObj.isRun = false;
+
         return true;
     }
 
     public void Init()
     {
+        pickleImg.color = new Color(0, 0, 0, 0);
+        slotUI.gameObject.SetActive(true);
+
         hasPickle = false;
+
+        scrollObj.isRun = true;
     }
 }

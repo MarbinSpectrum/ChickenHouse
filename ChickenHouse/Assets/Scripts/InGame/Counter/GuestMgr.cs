@@ -184,6 +184,13 @@ public class GuestMgr : Mgr
             CloseTalkBox();
             yield return new WaitForSeconds(0.5f);
 
+            if(tutoMgr.tutoComplete == false)
+            {
+                //튜토리얼 완료
+                tutoMgr.tutoComplete = true;
+                PlayerPrefs.SetInt("TUTO", 1);
+            }
+
             guestObj.LeaveGuest();
             vinylAni.gameObject.SetActive(false);
 

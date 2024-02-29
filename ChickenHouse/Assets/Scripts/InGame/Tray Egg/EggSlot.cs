@@ -1,32 +1,40 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EggSlot : Mgr
 {
-    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private Image          img;
     [SerializeField] private Animation      animation;
-    public  BoxCollider2D                    collider;
+    [SerializeField] private TrayEgg        trayEgg;
+    [SerializeField] private RectTransform  eventBox;
 
     public bool isEmpty;
 
     public void SpawnChicken()
     {
-        spriteRenderer.enabled = true;
-
-        animation.Play("ToEgg");
+        animation.Play("AddChicken");
         isEmpty = false;
+        img.enabled = true;
     }
 
     public void RemoveChicken()
     {
-        spriteRenderer.enabled = false;
-        collider.enabled = false;
+        gameObject.SetActive(false);
         isEmpty = true;
+        img.enabled = false;
     }
 
-    private void OnMouseDrag()
+    public void OnMouseDrag()
     {
+        if (tutoMgr.tutoComplete == false && tutoMgr.nowTuto != Tutorial.Tuto_2)
+        {
+            //튜토리얼이 아직 완료안된듯
+            //혹시모르니 튜토리얼 타이밍때만 작동하도록 막아놓자
+            return;
+        }
+
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
         if (kitchenMgr.dragState != DragState.None)
         {
@@ -39,11 +47,18 @@ public class EggSlot : Mgr
             return;
         }
         kitchenMgr.dragState = DragState.Egg;
-        spriteRenderer.enabled = false;
+        img.enabled = false;
     }
 
-    private void OnMouseUp()
+    public void OnMouseUp()
     {
+        if (tutoMgr.tutoComplete == false && tutoMgr.nowTuto != Tutorial.Tuto_2)
+        {
+            //튜토리얼이 아직 완료안된듯
+            //혹시모르니 튜토리얼 타이밍때만 작동하도록 막아놓자
+            return;
+        }
+
         //손을때면 치킨이 떨어짐
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
 
@@ -54,7 +69,7 @@ public class EggSlot : Mgr
             if (kitchenMgr.trayFlour.AddChicken())
             {
                 RemoveChicken();
-                kitchenMgr.trayEgg.RemoveChicken();
+                trayEgg.RemoveChicken();
                 kitchenMgr.dragState = DragState.None;
                 return;
             }
@@ -62,7 +77,12 @@ public class EggSlot : Mgr
 
         //손을때면 치킨이 떨어짐
         kitchenMgr.dragState = DragState.None;
-        spriteRenderer.enabled = true;
-        collider.enabled = true;
+        img.enabled = true;
+    }
+
+    public void SetRect(Vector2 pos ,Vector2 size)
+    {
+        eventBox.anchoredPosition = pos;
+        eventBox.sizeDelta = size;
     }
 }

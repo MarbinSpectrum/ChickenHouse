@@ -1,55 +1,54 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TrayEgg : Mgr
 {
     private const int MAX_CHICKEN_SLOT = 4;
+    private const float DEFAULT_SLOT_WIDTH = 9.5f;
+    private const float DEFAULT_SLOT_HEIGHT = 3.5f;
 
-    /**´ß °¹¼ö **/
+    /**ë‹­ ê°¯ìˆ˜ **/
     private int chickenCnt;
 
     [System.Serializable]
     public struct SPITE_IMG
     {
-        //¿ÀºêÁ§Æ® ½ºÇÁ¶óÀÌÆ® ÀÌ¹ÌÁö
-        public SpriteRenderer   spriteImg;
+        //ì˜¤ë¸Œì íŠ¸ ìŠ¤í”„ë¼ì´íŠ¸ ì´ë¯¸ì§€
         public Sprite           normalSprite;
         public Sprite           canUseSprite;
     }
-    [SerializeField] private SPITE_IMG sprite;
+    [SerializeField] private SPITE_IMG  sprite;
+    [SerializeField] private Image      image;
+    [SerializeField] private EggSlot[]  eggSlots;
+    [SerializeField] private TutoObj    tutoObj;
 
-    [SerializeField] private EggSlot[] eggSlots;
-
-    private void Update()
-    {
-        UpdateChickenTray();
-    }
-
-    private void UpdateChickenTray()
+    public void OnMouseEnter()
     {
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
-        if (kitchenMgr.mouseArea == DragArea.Tray_Egg &&
-            (kitchenMgr.trayEgg != null && kitchenMgr.trayEgg == this))
+        if (kitchenMgr.dragState == DragState.Normal && chickenCnt < MAX_CHICKEN_SLOT)
         {
-            if (kitchenMgr.dragState == DragState.Normal &&
-                    chickenCnt < MAX_CHICKEN_SLOT)
-            {
-                //Ä¡Å²À» µå·¡±×ÇØ¼­ °¡Á®¿ÔÀ¸¸ç
-                //½½·ÔÀÌ ºñ¾îÁ®ÀÖ´Ù.
-                sprite.spriteImg.sprite = sprite.canUseSprite;
-            }
-            else
-            {
-                //³ª¸ÓÁö »óÅÂ¸é ÀÌ¹ÌÁö°¡ º¸ÀÌÁö ¾Ê´Â´Ù.
-                sprite.spriteImg.sprite = sprite.normalSprite;
-            }
+            //ì¹˜í‚¨ì„ ë“œë˜ê·¸í•´ì„œ ê°€ì ¸ì™”ìœ¼ë©°
+            //ìŠ¬ë¡¯ì´ ë¹„ì–´ì ¸ìˆë‹¤.
+            image.sprite = sprite.canUseSprite;
         }
         else
         {
-            //¸¶¿ì½º¸¦ ¹ÛÀ¸·Î ³»º¸³»¸é ÀÌÆåÆ® ºñÈ°¼ºÈ­
-            sprite.spriteImg.sprite = sprite.normalSprite;
+            //ë‚˜ë¨¸ì§€ ìƒíƒœë©´ ì´ë¯¸ì§€ê°€ ë³´ì´ì§€ ì•ŠëŠ”ë‹¤.
+            image.sprite = sprite.normalSprite;
         }
+        kitchenMgr.trayEgg = this;
+        kitchenMgr.mouseArea = DragArea.Tray_Egg;
+    }
+
+    public void OnMouseExit()
+    {
+        image.sprite = sprite.normalSprite;
+
+        KitchenMgr kitchenMgr = KitchenMgr.Instance;
+        kitchenMgr.trayEgg = null;
+        kitchenMgr.mouseArea = DragArea.None;
     }
 
     public bool AddChicken()
@@ -57,18 +56,32 @@ public class TrayEgg : Mgr
         if (chickenCnt >= MAX_CHICKEN_SLOT)
             return false;
 
-        //Æ®·¹ÀÌ¿¡ ¿Ã·ÁÁ®ÀÖ´Â ´ß Áõ°¡
+        //íŠ¸ë ˆì´ì— ì˜¬ë ¤ì ¸ìˆëŠ” ë‹­ ì¦ê°€
         chickenCnt++;
         soundMgr.PlaySE(Sound.Put_SE);
 
-        foreach(EggSlot eggSlot in eggSlots)
+        image.sprite = sprite.normalSprite;
+
+        foreach (EggSlot eggSlot in eggSlots)
         {
             if(eggSlot.isEmpty)
             {
-                //ºó½½·Ô¿¡ ÇØ´çÇÏ´Â °÷¿¡ ´ßÀ» ³Ö´Â´Ù.
+                //ë¹ˆìŠ¬ë¡¯ì— í•´ë‹¹í•˜ëŠ” ê³³ì— ë‹­ì„ ë„£ëŠ”ë‹¤.
+                eggSlot.gameObject.SetActive(true);
                 eggSlot.isEmpty = false;
                 eggSlot.SpawnChicken();
                 RefreshSlotCollider();
+
+                if (chickenCnt == MAX_CHICKEN_SLOT)
+                {
+                    if (tutoMgr.tutoComplete == false)
+                    {
+                        //íŠœí† ë¦¬ì–¼ì„ ì§„í–‰ì•ˆí•œë“¯?
+                        //íŠœí† ë¦¬ì–¼ë¡œ ì§„ì…
+                        tutoObj.PlayTuto();
+                    }
+                }
+
                 return true;
             }
         }
@@ -78,7 +91,7 @@ public class TrayEgg : Mgr
 
     public bool RemoveChicken()
     {
-        //Æ®·¹ÀÌ¿¡ ¿Ã·ÁÁ®ÀÖ´Â ´ß °¨¼Ò
+        //íŠ¸ë ˆì´ì— ì˜¬ë ¤ì ¸ìˆëŠ” ë‹­ ê°ì†Œ
         if (chickenCnt <= 0)
             return false;
         chickenCnt--;
@@ -88,8 +101,8 @@ public class TrayEgg : Mgr
 
     public void RefreshSlotCollider()
     {
-        //½½·Ô Äİ¶óÀÌ´õ ¼öÁ¤ÇÏ´Â ºÎºĞÀÓ
-        //Æ®·¹ÀÌ ÀüÃ¼¿¡¼­ µå·¡±× °¡´ÉÇÒ¼öÀÖµµ·Ï ¼öÁ¤ÇÔ
+        //ìŠ¬ë¡¯ ì½œë¼ì´ë” ìˆ˜ì •í•˜ëŠ” ë¶€ë¶„ì„
+        //íŠ¸ë ˆì´ ì „ì²´ì—ì„œ ë“œë˜ê·¸ ê°€ëŠ¥í• ìˆ˜ìˆë„ë¡ ìˆ˜ì •í•¨
 
         bool frontCheck = false;
         for (int i = 0; i < 4; i++)
@@ -117,11 +130,9 @@ public class TrayEgg : Mgr
                 tailValue++;
             }
 
-            Vector2 newOffset = new Vector2(0, 
-                (headValue * (headValue + 1) / 2 - tailValue * (tailValue + 1) / 2) / (headValue + 1 + tailValue)) * 0.35f;
-            Vector2 newSize = new Vector2(1, (headValue + 1 + tailValue) * 0.37f);
-            eggSlots[i].collider.offset = newOffset;
-            eggSlots[i].collider.size = newSize;
+            Vector2 newPos = new Vector2(0, (headValue * (headValue + 1) / 2 - tailValue * (tailValue + 1) / 2) / (headValue + 1 + tailValue)) * DEFAULT_SLOT_HEIGHT;
+            Vector2 newSize = new Vector2(DEFAULT_SLOT_WIDTH, (headValue + 1 + tailValue) * DEFAULT_SLOT_HEIGHT);
+            eggSlots[i].SetRect(newPos, newSize);
         }
     }
 }

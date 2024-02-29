@@ -12,6 +12,9 @@ public class Title_UI : Mgr
     {
         saveSlotBtn.onClick.RemoveAllListeners();
         saveSlotBtn.onClick.AddListener(() => LoadSaveSlot());
+
+        soundMgr.PlayBGM(Sound.Title_BG);
+
     }
 
     public void LoadSaveSlot()

@@ -6,8 +6,14 @@ public class ChickenHotSpicy : Mgr
 {
     [SerializeField] private GameObject obj;
 
-    private void OnMouseDrag()
+    public void OnMouseDrag()
     {
+        if (tutoMgr.tutoComplete == false)
+        {
+            //튜토리얼이 아직 완료안된듯 막아놓자
+            return;
+        }
+
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
         if (kitchenMgr.dragState != DragState.None)
         {
@@ -20,11 +26,18 @@ public class ChickenHotSpicy : Mgr
             return;
         }
         kitchenMgr.dragState = DragState.Hot_Spicy;
+
         obj.gameObject.SetActive(false);
     }
 
-    private void OnMouseUp()
+    public void OnMouseUp()
     {
+        if (tutoMgr.tutoComplete == false)
+        {
+            //튜토리얼이 아직 완료안된듯 막아놓자
+            return;
+        }
+
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
         if (kitchenMgr.dragState != DragState.Hot_Spicy)
         {
@@ -34,6 +47,7 @@ public class ChickenHotSpicy : Mgr
 
         //손을때면 치킨소스가 떨어짐
         kitchenMgr.dragState = DragState.None;
+
         if (kitchenMgr.mouseArea == DragArea.Chicken_Pack)
         {
             //치킨 양념 넣기

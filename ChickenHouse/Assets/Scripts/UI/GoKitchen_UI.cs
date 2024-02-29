@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GoKitchen_UI : MonoBehaviour
+public class GoKitchen_UI : Mgr
 {
-    [SerializeField] private Animator animator;
-    [SerializeField] private Button btn;
+    [SerializeField] private Animator   animator;
+    [SerializeField] private Button     btn;
+    [SerializeField] private TutoObj    tutoObj;
 
     private bool canUse = false;
 
@@ -42,9 +43,16 @@ public class GoKitchen_UI : MonoBehaviour
         kitchenMgr.cameraObj.ChangeLook(LookArea.Kitchen, () =>
         {
             kitchenMgr.cameraObj.lookArea = LookArea.Kitchen;
+            if(tutoMgr.tutoComplete == false)
+            {
+                //튜토리얼을 진행안한듯?
+                //튜토리얼로 진입
+                tutoObj.PlayTuto();
+            }
+
         });
 
         GuestMgr guestMgr = GuestMgr.Instance;
         guestMgr.CloseTalkBox();
-    }
+    } 
 }

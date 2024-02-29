@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [ExecuteInEditMode]
 public class Oil_Zone_Shader : Mgr
 {
-    public                   SpriteRenderer spriteRenderer;
+    [SerializeField] private Image          img;
+    [SerializeField] private Material       mat;
     [SerializeField] private Sprite         readyChicken;       //조리중인 치킨
     [SerializeField] private Sprite         goodChicken;        //잘만든 치킨
     [SerializeField] private Sprite         badChicken;         //태운 치킨
@@ -18,12 +20,13 @@ public class Oil_Zone_Shader : Mgr
 
     [SerializeField, Range(0, 1)] private float lerpValue;
 
-    private MaterialPropertyBlock mpb;
+    private Material nowMat = null;
 
     private void Update()
     {
         if (LerpValue == lerpValue && Mode == mode)
             return;
+
         LerpValue   = lerpValue;
         Mode        = mode;
 
@@ -32,30 +35,33 @@ public class Oil_Zone_Shader : Mgr
 
     public void Set_Shader(bool pMode,float v)
     {
+        if (img == null || mat == null)
+            return;
+        if (nowMat == null)
+        {
+            nowMat = Instantiate(mat);
+            img.material = nowMat;
+        }
+
         lerpValue = v;
         mode      = pMode;
         LerpValue   = lerpValue;
         Mode        = mode;
 
         //쉐이더 값 설정
-
-        mpb ??= new MaterialPropertyBlock();
-
         if (mode)
         {
-            spriteRenderer.sprite = readyChicken;
-            mpb.SetTexture("_MainTex", readyChicken.texture);
-            mpb.SetTexture("_SubTex", goodChicken.texture);
+            img.sprite = readyChicken;
+            img.material.SetTexture("_MainTex", readyChicken.texture);
+            img.material.SetTexture("_SubTex", goodChicken.texture);
         }
         else
         {
-            spriteRenderer.sprite = goodChicken;
-            mpb.SetTexture("_MainTex", goodChicken.texture);
-            mpb.SetTexture("_SubTex", badChicken.texture);
+            img.sprite = goodChicken;
+            img.material.SetTexture("_MainTex", goodChicken.texture);
+            img.material.SetTexture("_SubTex", badChicken.texture);
         }
 
-        mpb.SetFloat("_LerpValue", lerpValue);
-
-        spriteRenderer.SetPropertyBlock(mpb);
+        img.material.SetFloat("_LerpValue", lerpValue);
     }
 }
