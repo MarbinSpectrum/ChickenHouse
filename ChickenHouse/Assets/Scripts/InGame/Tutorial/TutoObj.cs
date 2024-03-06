@@ -24,19 +24,30 @@ public class TutoObj : Mgr
         kitchenMgr.kitchenRect.enabled = false;
 
         RectTransform   kitchenRect = kitchenMgr.kitchenRect.content;
-        float           distance    = Mathf.Abs(kitchenRect.transform.position.x - tutoPos.position.x);
 
-        yield return new WaitForSeconds(delay);
-
-        while (distance > 0.1f)
+        if (tutoPos != null)
         {
-            float newX = Mathf.Lerp(kitchenRect.transform.position.x, tutoPos.position.x, 0.1f);
-            kitchenRect.transform.position = new Vector3(newX, kitchenRect.transform.position.y, kitchenRect.transform.position.z);
-            distance = Mathf.Abs(kitchenRect.transform.position.x - tutoPos.position.x);
-            yield return null;
+            float distance = Mathf.Abs(kitchenRect.transform.position.x - tutoPos.position.x);
+
+            yield return new WaitForSeconds(delay);
+
+            while (distance > 0.1f)
+            {
+                float newX = Mathf.Lerp(kitchenRect.transform.position.x, tutoPos.position.x, 0.1f);
+                kitchenRect.transform.position = new Vector3(newX, kitchenRect.transform.position.y, kitchenRect.transform.position.z);
+                distance = Mathf.Abs(kitchenRect.transform.position.x - tutoPos.position.x);
+                yield return null;
+            }
+
+
+            kitchenRect.transform.position = new Vector3(tutoPos.position.x, kitchenRect.transform.position.y, kitchenRect.transform.position.z);
+        }
+        else
+        {
+            yield return new WaitForSeconds(delay);
         }
 
-        kitchenRect.transform.position = new Vector3(tutoPos.position.x, kitchenRect.transform.position.y, kitchenRect.transform.position.z);
+
         tutoMgr.ShowText(tutoType);
         tutoObj.SetActive(true);
 

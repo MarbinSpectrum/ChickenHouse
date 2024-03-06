@@ -6,6 +6,6 @@ public class Logo : Mgr
 {
     private void Start()
     {
-        sceneMgr.SceneLoad(Scene.TITLE);
+        sceneMgr.SceneLoad(Scene.TITLE, SceneChangeAni.CIRCLE);
     }
 }

@@ -5,22 +5,24 @@ using UnityEngine.SceneManagement;
 
 public class SceneMgr : AwakeSingleton<SceneMgr>
 {
-    [SerializeField] private Animator animator;
+    [SerializeField] private Dictionary<SceneChangeAni,Animator> changeList = new Dictionary<SceneChangeAni, Animator>();
 
-    public void SceneLoad(Scene scene)
+    public void SceneLoad(Scene scene, SceneChangeAni changeAni = SceneChangeAni.NOT)
     {
-        StartCoroutine(RunSceneLoad(scene));
+        StartCoroutine(RunSceneLoad(scene, changeAni));
     }
 
-    private IEnumerator RunSceneLoad(Scene scene)
+    private IEnumerator RunSceneLoad(Scene scene, SceneChangeAni changeAni)
     {
         //씬이동 코루틴
-        animator.Play("On");
+        if(changeList.ContainsKey(changeAni))
+            changeList[changeAni].Play("On");
 
         yield return new WaitForSeconds(1f);
 
         SceneManager.LoadScene((int)scene);
 
-        animator.Play("Off");
+        if (changeList.ContainsKey(changeAni))
+            changeList[changeAni].Play("Off");
     }
 }

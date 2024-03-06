@@ -228,6 +228,14 @@ public enum Scene
     INGAME  = 2,
 }
 
+public enum SceneChangeAni
+{
+    NOT     = 0,
+    FADE    = 1,
+    CIRCLE  = 2,
+}
+
+
 public enum Language
 {
     Korea   = 100,

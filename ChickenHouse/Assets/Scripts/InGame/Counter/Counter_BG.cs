@@ -12,7 +12,6 @@ public class Counter_BG : Mgr
     [System.Serializable] public struct BG_Lerp
     {
         public SpriteRenderer bgSprite;
-        public SpriteRenderer deepSprite;
         public SpriteRenderer lightSprite;
         public Gradient bgGradient;
         public Gradient deepGradient;
@@ -54,6 +53,5 @@ public class Counter_BG : Mgr
 
         bgLerp.lightSprite.color = bgLerp.lightGradient.Evaluate(lerpValue);
         bgLerp.bgSprite.color = bgLerp.bgGradient.Evaluate(lerpValue);
-        bgLerp.deepSprite.color = bgLerp.deepGradient.Evaluate(lerpValue);
     }
 }
