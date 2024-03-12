@@ -24,6 +24,12 @@ CAT_ORDER_3	{0} \n{1} 그리고 {2} 주세요.	{0}, {1}, {2}
 CAT_THANK_YOU	고마워요.	Thank you
 CAT_ANGRY	이게 맞아요?	Really?
 DAY	{0} 일차	Day {0}
+DAY_END	{0} 일차 종료	Day {0}
+STORE_REVENUE	가게 매출	Store Revenue
+CHAIN_STORE_REVENUE	체인점 매출	Chain Store Revenue
+RENT	임대료	Rent
+SUPPLIES_UESD	재료 값	Supplies Uesd
+TOTAL_PROFIT	순 수익	Total Profit
 TUTO_1	먼저 닭 4개를 계란물에 넣어봅시다.	먼저 닭 4개를 계란물에 넣어봅시다.
 TUTO_2	그리고 닭을 밀가루 쪽으로 옮겨주세요.	그리고 닭을 밀가루 쪽으로 옮겨주세요.
 TUTO_3	닭 모두를 치킨 건지개에 넣어 주세요.	닭 모두를 치킨 건지개에 넣어 주세요.

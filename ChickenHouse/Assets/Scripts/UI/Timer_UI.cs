@@ -51,4 +51,11 @@ public class Timer_UI : Mgr
         clockHand.transform.eulerAngles = new Vector3(0, 0, -fillAmount * 360);
     }
 
+    public bool IsEndTime()
+    {
+        //종료시간인가?
+        return time >= MAX_TIME; 
+    }
+
+
 }

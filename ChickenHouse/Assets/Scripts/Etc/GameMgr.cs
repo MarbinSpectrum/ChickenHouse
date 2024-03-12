@@ -7,6 +7,12 @@ public class GameMgr : AwakeSingleton<GameMgr>
     public int selectSaveSlot;
     public PlayData playData = null;
 
+    /** 오늘 수입 **/
+    public int dayMoney;
+    /** 판매한 치킨 수 **/
+    public int sellChickenCnt;
+
+    //-------------------------------------------------------------------------------------------------------
     protected override void Awake()
     {
         base.Awake();
@@ -14,8 +20,12 @@ public class GameMgr : AwakeSingleton<GameMgr>
         Application.targetFrameRate = 120;
     }
 
+    //-------------------------------------------------------------------------------------------------------
     public void LoadData()
     {
+        dayMoney = 0;
+        sellChickenCnt = 0;
+
         playData = LoadData(selectSaveSlot);
         playData ??= new PlayData();
     }
@@ -30,7 +40,7 @@ public class GameMgr : AwakeSingleton<GameMgr>
         MyLib.Json.DeleteJsonFile(string.Format("PlayData{0}", select));
     }
 
-    public void OnApplicationQuit()
+    public void SaveData()
     {
         if (playData == null)
             return;

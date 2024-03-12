@@ -6,6 +6,8 @@ public class GuestMgr : Mgr
 {
     public static GuestMgr Instance;
 
+    private const float GUEST_DELAY_TIME = 2.0f;
+
     [SerializeField] private Dictionary<Guest, GuestObj> guests;
 
     [SerializeField] private Animator vinylAni;
@@ -21,6 +23,8 @@ public class GuestMgr : Mgr
         public Money_UI     nowMoney;
         /** 시간 및 날짜 표시 **/
         public Timer_UI     timer;
+        /** 날짜 종료 **/
+        public DayEnd_UI    dayEnd;
     }
     public UI ui;
 
@@ -56,12 +60,16 @@ public class GuestMgr : Mgr
     public IEnumerator RunGuestCycle()
     {
         //인게임 코루틴
-
-        bool close = false;
-        while(close == false)
+        while(true)
         {
-            //가게 평점이 높을수록 손님 딜레이가 적어지게할 예정
-            yield return new WaitForSeconds(2f);
+            if(ui.timer.IsEndTime())
+            {
+                //종료시간이라면 탈출
+                break;
+            }
+            
+            //기본 딜레이
+            yield return new WaitForSeconds(GUEST_DELAY_TIME);
 
             //손님을 생성해준다.
             CreateGuest();
@@ -69,6 +77,8 @@ public class GuestMgr : Mgr
             //주문 받는 동안은 대기
             yield return new WaitWhile(() => nowOrder);
         }
+
+        ui.dayEnd.ShowResult();
     }
 
 
@@ -176,8 +186,10 @@ public class GuestMgr : Mgr
                 guestObj.ThankGuest();
             }
 
-            gameMgr.playData.money += 100;
-            ui.nowMoney.SetMoney(gameMgr.playData.money);
+            gameMgr.dayMoney += 300;
+            gameMgr.sellChickenCnt += 1;
+
+            ui.nowMoney.SetMoney(gameMgr.dayMoney);
 
             yield return new WaitForSeconds(3f);
 

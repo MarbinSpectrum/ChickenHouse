@@ -25,6 +25,12 @@ public class Title_UI : Mgr
             PlayData data = gameMgr.LoadData(i);
             playDatas.Add(data);
         }
+
+        gameMgr.selectSaveSlot = 0;
+        sceneMgr.SceneLoad(Scene.INGAME, SceneChangeAni.FADE);
+
+        return;
+
         saveSlotUI.SetSlot_UI(playDatas);
     }
 }

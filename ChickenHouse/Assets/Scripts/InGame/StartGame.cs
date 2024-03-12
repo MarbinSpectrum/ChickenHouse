@@ -11,7 +11,6 @@ public class StartGame : Mgr
         GuestMgr guestMgr = GuestMgr.Instance;
         if(guestMgr != null)
         {
-            guestMgr.ui.nowMoney.SetMoney(gameMgr.playData.money);
             guestMgr.StartGuestCycle();
             soundMgr.PlayBGM(Sound.InGame_BG);
         }

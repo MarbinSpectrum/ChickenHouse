@@ -183,6 +183,22 @@ public enum Upgrade
     MAX
 }
 
+public enum DayEndList
+{
+    /** 없음 **/
+    None                = 0,
+    /** 가게 매출 **/
+    Store_Revenue       = 1,
+    /** 체인점 매출 **/
+    Chain_Store_Revenue = 2,
+    /** 가게 임대료 **/
+    Rent                = 3,
+    /** 재료 값 **/
+    Supplies_Uesd       = 4,
+    /** 순 수익 **/
+    Total_Profit        = 5,
+}
+
 public enum Tutorial
 {
     /** 없음 **/

@@ -82,4 +82,9 @@ public class SoundMgr : AwakeSingleton<SoundMgr>
             bgm.Play();
         }
     }
+
+    public void StopBGM()
+    {
+        bgm.Stop();
+    }
 }
