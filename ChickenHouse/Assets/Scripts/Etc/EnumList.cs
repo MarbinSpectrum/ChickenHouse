@@ -178,9 +178,17 @@ public enum Upgrade
 {
     None                = 0,
 
-    OIL_Zone_Upgrade_0  = 1,
-    
-    MAX
+    /** 기름통 업그레이드 **/
+    OIL_Zone_1  = 100,
+    OIL_Zone_2  = 101,
+    OIL_Zone_3  = 102,
+
+    /** 레시피 업그레이드 **/
+    Recipe_1    = 200,
+
+
+
+    MAX                 = 10000,
 }
 
 public enum DayEndList
@@ -242,6 +250,9 @@ public enum Scene
 
     /** 인게임 **/
     INGAME  = 2,
+
+    /** 가게 업그레이드 **/
+    UPGRADE = 3,
 }
 
 public enum SceneChangeAni

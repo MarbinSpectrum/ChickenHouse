@@ -1,4 +1,6 @@
 Key	Korea	English
+OK	확인	Ok
+CANCLE	OK	Cancle
 GO_KITCHEN	주방으로	Go Kitchen
 GO_COUNTER	카운터로	Go Counter
 TAKE_OUT	버리기	Take\nOut

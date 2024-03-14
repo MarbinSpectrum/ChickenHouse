@@ -8,12 +8,14 @@ public class DayEnd_UI : Mgr
 {
     [SerializeField] private TextMeshProUGUI    title;
     [SerializeField] private RectTransform      baseRect;
+    [SerializeField] private Button             nextBtn;
 
     [SerializeField] private Dictionary<DayEndList, TextMeshProUGUI> nameList = new Dictionary<DayEndList, TextMeshProUGUI>();
 
     [SerializeField] private Dictionary<DayEndList, TextMeshProUGUI> infoList = new Dictionary<DayEndList, TextMeshProUGUI>();
 
     private const int SUPPLIES_VAIUE = 10;
+    private bool goNext = false;
 
     public void ShowResult()
     {
@@ -46,5 +48,17 @@ public class DayEnd_UI : Mgr
         //¼ø ÀÌÀÍ
         LanguageMgr.SetString(nameList[DayEndList.Total_Profit], "TOTAL_PROFIT");
         LanguageMgr.SetText(infoList[DayEndList.Total_Profit], string.Format("{0:N0} $", total));
+
+        nextBtn.onClick.RemoveAllListeners();
+        nextBtn.onClick.AddListener(() => GoNext());
+    }
+
+    private void GoNext()
+    {
+        if (goNext)
+            return;
+        goNext = true;
+
+        sceneMgr.SceneLoad(Scene.UPGRADE, SceneChangeAni.CIRCLE);
     }
 }
