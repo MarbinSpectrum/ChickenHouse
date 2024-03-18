@@ -22,8 +22,6 @@ public class KitchenMgr : Mgr
     /** 치킨 포장 박스 **/
     [System.NonSerialized] public ChickenPack      chickenPack;
 
-    /** 치킨 소스 **/
-    [System.NonSerialized] public ChickenHotSpicy  hotSpicy;
 
     /** 치킨 슬롯 **/
     [System.NonSerialized] public TableChickenSlot chickenSlot;
@@ -33,9 +31,7 @@ public class KitchenMgr : Mgr
     [System.NonSerialized] public TableDrinkSlot   drinkSlot;
 
     /** 마우스 포인터의 위치 **/
-    public DragArea mouseArea;// { get; private set; }
-    /** 마우스 포인터 위치 판단 용 **/
-    private RaycastHit2D[]  raycastHit2D = new RaycastHit2D[20];
+    public DragArea mouseArea;
 
     /** 카메라 오브젝트 **/
     public InGameCamera     cameraObj;
@@ -44,6 +40,35 @@ public class KitchenMgr : Mgr
     /** 주방 Rect **/
     public ScrollRect       kitchenRect;
 
+    [System.Serializable]
+    public struct Spicy
+    {
+        //치킨 소스
+
+        /** 양념 치킨 양념 **/
+        public GameObject hotSpicy;
+        /** 간장 양념 **/
+        public GameObject soySpicy;
+        /** 붉닭 양념 **/
+        public GameObject hellSpicy;
+        /** 프링클 양념 **/
+        public GameObject prinkleSpicy;
+        /** 바베큐 양념 **/
+        public GameObject bbqSpicy;
+    }
+    public Spicy spicy;
+
+    [System.Serializable]
+    public struct Table
+    {
+        //테이블
+
+        /** 표준 테이블 **/
+        public GameObject table0;
+        /** 양념 3개 이상일때 사용되는 테이블 **/
+        public GameObject table1;
+    }
+    public Table table;
 
     [System.Serializable]
     public struct UI
@@ -54,8 +79,6 @@ public class KitchenMgr : Mgr
         public TakeOut_UI   takeOut;
         /** 카운터로 이동하기 버튼 **/
         public GoCounter_UI goCounter;
-
-
     }
     public UI ui;
 
@@ -63,6 +86,7 @@ public class KitchenMgr : Mgr
     {
         SetSingleton();
     }
+
     protected void SetSingleton()
     {
         //싱글톤 선언
@@ -72,101 +96,86 @@ public class KitchenMgr : Mgr
         }
     }
 
-    protected void Update()
+    public void Init()
     {
-        //UpdateCheckMouseArea();
-    }
-
-    private void UpdateCheckMouseArea()
-    {
-        //현재 마우스 위치가 어디있는지 검사
-
-        Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-        int cnt = Physics2D.RaycastNonAlloc(pos, Vector2.zero, raycastHit2D);
-        if (cnt == 0)
+        int spicyCnt = 0;
+        spicy.soySpicy.gameObject.SetActive(false);
+        spicy.hellSpicy.gameObject.SetActive(false);
+        spicy.prinkleSpicy.gameObject.SetActive(false);
+        spicy.bbqSpicy.gameObject.SetActive(false);
+        if (gameMgr.playData.upgradeState[(int)Upgrade.Recipe_1])
         {
-            mouseArea = DragArea.None;
+            spicy.soySpicy.gameObject.SetActive(true);
+            spicyCnt++;
+        }
+        if (gameMgr.playData.upgradeState[(int)Upgrade.Recipe_2])
+        {
+            spicy.hellSpicy.gameObject.SetActive(true);
+            spicyCnt++;
+        }
+        if (gameMgr.playData.upgradeState[(int)Upgrade.Recipe_3])
+        {
+            spicy.prinkleSpicy.gameObject.SetActive(true);
+            spicyCnt++;
+        }
+        if (gameMgr.playData.upgradeState[(int)Upgrade.Recipe_4])
+        {
+            spicy.bbqSpicy.gameObject.SetActive(true);
+            spicyCnt++;
+        }
+
+        Vector2 sizeValue = kitchenRect.content.sizeDelta;
+        table.table0.gameObject.SetActive(false);
+        table.table1.gameObject.SetActive(false);
+        if (spicyCnt < 2)
+        {
+            sizeValue = new Vector2(KitchenWidth(), sizeValue.y);
+            table.table0.gameObject.SetActive(true);
         }
         else
         {
-            foreach (RaycastHit2D hid2D in raycastHit2D)
-            {
-                if (hid2D.transform == null)
-                    continue;
-
-                switch (hid2D.transform.tag)    
-                {
-                    case "Chicken_Box":
-                        mouseArea = DragArea.Chicken_Box;
-                        return;
-                    case "Tray_Egg":
-                        {
-                            trayEgg = hid2D.transform.GetComponent<TrayEgg>();
-                            mouseArea = DragArea.Tray_Egg;
-                        }
-                        return;
-                    case "Tray_Flour":
-                        {
-                            trayFlour = hid2D.transform.GetComponent<TrayFlour>();
-                            mouseArea = DragArea.Tray_Flour;
-                        }
-                        return;
-                    case "Chicken_Strainter":
-                        {
-                            chickenStrainter = hid2D.transform.GetComponent<ChickenStrainter>();
-                            if (chickenStrainter.isRun)
-                            {
-                                mouseArea = DragArea.Chicken_Strainter;
-                                return;
-                            }
-                        }
-                        return;
-                    case "Oil_Zone":
-                        {
-                            oilZone = hid2D.transform.GetComponent<Oil_Zone>();
-                            mouseArea = DragArea.Oil_Zone;
-                        }
-                        return;
-                    case "Trash_Btn":
-                        {
-                            mouseArea = DragArea.Trash_Btn;
-                        }
-                        return;
-                    case "Chicken_Pack":
-                        {
-                            chickenPack = hid2D.transform.GetComponent<ChickenPack>();
-                            mouseArea = DragArea.Chicken_Pack;
-                        }
-                        return;
-                    case "Hot_Spicy":
-                        {
-                            hotSpicy = hid2D.transform.GetComponent<ChickenHotSpicy>();
-                            mouseArea = DragArea.Hot_Spicy;
-                        }
-                        return;
-                    case "Chicken_Slot":
-                        {
-                            chickenSlot = hid2D.transform.GetComponent<TableChickenSlot>();
-                            mouseArea = DragArea.Chicken_Slot;
-                        }
-                        return;
-                    case "Pickle_Slot":
-                        {
-                            pickleSlot = hid2D.transform.GetComponent<TablePickleSlot>();
-                            mouseArea = DragArea.Pickle_Slot;
-                        }
-                        return;
-                    case "Drink_Slot":
-                        {
-                            drinkSlot = hid2D.transform.GetComponent<TableDrinkSlot>();
-                            mouseArea = DragArea.Drink_Slot;
-                        }
-                        return;
-                }
-            }
-            mouseArea = DragArea.None;
-            return;
+            sizeValue = new Vector2(KitchenWidth(), sizeValue.y);
+            table.table1.gameObject.SetActive(true);
         }
+        kitchenRect.content.sizeDelta = sizeValue;
+    }
+
+    private float KitchenWidth()
+    {
+        int spicyCnt = 0;
+        if (gameMgr.playData.upgradeState[(int)Upgrade.Recipe_1])
+        {
+            spicyCnt++;
+        }
+        if (gameMgr.playData.upgradeState[(int)Upgrade.Recipe_2])
+        {
+            spicyCnt++;
+        }
+        if (gameMgr.playData.upgradeState[(int)Upgrade.Recipe_3])
+        {
+            spicyCnt++;
+        }
+        if (gameMgr.playData.upgradeState[(int)Upgrade.Recipe_4])
+        {
+            spicyCnt++;
+        }
+
+
+        if (spicyCnt < 2)
+        {
+            return 36;
+        }
+        else
+        {
+            return 43;
+        }
+    }
+
+    public void SetkitchenSetPos(Vector2 movePos)
+    {
+        float width = KitchenWidth();
+        kitchenRect.content.transform.Translate(movePos);
+        kitchenRect.content.offsetMin = new Vector2(Mathf.Clamp(movePos.x, -width, 0), kitchenRect.content.offsetMin.y);
+        kitchenRect.content.offsetMax = new Vector2(movePos.x + width, kitchenRect.content.offsetMax.y);
     }
 }

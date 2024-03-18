@@ -157,6 +157,7 @@ public class RequireMenu
     {
         List<int> randomRangeValue = new List<int>();
         List<ChickenSpicy> randomChickenValue = new List<ChickenSpicy>();
+        GameMgr gameMgr = GameMgr.Instance;
 
         //-------------------------------------------------------------------------------------
         //기본맛
@@ -183,6 +184,50 @@ public class RequireMenu
         }
 
         //-------------------------------------------------------------------------------------
+        //간장맛
+        if(gameMgr.playData.upgradeState[(int)Upgrade.Recipe_1])
+        {
+            if (ignoreSpicy != ChickenSpicy.Soy)
+            {
+                randomRangeValue.Add(BASE_MENU_WEIGHT);
+                randomChickenValue.Add(ChickenSpicy.Soy);
+            }
+        }
+
+        //-------------------------------------------------------------------------------------
+        //불닭맛
+        if (gameMgr.playData.upgradeState[(int)Upgrade.Recipe_2])
+        {
+            if (ignoreSpicy != ChickenSpicy.Hell)
+            {
+                randomRangeValue.Add(BASE_MENU_WEIGHT);
+                randomChickenValue.Add(ChickenSpicy.Hell);
+            }
+        }
+
+        //-------------------------------------------------------------------------------------
+        //뿌링클맛
+        if (gameMgr.playData.upgradeState[(int)Upgrade.Recipe_3])
+        {
+            if (ignoreSpicy != ChickenSpicy.Prinkle)
+            {
+                randomRangeValue.Add(BASE_MENU_WEIGHT);
+                randomChickenValue.Add(ChickenSpicy.Prinkle);
+            }
+        }
+
+        //-------------------------------------------------------------------------------------
+        //바베큐맛
+        if (gameMgr.playData.upgradeState[(int)Upgrade.Recipe_4])
+        {
+            if (ignoreSpicy != ChickenSpicy.BBQ)
+            {
+                randomRangeValue.Add(BASE_MENU_WEIGHT);
+                randomChickenValue.Add(ChickenSpicy.BBQ);
+            }
+        }
+
+        //-------------------------------------------------------------------------------------
         //어떤 맛 치킨인지 랜덤하게 설정
         int randomRange = 0;
         randomRangeValue.ForEach((x) => randomRange += x);
@@ -205,28 +250,93 @@ public class RequireMenu
 
     public string GetChickenName()
     {
+        ChickenSpicy spicy0 = (ChickenSpicy)Mathf.Max((int)chickenSpicy[0], (int)chickenSpicy[1]);
+        ChickenSpicy spicy1 = (ChickenSpicy)Mathf.Min((int)chickenSpicy[0], (int)chickenSpicy[1]);
+
         //주문한 치킨 이름 반환
-        switch (chickenSpicy[0])
+        switch (spicy0)
         {
             case ChickenSpicy.None:
                 {
-                    switch (chickenSpicy[1])
+                    switch (spicy1)
                     {
                         case ChickenSpicy.None:
                             return LanguageMgr.GetText("FRIED_CHICKEN");
                         case ChickenSpicy.Hot:
-                            return LanguageMgr.GetText("FRIED_AND_SEASONED_CHICKEN_IN_HALF_AND_HALF_EACH");
+                            return LanguageMgr.GetText("HOT_AND_FRIED_CHICKEN");
+                        case ChickenSpicy.Soy:
+                            return LanguageMgr.GetText("SOY_AND_FRIED_CHICKEN");
+                        case ChickenSpicy.Hell:
+                            return LanguageMgr.GetText("HELL_AND_FRIED_CHICKEN");
+                        case ChickenSpicy.Prinkle:
+                            return LanguageMgr.GetText("PRINKLE_AND_FRIED_CHICKEN");
+                        case ChickenSpicy.BBQ:
+                            return LanguageMgr.GetText("BBQ_AND_FRIED_CHICKEN");
                     }
                 }
                 break;
             case ChickenSpicy.Hot:
                 {
-                    switch (chickenSpicy[1])
+                    switch (spicy1)
                     {
-                        case ChickenSpicy.None:
-                            return LanguageMgr.GetText("FRIED_AND_SEASONED_CHICKEN_IN_HALF_AND_HALF_EACH");
                         case ChickenSpicy.Hot:
                             return LanguageMgr.GetText("HOT_SPICY_CHICKEN");
+                        case ChickenSpicy.Soy:
+                            return LanguageMgr.GetText("HOT_AND_SOY_CHICKEN");
+                        case ChickenSpicy.Hell:
+                            return LanguageMgr.GetText("HELL_AND_HOT_CHICKEN");
+                        case ChickenSpicy.Prinkle:
+                            return LanguageMgr.GetText("HOT_AND_PRINKLE_CHICKEN");
+                        case ChickenSpicy.BBQ:
+                            return LanguageMgr.GetText("HOT_AND_BBQ_CHICKEN");
+                    }
+                }
+                break;
+            case ChickenSpicy.Soy:
+                {
+                    switch (spicy1)
+                    {
+                        case ChickenSpicy.Soy:
+                            return LanguageMgr.GetText("SOY_CHICKEN");
+                        case ChickenSpicy.Hell:
+                            return LanguageMgr.GetText("HELL_AND_SOY_CHICKEN");
+                        case ChickenSpicy.Prinkle:
+                            return LanguageMgr.GetText("SOY_AND_PRINKLE_CHICKEN");
+                        case ChickenSpicy.BBQ:
+                            return LanguageMgr.GetText("SOY_AND_BBQ_CHICKEN");
+                    }
+                }
+                break;
+            case ChickenSpicy.Hell:
+                {
+                    switch (spicy1)
+                    {
+                        case ChickenSpicy.Hell:
+                            return LanguageMgr.GetText("HELL_CHICKEN");
+                        case ChickenSpicy.Prinkle:
+                            return LanguageMgr.GetText("PRINKLE_AND_HELL_CHICKEN");
+                        case ChickenSpicy.BBQ:
+                            return LanguageMgr.GetText("BBQ_AND_HELL_CHICKEN");
+                    }
+                }
+                break;
+            case ChickenSpicy.Prinkle:
+                {
+                    switch (spicy1)
+                    {
+                        case ChickenSpicy.Prinkle:
+                            return LanguageMgr.GetText("PRINKLE_CHICKEN");
+                        case ChickenSpicy.BBQ:
+                            return LanguageMgr.GetText("PRINKLE_AND_BBQ_CHICKEN");
+                    }
+                }
+                break;
+            case ChickenSpicy.BBQ:
+                {
+                    switch (spicy1)
+                    {
+                        case ChickenSpicy.BBQ:
+                            return LanguageMgr.GetText("BBQ_CHICKEN");
                     }
                 }
                 break;
@@ -265,9 +375,12 @@ public class RequireMenu
         return false;
     }
 
-    public float MenuPoint(GuestData pGuestData, float defaultPoint,
+    public float MenuPoint(GuestData pGuestData,
         int pChickenCnt, ChickenSpicy pSpicy0, ChickenSpicy pSpicy1, ChickenState pChickenState, bool hasDrink, bool hasPickle)
     {
+        GameMgr gameMgr = GameMgr.Instance;
+        float defaultPoint = gameMgr.playData.GetDefaultPoint();
+
         //손님이 생각한 치킨 점수
         //손님 정보를 토대로 원하는 맛을 도출한다.
         HashSet<GuestType> guestTypes = new HashSet<GuestType>();

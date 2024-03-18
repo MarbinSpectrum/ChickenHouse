@@ -1,15 +1,39 @@
 Key	Korea	English
 OK	확인	Ok
-CANCLE	OK	Cancle
+CANCLE	취소	Cancle
 GO_KITCHEN	주방으로	Go Kitchen
 GO_COUNTER	카운터로	Go Counter
+SHOP_UPGRADE	매장 업그레이드	Shop Upgrade
 TAKE_OUT	버리기	Take\nOut
 COLA	콜라	Cola
 PICKLE	치킨무	Pickle
 CHICKEN	치킨	Chicken
 FRIED_CHICKEN	후라이드 치킨	Fried Chicken
+SOY_SPICY	간장양념	Soy Spicy
+HOT_SPICY	치킨양념	Hot Spicy
+HELL_SPICY	붉닭양념	Hell Spicy
+PRINKLE_SPICY	뿌링클양념	Prinkle Spicy
+BBQ_SPICY	바베큐양념	BBQ Spicy
 HOT_SPICY_CHICKEN	양념치킨	Hot Spicy Chicken
-FRIED_AND_SEASONED_CHICKEN_IN_HALF_AND_HALF_EACH	양념반 후라이드반	fried and seasoned chicken in half and half each
+HELL_CHICKEN	불닭치킨	Hell Chicken
+SOY_CHICKEN	간장치킨	Soy Chicken
+PRINKLE_CHICKEN	뿌링클치킨	Prinkle Chicken
+BBQ_CHICKEN	바베큐치킨	BBQ Chicken
+BBQ_AND_HELL_CHICKEN	바베큐반 불닭반	바베큐반 불닭반
+BBQ_AND_FRIED_CHICKEN	바베큐반 후라이드반	바베큐반 후라이드반
+PRINKLE_AND_FRIED_CHICKEN	뿌링클반 후라이드반	뿌링클반 후라이드반
+PRINKLE_AND_HELL_CHICKEN	뿌링클반 불닭반	뿌링클반 불닭반
+PRINKLE_AND_BBQ_CHICKEN	뿌링클반 바베큐반	뿌링클반 바베큐반
+HELL_AND_FRIED_CHICKEN	불닭반 후라이드반	불닭반 후라이드반
+HELL_AND_HOT_CHICKEN	불닭반 양념반	불닭반 양념반
+HELL_AND_SOY_CHICKEN	불닭반 간장반	불닭반 간장반
+SOY_AND_BBQ_CHICKEN	간장반 바베큐반	간장반 바베큐반
+SOY_AND_PRINKLE_CHICKEN	간장반 뿌링클반	간장반 뿌링클반
+SOY_AND_FRIED_CHICKEN	간장반 후라이드반	간장반 후라이드반
+HOT_AND_BBQ_CHICKEN	양념반 바베큐반	양념반 바베큐반
+HOT_AND_PRINKLE_CHICKEN	양념반 뿌링클반	양념반 뿌링클반
+HOT_AND_SOY_CHICKEN	양념반 간장반	양념반 간장반
+HOT_AND_FRIED_CHICKEN	양념반 후라이드반	양념반 후라이드반
 FOX_ORDER_1	{0} 한마리 주세요.	{0}
 FOX_ORDER_2	{0} 그리고\n{1} 부탁해요.	{0}, {1}
 FOX_ORDER_3	{0}\n{1} 그리고 {2} 부탁해요.	{0}, {1}, {2}
@@ -41,3 +65,23 @@ TUTO_5_1	해당 상태로 치킨을 너무 오래 방치하면\n치킨이 타므
 TUTO_5_2	이제 치킨을 치킨용기안에 넣어주세요.	이제 치킨을 치킨용기안에 넣어주세요.
 TUTO_6	콜라와 치킨무도 넣어주세요.	콜라와 치킨무도 넣어주세요.
 TUTO_7	손님에게 전달할 치킨이 완료되었습니다.\n상단 버튼을 눌러서 카운터로 이동합니다.	손님에게 전달할 치킨이 완료되었습니다.\n상단 버튼을 눌러서 카운터로 이동합니다.
+UPGRADE_OIL_ZINE_LV1_NAME	튀김기 Lv.1	Oil Zone Lv.1
+UPGRADE_OIL_ZINE_LV2_NAME	튀김기 Lv.2	Oil Zone Lv.2
+UPGRADE_OIL_ZINE_LV3_NAME	튀김기 Lv.3	Oil Zone Lv.3
+UPGRADE_OIL_ZINE_LV4_NAME	튀김기 Lv.4	Oil Zone Lv.4
+UPGRADE_OIL_ZINE_LV5_NAME	튀김기 Lv.5	Oil Zone Lv.5
+UPGRADE_OIL_ZINE_LV6_NAME	튀김기 Lv.MAX	Oil Zone Lv.MAX
+UPGRADE_OIL_ZINE_LV1_INFO	치킨이 더 빨리 튀겨집니다.\n(속도 +40%)	치킨이 더 빨리 튀겨집니다.\n(속도 +40%)
+UPGRADE_OIL_ZINE_LV2_INFO	치킨이 더 빨리 튀겨집니다.\n(속도 +40%)	치킨이 더 빨리 튀겨집니다.\n(속도 +40%)
+UPGRADE_OIL_ZINE_LV3_INFO	치킨이 더 빨리 튀겨집니다.\n(속도 +40%)	치킨이 더 빨리 튀겨집니다.\n(속도 +40%)
+UPGRADE_OIL_ZINE_LV4_INFO	치킨이 더 빨리 튀겨집니다.\n(속도 +40%)	치킨이 더 빨리 튀겨집니다.\n(속도 +40%)
+UPGRADE_OIL_ZINE_LV5_INFO	치킨이 더 빨리 튀겨집니다.\n(속도 +40%)	치킨이 더 빨리 튀겨집니다.\n(속도 +40%)
+UPGRADE_OIL_ZINE_LV6_INFO	치킨이 타지 않습니다.	치킨이 타지 않습니다.
+UPGRADE_RECIPE_LV1_NAME	신메뉴 개발 Lv.1	신메뉴 개발 Lv.1
+UPGRADE_RECIPE_LV2_NAME	신메뉴 개발 Lv.2	신메뉴 개발 Lv.2
+UPGRADE_RECIPE_LV3_NAME	신메뉴 개발 Lv.3	신메뉴 개발 Lv.3
+UPGRADE_RECIPE_LV4_NAME	신메뉴 개발 Lv.4	신메뉴 개발 Lv.4
+UPGRADE_RECIPE_LV1_INFO	간장치킨을 개발합니다.\n(수입 +20)	간장치킨을 개발합니다.\n(수입 +20)
+UPGRADE_RECIPE_LV2_INFO	불닭치킨을 개발합니다.\n(수입 +20)	불닭치킨을 개발합니다.\n(수입 +20)
+UPGRADE_RECIPE_LV3_INFO	프링클치킨을 개발합니다.\n(수입 +20)	프링클치킨을 개발합니다.\n(수입 +20)
+UPGRADE_RECIPE_LV4_INFO	바베큐치킨을 개발합니다.\n(수입 +20)	바베큐치킨을 개발합니다.\n(수입 +20)

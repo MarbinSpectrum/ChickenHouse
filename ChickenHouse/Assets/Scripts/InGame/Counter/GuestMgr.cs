@@ -186,7 +186,7 @@ public class GuestMgr : Mgr
                 guestObj.ThankGuest();
             }
 
-            gameMgr.dayMoney += 300;
+            gameMgr.dayMoney += gameMgr.playData.GetMenuValue();
             gameMgr.sellChickenCnt += 1;
 
             ui.nowMoney.SetMoney(gameMgr.dayMoney);

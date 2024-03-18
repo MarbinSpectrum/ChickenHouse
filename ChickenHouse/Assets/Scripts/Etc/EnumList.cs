@@ -62,6 +62,14 @@ public enum DragState
     Chicken_Pack    = 9,
     /** 콜라 **/
     Cola            = 10,
+    /** 간장 양념 **/
+    Soy_Spicy       = 11,
+    /** 불닭 양념 **/
+    Hell_Spicy      = 12,
+    /** 뿌링클 양념 **/
+    Prinkle_Spicy   = 13,
+    /** 바베큐 양념 **/
+    BBQ_Spicy       = 14,
 }
 
 public enum ChickenState
@@ -86,7 +94,14 @@ public enum ChickenSpicy
     None        = 0,
     /** 양념 치킨 소스 **/
     Hot         = 1,
-
+    /** 간장 소스 **/
+    Soy         = 2,
+    /** 불닭 소스 **/
+    Hell        = 3,
+    /** 뿌링클 소스 **/
+    Prinkle     = 4,
+    /** 바베큐 소스 **/
+    BBQ         = 5,
 }
 
 
@@ -179,14 +194,18 @@ public enum Upgrade
     None                = 0,
 
     /** 기름통 업그레이드 **/
-    OIL_Zone_1  = 100,
-    OIL_Zone_2  = 101,
-    OIL_Zone_3  = 102,
+    OIL_Zone_1          = 101,      //치킨이 더 빨리 튀겨집니다.(속도 +40%)
+    OIL_Zone_2          = 102,      //치킨이 더 빨리 튀겨집니다.(속도 +80%)
+    OIL_Zone_3          = 103,      //치킨이 더 빨리 튀겨집니다.(속도 +120%)
+    OIL_Zone_4          = 104,      //치킨이 더 빨리 튀겨집니다.(속도 +160%)
+    OIL_Zone_5          = 105,      //치킨이 더 빨리 튀겨집니다.(속도 +200%)
+    OIL_Zone_6          = 106,      //치킨이 타지 않습니다.
 
-    /** 레시피 업그레이드 **/
-    Recipe_1    = 200,
-
-
+    /** 레시피 업그레이드(총 수입은 레시피의 수치 합산) **/
+    Recipe_1            = 201,      //간장치킨(수입 +20%)
+    Recipe_2            = 202,      //불닭치킨(수입 +20%)
+    Recipe_3            = 203,      //프링클치킨(수입 +20%)
+    Recipe_4            = 204,      //바베큐치킨(수입 +20%)
 
     MAX                 = 10000,
 }

@@ -24,17 +24,33 @@ public class ChickenPack : Mgr
     }
 
     [System.Serializable]
+    public struct CHICKEN_SPRITE
+    {
+        //오브젝트 스프라이트 이미지
+        public Sprite normalChicken;
+        public Sprite hotChicken;
+        public Sprite soyChicken;
+        public Sprite hellChicken;
+        public Sprite prinkleChicken;
+        public Sprite bbqChicken;
+    }
+
+    [System.Serializable]
     public struct CHICKEN_OBJ
     {
         //오브젝트 스프라이트 이미지
-        public GameObject[]         chickenObj;
+        public Image[]              chickenObj;
         public Image                bottomSource;
     }
 
     [SerializeField] private SPITE_IMG          sprite;
-    [SerializeField] private Image              image;
+    [SerializeField] private CHICKEN_SPRITE     chickenSprite;
+
+    [SerializeField] private Image              body;
+
     [SerializeField] private CHICKEN_OBJ        normalChicken;
-    [SerializeField] private CHICKEN_OBJ        hotChicken;
+    [SerializeField] private CHICKEN_OBJ        spicyChicken;
+
     [SerializeField] private Image              smoke;
     [SerializeField] private ScrollObj[]        scrollObj;
     [SerializeField] private GameObject         obj;
@@ -47,19 +63,19 @@ public class ChickenPack : Mgr
         {
             //치킨이 포장되어있지 않음
             //해당 용기를 사용 가능하다.
-            image.sprite = sprite.canUseSprite;
+            body.sprite = sprite.canUseSprite;
         }
         else if (kitchenMgr.dragState == DragState.Hot_Spicy
             && chickenCnt > 0 && (source0 == ChickenSpicy.None || source1 == ChickenSpicy.None))
         {
             //치킨이 들어있음
             //치킨 소스 사용 가능
-            image.sprite = sprite.canUseSprite;
+            body.sprite = sprite.canUseSprite;
         }
         else
         {
             //치킨 포장박스를 사용 중이다.
-            image.sprite = sprite.normalSprite;
+            body.sprite = sprite.normalSprite;
         }
 
         kitchenMgr.chickenPack = this;
@@ -68,7 +84,7 @@ public class ChickenPack : Mgr
 
     public void OnMouseExit()
     {
-        image.sprite = sprite.normalSprite;
+        body.sprite = sprite.normalSprite;
 
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
         kitchenMgr.chickenPack = null;
@@ -196,7 +212,7 @@ public class ChickenPack : Mgr
             sObj.isRun = false;
         }
 
-        image.sprite = sprite.normalSprite;
+        body.sprite = sprite.normalSprite;
 
         return true;
     }
@@ -220,7 +236,7 @@ public class ChickenPack : Mgr
             soundMgr.PlaySE(Sound.Put_SE);
             source0 = spicy;
 
-            image.sprite = sprite.normalSprite;
+            body.sprite = sprite.normalSprite;
 
             return true;
         }
@@ -229,7 +245,7 @@ public class ChickenPack : Mgr
             soundMgr.PlaySE(Sound.Put_SE);
             source1 = spicy;
 
-            image.sprite = sprite.normalSprite;
+            body.sprite = sprite.normalSprite;
 
             return true;
         }
@@ -241,7 +257,7 @@ public class ChickenPack : Mgr
     {
         //치킨을 표시
         System.Array.ForEach(normalChicken.chickenObj, (x) => x.gameObject.SetActive(false));
-        System.Array.ForEach(hotChicken.chickenObj, (x) => x.gameObject.SetActive(false));
+        System.Array.ForEach(spicyChicken.chickenObj, (x) => x.gameObject.SetActive(false));
 
         for (int i = 0; i < chickenCnt; i++)
         {
@@ -262,8 +278,29 @@ public class ChickenPack : Mgr
                     normalChicken.chickenObj[i].gameObject.SetActive(true);
                     break;
                 case ChickenSpicy.Hot:
-                    hotChicken.bottomSource.gameObject.SetActive(true);
-                    hotChicken.chickenObj[i].gameObject.SetActive(true);
+                    spicyChicken.bottomSource.gameObject.SetActive(true);
+                    spicyChicken.chickenObj[i].gameObject.SetActive(true);
+                    spicyChicken.chickenObj[i].sprite = chickenSprite.hotChicken;
+                    break;
+                case ChickenSpicy.Soy:
+                    spicyChicken.bottomSource.gameObject.SetActive(true);
+                    spicyChicken.chickenObj[i].gameObject.SetActive(true);
+                    spicyChicken.chickenObj[i].sprite = chickenSprite.soyChicken;
+                    break;
+                case ChickenSpicy.Hell:
+                    spicyChicken.bottomSource.gameObject.SetActive(true);
+                    spicyChicken.chickenObj[i].gameObject.SetActive(true);
+                    spicyChicken.chickenObj[i].sprite = chickenSprite.hellChicken;
+                    break;
+                case ChickenSpicy.Prinkle:
+                    spicyChicken.bottomSource.gameObject.SetActive(true);
+                    spicyChicken.chickenObj[i].gameObject.SetActive(true);
+                    spicyChicken.chickenObj[i].sprite = chickenSprite.prinkleChicken;
+                    break;
+                case ChickenSpicy.BBQ:
+                    spicyChicken.bottomSource.gameObject.SetActive(true);
+                    spicyChicken.chickenObj[i].gameObject.SetActive(true);
+                    spicyChicken.chickenObj[i].sprite = chickenSprite.bbqChicken;
                     break;
             }
         }
@@ -288,9 +325,10 @@ public class ChickenPack : Mgr
         source0 = ChickenSpicy.None;
         source1 = ChickenSpicy.None;
         System.Array.ForEach(normalChicken.chickenObj, (x) => x.gameObject.SetActive(false));
-        System.Array.ForEach(hotChicken.chickenObj, (x) => x.gameObject.SetActive(false));
+        System.Array.ForEach(spicyChicken.chickenObj, (x) => x.gameObject.SetActive(false));
+
         normalChicken.bottomSource.gameObject.SetActive(false);
-        hotChicken.bottomSource.gameObject.SetActive(false);
+        spicyChicken.bottomSource.gameObject.SetActive(false);
 
         foreach (ScrollObj sObj in scrollObj)
         {

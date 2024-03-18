@@ -42,6 +42,13 @@ public class Timer_UI : Mgr
         else
             timeStr = string.Format("PM {0:D2}:00", hour-12);
         LanguageMgr.SetText(timeText, timeStr);
+
+#if UNITY_EDITOR
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            time = MAX_TIME;
+        }
+#endif
     }
 
     public void SetTime(float nowTime, float maxTime)

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class StartGame : Mgr
 {
+
     private void Start()
     {
         gameMgr.LoadData();
@@ -13,6 +14,12 @@ public class StartGame : Mgr
         {
             guestMgr.StartGuestCycle();
             soundMgr.PlayBGM(Sound.InGame_BG);
+        }
+
+        KitchenMgr kitchenMgr = KitchenMgr.Instance;
+        if (kitchenMgr != null)
+        {
+            kitchenMgr.Init();
         }
     }
 }

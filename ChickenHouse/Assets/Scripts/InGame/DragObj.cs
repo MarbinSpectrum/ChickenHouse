@@ -16,8 +16,16 @@ public class DragObj : Mgr
     [SerializeField] private CHICKEN_SPRITE chickenSprite;
     [SerializeField] private Image chickenImg;
 
-    /** 치킨 소스 **/
-    [SerializeField] private GameObject     chickenSource;
+    /** 양념 치킨 소스 **/
+    [SerializeField] private GameObject     hotSpicy;
+    /** 간장 치킨 소스 **/
+    [SerializeField] private GameObject     soySpicy;
+    /** 불닭 치킨 소스 **/
+    [SerializeField] private GameObject     hellSpicy;
+    /** 뿌링클 치킨 소스 **/
+    [SerializeField] private GameObject     prinkleSpicy;
+    /** 바베큐 치킨 소스 **/
+    [SerializeField] private GameObject     bbqSpicy;
 
     /** 치킨 무 **/
     [SerializeField] private GameObject     chickenRadish;
@@ -78,11 +86,43 @@ public class DragObj : Mgr
             case DragState.Hot_Spicy:
                 {
                     //치킨 양념을 드래그한 상태
-                    chickenSource.gameObject.SetActive(true);
+                    hotSpicy.gameObject.SetActive(true);
 
                     MoveMousePos();
                 }
                 return;
+            case DragState.Soy_Spicy:
+                {
+                    //간장 양념을 드래그한 상태
+                    soySpicy.gameObject.SetActive(true);
+
+                    MoveMousePos();
+                }
+                break;
+            case DragState.Hell_Spicy:
+                {
+                    //불닭 양념을 드래그한 상태
+                    hellSpicy.gameObject.SetActive(true);
+
+                    MoveMousePos();
+                }
+                break;
+            case DragState.Prinkle_Spicy:
+                {
+                    //뿌링클 양념을 드래그한 상태
+                    prinkleSpicy.gameObject.SetActive(true);
+
+                    MoveMousePos();
+                }
+                break;
+            case DragState.BBQ_Spicy:
+                {
+                    //바베큐 양념을 드래그한 상태
+                    bbqSpicy.gameObject.SetActive(true);
+
+                    MoveMousePos();
+                }
+                break;
             case DragState.Chicken_Pickle:
                 {
                     //치킨 무를 드래그한 상태
@@ -114,10 +154,14 @@ public class DragObj : Mgr
     {
         chickenImg.gameObject.SetActive(false);
         strainterObj.gameObject.SetActive(false);
-        chickenSource.gameObject.SetActive(false);
+        hotSpicy.gameObject.SetActive(false);
         chickenRadish.gameObject.SetActive(false);
         chickenBox.gameObject.SetActive(false);
         cola.gameObject.SetActive(false);
+        soySpicy.gameObject.SetActive(false);
+        hellSpicy.gameObject.SetActive(false);
+        prinkleSpicy.gameObject.SetActive(false);
+        bbqSpicy.gameObject.SetActive(false);
     }
 
     private void MoveMousePos()

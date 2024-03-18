@@ -71,9 +71,7 @@ public abstract class GuestObj : Mgr
         //손님이 생각한 치킨 점수
 
         //기본 치킨 점수
-        float defaultPoint = gameMgr.playData.GetDefaultPoint();
-
-        float point = requireMenu.MenuPoint(guestData, defaultPoint, chickenCnt, spicy0, spicy1, chickenState, hasDrink, hasPickle);
+        float point = requireMenu.MenuPoint(guestData, chickenCnt, spicy0, spicy1, chickenState, hasDrink, hasPickle);
 
         return point;
     }

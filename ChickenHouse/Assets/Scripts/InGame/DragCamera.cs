@@ -29,16 +29,12 @@ public class DragCamera : Mgr
     public void SetInitPos()
     {
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
-        ScrollRect kitchenRect = kitchenMgr.kitchenRect;
-
-        kitchenRect.content.offsetMin = new Vector2(0, kitchenRect.content.offsetMin.y);
-        kitchenRect.content.offsetMax = new Vector2(kitchenRect.content.offsetMin.x + 36, kitchenRect.content.offsetMax.y);
+        kitchenMgr.SetkitchenSetPos(new Vector2(0, 0));
     }
 
     private void MoveCamera()
     {
         KitchenMgr  kitchenMgr      = KitchenMgr.Instance;
-        ScrollRect kitchenRect      = kitchenMgr.kitchenRect;
         Vector3     movePos         = Vector3.zero;
         Vector2     nowPos          = Input.mousePosition;
 
@@ -51,8 +47,6 @@ public class DragCamera : Mgr
             movePos = new Vector3(movePos.x, 0, 0);
         }
 
-        kitchenRect.content.transform.Translate(movePos);
-        kitchenRect.content.offsetMin = new Vector2(Mathf.Clamp(kitchenRect.content.offsetMin.x, -36, 0), kitchenRect.content.offsetMin.y);
-        kitchenRect.content.offsetMax = new Vector2(kitchenRect.content.offsetMin.x + 36, kitchenRect.content.offsetMax.y);
+        kitchenMgr.SetkitchenSetPos(movePos);
     }
 }

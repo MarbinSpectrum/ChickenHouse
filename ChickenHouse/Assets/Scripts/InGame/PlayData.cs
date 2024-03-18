@@ -17,4 +17,24 @@ public class PlayData
         //유저 정보를 토대로 나오는 치킨의 기본 점수
         return 2.0f;
     }
+
+    public int GetMenuValue()
+    {
+        //메뉴 가격
+        int defaultValue = 300;
+
+        int percent = 100;
+        if (upgradeState[(int)Upgrade.Recipe_1])
+            percent += 20;
+        if (upgradeState[(int)Upgrade.Recipe_2])
+            percent += 20;
+        if (upgradeState[(int)Upgrade.Recipe_3])
+            percent += 20;
+        if (upgradeState[(int)Upgrade.Recipe_4])
+            percent += 20;
+
+        int resultValue = (defaultValue * percent) / 100;
+
+        return resultValue;
+    }
 }
