@@ -15,3 +15,4 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: d31f68ddaa11e7f41aa8a67b5c5f1bb0, type: 3}
   nameKey: UPGRADE_RECIPE_LV1_NAME
   infoKey: UPGRADE_RECIPE_LV1_INFO
+  money: 500

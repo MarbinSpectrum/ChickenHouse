@@ -6,7 +6,7 @@ public class GuestMgr : Mgr
 {
     public static GuestMgr Instance;
 
-    private const float GUEST_DELAY_TIME = 2.0f;
+    private const float GUEST_DELAY_TIME = 6.0f;
 
     [SerializeField] private Dictionary<Guest, GuestObj> guests;
 
@@ -67,9 +67,35 @@ public class GuestMgr : Mgr
                 //종료시간이라면 탈출
                 break;
             }
-            
-            //기본 딜레이
-            yield return new WaitForSeconds(GUEST_DELAY_TIME);
+
+            //손님 딜레이
+            float delayValue = GUEST_DELAY_TIME;
+            if (gameMgr.playData.upgradeState[(int)Upgrade.Advertisement_5])
+            {
+                delayValue = GUEST_DELAY_TIME * 0.5f;
+            }
+            else if (gameMgr.playData.upgradeState[(int)Upgrade.Advertisement_4])
+            {
+                delayValue = GUEST_DELAY_TIME * 0.6f;
+            }
+            else if (gameMgr.playData.upgradeState[(int)Upgrade.Advertisement_3])
+            {
+                delayValue = GUEST_DELAY_TIME * 0.7f;
+            }
+            else if (gameMgr.playData.upgradeState[(int)Upgrade.Advertisement_2])
+            {
+                delayValue = GUEST_DELAY_TIME * 0.8f;
+            }
+            else if (gameMgr.playData.upgradeState[(int)Upgrade.Advertisement_1])
+            {
+                delayValue = GUEST_DELAY_TIME * 0.9f;
+            }
+            else
+            {
+                //기본 딜레이
+                delayValue = GUEST_DELAY_TIME;
+            }
+            yield return new WaitForSeconds(delayValue);
 
             //손님을 생성해준다.
             CreateGuest();

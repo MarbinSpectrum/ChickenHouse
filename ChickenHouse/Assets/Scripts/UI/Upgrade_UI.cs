@@ -5,17 +5,19 @@ using UnityEngine;
 public class Upgrade_UI : Mgr
 {
     [SerializeField] private UpgradeSlot_UI upgradeSlot;
+    [SerializeField] private LoopScrollInit scrollInit;
     [SerializeField] private RectTransform  body;
     [SerializeField] private GameObject     dontTouch;
+    [SerializeField] private Money_UI       moneyUI;
 
-    private List<UpgradeSlot_UI>    slots       = new List<UpgradeSlot_UI>();
-    private const int               MAX_UPGRADE = 3;
+    public List<Upgrade> upgradeList { private set; get; } = new List<Upgrade>();
     private bool selectMenu = false;
 
     private void Start()
     {
         gameMgr.LoadData();
 
+        SetMoney();
         SetUpgrade();
     }
 
@@ -33,81 +35,17 @@ public class Upgrade_UI : Mgr
             return false;
         }
 
-        List<Upgrade> randomUpgradeList = new List<Upgrade>();
+        upgradeList.Clear();
 
-        //-----------------------------------------------------------------
-        //기름통 업그레이드
-        if(HasUpgrade(Upgrade.OIL_Zone_6))
-        {
-            //기름통 업그레이드가 최대상태
-            //랜덤리스트에 등록하지 않는다.
-        }
-        else if (HasUpgrade(Upgrade.OIL_Zone_5))
-            randomUpgradeList.Add(Upgrade.OIL_Zone_6);
-        else if (HasUpgrade(Upgrade.OIL_Zone_4))
-            randomUpgradeList.Add(Upgrade.OIL_Zone_5);
-        else if (HasUpgrade(Upgrade.OIL_Zone_3))
-            randomUpgradeList.Add(Upgrade.OIL_Zone_4);
-        else if (HasUpgrade(Upgrade.OIL_Zone_2))
-            randomUpgradeList.Add(Upgrade.OIL_Zone_3);
-        else if (HasUpgrade(Upgrade.OIL_Zone_2))
-            randomUpgradeList.Add(Upgrade.OIL_Zone_3);
-        else if (HasUpgrade(Upgrade.OIL_Zone_1))
-            randomUpgradeList.Add(Upgrade.OIL_Zone_2);
-        else
-            randomUpgradeList.Add(Upgrade.OIL_Zone_1);
+        upgradeList.Add(Upgrade.OIL_Zone_1);
+        upgradeList.Add(Upgrade.Recipe_1);
 
-        //-----------------------------------------------------------------
-        //레시피 업그레이드
-        if (HasUpgrade(Upgrade.Recipe_4))
-        {
-            //레시피 업그레이드가 최대상태
-            //랜덤리스트에 등록하지 않는다.
-        }
-        else if (HasUpgrade(Upgrade.Recipe_3))
-            randomUpgradeList.Add(Upgrade.Recipe_4);
-        else if (HasUpgrade(Upgrade.Recipe_2))
-            randomUpgradeList.Add(Upgrade.Recipe_3);
-        else if (HasUpgrade(Upgrade.Recipe_1))
-            randomUpgradeList.Add(Upgrade.Recipe_2);
-        else
-            randomUpgradeList.Add(Upgrade.Recipe_1);
-
-        //랜덤 리스트를 이용해서 최종 리스트를 생성한다.
-        List<Upgrade>   resultList  = new List<Upgrade>();
-
-        //listCnt만큼 랜덤 idx생성
-        int listCnt = Mathf.Min(randomUpgradeList.Count, MAX_UPGRADE);
-        List<int> randomCheck = MyLib.Algorithm.CreateRandomList(randomUpgradeList.Count, listCnt);
-
-        //앞에서 MAX_UPGRADE만큼만 챙겨주기
-        for (int i = 0; i < MAX_UPGRADE; i++)
-        {
-            if (randomCheck.Count <= i)
-                break;
-            int idx = randomCheck[i];
-            resultList.Add(randomUpgradeList[idx - 1]);
-        }
-
-        SetUpgradeSlot(resultList);
+        scrollInit.Init(upgradeList.Count);
     }
 
-    private void SetUpgradeSlot(List<Upgrade> upgrades)
+    public void SetMoney()
     {
-        slots.ForEach((x) => x.gameObject.SetActive(false));
-        for (int i = 0; i < upgrades.Count; i++)
-        {
-            if(slots.Count <= upgrades.Count)
-            {
-                //슬롯이 부족해서 추가
-                UpgradeSlot_UI newSlot = Instantiate(upgradeSlot, body);
-                slots.Add(newSlot);
-            }
-
-            //업그레이드 정보설정
-            slots[i].gameObject.SetActive(true);
-            slots[i].SetData(this, upgrades[i]);
-        } 
+        moneyUI.SetMoney(gameMgr.playData.money);
     }
 
     public void SelectUpgrade(Upgrade pUpgrade)
