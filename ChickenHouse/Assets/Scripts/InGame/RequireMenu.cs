@@ -250,8 +250,8 @@ public class RequireMenu
 
     public string GetChickenName()
     {
-        ChickenSpicy spicy0 = (ChickenSpicy)Mathf.Max((int)chickenSpicy[0], (int)chickenSpicy[1]);
-        ChickenSpicy spicy1 = (ChickenSpicy)Mathf.Min((int)chickenSpicy[0], (int)chickenSpicy[1]);
+        ChickenSpicy spicy0 = (ChickenSpicy)Mathf.Min((int)chickenSpicy[0], (int)chickenSpicy[1]);
+        ChickenSpicy spicy1 = (ChickenSpicy)Mathf.Max((int)chickenSpicy[0], (int)chickenSpicy[1]);
 
         //주문한 치킨 이름 반환
         switch (spicy0)

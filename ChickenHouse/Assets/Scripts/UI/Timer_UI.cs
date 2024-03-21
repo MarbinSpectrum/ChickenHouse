@@ -35,7 +35,7 @@ public class Timer_UI : Mgr
 
         int addHour = (int)(time / 15f);
 
-        int hour = BASE_HOUR + addHour;
+        int hour = Mathf.Min(24, BASE_HOUR + addHour);
         string timeStr = string.Empty;
         if (hour <= 12)
             timeStr = string.Format("AM {0:D2}:00", hour);

@@ -39,6 +39,7 @@ public class Upgrade_UI : Mgr
 
         upgradeList.Add(Upgrade.OIL_Zone_1);
         upgradeList.Add(Upgrade.Recipe_1);
+        upgradeList.Add(Upgrade.Advertisement_1);
 
         scrollInit.Init(upgradeList.Count);
     }

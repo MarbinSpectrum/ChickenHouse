@@ -5,11 +5,13 @@ using UnityEngine;
 public abstract class GuestObj : Mgr
 {
     /** 손님 정보 **/
-    [SerializeField] protected GuestData guestData;
+    [SerializeField] protected  GuestData       guestData;
     /** 애니메이터 **/
-    [SerializeField] protected Animator animator;
-
-    [SerializeField] protected TalkBox_UI talkBox;
+    [SerializeField] protected  Animator        animator;
+    /** 스프라이트 **/
+    [SerializeField] protected SpriteRenderer   spriteRenderer;
+    [SerializeField] protected  TalkBox_UI      talkBox;
+    [SerializeField] public     Guest           guest;
 
     protected RequireMenu requireMenu = new RequireMenu();
 
@@ -74,5 +76,15 @@ public abstract class GuestObj : Mgr
         float point = requireMenu.MenuPoint(guestData, chickenCnt, spicy0, spicy1, chickenState, hasDrink, hasPickle);
 
         return point;
+    }
+
+    public void SetOrderSprite(int order)
+    {
+        spriteRenderer.sortingOrder = order;
+    }
+
+    public void SetColor(Color pColor)
+    {
+        spriteRenderer.color = pColor;
     }
 }

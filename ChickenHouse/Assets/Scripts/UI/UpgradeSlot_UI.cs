@@ -206,6 +206,37 @@ public class UpgradeSlot_UI : Mgr, IPointerClickHandler, IPointerEnterHandler, I
             case Upgrade.Recipe_MAX:
                 //레시피 업그레이드가 최대상태
                 return pUpgrade;
+
+            //-----------------------------------------------------------------
+            //광고 업그레이드
+            case Upgrade.Advertisement_1:
+                if (HasUpgrade(pUpgrade))
+                    return SetUpgrade(Upgrade.Advertisement_2);
+                else
+                    return pUpgrade;
+            case Upgrade.Advertisement_2:
+                if (HasUpgrade(pUpgrade))
+                    return SetUpgrade(Upgrade.Advertisement_3);
+                else
+                    return pUpgrade;
+            case Upgrade.Advertisement_3:
+                if (HasUpgrade(pUpgrade))
+                    return SetUpgrade(Upgrade.Advertisement_4);
+                else
+                    return pUpgrade;
+            case Upgrade.Advertisement_4:
+                if (HasUpgrade(pUpgrade))
+                    return SetUpgrade(Upgrade.Advertisement_5);
+                else
+                    return pUpgrade;
+            case Upgrade.Advertisement_5:
+                if (HasUpgrade(pUpgrade))
+                    return SetUpgrade(Upgrade.Advertisement_MAX);
+                else
+                    return pUpgrade;
+            case Upgrade.Advertisement_MAX:
+                //광고 업그레이드가 최대상태
+                return pUpgrade;
         }
 
         return Upgrade.None;

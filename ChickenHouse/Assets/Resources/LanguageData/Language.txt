@@ -89,3 +89,15 @@ UPGRADE_RECIPE_LV2_INFO	불닭치킨을 개발합니다.\n(수입 +20)	불닭치
 UPGRADE_RECIPE_LV3_INFO	프링클치킨을 개발합니다.\n(수입 +20)	프링클치킨을 개발합니다.\n(수입 +20)
 UPGRADE_RECIPE_LV4_INFO	바베큐치킨을 개발합니다.\n(수입 +20)	바베큐치킨을 개발합니다.\n(수입 +20)
 UPGRADE_RECIPE_MAX_INFO	연구완료	연구완료
+ADVERTISEMENT_LV1_NAME	가게 광고\nLv.1	가게 광고\nLv.1
+ADVERTISEMENT_LV2_NAME	가게 광고\nLv.2	가게 광고\nLv.2
+ADVERTISEMENT_LV3_NAME	가게 광고\nLv.3	가게 광고\nLv.3
+ADVERTISEMENT_LV4_NAME	가게 광고\nLv.4	가게 광고\nLv.4
+ADVERTISEMENT_LV5_NAME	가게 광고\nLv.5	가게 광고\nLv.5
+ADVERTISEMENT_MAX_NAME	가게 광고\nLv.MAX	가게 광고\nLv.MAX
+ADVERTISEMENT_LV1_INFO	가게를 홍보합니다.\n(손님 방문 딜레이 -10%);	가게를 홍보합니다.\n(손님 방문 딜레이 -10%);
+ADVERTISEMENT_LV2_INFO	가게를 홍보합니다.\n(손님 방문 딜레이 -20%);	가게를 홍보합니다.\n(손님 방문 딜레이 -20%);
+ADVERTISEMENT_LV3_INFO	가게를 홍보합니다.\n(손님 방문 딜레이 -30%);	가게를 홍보합니다.\n(손님 방문 딜레이 -30%);
+ADVERTISEMENT_LV4_INFO	가게를 홍보합니다.\n(손님 방문 딜레이 -40%);	가게를 홍보합니다.\n(손님 방문 딜레이 -40%);
+ADVERTISEMENT_LV5_INFO	가게를 홍보합니다.\n(손님 방문 딜레이 -50%);	가게를 홍보합니다.\n(손님 방문 딜레이 -50%);
+ADVERTISEMENT_MAX_INFO	연구완료	연구완료
