@@ -64,5 +64,7 @@ public class GoCounter_UI : Mgr
             tablePickleSlot.Init();
         });
         kitchenMgr.cameraObj.lookArea = LookArea.Counter;
+
+        kitchenMgr.ui.memo.CloseTriggerBox();
     }
 }

@@ -79,6 +79,8 @@ public class KitchenMgr : Mgr
         public TakeOut_UI   takeOut;
         /** 카운터로 이동하기 버튼 **/
         public GoCounter_UI goCounter;
+        /** 메모 **/
+        public Memo_UI      memo;
     }
     public UI ui;
 

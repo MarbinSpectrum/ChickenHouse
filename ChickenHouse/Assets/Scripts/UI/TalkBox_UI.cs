@@ -7,9 +7,11 @@ public class TalkBox_UI : Mgr
 {
     [SerializeField] private TextMeshProUGUI    textUI;
     [SerializeField] private GameObject         obj;
+    public string talkStr { private set; get; }
 
     public void ShowText(string str, NoParaDel fun)
     {
+        talkStr = str;
         obj.gameObject.SetActive(true);
 
         StartCoroutine(RunCor(str,0.1f));

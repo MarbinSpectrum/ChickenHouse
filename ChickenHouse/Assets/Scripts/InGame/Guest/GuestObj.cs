@@ -87,4 +87,6 @@ public abstract class GuestObj : Mgr
     {
         spriteRenderer.color = pColor;
     }
+
+    public string GetTalkText() => talkBox.talkStr;
 }

@@ -54,5 +54,7 @@ public class GoKitchen_UI : Mgr
 
         GuestMgr guestMgr = GuestMgr.Instance;
         guestMgr.CloseTalkBox();
+
+        kitchenMgr.ui.memo.OpenTriggerBox(guestMgr.GetTalkBoxStr());
     } 
 }

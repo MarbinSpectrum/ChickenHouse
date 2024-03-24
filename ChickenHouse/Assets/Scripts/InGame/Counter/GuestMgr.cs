@@ -224,6 +224,8 @@ public class GuestMgr : Mgr
         return guest;
     }
 
+    public string GetTalkBoxStr() => guestObj.GetTalkText();
+
     public void CloseTalkBox()
     {
         if (guestObj == null)
