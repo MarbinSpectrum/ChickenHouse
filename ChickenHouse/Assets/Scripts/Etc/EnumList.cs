@@ -115,6 +115,10 @@ public enum Guest
     Dog      = 2,
     /** 고양이 **/
     Cat      = 3,
+    /** 호랑이 **/
+    Tiger    = 4,
+    /** 알락 꼬리 여우 원숭이 **/
+    Lemur    = 5,
 
     MAX
 }
