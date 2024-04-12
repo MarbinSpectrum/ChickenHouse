@@ -119,6 +119,8 @@ public enum Guest
     Tiger    = 4,
     /** 알락 꼬리 여우 원숭이 **/
     Lemur    = 5,
+    /** 태즈마니아 데빌 **/
+    TasmanianDevil = 6,
 
     MAX
 }
@@ -190,7 +192,10 @@ public enum Sound
     Voice0_SE = 250,
     Voice1_SE = 251,
     Voice2_SE = 252,
-
+    Voice3_SE = 253,
+    Voice4_SE = 254,
+    Voice5_SE = 255,
+    Voice6_SE = 256,
 }
 
 public enum Upgrade

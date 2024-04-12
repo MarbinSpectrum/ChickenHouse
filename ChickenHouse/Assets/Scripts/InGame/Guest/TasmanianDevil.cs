@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Lemur : GuestObj
+public class TasmanianDevil: GuestObj
 {
     public override void OrderGuest(NoParaDel fun = null)
     {
@@ -26,11 +26,11 @@ public class Lemur : GuestObj
             showStr = string.Format(showStr, chickenName, sideMenuName[0], sideMenuName[1]);
         }
 
-        soundMgr.PlayLoopSE(Sound.Voice3_SE);
+        soundMgr.PlayLoopSE(Sound.Voice5_SE);
         animator.SetTrigger("Talk");
         talkBox.ShowText(showStr, () =>
         {
-            soundMgr.StopLoopSE(Sound.Voice3_SE);
+            soundMgr.StopLoopSE(Sound.Voice5_SE);
             animator.SetTrigger("TalkEnd");
             fun?.Invoke();
         });
@@ -38,8 +38,8 @@ public class Lemur : GuestObj
 
     public override void CloseTalkBox()
     {
-        soundMgr.StopLoopSE(Sound.Voice3_SE);
-        soundMgr.StopLoopSE(Sound.Voice4_SE);
+        soundMgr.StopLoopSE(Sound.Voice5_SE);
+        soundMgr.StopLoopSE(Sound.Voice6_SE);
         talkBox.CloseTalkBox();
     }
 
@@ -47,11 +47,11 @@ public class Lemur : GuestObj
     {
         string showStr = LanguageMgr.GetText("CAT_THANK_YOU");
 
-        soundMgr.PlayLoopSE(Sound.Voice4_SE);
+        soundMgr.PlayLoopSE(Sound.Voice6_SE);
         animator.SetTrigger("Talk");
         talkBox.ShowText(showStr, () =>
         {
-            soundMgr.StopLoopSE(Sound.Voice4_SE);
+            soundMgr.StopLoopSE(Sound.Voice6_SE);
             animator.SetTrigger("TalkEnd");
             fun?.Invoke();
         });
@@ -61,11 +61,11 @@ public class Lemur : GuestObj
     {
         string showStr = LanguageMgr.GetText("CAT_ANGRY");
 
-        soundMgr.PlayLoopSE(Sound.Voice4_SE);
+        soundMgr.PlayLoopSE(Sound.Voice6_SE);
         animator.SetTrigger("Angry");
         talkBox.ShowText(showStr, () =>
         {
-            soundMgr.StopLoopSE(Sound.Voice4_SE);
+            soundMgr.StopLoopSE(Sound.Voice6_SE);
             fun?.Invoke();
         });
     }

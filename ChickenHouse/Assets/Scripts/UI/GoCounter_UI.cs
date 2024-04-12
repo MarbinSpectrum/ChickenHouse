@@ -12,6 +12,7 @@ public class GoCounter_UI : Mgr
     [SerializeField] private TablePickleSlot    tablePickleSlot;
     [SerializeField] private Transform followTrans;
     [SerializeField] private TutoObj tutoObj;
+
     private RectTransform   rect        = null;
 
     private bool canUse = false;

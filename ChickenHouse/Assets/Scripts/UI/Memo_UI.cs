@@ -9,11 +9,32 @@ public class Memo_UI : Mgr
 {
     [SerializeField] private TextMeshProUGUI    memoText;
     [SerializeField] private Animator           animator;
+    [SerializeField] private Image              memoImg;
     [SerializeField] private RectTransform      memoTriggerBox;
+
+    private void Start()
+    {
+        KitchenMgr kitchenMgr = KitchenMgr.Instance;
+        if (kitchenMgr == null)
+            return;
+
+        //초기 메모지 상태 설정
+        if(kitchenMgr.cameraObj.lookArea == LookArea.Counter)
+        {
+            memoTriggerBox.gameObject.SetActive(false);
+            memoImg.gameObject.SetActive(false);
+        }
+        else
+        {
+            memoTriggerBox.gameObject.SetActive(true);
+            memoImg.gameObject.SetActive(true);
+        }
+    }
 
     public void OpenTriggerBox(string str)
     {
         memoTriggerBox.gameObject.SetActive(true);
+        memoImg.gameObject.SetActive(true);
         memoText.text = str;
         CloseMemo();
     }
@@ -21,6 +42,7 @@ public class Memo_UI : Mgr
     public void CloseTriggerBox()
     {
         memoTriggerBox.gameObject.SetActive(false);
+        memoImg.gameObject.SetActive(false);
     }
 
     public void OpenMemo()
@@ -28,6 +50,7 @@ public class Memo_UI : Mgr
         //인스펙터에서 끌어서 사용하는 함수임
         //메모지를 확대함
         animator.Play("Open");
+        memoImg.gameObject.SetActive(false);
     }
 
     public void CloseMemo()
@@ -35,5 +58,6 @@ public class Memo_UI : Mgr
         //인스펙터에서 끌어서 사용하는 함수임
         //메모지를 닫음
         animator.Play("Close");
+        memoImg.gameObject.SetActive(true);
     }
 }
