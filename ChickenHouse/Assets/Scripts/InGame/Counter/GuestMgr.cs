@@ -7,7 +7,7 @@ public class GuestMgr : Mgr
     public static GuestMgr Instance;
 
     private const float START_GUEST_WAIT    = 3.5f;
-    private const float GUEST_DELAY_TIME    = 20f;
+    private const float GUEST_DELAY_TIME    = 45f;
     private const int   GUEST_MAX           = 6;
 
     [SerializeField] private SpriteRenderer[] guestPos = new SpriteRenderer[GUEST_MAX];
@@ -71,44 +71,62 @@ public class GuestMgr : Mgr
         //인게임 코루틴
         while (true)
         {
-            //손님이 이동중일대는 대기
-            yield return new WaitWhile(() => moveGuest);
-
-            if (ui.timer.IsEndTime() == false && guestcnt < GUEST_MAX)
+            if (tutoMgr.tutoComplete == false)
             {
-                //영업 종료 시간이 아님 and 손님최대수에 걸리지 않음
-                //손님을 생성해준다.
+                //손님이 이동중일대는 대기
+                yield return new WaitWhile(() => moveGuest);
+
+                //튜토리얼용 손님 생성
                 CreateGuest();
-            }
 
-            //손님 딜레이
-            float delayValue = GUEST_DELAY_TIME;
-            if (gameMgr.playData.upgradeState[(int)Upgrade.Advertisement_5])
-            {
-                delayValue = GUEST_DELAY_TIME * 0.5f;
-            }
-            else if (gameMgr.playData.upgradeState[(int)Upgrade.Advertisement_4])
-            {
-                delayValue = GUEST_DELAY_TIME * 0.6f;
-            }
-            else if (gameMgr.playData.upgradeState[(int)Upgrade.Advertisement_3])
-            {
-                delayValue = GUEST_DELAY_TIME * 0.7f;
-            }
-            else if (gameMgr.playData.upgradeState[(int)Upgrade.Advertisement_2])
-            {
-                delayValue = GUEST_DELAY_TIME * 0.8f;
-            }
-            else if (gameMgr.playData.upgradeState[(int)Upgrade.Advertisement_1])
-            {
-                delayValue = GUEST_DELAY_TIME * 0.9f;
+                //튜토리얼동안 대기
+                yield return new WaitUntil(() => tutoMgr.tutoComplete);
+
+                //잠깐 대기
+                yield return new WaitForSeconds(2f);
             }
             else
             {
-                //기본 딜레이
-                delayValue = GUEST_DELAY_TIME;
+                //손님이 이동중일대는 대기
+                yield return new WaitWhile(() => moveGuest);
+
+                if (ui.timer.IsEndTime() == false && guestcnt < GUEST_MAX)
+                {
+                    //영업 종료 시간이 아님 and 손님최대수에 걸리지 않음
+                    //손님을 생성해준다.
+                    CreateGuest();
+                }
+
+                //손님 딜레이
+                float delayValue = GUEST_DELAY_TIME;
+                if (gameMgr.playData.upgradeState[(int)Upgrade.Advertisement_5])
+                {
+                    delayValue = GUEST_DELAY_TIME * 0.5f;
+                }
+                else if (gameMgr.playData.upgradeState[(int)Upgrade.Advertisement_4])
+                {
+                    delayValue = GUEST_DELAY_TIME * 0.6f;
+                }
+                else if (gameMgr.playData.upgradeState[(int)Upgrade.Advertisement_3])
+                {
+                    delayValue = GUEST_DELAY_TIME * 0.7f;
+                }
+                else if (gameMgr.playData.upgradeState[(int)Upgrade.Advertisement_2])
+                {
+                    delayValue = GUEST_DELAY_TIME * 0.8f;
+                }
+                else if (gameMgr.playData.upgradeState[(int)Upgrade.Advertisement_1])
+                {
+                    delayValue = GUEST_DELAY_TIME * 0.9f;
+                }
+                else
+                {
+                    //기본 딜레이
+                    delayValue = GUEST_DELAY_TIME;
+                }
+
+                yield return new WaitForSeconds(delayValue);
             }
-            yield return new WaitForSeconds(delayValue);
 
             if (ui.timer.IsEndTime())
             {
@@ -169,6 +187,12 @@ public class GuestMgr : Mgr
                 //손님을 호출
                 int guestRandom = Random.Range(0, guests.Count);
                 Guest nowGuest = guests[guestRandom];
+                if(tutoMgr.tutoComplete == false)
+                {
+                    //튜토리얼에서는 고정으로 여우가 나옴
+                    nowGuest = Guest.Fox;
+                }
+
                 visitedGuest.Add(nowGuest);
 
 

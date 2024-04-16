@@ -121,6 +121,12 @@ public enum Guest
     Lemur    = 5,
     /** 태즈마니아 데빌 **/
     TasmanianDevil = 6,
+    /** 버지니아 주머니쥐 **/
+    VirginiaOpossum = 7,
+    /** 플라밍고 **/
+    Flamingo = 8,
+    /** 비둘기 **/
+    Dove = 9,
 
     MAX
 }

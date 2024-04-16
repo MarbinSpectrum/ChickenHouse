@@ -21,7 +21,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 058c9e3ef582a8e4a905b99659f2ffaf, type: 2}
+  m_Motion: {fileID: 7400000, guid: 88c3c42e7bb6e954589cfac7af03636f, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -105,7 +105,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Tasmanian Devil
+  m_Name: Dove
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Show
@@ -278,7 +278,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 9c8540d3afe5f9b40bec161b05c991ac, type: 2}
+  m_Motion: {fileID: 7400000, guid: 9ccd770d2de82534795697e63c4252d2, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -305,7 +305,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 39ebc80b5d504f541801416837457881, type: 2}
+  m_Motion: {fileID: 7400000, guid: 031da2a424f37804aa929868ee7e8b9f, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -331,7 +331,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 15f2fc12b4a49fe44880502d2858489a, type: 2}
+  m_Motion: {fileID: 7400000, guid: ff3a727c62a8ad64ebbea107bcaab6c1, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -358,7 +358,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: bcb7faf6e4efc2e499d0bf92629147a1, type: 2}
+  m_Motion: {fileID: 7400000, guid: 2ad3069e537998e40878be4f38f644f6, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
