@@ -7,7 +7,7 @@ public class GuestMgr : Mgr
     public static GuestMgr Instance;
 
     private const float START_GUEST_WAIT    = 3.5f;
-    private const float GUEST_DELAY_TIME    = 45f;
+    private const float GUEST_DELAY_TIME    = 30f;
     private const int   GUEST_MAX           = 6;
 
     [SerializeField] private SpriteRenderer[] guestPos = new SpriteRenderer[GUEST_MAX];
@@ -23,6 +23,8 @@ public class GuestMgr : Mgr
         public GoKitchen_UI goKitchen;
         /** 현재 금화 **/
         public Money_UI     nowMoney;
+        /** 돈 획득 **/
+        public GetMoney_UI  getMoney;
         /** 시간 및 날짜 표시 **/
         public Timer_UI     timer;
         /** 날짜 종료 **/
@@ -278,8 +280,10 @@ public class GuestMgr : Mgr
             else
             {
                 //돈지불
-                gameMgr.dayMoney += gameMgr.playData.GetMenuValue();
-                ui.nowMoney.SetMoney(gameMgr.dayMoney);
+                int getValue = gameMgr.playData.GetMenuValue();
+                ui.getMoney.RunAni(getValue);
+                gameMgr.dayMoney += getValue;
+                ui.nowMoney.SetMoney(gameMgr.playData.money + gameMgr.dayMoney);
 
                 guestObj.ThankGuest();
             }

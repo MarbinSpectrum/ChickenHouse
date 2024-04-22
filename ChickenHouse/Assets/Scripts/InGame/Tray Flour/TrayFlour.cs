@@ -53,7 +53,7 @@ public class TrayFlour : Mgr
 
     public bool AddChicken()
     {
-        if (chickenCnt >= MAX_CHICKEN_SLOT)
+        if (IsMax())
             return false;
 
         //트레이에 올려져있는 닭 증가
@@ -72,7 +72,7 @@ public class TrayFlour : Mgr
                 flourSlot.SpawnChicken();
                 RefreshSlotCollider();
 
-                if (chickenCnt == MAX_CHICKEN_SLOT)
+                if (IsMax())
                 {
                     if (tutoMgr.tutoComplete == false)
                     {
@@ -82,6 +82,9 @@ public class TrayFlour : Mgr
                     }
                 }
 
+                KitchenMgr kitchenMgr = KitchenMgr.Instance;
+                kitchenMgr.worker.UpdateHandMoveArea();
+
                 return true;
             }
         }
@@ -89,14 +92,48 @@ public class TrayFlour : Mgr
         return false;
     }
 
-    public bool RemoveChicken()
+    public bool IsMax() => (chickenCnt == MAX_CHICKEN_SLOT);
+
+    public bool HasChicken()
+    {
+        int cnt = 0;
+        foreach (FlourSlot flourSlot in flourSlots)
+        {
+            if (flourSlot.isEmpty)
+                continue;
+            if (flourSlot.isDrag)
+                continue;
+            cnt++;
+        }
+        return cnt > 0;
+    }
+
+        public bool RemoveChicken()
     {
         //트레이에 올려져있는 닭 감소
         if (chickenCnt <= 0)
             return false;
         chickenCnt--;
+
         RefreshSlotCollider();
+
+        KitchenMgr kitchenMgr = KitchenMgr.Instance;
+        kitchenMgr.worker.UpdateHandMoveArea();
+
         return true;
+    }
+
+    public void RemoveFlourSlotbyWorker()
+    {
+        foreach (FlourSlot flourSlot in flourSlots)
+        {
+            if (flourSlot.isEmpty)
+                continue;
+            if (flourSlot.isDrag)
+                continue;
+            flourSlot.RemoveChicken();
+            return;
+        }
     }
 
     public void RefreshSlotCollider()

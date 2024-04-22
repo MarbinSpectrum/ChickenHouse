@@ -44,9 +44,8 @@ public class DragCamera : Mgr
                 && !(prevPos.x - nowPos.x > 0 && nowPos.x <= dragDis))
                 return;
             movePos = (Vector3)(prevPos - nowPos).normalized * Time.deltaTime * speed;
-            movePos = new Vector3(movePos.x, 0, 0);
+            movePos = new Vector3(movePos.x + kitchenMgr.kitchenRect.content.offsetMin.x, 0, 0);
+            kitchenMgr.SetkitchenSetPos(movePos);
         }
-
-        kitchenMgr.SetkitchenSetPos(movePos);
     }
 }

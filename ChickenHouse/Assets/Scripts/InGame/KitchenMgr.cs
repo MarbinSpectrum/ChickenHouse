@@ -39,6 +39,8 @@ public class KitchenMgr : Mgr
     public DragObj          dragObj;
     /** 주방 Rect **/
     public ScrollRect       kitchenRect;
+    /** 알바생 **/
+    public Worker worker;
 
     [System.Serializable]
     public struct Spicy
@@ -71,6 +73,16 @@ public class KitchenMgr : Mgr
     public Table table;
 
     [System.Serializable]
+    public struct OilMachine
+    {
+        //튀김기
+        public Image img;
+        /** 기기 이미지 **/
+        public Sprite[] machineImg;
+    }
+    public OilMachine oilMahcine;
+
+    [System.Serializable]
     public struct UI
     {
         //주방 관련 UI
@@ -100,6 +112,8 @@ public class KitchenMgr : Mgr
 
     public void Init()
     {
+        /////////////////////////////////////////////////////////////////////////////////
+        //양념통 세팅
         int spicyCnt = 0;
         spicy.soySpicy.gameObject.SetActive(false);
         spicy.hellSpicy.gameObject.SetActive(false);
@@ -140,6 +154,41 @@ public class KitchenMgr : Mgr
             table.table1.gameObject.SetActive(true);
         }
         kitchenRect.content.sizeDelta = sizeValue;
+
+        /////////////////////////////////////////////////////////////////////////////////
+        //알바생 업무 시작
+        worker.UpdateHandMoveArea();
+
+        /////////////////////////////////////////////////////////////////////////////////
+        //기름통 세팅
+        if (gameMgr.playData.upgradeState[(int)Upgrade.OIL_Zone_1])
+        {
+            oilMahcine.img.sprite = oilMahcine.machineImg[0];
+        }
+        if (gameMgr.playData.upgradeState[(int)Upgrade.OIL_Zone_2])
+        {
+            oilMahcine.img.sprite = oilMahcine.machineImg[1];
+        }
+        if (gameMgr.playData.upgradeState[(int)Upgrade.OIL_Zone_3])
+        {
+            oilMahcine.img.sprite = oilMahcine.machineImg[2];
+        }
+        if (gameMgr.playData.upgradeState[(int)Upgrade.OIL_Zone_4])
+        {
+            oilMahcine.img.sprite = oilMahcine.machineImg[3];
+        }
+        if (gameMgr.playData.upgradeState[(int)Upgrade.OIL_Zone_5])
+        {
+            oilMahcine.img.sprite = oilMahcine.machineImg[4];
+        }
+        if (gameMgr.playData.upgradeState[(int)Upgrade.OIL_Zone_6])
+        {
+            oilMahcine.img.sprite = oilMahcine.machineImg[5];
+        }
+        if (gameMgr.playData.upgradeState[(int)Upgrade.OIL_Zone_MAX])
+        {
+            oilMahcine.img.sprite = oilMahcine.machineImg[5];
+        }
     }
 
     private float KitchenWidth()

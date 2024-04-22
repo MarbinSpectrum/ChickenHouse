@@ -72,7 +72,7 @@ public class ChickenStrainter : Mgr
             //주방을 보고있는 상태에서만 상호 작용 가능
             return;
         }
-        if (chickenCnt >= MAX_CHICKEN_SLOT)
+        if (IsMax())
         {
             obj.gameObject.SetActive(false);
             isRun = false;
@@ -123,7 +123,7 @@ public class ChickenStrainter : Mgr
         if (isRun == false)
             return false;
 
-        if (chickenCnt >= MAX_CHICKEN_SLOT)
+        if (IsMax())
             return false;
 
         //기름 건지에 올려져있는 닭 증가
@@ -144,7 +144,7 @@ public class ChickenStrainter : Mgr
             chickenAni[chickenCnt - 1].Play("ToChickenStrainter");
         }
 
-        if (chickenCnt == MAX_CHICKEN_SLOT)
+        if (IsMax())
         {
             foreach (ScrollObj sObj in scrollObj)
             {
@@ -159,8 +159,13 @@ public class ChickenStrainter : Mgr
             }
         }
 
+        KitchenMgr kitchenMgr = KitchenMgr.Instance;
+        kitchenMgr.worker.UpdateHandMoveArea();
+
         return true;
     }
+
+    public bool IsMax() => (chickenCnt == MAX_CHICKEN_SLOT);
 
     public bool RemoveChicken()
     {
@@ -175,6 +180,10 @@ public class ChickenStrainter : Mgr
 
         chickenCnt--;
         chickenAni[chickenCnt].gameObject.SetActive(false);
+
+        KitchenMgr kitchenMgr = KitchenMgr.Instance;
+        kitchenMgr.worker.UpdateHandMoveArea();
+
         return true;
     }
 
@@ -190,5 +199,8 @@ public class ChickenStrainter : Mgr
         {
             sObj.isRun = true;
         }
+
+        KitchenMgr kitchenMgr = KitchenMgr.Instance;
+        kitchenMgr.worker.UpdateHandMoveArea();
     }
 }

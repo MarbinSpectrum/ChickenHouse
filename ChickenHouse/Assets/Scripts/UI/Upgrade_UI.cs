@@ -1,17 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Upgrade_UI : Mgr
 {
-    [SerializeField] private UpgradeSlot_UI upgradeSlot;
     [SerializeField] private LoopScrollInit scrollInit;
     [SerializeField] private RectTransform  body;
     [SerializeField] private GameObject     dontTouch;
     [SerializeField] private Money_UI       moneyUI;
-
+    [SerializeField] private Button         gotoNextDay;
     public List<Upgrade> upgradeList { private set; get; } = new List<Upgrade>();
     private bool selectMenu = false;
+
+    private void Awake()
+    {
+        gotoNextDay.onClick.RemoveAllListeners();
+        gotoNextDay.onClick.AddListener(() =>
+        {
+            GotoNextDay();
+        });
+    }
 
     private void Start()
     {
@@ -23,23 +32,12 @@ public class Upgrade_UI : Mgr
 
     private void SetUpgrade()
     {
-        bool HasUpgrade(Upgrade upgrade)
-        {
-            if (gameMgr.playData.upgradeState[(int)upgrade])
-            {
-                //해당 업그레이드가 완료되어있음
-                return true;
-            }
-
-            //업그레이드가 완료 안되어있음
-            return false;
-        }
-
         upgradeList.Clear();
 
         upgradeList.Add(Upgrade.OIL_Zone_1);
         upgradeList.Add(Upgrade.Recipe_1);
         upgradeList.Add(Upgrade.Advertisement_1);
+        upgradeList.Add(Upgrade.Worker_1);
 
         scrollInit.Init(upgradeList.Count);
     }
@@ -49,13 +47,12 @@ public class Upgrade_UI : Mgr
         moneyUI.SetMoney(gameMgr.playData.money);
     }
 
-    public void SelectUpgrade(Upgrade pUpgrade)
+    public void GotoNextDay()
     {
         if (selectMenu)
             return;
         dontTouch.gameObject.SetActive(true);
         selectMenu = true;
-        gameMgr.playData.upgradeState[(int)pUpgrade] = true;
         gameMgr.playData.day += 1;
         gameMgr.SaveData();
         sceneMgr.SceneLoad(Scene.INGAME, SceneChangeAni.CIRCLE);

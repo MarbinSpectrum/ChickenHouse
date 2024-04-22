@@ -11,12 +11,14 @@ public class EggSlot : Mgr
     [SerializeField] private RectTransform  eventBox;
 
     public bool isEmpty;
+    public bool isDrag;
 
     public void SpawnChicken()
     {
         animation.Play("AddChicken");
         isEmpty = false;
         img.enabled = true;
+        isDrag = false;
     }
 
     public void RemoveChicken()
@@ -24,6 +26,7 @@ public class EggSlot : Mgr
         gameObject.SetActive(false);
         isEmpty = true;
         img.enabled = false;
+        isDrag = false;
     }
 
     public void OnMouseDrag()
@@ -47,6 +50,7 @@ public class EggSlot : Mgr
             return;
         }
         kitchenMgr.dragState = DragState.Egg;
+        isDrag = true;
         img.enabled = false;
     }
 
@@ -77,6 +81,7 @@ public class EggSlot : Mgr
 
         //손을때면 치킨이 떨어짐
         kitchenMgr.dragState = DragState.None;
+        isDrag = false;
         img.enabled = true;
     }
 

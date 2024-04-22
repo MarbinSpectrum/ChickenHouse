@@ -53,7 +53,7 @@ public class TrayEgg : Mgr
 
     public bool AddChicken()
     {
-        if (chickenCnt >= MAX_CHICKEN_SLOT)
+        if (IsMax())
             return false;
 
         //트레이에 올려져있는 닭 증가
@@ -72,7 +72,7 @@ public class TrayEgg : Mgr
                 eggSlot.SpawnChicken();
                 RefreshSlotCollider();
 
-                if (chickenCnt == MAX_CHICKEN_SLOT)
+                if (IsMax())
                 {
                     if (tutoMgr.tutoComplete == false)
                     {
@@ -82,11 +82,30 @@ public class TrayEgg : Mgr
                     }
                 }
 
+                KitchenMgr kitchenMgr = KitchenMgr.Instance;
+                kitchenMgr.worker.UpdateHandMoveArea();
+
                 return true;
             }
         }
 
         return false;
+    }
+
+    public bool IsMax() => (chickenCnt == MAX_CHICKEN_SLOT);
+
+    public bool HasChicken()
+    {
+        int cnt = 0;
+        foreach (EggSlot eggSlot in eggSlots)
+        {
+            if (eggSlot.isEmpty)
+                continue;
+            if (eggSlot.isDrag)
+                continue;
+            cnt++;
+        }
+        return cnt > 0;
     }
 
     public bool RemoveChicken()
@@ -95,8 +114,26 @@ public class TrayEgg : Mgr
         if (chickenCnt <= 0)
             return false;
         chickenCnt--;
+
         RefreshSlotCollider();
+
+        KitchenMgr kitchenMgr = KitchenMgr.Instance;
+        kitchenMgr.worker.UpdateHandMoveArea();
+
         return true;
+    }
+
+    public void RemoveEggSlotbyWorker()
+    {
+        foreach (EggSlot eggSlot in eggSlots)
+        {
+            if (eggSlot.isEmpty)
+                continue;
+            if (eggSlot.isDrag)
+                continue;
+            eggSlot.RemoveChicken();
+            return;
+        }
     }
 
     public void RefreshSlotCollider()

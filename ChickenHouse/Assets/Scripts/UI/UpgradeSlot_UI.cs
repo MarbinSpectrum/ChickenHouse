@@ -135,6 +135,8 @@ public class UpgradeSlot_UI : Mgr, IPointerClickHandler, IPointerEnterHandler, I
         {
             case Upgrade.OIL_Zone_MAX:
             case Upgrade.Recipe_MAX:
+            case Upgrade.Worker_MAX:
+            case Upgrade.Advertisement_MAX:
                 return true;
         }
 
@@ -236,6 +238,42 @@ public class UpgradeSlot_UI : Mgr, IPointerClickHandler, IPointerEnterHandler, I
                     return pUpgrade;
             case Upgrade.Advertisement_MAX:
                 //광고 업그레이드가 최대상태
+                return pUpgrade;
+
+            //-----------------------------------------------------------------
+            //알바생 업그레이드
+            case Upgrade.Worker_1:
+                if (HasUpgrade(pUpgrade))
+                    return SetUpgrade(Upgrade.Worker_2);
+                else
+                    return pUpgrade;
+            case Upgrade.Worker_2:
+                if (HasUpgrade(pUpgrade))
+                    return SetUpgrade(Upgrade.Worker_3);
+                else
+                    return pUpgrade;
+            case Upgrade.Worker_3:
+                if (HasUpgrade(pUpgrade))
+                    return SetUpgrade(Upgrade.Worker_4);
+                else
+                    return pUpgrade;
+            case Upgrade.Worker_4:
+                if (HasUpgrade(pUpgrade))
+                    return SetUpgrade(Upgrade.Worker_5);
+                else
+                    return pUpgrade;
+            case Upgrade.Worker_5:
+                if (HasUpgrade(pUpgrade))
+                    return SetUpgrade(Upgrade.Worker_6);
+                else
+                    return pUpgrade;
+            case Upgrade.Worker_6:
+                if (HasUpgrade(pUpgrade))
+                    return SetUpgrade(Upgrade.Worker_MAX);
+                else
+                    return pUpgrade;
+            case Upgrade.Worker_MAX:
+                //알바생 업그레이드가 최대상태
                 return pUpgrade;
         }
 

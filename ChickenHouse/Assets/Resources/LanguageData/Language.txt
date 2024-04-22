@@ -101,3 +101,17 @@ ADVERTISEMENT_LV3_INFO	가게를 홍보합니다.\n(손님 방문 딜레이 -30%
 ADVERTISEMENT_LV4_INFO	가게를 홍보합니다.\n(손님 방문 딜레이 -40%);	가게를 홍보합니다.\n(손님 방문 딜레이 -40%);
 ADVERTISEMENT_LV5_INFO	가게를 홍보합니다.\n(손님 방문 딜레이 -50%);	가게를 홍보합니다.\n(손님 방문 딜레이 -50%);
 ADVERTISEMENT_MAX_INFO	연구완료	연구완료
+WORKER_LV1_NAME	알바생 고용	알바생 고용
+WORKER_LV2_NAME	알바생 교육\nLv.1	알바생 교육\nLv.1
+WORKER_LV3_NAME	알바생 교육\nLv.2	알바생 교육\nLv.2
+WORKER_LV4_NAME	알바생 교육\nLv.3	알바생 교육\nLv.3
+WORKER_LV5_NAME	알바생 교육\nLv.4	알바생 교육\nLv.4
+WORKER_LV6_NAME	알바생 교육\nLv.5	알바생 교육\nLv.5
+WORKER_MAX_NAME	알바생 교육\nLv.MAX	알바생 교육\nLv.MAX
+WORKER_LV1_INFO	알바생을 교육합니다.\n(치킨 조리를 도와줍니다.)	알바생을 교육합니다.\n(치킨 조리를 도와줍니다.)
+WORKER_LV2_INFO	알바생을 교육합니다.\n(알바생의 움직임이 빨라집니다.)	알바생을 교육합니다.\n(알바생의 움직임이 빨라집니다.)
+WORKER_LV3_INFO	알바생을 교육합니다.\n(튀김옷 입히기를 가르킵니다.)	알바생을 교육합니다.\n(튀김옷 입히기를 가르킵니다.)
+WORKER_LV4_INFO	알바생을 교육합니다.\n(알바생의 움직임이 더 빨라집니다.)	알바생을 교육합니다.\n(알바생의 움직임이 더 빨라집니다.)
+WORKER_LV5_INFO	알바생을 교육합니다.\n(치킨건지까지 치킨을 옮겨줍니다.)	알바생을 교육합니다.\n(치킨건지까지 치킨을 옮겨줍니다.)
+WORKER_LV6_INFO	알바생을 교육합니다.\n(알바생의 움직임이 더 빨라집니다.)	알바생을 교육합니다.\n(알바생의 움직임이 더 빨라집니다.)
+WORKER_MAX_INFO	연구완료	연구완료

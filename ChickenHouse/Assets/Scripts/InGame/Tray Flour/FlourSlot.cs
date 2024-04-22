@@ -11,12 +11,13 @@ public class FlourSlot : Mgr
     [SerializeField] private RectTransform  eventBox;
 
     public bool isEmpty;
-
+    public bool isDrag;
     public void SpawnChicken()
     {
         animation.Play("AddChicken");
         isEmpty = false;
         img.enabled = true;
+        isDrag = false;
     }
 
     public void RemoveChicken()
@@ -24,6 +25,7 @@ public class FlourSlot : Mgr
         gameObject.SetActive(false);
         isEmpty = true;
         img.enabled = false;
+        isDrag = false;
     }
 
     public void OnMouseDrag()
@@ -48,6 +50,7 @@ public class FlourSlot : Mgr
         }
         kitchenMgr.dragState = DragState.Flour;
         img.enabled = false;
+        isDrag = true;
     }
 
     public void OnMouseUp()
@@ -78,6 +81,7 @@ public class FlourSlot : Mgr
         //¼ÕÀ»¶§¸é Ä¡Å²ÀÌ ¶³¾îÁü
         kitchenMgr.dragState = DragState.None;
         img.enabled = true;
+        isDrag = false;
     }
 
     public void SetRect(Vector2 pos, Vector2 size)

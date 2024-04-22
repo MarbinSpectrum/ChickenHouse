@@ -65,7 +65,6 @@ public class TableChickenSlot : Mgr
         }
     }
 
-
     private void Update()
     {
         UpdateChickenSlot();

@@ -163,7 +163,8 @@ public class Oil_Zone : Mgr
                 {
                     chickenStrainter.Init();
                     chickenStrainter = null;
-                }
+
+                }    
 
                 if (tutoMgr.tutoComplete == false && tutoMgr.nowTuto == Tutorial.Tuto_5_2)
                 {

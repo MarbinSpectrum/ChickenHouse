@@ -233,6 +233,15 @@ public enum Upgrade
     Advertisement_5     = 305,      //광고 업그레이드(손님 딜레이 -50%);
     Advertisement_MAX   = 350,      //MAX
 
+    /** 아르바이트생 업그레이드 **/
+    Worker_1            = 401,      //알바생 고용(치킨을 계란물에 넣어줌)
+    Worker_2            = 402,      //알바생 교육(알바생 움직임이 빨라짐)
+    Worker_3            = 403,      //알바생 교육(치킨에 튀김가루를 묻혀줌)
+    Worker_4            = 404,      //알바생 교육(알바생 움직임이 빨라짐)
+    Worker_5            = 405,      //알바생 교육(치킨을 치킨건지에 넣어줌)
+    Worker_6            = 406,      //알바생 교육(알바생 움직임이 빨라짐)
+    Worker_MAX          = 407,      //MAX
+
     MAX                 = 10000,
 }
 
@@ -250,6 +259,18 @@ public enum DayEndList
     Supplies_Uesd       = 4,
     /** 순 수익 **/
     Total_Profit        = 5,
+}
+
+public enum WorkerHandState
+{
+    /** 없음(쉬러이동) **/
+    None                = 0,
+    /** 일반 치킨 집으러가는중 **/
+    NormalChicken       = 1,
+    /** 계란물 치킨 집으러가는중 **/
+    EggChicken          = 2,
+    /** 밀가루 묻힌 치킨 집으러가는중 **/
+    FlourChicken        = 3,
 }
 
 public enum Tutorial
