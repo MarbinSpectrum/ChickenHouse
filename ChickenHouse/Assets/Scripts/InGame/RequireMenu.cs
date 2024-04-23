@@ -375,11 +375,10 @@ public class RequireMenu
         return false;
     }
 
-    public float MenuPoint(GuestData pGuestData,
-        int pChickenCnt, ChickenSpicy pSpicy0, ChickenSpicy pSpicy1, ChickenState pChickenState, bool hasDrink, bool hasPickle)
+    public GuestReviews MenuPoint(GuestData pGuestData, 
+        ChickenSpicy pSpicy0, ChickenSpicy pSpicy1, ChickenState pChickenState, bool hasDrink, bool hasPickle)
     {
         GameMgr gameMgr = GameMgr.Instance;
-        float defaultPoint = gameMgr.playData.GetDefaultPoint();
 
         //손님이 생각한 치킨 점수
         //손님 정보를 토대로 원하는 맛을 도출한다.
@@ -390,77 +389,33 @@ public class RequireMenu
             guestTypes.Add(type);
         }
 
-        float point = defaultPoint;
-
-        //--------------------------------------------------------------------------------
-        //닭고기 갯수
-        if (ChickenCntCheck(pChickenCnt) == false)
-        {
-            if (guestTypes.Contains(GuestType.Thoroughness))
-            {
-                //손님의 요청이랑 다른 주문메뉴가 나오면 별점을 매우 나쁘게줌
-                point -= 2;
-            }
-            else
-            {
-                point -= 1;
-            }
-        }
+        int point = 0;
 
         //--------------------------------------------------------------------------------
         //양념 검사
-        if (ChickenSpicyCheck(pSpicy0, pSpicy1) == false)
+        if (ChickenSpicyCheck(pSpicy0, pSpicy1))
         {
-            if (guestTypes.Contains(GuestType.Thoroughness))
-            {
-                //손님의 요청이랑 다른 주문메뉴가 나오면 별점을 매우 나쁘게줌
-                point -= 2;
-            }
-            else
-            {
-                point -= 1;
-            }
+            point += 2;
         }
 
         //--------------------------------------------------------------------------------
         //피클이나 콜라 검사
-        if (cola != hasDrink || pickle != hasPickle)
+        if (cola == hasDrink)
         {
-            if (guestTypes.Contains(GuestType.Thoroughness))
-            {
-                //손님의 요청이랑 다른 주문메뉴가 나오면 별점을 매우 나쁘게줌
-                point -= 2;
-            }
-            else
-            {
-                point -= 1;
-            }
+            point += 2;
+        }
+        if (pickle == hasPickle)
+        {
+            point += 2;
         }
 
-        //--------------------------------------------------------------------------------
-        //치킨 상태
-        if (pChickenState != ChickenState.GoodChicken)
-        {
-            point -= 1;
-        }
-
-        //--------------------------------------------------------------------------------
-        //마지막에 처리해야하는 속성 처리
-        if (guestTypes.Contains(GuestType.Devil))
-        {
-            if (ChickenCntCheck(pChickenCnt) == false || ChickenSpicyCheck(pSpicy0, pSpicy1) == false
-                || cola != hasDrink || pickle != hasPickle)
-            {
-                //조금이여도 메뉴가 틀리면 0점 별점을 줌
-                point = Mathf.Min(0, point);
-            }
-        }
-        //else if (guestTypes.Contains(GuestType.Angel))
-        //{
-        //    //엉터리로 메뉴를 꺼내도 최소 3점 별점은 줌
-        //    point = Mathf.Max(3, point);
-        //}
-
-        return point;
+        if (point < 2)
+            return GuestReviews.Bad;
+        else if (point < 4)
+            return GuestReviews.Normal;
+        else if (point < 6)
+            return GuestReviews.Good;
+        else 
+            return GuestReviews.Happy;
     }
 }

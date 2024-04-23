@@ -26,11 +26,11 @@ public class Flamingo : GuestObj
             showStr = string.Format(showStr, chickenName, sideMenuName[0], sideMenuName[1]);
         }
 
-        soundMgr.PlayLoopSE(Sound.Voice1_SE);
+        soundMgr.PlayLoopSE(Sound.Voice9_SE);
         animator.SetTrigger("Talk");
         talkBox.ShowText(showStr, () =>
         {
-            soundMgr.StopLoopSE(Sound.Voice1_SE);
+            soundMgr.StopLoopSE(Sound.Voice9_SE);
             animator.SetTrigger("TalkEnd");
             fun?.Invoke();
         });
@@ -38,8 +38,8 @@ public class Flamingo : GuestObj
 
     public override void CloseTalkBox()
     {
-        soundMgr.StopLoopSE(Sound.Voice1_SE);
-        soundMgr.StopLoopSE(Sound.Voice2_SE);
+        soundMgr.StopLoopSE(Sound.Voice9_SE);
+        soundMgr.StopLoopSE(Sound.Voice10_SE);
         talkBox.CloseTalkBox();
     }
 
@@ -47,11 +47,11 @@ public class Flamingo : GuestObj
     {
         string showStr = LanguageMgr.GetText("CAT_THANK_YOU");
 
-        soundMgr.PlayLoopSE(Sound.Voice2_SE);
+        soundMgr.PlayLoopSE(Sound.Voice10_SE);
         animator.SetTrigger("Talk");
         talkBox.ShowText(showStr, () =>
         {
-            soundMgr.StopLoopSE(Sound.Voice2_SE);
+            soundMgr.StopLoopSE(Sound.Voice10_SE);
             animator.SetTrigger("TalkEnd");
             fun?.Invoke();
         });
@@ -61,11 +61,11 @@ public class Flamingo : GuestObj
     {
         string showStr = LanguageMgr.GetText("CAT_ANGRY");
 
-        soundMgr.PlayLoopSE(Sound.Voice1_SE);
+        soundMgr.PlayLoopSE(Sound.Voice9_SE);
         animator.SetTrigger("Angry");
         talkBox.ShowText(showStr, () =>
         {
-            soundMgr.StopLoopSE(Sound.Voice1_SE);
+            soundMgr.StopLoopSE(Sound.Voice9_SE);
             fun?.Invoke();
         });
     }

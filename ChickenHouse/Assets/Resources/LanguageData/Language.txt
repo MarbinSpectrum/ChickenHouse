@@ -1,6 +1,10 @@
 Key	Korea	English
 OK	확인	Ok
 CANCLE	취소	Cancle
+NEW_GAME	새로하기	New Game
+LOAD_GAME	이어하기	Load Game
+LANGUAGE_OPTION	언어	Language
+SOUND_OPTION	사운드 설정	SOUND
 GO_KITCHEN	주방으로	Go Kitchen
 GO_COUNTER	카운터로	Go Counter
 SHOP_UPGRADE	매장 업그레이드	Shop Upgrade
@@ -66,7 +70,7 @@ TUTO_5_2	이제 치킨을 치킨용기안에 넣어주세요.	이제 치킨을 �
 TUTO_6	콜라와 치킨무도 넣어주세요.	콜라와 치킨무도 넣어주세요.
 TUTO_7	손님에게 전달할 치킨이 완료되었습니다.\n상단 버튼을 눌러서 카운터로 이동합니다.	손님에게 전달할 치킨이 완료되었습니다.\n상단 버튼을 눌러서 카운터로 이동합니다.
 UPGRADE_OIL_ZINE_LV1_NAME	튀김기\nLv.1	튀김기\nLv.1
-UPGRADE_OIL_ZINE_LV2_NAME	튀김기 \nLv.2	튀김기 \nLv.2
+UPGRADE_OIL_ZINE_LV2_NAME	튀김기\nLv.2	튀김기\nLv.2
 UPGRADE_OIL_ZINE_LV3_NAME	튀김기\nLv.3	튀김기\nLv.3
 UPGRADE_OIL_ZINE_LV4_NAME	튀김기\nLv.4	튀김기\nLv.4
 UPGRADE_OIL_ZINE_LV5_NAME	튀김기\nLv.5	튀김기\nLv.5

@@ -12,16 +12,18 @@ public class PlayData
     /** 업그레이드 상태 **/
     public bool[] upgradeState = new bool[(int)Upgrade.MAX];
 
-    public float GetDefaultPoint()
-    {
-        //유저 정보를 토대로 나오는 치킨의 기본 점수
-        return 2.0f;
-    }
-
-    public int GetMenuValue()
+    public int GetMenuValue(GuestReviews review, ChickenSpicy spicy0, ChickenSpicy spicy1, ChickenState chickenState,
+        bool hasDrink, bool hasPickle)
     {
         //메뉴 가격
         int defaultValue = 300;
+
+        int spicyValue0 = GetSpicyValue(spicy0);
+        int spicyValue1 = GetSpicyValue(spicy1);
+        int drinkValue  = hasDrink ? 50 : 0;
+        int pickleValue = hasPickle ? 50 : 0;
+
+        int totalValue = defaultValue + spicyValue0 + spicyValue1 + drinkValue + pickleValue;
 
         int percent = 100;
         if (upgradeState[(int)Upgrade.Recipe_1])
@@ -33,8 +35,38 @@ public class PlayData
         if (upgradeState[(int)Upgrade.Recipe_4])
             percent += 20;
 
-        int resultValue = (defaultValue * percent) / 100;
+        int resultValue = (totalValue * percent) / 100;
+
+        switch(review)
+        {
+            case GuestReviews.Bad:
+                return 0;
+            case GuestReviews.Normal:
+                return resultValue;
+            case GuestReviews.Good:
+                return (int)(resultValue * 1.5f);
+            case GuestReviews.Happy:
+                return (int)(resultValue * 2f);
+        }
 
         return resultValue;
+    }
+
+    private int GetSpicyValue(ChickenSpicy spicy)
+    {
+        switch(spicy)
+        {
+            case ChickenSpicy.Not:
+                return 0;
+            case ChickenSpicy.Hot:
+                return 50;
+            case ChickenSpicy.Soy:
+                return 100;
+            case ChickenSpicy.Hell:
+                return 150;
+            case ChickenSpicy.BBQ:
+                return 200;
+        }
+        return 0;
     }
 }

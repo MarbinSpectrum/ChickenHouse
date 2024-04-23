@@ -60,10 +60,13 @@ public class GuestMgr : Mgr
     }
     //-------------------------------------------------------------------------------------
 
-    public void StartGuestCycle()
+    public void Init()
     {
+        ui.nowMoney.SetMoney(gameMgr.playData.money);
+
         StartCoroutine(RunGuestCycle());
         StartCoroutine(EndCheck());
+
     }
 
     public IEnumerator RunGuestCycle()
@@ -260,7 +263,7 @@ public class GuestMgr : Mgr
         guestObj.CloseTalkBox();
     }
 
-    public void GiveChicken(int chickenCnt, ChickenSpicy spicy0, ChickenSpicy spicy1, ChickenState chickenState,
+    public void GiveChicken(ChickenSpicy spicy0, ChickenSpicy spicy1, ChickenState chickenState,
                             bool hasDrink, bool hasPickle)
     {
         vinylAni.gameObject.SetActive(true);
@@ -271,22 +274,30 @@ public class GuestMgr : Mgr
             yield return new WaitForSeconds(1.5f);
 
             //º’¥‘¿« ∆Ú∞° ¡¯«‡
-            float defaultPoint = gameMgr.playData.GetDefaultPoint();
-            float menuPoint = guestObj.ChickenPoint(chickenCnt, spicy0, spicy1, chickenState, hasDrink, hasPickle);
-            if(menuPoint < defaultPoint)
-            {
-                guestObj.AngryGuest();
-            }
-            else
-            {
-                //µ∑¡ˆ∫“
-                int getValue = gameMgr.playData.GetMenuValue();
-                ui.getMoney.RunAni(getValue);
-                gameMgr.dayMoney += getValue;
-                ui.nowMoney.SetMoney(gameMgr.playData.money + gameMgr.dayMoney);
+            GuestReviews result = guestObj.ChickenPoint(spicy0, spicy1, chickenState, hasDrink, hasPickle);
 
-                guestObj.ThankGuest();
-            }
+            switch(result)
+            {
+                case GuestReviews.Bad:
+                    {
+                        guestObj.AngryGuest();
+                    }
+                    break;
+                case GuestReviews.Normal:
+                case GuestReviews.Good:
+                case GuestReviews.Happy:
+                    {
+                        //µ∑¡ˆ∫“
+                        int getValue = gameMgr.playData.GetMenuValue(result, spicy0, spicy1, chickenState, hasDrink, hasPickle);
+                        ui.getMoney.RunAni(getValue);
+
+                        gameMgr.dayMoney += getValue;
+                        ui.nowMoney.SetMoney(gameMgr.playData.money + gameMgr.dayMoney);
+
+                        guestObj.ThankGuest();
+                    }
+                    break;
+            }    
 
             gameMgr.sellChickenCnt += 1;
 

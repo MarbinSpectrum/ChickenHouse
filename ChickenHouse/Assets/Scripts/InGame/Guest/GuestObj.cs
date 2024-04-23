@@ -67,15 +67,12 @@ public abstract class GuestObj : Mgr
         });
     }
 
-    public float ChickenPoint(int chickenCnt, ChickenSpicy spicy0, ChickenSpicy spicy1, ChickenState chickenState,
+    public GuestReviews ChickenPoint(ChickenSpicy spicy0, ChickenSpicy spicy1, ChickenState chickenState,
                             bool hasDrink, bool hasPickle)
     {
-        //손님이 생각한 치킨 점수
+        GuestReviews result = requireMenu.MenuPoint(guestData, spicy0, spicy1, chickenState, hasDrink, hasPickle);
 
-        //기본 치킨 점수
-        float point = requireMenu.MenuPoint(guestData, chickenCnt, spicy0, spicy1, chickenState, hasDrink, hasPickle);
-
-        return point;
+        return result;
     }
 
     public void SetOrderSprite(int order)

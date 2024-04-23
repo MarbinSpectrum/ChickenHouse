@@ -11,5 +11,7 @@ public class GetMoney_UI : Mgr
     {
         textUI.text = string.Format("{0} $", num);
         ani.Play();
+
+        soundMgr.PlaySE(Sound.GetMoney_SE);
     }
 }

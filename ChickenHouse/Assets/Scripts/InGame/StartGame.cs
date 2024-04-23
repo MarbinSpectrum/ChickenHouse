@@ -12,8 +12,7 @@ public class StartGame : Mgr
         GuestMgr guestMgr = GuestMgr.Instance;
         if(guestMgr != null)
         {
-            guestMgr.StartGuestCycle();
-            soundMgr.PlayBGM(Sound.InGame_BG);
+            guestMgr.Init();
         }
 
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
@@ -21,5 +20,7 @@ public class StartGame : Mgr
         {
             kitchenMgr.Init();
         }
+
+        soundMgr.PlayBGM(Sound.InGame_BG);
     }
 }

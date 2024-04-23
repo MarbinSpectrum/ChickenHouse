@@ -26,11 +26,11 @@ public class Tiger : GuestObj
             showStr = string.Format(showStr, chickenName, sideMenuName[0], sideMenuName[1]);
         }
 
-        soundMgr.PlayLoopSE(Sound.Voice1_SE);
+        soundMgr.PlayLoopSE(Sound.Voice13_SE);
         animator.SetTrigger("Talk");
         talkBox.ShowText(showStr, () =>
         {
-            soundMgr.StopLoopSE(Sound.Voice1_SE);
+            soundMgr.StopLoopSE(Sound.Voice13_SE);
             animator.SetTrigger("TalkEnd");
             fun?.Invoke();
         });
@@ -38,8 +38,8 @@ public class Tiger : GuestObj
 
     public override void CloseTalkBox()
     {
-        soundMgr.StopLoopSE(Sound.Voice1_SE);
-        soundMgr.StopLoopSE(Sound.Voice2_SE);
+        soundMgr.StopLoopSE(Sound.Voice13_SE);
+        soundMgr.StopLoopSE(Sound.Voice14_SE);
         talkBox.CloseTalkBox();
     }
 
@@ -47,11 +47,11 @@ public class Tiger : GuestObj
     {
         string showStr = LanguageMgr.GetText("CAT_THANK_YOU");
 
-        soundMgr.PlayLoopSE(Sound.Voice2_SE);
+        soundMgr.PlayLoopSE(Sound.Voice13_SE);
         animator.SetTrigger("Talk");
         talkBox.ShowText(showStr, () =>
         {
-            soundMgr.StopLoopSE(Sound.Voice2_SE);
+            soundMgr.StopLoopSE(Sound.Voice13_SE);
             animator.SetTrigger("TalkEnd");
             fun?.Invoke();
         });
@@ -61,11 +61,11 @@ public class Tiger : GuestObj
     {
         string showStr = LanguageMgr.GetText("CAT_ANGRY");
 
-        soundMgr.PlayLoopSE(Sound.Voice1_SE);
+        soundMgr.PlayLoopSE(Sound.Voice14_SE);
         animator.SetTrigger("Angry");
         talkBox.ShowText(showStr, () =>
         {
-            soundMgr.StopLoopSE(Sound.Voice1_SE);
+            soundMgr.StopLoopSE(Sound.Voice14_SE);
             fun?.Invoke();
         });
     }

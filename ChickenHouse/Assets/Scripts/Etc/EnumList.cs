@@ -38,6 +38,18 @@ public enum DragArea
     Drink_Slot          = 11,
 }
 
+public enum GuestReviews
+{
+    /** 기분나쁨 **/
+    Bad                 = 1,
+    /** 보통 **/
+    Normal              = 2,
+    /** 기쁨 **/
+    Good                = 3,
+    /** 행복 **/
+    Happy               = 4,
+}
+
 public enum DragState
 {
     /** None **/
@@ -194,14 +206,25 @@ public enum Sound
     /** 아이템 두는 소리 **/
     Put_SE = 201,
 
+    /** 돈 획득 소리 **/
+    GetMoney_SE = 202,
+
     /** 목소리 목록 **/
-    Voice0_SE = 250,
-    Voice1_SE = 251,
-    Voice2_SE = 252,
-    Voice3_SE = 253,
-    Voice4_SE = 254,
-    Voice5_SE = 255,
-    Voice6_SE = 256,
+    Voice0_SE   = 250,
+    Voice1_SE   = 251,
+    Voice2_SE   = 252,
+    Voice3_SE   = 253,
+    Voice4_SE   = 254,
+    Voice5_SE   = 255,
+    Voice6_SE   = 256,
+    Voice7_SE   = 257,
+    Voice8_SE   = 258,
+    Voice9_SE   = 259,
+    Voice10_SE  = 260,
+    Voice11_SE  = 261,
+    Voice12_SE  = 262,
+    Voice13_SE  = 263,
+    Voice14_SE  = 264,
 }
 
 public enum Upgrade
