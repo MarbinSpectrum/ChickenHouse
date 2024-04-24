@@ -354,6 +354,7 @@ public enum SceneChangeAni
 
 public enum Language
 {
+    NONE    = 0,
     Korea   = 100,
     English = 200,
 }

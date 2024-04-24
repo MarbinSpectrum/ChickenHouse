@@ -17,9 +17,15 @@ public class LanguageMgr : AwakeSingleton<LanguageMgr>
     private Dictionary<Language, Dictionary<string, string>> languageData
         = new Dictionary<Language, Dictionary<string, string>>();
 
+    private const string LANGUAGE_KEY = "LANGUAGE";
+
     protected override void Awake()
     {
         base.Awake();
+        Language loadLan = (Language)PlayerPrefs.GetInt(LANGUAGE_KEY, 0);
+        if(loadLan == Language.NONE)
+            loadLan = Language.Korea;
+        ChangeLanguage(loadLan);
         StartCoroutine(runLoadData());
     }
 
@@ -101,15 +107,31 @@ public class LanguageMgr : AwakeSingleton<LanguageMgr>
         return string.Empty;
     }
 
-    public static void SetString(TextMeshProUGUI textUI,string pKey)
+    public void ChangeLanguage(Language pLanguage)
+    {
+        PlayerPrefs.SetInt(LANGUAGE_KEY, (int)pLanguage);
+        nowLanguage = pLanguage;
+    }
+
+    public static void SetString(TextMeshProUGUI textUI, string pKey)
+    {
+        SetString(textUI, pKey, Instance.nowLanguage);
+    }
+
+    public static void SetString(TextMeshProUGUI textUI,string pKey, Language pLanguagee)
     {
         //textUI에 해당하는 TextMeshUI의 글자를 정해준다.
         //pKey에 해당하는 문자를 넣어줌
         string str = GetText(pKey);
-        SetText(textUI, str);
+        SetText(textUI, str, pLanguagee);
     }
 
     public static void SetText(TextMeshProUGUI textUI, string pStr)
+    {
+        SetText(textUI, pStr, Instance.nowLanguage);
+    }
+
+    public static void SetText(TextMeshProUGUI textUI, string pStr, Language pLanguagee)
     {
         //textUI에 해당하는 TextMeshUI의 글자를 정해준다.
         //pStr를 그대로 넣어줌
@@ -117,10 +139,9 @@ public class LanguageMgr : AwakeSingleton<LanguageMgr>
 
         //언어에 맞는 폰트를 설정해준다.
         LanguageMgr languageMgr = Instance;
-        Language nowLanguage = languageMgr.nowLanguage;
         TMP_FontAsset fontAsset = null;
 
-        switch (nowLanguage)
+        switch (pLanguagee)
         {
             case Language.Korea:
                 fontAsset = languageMgr.KoreaFont;
