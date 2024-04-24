@@ -11,6 +11,21 @@ public class SoundMgr : AwakeSingleton<SoundMgr>
     private Dictionary<Sound, AudioSource> loopSE = new Dictionary<Sound, AudioSource>();
     private List<Sound> seList = new List<Sound>();
 
+    public float bgmValue   { get; private set; }
+    public float seValue    { get; private set; }
+
+    private const string BGM_KEY = "BGM";
+    private const string SE_KEY = "SE";
+
+    protected override void Awake()
+    {
+        base.Awake();
+        seValue     = PlayerPrefs.GetFloat(SE_KEY, 0.5f);
+        bgmValue    = PlayerPrefs.GetFloat(BGM_KEY, 0.5f);
+        SetSE_Volume(seValue);
+        SetBGM_Volume(bgmValue);
+    }
+
     private void Update()
     {
         //한 프레임에 정해진 사운드만 실행
@@ -19,10 +34,25 @@ public class SoundMgr : AwakeSingleton<SoundMgr>
             if(sounds.ContainsKey(sound))
             {
                 AudioClip clip = sounds[sound];
+                se.volume = seValue;
                 se.PlayOneShot(clip);
             }
         }
         seList.Clear();
+    }
+
+    public void SetSE_Volume(float v)
+    {
+        PlayerPrefs.SetFloat(SE_KEY, v);
+        seValue = v;
+        se.volume = bgmValue;
+    }
+
+    public void SetBGM_Volume(float v)
+    {
+        PlayerPrefs.SetFloat(BGM_KEY, v);
+        bgmValue = v;
+        bgm.volume = bgmValue;
     }
 
     public void PlaySE(Sound sound)
@@ -57,6 +87,7 @@ public class SoundMgr : AwakeSingleton<SoundMgr>
             audio.transform.name = sound.ToString();
         }
 
+        audio.volume = seValue;
         audio.clip = clip;
         audio.Play();
         audio.loop = true;
@@ -78,6 +109,7 @@ public class SoundMgr : AwakeSingleton<SoundMgr>
         if (sounds.ContainsKey(sound))
         {
             AudioClip clip = sounds[sound];
+            bgm.volume = bgmValue;
             bgm.clip = clip;
             bgm.Play();
         }

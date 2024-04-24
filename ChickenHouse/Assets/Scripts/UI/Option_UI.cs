@@ -44,7 +44,10 @@ public class Option_UI : Mgr
     [System.Serializable]
     public struct SoundUI
     {
-        public RectTransform baseObj;
+        public RectTransform    baseObj;
+        public Slider           seSlider;
+        public Slider           bgmSlider;
+        public Button           okBtn;
     }
 
     [System.Serializable]
@@ -61,14 +64,15 @@ public class Option_UI : Mgr
 
     private OptionMenu  nowMenu;
     private Language    selectLan;
+
     public void Set_UI()
     {
         gameObject.SetActive(true);
-        SetButtonEvent();
+        SetEvent();
         OpenMenu(OptionMenu.Main);
     }
 
-    private void SetButtonEvent()
+    private void SetEvent()
     {
         //버튼 이벤트 등록
 
@@ -100,15 +104,37 @@ public class Option_UI : Mgr
         languageUI.okBtn.onClick.RemoveAllListeners();
         languageUI.okBtn.onClick.AddListener(() =>
         {
+            if (lanMgr.nowLanguage == selectLan)
+            {
+                OpenMenu(OptionMenu.Main);
+                return;
+            }
             OpenMenu(OptionMenu.Restart);
+        });
+
+        //사운드 버튼
+        soundUI.okBtn.onClick.RemoveAllListeners();
+        soundUI.okBtn.onClick.AddListener(() =>
+        {
+            OpenMenu(OptionMenu.Main);
+        });
+
+        soundUI.seSlider.onValueChanged.RemoveAllListeners();
+        soundUI.seSlider.onValueChanged.AddListener((v) =>
+        {
+            soundMgr.SetSE_Volume(v);
+        
+        });
+        soundUI.bgmSlider.onValueChanged.RemoveAllListeners();
+        soundUI.bgmSlider.onValueChanged.AddListener((v) =>
+        {
+            soundMgr.SetBGM_Volume(v);
         });
 
         //재시작 버튼
         restartUI.restartBtn.onClick.RemoveAllListeners();
         restartUI.restartBtn.onClick.AddListener(() =>
         {
-            if (lanMgr.nowLanguage == selectLan)
-                return;
             lanMgr.ChangeLanguage(selectLan);
             sceneMgr.SceneLoad(Scene.LOGO);
         });
@@ -153,6 +179,9 @@ public class Option_UI : Mgr
                 break;
             case OptionMenu.Sound:
                 {
+                    soundUI.seSlider.value  = soundMgr.seValue;
+                    soundUI.bgmSlider.value = soundMgr.bgmValue;
+
                     mainUI.baseObj.gameObject.SetActive(false);
                     languageUI.baseObj.gameObject.SetActive(false);
                     soundUI.baseObj.gameObject.SetActive(true);
