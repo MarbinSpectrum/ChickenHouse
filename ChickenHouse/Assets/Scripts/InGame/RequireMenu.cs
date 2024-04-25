@@ -30,222 +30,54 @@ public class RequireMenu
     /** 원하는 치킨 갯수(0이면 아무 갯수나 상관없다) **/
     private int chickenCnt;
     /** 원하는 치킨 소스 **/
-    private ChickenSpicy[] chickenSpicy = new ChickenSpicy[2];
+    public ChickenSpicy[] chickenSpicy { get; private set; } = new ChickenSpicy[2];
     /** 콜라 필요 여부 **/
-    private bool cola;
+    public Drink drink { get; private set; }
     /** 피클 필요 여부 **/
-    private bool pickle;
+    public SideMenu sideMenu { get; private set; }
+
+    public int menuIdx { get; private set; }
 
     public void CreateMenu(GuestData pGuestData, float nowTime,bool isTuto)
     {
-        //pGuestData를 토대로 손님이 원하는 메뉴를 생성합니다.
-        HashSet<GuestType> guestTypes = new HashSet<GuestType>();
-        foreach (GuestType type in pGuestData.guestTypes)
-        {
-            //보유여부 파악을 편하게하기 위해서 set으로 넣어줌
-            guestTypes.Add(type);
-        }
-
-        //-------------------------------------------------------------------------------------
-        //기다려줄 시간의 마지노선
-        utilTime = nowTime + (float)WAIT_TIME;
-
-        //-------------------------------------------------------------------------------------
-        //원하는 치킨 갯수 설정
-        chickenCnt = 0;
         if (isTuto)
         {
-            //튜토리얼은 치킨 갯수 상관없다.
+            menuIdx = 0;
+            GuestMenu guestMenu = pGuestData.goodChicken[menuIdx];
+
+            //치킨 맛 결정
+            chickenSpicy[0] = guestMenu.spicy0;
+            chickenSpicy[1] = guestMenu.spicy1;
+            drink = Drink.Cola;
+            sideMenu = SideMenu.Pickle;
         }
         else
         {
-            if (guestTypes.Contains(GuestType.Big_Eater))
-            {
-                //대식가 속성 보유
-                chickenCnt = 6;
-            }
-            else if (guestTypes.Contains(GuestType.Light_Eater))
-            {
-                //소식가 속성 보유
-                chickenCnt = 4;
-            }
-        }
+            menuIdx = Random.Range(0, pGuestData.goodChicken.Count);
+            GuestMenu guestMenu = pGuestData.goodChicken[menuIdx];
 
-        //-------------------------------------------------------------------------------------
-        //치킨 맛 설정
-        if(isTuto)
-        {
-            //튜토리얼은 무조건 프라이드 치킨
-            chickenSpicy[0] = ChickenSpicy.None;
-            chickenSpicy[1] = ChickenSpicy.None;
-        }
-        else
-        {
-            ChickenSpicy spicy = GetSpicy(guestTypes, ChickenSpicy.Not);
-            chickenSpicy[0] = spicy;
-            chickenSpicy[1] = spicy;
+            //치킨 맛 결정
+            chickenSpicy[0] = guestMenu.spicy0;
+            chickenSpicy[1] = guestMenu.spicy1;
 
-            int halfRandomRange = Random.Range(0, 100);
-            if (halfRandomRange < HALF_PER)
+            //고정 음료가 없으면 랜덤하게 정한다.
+            drink = guestMenu.drink;
+            if (drink == Drink.None)
             {
-                //반반치킨을 선택함
-                //다른 소스로 선택하도록함
-                ChickenSpicy spicy2 = GetSpicy(guestTypes, spicy);
-                chickenSpicy[1] = spicy2;
+                int randomValue = Random.Range(0, 100);
+                if (randomValue > 90)
+                    drink = Drink.Cola;
+            }
+
+            //고정 사이드 메뉴가 없으면 랜덤하게 정한다.
+            sideMenu = guestMenu.sideMenu;
+            if (sideMenu == SideMenu.None)
+            {
+                int randomValue = Random.Range(0, 100);
+                if (randomValue > 90)
+                    sideMenu = SideMenu.Pickle;
             }
         }
-
-        //-------------------------------------------------------------------------------------
-        //콜라 설정
-        if (isTuto)
-        {
-            //튜토리얼은 무조건 콜라시킴
-            cola = true;
-        }
-        else
-        {
-            int colaRandomRange = Random.Range(0, 100);
-            if (colaRandomRange < COLA_PER || guestTypes.Contains(GuestType.Cola_Mania))
-            {
-                //콜라를 주문하도록 결정
-                cola = true;
-            }
-            else
-            {
-                //콜라 안시킴
-                cola = false;
-            }
-        }
-
-        //-------------------------------------------------------------------------------------
-        //피클 설정
-        if (isTuto)
-        {
-            //튜토리얼은 무조건 피클시킴
-            pickle = true;
-        }
-        else
-        {
-            int pickleRandomRange = Random.Range(0, 100);
-            if (pickleRandomRange < PICKLE_PER || guestTypes.Contains(GuestType.Pickle_Mania))
-            {
-                //피클을 주문하도록 결정
-                pickle = true;
-            }
-            else
-            {
-                //피클 안시킴
-                pickle = false;
-            }
-        }
-    }
-
-    //---------------------------------------------------------------------------------------------------
-    private ChickenSpicy GetSpicy(GuestData pGuestData, ChickenSpicy ignoreSpicy)
-    {
-        //손님 정보를 토대로 원하는 맛을 도출한다.
-        HashSet<GuestType> guestTypes = new HashSet<GuestType>();
-        foreach (GuestType type in pGuestData.guestTypes)
-        {
-            //보유여부 파악을 편하게하기 위해서 set으로 넣어줌
-            guestTypes.Add(type);
-        }
-        return GetSpicy(guestTypes, ignoreSpicy);
-    }
-
-    private ChickenSpicy GetSpicy(HashSet<GuestType> pGuestSet, ChickenSpicy ignoreSpicy)
-    {
-        List<int> randomRangeValue = new List<int>();
-        List<ChickenSpicy> randomChickenValue = new List<ChickenSpicy>();
-        GameMgr gameMgr = GameMgr.Instance;
-
-        //-------------------------------------------------------------------------------------
-        //기본맛
-        if (ignoreSpicy != ChickenSpicy.None)
-        {
-            randomRangeValue.Add(BASE_MENU_WEIGHT);
-            randomChickenValue.Add(ChickenSpicy.None);
-        }
-
-        //-------------------------------------------------------------------------------------
-        //매운맛
-        if (ignoreSpicy != ChickenSpicy.Hot)
-        {
-            if (pGuestSet.Contains(GuestType.Hot_Mania))
-            {
-                //매운맛 매니아 특성을 보유중임
-                randomRangeValue.Add(HOT_MANIA_MENU_WEIGHT);
-            }
-            else
-            {
-                randomRangeValue.Add(BASE_MENU_WEIGHT);
-            }
-            randomChickenValue.Add(ChickenSpicy.Hot);
-        }
-
-        //-------------------------------------------------------------------------------------
-        //간장맛
-        if(gameMgr.playData.upgradeState[(int)Upgrade.Recipe_1])
-        {
-            if (ignoreSpicy != ChickenSpicy.Soy)
-            {
-                randomRangeValue.Add(BASE_MENU_WEIGHT);
-                randomChickenValue.Add(ChickenSpicy.Soy);
-            }
-        }
-
-        //-------------------------------------------------------------------------------------
-        //불닭맛
-        if (gameMgr.playData.upgradeState[(int)Upgrade.Recipe_2])
-        {
-            if (ignoreSpicy != ChickenSpicy.Hell)
-            {
-                randomRangeValue.Add(BASE_MENU_WEIGHT);
-                randomChickenValue.Add(ChickenSpicy.Hell);
-            }
-        }
-
-        //-------------------------------------------------------------------------------------
-        //뿌링클맛
-        if (gameMgr.playData.upgradeState[(int)Upgrade.Recipe_3])
-        {
-            if (ignoreSpicy != ChickenSpicy.Prinkle)
-            {
-                randomRangeValue.Add(BASE_MENU_WEIGHT);
-                randomChickenValue.Add(ChickenSpicy.Prinkle);
-            }
-        }
-
-        //-------------------------------------------------------------------------------------
-        //바베큐맛
-        if (gameMgr.playData.upgradeState[(int)Upgrade.Recipe_4])
-        {
-            if (ignoreSpicy != ChickenSpicy.BBQ)
-            {
-                randomRangeValue.Add(BASE_MENU_WEIGHT);
-                randomChickenValue.Add(ChickenSpicy.BBQ);
-            }
-        }
-
-        //-------------------------------------------------------------------------------------
-        //어떤 맛 치킨인지 랜덤하게 설정
-        int randomRange = 0;
-        randomRangeValue.ForEach((x) => randomRange += x);
-
-        int randomValue = Random.Range(0, randomRange);
-        for (int i = 0; i < randomChickenValue.Count; i++)
-        {
-            int checkValue = randomRangeValue[i];
-            if (randomValue < checkValue)
-            {
-                return randomChickenValue[i];
-            }
-            randomValue -= checkValue;
-        }
-
-        //-------------------------------------------------------------------------------------
-        //여기 오면 안되는데 만약 오게되면 기본 맛 호출
-        return ChickenSpicy.None;
     }
 
     public string GetChickenName()
@@ -344,78 +176,63 @@ public class RequireMenu
         return string.Empty;
     }
 
-    public List<string> GetSideMenuName()
-    {
-        //보조 메뉴들의 이름을 반환
-        List<string> result = new List<string>();
-        if (cola)
-        {
-            result.Add(LanguageMgr.GetText("COLA"));
-        }
-        if (pickle)
-        {
-            result.Add(LanguageMgr.GetText("PICKLE"));
-        }
-        return result;
-    }
-
-    public bool ChickenCntCheck(int pChickenCnt)
-    {
-        //치킨 갯수 검사
-        if (chickenCnt == 0)
-            return true;
-        return chickenCnt == pChickenCnt;
-    }
-
-    public bool ChickenSpicyCheck(ChickenSpicy pSpicy0, ChickenSpicy pSpicy1)
-    {
-        //치킨 양념 검사
-        if ((pSpicy0 == chickenSpicy[0] && pSpicy1 == chickenSpicy[1]) || (pSpicy0 == chickenSpicy[1] && pSpicy1 == chickenSpicy[0]))
-            return true;
-        return false;
-    }
 
     public GuestReviews MenuPoint(GuestData pGuestData, 
-        ChickenSpicy pSpicy0, ChickenSpicy pSpicy1, ChickenState pChickenState, bool hasDrink, bool hasPickle)
+        ChickenSpicy pSpicy0, ChickenSpicy pSpicy1, ChickenState pChickenState, Drink pDrink, SideMenu pSideMenu)
     {
         GameMgr gameMgr = GameMgr.Instance;
 
         //손님이 생각한 치킨 점수
-        //손님 정보를 토대로 원하는 맛을 도출한다.
-        HashSet<GuestType> guestTypes = new HashSet<GuestType>();
-        foreach (GuestType type in pGuestData.guestTypes)
-        {
-            //보유여부 파악을 편하게하기 위해서 set으로 넣어줌
-            guestTypes.Add(type);
-        }
+        int maxPoint = 2;
+        if (pDrink != Drink.None)
+            maxPoint++;
+        if (pSideMenu != SideMenu.None)
+            maxPoint++;
 
         int point = 0;
 
         //--------------------------------------------------------------------------------
         //양념 검사
-        if (ChickenSpicyCheck(pSpicy0, pSpicy1))
-        {
-            point += 2;
-        }
+        ChickenSpicy spicy0 = (ChickenSpicy)Mathf.Min((int)pSpicy0, (int)pSpicy1);
+        ChickenSpicy spicy1 = (ChickenSpicy)Mathf.Max((int)pSpicy0, (int)pSpicy1);
+        if (spicy0 == chickenSpicy[0])
+            point++;
+        if (spicy1 == chickenSpicy[1])
+            point++;
 
         //--------------------------------------------------------------------------------
-        //피클이나 콜라 검사
-        if (cola == hasDrink)
-        {
-            point += 2;
-        }
-        if (pickle == hasPickle)
-        {
-            point += 2;
-        }
+        //사이드나 드링크 검사
+        if (drink == pDrink && drink != Drink.None)
+            point += 1;
+        if (sideMenu == pSideMenu && sideMenu != SideMenu.None)
+            point += 1;
 
-        if (point < 2)
-            return GuestReviews.Bad;
-        else if (point < 4)
-            return GuestReviews.Normal;
-        else if (point < 6)
-            return GuestReviews.Good;
-        else 
-            return GuestReviews.Happy;
+        if(maxPoint == 4)
+        {
+            if(point == 4)
+                return GuestReviews.Happy;
+            else if (point == 3 || point == 2)
+                return GuestReviews.Normal;
+            else
+                return GuestReviews.Bad;
+        }
+        else if (maxPoint == 3)
+        {
+            if (point == 3)
+                return GuestReviews.Happy;
+            else if (point == 2 || point == 1)
+                return GuestReviews.Normal;
+            else
+                return GuestReviews.Bad;
+        }
+        else
+        {
+            if (point == 2)
+                return GuestReviews.Happy;
+            else if (point == 1)
+                return GuestReviews.Normal;
+            else
+                return GuestReviews.Bad;
+        }
     }
 }

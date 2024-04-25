@@ -49,6 +49,15 @@ public abstract class GuestObj : Mgr
          });
     }
 
+    public virtual void HappyGuest(NoParaDel fun = null)
+    {
+        animator.SetTrigger("Talk");
+        talkBox.ShowText("ÇÖ Ä¡Å² ÇÑ¸¶¸®¶û\nÄİ¶ó ºÎÅ¹ÇØ¿ä.", () =>
+        {
+            animator.SetTrigger("TalkEnd");
+        });
+    }
+
     public virtual void ThankGuest(NoParaDel fun = null)
     {
         animator.SetTrigger("Talk");
@@ -68,9 +77,9 @@ public abstract class GuestObj : Mgr
     }
 
     public GuestReviews ChickenPoint(ChickenSpicy spicy0, ChickenSpicy spicy1, ChickenState chickenState,
-                            bool hasDrink, bool hasPickle)
+        Drink pDrink, SideMenu pSideMenue)
     {
-        GuestReviews result = requireMenu.MenuPoint(guestData, spicy0, spicy1, chickenState, hasDrink, hasPickle);
+        GuestReviews result = requireMenu.MenuPoint(guestData, spicy0, spicy1, chickenState, pDrink, pSideMenue);
 
         return result;
     }
@@ -86,4 +95,6 @@ public abstract class GuestObj : Mgr
     }
 
     public string GetTalkText() => talkBox.talkStr;
+
+    public int GetShowDay() => guestData.day;
 }

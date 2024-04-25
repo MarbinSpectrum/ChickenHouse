@@ -13,17 +13,36 @@ public class PlayData
     public bool[] upgradeState = new bool[(int)Upgrade.MAX];
 
     public int GetMenuValue(GuestReviews review, ChickenSpicy spicy0, ChickenSpicy spicy1, ChickenState chickenState,
-        bool hasDrink, bool hasPickle)
+        Drink pDrink, SideMenu pSideMenue)
     {
         //메뉴 가격
         int defaultValue = 300;
 
         int spicyValue0 = GetSpicyValue(spicy0);
         int spicyValue1 = GetSpicyValue(spicy1);
-        int drinkValue  = hasDrink ? 50 : 0;
-        int pickleValue = hasPickle ? 50 : 0;
+        int drinkValue  = 0;
+        switch (pDrink)
+        {
+            case Drink.None:
+                drinkValue = 0;
+                break;
+            case Drink.Cola:
+                drinkValue = 50;
+                break;
+        }
 
-        int totalValue = defaultValue + spicyValue0 + spicyValue1 + drinkValue + pickleValue;
+        int sideMenuValue = 0;
+        switch (pSideMenue)
+        {
+            case SideMenu.None:
+                sideMenuValue = 0;
+                break;
+            case SideMenu.Pickle:
+                sideMenuValue = 50;
+                break;
+        }
+
+        int totalValue = defaultValue + spicyValue0 + spicyValue1 + drinkValue + sideMenuValue;
 
         int percent = 100;
         if (upgradeState[(int)Upgrade.Recipe_1])
@@ -43,10 +62,8 @@ public class PlayData
                 return 0;
             case GuestReviews.Normal:
                 return resultValue;
-            case GuestReviews.Good:
-                return (int)(resultValue * 1.5f);
             case GuestReviews.Happy:
-                return (int)(resultValue * 2f);
+                return (int)(resultValue * 1.5f);
         }
 
         return resultValue;

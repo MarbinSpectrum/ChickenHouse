@@ -6,24 +6,50 @@ public class Cat : GuestObj
 {
     public override void OrderGuest(NoParaDel fun = null)
     {
-        List<string> sideMenuName = requireMenu.GetSideMenuName();
-        string chickenName = requireMenu.GetChickenName();
-        string showStr = string.Empty;
+        int menuIdx = requireMenu.menuIdx;
 
-        if (sideMenuName.Count == 0)
+        string showStr = string.Empty;
+        if (menuIdx == 0)
         {
             showStr = LanguageMgr.GetText("CAT_ORDER_1");
-            showStr = string.Format(showStr, chickenName);
+            if (requireMenu.drink == Drink.Cola)
+            {
+                showStr += "\n";
+                showStr += LanguageMgr.GetText("CAT_SIDE_COLA");
+            }
+            if (requireMenu.sideMenu == SideMenu.Pickle)
+            {
+                showStr += "\n";
+                showStr += LanguageMgr.GetText("CAT_SIDE_PICKLE");
+            }
         }
-        else if (sideMenuName.Count == 1)
+        else if (menuIdx == 1)
         {
             showStr = LanguageMgr.GetText("CAT_ORDER_2");
-            showStr = string.Format(showStr, chickenName, sideMenuName[0]);
+            if (requireMenu.drink == Drink.Cola)
+            {
+                showStr += "\n";
+                showStr += LanguageMgr.GetText("CAT_SIDE_COLA");
+            }
+            if (requireMenu.sideMenu == SideMenu.Pickle)
+            {
+                showStr += "\n";
+                showStr += LanguageMgr.GetText("CAT_SIDE_PICKLE");
+            }
         }
-        else if (sideMenuName.Count == 2)
+        else if (menuIdx == 2)
         {
             showStr = LanguageMgr.GetText("CAT_ORDER_3");
-            showStr = string.Format(showStr, chickenName, sideMenuName[0], sideMenuName[1]);
+            if (requireMenu.drink == Drink.Cola)
+            {
+                showStr += "\n";
+                showStr += LanguageMgr.GetText("CAT_SIDE_COLA");
+            }
+            if (requireMenu.sideMenu == SideMenu.Pickle)
+            {
+                showStr += "\n";
+                showStr += LanguageMgr.GetText("CAT_SIDE_PICKLE");
+            }
         }
 
         soundMgr.PlayLoopSE(Sound.Voice1_SE);
@@ -41,6 +67,20 @@ public class Cat : GuestObj
         soundMgr.StopLoopSE(Sound.Voice1_SE);
         soundMgr.StopLoopSE(Sound.Voice2_SE);
         talkBox.CloseTalkBox();
+    }
+
+    public override void HappyGuest(NoParaDel fun = null)
+    {
+        string showStr = LanguageMgr.GetText("CAT_ANGRY");
+
+        soundMgr.PlayLoopSE(Sound.Voice1_SE);
+        animator.SetTrigger("Talk");
+        talkBox.ShowText(showStr, () =>
+        {
+            soundMgr.StopLoopSE(Sound.Voice1_SE);
+            animator.SetTrigger("TalkEnd");
+            fun?.Invoke();
+        });
     }
 
     public override void ThankGuest(NoParaDel fun = null)

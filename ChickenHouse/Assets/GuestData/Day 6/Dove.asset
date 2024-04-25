@@ -12,4 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04698e8fab843ca4f97de157c35a91e2, type: 3}
   m_Name: Dove
   m_EditorClassIdentifier: 
-  guestTypes: 0b0000000c000000
+  day: 6
+  goodChicken:
+  - spicy0: 6
+    spicy1: 4
+    drink: 0
+    sideMenu: 0
+  - spicy0: 2
+    spicy1: 4
+    drink: 0
+    sideMenu: 0
+  - spicy0: 6
+    spicy1: 2
+    drink: 0
+    sideMenu: 0

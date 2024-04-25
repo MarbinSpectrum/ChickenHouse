@@ -114,6 +114,8 @@ public enum ChickenSpicy
     Prinkle     = 4,
     /** 바베큐 소스 **/
     BBQ         = 5,
+    /** 까르보나라 소스 **/
+    Carbonara   = 6,
 }
 
 
@@ -141,52 +143,6 @@ public enum Guest
     Dove = 9,
 
     MAX
-}
-
-public enum GuestType
-{ 
-    /** 없음 **/
-    None                = 0,
-
-    /** 악마                  <조금이여도 메뉴가 틀리면 0점 별점을 줌> **/
-    Devil               = 1,
-
-    /** 천사                  <엉터리로 메뉴를 꺼내도 최소 3점 별점은 줌> **/
-    Angel               = 2,
-
-    /** 느긋함                <주문이 아무리 늦게 나와도 평점을 나쁘게 주지 않음> **/
-    Leisurely           = 3,
-
-    /** 급함                  <주문을 내고 빨리 안나오면 평점을 나쁘게줌> **/
-    Haste               = 4,
-
-    /** 투머치토커            <손님의 이야기를 다 듣지않고 주방으로가면 별점을 나쁘게줌> **/
-    Too_Much_Talker     = 5,
-
-    /** 철저함                <손님의 요청이랑 다른 주문메뉴가 나오면 별점을 매우 나쁘게줌> **/
-    Thoroughness        = 6,
-
-    /** 미식가                <치킨을 태우거나 치킨을 덜익혀서 내오면 별점을 매우 나쁘게줌> **/
-    Epicurean           = 7,
-
-    /** 대식가                <치킨을 무조건 6조각 시킴> **/
-    Big_Eater           = 8,
-
-    /** 소식가                <치킨을 무조건 4조각 시킴> **/
-    Light_Eater         = 9,
-
-    /** 매운맛 매니아         <높은 확률로 매운것을 시킴> **/
-    Hot_Mania           = 10,
-
-    /** 단맛 매니아           <높은 확률로 단것을 시킴> **/
-    Sweet_Mania         = 11,
-
-    /** 콜라 매니아           <무조건 콜라를 시킴> **/
-    Cola_Mania          = 12,
-
-    /** 피클 매니아           <무조건 피클을 시킴> **/
-    Pickle_Mania        = 13,
-
 }
 
 public enum Sound
@@ -282,6 +238,20 @@ public enum DayEndList
     Supplies_Uesd       = 4,
     /** 순 수익 **/
     Total_Profit        = 5,
+}
+
+public enum Drink
+{
+    None            = 0,
+    Cola            = 1,
+
+}
+
+public enum SideMenu
+{
+    None            = 0,
+    Pickle          = 1,
+
 }
 
 public enum WorkerHandState

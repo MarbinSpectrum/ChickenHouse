@@ -10,6 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 04698e8fab843ca4f97de157c35a91e2, type: 3}
-  m_Name: VirginiaOpossum
+  m_Name: Dog
   m_EditorClassIdentifier: 
-  guestTypes: 020000000b0000000c000000
+  day: 1
+  goodChicken:
+  - spicy0: 0
+    spicy1: 0
+    drink: 0
+    sideMenu: 0
+  - spicy0: 1
+    spicy1: 1
+    drink: 0
+    sideMenu: 0
+  - spicy0: 0
+    spicy1: 1
+    drink: 0
+    sideMenu: 0

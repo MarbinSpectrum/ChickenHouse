@@ -34,7 +34,7 @@ public class GuestMgr : Mgr
 
     /** 손님 객체 관리용 풀링 **/
     private Dictionary<Guest, Queue<GuestObj>> guestPool = new Dictionary<Guest, Queue<GuestObj>>();
-    /** 오늘 방문한 손님 **/
+    /** 이미 방문해있는 손님 **/
     private HashSet<Guest>  visitedGuest = new HashSet<Guest>();
     /** 현재 주문중인 여부 **/
     private bool            nowOrder     = false;
@@ -166,32 +166,41 @@ public class GuestMgr : Mgr
 
                 //랜덤하게 손님을호출하되
                 //오늘방문한 손님은 다시 오지않음
-                List<Guest> guests = new List<Guest>();
+                List<Guest> guestList = new List<Guest>();
                 for (Guest guest = Guest.Fox; guest < Guest.MAX; guest++)
                 {
+                    GuestObj guestObj = guests[guest];
+                    if (guestObj.GetShowDay() > gameMgr.playData.day)
+                        continue;
+
+                    //생성할 손님이 존재하긴한다.
                     if (visitedGuest.Contains(guest))
                     {
-                        //오늘 방문한 손님은 다시 오지 않음
+                        //이미 있는 손님은 다시 오지 않음
                         continue;
                     }
-                    guests.Add(guest);
+                    guestList.Add(guest);
                 }
 
-                if (guests.Count == 0)
+                if (guestList.Count == 0)
                 {
+                    return;
                     //왠만하면 여기로 오지 않도록 손님풀을 늘리는 방향으로 가야될듯
                     //방문손님을 초기화
                     //나올수있는 손님 리스트를 갱신
                     visitedGuest.Clear();
                     for (Guest guest = Guest.Fox; guest < Guest.MAX; guest++)
                     {
-                        guests.Add(guest);
+                        GuestObj guestObj = guests[guest];
+                        if (guestObj.GetShowDay() > gameMgr.playData.day)
+                            continue;
+                        guestList.Add(guest);
                     }
                 }
 
                 //손님을 호출
-                int guestRandom = Random.Range(0, guests.Count);
-                Guest nowGuest = guests[guestRandom];
+                int guestRandom = Random.Range(0, guestList.Count);
+                Guest nowGuest = guestList[guestRandom];
                 if(tutoMgr.tutoComplete == false)
                 {
                     //튜토리얼에서는 고정으로 여우가 나옴
@@ -264,7 +273,7 @@ public class GuestMgr : Mgr
     }
 
     public void GiveChicken(ChickenSpicy spicy0, ChickenSpicy spicy1, ChickenState chickenState,
-                            bool hasDrink, bool hasPickle)
+                            Drink pDrink, SideMenu pSideMenu)
     {
         vinylAni.gameObject.SetActive(true);
 
@@ -274,7 +283,7 @@ public class GuestMgr : Mgr
             yield return new WaitForSeconds(1.5f);
 
             //손님의 평가 진행
-            GuestReviews result = guestObj.ChickenPoint(spicy0, spicy1, chickenState, hasDrink, hasPickle);
+            GuestReviews result = guestObj.ChickenPoint(spicy0, spicy1, chickenState, pDrink, pSideMenu);
 
             switch(result)
             {
@@ -284,17 +293,27 @@ public class GuestMgr : Mgr
                     }
                     break;
                 case GuestReviews.Normal:
-                case GuestReviews.Good:
-                case GuestReviews.Happy:
                     {
                         //돈지불
-                        int getValue = gameMgr.playData.GetMenuValue(result, spicy0, spicy1, chickenState, hasDrink, hasPickle);
+                        int getValue = gameMgr.playData.GetMenuValue(result, spicy0, spicy1, chickenState, pDrink, pSideMenu);
                         ui.getMoney.RunAni(getValue);
 
                         gameMgr.dayMoney += getValue;
                         ui.nowMoney.SetMoney(gameMgr.playData.money + gameMgr.dayMoney);
 
                         guestObj.ThankGuest();
+                    }
+                    break;
+                case GuestReviews.Happy:
+                    {
+                        //돈지불
+                        int getValue = gameMgr.playData.GetMenuValue(result, spicy0, spicy1, chickenState, pDrink, pSideMenu);
+                        ui.getMoney.RunAni(getValue);
+
+                        gameMgr.dayMoney += getValue;
+                        ui.nowMoney.SetMoney(gameMgr.playData.money + gameMgr.dayMoney);
+
+                        guestObj.HappyGuest();
                     }
                     break;
             }    
@@ -319,6 +338,7 @@ public class GuestMgr : Mgr
             //손님떠남처리
             guestObj.LeaveGuest();
             guestcnt--;
+            visitedGuest.Remove(guestObj.guest);
 
             yield return new WaitForSeconds(1f);
 

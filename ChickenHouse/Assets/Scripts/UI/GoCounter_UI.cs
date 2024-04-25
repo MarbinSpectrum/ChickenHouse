@@ -56,9 +56,11 @@ public class GoCounter_UI : Mgr
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
         kitchenMgr.cameraObj.ChangeLook(LookArea.Counter,()=>
         {
+            Drink drink = tableDrinkSlot.hasDrink ? Drink.Cola : Drink.None;
+            SideMenu sideMenu = tablePickleSlot.hasPickle ? SideMenu.None : SideMenu.None;
             GuestMgr guestMgr = GuestMgr.Instance;
             guestMgr.GiveChicken(tableChicken.source0, tableChicken.source1, tableChicken.chickenState,
-                tableDrinkSlot.hasDrink, tablePickleSlot.hasPickle);
+              drink, sideMenu);
 
             tableChicken.Init();
             tableDrinkSlot.Init();
