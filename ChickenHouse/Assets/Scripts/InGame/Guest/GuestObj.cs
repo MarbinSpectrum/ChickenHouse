@@ -27,11 +27,11 @@ public abstract class GuestObj : Mgr
         animator.SetBool("Show", false);
     }
 
-    public virtual void CreateMenu(float orderTime)
+    public virtual bool CreateMenu(float orderTime)
     {
         bool isTuto = tutoMgr.tutoComplete == false;
 
-        requireMenu.CreateMenu(guestData, orderTime, isTuto);
+        return requireMenu.CreateMenu(guestData, orderTime, isTuto);
     }
 
     public virtual void CloseTalkBox()

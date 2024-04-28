@@ -21,4 +21,26 @@ public class GuestMenu
     public Drink        drink;
     /** 무조건 시키는 사이드 메뉴 **/
     public SideMenu     sideMenu;
+
+    public bool CanMakeChicken()
+    {
+        PlayData playData = GameMgr.Instance.playData;
+        if ((spicy0 == ChickenSpicy.Soy || spicy1 == ChickenSpicy.Soy) &&
+            playData.upgradeState[(int)Upgrade.Recipe_1] == false)
+            return false;
+        if ((spicy0 == ChickenSpicy.Hell || spicy1 == ChickenSpicy.Hell) &&
+            playData.upgradeState[(int)Upgrade.Recipe_2] == false)
+            return false;
+        if ((spicy0 == ChickenSpicy.Prinkle || spicy1 == ChickenSpicy.Prinkle) &&
+            playData.upgradeState[(int)Upgrade.Recipe_3] == false)
+            return false;
+        if ((spicy0 == ChickenSpicy.Carbonara || spicy1 == ChickenSpicy.Carbonara) &&
+            playData.upgradeState[(int)Upgrade.Recipe_4] == false)
+            return false;
+        if ((spicy0 == ChickenSpicy.BBQ || spicy1 == ChickenSpicy.BBQ) &&
+            playData.upgradeState[(int)Upgrade.Recipe_5] == false)
+            return false;
+
+        return true;
+    }
 }

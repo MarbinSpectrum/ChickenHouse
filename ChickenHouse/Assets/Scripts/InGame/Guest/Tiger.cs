@@ -73,11 +73,11 @@ public class Tiger : GuestObj
     {
         string showStr = LanguageMgr.GetText("TIGER_HAPPY");
 
-        soundMgr.PlayLoopSE(Sound.Voice1_SE);
-        animator.SetTrigger("Talk");
+        soundMgr.PlayLoopSE(Sound.Voice13_SE);
+        animator.SetTrigger("Happy");
         talkBox.ShowText(showStr, () =>
         {
-            soundMgr.StopLoopSE(Sound.Voice1_SE);
+            soundMgr.StopLoopSE(Sound.Voice13_SE);
             animator.SetTrigger("TalkEnd");
             fun?.Invoke();
         });

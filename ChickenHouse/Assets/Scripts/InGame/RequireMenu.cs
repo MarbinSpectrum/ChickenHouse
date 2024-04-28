@@ -38,7 +38,7 @@ public class RequireMenu
 
     public int menuIdx { get; private set; }
 
-    public void CreateMenu(GuestData pGuestData, float nowTime,bool isTuto)
+    public bool CreateMenu(GuestData pGuestData, float nowTime,bool isTuto)
     {
         if (isTuto)
         {
@@ -50,10 +50,19 @@ public class RequireMenu
             chickenSpicy[1] = guestMenu.spicy1;
             drink = Drink.Cola;
             sideMenu = SideMenu.Pickle;
+            return true;
         }
         else
         {
-            menuIdx = Random.Range(0, pGuestData.goodChicken.Count);
+            List<int> randomList = new List<int>();
+            for(int i = 0; i < pGuestData.goodChicken.Count; i++)
+                if (pGuestData.goodChicken[i].CanMakeChicken())
+                    randomList.Add(i);
+
+            if (randomList.Count == 0)
+                return false;
+
+            menuIdx = randomList[Random.Range(0, randomList.Count)];
             GuestMenu guestMenu = pGuestData.goodChicken[menuIdx];
 
             //치킨 맛 결정
@@ -77,6 +86,8 @@ public class RequireMenu
                 if (randomValue > 90)
                     sideMenu = SideMenu.Pickle;
             }
+
+            return true;
         }
     }
 
@@ -181,6 +192,12 @@ public class RequireMenu
         ChickenSpicy pSpicy0, ChickenSpicy pSpicy1, ChickenState pChickenState, Drink pDrink, SideMenu pSideMenu)
     {
         GameMgr gameMgr = GameMgr.Instance;
+
+        if (pChickenState == ChickenState.BadChicken_0 || 
+            pChickenState == ChickenState.BadChicken_1 || 
+            pChickenState == ChickenState.BadChicken_2 || 
+            pChickenState == ChickenState.NotCook)
+            return GuestReviews.Bad;
 
         //손님이 생각한 치킨 점수
         int maxPoint = 2;

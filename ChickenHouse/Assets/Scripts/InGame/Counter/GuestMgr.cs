@@ -206,14 +206,19 @@ public class GuestMgr : Mgr
                     //튜토리얼에서는 고정으로 여우가 나옴
                     nowGuest = Guest.Fox;
                 }
-
                 visitedGuest.Add(nowGuest);
-
 
                 //손님생성
                 GuestObj newGuest = GetGuestObj(nowGuest);
+                float orderTime = ui.timer.time;
+                if (newGuest.CreateMenu(orderTime) == false)
+                {
+                    //레시피 못만듬 다른 손님 생성
+                    RemoveGuest(newGuest);
+                    i--;
+                    continue;
+                }
 
-                nowOrder = true;
                 newGuest.gameObject.SetActive(true);
                 newGuest.ShowGuest();
 
@@ -224,7 +229,7 @@ public class GuestMgr : Mgr
 
                 waitGuest[i] = newGuest;
 
-                if(guestcnt == 1)
+                if (guestcnt == 1)
                 {
                     //첫손님 주문
                     StartCoroutine(GuestOrder());
@@ -260,6 +265,16 @@ public class GuestMgr : Mgr
         if (guests.ContainsKey(pGuest))
             guest = Instantiate(guests[pGuest],transform);
         return guest;
+    }
+
+    public void RemoveGuest(GuestObj obj)
+    {
+        if (guestPool.ContainsKey(obj.guest) == false)
+        {
+            guestPool[obj.guest] = new Queue<GuestObj>();
+        }
+        obj.gameObject.SetActive(false);
+        guestPool[obj.guest].Enqueue(guestObj);
     }
 
     public string GetTalkBoxStr() => guestObj.GetTalkText();
@@ -342,12 +357,7 @@ public class GuestMgr : Mgr
 
             yield return new WaitForSeconds(1f);
 
-            if (guestPool.ContainsKey(guestObj.guest) == false)
-            {
-                guestPool[guestObj.guest] = new Queue<GuestObj>();
-            }
-            guestObj.gameObject.SetActive(false);
-            guestPool[guestObj.guest].Enqueue(guestObj);
+            RemoveGuest(guestObj);
 
             vinylAni.gameObject.SetActive(false);
             nowOrder = false;
@@ -403,13 +413,14 @@ public class GuestMgr : Mgr
 
     private IEnumerator GuestOrder()
     {
+        if (nowOrder)
+            yield break;
+        nowOrder = true;
         yield return new WaitForSeconds(1f);
 
         if (guestObj == null)
             yield break;
       
-        float orderTime = ui.timer.time;
-        guestObj.CreateMenu(orderTime);
         guestObj.OrderGuest();
 
         ui.goKitchen.OpenBtn();

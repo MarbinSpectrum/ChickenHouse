@@ -69,7 +69,7 @@ public class Fox : GuestObj
         string showStr = LanguageMgr.GetText("FOX_HAPPY");
 
         soundMgr.PlayLoopSE(Sound.Voice1_SE);
-        animator.SetTrigger("Talk");
+        animator.SetTrigger("Happy");
         talkBox.ShowText(showStr, () =>
         {
             soundMgr.StopLoopSE(Sound.Voice1_SE);

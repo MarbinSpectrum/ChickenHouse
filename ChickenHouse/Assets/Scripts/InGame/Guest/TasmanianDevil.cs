@@ -73,11 +73,11 @@ public class TasmanianDevil: GuestObj
     {
         string showStr = LanguageMgr.GetText("TASMANIAN_HAPPY");
 
-        soundMgr.PlayLoopSE(Sound.Voice1_SE);
-        animator.SetTrigger("Talk");
+        soundMgr.PlayLoopSE(Sound.Voice6_SE);
+        animator.SetTrigger("Happy");
         talkBox.ShowText(showStr, () =>
         {
-            soundMgr.StopLoopSE(Sound.Voice1_SE);
+            soundMgr.StopLoopSE(Sound.Voice6_SE);
             animator.SetTrigger("TalkEnd");
             fun?.Invoke();
         });

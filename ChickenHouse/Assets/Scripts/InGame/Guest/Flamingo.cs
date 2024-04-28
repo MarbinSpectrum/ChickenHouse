@@ -73,11 +73,11 @@ public class Flamingo : GuestObj
     {
         string showStr = LanguageMgr.GetText("FLAMINGO_HAPPY");
 
-        soundMgr.PlayLoopSE(Sound.Voice1_SE);
-        animator.SetTrigger("Talk");
+        soundMgr.PlayLoopSE(Sound.Voice9_SE);
+        animator.SetTrigger("Happy");
         talkBox.ShowText(showStr, () =>
         {
-            soundMgr.StopLoopSE(Sound.Voice1_SE);
+            soundMgr.StopLoopSE(Sound.Voice9_SE);
             animator.SetTrigger("TalkEnd");
             fun?.Invoke();
         });

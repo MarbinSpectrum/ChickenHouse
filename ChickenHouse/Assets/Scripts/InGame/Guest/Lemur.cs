@@ -73,11 +73,11 @@ public class Lemur : GuestObj
     {
         string showStr = LanguageMgr.GetText("LEMUR_HAPPY");
 
-        soundMgr.PlayLoopSE(Sound.Voice1_SE);
-        animator.SetTrigger("Talk");
+        soundMgr.PlayLoopSE(Sound.Voice4_SE);
+        animator.SetTrigger("Happy");
         talkBox.ShowText(showStr, () =>
         {
-            soundMgr.StopLoopSE(Sound.Voice1_SE);
+            soundMgr.StopLoopSE(Sound.Voice4_SE);
             animator.SetTrigger("TalkEnd");
             fun?.Invoke();
         });
