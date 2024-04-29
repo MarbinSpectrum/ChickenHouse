@@ -24,6 +24,8 @@ public class DragObj : Mgr
     [SerializeField] private GameObject     hellSpicy;
     /** 뿌링클 치킨 소스 **/
     [SerializeField] private GameObject     prinkleSpicy;
+    /** 까르보나라 치킨 소스 **/
+    [SerializeField] private GameObject     carbonaraSpicy;
     /** 바베큐 치킨 소스 **/
     [SerializeField] private GameObject     bbqSpicy;
 
@@ -115,6 +117,12 @@ public class DragObj : Mgr
                     MoveMousePos();
                 }
                 break;
+            case DragState.Carbonara_Spicy:
+                {
+                    //까르보나라 양념을 드래그한 상태
+                    carbonaraSpicy.gameObject.SetActive(true);
+                }
+                break;
             case DragState.BBQ_Spicy:
                 {
                     //바베큐 양념을 드래그한 상태
@@ -161,6 +169,7 @@ public class DragObj : Mgr
         soySpicy.gameObject.SetActive(false);
         hellSpicy.gameObject.SetActive(false);
         prinkleSpicy.gameObject.SetActive(false);
+        carbonaraSpicy.gameObject.SetActive(false);
         bbqSpicy.gameObject.SetActive(false);
     }
 

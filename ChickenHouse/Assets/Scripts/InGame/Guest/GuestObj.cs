@@ -54,6 +54,7 @@ public abstract class GuestObj : Mgr
         animator.SetTrigger("Talk");
         talkBox.ShowText("ÇÖ Ä¡Å² ÇÑ¸¶¸®¶û\nÄÝ¶ó ºÎÅ¹ÇØ¿ä.", () =>
         {
+            fun?.Invoke();
             animator.SetTrigger("TalkEnd");
         });
     }
@@ -72,7 +73,7 @@ public abstract class GuestObj : Mgr
         animator.SetTrigger("Angry");
         talkBox.ShowText("ÀÌ µý°Ô Ä¡Å²?", () =>
         {
-      
+            fun?.Invoke();
         });
     }
 

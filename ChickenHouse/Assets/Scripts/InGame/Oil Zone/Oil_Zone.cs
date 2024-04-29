@@ -213,27 +213,27 @@ public class Oil_Zone : Mgr
     private float GetCookSpeedRate()
     {
         //업그레이드 속도에 따라서 상태 설정
-        if (gameMgr.playData.upgradeState[(int)Upgrade.OIL_Zone_6])
+        if (gameMgr.playData.hasItem[(int)ShopItem.OIL_Zone_6])
         {
             return 3.0f;
         }
-        else if (gameMgr.playData.upgradeState[(int)Upgrade.OIL_Zone_5])
+        else if (gameMgr.playData.hasItem[(int)ShopItem.OIL_Zone_5])
         {
             return 3.0f;
         }
-        else if (gameMgr.playData.upgradeState[(int)Upgrade.OIL_Zone_4])
+        else if (gameMgr.playData.hasItem[(int)ShopItem.OIL_Zone_4])
         {
             return 2.6f;
         }
-        else if (gameMgr.playData.upgradeState[(int)Upgrade.OIL_Zone_3])
+        else if (gameMgr.playData.hasItem[(int)ShopItem.OIL_Zone_3])
         {
             return 2.2f;
         }
-        else if (gameMgr.playData.upgradeState[(int)Upgrade.OIL_Zone_2])
+        else if (gameMgr.playData.hasItem[(int)ShopItem.OIL_Zone_2])
         {
             return 1.8f;
         }
-        else if (gameMgr.playData.upgradeState[(int)Upgrade.OIL_Zone_1])
+        else if (gameMgr.playData.hasItem[(int)ShopItem.OIL_Zone_1])
         {
             return 1.4f;
         }
@@ -282,7 +282,7 @@ public class Oil_Zone : Mgr
         bool    notFire     = false;
 
         //업그레이드 속도에 따라서 상태 설정
-        if(gameMgr.playData.upgradeState[(int)Upgrade.OIL_Zone_6])
+        if(gameMgr.playData.hasItem[(int)ShopItem.OIL_Zone_6])
         {
             //최대 레벨일 경우 타지않는다.
             notFire = true;

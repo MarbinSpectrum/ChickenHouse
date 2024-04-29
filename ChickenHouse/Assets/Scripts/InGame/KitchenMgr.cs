@@ -55,6 +55,8 @@ public class KitchenMgr : Mgr
         public GameObject hellSpicy;
         /** 프링클 양념 **/
         public GameObject prinkleSpicy;
+        /** 까르보나라 양념 **/
+        public GameObject carbonaraSpicy;
         /** 바베큐 양념 **/
         public GameObject bbqSpicy;
     }
@@ -118,23 +120,29 @@ public class KitchenMgr : Mgr
         spicy.soySpicy.gameObject.SetActive(false);
         spicy.hellSpicy.gameObject.SetActive(false);
         spicy.prinkleSpicy.gameObject.SetActive(false);
+        spicy.carbonaraSpicy.gameObject.SetActive(false);
         spicy.bbqSpicy.gameObject.SetActive(false);
-        if (gameMgr.playData.upgradeState[(int)Upgrade.Recipe_1])
+        if (gameMgr.playData.hasItem[(int)ShopItem.Recipe_1])
         {
             spicy.soySpicy.gameObject.SetActive(true);
             spicyCnt++;
         }
-        if (gameMgr.playData.upgradeState[(int)Upgrade.Recipe_2])
+        if (gameMgr.playData.hasItem[(int)ShopItem.Recipe_2])
         {
             spicy.hellSpicy.gameObject.SetActive(true);
             spicyCnt++;
         }
-        if (gameMgr.playData.upgradeState[(int)Upgrade.Recipe_3])
+        if (gameMgr.playData.hasItem[(int)ShopItem.Recipe_3])
         {
             spicy.prinkleSpicy.gameObject.SetActive(true);
             spicyCnt++;
         }
-        if (gameMgr.playData.upgradeState[(int)Upgrade.Recipe_4])
+        if (gameMgr.playData.hasItem[(int)ShopItem.Recipe_4])
+        {
+            spicy.carbonaraSpicy.gameObject.SetActive(true);
+            spicyCnt++;
+        }
+        if (gameMgr.playData.hasItem[(int)ShopItem.Recipe_5])
         {
             spicy.bbqSpicy.gameObject.SetActive(true);
             spicyCnt++;
@@ -161,31 +169,27 @@ public class KitchenMgr : Mgr
 
         /////////////////////////////////////////////////////////////////////////////////
         //기름통 세팅
-        if (gameMgr.playData.upgradeState[(int)Upgrade.OIL_Zone_1])
+        if (gameMgr.playData.hasItem[(int)ShopItem.OIL_Zone_1])
         {
             oilMahcine.img.sprite = oilMahcine.machineImg[0];
         }
-        if (gameMgr.playData.upgradeState[(int)Upgrade.OIL_Zone_2])
+        if (gameMgr.playData.hasItem[(int)ShopItem.OIL_Zone_2])
         {
             oilMahcine.img.sprite = oilMahcine.machineImg[1];
         }
-        if (gameMgr.playData.upgradeState[(int)Upgrade.OIL_Zone_3])
+        if (gameMgr.playData.hasItem[(int)ShopItem.OIL_Zone_3])
         {
             oilMahcine.img.sprite = oilMahcine.machineImg[2];
         }
-        if (gameMgr.playData.upgradeState[(int)Upgrade.OIL_Zone_4])
+        if (gameMgr.playData.hasItem[(int)ShopItem.OIL_Zone_4])
         {
             oilMahcine.img.sprite = oilMahcine.machineImg[3];
         }
-        if (gameMgr.playData.upgradeState[(int)Upgrade.OIL_Zone_5])
+        if (gameMgr.playData.hasItem[(int)ShopItem.OIL_Zone_5])
         {
             oilMahcine.img.sprite = oilMahcine.machineImg[4];
         }
-        if (gameMgr.playData.upgradeState[(int)Upgrade.OIL_Zone_6])
-        {
-            oilMahcine.img.sprite = oilMahcine.machineImg[5];
-        }
-        if (gameMgr.playData.upgradeState[(int)Upgrade.OIL_Zone_MAX])
+        if (gameMgr.playData.hasItem[(int)ShopItem.OIL_Zone_6])
         {
             oilMahcine.img.sprite = oilMahcine.machineImg[5];
         }
@@ -194,23 +198,26 @@ public class KitchenMgr : Mgr
     private float KitchenWidth()
     {
         int spicyCnt = 0;
-        if (gameMgr.playData.upgradeState[(int)Upgrade.Recipe_1])
+        if (gameMgr.playData.hasItem[(int)ShopItem.Recipe_1])
         {
             spicyCnt++;
         }
-        if (gameMgr.playData.upgradeState[(int)Upgrade.Recipe_2])
+        if (gameMgr.playData.hasItem[(int)ShopItem.Recipe_2])
         {
             spicyCnt++;
         }
-        if (gameMgr.playData.upgradeState[(int)Upgrade.Recipe_3])
+        if (gameMgr.playData.hasItem[(int)ShopItem.Recipe_3])
         {
             spicyCnt++;
         }
-        if (gameMgr.playData.upgradeState[(int)Upgrade.Recipe_4])
+        if (gameMgr.playData.hasItem[(int)ShopItem.Recipe_4])
         {
             spicyCnt++;
         }
-
+        if (gameMgr.playData.hasItem[(int)ShopItem.Recipe_5])
+        {
+            spicyCnt++;
+        }
 
         if (spicyCnt < 2)
         {

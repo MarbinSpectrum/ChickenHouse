@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[CreateAssetMenu(fileName = "UpgradeData", menuName = "ScriptableObjects/Upgrade", order = 2)]
-public class UpgradeData : ScriptableObject
+[CreateAssetMenu(fileName = "ShopData", menuName = "ScriptableObjects/Shop", order = 2)]
+public class ShopData : ScriptableObject
 {
     /** 스킬 아이콘 **/
     public Sprite   icon;

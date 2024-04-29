@@ -11,6 +11,7 @@ public class Memo_UI : Mgr
     [SerializeField] private Animator           animator;
     [SerializeField] private Image              memoImg;
     [SerializeField] private RectTransform      memoTriggerBox;
+    [SerializeField] private Image              deep;
 
     private void Start()
     {
@@ -23,11 +24,13 @@ public class Memo_UI : Mgr
         {
             memoTriggerBox.gameObject.SetActive(false);
             memoImg.gameObject.SetActive(false);
+            deep.gameObject.SetActive(false);
         }
         else
         {
             memoTriggerBox.gameObject.SetActive(true);
             memoImg.gameObject.SetActive(true);
+            deep.gameObject.SetActive(false);
         }
     }
 
@@ -50,6 +53,7 @@ public class Memo_UI : Mgr
         //인스펙터에서 끌어서 사용하는 함수임
         //메모지를 확대함
         animator.Play("Open");
+        deep.gameObject.SetActive(true);
         memoImg.gameObject.SetActive(false);
     }
 
@@ -58,6 +62,7 @@ public class Memo_UI : Mgr
         //인스펙터에서 끌어서 사용하는 함수임
         //메모지를 닫음
         animator.Play("Close");
+        deep.gameObject.SetActive(false);
         memoImg.gameObject.SetActive(true);
     }
 }

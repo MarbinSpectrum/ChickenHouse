@@ -30,6 +30,8 @@ public class TalkBox_UI : Mgr
                 yield return new WaitForSeconds(delayTime);
             }
 
+            yield return new WaitForSeconds(1f);
+
             fun?.Invoke();
         }
     }

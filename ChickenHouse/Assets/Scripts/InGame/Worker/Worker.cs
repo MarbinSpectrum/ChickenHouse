@@ -41,14 +41,14 @@ public class Worker : Mgr
         leftHand.gameObject.SetActive(true);
         rightHand.gameObject.SetActive(true);
 
-        if (gameMgr.playData.upgradeState[(int)Upgrade.Worker_1] == false)
+        if (gameMgr.playData.hasItem[(int)ShopItem.Worker_1] == false)
         {
             leftHand.gameObject.SetActive(false);
             rightHand.gameObject.SetActive(false);
             return;
         }
 
-        if (gameMgr.playData.upgradeState[(int)Upgrade.Worker_3] == false)
+        if (gameMgr.playData.hasItem[(int)ShopItem.Worker_3] == false)
         {
             rightHand.gameObject.SetActive(false);
         }
@@ -71,7 +71,7 @@ public class Worker : Mgr
         //1.계란물 묻힌 치킨을 밀가루를 묻히러감
         //2.치킨건지가 있으면 밀가루묻힌 치킨을 치킨건지에 넣어줌
         if (trayFlour.IsMax() == false && trayFlour.IsMax() == false && 
-            rightHand.handState != WorkerHandState.FlourChicken && gameMgr.playData.upgradeState[(int)Upgrade.Worker_3])
+            rightHand.handState != WorkerHandState.FlourChicken && gameMgr.playData.hasItem[(int)ShopItem.Worker_3])
         {
             if (rightHand.handState == WorkerHandState.None)
             {
@@ -83,7 +83,7 @@ public class Worker : Mgr
             else if (rightHand.handState == WorkerHandState.EggChicken)
                 rightArea = DragArea.Tray_Flour;
         }
-        else if (chickenStrainter.isRun && chickenStrainter.IsMax() == false && gameMgr.playData.upgradeState[(int)Upgrade.Worker_5])
+        else if (chickenStrainter.isRun && chickenStrainter.IsMax() == false && gameMgr.playData.hasItem[(int)ShopItem.Worker_5])
         {
             if (rightHand.handState == WorkerHandState.None)
             {
@@ -105,7 +105,7 @@ public class Worker : Mgr
         }
 
         MoveHand(0, leftHandArea, leftHand, leftArea);
-        if (gameMgr.playData.upgradeState[(int)Upgrade.Worker_3])
+        if (gameMgr.playData.hasItem[(int)ShopItem.Worker_3])
             MoveHand(1, rightHandArea, rightHand, rightArea);
     }
 
@@ -135,11 +135,11 @@ public class Worker : Mgr
         }
 
         float moveSpeed = DEFAULT_SPEED;
-        if (gameMgr.playData.upgradeState[(int)Upgrade.Worker_2])
+        if (gameMgr.playData.hasItem[(int)ShopItem.Worker_2])
             moveSpeed *= 2;
-        if (gameMgr.playData.upgradeState[(int)Upgrade.Worker_4])
+        if (gameMgr.playData.hasItem[(int)ShopItem.Worker_4])
             moveSpeed *= 2;
-        if (gameMgr.playData.upgradeState[(int)Upgrade.Worker_6])
+        if (gameMgr.playData.hasItem[(int)ShopItem.Worker_6])
             moveSpeed *= 2;
 
         //손 이동

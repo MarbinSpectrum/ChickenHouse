@@ -80,8 +80,10 @@ public enum DragState
     Hell_Spicy      = 12,
     /** »Ñ¸µÅ¬ ¾ç³ä **/
     Prinkle_Spicy   = 13,
+    /** ±î¸£º¸³ª¶ó ¾ç³ä **/
+    Carbonara_Spicy = 14,
     /** ¹Ùº£Å¥ ¾ç³ä **/
-    BBQ_Spicy       = 14,
+    BBQ_Spicy       = 15,
 }
 
 public enum ChickenState
@@ -183,7 +185,7 @@ public enum Sound
     Voice14_SE  = 264,
 }
 
-public enum Upgrade
+public enum ShopItem
 {
     None                = 0,
 

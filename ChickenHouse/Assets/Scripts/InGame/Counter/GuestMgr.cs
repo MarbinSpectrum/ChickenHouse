@@ -36,6 +36,9 @@ public class GuestMgr : Mgr
     private Dictionary<Guest, Queue<GuestObj>> guestPool = new Dictionary<Guest, Queue<GuestObj>>();
     /** 이미 방문해있는 손님 **/
     private HashSet<Guest>  visitedGuest = new HashSet<Guest>();
+
+
+    private Dictionary<Guest, int> guestWeight = new Dictionary<Guest, int>();
     /** 현재 주문중인 여부 **/
     private bool            nowOrder     = false;
     /** 현재 손님 **/
@@ -71,6 +74,9 @@ public class GuestMgr : Mgr
 
     public IEnumerator RunGuestCycle()
     {
+        for (Guest guest = Guest.Fox; guest < Guest.MAX; guest++)
+            guestWeight[guest] = 0;
+
         yield return new WaitForSeconds(START_GUEST_WAIT);
 
         //인게임 코루틴
@@ -104,31 +110,19 @@ public class GuestMgr : Mgr
 
                 //손님 딜레이
                 float delayValue = GUEST_DELAY_TIME;
-                if (gameMgr.playData.upgradeState[(int)Upgrade.Advertisement_5])
-                {
-                    delayValue = GUEST_DELAY_TIME * 0.5f;
-                }
-                else if (gameMgr.playData.upgradeState[(int)Upgrade.Advertisement_4])
-                {
-                    delayValue = GUEST_DELAY_TIME * 0.6f;
-                }
-                else if (gameMgr.playData.upgradeState[(int)Upgrade.Advertisement_3])
-                {
-                    delayValue = GUEST_DELAY_TIME * 0.7f;
-                }
-                else if (gameMgr.playData.upgradeState[(int)Upgrade.Advertisement_2])
-                {
-                    delayValue = GUEST_DELAY_TIME * 0.8f;
-                }
-                else if (gameMgr.playData.upgradeState[(int)Upgrade.Advertisement_1])
-                {
-                    delayValue = GUEST_DELAY_TIME * 0.9f;
-                }
-                else
-                {
-                    //기본 딜레이
-                    delayValue = GUEST_DELAY_TIME;
-                }
+                float upgradeRate = 1;
+                if (gameMgr.playData.hasItem[(int)ShopItem.Advertisement_5])
+                    upgradeRate -= 0.1f;
+                if (gameMgr.playData.hasItem[(int)ShopItem.Advertisement_4])
+                    upgradeRate -= 0.1f;
+                if (gameMgr.playData.hasItem[(int)ShopItem.Advertisement_3])
+                    upgradeRate -= 0.1f;
+                if (gameMgr.playData.hasItem[(int)ShopItem.Advertisement_2])
+                    upgradeRate -= 0.1f;
+                if (gameMgr.playData.hasItem[(int)ShopItem.Advertisement_1])
+                    upgradeRate -= 0.1f;
+
+                delayValue = GUEST_DELAY_TIME * upgradeRate;
 
                 yield return new WaitForSeconds(delayValue);
             }
@@ -161,9 +155,6 @@ public class GuestMgr : Mgr
         {
             if (waitGuest[i] == null)
             {
-                //손님을 만듬     
-                guestcnt++;
-
                 //랜덤하게 손님을호출하되
                 //오늘방문한 손님은 다시 오지않음
                 List<Guest> guestList = new List<Guest>();
@@ -172,7 +163,8 @@ public class GuestMgr : Mgr
                     GuestObj guestObj = guests[guest];
                     if (guestObj.GetShowDay() > gameMgr.playData.day)
                         continue;
-
+                    if (guestWeight[guest] > 0)
+                        continue;
                     //생성할 손님이 존재하긴한다.
                     if (visitedGuest.Contains(guest))
                     {
@@ -184,16 +176,26 @@ public class GuestMgr : Mgr
 
                 if (guestList.Count == 0)
                 {
-                    return;
                     //왠만하면 여기로 오지 않도록 손님풀을 늘리는 방향으로 가야될듯
                     //방문손님을 초기화
-                    //나올수있는 손님 리스트를 갱신
-                    visitedGuest.Clear();
+                    //나올수있는 손님 리스트를 갱신'
+
+                    for (Guest guest = Guest.Fox; guest < Guest.MAX; guest++)
+                        guestWeight[guest] = 0;
+
                     for (Guest guest = Guest.Fox; guest < Guest.MAX; guest++)
                     {
                         GuestObj guestObj = guests[guest];
                         if (guestObj.GetShowDay() > gameMgr.playData.day)
                             continue;
+                        if (guestWeight[guest] > 0)
+                            continue;
+                        //생성할 손님이 존재하긴한다.
+                        if (visitedGuest.Contains(guest))
+                        {
+                            //이미 있는 손님은 다시 오지 않음
+                            continue;
+                        }
                         guestList.Add(guest);
                     }
                 }
@@ -208,6 +210,10 @@ public class GuestMgr : Mgr
                 }
                 visitedGuest.Add(nowGuest);
 
+                for (Guest guest = Guest.Fox; guest < Guest.MAX; guest++)
+                    guestWeight[guest]--;
+                guestWeight[nowGuest] = 3;
+
                 //손님생성
                 GuestObj newGuest = GetGuestObj(nowGuest);
                 float orderTime = ui.timer.time;
@@ -219,6 +225,8 @@ public class GuestMgr : Mgr
                     continue;
                 }
 
+                //손님을 만듬     
+                guestcnt++;
                 newGuest.gameObject.SetActive(true);
                 newGuest.ShowGuest();
 
@@ -304,7 +312,7 @@ public class GuestMgr : Mgr
             {
                 case GuestReviews.Bad:
                     {
-                        guestObj.AngryGuest();
+                        guestObj.AngryGuest(() => NextOrder());
                     }
                     break;
                 case GuestReviews.Normal:
@@ -316,7 +324,7 @@ public class GuestMgr : Mgr
                         gameMgr.dayMoney += getValue;
                         ui.nowMoney.SetMoney(gameMgr.playData.money + gameMgr.dayMoney);
 
-                        guestObj.ThankGuest();
+                        guestObj.ThankGuest(() => NextOrder());
                     }
                     break;
                 case GuestReviews.Happy:
@@ -328,22 +336,26 @@ public class GuestMgr : Mgr
                         gameMgr.dayMoney += getValue;
                         ui.nowMoney.SetMoney(gameMgr.playData.money + gameMgr.dayMoney);
 
-                        guestObj.HappyGuest();
+                        guestObj.HappyGuest(() => NextOrder());
                     }
                     break;
             }    
+        }
+    }
 
+    private void NextOrder()
+    {
+        StartCoroutine(RunCor());
+        IEnumerator RunCor()
+        {
             gameMgr.sellChickenCnt += 1;
-
-
-            yield return new WaitForSeconds(3f);
 
             //대화창 닫기
             CloseTalkBox();
 
             yield return new WaitForSeconds(0.5f);
 
-            if(tutoMgr.tutoComplete == false)
+            if (tutoMgr.tutoComplete == false)
             {
                 //튜토리얼 완료
                 tutoMgr.tutoComplete = true;
@@ -363,7 +375,7 @@ public class GuestMgr : Mgr
             nowOrder = false;
 
             waitGuest[0] = null;
-            for(int i = 0; i < waitGuest.Length-1; i++)
+            for (int i = 0; i < waitGuest.Length - 1; i++)
             {
                 waitGuest[i] = waitGuest[i + 1];
                 waitGuest[i + 1] = null;

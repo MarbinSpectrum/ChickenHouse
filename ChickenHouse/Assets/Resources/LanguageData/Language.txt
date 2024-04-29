@@ -8,6 +8,10 @@ SOUND_OPTION	사운드 설정	SOUND
 GO_KITCHEN	주방으로	Go Kitchen
 GO_COUNTER	카운터로	Go Counter
 SHOP_UPGRADE	매장 업그레이드	Shop Upgrade
+KITCHEN_TOOL	조리도구	Kitchen Tool
+ADVERTISEMENT	홍보	Advertise
+WORKER	직원	Staff
+SPICY	양념	Spicy
 TAKE_OUT	버리기	Take\nOut
 BGM	배경음	BGM
 SE	효과음	SE
@@ -149,11 +153,13 @@ UPGRADE_RECIPE_LV1_NAME	신메뉴 개발\nLv.1	신메뉴 개발\nLv.1
 UPGRADE_RECIPE_LV2_NAME	신메뉴 개발\nLv.2	신메뉴 개발\nLv.2
 UPGRADE_RECIPE_LV3_NAME	신메뉴 개발\nLv.3	신메뉴 개발\nLv.3
 UPGRADE_RECIPE_LV4_NAME	신메뉴 개발\nLv.4	신메뉴 개발\nLv.4
+UPGRADE_RECIPE_LV5_NAME	신메뉴 개발\nLv.5	신메뉴 개발\nLv.5
 UPGRADE_RECIPE_MAX_NAME	신메뉴 개발\nLv.MAX	신메뉴 개발\nLv.MAX
-UPGRADE_RECIPE_LV1_INFO	간장치킨을 개발합니다.\n(수입 +20)	간장치킨을 개발합니다.\n(수입 +20)
-UPGRADE_RECIPE_LV2_INFO	불닭치킨을 개발합니다.\n(수입 +20)	불닭치킨을 개발합니다.\n(수입 +20)
-UPGRADE_RECIPE_LV3_INFO	프링클치킨을 개발합니다.\n(수입 +20)	프링클치킨을 개발합니다.\n(수입 +20)
-UPGRADE_RECIPE_LV4_INFO	바베큐치킨을 개발합니다.\n(수입 +20)	바베큐치킨을 개발합니다.\n(수입 +20)
+UPGRADE_RECIPE_LV1_INFO	간장치킨을 개발합니다.\n(수입 +20%)	간장치킨을 개발합니다.\n(수입 +20%)
+UPGRADE_RECIPE_LV2_INFO	불닭치킨을 개발합니다.\n(수입 +20%)	불닭치킨을 개발합니다.\n(수입 +20%)
+UPGRADE_RECIPE_LV3_INFO	프링클치킨을 개발합니다.\n(수입 +20%)	프링클치킨을 개발합니다.\n(수입 +20%)
+UPGRADE_RECIPE_LV4_INFO	까로보나라치킨을 개발합니다.\n(수입 +20%)	까로보나라치킨을 개발합니다.\n(수입 +20%)
+UPGRADE_RECIPE_LV5_INFO	바베큐치킨을 개발합니다.\n(수입 +20%)	바베큐치킨을 개발합니다.\n(수입 +20%)
 UPGRADE_RECIPE_MAX_INFO	연구완료	연구완료
 ADVERTISEMENT_LV1_NAME	가게 광고\nLv.1	가게 광고\nLv.1
 ADVERTISEMENT_LV2_NAME	가게 광고\nLv.2	가게 광고\nLv.2

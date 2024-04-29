@@ -40,11 +40,6 @@ public class Fox : GuestObj
                 showStr += "\n";
                 showStr += LanguageMgr.GetText("FOX_SIDE_COLA");
             }
-            if (requireMenu.sideMenu == SideMenu.Pickle)
-            {
-                showStr += "\n";
-                showStr += LanguageMgr.GetText("FOX_SIDE_PICKLE");
-            }
         }
 
         soundMgr.PlayLoopSE(Sound.Voice2_SE);
