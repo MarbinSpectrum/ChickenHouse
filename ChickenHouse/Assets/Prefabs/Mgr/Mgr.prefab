@@ -482,7 +482,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2553414035350865967, guid: 01e4e9515cc0ff04bae9211bb8e2c409, type: 3}
       propertyPath: m_Name
-      value: UpgradeMgr
+      value: ShopMgr
       objectReference: {fileID: 0}
     - target: {fileID: 5397685461429719958, guid: 01e4e9515cc0ff04bae9211bb8e2c409, type: 3}
       propertyPath: serializationData.Prefab

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 522cca58814dbfc489fb7b3581ebfee1, type: 3}
   m_Name: Advertisement Lv2
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 5e024b10033de914393d2eb043a89663, type: 3}
+  icon: {fileID: 21300000, guid: f3dc36ffde2ef464ba703d00d55632e2, type: 3}
   nameKey: ADVERTISEMENT_LV2_NAME
   infoKey: ADVERTISEMENT_LV2_INFO
   money: 1000

@@ -18,7 +18,7 @@ public class KitchenMgr : Mgr
     /** 치킨 건지 **/
     [System.NonSerialized] public ChickenStrainter chickenStrainter;
     /** 기름 **/
-    [System.NonSerialized] public Oil_Zone         oilZone;
+    public Oil_Zone         oilZone;
     /** 치킨 포장 박스 **/
     [System.NonSerialized] public ChickenPack      chickenPack;
 
@@ -73,16 +73,6 @@ public class KitchenMgr : Mgr
         public GameObject table1;
     }
     public Table table;
-
-    [System.Serializable]
-    public struct OilMachine
-    {
-        //튀김기
-        public Image img;
-        /** 기기 이미지 **/
-        public Sprite[] machineImg;
-    }
-    public OilMachine oilMahcine;
 
     [System.Serializable]
     public struct UI
@@ -169,30 +159,7 @@ public class KitchenMgr : Mgr
 
         /////////////////////////////////////////////////////////////////////////////////
         //기름통 세팅
-        if (gameMgr.playData.hasItem[(int)ShopItem.OIL_Zone_1])
-        {
-            oilMahcine.img.sprite = oilMahcine.machineImg[0];
-        }
-        if (gameMgr.playData.hasItem[(int)ShopItem.OIL_Zone_2])
-        {
-            oilMahcine.img.sprite = oilMahcine.machineImg[1];
-        }
-        if (gameMgr.playData.hasItem[(int)ShopItem.OIL_Zone_3])
-        {
-            oilMahcine.img.sprite = oilMahcine.machineImg[2];
-        }
-        if (gameMgr.playData.hasItem[(int)ShopItem.OIL_Zone_4])
-        {
-            oilMahcine.img.sprite = oilMahcine.machineImg[3];
-        }
-        if (gameMgr.playData.hasItem[(int)ShopItem.OIL_Zone_5])
-        {
-            oilMahcine.img.sprite = oilMahcine.machineImg[4];
-        }
-        if (gameMgr.playData.hasItem[(int)ShopItem.OIL_Zone_6])
-        {
-            oilMahcine.img.sprite = oilMahcine.machineImg[5];
-        }
+        oilZone.Init();
     }
 
     private float KitchenWidth()

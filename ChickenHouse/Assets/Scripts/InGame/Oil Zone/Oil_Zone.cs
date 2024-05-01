@@ -9,16 +9,23 @@ public class Oil_Zone : Mgr
     private const float COOK_TIME_1 = 5f;
     private const float COOK_TIME_2 = 4.5f;
 
-    [System.Serializable]
-    public struct SPITE_IMG
-    {
-        //오브젝트 스프라이트 이미지
-        public Sprite           normalSprite;
-        public Sprite           canUseSprite;
-    }
-    [SerializeField] private SPITE_IMG      sprite;
-    [SerializeField] private Image          image;
+    [SerializeField] private Image          selectImg;
     [SerializeField] private ScrollObj[]    scrollObj;
+
+    [System.Serializable]
+    public struct OilMachine
+    {
+        //튀김기
+        public Image machine0;
+        //튀김기 입구
+        public Image machine1;
+        /** 기기 이미지 **/
+        public Sprite[] machineImg0;
+        /** 기기 이미지 **/
+        public Sprite[] machineImg1;
+    }
+    public OilMachine oilMahcine;
+
     [System.Serializable]
     public struct OIL_GAUGE
     {
@@ -27,7 +34,6 @@ public class Oil_Zone : Mgr
     }
     [SerializeField] private OIL_GAUGE gauge;
 
-    [SerializeField] private List<Image>            notCookImg;
     [SerializeField] private List<Image>            runCookImg;
     [SerializeField] private Animator               animator;
     [SerializeField] private Oil_Zone_Shader        oilShader;
@@ -52,12 +58,12 @@ public class Oil_Zone : Mgr
         if (kitchenMgr.dragState == DragState.Chicken_Strainter && chickenState == ChickenState.NotCook)
         {
             //해당 기름튀기는곳이 조리중이 아님
-            image.sprite = sprite.canUseSprite;
+            selectImg.enabled = true;
         }
         else
         {
             //나머지 상태면 이미지가 보이지 않는다.
-            image.sprite = sprite.normalSprite;
+            selectImg.enabled = false;
         }
 
         kitchenMgr.oilZone = this;
@@ -66,7 +72,7 @@ public class Oil_Zone : Mgr
 
     public void OnMouseExit()
     {
-        image.sprite = sprite.normalSprite;
+        selectImg.enabled = false;
 
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
         kitchenMgr.oilZone = null;
@@ -114,7 +120,6 @@ public class Oil_Zone : Mgr
             kitchenMgr.ui.takeOut.OpenBtn();
         }
 
-        notCookImg.ForEach((x) => x.enabled = true);
         runCookImg.ForEach((x) => x.enabled = false);
     }
 
@@ -187,7 +192,6 @@ public class Oil_Zone : Mgr
             Cook_Pause(false);
         }
 
-        notCookImg.ForEach((x) => x.enabled = false);
         runCookImg.ForEach((x) => x.enabled = true);
     }
 
@@ -213,29 +217,21 @@ public class Oil_Zone : Mgr
     private float GetCookSpeedRate()
     {
         //업그레이드 속도에 따라서 상태 설정
-        if (gameMgr.playData.hasItem[(int)ShopItem.OIL_Zone_6])
-        {
-            return 3.0f;
-        }
-        else if (gameMgr.playData.hasItem[(int)ShopItem.OIL_Zone_5])
-        {
-            return 3.0f;
-        }
-        else if (gameMgr.playData.hasItem[(int)ShopItem.OIL_Zone_4])
+        if (gameMgr.playData.useItem[(int)ShopItem.OIL_Zone_4])
         {
             return 2.6f;
         }
-        else if (gameMgr.playData.hasItem[(int)ShopItem.OIL_Zone_3])
-        {
-            return 2.2f;
-        }
-        else if (gameMgr.playData.hasItem[(int)ShopItem.OIL_Zone_2])
+        else if (gameMgr.playData.useItem[(int)ShopItem.OIL_Zone_3])
         {
             return 1.8f;
         }
-        else if (gameMgr.playData.hasItem[(int)ShopItem.OIL_Zone_1])
+        else if (gameMgr.playData.useItem[(int)ShopItem.OIL_Zone_2])
         {
             return 1.4f;
+        }
+        else if (gameMgr.playData.useItem[(int)ShopItem.OIL_Zone_1])
+        {
+            return 1f;
         }
         return 1;
     }
@@ -251,13 +247,12 @@ public class Oil_Zone : Mgr
         //요리 시작
 
         chickenStrainter = pChickenStrainter;
-        image.sprite = sprite.normalSprite;
+        selectImg.enabled = false;
         Cook_Pause(false);
 
         //넣은 치킨갯수 파악
         chickenCnt = pChickenCnt;
 
-        notCookImg.ForEach((x) => x.enabled = false);
         runCookImg.ForEach((x) => x.enabled = true);
 
         if (cookCor != null)
@@ -282,7 +277,7 @@ public class Oil_Zone : Mgr
         bool    notFire     = false;
 
         //업그레이드 속도에 따라서 상태 설정
-        if(gameMgr.playData.hasItem[(int)ShopItem.OIL_Zone_6])
+        if(gameMgr.playData.useItem[(int)ShopItem.OIL_Zone_4])
         {
             //최대 레벨일 경우 타지않는다.
             notFire = true;
@@ -360,7 +355,6 @@ public class Oil_Zone : Mgr
     {
         //요리 종료
         gaugeTime = 0;
-        notCookImg.ForEach((x) => x.enabled = true);
         runCookImg.ForEach((x) => x.enabled = false);
 
         if (cookCor != null)
@@ -402,6 +396,32 @@ public class Oil_Zone : Mgr
                 sObj.isRun = true;
             }
             soundMgr.PlayLoopSE(Sound.Oil_SE);
+        }
+    }
+
+    public void Init()
+    {
+        /////////////////////////////////////////////////////////////////////////////////
+        //기름통 세팅
+        if (gameMgr.playData.useItem[(int)ShopItem.OIL_Zone_1])
+        {
+            oilMahcine.machine0.sprite = oilMahcine.machineImg0[0];
+            oilMahcine.machine1.sprite = oilMahcine.machineImg1[0];
+        }
+        else if (gameMgr.playData.useItem[(int)ShopItem.OIL_Zone_2])
+        {
+            oilMahcine.machine0.sprite = oilMahcine.machineImg0[1];
+            oilMahcine.machine1.sprite = oilMahcine.machineImg1[1];
+        }
+        else if (gameMgr.playData.useItem[(int)ShopItem.OIL_Zone_3])
+        {
+            oilMahcine.machine0.sprite = oilMahcine.machineImg0[2];
+            oilMahcine.machine1.sprite = oilMahcine.machineImg1[2];
+        }
+        else if (gameMgr.playData.useItem[(int)ShopItem.OIL_Zone_4])
+        {
+            oilMahcine.machine0.sprite = oilMahcine.machineImg0[3];
+            oilMahcine.machine1.sprite = oilMahcine.machineImg1[3];
         }
     }
 }

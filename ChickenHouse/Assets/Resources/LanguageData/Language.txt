@@ -12,6 +12,9 @@ KITCHEN_TOOL	조리도구	Kitchen Tool
 ADVERTISEMENT	홍보	Advertise
 WORKER	직원	Staff
 SPICY	양념	Spicy
+BUY_COMPLETE	구입완료	Complete Purchase
+CANUSE_ITEM	사용가능	사용가능
+USE_ITEM	사용중	사용중
 TAKE_OUT	버리기	Take\nOut
 BGM	배경음	BGM
 SE	효과음	SE
@@ -135,55 +138,43 @@ DOVE_SIDE_PICKLE	원하오! 시원한 워터가 곁들어진 무!	원하오! 시
 DOVE_ANGRY	이게 진짜일 리가 없어!	이게 진짜일 리가 없어!
 DOVE_THANK_YOU	흠! 이 무난함! 나쁘지 않아	흠! 이 무난함! 나쁘지 않아
 DOVE_HAPPY	엘레강트!!! 구구! 구구구구구구	엘레강트!!! 구구! 구구구구구구
-UPGRADE_OIL_ZONE_LV1_NAME	튀김기\nLv.1	튀김기\nLv.1
-UPGRADE_OIL_ZONE_LV2_NAME	튀김기\nLv.2	튀김기\nLv.2
-UPGRADE_OIL_ZONE_LV3_NAME	튀김기\nLv.3	튀김기\nLv.3
-UPGRADE_OIL_ZONE_LV4_NAME	튀김기\nLv.4	튀김기\nLv.4
-UPGRADE_OIL_ZONE_LV5_NAME	튀김기\nLv.5	튀김기\nLv.5
-UPGRADE_OIL_ZONE_LV6_NAME	튀김기\nLv.6	튀김기\nLv.6
-UPGRADE_OIL_ZONE_MAX_NAME	튀김기\nLv.MAX	튀김기\nLv.MAX
-UPGRADE_OIL_ZONE_LV1_INFO	치킨이 더 빨리 튀겨집니다.\n(속도 +40%)	치킨이 더 빨리 튀겨집니다.\n(속도 +40%)
-UPGRADE_OIL_ZONE_LV2_INFO	치킨이 더 빨리 튀겨집니다.\n(속도 +40%)	치킨이 더 빨리 튀겨집니다.\n(속도 +40%)
-UPGRADE_OIL_ZONE_LV3_INFO	치킨이 더 빨리 튀겨집니다.\n(속도 +40%)	치킨이 더 빨리 튀겨집니다.\n(속도 +40%)
-UPGRADE_OIL_ZONE_LV4_INFO	치킨이 더 빨리 튀겨집니다.\n(속도 +40%)	치킨이 더 빨리 튀겨집니다.\n(속도 +40%)
-UPGRADE_OIL_ZONE_LV5_INFO	치킨이 더 빨리 튀겨집니다.\n(속도 +40%)	치킨이 더 빨리 튀겨집니다.\n(속도 +40%)
-UPGRADE_OIL_ZONE_LV6_INFO	치킨이 타지 않습니다.	치킨이 타지 않습니다.
-UPGRADE_OIL_ZONE_MAX_INFO	연구완료	연구완료
-UPGRADE_RECIPE_LV1_NAME	신메뉴 개발\nLv.1	신메뉴 개발\nLv.1
-UPGRADE_RECIPE_LV2_NAME	신메뉴 개발\nLv.2	신메뉴 개발\nLv.2
-UPGRADE_RECIPE_LV3_NAME	신메뉴 개발\nLv.3	신메뉴 개발\nLv.3
-UPGRADE_RECIPE_LV4_NAME	신메뉴 개발\nLv.4	신메뉴 개발\nLv.4
-UPGRADE_RECIPE_LV5_NAME	신메뉴 개발\nLv.5	신메뉴 개발\nLv.5
-UPGRADE_RECIPE_MAX_NAME	신메뉴 개발\nLv.MAX	신메뉴 개발\nLv.MAX
-UPGRADE_RECIPE_LV1_INFO	간장치킨을 개발합니다.\n(수입 +20%)	간장치킨을 개발합니다.\n(수입 +20%)
-UPGRADE_RECIPE_LV2_INFO	불닭치킨을 개발합니다.\n(수입 +20%)	불닭치킨을 개발합니다.\n(수입 +20%)
-UPGRADE_RECIPE_LV3_INFO	프링클치킨을 개발합니다.\n(수입 +20%)	프링클치킨을 개발합니다.\n(수입 +20%)
-UPGRADE_RECIPE_LV4_INFO	까로보나라치킨을 개발합니다.\n(수입 +20%)	까로보나라치킨을 개발합니다.\n(수입 +20%)
-UPGRADE_RECIPE_LV5_INFO	바베큐치킨을 개발합니다.\n(수입 +20%)	바베큐치킨을 개발합니다.\n(수입 +20%)
-UPGRADE_RECIPE_MAX_INFO	연구완료	연구완료
-ADVERTISEMENT_LV1_NAME	가게 광고\nLv.1	가게 광고\nLv.1
-ADVERTISEMENT_LV2_NAME	가게 광고\nLv.2	가게 광고\nLv.2
-ADVERTISEMENT_LV3_NAME	가게 광고\nLv.3	가게 광고\nLv.3
-ADVERTISEMENT_LV4_NAME	가게 광고\nLv.4	가게 광고\nLv.4
-ADVERTISEMENT_LV5_NAME	가게 광고\nLv.5	가게 광고\nLv.5
-ADVERTISEMENT_MAX_NAME	가게 광고\nLv.MAX	가게 광고\nLv.MAX
-ADVERTISEMENT_LV1_INFO	가게를 홍보합니다.\n(손님 방문 딜레이 -10%);	가게를 홍보합니다.\n(손님 방문 딜레이 -10%);
-ADVERTISEMENT_LV2_INFO	가게를 홍보합니다.\n(손님 방문 딜레이 -20%);	가게를 홍보합니다.\n(손님 방문 딜레이 -20%);
-ADVERTISEMENT_LV3_INFO	가게를 홍보합니다.\n(손님 방문 딜레이 -30%);	가게를 홍보합니다.\n(손님 방문 딜레이 -30%);
-ADVERTISEMENT_LV4_INFO	가게를 홍보합니다.\n(손님 방문 딜레이 -40%);	가게를 홍보합니다.\n(손님 방문 딜레이 -40%);
-ADVERTISEMENT_LV5_INFO	가게를 홍보합니다.\n(손님 방문 딜레이 -50%);	가게를 홍보합니다.\n(손님 방문 딜레이 -50%);
-ADVERTISEMENT_MAX_INFO	연구완료	연구완료
+OIL_ZONE_LV1_NAME	튀김기	튀김기
+OIL_ZONE_LV2_NAME	고급 튀김기	고급 튀김기
+OIL_ZONE_LV3_NAME	특급 튀김기	특급 튀김기
+OIL_ZONE_LV4_NAME	궁극의 튀김기	궁극의 튀김기
+OIL_ZONE_LV1_INFO	일반 튀김기 입니다.	일반 튀김기 입니다.
+OIL_ZONE_LV2_INFO	치킨이 빨리 튀겨집니다.\n(속도 +40%)	치킨이 빨리 튀겨집니다.\n(속도 +40%)
+OIL_ZONE_LV3_INFO	치킨이 더 빨리 튀겨지고\n 더 맛있어집니다.\n(속도 +80%, 수입+20%)	치킨이 더 빨리 튀겨지고\n 더 맛있어집니다.\n(속도 +80%, 수입+20%)
+OIL_ZONE_LV4_INFO	치킨이 완벽하게 튀겨집니다.\n(속도 +160%, 수입+40%)\n(치킨이 타지 않습니다.)	치킨이 완벽하게 튀겨집니다.\n(속도 +160%, 수입+40%)\n(치킨이 타지 않습니다.)
+RECIPE_LV1_NAME	간장양념	간장양념
+RECIPE_LV2_NAME	불닭양념	불닭양념
+RECIPE_LV3_NAME	프링클양념	프링클양념
+RECIPE_LV4_NAME	까르보나라양념	까르보나라양념
+RECIPE_LV5_NAME	바베큐양념	바베큐양념
+RECIPE_LV1_INFO	간장 치킨을\n만들 수 있게 됩니다	간장 치킨을\n만들 수 있게 됩니다
+RECIPE_LV2_INFO	불닭 치킨을\n만들 수 있게 됩니다	불닭 치킨을\n만들 수 있게 됩니다
+RECIPE_LV3_INFO	프링클 치킨을\n만들 수 있게 됩니다	프링클 치킨을\n만들 수 있게 됩니다
+RECIPE_LV4_INFO	까르보나라 치킨을\n만들 수 있게 됩니다	까르보나라 치킨을\n만들 수 있게 됩니다
+RECIPE_LV5_INFO	바베큐 치킨을\n만들 수 있게 됩니다	바베큐 치킨을\n만들 수 있게 됩니다
+ADVERTISEMENT_LV1_NAME	확성기 광고	확성기 광고
+ADVERTISEMENT_LV2_NAME	전단지 광고	전단지 광고
+ADVERTISEMENT_LV3_NAME	인터넷 광고	인터넷 광고
+ADVERTISEMENT_LV4_NAME	TV 광고	TV 광고
+ADVERTISEMENT_LV5_NAME	지하철 광고	지하철 광고
+ADVERTISEMENT_LV1_INFO	확성기 광고를 합니다.\n(손님 방문 딜레이 -10%)	확성기 광고를 합니다.\n(손님 방문 딜레이 -10%)
+ADVERTISEMENT_LV2_INFO	전단지 광고를 합니다.\n(손님 방문 딜레이 -20%)	전단지 광고를 합니다.\n(손님 방문 딜레이 -20%)
+ADVERTISEMENT_LV3_INFO	인터넷 광고를 합니다.\n(손님 방문 딜레이 -30%)	인터넷 광고를 합니다.\n(손님 방문 딜레이 -30%)
+ADVERTISEMENT_LV4_INFO	TV 광고를 합니다.\n(손님 방문 딜레이 -40%)	TV 광고를 합니다.\n(손님 방문 딜레이 -40%)
+ADVERTISEMENT_LV5_INFO	지하철 광고를 합니다.\n(손님 방문 딜레이 -50%)	지하철 광고를 합니다.\n(손님 방문 딜레이 -50%)
 WORKER_LV1_NAME	알바생 고용	알바생 고용
 WORKER_LV2_NAME	알바생 교육\nLv.1	알바생 교육\nLv.1
 WORKER_LV3_NAME	알바생 교육\nLv.2	알바생 교육\nLv.2
 WORKER_LV4_NAME	알바생 교육\nLv.3	알바생 교육\nLv.3
 WORKER_LV5_NAME	알바생 교육\nLv.4	알바생 교육\nLv.4
 WORKER_LV6_NAME	알바생 교육\nLv.5	알바생 교육\nLv.5
-WORKER_MAX_NAME	알바생 교육\nLv.MAX	알바생 교육\nLv.MAX
 WORKER_LV1_INFO	알바생을 교육합니다.\n(치킨 조리를 도와줍니다.)	알바생을 교육합니다.\n(치킨 조리를 도와줍니다.)
 WORKER_LV2_INFO	알바생을 교육합니다.\n(알바생의 움직임이 빨라집니다.)	알바생을 교육합니다.\n(알바생의 움직임이 빨라집니다.)
 WORKER_LV3_INFO	알바생을 교육합니다.\n(튀김옷 입히기를 가르킵니다.)	알바생을 교육합니다.\n(튀김옷 입히기를 가르킵니다.)
 WORKER_LV4_INFO	알바생을 교육합니다.\n(알바생의 움직임이 더 빨라집니다.)	알바생을 교육합니다.\n(알바생의 움직임이 더 빨라집니다.)
 WORKER_LV5_INFO	알바생을 교육합니다.\n(치킨건지까지 치킨을 옮겨줍니다.)	알바생을 교육합니다.\n(치킨건지까지 치킨을 옮겨줍니다.)
 WORKER_LV6_INFO	알바생을 교육합니다.\n(알바생의 움직임이 더 빨라집니다.)	알바생을 교육합니다.\n(알바생의 움직임이 더 빨라집니다.)
-WORKER_MAX_INFO	연구완료	연구완료

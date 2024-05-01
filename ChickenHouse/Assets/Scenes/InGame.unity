@@ -481,7 +481,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1872132299}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2033,6 +2033,7 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
+  oilZone: {fileID: 1872132300}
   mouseArea: 0
   cameraObj: {fileID: 689780473}
   dragObj: {fileID: 1010039775}
@@ -2048,15 +2049,6 @@ MonoBehaviour:
   table:
     table0: {fileID: 182352522}
     table1: {fileID: 1775572415}
-  oilMahcine:
-    img: {fileID: 2033418036}
-    machineImg:
-    - {fileID: -1298926020, guid: 68cd08b51d159f448a1b4216b23e9da0, type: 3}
-    - {fileID: 298871206, guid: 68cd08b51d159f448a1b4216b23e9da0, type: 3}
-    - {fileID: 1703849246, guid: 68cd08b51d159f448a1b4216b23e9da0, type: 3}
-    - {fileID: 1957235742, guid: 68cd08b51d159f448a1b4216b23e9da0, type: 3}
-    - {fileID: -1015093697, guid: 68cd08b51d159f448a1b4216b23e9da0, type: 3}
-    - {fileID: -1956751002, guid: 68cd08b51d159f448a1b4216b23e9da0, type: 3}
   ui:
     takeOut: {fileID: 170249142}
     goCounter: {fileID: 1954221799}
@@ -5204,41 +5196,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 311608746}
   m_CullTransparentMesh: 1
---- !u!21 &311989214
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Lerp UI(Clone)
-  m_Shader: {fileID: 4800000, guid: 146d6628858cde048b0359eac77ff63a, type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 11b831fd27497454a8ba64e08127212f, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SubTex:
-        m_Texture: {fileID: 2800000, guid: 310c1a12045eb7f41bfb8d86c0847daa, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - PixelSnap: 0
-    - _LerpValue: 0
-    m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-  m_BuildTextureStacks: []
 --- !u!1 &315493381
 GameObject:
   m_ObjectHideFlags: 0
@@ -5670,7 +5627,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 668794456}
-  - {fileID: 2033418035}
   - {fileID: 1932926514}
   m_Father: {fileID: 1434763597}
   m_RootOrder: 1
@@ -11464,7 +11420,7 @@ GameObject:
   - component: {fileID: 707249638}
   - component: {fileID: 707249637}
   m_Layer: 5
-  m_Name: Oil Zone - NotCook
+  m_Name: Oil Zone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11483,7 +11439,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1872132299}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -25223,6 +25179,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1585087933}
   m_CullTransparentMesh: 1
+--- !u!21 &1585744469
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Lerp UI(Clone)
+  m_Shader: {fileID: 4800000, guid: 146d6628858cde048b0359eac77ff63a, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 11b831fd27497454a8ba64e08127212f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SubTex:
+        m_Texture: {fileID: 2800000, guid: 310c1a12045eb7f41bfb8d86c0847daa, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - PixelSnap: 0
+    - _LerpValue: 0
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []
 --- !u!1 &1590367562
 GameObject:
   m_ObjectHideFlags: 0
@@ -28522,7 +28513,7 @@ RectTransform:
   - {fileID: 311608747}
   - {fileID: 319212553}
   m_Father: {fileID: 1872132299}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -28600,7 +28591,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1872132299}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -29326,9 +29317,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 2033418035}
   - {fileID: 12957681}
   - {fileID: 1813709661}
   - {fileID: 1806766807}
+  - {fileID: 1902050217}
   - {fileID: 707249636}
   - {fileID: 1998637820}
   m_Father: {fileID: 1434763597}
@@ -29360,18 +29353,26 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  sprite:
-    normalSprite: {fileID: 21300000, guid: 5dbdf51f284cd2d41bcd385cf04dc579, type: 3}
-    canUseSprite: {fileID: 21300000, guid: de8984ae0ba5fec47ac9366ff297621c, type: 3}
-  image: {fileID: 707249637}
+  selectImg: {fileID: 1902050218}
   scrollObj:
   - {fileID: 12957682}
   - {fileID: 1813709662}
+  oilMahcine:
+    machine0: {fileID: 2033418036}
+    machine1: {fileID: 707249637}
+    machineImg0:
+    - {fileID: -1298926020, guid: 68cd08b51d159f448a1b4216b23e9da0, type: 3}
+    - {fileID: 1703849246, guid: 68cd08b51d159f448a1b4216b23e9da0, type: 3}
+    - {fileID: 1957235742, guid: 68cd08b51d159f448a1b4216b23e9da0, type: 3}
+    - {fileID: -1956751002, guid: 68cd08b51d159f448a1b4216b23e9da0, type: 3}
+    machineImg1:
+    - {fileID: 21300000, guid: 5dbdf51f284cd2d41bcd385cf04dc579, type: 3}
+    - {fileID: 21300000, guid: 0aa61da5d139fd547a85e7465dd436ed, type: 3}
+    - {fileID: 21300000, guid: eb81f3c2916393d48821a41d2a7cb988, type: 3}
+    - {fileID: 21300000, guid: 2329de763fdd89443b70d963efc15597, type: 3}
   gauge:
     hand: {fileID: 960864890}
     bar: {fileID: 311608748}
-  notCookImg:
-  - {fileID: 707249637}
   runCookImg:
   - {fileID: 859933339}
   - {fileID: 128591244}
@@ -29814,6 +29815,82 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1900618733}
+  m_CullTransparentMesh: 1
+--- !u!1 &1902050216
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1902050217}
+  - component: {fileID: 1902050219}
+  - component: {fileID: 1902050218}
+  m_Layer: 5
+  m_Name: Select
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1902050217
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902050216}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1872132299}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.25, y: -6.78}
+  m_SizeDelta: {x: 13.7067, y: 27.4135}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1902050218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902050216}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: de8984ae0ba5fec47ac9366ff297621c, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1902050219
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902050216}
   m_CullTransparentMesh: 1
 --- !u!1 &1902115348
 GameObject:
@@ -30310,7 +30387,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 331642624}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -31319,7 +31396,7 @@ GameObject:
   - component: {fileID: 1998637824}
   - component: {fileID: 1998637823}
   m_Layer: 5
-  m_Name: Oil Zone - Cook
+  m_Name: Cook img
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31340,7 +31417,7 @@ RectTransform:
   - {fileID: 859933338}
   - {fileID: 128591243}
   m_Father: {fileID: 1872132299}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -31359,7 +31436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 311989214}
+  m_Material: {fileID: 1585744469}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -31846,17 +31923,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2033418034}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 331642624}
-  m_RootOrder: 1
+  m_Father: {fileID: 1872132299}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -6.1496, y: -1.7496}
+  m_AnchoredPosition: {x: 0.21014881, y: -8.030099}
   m_SizeDelta: {x: 14.2196, y: 43.4804}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2033418036

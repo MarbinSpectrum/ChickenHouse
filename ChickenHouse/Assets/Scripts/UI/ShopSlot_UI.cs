@@ -8,14 +8,16 @@ using TMPro;
 public class ShopSlot_UI : Mgr, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler, IPointerUpHandler
     ,IDragHandler , IBeginDragHandler , IEndDragHandler
 {
+    [SerializeField] private Shop_UI                    upgradeUI;
     [SerializeField] private Animator                   animator;
-    [SerializeField] private Image                      upgradeIcon;
-    [SerializeField] private TextMeshProUGUI            upgradeName;
-    [SerializeField] private TextMeshProUGUI            upgradeInfo;
-    [SerializeField] private TextMeshProUGUI            upgradeMoney;
-    [SerializeField] private Shop_UI                 upgradeUI;
-    [SerializeField] private LoopHorizontalScrollRect   scrollRect;
-    [SerializeField] private Button                     upgradeBtn;
+    [SerializeField] private LoopScrollRect             scrollRect;
+
+    [SerializeField] private Image                      itemIcon;
+    [SerializeField] private TextMeshProUGUI            itemName;
+    [SerializeField] private TextMeshProUGUI            itemInfo;
+
+    [SerializeField] private Button                     buyBtn;
+    [SerializeField] private TextMeshProUGUI            btnText;
 
     private ShopItem        shopItem;
     private ShopData        shopData = null;
@@ -60,7 +62,8 @@ public class ShopSlot_UI : Mgr, IPointerClickHandler, IPointerEnterHandler, IPoi
     {
         //정보 설정
         bool hasItem     = HasItem(pShopItem);
-        
+        bool useItem     = UseItem(pShopItem);
+
         shopItem = pShopItem;
         shopData = upgradeMgr.GetUpgradeData(pShopItem);
 
@@ -74,47 +77,100 @@ public class ShopSlot_UI : Mgr, IPointerClickHandler, IPointerEnterHandler, IPoi
         gameObject.SetActive(true);
 
         //아이콘 설정
-        if (upgradeIcon != null)
+        if (itemIcon != null)
         {
-            upgradeIcon.sprite = shopData.icon;
-            upgradeIcon.gameObject.SetActive(true);
+            itemIcon.sprite = shopData.icon;
+            itemIcon.gameObject.SetActive(true);
         }
 
         //이름 설정
-        if (upgradeName != null)
+        if (itemName != null)
         {
-            LanguageMgr.SetString(upgradeName, shopData.nameKey);
-            upgradeName.gameObject.SetActive(true);
+            LanguageMgr.SetString(itemName, shopData.nameKey);
+            itemName.gameObject.SetActive(true);
         }
 
         //설명 설정
-        if (upgradeInfo != null)
+        if (itemInfo != null)
         {
-            LanguageMgr.SetString(upgradeInfo, shopData.infoKey);
-            upgradeInfo.gameObject.SetActive(true);
-        }
-
-        //설명 설정
-        if (upgradeMoney != null)
-        {
-            string strNum = string.Format("{0:N0} $", shopData.money);
-            LanguageMgr.SetText(upgradeMoney, strNum);
-            upgradeInfo.gameObject.SetActive(true);
+            LanguageMgr.SetString(itemInfo, shopData.infoKey);
+            itemInfo.gameObject.SetActive(true);
         }
 
         //버튼 설정
-        if(upgradeBtn != null)
+        if(buyBtn != null)
         {
-            if (hasItem)
+            buyBtn.gameObject.SetActive(true);
+            if(IsCookItem(shopItem))
             {
-                upgradeBtn.gameObject.SetActive(false);
+                if(hasItem && useItem)
+                {
+                    //조리도구이고 아이템을 사용중
+                    LanguageMgr.SetString(btnText, "USE_ITEM");
+                    buyBtn.image.raycastTarget = false;
+                    buyBtn.image.color = new Color(72 / 255f, 241 / 255f, 129 / 255f);
+                    buyBtn.onClick.RemoveAllListeners();
+                }
+                else if (hasItem && useItem == false)
+                {
+                    //조리도구이고 아이템을 사용중이 아님
+                    LanguageMgr.SetString(btnText, "CANUSE_ITEM");
+                    buyBtn.image.raycastTarget = true;
+                    buyBtn.image.color = new Color(125 / 255f, 152 / 255f, 248 / 255f);
+                    buyBtn.onClick.RemoveAllListeners();
+                    buyBtn.onClick.AddListener(() => UseShopItem());
+                }
+                else if (hasItem == false)
+                {
+                    //아이템을 구매안함
+                    string strNum = string.Format("{0:N0} $", shopData.money);
+                    LanguageMgr.SetText(btnText, strNum);
+
+                    buyBtn.image.raycastTarget = true;
+                    buyBtn.image.color = new Color(125 / 255f, 152 / 255f, 248 / 255f);
+                    buyBtn.onClick.RemoveAllListeners();
+                    buyBtn.onClick.AddListener(() => BuyShopItem());
+                    buyBtn.onClick.AddListener(() => UseShopItem());
+                }
             }
             else
             {
-                upgradeBtn.gameObject.SetActive(true);
-                upgradeBtn.onClick.RemoveAllListeners();
-                upgradeBtn.onClick.AddListener(() => BuyShopItem());
+                if (hasItem)
+                {
+                    //조리도구가 아니고
+                    //아이템을 구매했음
+                    LanguageMgr.SetString(btnText, "BUY_COMPLETE");
+
+                    buyBtn.image.raycastTarget = false;
+                    buyBtn.image.color = new Color(72 / 255f, 241 / 255f, 129 / 255f);
+                    buyBtn.onClick.RemoveAllListeners();
+                }
+                else
+                {
+                    //아이템을 구매안함
+                    string strNum = string.Format("{0:N0} $", shopData.money);
+                    LanguageMgr.SetText(btnText, strNum);
+
+                    buyBtn.image.raycastTarget = true;
+                    buyBtn.image.color = new Color(125 / 255f, 152 / 255f, 248 / 255f);
+                    buyBtn.onClick.RemoveAllListeners();
+                    buyBtn.onClick.AddListener(() => BuyShopItem());
+                }
             }
+        }
+    }
+
+    private bool IsCookItem(ShopItem pShopItem)
+    {
+        switch(pShopItem)
+        {
+            case ShopItem.OIL_Zone_1:
+            case ShopItem.OIL_Zone_2:
+            case ShopItem.OIL_Zone_3:
+            case ShopItem.OIL_Zone_4:
+                return true;
+            default:
+                return false;
         }
     }
 
@@ -122,11 +178,23 @@ public class ShopSlot_UI : Mgr, IPointerClickHandler, IPointerEnterHandler, IPoi
     {
         if (gameMgr.playData.hasItem[(int)pShopItem])
         {
-            //해당 업그레이드가 완료되어있음
+            //해당 아이템을 구매했음
             return true;
         }
 
-        //업그레이드가 완료 안되어있음
+        //해당 아이템을 구매 안되어있음
+        return false;
+    }
+
+    private bool UseItem(ShopItem pShopItem)
+    {
+        if (gameMgr.playData.useItem[(int)pShopItem])
+        {
+            //해당 아이템을 사용중임
+            return true;
+        }
+
+        //해당 아이템 사용중이 아님
         return false;
     }
 
@@ -151,5 +219,45 @@ public class ShopSlot_UI : Mgr, IPointerClickHandler, IPointerEnterHandler, IPoi
 
         upgradeUI.SetMoney();
         SetData(shopItem);
+    }
+
+    private void UseShopItem()
+    {
+        //업그레이드 버튼
+
+        switch(shopItem)
+        {
+            case ShopItem.OIL_Zone_1:
+            case ShopItem.OIL_Zone_2:
+            case ShopItem.OIL_Zone_3:
+            case ShopItem.OIL_Zone_4:
+                UseShopItem(ShopItem.OIL_Zone_1, ShopItem.OIL_Zone_2, ShopItem.OIL_Zone_3, ShopItem.OIL_Zone_4);
+                break;
+        }
+    }
+
+    private void UseShopItem(params ShopItem[] unActiveItem)
+    {
+        //업그레이드 버튼
+
+        if (shopData == null)
+        {
+            //업그레이드 정보가 없다.
+            return;
+        }
+
+        if (gameMgr.playData.useItem[(int)shopItem])
+        {
+            //이미 사용중인거같음?
+            return;
+        }
+
+        foreach(ShopItem item in unActiveItem)
+            gameMgr.playData.useItem[(int)item] = false;
+
+        gameMgr.playData.useItem[(int)shopItem] = true;
+
+        SetData(shopItem);
+        scrollRect.RefreshCells();
     }
 }

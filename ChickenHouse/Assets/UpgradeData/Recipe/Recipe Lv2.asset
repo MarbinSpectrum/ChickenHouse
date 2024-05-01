@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 522cca58814dbfc489fb7b3581ebfee1, type: 3}
   m_Name: Recipe Lv2
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: d31f68ddaa11e7f41aa8a67b5c5f1bb0, type: 3}
-  nameKey: UPGRADE_RECIPE_LV2_NAME
-  infoKey: UPGRADE_RECIPE_LV2_INFO
-  money: 1000
+  icon: {fileID: 21300000, guid: b33184e0692f0b84ea05a3ef3d2a761a, type: 3}
+  nameKey: RECIPE_LV2_NAME
+  infoKey: RECIPE_LV2_INFO
+  money: 2000

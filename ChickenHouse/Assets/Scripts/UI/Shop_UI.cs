@@ -90,8 +90,6 @@ public class Shop_UI : Mgr
                     shopItemList.Add(ShopItem.OIL_Zone_2);
                     shopItemList.Add(ShopItem.OIL_Zone_3);
                     shopItemList.Add(ShopItem.OIL_Zone_4);
-                    shopItemList.Add(ShopItem.OIL_Zone_5);
-                    shopItemList.Add(ShopItem.OIL_Zone_6);
                 }
                 break;
             case ShopMenu.Advertise:

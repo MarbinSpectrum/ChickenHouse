@@ -112,15 +112,15 @@ public class GuestMgr : Mgr
                 float delayValue = GUEST_DELAY_TIME;
                 float upgradeRate = 1;
                 if (gameMgr.playData.hasItem[(int)ShopItem.Advertisement_5])
-                    upgradeRate -= 0.1f;
+                    upgradeRate -= 0.05f;
                 if (gameMgr.playData.hasItem[(int)ShopItem.Advertisement_4])
                     upgradeRate -= 0.1f;
                 if (gameMgr.playData.hasItem[(int)ShopItem.Advertisement_3])
-                    upgradeRate -= 0.1f;
+                    upgradeRate -= 0.15f;
                 if (gameMgr.playData.hasItem[(int)ShopItem.Advertisement_2])
-                    upgradeRate -= 0.1f;
+                    upgradeRate -= 0.2f;
                 if (gameMgr.playData.hasItem[(int)ShopItem.Advertisement_1])
-                    upgradeRate -= 0.1f;
+                    upgradeRate -= 0.3f;
 
                 delayValue = GUEST_DELAY_TIME * upgradeRate;
 

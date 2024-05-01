@@ -14,6 +14,11 @@ public class PlayData
     /** 사용 아이템 상태 **/
     public bool[] useItem = new bool[(int)ShopItem.MAX];
 
+    public PlayData()
+    {
+        hasItem[(int)ShopItem.OIL_Zone_1] = true;
+        useItem[(int)ShopItem.OIL_Zone_1] = true;
+    }
 
     public int GetMenuValue(GuestReviews review, ChickenSpicy spicy0, ChickenSpicy spicy1, ChickenState chickenState,
         Drink pDrink, SideMenu pSideMenue)
@@ -48,16 +53,11 @@ public class PlayData
         int totalValue = defaultValue + spicyValue0 + spicyValue1 + drinkValue + sideMenuValue;
 
         int percent = 100;
-        if (hasItem[(int)ShopItem.Recipe_1])
+
+        if (useItem[(int)ShopItem.OIL_Zone_3])
             percent += 20;
-        if (hasItem[(int)ShopItem.Recipe_2])
-            percent += 20;
-        if (hasItem[(int)ShopItem.Recipe_3])
-            percent += 20;
-        if (hasItem[(int)ShopItem.Recipe_4])
-            percent += 20;
-        if (hasItem[(int)ShopItem.Recipe_5])
-            percent += 20;
+        else if (useItem[(int)ShopItem.OIL_Zone_4])
+            percent += 40;
 
         int resultValue = (totalValue * percent) / 100;
 
