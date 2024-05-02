@@ -61,6 +61,6 @@ public class DayEnd_UI : Mgr
 
         gameMgr.playData.money += gameMgr.dayMoney;
         gameMgr.SaveData();
-        sceneMgr.SceneLoad(Scene.UPGRADE, SceneChangeAni.CIRCLE);
+        sceneMgr.SceneLoad(Scene.SHOP, SceneChangeAni.CIRCLE);
     }
 }

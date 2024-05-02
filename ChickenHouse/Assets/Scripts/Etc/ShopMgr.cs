@@ -5,12 +5,21 @@ using UnityEngine;
 public class ShopMgr : AwakeSingleton<ShopMgr>
 {
     [SerializeField] private Dictionary<ShopItem, ShopData> shopData = new Dictionary<ShopItem, ShopData>();
+    [SerializeField] private Dictionary<ShopItem, ResumeData> resumeData = new Dictionary<ShopItem, ResumeData>();
 
-    public ShopData GetUpgradeData(ShopItem pShopItem)
+    public ShopData GetShopData(ShopItem pShopItem)
     {
-        //업그레이드 정보 얻기
+        //상점 정보 얻기
         if (shopData.ContainsKey(pShopItem))
             return shopData[pShopItem];
+        return null;
+    }
+
+    public ResumeData GetResumeData(ShopItem pShopItem)
+    {
+        //이력서 정보 얻기
+        if (resumeData.ContainsKey(pShopItem))
+            return resumeData[pShopItem];
         return null;
     }
 }

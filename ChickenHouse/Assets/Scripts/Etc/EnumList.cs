@@ -221,6 +221,16 @@ public enum ShopItem
     MAX                 = 10000,
 }
 
+public enum WorkerSkill
+{
+    WorkerSkill_1    = 100,      //계란물 묻힐줄암
+    WorkerSkill_2    = 200,      //튀김옷 입힐줄암
+    WorkerSkill_3    = 300,      //건지에 치킨 넣어줌
+    WorkerSkill_4    = 400,      //빠른 팔놀림
+    WorkerSkill_5    = 500,      //빠른 손놀림
+    WorkerSkill_6    = 600,      //빠른 몸놀림
+}
+
 public enum DayEndList
 {
     /** 없음 **/
@@ -307,8 +317,8 @@ public enum Scene
     /** 인게임 **/
     INGAME  = 2,
 
-    /** 가게 업그레이드 **/
-    UPGRADE = 3,
+    /** 상점 **/
+    SHOP    = 3,
 }
 
 public enum SceneChangeAni

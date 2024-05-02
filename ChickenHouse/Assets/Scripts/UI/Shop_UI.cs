@@ -12,6 +12,7 @@ public class Shop_UI : Mgr
     [SerializeField] private GameObject     dontTouch;
     [SerializeField] private Money_UI       moneyUI;
     [SerializeField] private Button         gotoNextDay;
+    [SerializeField] private Resume_UI      resumeUI;
 
     public enum ShopMenu
     {
@@ -114,6 +115,14 @@ public class Shop_UI : Mgr
         }
 
         scrollInit.Init(shopItemList.Count);
+    }
+
+    public void SetResume(ShopItem pShopItem)
+    {
+        ResumeData resumeData =shopMgr.GetResumeData(pShopItem);
+        if (resumeData == null)
+            return;
+        resumeUI.SetData(resumeData);
     }
 
     public void SetMoney()

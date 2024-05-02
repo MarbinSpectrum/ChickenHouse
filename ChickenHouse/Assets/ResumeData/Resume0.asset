@@ -9,10 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 522cca58814dbfc489fb7b3581ebfee1, type: 3}
-  m_Name: Worker Lv6
+  m_Script: {fileID: 11500000, guid: cdbf178ee0299664c800bfedbd5dbafc, type: 3}
+  m_Name: Resume0
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 3322bcea71aa15c4d8962b94acaf77f2, type: 3}
-  nameKey: WORKER_LV6_NAME
-  infoKey: WORKER_LV6_INFO
-  money: 12000
+  face: {fileID: 21300000, guid: 4f814909cfe425a43aeea5861e1ae4bc, type: 3}
+  nameKey: RESUME_1_NAME
+  age: 28
+  residenceKey: RESUME_1_RESIDENCE
+  salary: 100
+  skill: c8000000f4010000

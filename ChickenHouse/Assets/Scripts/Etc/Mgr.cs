@@ -10,5 +10,5 @@ public class Mgr : SerializedMonoBehaviour
     public static SoundMgr      soundMgr    { get => SoundMgr.Instance; }
     public static TutoMgr       tutoMgr     { get => TutoMgr.Instance; }
     public static SceneMgr      sceneMgr    { get => SceneMgr.Instance; }
-    public static ShopMgr    upgradeMgr  { get => ShopMgr.Instance; }
+    public static ShopMgr       shopMgr  { get => ShopMgr.Instance; }
 }

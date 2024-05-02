@@ -11,10 +11,12 @@ SHOP_UPGRADE	매장 업그레이드	Shop Upgrade
 KITCHEN_TOOL	조리도구	Kitchen Tool
 ADVERTISEMENT	홍보	Advertise
 WORKER	직원	Staff
+CHECK_RESUME	이력서보기	이력서보기
 SPICY	양념	Spicy
 BUY_COMPLETE	구입완료	Complete Purchase
 CANUSE_ITEM	사용가능	사용가능
 USE_ITEM	사용중	사용중
+EMPLOY_COMPLETE	고용완료	고용완료
 TAKE_OUT	버리기	Take\nOut
 BGM	배경음	BGM
 SE	효과음	SE
@@ -25,6 +27,11 @@ CHAIN_STORE_REVENUE	체인점 매출	Chain Store Revenue
 RENT	임대료	Rent
 SUPPLIES_UESD	재료 값	Supplies Uesd
 TOTAL_PROFIT	순 수익	Total Profit
+NAME	이름	Name
+AGE	나이	Age
+RESIDENCE	거주지	Residence
+SALARY	희망급여	Salary
+SKILL_ABILITY	능력/기술	Skill/Ability
 TUTO_1	먼저 닭 4개를 계란물에 넣어봅시다.	먼저 닭 4개를 계란물에 넣어봅시다.
 TUTO_2	그리고 닭을 밀가루 쪽으로 옮겨주세요.	그리고 닭을 밀가루 쪽으로 옮겨주세요.
 TUTO_3	닭 모두를 치킨 건지개에 넣어 주세요.	닭 모두를 치킨 건지개에 넣어 주세요.
@@ -98,7 +105,7 @@ OPOSSUM_SIDE_PICKLE	치킨 무? 흠 특별히 넣어줘	치킨 무? 흠 특별�
 OPOSSUM_ANGRY	진짜 서비스 꽝이네! 다신 안 와!	진짜 서비스 꽝이네! 다신 안 와!
 OPOSSUM_THANK_YOU	뭐 나쁘진 않네! 다음에도 와주지	뭐 나쁘진 않네! 다음에도 와주지
 OPOSSUM_HAPPY	마린 짱도 마음에 들어? 나도!	마린 짱도 마음에 들어? 나도!
-TASMANIAN_ORDER_1	YO! 지리산을 오른 듯한 지리는 기분!\n중요한 내 프라이시! 치킨!	YO! 지리산을 오른 듯한 지리는 기분!\n중요한 내 프라이시! 치킨!
+TASMANIAN_ORDER_1	YO! 지리산을 오른 듯한 지리는 기분!\n중요한 내 프라이드! 치킨!	YO! 지리산을 오른 듯한 지리는 기분!\n중요한 내 프라이드! 치킨!
 TASMANIAN_ORDER_2	매콤! 달달! 달짝! 찌근! 매달!\n나의 입맛을 돋구는 양념치킨~	매콤! 달달! 달짝! 찌근! 매달!\n나의 입맛을 돋구는 양념치킨~
 TASMANIAN_ORDER_3	오늘은 나의 Heart!를\nHot!하게 만드는 파이어! 치킨!	오늘은 나의 Heart!를\nHot!하게 만드는 파이어! 치킨!
 TASMANIAN_SIDE_COLA	나의 입안을 톡 쏘는 콜라도 Please!	나의 입안을 톡 쏘는 콜라도 Please!
@@ -138,6 +145,14 @@ DOVE_SIDE_PICKLE	원하오! 시원한 워터가 곁들어진 무!	원하오! 시
 DOVE_ANGRY	이게 진짜일 리가 없어!	이게 진짜일 리가 없어!
 DOVE_THANK_YOU	흠! 이 무난함! 나쁘지 않아	흠! 이 무난함! 나쁘지 않아
 DOVE_HAPPY	엘레강트!!! 구구! 구구구구구구	엘레강트!!! 구구! 구구구구구구
+RESUME_1_NAME	찰스	찰스
+RESUME_1_RESIDENCE	털털마을	털털마을
+RESUME_2_NAME	니치	니치
+RESUME_2_RESIDENCE	꼬리마을	꼬리마을
+RESUME_3_NAME	미스 플라워	미스 플라워
+RESUME_3_RESIDENCE	짹짹마을	짹짹마을
+RESUME_4_NAME	그레이	그레이
+RESUME_4_RESIDENCE	붕붕마을	붕붕마을
 OIL_ZONE_LV1_NAME	튀김기	튀김기
 OIL_ZONE_LV2_NAME	고급 튀김기	고급 튀김기
 OIL_ZONE_LV3_NAME	특급 튀김기	특급 튀김기
@@ -161,20 +176,22 @@ ADVERTISEMENT_LV2_NAME	전단지 광고	전단지 광고
 ADVERTISEMENT_LV3_NAME	인터넷 광고	인터넷 광고
 ADVERTISEMENT_LV4_NAME	TV 광고	TV 광고
 ADVERTISEMENT_LV5_NAME	지하철 광고	지하철 광고
-ADVERTISEMENT_LV1_INFO	확성기 광고를 합니다.\n(손님 방문 딜레이 -10%)	확성기 광고를 합니다.\n(손님 방문 딜레이 -10%)
-ADVERTISEMENT_LV2_INFO	전단지 광고를 합니다.\n(손님 방문 딜레이 -20%)	전단지 광고를 합니다.\n(손님 방문 딜레이 -20%)
-ADVERTISEMENT_LV3_INFO	인터넷 광고를 합니다.\n(손님 방문 딜레이 -30%)	인터넷 광고를 합니다.\n(손님 방문 딜레이 -30%)
-ADVERTISEMENT_LV4_INFO	TV 광고를 합니다.\n(손님 방문 딜레이 -40%)	TV 광고를 합니다.\n(손님 방문 딜레이 -40%)
-ADVERTISEMENT_LV5_INFO	지하철 광고를 합니다.\n(손님 방문 딜레이 -50%)	지하철 광고를 합니다.\n(손님 방문 딜레이 -50%)
-WORKER_LV1_NAME	알바생 고용	알바생 고용
-WORKER_LV2_NAME	알바생 교육\nLv.1	알바생 교육\nLv.1
-WORKER_LV3_NAME	알바생 교육\nLv.2	알바생 교육\nLv.2
-WORKER_LV4_NAME	알바생 교육\nLv.3	알바생 교육\nLv.3
-WORKER_LV5_NAME	알바생 교육\nLv.4	알바생 교육\nLv.4
-WORKER_LV6_NAME	알바생 교육\nLv.5	알바생 교육\nLv.5
-WORKER_LV1_INFO	알바생을 교육합니다.\n(치킨 조리를 도와줍니다.)	알바생을 교육합니다.\n(치킨 조리를 도와줍니다.)
-WORKER_LV2_INFO	알바생을 교육합니다.\n(알바생의 움직임이 빨라집니다.)	알바생을 교육합니다.\n(알바생의 움직임이 빨라집니다.)
-WORKER_LV3_INFO	알바생을 교육합니다.\n(튀김옷 입히기를 가르킵니다.)	알바생을 교육합니다.\n(튀김옷 입히기를 가르킵니다.)
-WORKER_LV4_INFO	알바생을 교육합니다.\n(알바생의 움직임이 더 빨라집니다.)	알바생을 교육합니다.\n(알바생의 움직임이 더 빨라집니다.)
-WORKER_LV5_INFO	알바생을 교육합니다.\n(치킨건지까지 치킨을 옮겨줍니다.)	알바생을 교육합니다.\n(치킨건지까지 치킨을 옮겨줍니다.)
-WORKER_LV6_INFO	알바생을 교육합니다.\n(알바생의 움직임이 더 빨라집니다.)	알바생을 교육합니다.\n(알바생의 움직임이 더 빨라집니다.)
+ADVERTISEMENT_LV1_INFO	확성기 광고를 합니다.\n(손님 방문 딜레이 -5%)	확성기 광고를 합니다.\n(손님 방문 딜레이 -5%)
+ADVERTISEMENT_LV2_INFO	전단지 광고를 합니다.\n(손님 방문 딜레이 -10%)	전단지 광고를 합니다.\n(손님 방문 딜레이 -10%)
+ADVERTISEMENT_LV3_INFO	인터넷 광고를 합니다.\n(손님 방문 딜레이 -15%)	인터넷 광고를 합니다.\n(손님 방문 딜레이 -15%)
+ADVERTISEMENT_LV4_INFO	TV 광고를 합니다.\n(손님 방문 딜레이 -20%)	TV 광고를 합니다.\n(손님 방문 딜레이 -20%)
+ADVERTISEMENT_LV5_INFO	지하철 광고를 합니다.\n(손님 방문 딜레이 -30%)	지하철 광고를 합니다.\n(손님 방문 딜레이 -30%)
+WORKER_LV1_NAME	찰스	찰스
+WORKER_LV2_NAME	니치	니치
+WORKER_LV3_NAME	미스 플라워	미스 플라워
+WORKER_LV4_NAME	그레이	그레이
+WORKER_LV1_INFO	이력서 확인	이력서 확인
+WORKER_LV2_INFO	이력서 확인	이력서 확인
+WORKER_LV3_INFO	이력서 확인	이력서 확인
+WORKER_LV4_INFO	이력서 확인	이력서 확인
+WORKER_SKILL_1	계란물 묻힐줄암	계란물 묻힐줄암
+WORKER_SKILL_2	튀김옷 입힐줄암	튀김옷 입힐줄암
+WORKER_SKILL_3	건지에 치킨 넣어줌	건지에 치킨 넣어줌
+WORKER_SKILL_4	빠른 팔놀림	빠른 팔놀림
+WORKER_SKILL_5	빠른 손놀림	빠른 손놀림
+WORKER_SKILL_6	빠른 몸놀림	빠른 몸놀림

@@ -8,13 +8,14 @@ using TMPro;
 public class ShopSlot_UI : Mgr, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler, IPointerUpHandler
     ,IDragHandler , IBeginDragHandler , IEndDragHandler
 {
-    [SerializeField] private Shop_UI                    upgradeUI;
+    [SerializeField] private Shop_UI                    shopUI;
     [SerializeField] private Animator                   animator;
     [SerializeField] private LoopScrollRect             scrollRect;
 
     [SerializeField] private Image                      itemIcon;
     [SerializeField] private TextMeshProUGUI            itemName;
     [SerializeField] private TextMeshProUGUI            itemInfo;
+    [SerializeField] private Button                     infoBtn;
 
     [SerializeField] private Button                     buyBtn;
     [SerializeField] private TextMeshProUGUI            btnText;
@@ -65,7 +66,7 @@ public class ShopSlot_UI : Mgr, IPointerClickHandler, IPointerEnterHandler, IPoi
         bool useItem     = UseItem(pShopItem);
 
         shopItem = pShopItem;
-        shopData = upgradeMgr.GetUpgradeData(pShopItem);
+        shopData = shopMgr.GetShopData(pShopItem);
 
         if (shopData == null)
         {
@@ -93,15 +94,69 @@ public class ShopSlot_UI : Mgr, IPointerClickHandler, IPointerEnterHandler, IPoi
         //설명 설정
         if (itemInfo != null)
         {
-            LanguageMgr.SetString(itemInfo, shopData.infoKey);
             itemInfo.gameObject.SetActive(true);
+            if(IsWorker(shopItem))
+            {
+                string checkResume = LanguageMgr.GetText("CHECK_RESUME");
+                string resumeString = string.Format("<color=#9999FF>{0}</color>", checkResume);
+                LanguageMgr.SetText(itemInfo, resumeString);
+
+                infoBtn.gameObject.SetActive(true);
+                infoBtn.onClick.RemoveAllListeners();
+                infoBtn.onClick.AddListener(()=> shopUI.SetResume(shopItem));
+                itemInfo.fontStyle = FontStyles.Underline;
+            }
+            else
+            {
+                LanguageMgr.SetString(itemInfo, shopData.infoKey);
+
+                infoBtn.gameObject.SetActive(false);
+                infoBtn.onClick.RemoveAllListeners();
+                itemInfo.fontStyle = FontStyles.Normal;
+            }
         }
 
         //버튼 설정
         if(buyBtn != null)
         {
             buyBtn.gameObject.SetActive(true);
-            if(IsCookItem(shopItem))
+            if(IsWorker(pShopItem))
+            {
+                if (hasItem && useItem)
+                {
+                    //직원이고 해당 직원을 사용중
+                    LanguageMgr.SetString(btnText, "USE_ITEM");
+                    buyBtn.image.raycastTarget = false;
+                    buyBtn.image.color = new Color(72 / 255f, 241 / 255f, 129 / 255f);
+                    buyBtn.onClick.RemoveAllListeners();
+                }
+                else if (hasItem && useItem == false)
+                {
+                    //직원이고 해당 직원을 고용완료함
+                    LanguageMgr.SetString(btnText, "EMPLOY_COMPLETE");
+                    buyBtn.image.raycastTarget = true;
+                    buyBtn.image.color = new Color(125 / 255f, 152 / 255f, 248 / 255f);
+                    buyBtn.onClick.RemoveAllListeners();
+                    buyBtn.onClick.AddListener(() => UseShopItem());
+                }
+                else if (hasItem == false)
+                {
+                    //해당 직원을 고용하지 않음
+                    string strNum = string.Empty;
+                    if (gameMgr.playData.money >= shopData.money)
+                        strNum = string.Format("{0:N0} $", shopData.money);
+                    else
+                        strNum = string.Format("<color=#FF4444>{0:N0} $</color>", shopData.money);
+                    LanguageMgr.SetText(btnText, strNum);
+
+                    buyBtn.image.raycastTarget = true;
+                    buyBtn.image.color = new Color(125 / 255f, 152 / 255f, 248 / 255f);
+                    buyBtn.onClick.RemoveAllListeners();
+                    buyBtn.onClick.AddListener(() => BuyShopItem());
+                    buyBtn.onClick.AddListener(() => UseShopItem());
+                }
+            }
+            else if(IsCookItem(shopItem))
             {
                 if(hasItem && useItem)
                 {
@@ -123,7 +178,11 @@ public class ShopSlot_UI : Mgr, IPointerClickHandler, IPointerEnterHandler, IPoi
                 else if (hasItem == false)
                 {
                     //아이템을 구매안함
-                    string strNum = string.Format("{0:N0} $", shopData.money);
+                    string strNum = string.Empty;
+                    if (gameMgr.playData.money >= shopData.money)
+                        strNum = string.Format("{0:N0} $", shopData.money);
+                    else
+                        strNum = string.Format("<color=#FF4444>{0:N0} $</color>", shopData.money);
                     LanguageMgr.SetText(btnText, strNum);
 
                     buyBtn.image.raycastTarget = true;
@@ -148,7 +207,11 @@ public class ShopSlot_UI : Mgr, IPointerClickHandler, IPointerEnterHandler, IPoi
                 else
                 {
                     //아이템을 구매안함
-                    string strNum = string.Format("{0:N0} $", shopData.money);
+                    string strNum = string.Empty;
+                    if (gameMgr.playData.money >= shopData.money)
+                        strNum = string.Format("{0:N0} $", shopData.money);
+                    else
+                        strNum = string.Format("<color=#FF4444>{0:N0} $</color>", shopData.money);
                     LanguageMgr.SetText(btnText, strNum);
 
                     buyBtn.image.raycastTarget = true;
@@ -157,6 +220,22 @@ public class ShopSlot_UI : Mgr, IPointerClickHandler, IPointerEnterHandler, IPoi
                     buyBtn.onClick.AddListener(() => BuyShopItem());
                 }
             }
+        }
+    }
+
+    private bool IsWorker(ShopItem pShopItem)
+    {
+        switch (pShopItem)
+        {
+            case ShopItem.Worker_1:
+            case ShopItem.Worker_2:
+            case ShopItem.Worker_3:
+            case ShopItem.Worker_4:
+            case ShopItem.Worker_5:
+            case ShopItem.Worker_6:
+                return true;
+            default:
+                return false;
         }
     }
 
@@ -217,7 +296,7 @@ public class ShopSlot_UI : Mgr, IPointerClickHandler, IPointerEnterHandler, IPoi
         gameMgr.playData.money -= shopData.money;
         gameMgr.playData.hasItem[(int)shopItem] = true;
 
-        upgradeUI.SetMoney();
+        shopUI.SetMoney();
         SetData(shopItem);
     }
 
@@ -232,6 +311,17 @@ public class ShopSlot_UI : Mgr, IPointerClickHandler, IPointerEnterHandler, IPoi
             case ShopItem.OIL_Zone_3:
             case ShopItem.OIL_Zone_4:
                 UseShopItem(ShopItem.OIL_Zone_1, ShopItem.OIL_Zone_2, ShopItem.OIL_Zone_3, ShopItem.OIL_Zone_4);
+                break;
+            case ShopItem.Worker_1:
+            case ShopItem.Worker_2:
+            case ShopItem.Worker_3:
+            case ShopItem.Worker_4:
+            case ShopItem.Worker_5:
+            case ShopItem.Worker_6:
+                UseShopItem(
+                    ShopItem.Worker_1, ShopItem.Worker_2, 
+                    ShopItem.Worker_3, ShopItem.Worker_4, 
+                    ShopItem.Worker_5, ShopItem.Worker_6);
                 break;
         }
     }
