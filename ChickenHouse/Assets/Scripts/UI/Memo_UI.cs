@@ -10,6 +10,7 @@ public class Memo_UI : Mgr
     [SerializeField] private TextMeshProUGUI    memoText;
     [SerializeField] private Animator           animator;
     [SerializeField] private Image              memoImg;
+    [SerializeField] private RectTransform      memoLabel;
     [SerializeField] private RectTransform      memoTriggerBox;
     [SerializeField] private Image              deep;
 
@@ -24,12 +25,14 @@ public class Memo_UI : Mgr
         {
             memoTriggerBox.gameObject.SetActive(false);
             memoImg.gameObject.SetActive(false);
+            memoLabel.gameObject.SetActive(false);
             deep.gameObject.SetActive(false);
         }
         else
         {
             memoTriggerBox.gameObject.SetActive(true);
             memoImg.gameObject.SetActive(true);
+            memoLabel.gameObject.SetActive(true);
             deep.gameObject.SetActive(false);
         }
     }
@@ -38,6 +41,7 @@ public class Memo_UI : Mgr
     {
         memoTriggerBox.gameObject.SetActive(true);
         memoImg.gameObject.SetActive(true);
+        memoLabel.gameObject.SetActive(true);
         memoText.text = str;
         CloseMemo();
     }
@@ -46,6 +50,7 @@ public class Memo_UI : Mgr
     {
         memoTriggerBox.gameObject.SetActive(false);
         memoImg.gameObject.SetActive(false);
+        memoLabel.gameObject.SetActive(false);
     }
 
     public void OpenMemo()
@@ -55,6 +60,7 @@ public class Memo_UI : Mgr
         animator.Play("Open");
         deep.gameObject.SetActive(true);
         memoImg.gameObject.SetActive(false);
+        memoLabel.gameObject.SetActive(false);
     }
 
     public void CloseMemo()
@@ -64,5 +70,6 @@ public class Memo_UI : Mgr
         animator.Play("Close");
         deep.gameObject.SetActive(false);
         memoImg.gameObject.SetActive(true);
+        memoLabel.gameObject.SetActive(true);
     }
 }

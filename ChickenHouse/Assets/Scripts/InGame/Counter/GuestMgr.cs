@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class GuestMgr : Mgr
@@ -13,7 +14,7 @@ public class GuestMgr : Mgr
     [SerializeField] private SpriteRenderer[] guestPos = new SpriteRenderer[GUEST_MAX];
     [SerializeField] private Dictionary<Guest, GuestObj> guests;
     [SerializeField] private Animator vinylAni;
-
+    public Button skipTalkBtn;
     [System.Serializable]
     public struct UI
     {
@@ -65,6 +66,9 @@ public class GuestMgr : Mgr
 
     public void Init()
     {
+        skipTalkBtn.onClick.RemoveAllListeners();
+        skipTalkBtn.onClick.AddListener(() => SkipTalk());
+
         ui.nowMoney.SetMoney(gameMgr.playData.money);
 
         StartCoroutine(RunGuestCycle());
@@ -434,7 +438,15 @@ public class GuestMgr : Mgr
             yield break;
       
         guestObj.OrderGuest();
+ 
 
         ui.goKitchen.OpenBtn();
+    }
+
+    private void SkipTalk()
+    {
+        if (guestObj == null)
+            return;
+        guestObj.SkipTalk();
     }
 }

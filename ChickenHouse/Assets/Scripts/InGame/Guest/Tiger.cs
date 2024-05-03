@@ -54,7 +54,7 @@ public class Tiger : GuestObj
 
         soundMgr.PlayLoopSE(Sound.Voice13_SE);
         animator.SetTrigger("Talk");
-        talkBox.ShowText(showStr, () =>
+        talkBox.ShowText(showStr, TalkBoxType.Normal, () =>
         {
             soundMgr.StopLoopSE(Sound.Voice13_SE);
             animator.SetTrigger("TalkEnd");
@@ -75,7 +75,7 @@ public class Tiger : GuestObj
 
         soundMgr.PlayLoopSE(Sound.Voice13_SE);
         animator.SetTrigger("Happy");
-        talkBox.ShowText(showStr, () =>
+        talkBox.ShowText(showStr, TalkBoxType.Happy, () =>
         {
             soundMgr.StopLoopSE(Sound.Voice13_SE);
             animator.SetTrigger("TalkEnd");
@@ -89,7 +89,7 @@ public class Tiger : GuestObj
 
         soundMgr.PlayLoopSE(Sound.Voice13_SE);
         animator.SetTrigger("Talk");
-        talkBox.ShowText(showStr, () =>
+        talkBox.ShowText(showStr, TalkBoxType.Normal, () =>
         {
             soundMgr.StopLoopSE(Sound.Voice13_SE);
             animator.SetTrigger("TalkEnd");
@@ -103,7 +103,7 @@ public class Tiger : GuestObj
 
         soundMgr.PlayLoopSE(Sound.Voice14_SE);
         animator.SetTrigger("Angry");
-        talkBox.ShowText(showStr, () =>
+        talkBox.ShowText(showStr, TalkBoxType.Angry, () =>
         {
             soundMgr.StopLoopSE(Sound.Voice14_SE);
             fun?.Invoke();

@@ -93,4 +93,24 @@ public class PlayData
         }
         return 0;
     }
+
+    public ResumeData GetNowWorkerData()
+    {
+        ShopItem shopItem = ShopItem.None;
+        if (hasItem[(int)ShopItem.Worker_1] && useItem[(int)ShopItem.Worker_1])
+            shopItem = ShopItem.Worker_1;
+        else if (hasItem[(int)ShopItem.Worker_2] && useItem[(int)ShopItem.Worker_2])
+            shopItem = ShopItem.Worker_2;
+        else if (hasItem[(int)ShopItem.Worker_3] && useItem[(int)ShopItem.Worker_3])
+            shopItem = ShopItem.Worker_3;
+        else if (hasItem[(int)ShopItem.Worker_4] && useItem[(int)ShopItem.Worker_4])
+            shopItem = ShopItem.Worker_4;
+        else if (hasItem[(int)ShopItem.Worker_5] && useItem[(int)ShopItem.Worker_5])
+            shopItem = ShopItem.Worker_5;
+        else if (hasItem[(int)ShopItem.Worker_6] && useItem[(int)ShopItem.Worker_6])
+            shopItem = ShopItem.Worker_6;
+
+        ResumeData resumeData = ShopMgr.Instance?.GetResumeData(shopItem);
+        return resumeData;
+    }
 }

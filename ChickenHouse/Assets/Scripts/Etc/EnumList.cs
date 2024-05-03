@@ -185,6 +185,13 @@ public enum Sound
     Voice14_SE  = 264,
 }
 
+public enum TalkBoxType
+{
+    Normal  = 0,
+    Angry   = 1,
+    Happy   = 2,
+}
+
 public enum ShopItem
 {
     None                = 0,
@@ -243,8 +250,11 @@ public enum DayEndList
     Rent                = 3,
     /** 재료 값 **/
     Supplies_Uesd       = 4,
+    /** 급여 **/
+    Salary              = 5,
+
     /** 순 수익 **/
-    Total_Profit        = 5,
+    Total_Profit        = 100,
 }
 
 public enum Drink

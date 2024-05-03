@@ -54,7 +54,7 @@ public class Dog : GuestObj
 
         soundMgr.PlayLoopSE(Sound.Voice0_SE);
         animator.SetTrigger("Talk");
-        talkBox.ShowText(showStr, () =>
+        talkBox.ShowText(showStr, TalkBoxType.Normal, () =>
         {
             soundMgr.StopLoopSE(Sound.Voice0_SE);
             animator.SetTrigger("TalkEnd");
@@ -74,7 +74,7 @@ public class Dog : GuestObj
 
         soundMgr.PlayLoopSE(Sound.Voice0_SE);
         animator.SetTrigger("Happy");
-        talkBox.ShowText(showStr, () =>
+        talkBox.ShowText(showStr, TalkBoxType.Happy, () =>
         {
             soundMgr.StopLoopSE(Sound.Voice0_SE);
             animator.SetTrigger("TalkEnd");
@@ -87,7 +87,7 @@ public class Dog : GuestObj
         soundMgr.PlayLoopSE(Sound.Voice0_SE);
         string showStr = LanguageMgr.GetText("DOG_THANK_YOU");
         animator.SetTrigger("Talk");
-        talkBox.ShowText(showStr, () =>
+        talkBox.ShowText(showStr, TalkBoxType.Normal, () =>
         {
             soundMgr.StopLoopSE(Sound.Voice0_SE);
             animator.SetTrigger("TalkEnd");
@@ -101,7 +101,7 @@ public class Dog : GuestObj
 
         soundMgr.PlayLoopSE(Sound.Voice0_SE);
         animator.SetTrigger("Angry");
-        talkBox.ShowText(showStr, () =>
+        talkBox.ShowText(showStr, TalkBoxType.Angry, () =>
         {
             soundMgr.StopLoopSE(Sound.Voice0_SE);
             fun?.Invoke();

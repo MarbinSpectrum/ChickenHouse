@@ -44,7 +44,7 @@ public class Fox : GuestObj
 
         soundMgr.PlayLoopSE(Sound.Voice2_SE);
         animator.SetTrigger("Talk");
-        talkBox.ShowText(showStr, () =>
+        talkBox.ShowText(showStr, TalkBoxType.Normal, () =>
         {
             soundMgr.StopLoopSE(Sound.Voice2_SE);
             animator.SetTrigger("TalkEnd");
@@ -65,7 +65,7 @@ public class Fox : GuestObj
 
         soundMgr.PlayLoopSE(Sound.Voice1_SE);
         animator.SetTrigger("Happy");
-        talkBox.ShowText(showStr, () =>
+        talkBox.ShowText(showStr, TalkBoxType.Happy, () =>
         {
             soundMgr.StopLoopSE(Sound.Voice1_SE);
             animator.SetTrigger("TalkEnd");
@@ -79,7 +79,7 @@ public class Fox : GuestObj
 
         soundMgr.PlayLoopSE(Sound.Voice1_SE);
         animator.SetTrigger("Talk");
-        talkBox.ShowText(showStr, () =>
+        talkBox.ShowText(showStr, TalkBoxType.Normal, () =>
         {
             soundMgr.StopLoopSE(Sound.Voice1_SE);
             animator.SetTrigger("TalkEnd");
@@ -92,7 +92,7 @@ public class Fox : GuestObj
         string showStr = LanguageMgr.GetText("FOX_ANGRY");
 
         animator.SetTrigger("Angry");
-        talkBox.ShowText(showStr, () =>
+        talkBox.ShowText(showStr, TalkBoxType.Angry, () =>
         {
             fun?.Invoke();
         });

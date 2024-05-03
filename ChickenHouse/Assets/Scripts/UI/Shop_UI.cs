@@ -13,6 +13,7 @@ public class Shop_UI : Mgr
     [SerializeField] private Money_UI       moneyUI;
     [SerializeField] private Button         gotoNextDay;
     [SerializeField] private Resume_UI      resumeUI;
+    [SerializeField] private GetNewSpicy    newSpicy;
 
     public enum ShopMenu
     {
@@ -45,7 +46,7 @@ public class Shop_UI : Mgr
             });
         }
 
-        nowMenu = ShopMenu.Spicy;
+        nowMenu = ShopMenu.Worker;
     }
 
     private void Start()
@@ -54,6 +55,7 @@ public class Shop_UI : Mgr
 
         SetMoney();
         SetUpgrade();
+        newSpicy.SetSpicy();
     }
 
     private void SetUpgrade(ShopMenu pShopMenu)

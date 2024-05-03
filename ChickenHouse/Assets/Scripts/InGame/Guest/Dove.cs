@@ -54,7 +54,7 @@ public class Dove : GuestObj
 
         soundMgr.PlayLoopSE(Sound.Voice11_SE);
         animator.SetTrigger("Talk");
-        talkBox.ShowText(showStr, () =>
+        talkBox.ShowText(showStr, TalkBoxType.Normal, () =>
         {
             soundMgr.StopLoopSE(Sound.Voice11_SE);
             animator.SetTrigger("TalkEnd");
@@ -75,7 +75,7 @@ public class Dove : GuestObj
 
         soundMgr.PlayLoopSE(Sound.Voice11_SE);
         animator.SetTrigger("Happy");
-        talkBox.ShowText(showStr, () =>
+        talkBox.ShowText(showStr, TalkBoxType.Happy, () =>
         {
             soundMgr.StopLoopSE(Sound.Voice11_SE);
             animator.SetTrigger("TalkEnd");
@@ -89,7 +89,7 @@ public class Dove : GuestObj
 
         soundMgr.PlayLoopSE(Sound.Voice12_SE);
         animator.SetTrigger("Talk");
-        talkBox.ShowText(showStr, () =>
+        talkBox.ShowText(showStr, TalkBoxType.Normal, () =>
         {
             soundMgr.StopLoopSE(Sound.Voice12_SE);
             animator.SetTrigger("TalkEnd");
@@ -103,7 +103,7 @@ public class Dove : GuestObj
 
         soundMgr.PlayLoopSE(Sound.Voice11_SE);
         animator.SetTrigger("Angry");
-        talkBox.ShowText(showStr, () =>
+        talkBox.ShowText(showStr, TalkBoxType.Angry, () =>
         {
             soundMgr.StopLoopSE(Sound.Voice11_SE);
             fun?.Invoke();

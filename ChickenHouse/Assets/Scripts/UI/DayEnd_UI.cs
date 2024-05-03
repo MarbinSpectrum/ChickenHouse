@@ -17,6 +17,8 @@ public class DayEnd_UI : Mgr
     private const int SUPPLIES_VAIUE = 10;
     private bool goNext = false;
 
+    private int addValue = 0;
+
     public void ShowResult()
     {
         soundMgr.StopBGM();
@@ -45,12 +47,35 @@ public class DayEnd_UI : Mgr
         total -= suppliesUsed;
 
 
+        //재료값
+        ResumeData resumeData = gameMgr.playData.GetNowWorkerData();
+        int salary = 0;
+        if(resumeData != null)
+            salary = resumeData.salary;
+        if(salary > 0)
+        {
+            nameList[DayEndList.Salary].gameObject.SetActive(true);
+            infoList[DayEndList.Salary].gameObject.SetActive(true);
+            LanguageMgr.SetString(nameList[DayEndList.Salary], "WORKER_SALARY");
+            LanguageMgr.SetText(infoList[DayEndList.Salary], string.Format("-{0:N0} $", salary));
+            total -= salary;
+        }
+        else
+        {
+            nameList[DayEndList.Salary].gameObject.SetActive(false);
+            infoList[DayEndList.Salary].gameObject.SetActive(false);
+        }
+
+        total = Mathf.Max(0, total);
+
         //순 이익
         LanguageMgr.SetString(nameList[DayEndList.Total_Profit], "TOTAL_PROFIT");
         LanguageMgr.SetText(infoList[DayEndList.Total_Profit], string.Format("{0:N0} $", total));
 
         nextBtn.onClick.RemoveAllListeners();
         nextBtn.onClick.AddListener(() => GoNext());
+
+        addValue = total;
     }
 
     private void GoNext()
@@ -59,7 +84,7 @@ public class DayEnd_UI : Mgr
             return;
         goNext = true;
 
-        gameMgr.playData.money += gameMgr.dayMoney;
+        gameMgr.playData.money += addValue;
         gameMgr.SaveData();
         sceneMgr.SceneLoad(Scene.SHOP, SceneChangeAni.CIRCLE);
     }

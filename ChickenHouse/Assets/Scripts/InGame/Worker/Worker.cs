@@ -36,32 +36,12 @@ public class Worker : Mgr
     private DragArea                            leftArea;
     private DragArea                            rightArea;
 
-    private ResumeData GetResumeData()
-    {
-        ShopItem shopItem = ShopItem.None;
-        if (gameMgr.playData.hasItem[(int)ShopItem.Worker_1] && gameMgr.playData.useItem[(int)ShopItem.Worker_1])
-            shopItem = ShopItem.Worker_1;
-        else if (gameMgr.playData.hasItem[(int)ShopItem.Worker_2] && gameMgr.playData.useItem[(int)ShopItem.Worker_2])
-            shopItem = ShopItem.Worker_2;
-        else if (gameMgr.playData.hasItem[(int)ShopItem.Worker_3] && gameMgr.playData.useItem[(int)ShopItem.Worker_3])
-            shopItem = ShopItem.Worker_3;
-        else if (gameMgr.playData.hasItem[(int)ShopItem.Worker_4] && gameMgr.playData.useItem[(int)ShopItem.Worker_4])
-            shopItem = ShopItem.Worker_4;
-        else if (gameMgr.playData.hasItem[(int)ShopItem.Worker_5] && gameMgr.playData.useItem[(int)ShopItem.Worker_5])
-            shopItem = ShopItem.Worker_5;
-        else if (gameMgr.playData.hasItem[(int)ShopItem.Worker_6] && gameMgr.playData.useItem[(int)ShopItem.Worker_6])
-            shopItem = ShopItem.Worker_6;
-
-        ResumeData resumeData = shopMgr.GetResumeData(shopItem);
-        return resumeData;
-    }
-
     public void UpdateHandMoveArea()
     {
         leftHand.gameObject.SetActive(true);
         rightHand.gameObject.SetActive(true);
 
-        ResumeData resumeData = GetResumeData();
+        ResumeData resumeData = gameMgr.playData.GetNowWorkerData();
 
         if (resumeData == null)
         {
@@ -167,8 +147,7 @@ public class Worker : Mgr
         }
 
         float moveSpeed = DEFAULT_SPEED;
-
-        ResumeData resumeData = GetResumeData();
+        ResumeData resumeData = gameMgr.playData.GetNowWorkerData();
         if (resumeData != null)
         {
             if (resumeData.skill.Contains(WorkerSkill.WorkerSkill_4))

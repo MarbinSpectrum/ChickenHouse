@@ -126,9 +126,17 @@ public class ShopSlot_UI : Mgr, IPointerClickHandler, IPointerEnterHandler, IPoi
                 {
                     //직원이고 해당 직원을 사용중
                     LanguageMgr.SetString(btnText, "USE_ITEM");
-                    buyBtn.image.raycastTarget = false;
+                    buyBtn.image.raycastTarget = true;
                     buyBtn.image.color = new Color(72 / 255f, 241 / 255f, 129 / 255f);
                     buyBtn.onClick.RemoveAllListeners();
+                    buyBtn.onClick.AddListener(() => {
+                        UnActShopItem(
+                        ShopItem.Worker_1, ShopItem.Worker_2,
+                        ShopItem.Worker_3, ShopItem.Worker_4,
+                        ShopItem.Worker_5, ShopItem.Worker_6);
+                        scrollRect.RefreshCells();
+
+                    });
                 }
                 else if (hasItem && useItem == false)
                 {
@@ -342,12 +350,17 @@ public class ShopSlot_UI : Mgr, IPointerClickHandler, IPointerEnterHandler, IPoi
             return;
         }
 
-        foreach(ShopItem item in unActiveItem)
-            gameMgr.playData.useItem[(int)item] = false;
+        UnActShopItem(unActiveItem);
 
         gameMgr.playData.useItem[(int)shopItem] = true;
 
-        SetData(shopItem);
+
         scrollRect.RefreshCells();
+    }
+
+    private void UnActShopItem(params ShopItem[] unActiveItem)
+    {
+        foreach (ShopItem item in unActiveItem)
+            gameMgr.playData.useItem[(int)item] = false;
     }
 }

@@ -42,7 +42,7 @@ public abstract class GuestObj : Mgr
     public virtual void OrderGuest(NoParaDel fun = null)
     {
         animator.SetTrigger("Talk");
-        talkBox.ShowText("ÇÖ Ä¡Å² ÇÑ¸¶¸®¶û\nÄÝ¶ó ºÎÅ¹ÇØ¿ä.", () =>
+        talkBox.ShowText("ÇÖ Ä¡Å² ÇÑ¸¶¸®¶û\nÄÝ¶ó ºÎÅ¹ÇØ¿ä.", TalkBoxType.Normal, () =>
          {
              fun?.Invoke();
              animator.SetTrigger("TalkEnd");
@@ -52,7 +52,7 @@ public abstract class GuestObj : Mgr
     public virtual void HappyGuest(NoParaDel fun = null)
     {
         animator.SetTrigger("Talk");
-        talkBox.ShowText("ÇÖ Ä¡Å² ÇÑ¸¶¸®¶û\nÄÝ¶ó ºÎÅ¹ÇØ¿ä.", () =>
+        talkBox.ShowText("ÇÖ Ä¡Å² ÇÑ¸¶¸®¶û\nÄÝ¶ó ºÎÅ¹ÇØ¿ä.", TalkBoxType.Happy, () =>
         {
             fun?.Invoke();
             animator.SetTrigger("TalkEnd");
@@ -62,7 +62,7 @@ public abstract class GuestObj : Mgr
     public virtual void ThankGuest(NoParaDel fun = null)
     {
         animator.SetTrigger("Talk");
-        talkBox.ShowText("ÇÖ Ä¡Å² ÇÑ¸¶¸®¶û\nÄÝ¶ó ºÎÅ¹ÇØ¿ä.", () =>
+        talkBox.ShowText("ÇÖ Ä¡Å² ÇÑ¸¶¸®¶û\nÄÝ¶ó ºÎÅ¹ÇØ¿ä.", TalkBoxType.Normal, () =>
         {
             animator.SetTrigger("TalkEnd");
         });
@@ -71,7 +71,7 @@ public abstract class GuestObj : Mgr
     public virtual void AngryGuest(NoParaDel fun = null)
     {
         animator.SetTrigger("Angry");
-        talkBox.ShowText("ÀÌ µý°Ô Ä¡Å²?", () =>
+        talkBox.ShowText("ÀÌ µý°Ô Ä¡Å²?", TalkBoxType.Angry, () =>
         {
             fun?.Invoke();
         });
@@ -98,4 +98,6 @@ public abstract class GuestObj : Mgr
     public string GetTalkText() => talkBox.talkStr;
 
     public int GetShowDay() => guestData.day;
+
+    public void SkipTalk() => talkBox.SkipTalk();
 }

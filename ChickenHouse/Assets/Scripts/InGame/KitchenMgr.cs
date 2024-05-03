@@ -106,7 +106,7 @@ public class KitchenMgr : Mgr
     {
         /////////////////////////////////////////////////////////////////////////////////
         //양념통 세팅
-        int spicyCnt = 0;
+
         spicy.soySpicy.gameObject.SetActive(false);
         spicy.hellSpicy.gameObject.SetActive(false);
         spicy.prinkleSpicy.gameObject.SetActive(false);
@@ -115,34 +115,30 @@ public class KitchenMgr : Mgr
         if (gameMgr.playData.hasItem[(int)ShopItem.Recipe_1])
         {
             spicy.soySpicy.gameObject.SetActive(true);
-            spicyCnt++;
         }
         if (gameMgr.playData.hasItem[(int)ShopItem.Recipe_2])
         {
             spicy.hellSpicy.gameObject.SetActive(true);
-            spicyCnt++;
         }
         if (gameMgr.playData.hasItem[(int)ShopItem.Recipe_3])
         {
             spicy.prinkleSpicy.gameObject.SetActive(true);
-            spicyCnt++;
         }
         if (gameMgr.playData.hasItem[(int)ShopItem.Recipe_4])
         {
             spicy.carbonaraSpicy.gameObject.SetActive(true);
-            spicyCnt++;
         }
         if (gameMgr.playData.hasItem[(int)ShopItem.Recipe_5])
         {
             spicy.bbqSpicy.gameObject.SetActive(true);
-            spicyCnt++;
         }
 
         Vector2 sizeValue = kitchenRect.content.sizeDelta;
         table.table0.gameObject.SetActive(false);
         table.table1.gameObject.SetActive(false);
-        if (spicyCnt < 2)
+        if (false)
         {
+            //한동안 여기안쓸거임
             sizeValue = new Vector2(KitchenWidth(), sizeValue.y);
             table.table0.gameObject.SetActive(true);
         }
@@ -186,8 +182,9 @@ public class KitchenMgr : Mgr
             spicyCnt++;
         }
 
-        if (spicyCnt < 2)
+        if (false)
         {
+            //한동안 여기안쓸듯
             return 36;
         }
         else
