@@ -9,13 +9,17 @@ public class Memo_UI : Mgr
 {
     [SerializeField] private TextMeshProUGUI    memoText;
     [SerializeField] private Animator           animator;
-    [SerializeField] private Image              memoImg;
-    [SerializeField] private RectTransform      memoLabel;
-    [SerializeField] private RectTransform      memoTriggerBox;
     [SerializeField] private Image              deep;
+    [SerializeField] private CanvasGroup        memoObjs;
 
+    private List<string> memoStr = new List<string>();
+    private List<Sprite> guestSprite = new List<Sprite>();
+    [SerializeField] private List<RectTransform> btns;
+    [SerializeField] private List<Image> face;
     private void Start()
     {
+        UpdateMemoBtns();
+
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
         if (kitchenMgr == null)
             return;
@@ -23,44 +27,64 @@ public class Memo_UI : Mgr
         //초기 메모지 상태 설정
         if(kitchenMgr.cameraObj.lookArea == LookArea.Counter)
         {
-            memoTriggerBox.gameObject.SetActive(false);
-            memoImg.gameObject.SetActive(false);
-            memoLabel.gameObject.SetActive(false);
+            memoObjs.alpha = 0;
             deep.gameObject.SetActive(false);
         }
         else
         {
-            memoTriggerBox.gameObject.SetActive(true);
-            memoImg.gameObject.SetActive(true);
-            memoLabel.gameObject.SetActive(true);
+            memoObjs.alpha = 1;
             deep.gameObject.SetActive(false);
         }
     }
 
-    public void OpenTriggerBox(string str)
+
+    public void AddMemo(string str,Sprite guestFace)
     {
-        memoTriggerBox.gameObject.SetActive(true);
-        memoImg.gameObject.SetActive(true);
-        memoLabel.gameObject.SetActive(true);
-        memoText.text = str;
-        CloseMemo();
+        guestSprite.Add(guestFace);
+        memoStr.Add(str);
+        UpdateMemoBtns();
+    }
+
+    public void RemoveMemo()
+    {
+        memoStr.RemoveAt(0);
+        guestSprite.RemoveAt(0);
+        UpdateMemoBtns();
+    }
+
+    public void UpdateMemoBtns()
+    {
+        int cnt = guestSprite.Count;
+        for (int i = 0; i < btns.Count; i++)
+        {
+            if(i < cnt)
+            {
+                btns[i].gameObject.SetActive(true);
+                face[i].sprite = guestSprite[i];
+            }
+            else
+                btns[i].gameObject.SetActive(false);
+        }
+    }
+
+
+    public void OpenTriggerBox()
+    {
+        memoObjs.alpha = 1;
     }
 
     public void CloseTriggerBox()
     {
-        memoTriggerBox.gameObject.SetActive(false);
-        memoImg.gameObject.SetActive(false);
-        memoLabel.gameObject.SetActive(false);
+        memoObjs.alpha = 0;
     }
 
-    public void OpenMemo()
+    public void OpenMemo(int num)
     {
         //인스펙터에서 끌어서 사용하는 함수임
         //메모지를 확대함
         animator.Play("Open");
+        memoText.text = memoStr[num - 1];
         deep.gameObject.SetActive(true);
-        memoImg.gameObject.SetActive(false);
-        memoLabel.gameObject.SetActive(false);
     }
 
     public void CloseMemo()
@@ -69,7 +93,5 @@ public class Memo_UI : Mgr
         //메모지를 닫음
         animator.Play("Close");
         deep.gameObject.SetActive(false);
-        memoImg.gameObject.SetActive(true);
-        memoLabel.gameObject.SetActive(true);
     }
 }

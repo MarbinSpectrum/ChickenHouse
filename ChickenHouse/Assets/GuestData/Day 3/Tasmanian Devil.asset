@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04698e8fab843ca4f97de157c35a91e2, type: 3}
   m_Name: Tasmanian Devil
   m_EditorClassIdentifier: 
+  face: {fileID: 21300000, guid: 5b818133987c272439b15a01d5b58019, type: 3}
   day: 3
   goodChicken:
   - spicy0: 0

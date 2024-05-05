@@ -32,6 +32,7 @@ public class ChickenPack : Mgr
         public Sprite soyChicken;
         public Sprite hellChicken;
         public Sprite prinkleChicken;
+        public Sprite carbonaraChicken;
         public Sprite bbqChicken;
     }
 
@@ -296,6 +297,11 @@ public class ChickenPack : Mgr
                     spicyChicken.bottomSource.gameObject.SetActive(true);
                     spicyChicken.chickenObj[i].gameObject.SetActive(true);
                     spicyChicken.chickenObj[i].sprite = chickenSprite.prinkleChicken;
+                    break;
+                case ChickenSpicy.Carbonara:
+                    spicyChicken.bottomSource.gameObject.SetActive(true);
+                    spicyChicken.chickenObj[i].gameObject.SetActive(true);
+                    spicyChicken.chickenObj[i].sprite = chickenSprite.carbonaraChicken;
                     break;
                 case ChickenSpicy.BBQ:
                     spicyChicken.bottomSource.gameObject.SetActive(true);

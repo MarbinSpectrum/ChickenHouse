@@ -94,8 +94,9 @@ public class PlayData
         return 0;
     }
 
-    public ResumeData GetNowWorkerData()
+    public ShopItem GetNowWorker()
     {
+        //현재 사용중인 손님
         ShopItem shopItem = ShopItem.None;
         if (hasItem[(int)ShopItem.Worker_1] && useItem[(int)ShopItem.Worker_1])
             shopItem = ShopItem.Worker_1;
@@ -109,6 +110,14 @@ public class PlayData
             shopItem = ShopItem.Worker_5;
         else if (hasItem[(int)ShopItem.Worker_6] && useItem[(int)ShopItem.Worker_6])
             shopItem = ShopItem.Worker_6;
+
+        return shopItem;
+    }
+
+    public ResumeData GetNowWorkerData()
+    {
+        //현재 사용주인 손님 정보
+        ShopItem shopItem = GetNowWorker();
 
         ResumeData resumeData = ShopMgr.Instance?.GetResumeData(shopItem);
         return resumeData;

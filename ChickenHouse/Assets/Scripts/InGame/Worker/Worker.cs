@@ -32,6 +32,7 @@ public class Worker : Mgr
     [SerializeField] private MOVEAREA           leftHandArea;
     [SerializeField] private MOVEAREA           rightHandArea;
 
+
     private Dictionary<int, IEnumerator>        moveHandCor;
     private DragArea                            leftArea;
     private DragArea                            rightArea;
@@ -42,6 +43,7 @@ public class Worker : Mgr
         rightHand.gameObject.SetActive(true);
 
         ResumeData resumeData = gameMgr.playData.GetNowWorkerData();
+        ShopItem shopItem = gameMgr.playData.GetNowWorker();
 
         if (resumeData == null)
         {
@@ -49,6 +51,9 @@ public class Worker : Mgr
             rightHand.gameObject.SetActive(false);
             return;
         }
+
+        leftHand.SetWorkerImg(shopItem);
+        rightHand.SetWorkerImg(shopItem);
 
         if (resumeData.skill.Contains(WorkerSkill.WorkerSkill_1) == false)
         {
@@ -94,7 +99,7 @@ public class Worker : Mgr
             else if (rightHand.handState == WorkerHandState.EggChicken)
                 rightArea = DragArea.Tray_Flour;
         }
-        else if (chickenStrainter.isRun && chickenStrainter.IsMax() == false && resumeData.skill.Contains(WorkerSkill.WorkerSkill_3))
+        else if (chickenStrainter.IsMax() == false && resumeData.skill.Contains(WorkerSkill.WorkerSkill_3))
         {
             if (rightHand.handState == WorkerHandState.None)
             {

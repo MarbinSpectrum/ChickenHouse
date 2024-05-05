@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04698e8fab843ca4f97de157c35a91e2, type: 3}
   m_Name: VirginiaOpossum
   m_EditorClassIdentifier: 
+  face: {fileID: 21300000, guid: 41d7b8d71205984409173348557b0780, type: 3}
   day: 6
   goodChicken:
   - spicy0: 4

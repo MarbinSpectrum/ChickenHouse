@@ -11,6 +11,9 @@ public class GetNewSpicy : Mgr
     [SerializeField] private Image              spicyImg;
     [SerializeField] private TextMeshProUGUI    spicyText;
     [SerializeField] private Button             closeBtn;
+
+    private IEnumerator spicySeCor;
+
     public void SetSpicy()
     {
         if(gameMgr.playData.day + 1 == 2 && gameMgr.playData.hasItem[(int)ShopItem.Recipe_1] == false)
@@ -62,6 +65,12 @@ public class GetNewSpicy : Mgr
 
     private void ShowSpicyAni(ShopItem pShopItem)
     {
+        if(spicySeCor != null)
+        {
+            StopCoroutine(spicySeCor);
+            spicySeCor = null;
+        }
+
         ani.gameObject.SetActive(true);
         ani.Play();
 
@@ -86,5 +95,14 @@ public class GetNewSpicy : Mgr
             }
         });
 
+        spicySeCor = RunSpicySE();
+        StartCoroutine(RunSpicySE());
     }
+    private IEnumerator RunSpicySE()
+    {
+        yield return new WaitForSeconds(0.5f);
+
+        soundMgr.PlaySE(Sound.GetSpicy_SE);
+    }
+
 }

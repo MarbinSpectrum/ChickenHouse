@@ -4,6 +4,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "GuestData", menuName = "ScriptableObjects/Guest", order = 1)]
 public class GuestData : ScriptableObject
 {
+    [Header("초상화")]
+    public Sprite face;
     [Header("등장 날짜")]
     public int day;
     [Header("주문 메뉴")]

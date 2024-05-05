@@ -54,20 +54,26 @@ public class GoCounter_UI : Mgr
 
         CloseBtn();
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
-        kitchenMgr.cameraObj.ChangeLook(LookArea.Counter,()=>
+        GuestMgr guestMgr = GuestMgr.Instance;
+        kitchenMgr.cameraObj.ChangeLook(LookArea.Counter, () =>
         {
-            Drink drink = tableDrinkSlot.hasDrink ? Drink.Cola : Drink.None;
-            SideMenu sideMenu = tablePickleSlot.hasPickle ? SideMenu.None : SideMenu.None;
-            GuestMgr guestMgr = GuestMgr.Instance;
-            guestMgr.GiveChicken(tableChicken.source0, tableChicken.source1, tableChicken.chickenState,
-              drink, sideMenu);
+            //Drink drink = tableDrinkSlot.hasDrink ? Drink.Cola : Drink.None;
+            //SideMenu sideMenu = tablePickleSlot.hasPickle ? SideMenu.None : SideMenu.None;
+            //ChickenSpicy spicy0 = (ChickenSpicy)Mathf.Min((int)tableChicken.source0, (int)tableChicken.source1);
+            //ChickenSpicy spicy1 = (ChickenSpicy)Mathf.Max((int)tableChicken.source0, (int)tableChicken.source1);
+            //GuestMgr guestMgr = GuestMgr.Instance;
+            //guestMgr.GiveChicken(spicy0, spicy1, tableChicken.chickenState,
+            //  drink, sideMenu);
 
-            tableChicken.Init();
-            tableDrinkSlot.Init();
-            tablePickleSlot.Init();
+            //tableChicken.Init();
+            //tableDrinkSlot.Init();
+            //tablePickleSlot.Init();
+            //kitchenMgr.ui.memo.RemoveMemo();
+            guestMgr.ui.goKitchen.OpenBtn();
         });
-        kitchenMgr.cameraObj.lookArea = LookArea.Counter;
 
+
+        kitchenMgr.cameraObj.lookArea = LookArea.Counter;
         kitchenMgr.ui.memo.CloseTriggerBox();
     }
 }

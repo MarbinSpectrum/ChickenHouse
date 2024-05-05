@@ -43,7 +43,7 @@ public class InGameCamera : Mgr
     {
         if (pLookArea == LookArea.Kitchen)
         {
-            dragCamera.SetInitPos();
+            //dragCamera.SetInitPos();
         }
 
         changeLook.ChangeCamera(pLookArea, fun);

@@ -201,9 +201,9 @@ public class RequireMenu
 
         //손님이 생각한 치킨 점수
         int maxPoint = 2;
-        if (pDrink != Drink.None)
+        if (drink != Drink.None)
             maxPoint++;
-        if (pSideMenu != SideMenu.None)
+        if (sideMenu != SideMenu.None)
             maxPoint++;
 
         int point = 0;

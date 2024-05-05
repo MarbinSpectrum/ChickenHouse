@@ -121,6 +121,8 @@ public class DragObj : Mgr
                 {
                     //까르보나라 양념을 드래그한 상태
                     carbonaraSpicy.gameObject.SetActive(true);
+
+                    MoveMousePos();
                 }
                 break;
             case DragState.BBQ_Spicy:

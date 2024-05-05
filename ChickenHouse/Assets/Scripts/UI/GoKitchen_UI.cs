@@ -14,7 +14,7 @@ public class GoKitchen_UI : Mgr
     private void Awake()
     {
         btn.onClick.RemoveAllListeners();
-        btn.onClick.AddListener(() => GoCounter());
+        btn.onClick.AddListener(() => GoKitchen());
     }
 
     public void OpenBtn(NoParaDel fun = null)
@@ -33,7 +33,7 @@ public class GoKitchen_UI : Mgr
         fun?.Invoke();
     }
 
-    private void GoCounter()
+    private void GoKitchen()
     {
         //주방으로 화면 전환
         if (canUse == false)
@@ -49,12 +49,16 @@ public class GoKitchen_UI : Mgr
                 //튜토리얼로 진입
                 tutoObj.PlayTuto();
             }
+            else
+            {
+                kitchenMgr.ui.goCounter.OpenBtn();
+            }
 
         });
 
         GuestMgr guestMgr = GuestMgr.Instance;
         guestMgr.CloseTalkBox();
-
-        kitchenMgr.ui.memo.OpenTriggerBox(guestMgr.GetTalkBoxStr());
+        guestMgr.AddMemoList();
+        kitchenMgr.ui.memo.OpenTriggerBox();
     } 
 }

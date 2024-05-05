@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04698e8fab843ca4f97de157c35a91e2, type: 3}
   m_Name: Dog
   m_EditorClassIdentifier: 
+  face: {fileID: 21300000, guid: 66723da8dc0eb524cb626016fb1515a3, type: 3}
   day: 1
   goodChicken:
   - spicy0: 0

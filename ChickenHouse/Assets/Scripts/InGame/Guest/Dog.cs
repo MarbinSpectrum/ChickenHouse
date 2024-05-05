@@ -8,53 +8,56 @@ public class Dog : GuestObj
     {
         int menuIdx = requireMenu.menuIdx;
 
-        string showStr = string.Empty;
+        talkStr = string.Empty;
         if (menuIdx == 0)
         {
-            showStr = LanguageMgr.GetText("DOG_ORDER_1");
+            talkStr = LanguageMgr.GetText("DOG_ORDER_1");
             if (requireMenu.drink == Drink.Cola)
             {
-                showStr += "\n";
-                showStr += LanguageMgr.GetText("DOG_SIDE_COLA");
+                talkStr += "\n";
+                talkStr += LanguageMgr.GetText("DOG_SIDE_COLA");
             }
             if (requireMenu.sideMenu == SideMenu.Pickle)
             {
-                showStr += "\n";
-                showStr += LanguageMgr.GetText("DOG_SIDE_PICKLE");
+                talkStr += "\n";
+                talkStr += LanguageMgr.GetText("DOG_SIDE_PICKLE");
             }
         }
         else if (menuIdx == 1)
         {
-            showStr = LanguageMgr.GetText("DOG_ORDER_2");
+            talkStr = LanguageMgr.GetText("DOG_ORDER_2");
             if (requireMenu.drink == Drink.Cola)
             {
-                showStr += "\n";
-                showStr += LanguageMgr.GetText("DOG_SIDE_COLA");
+                talkStr += "\n";
+                talkStr += LanguageMgr.GetText("DOG_SIDE_COLA");
             }
             if (requireMenu.sideMenu == SideMenu.Pickle)
             {
-                showStr += "\n";
-                showStr += LanguageMgr.GetText("DOG_SIDE_PICKLE");
+                talkStr += "\n";
+                talkStr += LanguageMgr.GetText("DOG_SIDE_PICKLE");
             }
         }
         else if (menuIdx == 2)
         {
-            showStr = LanguageMgr.GetText("DOG_ORDER_3");
+            talkStr = LanguageMgr.GetText("DOG_ORDER_3");
             if (requireMenu.drink == Drink.Cola)
             {
-                showStr += "\n";
-                showStr += LanguageMgr.GetText("DOG_SIDE_COLA");
+                talkStr += "\n";
+                talkStr += LanguageMgr.GetText("DOG_SIDE_COLA");
             }
             if (requireMenu.sideMenu == SideMenu.Pickle)
             {
-                showStr += "\n";
-                showStr += LanguageMgr.GetText("DOG_SIDE_PICKLE");
+                talkStr += "\n";
+                talkStr += LanguageMgr.GetText("DOG_SIDE_PICKLE");
             }
         }
+    }
 
+    public override void TalkOrder(NoParaDel fun = null)
+    {
         soundMgr.PlayLoopSE(Sound.Voice0_SE);
         animator.SetTrigger("Talk");
-        talkBox.ShowText(showStr, TalkBoxType.Normal, () =>
+        talkBox.ShowText(talkStr, TalkBoxType.Normal, () =>
         {
             soundMgr.StopLoopSE(Sound.Voice0_SE);
             animator.SetTrigger("TalkEnd");
@@ -70,11 +73,11 @@ public class Dog : GuestObj
 
     public override void HappyGuest(NoParaDel fun = null)
     {
-        string showStr = LanguageMgr.GetText("DOG_HAPPY");
+        talkStr = LanguageMgr.GetText("DOG_HAPPY");
 
         soundMgr.PlayLoopSE(Sound.Voice0_SE);
         animator.SetTrigger("Happy");
-        talkBox.ShowText(showStr, TalkBoxType.Happy, () =>
+        talkBox.ShowText(talkStr, TalkBoxType.Happy, () =>
         {
             soundMgr.StopLoopSE(Sound.Voice0_SE);
             animator.SetTrigger("TalkEnd");
@@ -84,10 +87,11 @@ public class Dog : GuestObj
 
     public override void ThankGuest(NoParaDel fun = null)
     {
+        talkStr = LanguageMgr.GetText("DOG_THANK_YOU");
+
         soundMgr.PlayLoopSE(Sound.Voice0_SE);
-        string showStr = LanguageMgr.GetText("DOG_THANK_YOU");
         animator.SetTrigger("Talk");
-        talkBox.ShowText(showStr, TalkBoxType.Normal, () =>
+        talkBox.ShowText(talkStr, TalkBoxType.Normal, () =>
         {
             soundMgr.StopLoopSE(Sound.Voice0_SE);
             animator.SetTrigger("TalkEnd");
@@ -97,11 +101,11 @@ public class Dog : GuestObj
 
     public override void AngryGuest(NoParaDel fun = null)
     {
-        string showStr = LanguageMgr.GetText("DOG_ANGRY");
+        talkStr = LanguageMgr.GetText("DOG_ANGRY");
 
         soundMgr.PlayLoopSE(Sound.Voice0_SE);
         animator.SetTrigger("Angry");
-        talkBox.ShowText(showStr, TalkBoxType.Angry, () =>
+        talkBox.ShowText(talkStr, TalkBoxType.Angry, () =>
         {
             soundMgr.StopLoopSE(Sound.Voice0_SE);
             fun?.Invoke();

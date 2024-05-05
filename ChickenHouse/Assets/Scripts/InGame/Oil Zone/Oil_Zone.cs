@@ -164,12 +164,12 @@ public class Oil_Zone : Mgr
                 Cook_Stop();
 
                 //치킨 건지를 사용을 끝냈으니 초기화
-                if(chickenStrainter != null)
-                {
-                    chickenStrainter.Init();
-                    chickenStrainter = null;
+                //if(chickenStrainter != null)
+                //{
+                //    chickenStrainter.Init();
+                //    chickenStrainter = null;
 
-                }    
+                //}    
 
                 if (tutoMgr.tutoComplete == false && tutoMgr.nowTuto == Tutorial.Tuto_5_2)
                 {
@@ -311,6 +311,8 @@ public class Oil_Zone : Mgr
             tutoObj.PlayTuto();
             yield break;
         }
+
+        soundMgr.PlaySE(Sound.Oil_Zone_End_SE);
 
         if(notFire)
         {

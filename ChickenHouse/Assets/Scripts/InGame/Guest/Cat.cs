@@ -8,53 +8,56 @@ public class Cat : GuestObj
     {
         int menuIdx = requireMenu.menuIdx;
 
-        string showStr = string.Empty;
+        talkStr = string.Empty;
         if (menuIdx == 0)
         {
-            showStr = LanguageMgr.GetText("CAT_ORDER_1");
+            talkStr = LanguageMgr.GetText("CAT_ORDER_1");
             if (requireMenu.drink == Drink.Cola)
             {
-                showStr += "\n";
-                showStr += LanguageMgr.GetText("CAT_SIDE_COLA");
+                talkStr += "\n";
+                talkStr += LanguageMgr.GetText("CAT_SIDE_COLA");
             }
             if (requireMenu.sideMenu == SideMenu.Pickle)
             {
-                showStr += "\n";
-                showStr += LanguageMgr.GetText("CAT_SIDE_PICKLE");
+                talkStr += "\n";
+                talkStr += LanguageMgr.GetText("CAT_SIDE_PICKLE");
             }
         }
         else if (menuIdx == 1)
         {
-            showStr = LanguageMgr.GetText("CAT_ORDER_2");
+            talkStr = LanguageMgr.GetText("CAT_ORDER_2");
             if (requireMenu.drink == Drink.Cola)
             {
-                showStr += "\n";
-                showStr += LanguageMgr.GetText("CAT_SIDE_COLA");
+                talkStr += "\n";
+                talkStr += LanguageMgr.GetText("CAT_SIDE_COLA");
             }
             if (requireMenu.sideMenu == SideMenu.Pickle)
             {
-                showStr += "\n";
-                showStr += LanguageMgr.GetText("CAT_SIDE_PICKLE");
+                talkStr += "\n";
+                talkStr += LanguageMgr.GetText("CAT_SIDE_PICKLE");
             }
         }
         else if (menuIdx == 2)
         {
-            showStr = LanguageMgr.GetText("CAT_ORDER_3");
+            talkStr = LanguageMgr.GetText("CAT_ORDER_3");
             if (requireMenu.drink == Drink.Cola)
             {
-                showStr += "\n";
-                showStr += LanguageMgr.GetText("CAT_SIDE_COLA");
+                talkStr += "\n";
+                talkStr += LanguageMgr.GetText("CAT_SIDE_COLA");
             }
             if (requireMenu.sideMenu == SideMenu.Pickle)
             {
-                showStr += "\n";
-                showStr += LanguageMgr.GetText("CAT_SIDE_PICKLE");
+                talkStr += "\n";
+                talkStr += LanguageMgr.GetText("CAT_SIDE_PICKLE");
             }
         }
+    }
 
+    public override void TalkOrder(NoParaDel fun = null)
+    {
         soundMgr.PlayLoopSE(Sound.Voice1_SE);
         animator.SetTrigger("Talk");
-        talkBox.ShowText(showStr,TalkBoxType.Normal, () =>
+        talkBox.ShowText(talkStr, TalkBoxType.Normal, () =>
         {
             soundMgr.StopLoopSE(Sound.Voice1_SE);
             animator.SetTrigger("TalkEnd");
@@ -71,11 +74,11 @@ public class Cat : GuestObj
 
     public override void HappyGuest(NoParaDel fun = null)
     {
-        string showStr = LanguageMgr.GetText("CAT_HAPPY");
+        talkStr = LanguageMgr.GetText("CAT_HAPPY");
 
         soundMgr.PlayLoopSE(Sound.Voice2_SE);
         animator.SetTrigger("Happy");
-        talkBox.ShowText(showStr, TalkBoxType.Happy, () =>
+        talkBox.ShowText(talkStr, TalkBoxType.Happy, () =>
         {
             soundMgr.StopLoopSE(Sound.Voice2_SE);
             animator.SetTrigger("TalkEnd");
@@ -85,11 +88,11 @@ public class Cat : GuestObj
 
     public override void ThankGuest(NoParaDel fun = null)
     {
-        string showStr = LanguageMgr.GetText("CAT_THANK_YOU");
+        talkStr = LanguageMgr.GetText("CAT_THANK_YOU");
 
         soundMgr.PlayLoopSE(Sound.Voice2_SE);
         animator.SetTrigger("Talk");
-        talkBox.ShowText(showStr, TalkBoxType.Normal, () =>
+        talkBox.ShowText(talkStr, TalkBoxType.Normal, () =>
         {
             soundMgr.StopLoopSE(Sound.Voice2_SE);
             animator.SetTrigger("TalkEnd");
@@ -99,11 +102,11 @@ public class Cat : GuestObj
 
     public override void AngryGuest(NoParaDel fun = null)
     {
-        string showStr = LanguageMgr.GetText("CAT_ANGRY");
+        talkStr = LanguageMgr.GetText("CAT_ANGRY");
 
         soundMgr.PlayLoopSE(Sound.Voice1_SE);
         animator.SetTrigger("Angry");
-        talkBox.ShowText(showStr, TalkBoxType.Angry, () =>
+        talkBox.ShowText(talkStr, TalkBoxType.Angry, () =>
         {
             soundMgr.StopLoopSE(Sound.Voice1_SE);
             fun?.Invoke();

@@ -18,7 +18,6 @@ public class TalkBox_UI : Mgr
     [SerializeField] private GameObject         obj;
     [SerializeField] private Image              hearthImg;
     private IEnumerator cor;
-    private string str;
     private NoParaDel fun;
 
     public string talkStr { private set; get; }
@@ -27,7 +26,7 @@ public class TalkBox_UI : Mgr
     {
         GuestMgr.Instance.skipTalkBtn.gameObject.SetActive(true);
 
-        talkStr = str;
+        talkStr = pStr;
         obj.gameObject.SetActive(true);
 
         switch(pTalkBoxType)
@@ -56,7 +55,6 @@ public class TalkBox_UI : Mgr
         }
 
         fun = pFun;
-        str = pStr;
         if (cor != null)
         {
             StopCoroutine(cor);
@@ -68,10 +66,10 @@ public class TalkBox_UI : Mgr
 
     private IEnumerator RunCor(float delayTime)
     {
-        for (int i = 1; i <= str.Length; i++)
+        for (int i = 1; i <= talkStr.Length; i++)
         {
-            string front = str.Substring(0, i);
-            string tail = str.Substring(i, str.Length - i);
+            string front = talkStr.Substring(0, i);
+            string tail = talkStr.Substring(i, talkStr.Length - i);
 
             tail = "<color=#FFFFFF00>" + tail + "</color>";
             front += tail;
@@ -94,7 +92,7 @@ public class TalkBox_UI : Mgr
             StopCoroutine(cor);
             cor = null;
         }
-        textUI.text = str;
+        textUI.text = talkStr;
         fun?.Invoke();
         GuestMgr.Instance.skipTalkBtn.gameObject.SetActive(false);
     }

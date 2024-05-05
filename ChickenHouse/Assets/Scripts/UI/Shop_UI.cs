@@ -53,6 +53,8 @@ public class Shop_UI : Mgr
     {
         gameMgr.LoadData();
 
+        soundMgr.PlayBGM(Sound.Shop_BG);
+
         SetMoney();
         SetUpgrade();
         newSpicy.SetSpicy();

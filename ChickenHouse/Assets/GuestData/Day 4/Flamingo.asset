@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04698e8fab843ca4f97de157c35a91e2, type: 3}
   m_Name: Flamingo
   m_EditorClassIdentifier: 
+  face: {fileID: 21300000, guid: f3dc0da0a9255a842bcc86852a857cd3, type: 3}
   day: 4
   goodChicken:
   - spicy0: 1

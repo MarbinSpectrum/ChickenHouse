@@ -14,6 +14,7 @@ public abstract class GuestObj : Mgr
     [SerializeField] public     Guest           guest;
 
     protected RequireMenu requireMenu = new RequireMenu();
+    protected string talkStr;
 
     public virtual void ShowGuest()
     {
@@ -41,12 +42,17 @@ public abstract class GuestObj : Mgr
 
     public virtual void OrderGuest(NoParaDel fun = null)
     {
+        //주문내력에 해당하는 talkStr을 만듬
+    }
+
+    public virtual void TalkOrder(NoParaDel fun = null)
+    {
         animator.SetTrigger("Talk");
         talkBox.ShowText("핫 치킨 한마리랑\n콜라 부탁해요.", TalkBoxType.Normal, () =>
-         {
-             fun?.Invoke();
-             animator.SetTrigger("TalkEnd");
-         });
+        {
+            fun?.Invoke();
+            animator.SetTrigger("TalkEnd");
+        });
     }
 
     public virtual void HappyGuest(NoParaDel fun = null)
@@ -95,7 +101,9 @@ public abstract class GuestObj : Mgr
         spriteRenderer.color = pColor;
     }
 
-    public string GetTalkText() => talkBox.talkStr;
+    public string GetTalkText() => talkStr;
+
+    public Sprite GetGuestFace() => guestData.face;
 
     public int GetShowDay() => guestData.day;
 

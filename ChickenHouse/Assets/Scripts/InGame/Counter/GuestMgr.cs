@@ -49,6 +49,8 @@ public class GuestMgr : Mgr
     private int guestcnt = 0;
     private bool moveGuest = false;
 
+    private List<GuestObj> guestOrderList = new List<GuestObj>();
+
     private void Awake()
     {
         SetSingleton();
@@ -231,6 +233,23 @@ public class GuestMgr : Mgr
 
                 //손님을 만듬     
                 guestcnt++;
+
+                //주방에있을때 미리 주문 내역을 적어줌
+
+                newGuest.OrderGuest();
+                KitchenMgr kitchenMgr = KitchenMgr.Instance;
+                if(kitchenMgr.cameraObj.lookArea == LookArea.Kitchen)
+                {
+                    string talkStr = newGuest.GetTalkText();
+                    Sprite guestFace = newGuest.GetGuestFace();
+                    kitchenMgr.ui.memo.AddMemo(talkStr, guestFace);
+                    soundMgr.PlaySE(Sound.NewOrder_SE);
+                }
+                else
+                {
+                    guestOrderList.Add(newGuest);
+                }
+
                 newGuest.gameObject.SetActive(true);
                 newGuest.ShowGuest();
 
@@ -290,6 +309,8 @@ public class GuestMgr : Mgr
     }
 
     public string GetTalkBoxStr() => guestObj.GetTalkText();
+
+    public Sprite GetGuestFace() => guestObj.GetGuestFace();
 
     public void CloseTalkBox()
     {
@@ -427,6 +448,25 @@ public class GuestMgr : Mgr
         }
     }
 
+    public void AddMemoList()
+    {
+        //주문이 추가될게있으면 메모들이 추가된다.
+        StartCoroutine(AddMemoCor());
+        IEnumerator AddMemoCor()
+        {
+            for (int i = 0; i < guestOrderList.Count; i++)
+            {
+                KitchenMgr kitchenMgr = KitchenMgr.Instance;
+                string talkStr = guestOrderList[i].GetTalkText();
+                Sprite guestFace = guestOrderList[i].GetGuestFace();
+                kitchenMgr.ui.memo.AddMemo(talkStr, guestFace);
+                soundMgr.PlaySE(Sound.NewOrder_SE);
+                yield return new WaitForSeconds(1f);
+            }
+            guestOrderList.Clear();
+        }
+    }
+
     private IEnumerator GuestOrder()
     {
         if (nowOrder)
@@ -437,9 +477,7 @@ public class GuestMgr : Mgr
         if (guestObj == null)
             yield break;
       
-        guestObj.OrderGuest();
- 
-
+        guestObj.TalkOrder();
         ui.goKitchen.OpenBtn();
     }
 

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04698e8fab843ca4f97de157c35a91e2, type: 3}
   m_Name: Dove
   m_EditorClassIdentifier: 
+  face: {fileID: 21300000, guid: 5314cebfa7ccc33458f1ce142f2f1df9, type: 3}
   day: 6
   goodChicken:
   - spicy0: 6

@@ -11,7 +11,9 @@ public class ChickenStrainter : Mgr
     /**´ß °¹¼ö **/
     private int chickenCnt;
 
-    public bool isRun { get; private set; } = true;
+    //public bool isRun { get; private set; } = true;
+
+    public bool isDrag { get; private set; } = true;
 
     [System.Serializable]
     public struct SPITE_IMG
@@ -63,9 +65,6 @@ public class ChickenStrainter : Mgr
             return;
         }
 
-        if (isRun == false)
-            return;
-
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
         if (kitchenMgr.cameraObj.lookArea != LookArea.Kitchen)
         {
@@ -74,8 +73,8 @@ public class ChickenStrainter : Mgr
         }
         if (IsMax())
         {
+            isDrag = true;
             obj.gameObject.SetActive(false);
-            isRun = false;
             kitchenMgr.dragObj.DragStrainter(chickenCnt, DragState.Chicken_Strainter);
         }
     }
@@ -106,23 +105,22 @@ public class ChickenStrainter : Mgr
             {
                 kitchenMgr.ui.takeOut.ChickenStrainter_SetData(kitchenMgr.oilZone, this);
 
-                for (int i = 0; i < chickenCnt; i++)
+                int removeCnt = chickenCnt;
+                for (int i = 0; i < removeCnt; i++)
                 {
                     RemoveChicken();
                 }
-                return;
+
+                kitchenMgr.worker.UpdateHandMoveArea();
             }
         }
 
-        isRun = true;
+        isDrag = false;
         obj.gameObject.SetActive(true);
     }
 
     public bool AddChicken()
     {
-        if (isRun == false)
-            return false;
-
         if (IsMax())
             return false;
 
@@ -192,7 +190,6 @@ public class ChickenStrainter : Mgr
         //ÃÊ±âÈ­ ÇÔ
         chickenCnt = 0;
         Array.ForEach(chickenAni, x => x.gameObject.SetActive(false));
-        isRun = true;
         obj.gameObject.SetActive(true);
 
         foreach (ScrollObj sObj in scrollObj)

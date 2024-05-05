@@ -301,6 +301,7 @@ public class ShopSlot_UI : Mgr, IPointerClickHandler, IPointerEnterHandler, IPoi
             return;
         }
 
+        soundMgr.PlaySE(Sound.GetMoney_SE);
         gameMgr.playData.money -= shopData.money;
         gameMgr.playData.hasItem[(int)shopItem] = true;
 
