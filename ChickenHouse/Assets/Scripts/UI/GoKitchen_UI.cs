@@ -51,7 +51,7 @@ public class GoKitchen_UI : Mgr
             }
             else
             {
-                kitchenMgr.ui.goCounter.OpenBtn();
+                //kitchenMgr.ui.goCounter.OpenBtn();
             }
 
         });

@@ -92,7 +92,7 @@ public class VirginiaOpossum : GuestObj
 
         soundMgr.PlayLoopSE(Sound.Voice7_SE);
         animator.SetTrigger("Talk");
-        talkBox.ShowText(talkStr, TalkBoxType.Normal, () =>
+        talkBox.ShowText(talkStr, TalkBoxType.Thank, () =>
         {
             soundMgr.StopLoopSE(Sound.Voice7_SE);
             animator.SetTrigger("TalkEnd");

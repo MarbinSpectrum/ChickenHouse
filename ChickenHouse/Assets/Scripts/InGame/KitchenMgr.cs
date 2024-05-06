@@ -18,7 +18,7 @@ public class KitchenMgr : Mgr
     /** 치킨 건지 **/
     [System.NonSerialized] public ChickenStrainter chickenStrainter;
     /** 기름 **/
-    public Oil_Zone         oilZone;
+    [System.NonSerialized] public Oil_Zone         oilZone;
     /** 치킨 포장 박스 **/
     [System.NonSerialized] public ChickenPack      chickenPack;
 
@@ -61,18 +61,6 @@ public class KitchenMgr : Mgr
         public GameObject bbqSpicy;
     }
     public Spicy spicy;
-
-    [System.Serializable]
-    public struct Table
-    {
-        //테이블
-
-        /** 표준 테이블 **/
-        public GameObject table0;
-        /** 양념 3개 이상일때 사용되는 테이블 **/
-        public GameObject table1;
-    }
-    public Table table;
 
     [System.Serializable]
     public struct UI
@@ -133,64 +121,14 @@ public class KitchenMgr : Mgr
             spicy.bbqSpicy.gameObject.SetActive(true);
         }
 
-        Vector2 sizeValue = kitchenRect.content.sizeDelta;
-        table.table0.gameObject.SetActive(false);
-        table.table1.gameObject.SetActive(false);
-        if (false)
-        {
-            //한동안 여기안쓸거임
-            sizeValue = new Vector2(KitchenWidth(), sizeValue.y);
-            table.table0.gameObject.SetActive(true);
-        }
-        else
-        {
-            sizeValue = new Vector2(KitchenWidth(), sizeValue.y);
-            table.table1.gameObject.SetActive(true);
-        }
-        kitchenRect.content.sizeDelta = sizeValue;
-
         /////////////////////////////////////////////////////////////////////////////////
         //알바생 업무 시작
         worker.UpdateHandMoveArea();
-
-        /////////////////////////////////////////////////////////////////////////////////
-        //기름통 세팅
-        oilZone.Init();
     }
 
     private float KitchenWidth()
     {
-        int spicyCnt = 0;
-        if (gameMgr.playData.hasItem[(int)ShopItem.Recipe_1])
-        {
-            spicyCnt++;
-        }
-        if (gameMgr.playData.hasItem[(int)ShopItem.Recipe_2])
-        {
-            spicyCnt++;
-        }
-        if (gameMgr.playData.hasItem[(int)ShopItem.Recipe_3])
-        {
-            spicyCnt++;
-        }
-        if (gameMgr.playData.hasItem[(int)ShopItem.Recipe_4])
-        {
-            spicyCnt++;
-        }
-        if (gameMgr.playData.hasItem[(int)ShopItem.Recipe_5])
-        {
-            spicyCnt++;
-        }
-
-        if (false)
-        {
-            //한동안 여기안쓸듯
-            return 36;
-        }
-        else
-        {
-            return 43;
-        }
+        return kitchenRect.content.sizeDelta.x;
     }
 
     public void SetkitchenSetPos(Vector2 movePos)

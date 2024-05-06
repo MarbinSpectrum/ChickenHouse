@@ -103,8 +103,6 @@ public class ChickenStrainter : Mgr
             //치킨 튀기기 시작
             if (kitchenMgr.oilZone.Cook_Start(chickenCnt,this))
             {
-                kitchenMgr.ui.takeOut.ChickenStrainter_SetData(kitchenMgr.oilZone, this);
-
                 int removeCnt = chickenCnt;
                 for (int i = 0; i < removeCnt; i++)
                 {

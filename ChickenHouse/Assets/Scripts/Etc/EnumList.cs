@@ -84,6 +84,8 @@ public enum DragState
     Carbonara_Spicy = 14,
     /** 바베큐 양념 **/
     BBQ_Spicy       = 15,
+    /** 치킨 박스(구멍) **/
+    Chicken_Pack_Holl = 16,
 }
 
 public enum ChickenState
@@ -198,7 +200,9 @@ public enum TalkBoxType
 {
     Normal  = 0,
     Angry   = 1,
-    Happy   = 2,
+    Thank   = 2,
+    Happy   = 3,
+
 }
 
 public enum ShopItem
@@ -211,6 +215,10 @@ public enum ShopItem
     OIL_Zone_3          = 103,      //치킨이 더 빨리 튀겨지고 더 맛있어집니다. (속도 +80%, 수입+20%)
     OIL_Zone_4          = 104,      //치킨이 완벽하게 튀겨집니다. (속도 +160%, 수입+40%, 치킨이 타지 않습니다.)
 
+    /** 기름통 추가 **/
+    NEW_OIL_ZONE_1      = 151,      //기름통 추가
+    NEW_OIL_ZONE_2      = 152,      //기름통 추가
+    NEW_OIL_ZONE_3      = 153,      //기름통 추가
 
     /** 레시피 업그레이드(총 수입은 레시피의 수치 합산) **/
     Recipe_1            = 201,      //간장치킨(수입 +20%)
@@ -318,8 +326,11 @@ public enum Tutorial
     /** 콜라 및 피클 넣기 **/
     Tuto_6,
 
-    /** 카운터로 가져가기 **/
+    /** 치킨 넣기 **/
     Tuto_7,
+
+    /** 카운터로 가져가기 **/
+    Tuto_8,
 
     /** 튜토리얼 완료 **/
     Tuto_Complete

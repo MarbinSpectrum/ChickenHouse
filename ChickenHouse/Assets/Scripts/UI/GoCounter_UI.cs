@@ -11,7 +11,6 @@ public class GoCounter_UI : Mgr
     [SerializeField] private TableDrinkSlot     tableDrinkSlot;
     [SerializeField] private TablePickleSlot    tablePickleSlot;
     [SerializeField] private Transform followTrans;
-    [SerializeField] private TutoObj tutoObj;
 
     private RectTransform   rect        = null;
 
@@ -43,33 +42,21 @@ public class GoCounter_UI : Mgr
 
     private void GoCounter()
     {
-        if(tutoMgr.tutoComplete == false)
-        {
-            tutoObj.CloseTuto();
-        }
-
         //카운터로 화면 전환
         if (canUse == false)
             return;
+
+        if (tutoMgr.tutoComplete == false)
+            return;
+
+        soundMgr.PlaySE(Sound.NewOrder_SE);
 
         CloseBtn();
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
         GuestMgr guestMgr = GuestMgr.Instance;
         kitchenMgr.cameraObj.ChangeLook(LookArea.Counter, () =>
         {
-            //Drink drink = tableDrinkSlot.hasDrink ? Drink.Cola : Drink.None;
-            //SideMenu sideMenu = tablePickleSlot.hasPickle ? SideMenu.None : SideMenu.None;
-            //ChickenSpicy spicy0 = (ChickenSpicy)Mathf.Min((int)tableChicken.source0, (int)tableChicken.source1);
-            //ChickenSpicy spicy1 = (ChickenSpicy)Mathf.Max((int)tableChicken.source0, (int)tableChicken.source1);
-            //GuestMgr guestMgr = GuestMgr.Instance;
-            //guestMgr.GiveChicken(spicy0, spicy1, tableChicken.chickenState,
-            //  drink, sideMenu);
-
-            //tableChicken.Init();
-            //tableDrinkSlot.Init();
-            //tablePickleSlot.Init();
-            //kitchenMgr.ui.memo.RemoveMemo();
-            guestMgr.ui.goKitchen.OpenBtn();
+            //guestMgr.ui.goKitchen.OpenBtn();
         });
 
 

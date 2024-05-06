@@ -91,7 +91,7 @@ public class Dog : GuestObj
 
         soundMgr.PlayLoopSE(Sound.Voice0_SE);
         animator.SetTrigger("Talk");
-        talkBox.ShowText(talkStr, TalkBoxType.Normal, () =>
+        talkBox.ShowText(talkStr, TalkBoxType.Thank, () =>
         {
             soundMgr.StopLoopSE(Sound.Voice0_SE);
             animator.SetTrigger("TalkEnd");

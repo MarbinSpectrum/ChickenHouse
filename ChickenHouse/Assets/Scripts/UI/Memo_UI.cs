@@ -12,10 +12,19 @@ public class Memo_UI : Mgr
     [SerializeField] private Image              deep;
     [SerializeField] private CanvasGroup        memoObjs;
 
-    private List<string> memoStr = new List<string>();
-    private List<Sprite> guestSprite = new List<Sprite>();
+    public const float MAX_TIME = 80;
+
+    private List<GuestObj> guestObjs    = new List<GuestObj>();
+    private List<string> memoStr        = new List<string>();
+    private List<Sprite> guestSprite    = new List<Sprite>();
+    private List<float> timeValue       = new List<float>();
+
     [SerializeField] private List<RectTransform> btns;
     [SerializeField] private List<Image> face;
+    [SerializeField] private List<Image> gauge;
+    [SerializeField] private Color badColor;
+    [SerializeField] private Color goodColor;
+
     private void Start()
     {
         UpdateMemoBtns();
@@ -37,19 +46,72 @@ public class Memo_UI : Mgr
         }
     }
 
-
-    public void AddMemo(string str,Sprite guestFace)
+    private void Update()
     {
+        KitchenMgr kitchenMgr = KitchenMgr.Instance;
+        if (kitchenMgr == null)
+            return;
+
+        for (int i = 0; i < timeValue.Count; i++)
+        {
+            if (kitchenMgr.cameraObj.lookArea == LookArea.Kitchen && tutoMgr.tutoComplete)
+                timeValue[i] -= Time.deltaTime;
+
+            if (timeValue[i] > 0)
+            {
+                timeValue[i] = Mathf.Max(0, timeValue[i]);
+
+                float lerpValue = timeValue[i] / MAX_TIME;
+                Color colorValue = goodColor;
+                const float goodColorValue = 0.8f;
+                const float badColorValue = 0.2f;
+                if (lerpValue > goodColorValue)
+                    colorValue = goodColor;
+                else if (lerpValue < badColorValue)
+                    colorValue = badColor;
+                else
+                {
+                    float tempValue = lerpValue - badColorValue;
+                    tempValue /= (goodColorValue - badColorValue);
+                    colorValue = Color.Lerp(badColor, goodColor, tempValue);
+                }
+                gauge[i].fillAmount = lerpValue;
+                gauge[i].color = colorValue;
+            }
+            else
+            {
+                GuestMgr guestMgr = GuestMgr.Instance;
+                guestMgr.LeaveGuest(i);
+                RemoveMemo(i);
+                return;
+            }
+        }
+    }
+
+    public void AddMemo(string str,Sprite guestFace, float waitTime,GuestObj pGuestObj)
+    {
+        timeValue.Add(waitTime);
         guestSprite.Add(guestFace);
         memoStr.Add(str);
+        guestObjs.Add(pGuestObj);
         UpdateMemoBtns();
     }
 
-    public void RemoveMemo()
+    public void RemoveMemo(int idx)
     {
-        memoStr.RemoveAt(0);
-        guestSprite.RemoveAt(0);
+        timeValue.RemoveAt(idx);
+        memoStr.RemoveAt(idx);
+        guestSprite.RemoveAt(idx);
+        guestObjs.RemoveAt(idx);
         UpdateMemoBtns();
+    }
+
+    public bool HasGuestMemo(GuestObj pGuestObj)
+    {
+        foreach (GuestObj obj in guestObjs)
+            if (pGuestObj == obj)
+                return true;
+        return false;
     }
 
     public void UpdateMemoBtns()
@@ -80,6 +142,9 @@ public class Memo_UI : Mgr
 
     public void OpenMemo(int num)
     {
+        if (tutoMgr.tutoComplete == false)
+            return;
+
         //인스펙터에서 끌어서 사용하는 함수임
         //메모지를 확대함
         animator.Play("Open");

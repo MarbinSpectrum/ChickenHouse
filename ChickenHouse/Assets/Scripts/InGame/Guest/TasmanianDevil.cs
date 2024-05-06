@@ -92,7 +92,7 @@ public class TasmanianDevil: GuestObj
 
         soundMgr.PlayLoopSE(Sound.Voice6_SE);
         animator.SetTrigger("Talk");
-        talkBox.ShowText(talkStr, TalkBoxType.Normal, () =>
+        talkBox.ShowText(talkStr, TalkBoxType.Thank, () =>
         {
             soundMgr.StopLoopSE(Sound.Voice6_SE);
             animator.SetTrigger("TalkEnd");

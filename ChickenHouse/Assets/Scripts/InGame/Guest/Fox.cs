@@ -82,7 +82,7 @@ public class Fox : GuestObj
 
         soundMgr.PlayLoopSE(Sound.Voice1_SE);
         animator.SetTrigger("Talk");
-        talkBox.ShowText(talkStr, TalkBoxType.Normal, () =>
+        talkBox.ShowText(talkStr, TalkBoxType.Thank, () =>
         {
             soundMgr.StopLoopSE(Sound.Voice1_SE);
             animator.SetTrigger("TalkEnd");

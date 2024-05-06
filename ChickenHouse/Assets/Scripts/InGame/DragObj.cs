@@ -142,6 +142,7 @@ public class DragObj : Mgr
                 }
                 return;
             case DragState.Chicken_Pack:
+            case DragState.Chicken_Pack_Holl:
                 {
                     //치킨 박스를 드래그한 상태
                     chickenBox.gameObject.SetActive(true);

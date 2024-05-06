@@ -43,6 +43,9 @@ public class TutoText : Mgr
             case Tutorial.Tuto_7:
                 LanguageMgr.SetString(text, "TUTO_7");
                 break;
+            case Tutorial.Tuto_8:
+                LanguageMgr.SetString(text, "TUTO_8");
+                break;
         }
         tutoObj.gameObject.SetActive(true);
     }

@@ -92,7 +92,7 @@ public class Lemur : GuestObj
 
         soundMgr.PlayLoopSE(Sound.Voice4_SE);
         animator.SetTrigger("Talk");
-        talkBox.ShowText(talkStr, TalkBoxType.Normal, () =>
+        talkBox.ShowText(talkStr, TalkBoxType.Thank, () =>
         {
             soundMgr.StopLoopSE(Sound.Voice4_SE);
             animator.SetTrigger("TalkEnd");

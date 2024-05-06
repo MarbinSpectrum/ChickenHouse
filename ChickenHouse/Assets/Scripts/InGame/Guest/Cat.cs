@@ -92,7 +92,7 @@ public class Cat : GuestObj
 
         soundMgr.PlayLoopSE(Sound.Voice2_SE);
         animator.SetTrigger("Talk");
-        talkBox.ShowText(talkStr, TalkBoxType.Normal, () =>
+        talkBox.ShowText(talkStr, TalkBoxType.Thank, () =>
         {
             soundMgr.StopLoopSE(Sound.Voice2_SE);
             animator.SetTrigger("TalkEnd");

@@ -148,13 +148,13 @@ public class Oil_Zone : Mgr
         if (kitchenMgr.mouseArea == DragArea.Trash_Btn)
         {
             //버리기 버튼처리
-            kitchenMgr.ui.takeOut.ChickenStrainter_TakeOut();
+            kitchenMgr.ui.takeOut.ChickenStrainter_TakeOut(this);
             return;
         }
         else if(kitchenMgr.mouseArea == DragArea.Chicken_Pack)
         {
             //치킨통에 치킨 넣기
-            if(kitchenMgr.chickenPack.PackCkicken(chickenCnt, chickenState))
+            if(kitchenMgr.chickenPack.PackCkicken(chickenCnt, chickenState,ChickenSpicy.None,ChickenSpicy.None))
             {
                 //치킨팩에 치킨 넣기
                 kitchenMgr.chickenPack.Set_ChickenShader(oilShader.Mode, oilShader.LerpValue);
@@ -179,7 +179,7 @@ public class Oil_Zone : Mgr
                 else
                 {
                     //치킨을 올려놓음 카운터로 이동은 가능
-                    kitchenMgr.ui.goCounter.OpenBtn();
+                    //kitchenMgr.ui.goCounter.OpenBtn();
                 }
 
                 return;
@@ -399,6 +399,11 @@ public class Oil_Zone : Mgr
             }
             soundMgr.PlayLoopSE(Sound.Oil_SE);
         }
+    }
+
+    private void Start()
+    {
+        Init();
     }
 
     public void Init()

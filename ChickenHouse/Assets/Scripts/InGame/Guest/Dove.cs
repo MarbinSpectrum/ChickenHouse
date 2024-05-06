@@ -92,7 +92,7 @@ public class Dove : GuestObj
 
         soundMgr.PlayLoopSE(Sound.Voice12_SE);
         animator.SetTrigger("Talk");
-        talkBox.ShowText(talkStr, TalkBoxType.Normal, () =>
+        talkBox.ShowText(talkStr, TalkBoxType.Thank, () =>
         {
             soundMgr.StopLoopSE(Sound.Voice12_SE);
             animator.SetTrigger("TalkEnd");

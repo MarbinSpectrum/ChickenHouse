@@ -76,6 +76,7 @@ public class GuestMgr : Mgr
         StartCoroutine(RunGuestCycle());
         StartCoroutine(EndCheck());
 
+        //ui.goKitchen.OpenBtn();
     }
 
     public IEnumerator RunGuestCycle()
@@ -206,6 +207,9 @@ public class GuestMgr : Mgr
                     }
                 }
 
+                if (guestList.Count == 0)
+                    continue;
+
                 //손님을 호출
                 int guestRandom = Random.Range(0, guestList.Count);
                 Guest nowGuest = guestList[guestRandom];
@@ -242,7 +246,7 @@ public class GuestMgr : Mgr
                 {
                     string talkStr = newGuest.GetTalkText();
                     Sprite guestFace = newGuest.GetGuestFace();
-                    kitchenMgr.ui.memo.AddMemo(talkStr, guestFace);
+                    kitchenMgr.ui.memo.AddMemo(talkStr, guestFace, Memo_UI.MAX_TIME, newGuest);
                     soundMgr.PlaySE(Sound.NewOrder_SE);
                 }
                 else
@@ -263,7 +267,7 @@ public class GuestMgr : Mgr
                 if (guestcnt == 1)
                 {
                     //첫손님 주문
-                    StartCoroutine(GuestOrder());
+                    StartCoroutine(GuestOrder(false));
                 }
 
                 break;
@@ -308,6 +312,33 @@ public class GuestMgr : Mgr
         guestPool[obj.guest].Enqueue(guestObj);
     }
 
+    public void LeaveGuest(int idx)
+    {
+        //손님떠남처리
+        if (waitGuest.Length <= idx)
+            return;
+        if (waitGuest[idx] == null)
+            return;
+
+        waitGuest[idx].LeaveGuest();
+        guestcnt--;
+        visitedGuest.Remove(waitGuest[idx].guest);
+
+        RemoveGuest(waitGuest[idx]);
+
+        waitGuest[idx] = null;
+        for (int i = idx; i < waitGuest.Length - 1; i++)
+        {
+            waitGuest[i] = waitGuest[i + 1];
+            waitGuest[i + 1] = null;
+            if (waitGuest[i] == null)
+                continue;
+            waitGuest[i].SetOrderSprite(guestPos[i].sortingOrder);
+        }
+
+        StartCoroutine(MoveGuest());
+    }
+
     public string GetTalkBoxStr() => guestObj.GetTalkText();
 
     public Sprite GetGuestFace() => guestObj.GetGuestFace();
@@ -328,7 +359,7 @@ public class GuestMgr : Mgr
         StartCoroutine(RunCor());
         IEnumerator RunCor()
         {
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(0.5f);
 
             //손님의 평가 진행
             GuestReviews result = guestObj.ChickenPoint(spicy0, spicy1, chickenState, pDrink, pSideMenu);
@@ -378,8 +409,6 @@ public class GuestMgr : Mgr
             //대화창 닫기
             CloseTalkBox();
 
-            yield return new WaitForSeconds(0.5f);
-
             if (tutoMgr.tutoComplete == false)
             {
                 //튜토리얼 완료
@@ -388,13 +417,7 @@ public class GuestMgr : Mgr
             }
 
             //손님떠남처리
-            guestObj.LeaveGuest();
-            guestcnt--;
-            visitedGuest.Remove(guestObj.guest);
-
-            yield return new WaitForSeconds(1f);
-
-            RemoveGuest(guestObj);
+            StartCoroutine(LeaveGueset(guestObj));
 
             vinylAni.gameObject.SetActive(false);
             nowOrder = false;
@@ -412,40 +435,69 @@ public class GuestMgr : Mgr
             //대기 손님 이동 애니메이션
             if (guestcnt > 0)
             {
-                moveGuest = true;
-                float lerpTime = 0;
-                while (lerpTime < 1)
+                KitchenMgr kitchenMgr = KitchenMgr.Instance;
+                bool alreadyOrder = kitchenMgr.ui.memo.HasGuestMemo(guestObj);
+
+                if (alreadyOrder)
                 {
-                    for (int i = 0; i < waitGuest.Length - 1; i++)
-                    {
-                        if (waitGuest[i] == null)
-                            continue;
-
-                        waitGuest[i].SetColor(Color.Lerp(guestPos[i + 1].color, guestPos[i].color, lerpTime));
-                        waitGuest[i].transform.position = Vector3.Lerp(guestPos[i + 1].transform.position, guestPos[i].transform.position, lerpTime);
-                        waitGuest[i].transform.localScale = Vector3.Lerp(guestPos[i + 1].transform.localScale, guestPos[i].transform.localScale, lerpTime);
-                    }
-
-                    lerpTime += Time.deltaTime;
-                    yield return null;
+                    StartCoroutine(MoveGuest());
+                    StartCoroutine(GuestOrder(alreadyOrder));
                 }
-
-                for (int i = 0; i < waitGuest.Length - 1; i++)
+                else
                 {
-                    if (waitGuest[i] == null)
-                        continue;
+                    //이동후 다음 손님 주문
+                    yield return StartCoroutine(MoveGuest());
+                    StartCoroutine(GuestOrder(alreadyOrder));
 
-                    waitGuest[i].SetColor(guestPos[i].color);
-                    waitGuest[i].transform.position = guestPos[i].transform.position;
-                    waitGuest[i].transform.localScale = guestPos[i].transform.localScale;
                 }
-
-                moveGuest = false;
-
-                //이동후 다음 손님 주문
-                StartCoroutine(GuestOrder());
             }
         }
+    }
+
+    private IEnumerator LeaveGueset(GuestObj pGuestObj)
+    {
+        pGuestObj.LeaveGuest();
+
+        yield return new WaitForSeconds(0.5f);
+
+        guestcnt--;
+        visitedGuest.Remove(pGuestObj.guest);
+
+        RemoveGuest(pGuestObj);
+    }
+
+    private IEnumerator MoveGuest()
+    {
+        moveGuest = true;
+
+        float lerpTime = 0;
+        while (lerpTime < 1)
+        {
+            for (int i = 0; i < waitGuest.Length - 1; i++)
+            {
+                if (waitGuest[i] == null)
+                    continue;
+
+                waitGuest[i].SetColor(Color.Lerp(guestPos[i + 1].color, guestPos[i].color, lerpTime));
+                waitGuest[i].transform.position = Vector3.Lerp(guestPos[i + 1].transform.position, guestPos[i].transform.position, lerpTime);
+                waitGuest[i].transform.localScale = Vector3.Lerp(guestPos[i + 1].transform.localScale, guestPos[i].transform.localScale, lerpTime);
+            }
+
+            lerpTime += Time.deltaTime;
+            yield return null;
+        }
+
+        for (int i = 0; i < waitGuest.Length - 1; i++)
+        {
+            if (waitGuest[i] == null)
+                continue;
+
+            waitGuest[i].SetColor(guestPos[i].color);
+            waitGuest[i].transform.position = guestPos[i].transform.position;
+            waitGuest[i].transform.localScale = guestPos[i].transform.localScale;
+        }
+
+        moveGuest = false;
     }
 
     public void AddMemoList()
@@ -454,12 +506,12 @@ public class GuestMgr : Mgr
         StartCoroutine(AddMemoCor());
         IEnumerator AddMemoCor()
         {
+            KitchenMgr kitchenMgr = KitchenMgr.Instance;
             for (int i = 0; i < guestOrderList.Count; i++)
             {
-                KitchenMgr kitchenMgr = KitchenMgr.Instance;
                 string talkStr = guestOrderList[i].GetTalkText();
                 Sprite guestFace = guestOrderList[i].GetGuestFace();
-                kitchenMgr.ui.memo.AddMemo(talkStr, guestFace);
+                kitchenMgr.ui.memo.AddMemo(talkStr, guestFace, Memo_UI.MAX_TIME, guestOrderList[i]);
                 soundMgr.PlaySE(Sound.NewOrder_SE);
                 yield return new WaitForSeconds(1f);
             }
@@ -467,18 +519,35 @@ public class GuestMgr : Mgr
         }
     }
 
-    private IEnumerator GuestOrder()
+    private IEnumerator GuestOrder(bool pAlreadyOrder)
     {
+        KitchenMgr kitchenMgr = KitchenMgr.Instance;
+
         if (nowOrder)
             yield break;
-        nowOrder = true;
-        yield return new WaitForSeconds(1f);
-
         if (guestObj == null)
             yield break;
-      
-        guestObj.TalkOrder();
-        ui.goKitchen.OpenBtn();
+
+        nowOrder = true;
+
+        if(pAlreadyOrder)
+        {
+            if (kitchenMgr.cameraObj.lookArea == LookArea.Counter)
+                ui.goKitchen.OpenBtn();
+        }
+        else
+        {
+            yield return new WaitForSeconds(1f);
+
+            if (guestObj == null)
+                yield break;
+
+            if (kitchenMgr.cameraObj.lookArea == LookArea.Counter)
+            {
+                guestObj.TalkOrder();
+                ui.goKitchen.OpenBtn();
+            }
+        }
     }
 
     private void SkipTalk()

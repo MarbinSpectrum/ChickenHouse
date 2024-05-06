@@ -83,7 +83,7 @@ public class TablePickleSlot : Mgr
             tutoObj.PlayTuto();
 
             KitchenMgr kitchenMgr = KitchenMgr.Instance;
-            kitchenMgr.ui.goCounter.OpenBtn();
+            //kitchenMgr.ui.goCounter.OpenBtn();
         }
 
         pickleImg.color = new Color(1, 1, 1, 1);

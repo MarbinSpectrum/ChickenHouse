@@ -84,7 +84,7 @@ public class TableDrinkSlot : Mgr
             tutoObj.PlayTuto();
 
             KitchenMgr kitchenMgr = KitchenMgr.Instance;
-            kitchenMgr.ui.goCounter.OpenBtn();
+            //kitchenMgr.ui.goCounter.OpenBtn();
         }
 
         drinkImg.color = new Color(1, 1, 1, 1);

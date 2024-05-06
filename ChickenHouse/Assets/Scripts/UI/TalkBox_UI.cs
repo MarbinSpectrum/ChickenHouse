@@ -10,6 +10,8 @@ public class TalkBox_UI : Mgr
     [SerializeField] private Color  normalColor;
     [SerializeField] private Sprite angryBox;
     [SerializeField] private Color  angryColor;
+    [SerializeField] private Sprite thankBox;
+    [SerializeField] private Color  thankColor;
     [SerializeField] private Sprite happyBox;
     [SerializeField] private Color  happyColor;
 
@@ -45,6 +47,13 @@ public class TalkBox_UI : Mgr
                     textUI.color = angryColor;
                 }
                 break;
+            case TalkBoxType.Thank:
+                {
+                    hearthImg.gameObject.SetActive(false);
+                    talkBox.sprite = thankBox;
+                    textUI.color = thankColor;
+                }
+                break;
             case TalkBoxType.Happy:
                 {
                     hearthImg.gameObject.SetActive(true);
@@ -78,8 +87,6 @@ public class TalkBox_UI : Mgr
 
             yield return new WaitForSeconds(delayTime);
         }
-
-        yield return new WaitForSeconds(1f);
 
         fun?.Invoke();
         GuestMgr.Instance.skipTalkBtn.gameObject.SetActive(false);

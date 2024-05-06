@@ -95,6 +95,9 @@ public class Shop_UI : Mgr
                     shopItemList.Add(ShopItem.OIL_Zone_2);
                     shopItemList.Add(ShopItem.OIL_Zone_3);
                     shopItemList.Add(ShopItem.OIL_Zone_4);
+                    shopItemList.Add(ShopItem.NEW_OIL_ZONE_1);
+                    shopItemList.Add(ShopItem.NEW_OIL_ZONE_2);
+                    shopItemList.Add(ShopItem.NEW_OIL_ZONE_3);
                 }
                 break;
             case ShopMenu.Advertise:
@@ -112,8 +115,6 @@ public class Shop_UI : Mgr
                     shopItemList.Add(ShopItem.Worker_2);
                     shopItemList.Add(ShopItem.Worker_3);
                     shopItemList.Add(ShopItem.Worker_4);
-                    shopItemList.Add(ShopItem.Worker_5);
-                    shopItemList.Add(ShopItem.Worker_6);
                 }
                 break;
         }

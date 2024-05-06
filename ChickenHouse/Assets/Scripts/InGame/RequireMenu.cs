@@ -6,29 +6,12 @@ public class RequireMenu
 {
     //손님이 원하는 메뉴에 대한 정보가 담긴 객체입니다.
 
-    /** 손님이 기다려주는 시간 값임 **/
-    private const int WAIT_TIME = 40;
-
-    /** 기본 메뉴 가중치 **/
-    private const int BASE_MENU_WEIGHT = 1000;
-    /** 매운맛 매니아 특성 보유시 메뉴 가중치 **/
-    private const int HOT_MANIA_MENU_WEIGHT = 5000;
-    /** 단맛 매니아 특성 보유시 메뉴 가중치 **/
-    private const int SWEET_MANIA_MENU_WEIGHT = 5000;
-
-    /** 반은 다른 맛 치킨을 시킬 확률 **/
-    private const int HALF_PER = 25;
-
     /** 피클을 요구할 확률 **/
-    private const int PICKLE_PER = 60;
+    private const int PICKLE_PER = 40;
 
     /** 콜라를 요구할 확률 **/
-    private const int COLA_PER = 60;
+    private const int COLA_PER = 40;
 
-    /** 해당 시간 전까지 메뉴가 나와야된다. **/
-    private float utilTime;
-    /** 원하는 치킨 갯수(0이면 아무 갯수나 상관없다) **/
-    private int chickenCnt;
     /** 원하는 치킨 소스 **/
     public ChickenSpicy[] chickenSpicy { get; private set; } = new ChickenSpicy[2];
     /** 콜라 필요 여부 **/
@@ -74,7 +57,7 @@ public class RequireMenu
             if (drink == Drink.None)
             {
                 int randomValue = Random.Range(0, 100);
-                if (randomValue > 90)
+                if (randomValue < COLA_PER)
                     drink = Drink.Cola;
             }
 
@@ -83,7 +66,7 @@ public class RequireMenu
             if (sideMenu == SideMenu.None)
             {
                 int randomValue = Random.Range(0, 100);
-                if (randomValue > 90)
+                if (randomValue < PICKLE_PER)
                     sideMenu = SideMenu.Pickle;
             }
 
