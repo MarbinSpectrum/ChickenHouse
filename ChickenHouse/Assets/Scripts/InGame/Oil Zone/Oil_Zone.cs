@@ -11,6 +11,7 @@ public class Oil_Zone : Mgr
 
     [SerializeField] private Image          selectImg;
     [SerializeField] private ScrollObj[]    scrollObj;
+    [SerializeField] private ChickenPackList chickenPackList;
 
     [System.Serializable]
     public struct OilMachine
@@ -51,6 +52,8 @@ public class Oil_Zone : Mgr
     private IEnumerator     cookCor;
 
     private ChickenStrainter chickenStrainter;
+
+    private float           chickenTime;
 
     public void OnMouseEnter()
     {
@@ -151,6 +154,14 @@ public class Oil_Zone : Mgr
             kitchenMgr.ui.takeOut.ChickenStrainter_TakeOut(this);
             return;
         }
+        else if(kitchenMgr.mouseArea == DragArea.Oil_Zone)
+        {
+            if (kitchenMgr.oilZone.ChangeOilZone(chickenCnt, chickenTime, gaugeTime))
+            {
+                Cook_Stop();
+                return;
+            }
+        }
         else if(kitchenMgr.mouseArea == DragArea.Chicken_Pack)
         {
             //치킨통에 치킨 넣기
@@ -163,13 +174,24 @@ public class Oil_Zone : Mgr
                 //요리 종료
                 Cook_Stop();
 
-                //치킨 건지를 사용을 끝냈으니 초기화
-                //if(chickenStrainter != null)
-                //{
-                //    chickenStrainter.Init();
-                //    chickenStrainter = null;
+                if (tutoMgr.tutoComplete == false && tutoMgr.nowTuto == Tutorial.Tuto_5_2)
+                {
+                    //튜토리얼에서는 카운터 이동버튼이 안나옴
+                    tutoObj2.PlayTuto();
+                }
+                else
+                {
+                    //치킨을 올려놓음 카운터로 이동은 가능
+                    //kitchenMgr.ui.goCounter.OpenBtn();
+                }
 
-                //}    
+                return;
+            }
+            else if(chickenPackList.AddChickenPack(chickenCnt, chickenState, ChickenSpicy.None, ChickenSpicy.None, 
+                oilShader.Mode, oilShader.LerpValue))
+            {
+                //요리 종료
+                Cook_Stop();
 
                 if (tutoMgr.tutoComplete == false && tutoMgr.nowTuto == Tutorial.Tuto_5_2)
                 {
@@ -263,16 +285,46 @@ public class Oil_Zone : Mgr
         }
 
         //조리처리 시작
-        cookCor = RunningCook();
+        cookCor = RunningCook(0, 0);
         StartCoroutine(cookCor);
 
         return true;
     }
 
-    private IEnumerator RunningCook()
+    public bool ChangeOilZone(int pChickenCnt, float pChickenTime, float pGaugeTime)
+    {
+        if (chickenState != ChickenState.NotCook)
+        {
+            //조리 시작전에만 요리시작이 가능
+            return false;
+        }
+
+        //요리 시작
+        selectImg.enabled = false;
+        Cook_Pause(false);
+
+        //넣은 치킨갯수 파악
+        chickenCnt = pChickenCnt;
+
+        runCookImg.ForEach((x) => x.enabled = true);
+
+        if (cookCor != null)
+        {
+            //실행중인 코루틴이 있을수도있으니까. 정지처리
+            StopCoroutine(cookCor);
+            cookCor = null;
+        }
+
+        //조리처리 시작
+        cookCor = RunningCook(pChickenTime, pGaugeTime);
+        StartCoroutine(cookCor);
+
+        return true;
+    }
+
+    private IEnumerator RunningCook(float pChickenTime, float pGaugeTime)
     {
         //조리처리용 코루틴
-
         float   speedRate   = GetCookSpeedRate();
         bool    notFire     = false;
 
@@ -286,23 +338,27 @@ public class Oil_Zone : Mgr
         //------------------------------------------------------------------
         //조리 시작부
         animator.speed = speedRate;
-        animator.SetTrigger("Cook");
         chickenState = ChickenState.BadChicken_0;
 
         //------------------------------------------------------------------
-        //20초 경과 조리완료부
-        float tTime = 0;
-        gaugeTime = 0;
-        while (tTime < COOK_TIME_0 / speedRate)
+        //조리완료부
+        chickenTime = pChickenTime;
+        animator.Play("Oil_Zone_Good", 0, 0);
+        gaugeTime = pGaugeTime;
+        while (chickenTime < (COOK_TIME_0 / speedRate))
         {
             yield return null;
             if(pauseCook == false)
             {
                 //일시정지가 아님
-                tTime += Time.deltaTime;
+                chickenTime += Time.deltaTime;
                 gaugeTime += Time.deltaTime;
+
+                float lerpValue = chickenTime / (COOK_TIME_0 / speedRate);
+                animator.Play("Oil_Zone_Good", 0, lerpValue);
             }
         }
+        animator.Play("Oil_Zone_Good", 0, 1);
         chickenState = ChickenState.GoodChicken;
 
         if (tutoMgr.tutoComplete == false && tutoMgr.nowTuto == Tutorial.Tuto_4)
@@ -321,35 +377,39 @@ public class Oil_Zone : Mgr
         }
 
         animator.speed = 1;
+
         //------------------------------------------------------------------
-        //5초 경과 타기 시작하는 부분
-        tTime = 0;
+        //타기 시작하는 부분
+
         gaugeTime = COOK_TIME_0;
-        while (tTime < COOK_TIME_1)
+        while (chickenTime < (COOK_TIME_0 / speedRate) + COOK_TIME_1)
         {
             yield return null;
             if (pauseCook == false)
             {
                 //일시정지가 아님
-                tTime += Time.deltaTime;
+                chickenTime += Time.deltaTime;
             }
         }
 
-        animator.SetTrigger("Fire");
         chickenState = ChickenState.BadChicken_1;
 
         //------------------------------------------------------------------
         //4.5초 경과 타기 쓰레기 치킨이 되는 부분
-        tTime = 0;
-        while (tTime < COOK_TIME_2)
+        animator.Play("Oil_Zone_Bad", 0, 0);
+        while (chickenTime < (COOK_TIME_0 / speedRate) + COOK_TIME_1 + COOK_TIME_2)
         {
             yield return null;
             if (pauseCook == false)
             {
                 //일시정지가 아님
-                tTime += Time.deltaTime;
+                chickenTime += Time.deltaTime;
+                float lerpValue = (chickenTime - (COOK_TIME_0 / speedRate) - COOK_TIME_1) / COOK_TIME_2;
+                animator.Play("Oil_Zone_Bad", 0, lerpValue);
             }
         }
+
+        animator.Play("Oil_Zone_Bad", 0, 1);
         chickenState = ChickenState.BadChicken_2;
     }
 
@@ -357,6 +417,7 @@ public class Oil_Zone : Mgr
     {
         //요리 종료
         gaugeTime = 0;
+        chickenTime = 0;
         runCookImg.ForEach((x) => x.enabled = false);
 
         if (cookCor != null)
@@ -399,11 +460,6 @@ public class Oil_Zone : Mgr
             }
             soundMgr.PlayLoopSE(Sound.Oil_SE);
         }
-    }
-
-    private void Start()
-    {
-        Init();
     }
 
     public void Init()

@@ -7627,6 +7627,7 @@ MonoBehaviour:
   slotUI: {fileID: 903092158}
   scrollObj:
   - {fileID: 1913750704}
+  chickenPackList: {fileID: 1624209306}
 --- !u!114 &303450397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13292,41 +13293,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: -20}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!21 &551892666
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Lerp UI(Clone)
-  m_Shader: {fileID: 4800000, guid: 146d6628858cde048b0359eac77ff63a, type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 11b831fd27497454a8ba64e08127212f, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SubTex:
-        m_Texture: {fileID: 2800000, guid: 310c1a12045eb7f41bfb8d86c0847daa, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - PixelSnap: 0
-    - _LerpValue: 0
-    m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-  m_BuildTextureStacks: []
 --- !u!1 &552482009
 GameObject:
   m_ObjectHideFlags: 0
@@ -15195,6 +15161,41 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scroll: {fileID: 2092061959}
   isRun: 1
+--- !u!21 &633117203
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Lerp UI(Clone)
+  m_Shader: {fileID: 4800000, guid: 146d6628858cde048b0359eac77ff63a, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 11b831fd27497454a8ba64e08127212f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SubTex:
+        m_Texture: {fileID: 2800000, guid: 310c1a12045eb7f41bfb8d86c0847daa, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - PixelSnap: 0
+    - _LerpValue: 0
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []
 --- !u!1 &634198549
 GameObject:
   m_ObjectHideFlags: 0
@@ -16459,7 +16460,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 678274978}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3b916d7fbda637c448f2b3a2e3d06ded, type: 3}
   m_Name: 
@@ -17003,7 +17004,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &689403324
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17021,10 +17022,10 @@ RectTransform:
   m_Father: {fileID: 1624209304}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 55.75, y: -52.5}
-  m_SizeDelta: {x: 11.5, y: 5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &689403325
 MonoBehaviour:
@@ -20796,6 +20797,7 @@ MonoBehaviour:
   scrollObj:
   - {fileID: 1090145643}
   - {fileID: 579265528}
+  chickenPackList: {fileID: 1624209306}
   oilMahcine:
     machine0: {fileID: 1103141101}
     machine1: {fileID: 1469762796}
@@ -28611,6 +28613,7 @@ MonoBehaviour:
   scrollObj:
   - {fileID: 352948346}
   - {fileID: 967153205}
+  chickenPackList: {fileID: 1624209306}
   oilMahcine:
     machine0: {fileID: 676163244}
     machine1: {fileID: 2014943693}
@@ -32780,6 +32783,7 @@ MonoBehaviour:
   scrollObj:
   - {fileID: 124102144}
   - {fileID: 1486344790}
+  chickenPackList: {fileID: 1624209306}
   oilMahcine:
     machine0: {fileID: 1908722433}
     machine1: {fileID: 1507059915}
@@ -33168,7 +33172,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1328905349
 RectTransform:
   m_ObjectHideFlags: 0
@@ -33186,10 +33190,10 @@ RectTransform:
   m_Father: {fileID: 1624209304}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 44.25, y: -52.5}
-  m_SizeDelta: {x: 11.5, y: 5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1328905350
 MonoBehaviour:
@@ -35574,7 +35578,7 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  speed: 25
+  speed: 50
   dragDis: 250
 --- !u!1 &1406118936
 GameObject:
@@ -41968,6 +41972,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1624209304}
   - component: {fileID: 1624209305}
+  - component: {fileID: 1624209306}
   m_Layer: 5
   m_Name: Packs
   m_TagString: Untagged
@@ -41997,7 +42002,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 1.3, y: 6.55}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 27, y: 27}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1624209305
 MonoBehaviour:
@@ -42023,6 +42028,32 @@ MonoBehaviour:
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 2
   m_ConstraintCount: 2
+--- !u!114 &1624209306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1624209303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0608a3a869c415741a21c56ece40027b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  chickenPacks:
+  - {fileID: 1040306958}
+  - {fileID: 1739391961}
+  - {fileID: 1328905350}
+  - {fileID: 689403325}
 --- !u!1 &1625309278
 GameObject:
   m_ObjectHideFlags: 0
@@ -44987,6 +45018,7 @@ MonoBehaviour:
   scrollObj:
   - {fileID: 12957682}
   - {fileID: 1813709662}
+  chickenPackList: {fileID: 1624209306}
   oilMahcine:
     machine0: {fileID: 2033418036}
     machine1: {fileID: 707249637}
@@ -45474,7 +45506,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1739391960
 RectTransform:
   m_ObjectHideFlags: 0
@@ -45492,10 +45524,10 @@ RectTransform:
   m_Father: {fileID: 1624209304}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 55.75, y: -47.5}
-  m_SizeDelta: {x: 11.5, y: 5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1739391961
 MonoBehaviour:
@@ -50196,6 +50228,7 @@ GameObject:
   - component: {fileID: 1932926514}
   - component: {fileID: 1932926516}
   - component: {fileID: 1932926515}
+  - component: {fileID: 1932926517}
   m_Layer: 5
   m_Name: Dont Drag
   m_TagString: Untagged
@@ -50261,6 +50294,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1932926513}
   m_CullTransparentMesh: 1
+--- !u!114 &1932926517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1932926513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates: []
 --- !u!1 &1934342807
 GameObject:
   m_ObjectHideFlags: 0
@@ -51789,7 +51835,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 551892666}
+  m_Material: {fileID: 633117203}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}

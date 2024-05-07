@@ -79,7 +79,7 @@ public class ChickenPack : Mgr
             //치킨 소스 사용 가능
             body.sprite = sprite.canUseSprite;
         }
-        if (kitchenMgr.dragState == DragState.Chicken_Pack_Holl && chickenCnt <= 0)
+        else if (kitchenMgr.dragState == DragState.Chicken_Pack_Holl && chickenCnt <= 0)
         {
             //치킨이 포장되어있지 않음
             //해당 용기를 사용 가능하다.
@@ -191,7 +191,7 @@ public class ChickenPack : Mgr
         obj.gameObject.SetActive(true);
     }
 
-    public bool PackCkicken(int pChickenCnt, ChickenState pChickenState,ChickenSpicy spicy0, ChickenSpicy spicy1)
+    public bool PackCkicken(int pChickenCnt, ChickenState pChickenState, ChickenSpicy spicy0, ChickenSpicy spicy1)
     {
         if (chickenCnt > 0)
         {

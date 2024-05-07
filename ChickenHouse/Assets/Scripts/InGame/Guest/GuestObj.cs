@@ -83,6 +83,12 @@ public abstract class GuestObj : Mgr
         });
     }
 
+    public virtual void WaitGuest()
+    {
+        talkBox.ShowWaitTalkBox();
+    }
+
+
     public GuestReviews ChickenPoint(ChickenSpicy spicy0, ChickenSpicy spicy1, ChickenState chickenState,
         Drink pDrink, SideMenu pSideMenue)
     {

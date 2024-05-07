@@ -15,4 +15,4 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 3907f98ecc525df4189717bf415cf3e4, type: 3}
   nameKey: WORKER_LV4_NAME
   infoKey: WORKER_LV4_INFO
-  money: 5000
+  money: 16000

@@ -76,6 +76,7 @@ public class GuestMgr : Mgr
         StartCoroutine(RunGuestCycle());
         StartCoroutine(EndCheck());
 
+        ui.timer.RunTimer();
         //ui.goKitchen.OpenBtn();
     }
 
@@ -121,13 +122,13 @@ public class GuestMgr : Mgr
                 if (gameMgr.playData.hasItem[(int)ShopItem.Advertisement_5])
                     upgradeRate -= 0.05f;
                 if (gameMgr.playData.hasItem[(int)ShopItem.Advertisement_4])
-                    upgradeRate -= 0.1f;
+                    upgradeRate -= 0.07f;
                 if (gameMgr.playData.hasItem[(int)ShopItem.Advertisement_3])
-                    upgradeRate -= 0.15f;
+                    upgradeRate -= 0.1f;
                 if (gameMgr.playData.hasItem[(int)ShopItem.Advertisement_2])
-                    upgradeRate -= 0.2f;
+                    upgradeRate -= 0.15f;
                 if (gameMgr.playData.hasItem[(int)ShopItem.Advertisement_1])
-                    upgradeRate -= 0.3f;
+                    upgradeRate -= 0.2f;
 
                 delayValue = GUEST_DELAY_TIME * upgradeRate;
 
@@ -218,6 +219,7 @@ public class GuestMgr : Mgr
                     //튜토리얼에서는 고정으로 여우가 나옴
                     nowGuest = Guest.Fox;
                 }
+
                 visitedGuest.Add(nowGuest);
 
                 for (Guest guest = Guest.Fox; guest < Guest.MAX; guest++)
@@ -226,6 +228,13 @@ public class GuestMgr : Mgr
 
                 //손님생성
                 GuestObj newGuest = GetGuestObj(nowGuest);
+
+                if(newGuest.guest != nowGuest)
+                {
+                    Debug.LogError("Result : " + nowGuest);
+                    Debug.LogError("Result : " + newGuest.guest);
+                }
+
                 float orderTime = ui.timer.time;
                 if (newGuest.CreateMenu(orderTime) == false)
                 {
@@ -309,7 +318,7 @@ public class GuestMgr : Mgr
             guestPool[obj.guest] = new Queue<GuestObj>();
         }
         obj.gameObject.SetActive(false);
-        guestPool[obj.guest].Enqueue(guestObj);
+        guestPool[obj.guest].Enqueue(obj);
     }
 
     public void LeaveGuest(int idx)
@@ -320,10 +329,10 @@ public class GuestMgr : Mgr
         if (waitGuest[idx] == null)
             return;
 
+        Debug.LogError("Remove : " + waitGuest[idx].guest);
         waitGuest[idx].LeaveGuest();
         guestcnt--;
         visitedGuest.Remove(waitGuest[idx].guest);
-
         RemoveGuest(waitGuest[idx]);
 
         waitGuest[idx] = null;
@@ -432,10 +441,11 @@ public class GuestMgr : Mgr
                 waitGuest[i].SetOrderSprite(guestPos[i].sortingOrder);
             }
 
+            KitchenMgr kitchenMgr = KitchenMgr.Instance;
+
             //대기 손님 이동 애니메이션
             if (guestcnt > 0)
             {
-                KitchenMgr kitchenMgr = KitchenMgr.Instance;
                 bool alreadyOrder = kitchenMgr.ui.memo.HasGuestMemo(guestObj);
 
                 if (alreadyOrder)
@@ -451,18 +461,23 @@ public class GuestMgr : Mgr
 
                 }
             }
+            else
+            {
+                if (kitchenMgr.cameraObj.lookArea == LookArea.Counter)
+                    ui.goKitchen.OpenBtn();
+            }
         }
     }
 
     private IEnumerator LeaveGueset(GuestObj pGuestObj)
     {
         pGuestObj.LeaveGuest();
-
-        yield return new WaitForSeconds(0.5f);
-
         guestcnt--;
-        visitedGuest.Remove(pGuestObj.guest);
 
+        yield return new WaitForSeconds(2f);
+
+        //Debug.LogError("Remove : " + pGuestObj.guest);
+        visitedGuest.Remove(pGuestObj.guest);
         RemoveGuest(pGuestObj);
     }
 
@@ -534,6 +549,9 @@ public class GuestMgr : Mgr
         {
             if (kitchenMgr.cameraObj.lookArea == LookArea.Counter)
                 ui.goKitchen.OpenBtn();
+
+            yield return new WaitForSeconds(1f);
+            guestObj.WaitGuest();
         }
         else
         {

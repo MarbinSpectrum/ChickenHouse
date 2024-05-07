@@ -15,11 +15,14 @@ public class Timer_UI : Mgr
     [SerializeField] private TextMeshProUGUI    timeText;
     public float time = 0;
 
+    private bool run = false;
+
     private void Update()
     {
-        time += Time.deltaTime;
+        if (run)
+            time += Time.deltaTime;
 
-        if(tutoMgr.tutoComplete == false)
+        if (tutoMgr.tutoComplete == false)
         {
             //튜토리얼 완료를 아직 못해서 시간은 안간다.
             time = 0;
@@ -49,6 +52,11 @@ public class Timer_UI : Mgr
             time = MAX_TIME;
         }
 #endif
+    }
+
+    public void RunTimer()
+    {
+        run = true;
     }
 
     public void SetTime(float nowTime, float maxTime)

@@ -19,6 +19,8 @@ public class TalkBox_UI : Mgr
     [SerializeField] private TextMeshProUGUI    textUI;
     [SerializeField] private GameObject         obj;
     [SerializeField] private Image              hearthImg;
+    [SerializeField] private RectTransform      waitTalkBox;
+
     private IEnumerator cor;
     private NoParaDel fun;
 
@@ -29,6 +31,7 @@ public class TalkBox_UI : Mgr
         GuestMgr.Instance.skipTalkBtn.gameObject.SetActive(true);
 
         talkStr = pStr;
+        waitTalkBox.gameObject.SetActive(false);
         obj.gameObject.SetActive(true);
 
         switch(pTalkBoxType)
@@ -107,7 +110,14 @@ public class TalkBox_UI : Mgr
     public void CloseTalkBox()
     {
         obj.gameObject.SetActive(false);
+        waitTalkBox.gameObject.SetActive(false);
         GuestMgr.Instance.skipTalkBtn.gameObject.SetActive(false);
+    }
+
+    public void ShowWaitTalkBox()
+    {
+        obj.gameObject.SetActive(false);
+        waitTalkBox.gameObject.SetActive(true);
     }
 
 }

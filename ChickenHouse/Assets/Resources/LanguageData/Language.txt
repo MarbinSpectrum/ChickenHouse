@@ -187,10 +187,10 @@ ADVERTISEMENT_LV3_NAME	인터넷 광고	인터넷 광고
 ADVERTISEMENT_LV4_NAME	TV 광고	TV 광고
 ADVERTISEMENT_LV5_NAME	지하철 광고	지하철 광고
 ADVERTISEMENT_LV1_INFO	확성기 광고를 합니다.\n(손님 방문 딜레이 -5%)	확성기 광고를 합니다.\n(손님 방문 딜레이 -5%)
-ADVERTISEMENT_LV2_INFO	전단지 광고를 합니다.\n(손님 방문 딜레이 -10%)	전단지 광고를 합니다.\n(손님 방문 딜레이 -10%)
-ADVERTISEMENT_LV3_INFO	인터넷 광고를 합니다.\n(손님 방문 딜레이 -15%)	인터넷 광고를 합니다.\n(손님 방문 딜레이 -15%)
-ADVERTISEMENT_LV4_INFO	TV 광고를 합니다.\n(손님 방문 딜레이 -20%)	TV 광고를 합니다.\n(손님 방문 딜레이 -20%)
-ADVERTISEMENT_LV5_INFO	지하철 광고를 합니다.\n(손님 방문 딜레이 -30%)	지하철 광고를 합니다.\n(손님 방문 딜레이 -30%)
+ADVERTISEMENT_LV2_INFO	전단지 광고를 합니다.\n(손님 방문 딜레이 -7%)	전단지 광고를 합니다.\n(손님 방문 딜레이 -7%)
+ADVERTISEMENT_LV3_INFO	인터넷 광고를 합니다.\n(손님 방문 딜레이 -10%)	인터넷 광고를 합니다.\n(손님 방문 딜레이 -10%)
+ADVERTISEMENT_LV4_INFO	TV 광고를 합니다.\n(손님 방문 딜레이 -15%)	TV 광고를 합니다.\n(손님 방문 딜레이 -15%)
+ADVERTISEMENT_LV5_INFO	지하철 광고를 합니다.\n(손님 방문 딜레이 -20%)	지하철 광고를 합니다.\n(손님 방문 딜레이 -20%)
 WORKER_LV1_NAME	찰스	찰스
 WORKER_LV2_NAME	니치	니치
 WORKER_LV3_NAME	미스 플라워	미스 플라워

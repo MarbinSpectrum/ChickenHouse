@@ -46,7 +46,7 @@ public class TableChickenSlot : Mgr
     [SerializeField] private CanvasGroup    boxImg;
     [SerializeField] private GameObject     slotUI;
     [SerializeField] private ScrollObj[]    scrollObj;
-
+    [SerializeField] private ChickenPackList chickenPackList;
     public void OnMouseEnter()
     {
         if (hasChicken)
@@ -144,6 +144,11 @@ public class TableChickenSlot : Mgr
             if (kitchenMgr.chickenPack.PackCkicken(4, chickenState,source0, source1))
             {
                 kitchenMgr.chickenPack.Set_ChickenShader(chickenMode, chickenLerpValue);
+                Init();
+                return;
+            }
+            else if (chickenPackList.AddChickenPack(4, chickenState, source0, source1, chickenMode, chickenLerpValue))
+            {
                 Init();
                 return;
             }

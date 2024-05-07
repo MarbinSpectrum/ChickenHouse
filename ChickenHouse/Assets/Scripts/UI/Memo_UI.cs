@@ -142,9 +142,6 @@ public class Memo_UI : Mgr
 
     public void OpenMemo(int num)
     {
-        if (tutoMgr.tutoComplete == false)
-            return;
-
         //인스펙터에서 끌어서 사용하는 함수임
         //메모지를 확대함
         animator.Play("Open");

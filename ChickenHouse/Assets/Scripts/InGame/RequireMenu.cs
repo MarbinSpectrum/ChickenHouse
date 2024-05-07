@@ -29,8 +29,11 @@ public class RequireMenu
             GuestMenu guestMenu = pGuestData.goodChicken[menuIdx];
 
             //치킨 맛 결정
-            chickenSpicy[0] = guestMenu.spicy0;
-            chickenSpicy[1] = guestMenu.spicy1;
+            ChickenSpicy spicy0 = (ChickenSpicy)Mathf.Min((int)guestMenu.spicy0, (int)guestMenu.spicy1);
+            ChickenSpicy spicy1 = (ChickenSpicy)Mathf.Max((int)guestMenu.spicy0, (int)guestMenu.spicy1);
+            chickenSpicy[0] = spicy0;
+            chickenSpicy[1] = spicy1;
+
             drink = Drink.Cola;
             sideMenu = SideMenu.Pickle;
             return true;
@@ -49,8 +52,10 @@ public class RequireMenu
             GuestMenu guestMenu = pGuestData.goodChicken[menuIdx];
 
             //치킨 맛 결정
-            chickenSpicy[0] = guestMenu.spicy0;
-            chickenSpicy[1] = guestMenu.spicy1;
+            ChickenSpicy spicy0 = (ChickenSpicy)Mathf.Min((int)guestMenu.spicy0, (int)guestMenu.spicy1);
+            ChickenSpicy spicy1 = (ChickenSpicy)Mathf.Max((int)guestMenu.spicy0, (int)guestMenu.spicy1);
+            chickenSpicy[0] = spicy0;
+            chickenSpicy[1] = spicy1;
 
             //고정 음료가 없으면 랜덤하게 정한다.
             drink = guestMenu.drink;
@@ -176,12 +181,6 @@ public class RequireMenu
     {
         GameMgr gameMgr = GameMgr.Instance;
 
-        if (pChickenState == ChickenState.BadChicken_0 || 
-            pChickenState == ChickenState.BadChicken_1 || 
-            pChickenState == ChickenState.BadChicken_2 || 
-            pChickenState == ChickenState.NotCook)
-            return GuestReviews.Bad;
-
         //손님이 생각한 치킨 점수
         int maxPoint = 2;
         if (drink != Drink.None)
@@ -207,7 +206,16 @@ public class RequireMenu
         if (sideMenu == pSideMenu && sideMenu != SideMenu.None)
             point += 1;
 
-        if(maxPoint == 4)
+        if (pChickenState == ChickenState.BadChicken_0)
+            point -= 2;
+        else if (pChickenState == ChickenState.BadChicken_1)
+            point -= 1;
+        else if (pChickenState == ChickenState.BadChicken_2)
+            point -= 2;
+        else if (pChickenState == ChickenState.NotCook)
+            point -= 2;
+
+        if (maxPoint == 4)
         {
             if(point == 4)
                 return GuestReviews.Happy;
