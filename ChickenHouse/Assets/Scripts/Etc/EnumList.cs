@@ -158,6 +158,7 @@ public enum Sound
     InGame_BG   = 100,
     Title_BG    = 101,
     Shop_BG     = 102,
+    Prologue_BG = 103,
 
     //-------------------------------------------------------------------------------
     /** 기름 튀기는 소리 **/
@@ -344,11 +345,14 @@ public enum Scene
     /** 타이틀 **/
     TITLE   = 1,
 
+    /** 프롤로그 **/
+    PROLOGUE = 2,
+
     /** 인게임 **/
-    INGAME  = 2,
+    INGAME  = 3,
 
     /** 상점 **/
-    SHOP    = 3,
+    SHOP    = 4,
 }
 
 public enum SceneChangeAni

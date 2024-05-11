@@ -13,6 +13,9 @@ public class Timer_UI : Mgr
     [SerializeField] private RectTransform      clockHand;
     [SerializeField] private TextMeshProUGUI    dayText;
     [SerializeField] private TextMeshProUGUI    timeText;
+
+    [SerializeField] private TextMeshProUGUI    dayTitle;
+
     public float time = 0;
 
     private bool run = false;
@@ -34,6 +37,7 @@ public class Timer_UI : Mgr
         {
             string daySr = string.Format(LanguageMgr.GetText("DAY"), gameMgr.playData.day);
             LanguageMgr.SetText(dayText, daySr);
+            LanguageMgr.SetText(dayTitle, daySr);
         }
 
         int addHour = (int)(time / 15f);

@@ -28,7 +28,7 @@ public class TalkBox_UI : Mgr
 
     public void ShowText(string pStr, TalkBoxType pTalkBoxType, NoParaDel pFun)
     {
-        GuestMgr.Instance.skipTalkBtn.gameObject.SetActive(true);
+        SetTalkBtnState(true);
 
         talkStr = pStr;
         waitTalkBox.gameObject.SetActive(false);
@@ -78,21 +78,50 @@ public class TalkBox_UI : Mgr
 
     private IEnumerator RunCor(float delayTime)
     {
-        for (int i = 1; i <= talkStr.Length; i++)
+        List<string> tempList = new List<string>();
+        int idx = 0;
+        string  tagString   = string.Empty;
+        bool    tagMode     = false;
+
+        while (idx < talkStr.Length)
         {
-            string front = talkStr.Substring(0, i);
-            string tail = talkStr.Substring(i, talkStr.Length - i);
+            if(tagMode)
+            {
+                tagString += talkStr[idx];
+                if (talkStr[idx] == '>')
+                {
+                    tempList.Add(tagString);
+                    tagString = string.Empty;
+                    tagMode = false;
+                }
+                idx++;
+            }
+            else
+            {
+                if (talkStr[idx] != '<')
+                {
+                    tempList.Add(talkStr[idx].ToString());
+                    idx++;
+                }
+                else
+                {
+                    tagMode = true;
+                }
+            }
+        }
 
-            tail = "<color=#FFFFFF00>" + tail + "</color>";
-            front += tail;
+        string tempString = string.Empty;
+        for (int i = 0; i < tempList.Count; i++)
+        {
+            tempString += tempList[i];
 
-            textUI.text = front;
+            textUI.text = tempString;
 
             yield return new WaitForSeconds(delayTime);
         }
 
         fun?.Invoke();
-        GuestMgr.Instance.skipTalkBtn.gameObject.SetActive(false);
+        SetTalkBtnState(false);
     }
 
     public void SkipTalk()
@@ -104,20 +133,28 @@ public class TalkBox_UI : Mgr
         }
         textUI.text = talkStr;
         fun?.Invoke();
-        GuestMgr.Instance.skipTalkBtn.gameObject.SetActive(false);
+        SetTalkBtnState(false);
     }
 
     public void CloseTalkBox()
     {
         obj.gameObject.SetActive(false);
         waitTalkBox.gameObject.SetActive(false);
-        GuestMgr.Instance.skipTalkBtn.gameObject.SetActive(false);
+        SetTalkBtnState(false);
     }
 
     public void ShowWaitTalkBox()
     {
         obj.gameObject.SetActive(false);
         waitTalkBox.gameObject.SetActive(true);
+    }
+
+    private void SetTalkBtnState(bool state)
+    {
+        Button btn = GuestMgr.Instance?.skipTalkBtn;
+        if (btn == null)
+            return;
+        btn.gameObject.SetActive(state);
     }
 
 }

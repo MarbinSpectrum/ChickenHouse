@@ -39,7 +39,7 @@ public class Title_UI : Mgr
     {
         gameMgr.DeleteData(0);
         gameMgr.selectSaveSlot = 0;
-        sceneMgr.SceneLoad(Scene.INGAME, SceneChangeAni.FADE);
+        sceneMgr.SceneLoad(Scene.PROLOGUE, SceneChangeAni.FADE);
     }
 
     private void LoadGame()

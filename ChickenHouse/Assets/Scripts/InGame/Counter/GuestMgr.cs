@@ -7,7 +7,7 @@ public class GuestMgr : Mgr
 {
     public static GuestMgr Instance;
 
-    private const float START_GUEST_WAIT    = 1.5f;
+    private const float START_GUEST_WAIT    = 3f;
     private const float GUEST_DELAY_TIME    = 30f;
     private const int   GUEST_MAX           = 6;
 

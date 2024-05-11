@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+
 
 public class StartGame : Mgr
 {
     [SerializeField] private List<Oil_Zone> oilMachines = new List<Oil_Zone>();
     [SerializeField] private List<GameObject> chickenPackslots = new List<GameObject>();
+
     private void Start()
     {
         gameMgr.LoadData();
