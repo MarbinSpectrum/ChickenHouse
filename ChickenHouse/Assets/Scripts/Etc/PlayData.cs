@@ -59,6 +59,21 @@ public class PlayData
         else if (useItem[(int)ShopItem.OIL_Zone_4])
             percent += 40;
 
+        ResumeData resumeData = GetNowWorkerData();
+        if (resumeData != null)
+        {
+            if (resumeData.skill.Contains(WorkerSkill.WorkerSkill_2))
+                percent += 20;
+        }
+        if (hasItem[(int)ShopItem.Advertisement_2])
+            percent += 10;
+        if (hasItem[(int)ShopItem.Advertisement_3])
+            percent += 10;
+        if (hasItem[(int)ShopItem.Advertisement_4])
+            percent += 10;
+        if (hasItem[(int)ShopItem.Advertisement_5])
+            percent += 10;
+
         int resultValue = (totalValue * percent) / 100;
 
         switch(review)
@@ -70,6 +85,7 @@ public class PlayData
             case GuestReviews.Happy:
                 return (int)(resultValue * 1.5f);
         }
+
 
         return resultValue;
     }

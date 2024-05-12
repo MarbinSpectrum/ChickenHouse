@@ -130,6 +130,13 @@ public class GuestMgr : Mgr
                 if (gameMgr.playData.hasItem[(int)ShopItem.Advertisement_1])
                     upgradeRate -= 0.2f;
 
+                ResumeData resumeData = gameMgr.playData.GetNowWorkerData();
+                if (resumeData != null)
+                {
+                    if (resumeData.skill.Contains(WorkerSkill.WorkerSkill_3))
+                        upgradeRate -= 0.07f;
+                }
+
                 delayValue = GUEST_DELAY_TIME * upgradeRate;
 
                 yield return new WaitForSeconds(delayValue);
@@ -229,12 +236,6 @@ public class GuestMgr : Mgr
                 //손님생성
                 GuestObj newGuest = GetGuestObj(nowGuest);
 
-                if(newGuest.guest != nowGuest)
-                {
-                    Debug.LogError("Result : " + nowGuest);
-                    Debug.LogError("Result : " + newGuest.guest);
-                }
-
                 float orderTime = ui.timer.time;
                 if (newGuest.CreateMenu(orderTime) == false)
                 {
@@ -329,7 +330,6 @@ public class GuestMgr : Mgr
         if (waitGuest[idx] == null)
             return;
 
-        Debug.LogError("Remove : " + waitGuest[idx].guest);
         waitGuest[idx].LeaveGuest();
         guestcnt--;
         visitedGuest.Remove(waitGuest[idx].guest);
@@ -476,7 +476,6 @@ public class GuestMgr : Mgr
 
         yield return new WaitForSeconds(2f);
 
-        //Debug.LogError("Remove : " + pGuestObj.guest);
         visitedGuest.Remove(pGuestObj.guest);
         RemoveGuest(pGuestObj);
     }
@@ -547,6 +546,8 @@ public class GuestMgr : Mgr
 
         if(pAlreadyOrder)
         {
+            //이미 주문을 완료한걸로 보임
+
             if (kitchenMgr.cameraObj.lookArea == LookArea.Counter)
                 ui.goKitchen.OpenBtn();
 
@@ -562,7 +563,7 @@ public class GuestMgr : Mgr
 
             if (kitchenMgr.cameraObj.lookArea == LookArea.Counter)
             {
-                guestObj.TalkOrder();
+                TalkOrder();
                 ui.goKitchen.OpenBtn();
             }
         }
@@ -573,5 +574,13 @@ public class GuestMgr : Mgr
         if (guestObj == null)
             return;
         guestObj.SkipTalk();
+    }
+
+    public void TalkOrder()
+    {
+        if (guestObj == null)
+            return;
+
+        guestObj.TalkOrder();
     }
 }

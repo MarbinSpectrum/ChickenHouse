@@ -15,6 +15,8 @@ public class GuestData : ScriptableObject
 [System.Serializable]
 public class GuestMenu
 {
+    public int openDay;
+
     /** 원하는 치킨 맛 **/
     public ChickenSpicy spicy0;
     public ChickenSpicy spicy1;
@@ -27,6 +29,10 @@ public class GuestMenu
     public bool CanMakeChicken()
     {
         PlayData playData = GameMgr.Instance.playData;
+
+        if (openDay > playData.day)
+            return false;
+
         if ((spicy0 == ChickenSpicy.Soy || spicy1 == ChickenSpicy.Soy) &&
             playData.hasItem[(int)ShopItem.Recipe_1] == false)
             return false;

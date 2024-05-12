@@ -38,7 +38,7 @@ public class Cola : Mgr
         //손을때면 음료가 떨어짐
         kitchenMgr.dragState = DragState.None;
 
-        if (kitchenMgr.mouseArea == DragArea.Drink_Slot)
+        if (kitchenMgr.mouseArea == DragArea.SideMenu_Slot)
         {
             //음료를 올려놓는다.
             if (kitchenMgr.drinkSlot.Put_Drink())

@@ -51,6 +51,118 @@ public class VirginiaOpossum : GuestObj
                 talkStr += LanguageMgr.GetText("OPOSSUM_SIDE_PICKLE");
             }
         }
+        else if (menuIdx == 3)
+        {
+            talkStr = LanguageMgr.GetText("OPOSSUM_ORDER_4");
+            if (requireMenu.drink == Drink.Cola)
+            {
+                talkStr += "\n";
+                talkStr += LanguageMgr.GetText("OPOSSUM_SIDE_COLA");
+            }
+            if (requireMenu.sideMenu == SideMenu.Pickle)
+            {
+                talkStr += "\n";
+                talkStr += LanguageMgr.GetText("OPOSSUM_SIDE_PICKLE");
+            }
+        }
+        else if (menuIdx == 4)
+        {
+            talkStr = LanguageMgr.GetText("OPOSSUM_ORDER_5");
+            if (requireMenu.drink == Drink.Cola)
+            {
+                talkStr += "\n";
+                talkStr += LanguageMgr.GetText("OPOSSUM_SIDE_COLA");
+            }
+            if (requireMenu.sideMenu == SideMenu.Pickle)
+            {
+                talkStr += "\n";
+                talkStr += LanguageMgr.GetText("OPOSSUM_SIDE_PICKLE");
+            }
+        }
+        else if (menuIdx == 5)
+        {
+            talkStr = LanguageMgr.GetText("OPOSSUM_ORDER_6");
+            if (requireMenu.drink == Drink.Cola)
+            {
+                talkStr += "\n";
+                talkStr += LanguageMgr.GetText("OPOSSUM_SIDE_COLA");
+            }
+            if (requireMenu.sideMenu == SideMenu.Pickle)
+            {
+                talkStr += "\n";
+                talkStr += LanguageMgr.GetText("OPOSSUM_SIDE_PICKLE");
+            }
+        }
+        else if (menuIdx == 6)
+        {
+            talkStr = LanguageMgr.GetText("OPOSSUM_ORDER_7");
+            if (requireMenu.drink == Drink.Cola)
+            {
+                talkStr += "\n";
+                talkStr += LanguageMgr.GetText("OPOSSUM_SIDE_COLA");
+            }
+            if (requireMenu.sideMenu == SideMenu.Pickle)
+            {
+                talkStr += "\n";
+                talkStr += LanguageMgr.GetText("OPOSSUM_SIDE_PICKLE");
+            }
+        }
+        else if (menuIdx == 7)
+        {
+            talkStr = LanguageMgr.GetText("OPOSSUM_ORDER_8");
+            if (requireMenu.drink == Drink.Cola)
+            {
+                talkStr += "\n";
+                talkStr += LanguageMgr.GetText("OPOSSUM_SIDE_COLA");
+            }
+            if (requireMenu.sideMenu == SideMenu.Pickle)
+            {
+                talkStr += "\n";
+                talkStr += LanguageMgr.GetText("OPOSSUM_SIDE_PICKLE");
+            }
+        }
+        else if (menuIdx == 8)
+        {
+            talkStr = LanguageMgr.GetText("OPOSSUM_ORDER_9");
+            if (requireMenu.drink == Drink.Cola)
+            {
+                talkStr += "\n";
+                talkStr += LanguageMgr.GetText("OPOSSUM_SIDE_COLA");
+            }
+            if (requireMenu.sideMenu == SideMenu.Pickle)
+            {
+                talkStr += "\n";
+                talkStr += LanguageMgr.GetText("OPOSSUM_SIDE_PICKLE");
+            }
+        }
+        else if (menuIdx == 9)
+        {
+            talkStr = LanguageMgr.GetText("OPOSSUM_ORDER_10");
+            if (requireMenu.drink == Drink.Cola)
+            {
+                talkStr += "\n";
+                talkStr += LanguageMgr.GetText("OPOSSUM_SIDE_COLA");
+            }
+            if (requireMenu.sideMenu == SideMenu.Pickle)
+            {
+                talkStr += "\n";
+                talkStr += LanguageMgr.GetText("OPOSSUM_SIDE_PICKLE");
+            }
+        }
+        else if (menuIdx == 10)
+        {
+            talkStr = LanguageMgr.GetText("OPOSSUM_ORDER_11");
+            if (requireMenu.drink == Drink.Cola)
+            {
+                talkStr += "\n";
+                talkStr += LanguageMgr.GetText("OPOSSUM_SIDE_COLA");
+            }
+            if (requireMenu.sideMenu == SideMenu.Pickle)
+            {
+                talkStr += "\n";
+                talkStr += LanguageMgr.GetText("OPOSSUM_SIDE_PICKLE");
+            }
+        }
     }
 
     public override void TalkOrder(NoParaDel fun = null)

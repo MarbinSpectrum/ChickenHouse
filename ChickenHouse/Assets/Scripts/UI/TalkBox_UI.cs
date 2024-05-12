@@ -157,4 +157,14 @@ public class TalkBox_UI : Mgr
         btn.gameObject.SetActive(state);
     }
 
+
+    public void ShowOrderTalk()
+    {
+        //인스펙터에 끌어서 사용하는 함수임
+        GuestMgr guestMgr = GuestMgr.Instance;
+        if (guestMgr == null)
+            return;
+        guestMgr.TalkOrder();
+        waitTalkBox.gameObject.SetActive(false);
+    }
 }

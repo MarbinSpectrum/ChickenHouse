@@ -38,7 +38,7 @@ public class ChickenRadish : Mgr
         //손을때면 치킨 무가 떨어짐
         kitchenMgr.dragState = DragState.None;
 
-        if (kitchenMgr.mouseArea == DragArea.Pickle_Slot)
+        if (kitchenMgr.mouseArea == DragArea.SideMenu_Slot)
         {
             //치킨 무를 올려놓는다.
             if (kitchenMgr.pickleSlot.Put_Pickle())

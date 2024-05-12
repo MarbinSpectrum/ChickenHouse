@@ -32,10 +32,8 @@ public enum DragArea
     Hot_Spicy           = 8,
     /** 치킨 슬롯 **/
     Chicken_Slot        = 9,
-    /** 치킨 무 슬롯 **/
-    Pickle_Slot         = 10,
-    /** 음료 슬롯 **/
-    Drink_Slot          = 11,
+    /** 사이드 메뉴 슬롯 **/
+    SideMenu_Slot         = 10,
 }
 
 public enum GuestReviews
@@ -230,10 +228,10 @@ public enum ShopItem
 
     /** 광고 업그레이드 **/
     Advertisement_1     = 301,      //광고 업그레이드(손님 딜레이 -10%);
-    Advertisement_2     = 302,      //광고 업그레이드(손님 딜레이 -20%);
-    Advertisement_3     = 303,      //광고 업그레이드(손님 딜레이 -30%);
-    Advertisement_4     = 304,      //광고 업그레이드(손님 딜레이 -40%);
-    Advertisement_5     = 305,      //광고 업그레이드(손님 딜레이 -50%);
+    Advertisement_2     = 302,      //광고 업그레이드(손님 딜레이 -20%,수익 +10%);
+    Advertisement_3     = 303,      //광고 업그레이드(손님 딜레이 -30%,수익 +10%);
+    Advertisement_4     = 304,      //광고 업그레이드(손님 딜레이 -40%,수익 +10%);
+    Advertisement_5     = 305,      //광고 업그레이드(손님 딜레이 -50%,수익 +10%);
 
     /** 아르바이트생 업그레이드 **/
     Worker_1            = 401,      //알바생 고용(치킨을 계란물에 넣어줌)
@@ -248,9 +246,9 @@ public enum ShopItem
 
 public enum WorkerSkill
 {
-    WorkerSkill_1    = 100,      //계란물 묻힐줄암
-    WorkerSkill_2    = 200,      //튀김옷 입힐줄암
-    WorkerSkill_3    = 300,      //건지에 치킨 넣어줌
+    WorkerSkill_1    = 100,      //주방보조
+    WorkerSkill_2    = 200,      //수익증가
+    WorkerSkill_3    = 300,      //가게홍보
     WorkerSkill_4    = 400,      //빠른 팔놀림
     WorkerSkill_5    = 500,      //빠른 손놀림
     WorkerSkill_6    = 600,      //빠른 몸놀림

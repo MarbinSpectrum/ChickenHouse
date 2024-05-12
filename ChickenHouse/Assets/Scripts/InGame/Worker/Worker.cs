@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Worker : Mgr
 {
-    private const float DEFAULT_SPEED = 25;
+    private const float DEFAULT_MOVE_SPEED = 25;
+    private const float DEFAULT_HAND_SPEED = 1;
 
     /** 알바생 손 **/
     [SerializeField] private Worker_Hand        leftHand;
@@ -58,11 +59,6 @@ public class Worker : Mgr
         if (resumeData.skill.Contains(WorkerSkill.WorkerSkill_1) == false)
         {
             leftHand.gameObject.SetActive(false);
-        }
-
-        if (resumeData.skill.Contains(WorkerSkill.WorkerSkill_2) == false &&
-            resumeData.skill.Contains(WorkerSkill.WorkerSkill_3) == false)
-        {
             rightHand.gameObject.SetActive(false);
         }
 
@@ -87,7 +83,7 @@ public class Worker : Mgr
         //1.계란물 묻힌 치킨을 밀가루를 묻히러감
         //2.치킨건지가 있으면 밀가루묻힌 치킨을 치킨건지에 넣어줌
         if (trayFlour.IsMax() == false && trayFlour.IsMax() == false && 
-            rightHand.handState != WorkerHandState.FlourChicken && resumeData.skill.Contains(WorkerSkill.WorkerSkill_2))
+            rightHand.handState != WorkerHandState.FlourChicken && resumeData.skill.Contains(WorkerSkill.WorkerSkill_1))
         {
             if (rightHand.handState == WorkerHandState.None)
             {
@@ -99,7 +95,7 @@ public class Worker : Mgr
             else if (rightHand.handState == WorkerHandState.EggChicken)
                 rightArea = DragArea.Tray_Flour;
         }
-        else if (chickenStrainter.IsMax() == false && resumeData.skill.Contains(WorkerSkill.WorkerSkill_3))
+        else if (chickenStrainter.IsMax() == false && resumeData.skill.Contains(WorkerSkill.WorkerSkill_1))
         {
             if (rightHand.handState == WorkerHandState.None)
             {
@@ -121,9 +117,10 @@ public class Worker : Mgr
         }
 
         if (resumeData.skill.Contains(WorkerSkill.WorkerSkill_1))
+        {
             MoveHand(0, leftHandArea, leftHand, leftArea);
-        if (resumeData.skill.Contains(WorkerSkill.WorkerSkill_2) || resumeData.skill.Contains(WorkerSkill.WorkerSkill_3))
             MoveHand(1, rightHandArea, rightHand, rightArea);
+        }
     }
 
     public void MoveHand(int handNum, MOVEAREA moveArea, Worker_Hand hand, DragArea pArea)
@@ -151,16 +148,12 @@ public class Worker : Mgr
             yield break;
         }
 
-        float moveSpeed = DEFAULT_SPEED;
+        float moveSpeed = DEFAULT_MOVE_SPEED;
         ResumeData resumeData = gameMgr.playData.GetNowWorkerData();
         if (resumeData != null)
         {
-            if (resumeData.skill.Contains(WorkerSkill.WorkerSkill_4))
-                moveSpeed *= 2;
-            if (resumeData.skill.Contains(WorkerSkill.WorkerSkill_5))
-                moveSpeed *= 2;
-            if (resumeData.skill.Contains(WorkerSkill.WorkerSkill_6))
-                moveSpeed *= 2;
+            if (resumeData.skill.Contains(WorkerSkill.WorkerSkill_4) || resumeData.skill.Contains(WorkerSkill.WorkerSkill_6))
+                moveSpeed *= 3;
         }
 
         //손 이동
@@ -198,6 +191,15 @@ public class Worker : Mgr
             hand.transform.position = Vector3.Lerp(hand.transform.position, movePos.position, 0.001f * moveSpeed);
             yield return null;
         }
+
+        float handWaitTime = DEFAULT_HAND_SPEED;
+        if (resumeData != null)
+        {
+            if (resumeData.skill.Contains(WorkerSkill.WorkerSkill_4) || resumeData.skill.Contains(WorkerSkill.WorkerSkill_6))
+                handWaitTime /= 3;
+        }
+
+        yield return new WaitForSeconds(handWaitTime);
 
         hand.transform.position = movePos.position;
 

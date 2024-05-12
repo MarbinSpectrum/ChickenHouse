@@ -17,7 +17,7 @@ public class TablePickleSlot : Mgr
     public void OnMouseEnter()
     {
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
-        kitchenMgr.mouseArea = DragArea.Pickle_Slot;
+        kitchenMgr.mouseArea = DragArea.SideMenu_Slot;
         kitchenMgr.pickleSlot = this;
 
         if (hasPickle)

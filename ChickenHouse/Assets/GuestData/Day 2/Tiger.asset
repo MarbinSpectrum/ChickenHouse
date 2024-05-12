@@ -15,15 +15,58 @@ MonoBehaviour:
   face: {fileID: 21300000, guid: cf4622ca59f8c7843a45f52542e4d8aa, type: 3}
   day: 2
   goodChicken:
-  - spicy0: 1
+  - openDay: 0
+    spicy0: 1
     spicy1: 1
     drink: 0
     sideMenu: 0
-  - spicy0: 4
+  - openDay: 0
+    spicy0: 4
     spicy1: 4
     drink: 0
     sideMenu: 0
-  - spicy0: 1
+  - openDay: 0
+    spicy0: 1
     spicy1: 4
+    drink: 0
+    sideMenu: 0
+  - openDay: 5
+    spicy0: 5
+    spicy1: 5
+    drink: 0
+    sideMenu: 0
+  - openDay: 4
+    spicy0: 1
+    spicy1: 4
+    drink: 0
+    sideMenu: 0
+  - openDay: 5
+    spicy0: 4
+    spicy1: 5
+    drink: 0
+    sideMenu: 0
+  - openDay: 5
+    spicy0: 1
+    spicy1: 5
+    drink: 0
+    sideMenu: 0
+  - openDay: 4
+    spicy0: 2
+    spicy1: 4
+    drink: 0
+    sideMenu: 0
+  - openDay: 3
+    spicy0: 2
+    spicy1: 2
+    drink: 0
+    sideMenu: 0
+  - openDay: 3
+    spicy0: 2
+    spicy1: 1
+    drink: 0
+    sideMenu: 0
+  - openDay: 6
+    spicy0: 2
+    spicy1: 5
     drink: 0
     sideMenu: 0

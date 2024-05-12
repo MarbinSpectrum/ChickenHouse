@@ -17,7 +17,7 @@ public class TableDrinkSlot : Mgr
     public void OnMouseEnter()
     {
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
-        kitchenMgr.mouseArea = DragArea.Drink_Slot;
+        kitchenMgr.mouseArea = DragArea.SideMenu_Slot;
         kitchenMgr.drinkSlot = this;
 
         if (hasDrink)
