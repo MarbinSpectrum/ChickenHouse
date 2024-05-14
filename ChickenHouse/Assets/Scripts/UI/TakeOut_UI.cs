@@ -31,14 +31,37 @@ public class TakeOut_UI : Mgr
         animator.SetBool("Open", false);
     }
 
-    public void ChickenStrainter_TakeOut(Oil_Zone pOil_Zone)
+    public void ChickenStrainter_TakeOut()
     {
         //버리기 버튼 활성화시 실행됩니다.
 
-        if (pOil_Zone == null)
-            return;
+        KitchenMgr kitchenMgr = KitchenMgr.Instance;
+        if (kitchenMgr.dragObj.holdGameObj != null)
+        {
+            Oil_Zone oilZone = kitchenMgr.dragObj.holdGameObj.GetComponent<Oil_Zone>();
 
-        //요리 종료
-        pOil_Zone.Cook_Stop();
+            kitchenMgr.dragState = DragState.None;
+            kitchenMgr.dragObj.HoldObj(null);
+            kitchenMgr.dragObj.HoldOut();
+
+            if (oilZone)
+            {
+                //요리 종료
+                oilZone.Cook_Stop();
+                return;
+            }
+
+        }
+    }
+
+    public void ChickenStrainter_TakeOut(Oil_Zone pOilZone)
+    {
+        //버리기 버튼 활성화시 실행됩니다.
+        if (pOilZone)
+        {
+            //요리 종료
+            pOilZone.Cook_Stop();
+            return;
+        }
     }
 }

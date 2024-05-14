@@ -7,6 +7,7 @@ public class Title_UI : Mgr
 {
     [SerializeField] private Button         loadGameBtn;
     [SerializeField] private Button         newGameBtn;
+    [SerializeField] private Button         quitGameBtn;
     [SerializeField] private SaveSlot_UI    saveSlotUI;
 
     [SerializeField] private Button         optionBtn;
@@ -28,6 +29,16 @@ public class Title_UI : Mgr
         newGameBtn.onClick.RemoveAllListeners();
         newGameBtn.onClick.AddListener(() => NewGame());
 
+        quitGameBtn.onClick.RemoveAllListeners();
+        quitGameBtn.onClick.AddListener(() =>
+        {
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#else
+            Application.Quit();
+#endif
+        });
+
         optionBtn.onClick.RemoveAllListeners();
         optionBtn.onClick.AddListener(() => optionUI.Set_UI());
 
@@ -39,13 +50,13 @@ public class Title_UI : Mgr
     {
         gameMgr.DeleteData(0);
         gameMgr.selectSaveSlot = 0;
-        sceneMgr.SceneLoad(Scene.PROLOGUE, SceneChangeAni.FADE);
+        sceneMgr.SceneLoad(Scene.PROLOGUE, false, SceneChangeAni.FADE);
     }
 
     private void LoadGame()
     {
         gameMgr.selectSaveSlot = 0;
-        sceneMgr.SceneLoad(Scene.INGAME, SceneChangeAni.FADE);
+        sceneMgr.SceneLoad(Scene.INGAME,false, SceneChangeAni.FADE);
 
         return;
 

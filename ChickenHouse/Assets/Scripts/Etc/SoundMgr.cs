@@ -103,6 +103,24 @@ public class SoundMgr : AwakeSingleton<SoundMgr>
         }
     }
 
+    public void StopSE()
+    {
+        foreach (var pair in loopSE)
+        {
+            pair.Value.Stop();
+        }
+        se.Stop();
+    }
+
+    public void MuteSE(bool state)
+    {
+        foreach(var pair in loopSE)
+        {
+            pair.Value.mute = state;
+        }
+        se.mute = state;
+    }
+
     public void PlayBGM(Sound sound)
     {
         //sound에 해당하는 사운드를 배경음으로 실행

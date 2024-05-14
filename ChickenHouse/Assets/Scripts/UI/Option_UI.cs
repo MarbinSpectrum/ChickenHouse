@@ -14,6 +14,7 @@ public class Option_UI : Mgr
         Language,
         Sound,
         Restart,
+        Title,
     }
     
     [SerializeField] private Button closeBtn;
@@ -29,6 +30,10 @@ public class Option_UI : Mgr
         public RectTransform    baseObj;
         public Button           languageBtn;
         public Button           soundBtn;
+        public Button           titleBtn;
+        public bool             runLanguage;
+        public bool             runSound;
+        public bool             runTitle;
     }
 
     [System.Serializable]
@@ -57,6 +62,7 @@ public class Option_UI : Mgr
         public Button           restartBtn;
     }
 
+
     [SerializeField] private MainUI         mainUI;
     [SerializeField] private LanguageUI     languageUI;
     [SerializeField] private SoundUI        soundUI;
@@ -64,9 +70,15 @@ public class Option_UI : Mgr
 
     private OptionMenu  nowMenu;
     private Language    selectLan;
+    private bool run = true;
 
     public void Set_UI()
     {
+        if (run == false)
+            return;
+
+        Time.timeScale = 0;
+        soundMgr.MuteSE(true);
         gameObject.SetActive(true);
         SetEvent();
         OpenMenu(OptionMenu.Main);
@@ -78,12 +90,21 @@ public class Option_UI : Mgr
 
         //닫기 버튼 처리
         closeBtn.onClick.RemoveAllListeners();
-        closeBtn.onClick.AddListener(() => gameObject.SetActive(false));
+        closeBtn.onClick.AddListener(() =>
+        {
+            Time.timeScale = 1;
+            soundMgr.MuteSE(false);
+            gameObject.SetActive(false);
+        });
         windowCloseBtn.onClick.RemoveAllListeners();
         windowCloseBtn.onClick.AddListener(() =>
         {
             if(nowMenu == OptionMenu.Main)
+            {
+                Time.timeScale = 1;
+                soundMgr.MuteSE(false);
                 gameObject.SetActive(false);
+            }
             else
                 OpenMenu(OptionMenu.Main);
         });
@@ -98,6 +119,11 @@ public class Option_UI : Mgr
         mainUI.soundBtn.onClick.AddListener(() =>
         {
             OpenMenu(OptionMenu.Sound);
+        });
+        mainUI.titleBtn.onClick.RemoveAllListeners();
+        mainUI.titleBtn.onClick.AddListener(() =>
+        {
+            OpenMenu(OptionMenu.Title);
         });
 
         //언어 버튼
@@ -136,7 +162,7 @@ public class Option_UI : Mgr
         restartUI.restartBtn.onClick.AddListener(() =>
         {
             lanMgr.ChangeLanguage(selectLan);
-            sceneMgr.SceneLoad(Scene.LOGO);
+            sceneMgr.SceneLoad(Scene.LOGO, false);
         });
     }
 
@@ -151,6 +177,10 @@ public class Option_UI : Mgr
                     languageUI.baseObj.gameObject.SetActive(false);
                     soundUI.baseObj.gameObject.SetActive(false);
                     restartUI.baseObj.gameObject.SetActive(false);
+
+                    mainUI.soundBtn.gameObject.SetActive(mainUI.runSound);
+                    mainUI.languageBtn.gameObject.SetActive(mainUI.runLanguage);
+                    mainUI.titleBtn.gameObject.SetActive(mainUI.runTitle);
 
                     crossIcon.gameObject.SetActive(true);
                     backIcon.gameObject.SetActive(false);
@@ -193,10 +223,20 @@ public class Option_UI : Mgr
                 break;
             case OptionMenu.Restart:
                 {
+                    run = false;
                     mainUI.baseObj.gameObject.SetActive(false);
                     languageUI.baseObj.gameObject.SetActive(false);
                     soundUI.baseObj.gameObject.SetActive(false);
                     restartUI.baseObj.gameObject.SetActive(true);
+                }
+                break;
+            case OptionMenu.Title:
+                {
+                    run = false;
+                    Time.timeScale = 1;
+                    soundMgr.MuteSE(false);
+                    sceneMgr.SceneLoad(Scene.TITLE,false,SceneChangeAni.FADE);
+                    gameObject.SetActive(false);
                 }
                 break;
         }

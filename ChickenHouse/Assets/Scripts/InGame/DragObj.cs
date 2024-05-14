@@ -42,6 +42,16 @@ public class DragObj : Mgr
     /** 콜라 **/
     [SerializeField] private GameObject         cola;
 
+    /** 치킨 **/
+    [System.Serializable]
+    public struct HOLD_OBJ
+    {
+        public List<ChickenStrainter> chickenStrainters;
+        public List<Oil_Zone> oilZones;
+    }
+    [SerializeField] private HOLD_OBJ holdObj;
+    public GameObject holdGameObj { get; private set; }
+
     private void Update()
     {
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
@@ -199,5 +209,18 @@ public class DragObj : Mgr
 
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
         kitchenMgr.dragState = pDragState;
+    }
+
+    public void HoldObj(GameObject hold)
+    {
+        holdGameObj = hold;
+    }    
+
+    public void HoldOut()
+    {
+        foreach (ChickenStrainter chickenStrainter in holdObj.chickenStrainters)
+            chickenStrainter.HoldStrainter(false);
+        foreach (Oil_Zone oil in holdObj.oilZones)
+            oil.HoldStrainter(false);
     }
 }

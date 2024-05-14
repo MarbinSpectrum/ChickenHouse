@@ -142,7 +142,7 @@ public class Shop_UI : Mgr
         dontTouch.gameObject.SetActive(true);
         selectMenu = true;
         gameMgr.playData.day += 1;
-        gameMgr.SaveData();
-        sceneMgr.SceneLoad(Scene.INGAME, SceneChangeAni.CIRCLE);
+
+        sceneMgr.SceneLoad(Scene.INGAME, true, SceneChangeAni.CIRCLE);
     }
 }

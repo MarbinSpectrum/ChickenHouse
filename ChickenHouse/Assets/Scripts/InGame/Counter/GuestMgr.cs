@@ -49,8 +49,6 @@ public class GuestMgr : Mgr
     private int guestcnt = 0;
     private bool moveGuest = false;
 
-    private List<GuestObj> guestOrderList = new List<GuestObj>();
-
     private void Awake()
     {
         SetSingleton();
@@ -118,6 +116,18 @@ public class GuestMgr : Mgr
 
                 //손님 딜레이
                 float delayValue = GUEST_DELAY_TIME;
+                float dayRate = 1;
+                if (gameMgr.playData.day == 1)
+                    dayRate = 1;
+                else if (gameMgr.playData.day == 2)
+                    dayRate = 0.95f;
+                else if (gameMgr.playData.day == 3)
+                    dayRate = 0.9f;
+                else if (gameMgr.playData.day == 4)
+                    dayRate = 0.85f;
+                else
+                    dayRate = 0.8f;
+
                 float upgradeRate = 1;
                 if (gameMgr.playData.hasItem[(int)ShopItem.Advertisement_5])
                     upgradeRate -= 0.05f;
@@ -137,7 +147,7 @@ public class GuestMgr : Mgr
                         upgradeRate -= 0.07f;
                 }
 
-                delayValue = GUEST_DELAY_TIME * upgradeRate;
+                delayValue = GUEST_DELAY_TIME * upgradeRate* dayRate;
 
                 yield return new WaitForSeconds(delayValue);
             }
@@ -235,7 +245,6 @@ public class GuestMgr : Mgr
 
                 //손님생성
                 GuestObj newGuest = GetGuestObj(nowGuest);
-
                 float orderTime = ui.timer.time;
                 if (newGuest.CreateMenu(orderTime) == false)
                 {
@@ -253,18 +262,13 @@ public class GuestMgr : Mgr
                 newGuest.OrderGuest();
                 KitchenMgr kitchenMgr = KitchenMgr.Instance;
                 if(kitchenMgr.cameraObj.lookArea == LookArea.Kitchen)
-                {
-                    string talkStr = newGuest.GetTalkText();
-                    Sprite guestFace = newGuest.GetGuestFace();
-                    kitchenMgr.ui.memo.AddMemo(talkStr, guestFace, Memo_UI.MAX_TIME, newGuest);
                     soundMgr.PlaySE(Sound.NewOrder_SE);
-                }
-                else
-                {
-                    guestOrderList.Add(newGuest);
-                }
+                string talkStr = newGuest.GetTalkText();
+                Sprite guestFace = newGuest.GetGuestFace();
+                kitchenMgr.ui.memo.AddMemo(talkStr, guestFace, Memo_UI.MAX_TIME, newGuest);
 
                 newGuest.gameObject.SetActive(true);
+                newGuest.CloseTalkBox();
                 newGuest.ShowGuest();
 
                 newGuest.transform.position = guestPos[i].transform.position;
@@ -413,23 +417,13 @@ public class GuestMgr : Mgr
         StartCoroutine(RunCor());
         IEnumerator RunCor()
         {
+            KitchenMgr kitchenMgr = KitchenMgr.Instance;
+
+            if (kitchenMgr.cameraObj.lookArea == LookArea.Counter)
+                ui.goKitchen.OpenBtn();
+
             gameMgr.sellChickenCnt += 1;
-
-            //대화창 닫기
-            CloseTalkBox();
-
-            if (tutoMgr.tutoComplete == false)
-            {
-                //튜토리얼 완료
-                tutoMgr.tutoComplete = true;
-                PlayerPrefs.SetInt("TUTO", 1);
-            }
-
-            //손님떠남처리
-            StartCoroutine(LeaveGueset(guestObj));
-
-            vinylAni.gameObject.SetActive(false);
-            nowOrder = false;
+            GuestObj leaveGuest = guestObj;
 
             waitGuest[0] = null;
             for (int i = 0; i < waitGuest.Length - 1; i++)
@@ -441,7 +435,23 @@ public class GuestMgr : Mgr
                 waitGuest[i].SetOrderSprite(guestPos[i].sortingOrder);
             }
 
-            KitchenMgr kitchenMgr = KitchenMgr.Instance;
+            yield return new WaitForSeconds(1f);
+
+            //대화창 닫기
+            leaveGuest.CloseTalkBox();
+
+            if (tutoMgr.tutoComplete == false)
+            {
+                //튜토리얼 완료
+                tutoMgr.tutoComplete = true;
+                PlayerPrefs.SetInt("TUTO", 1);
+            }
+
+            //손님떠남처리
+            StartCoroutine(LeaveGueset(leaveGuest));
+
+            vinylAni.gameObject.SetActive(false);
+            nowOrder = false;
 
             //대기 손님 이동 애니메이션
             if (guestcnt > 0)
@@ -460,11 +470,6 @@ public class GuestMgr : Mgr
                     StartCoroutine(GuestOrder(alreadyOrder));
 
                 }
-            }
-            else
-            {
-                if (kitchenMgr.cameraObj.lookArea == LookArea.Counter)
-                    ui.goKitchen.OpenBtn();
             }
         }
     }
@@ -514,25 +519,6 @@ public class GuestMgr : Mgr
         moveGuest = false;
     }
 
-    public void AddMemoList()
-    {
-        //주문이 추가될게있으면 메모들이 추가된다.
-        StartCoroutine(AddMemoCor());
-        IEnumerator AddMemoCor()
-        {
-            KitchenMgr kitchenMgr = KitchenMgr.Instance;
-            for (int i = 0; i < guestOrderList.Count; i++)
-            {
-                string talkStr = guestOrderList[i].GetTalkText();
-                Sprite guestFace = guestOrderList[i].GetGuestFace();
-                kitchenMgr.ui.memo.AddMemo(talkStr, guestFace, Memo_UI.MAX_TIME, guestOrderList[i]);
-                soundMgr.PlaySE(Sound.NewOrder_SE);
-                yield return new WaitForSeconds(1f);
-            }
-            guestOrderList.Clear();
-        }
-    }
-
     private IEnumerator GuestOrder(bool pAlreadyOrder)
     {
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
@@ -552,6 +538,7 @@ public class GuestMgr : Mgr
                 ui.goKitchen.OpenBtn();
 
             yield return new WaitForSeconds(1f);
+
             guestObj.WaitGuest();
         }
         else

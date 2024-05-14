@@ -76,6 +76,9 @@ public class DayEnd_UI : Mgr
         nextBtn.onClick.AddListener(() => GoNext());
 
         addValue = total;
+
+        GuestMgr guestMgr = GuestMgr.Instance;
+        guestMgr.ui.nowMoney.SetMoney(gameMgr.playData.money + addValue);
     }
 
     private void GoNext()
@@ -85,7 +88,6 @@ public class DayEnd_UI : Mgr
         goNext = true;
 
         gameMgr.playData.money += addValue;
-        gameMgr.SaveData();
-        sceneMgr.SceneLoad(Scene.SHOP, SceneChangeAni.CIRCLE);
+        sceneMgr.SceneLoad(Scene.SHOP,false, SceneChangeAni.CIRCLE);
     }
 }

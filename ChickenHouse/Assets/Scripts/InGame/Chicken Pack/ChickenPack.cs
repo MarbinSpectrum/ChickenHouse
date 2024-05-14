@@ -191,6 +191,34 @@ public class ChickenPack : Mgr
         obj.gameObject.SetActive(true);
     }
 
+    public void PushOnChicken()
+    {
+        KitchenMgr kitchenMgr = KitchenMgr.Instance;
+        if (kitchenMgr.dragObj.holdGameObj == null)
+            return;
+        else
+        {
+            ChickenStrainter chickenStrainter = kitchenMgr.dragObj.holdGameObj.GetComponent<ChickenStrainter>();
+            Oil_Zone oilZone = kitchenMgr.dragObj.holdGameObj.GetComponent<Oil_Zone>();
+
+            if (chickenStrainter)
+            {
+                chickenStrainter.HoldStrainter(false);
+                return;
+            }
+
+            if (oilZone)
+            {
+                oilZone.PutDown(this);
+                return;
+            }
+
+            kitchenMgr.dragState = DragState.None;
+            kitchenMgr.dragObj.HoldObj(null);
+            kitchenMgr.dragObj.HoldOut();
+        }
+    }
+
     public bool PackCkicken(int pChickenCnt, ChickenState pChickenState, ChickenSpicy spicy0, ChickenSpicy spicy1)
     {
         if (chickenCnt > 0)

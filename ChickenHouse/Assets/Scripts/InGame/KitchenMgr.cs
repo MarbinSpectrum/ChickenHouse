@@ -136,6 +136,6 @@ public class KitchenMgr : Mgr
         float width = KitchenWidth();
         kitchenRect.content.transform.Translate(movePos);
         kitchenRect.content.offsetMin = new Vector2(Mathf.Clamp(movePos.x, -width, 0), kitchenRect.content.offsetMin.y);
-        kitchenRect.content.offsetMax = new Vector2(movePos.x + width, kitchenRect.content.offsetMax.y);
+        kitchenRect.content.offsetMax = new Vector2(kitchenRect.content.offsetMin.x + width, kitchenRect.content.offsetMax.y);
     }
 }

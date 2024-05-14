@@ -3,8 +3,11 @@ OK	확인	Ok
 CANCLE	취소	Cancle
 NEW_GAME	새로하기	New Game
 LOAD_GAME	이어하기	Load Game
+QUIT_GAME	종료하기	Quit Game
 LANGUAGE_OPTION	언어	Language
 SOUND_OPTION	사운드 설정	SOUND
+SAVING	저장중	Saving
+GO_TITLE	타이틀로 이동	Go Title
 GO_KITCHEN	주방으로	Go Kitchen
 GO_COUNTER	카운터로	Go Counter
 ORDER_SHEET	주문서	Order Sheet

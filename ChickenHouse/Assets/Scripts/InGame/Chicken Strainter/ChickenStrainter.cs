@@ -13,7 +13,7 @@ public class ChickenStrainter : Mgr
 
     //public bool isRun { get; private set; } = true;
 
-    public bool isDrag { get; private set; } = true;
+    public bool isHold { get; private set; } = false;
 
     [System.Serializable]
     public struct SPITE_IMG
@@ -52,39 +52,95 @@ public class ChickenStrainter : Mgr
         image.sprite = sprite.normalSprite;
 
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
-        kitchenMgr.chickenStrainter = null;
         kitchenMgr.mouseArea = DragArea.None;
+
+        if(isHold == false)
+            kitchenMgr.chickenStrainter = null;
     }
 
-    public void OnMouseDrag()
+    public void HoldStrainter()
     {
-        if (tutoMgr.tutoComplete == false && tutoMgr.nowTuto != Tutorial.Tuto_4)
+        KitchenMgr kitchenMgr = KitchenMgr.Instance;
+        if (kitchenMgr.dragObj.holdGameObj == null)
         {
-            //튜토리얼이 아직 완료안된듯
-            //혹시모르니 튜토리얼 타이밍때만 작동하도록 막아놓자
-            return;
+            HoldStrainter(true);
         }
+        else if (kitchenMgr.dragObj.holdGameObj == gameObject)
+        {
+            HoldStrainter(false);
+        }
+        else if (kitchenMgr.dragObj.holdGameObj != gameObject)
+        {
+            kitchenMgr.dragState = DragState.None;
+            kitchenMgr.dragObj.HoldObj(null);
+            kitchenMgr.dragObj.HoldOut();
+        }
+    }
+
+    public void HoldStrainter(bool state)
+    {
+        //인스펙터에서 끌어서 사용하는 함수임
+        if (Application.platform != RuntimePlatform.WindowsPlayer)
+            return;
 
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
-        if (kitchenMgr.cameraObj.lookArea != LookArea.Kitchen)
+        if (state)
         {
-            //주방을 보고있는 상태에서만 상호 작용 가능
-            return;
+            if (tutoMgr.tutoComplete == false && tutoMgr.nowTuto != Tutorial.Tuto_4)
+            {
+                //튜토리얼이 아직 완료안된듯
+                //혹시모르니 튜토리얼 타이밍때만 작동하도록 막아놓자
+                return;
+            }
+
+            if (kitchenMgr.cameraObj.lookArea != LookArea.Kitchen)
+            {
+                //주방을 보고있는 상태에서만 상호 작용 가능
+                return;
+            }
+
+            if (isHold)
+            {
+                //이미 들고있는데 들수없지않을까?
+                return;
+            }
+
+            if (IsMax())
+            {
+                isHold = true;
+                obj.gameObject.SetActive(false);
+                kitchenMgr.chickenStrainter = this;
+                kitchenMgr.dragObj.DragStrainter(chickenCnt, DragState.Chicken_Strainter);
+                kitchenMgr.dragObj.HoldObj(gameObject);
+            }
         }
-        if (IsMax())
+        else
         {
-            isDrag = true;
-            obj.gameObject.SetActive(false);
-            kitchenMgr.dragObj.DragStrainter(chickenCnt, DragState.Chicken_Strainter);
+            if (isHold == false)
+            {
+                return;
+            }
+
+            isHold = false;
+            obj.gameObject.SetActive(true);
+            kitchenMgr.chickenStrainter = null;
+            kitchenMgr.dragState = DragState.None;
+            kitchenMgr.dragObj.HoldObj(null);
         }
     }
 
-    public void OnMouseUp()
+    public void PutDown(Oil_Zone pOilZone)
     {
         if (tutoMgr.tutoComplete == false && tutoMgr.nowTuto != Tutorial.Tuto_4)
         {
             //튜토리얼이 아직 완료안된듯
             //혹시모르니 튜토리얼 타이밍때만 작동하도록 막아놓자
+            return;
+        }
+
+        if (IsMax() == false)
+        {
+            //가득찬 상태로 내려놔야됨
             return;
         }
 
@@ -98,10 +154,68 @@ public class ChickenStrainter : Mgr
 
         //손을때면 치킨건지 떨어짐
         kitchenMgr.dragState = DragState.None;
+
+        //치킨 튀기기 시작
+        if (pOilZone.Cook_Start(chickenCnt, this))
+        {
+            int removeCnt = chickenCnt;
+            for (int i = 0; i < removeCnt; i++)
+            {
+                RemoveChicken();
+            }
+
+            kitchenMgr.worker.UpdateHandMoveArea();
+        }
+
+        isHold = false;
+        obj.gameObject.SetActive(true);
+        kitchenMgr.dragObj.HoldObj(null);
+    }
+
+    public void OnMouseDrag()
+    {
+        if (Application.platform == RuntimePlatform.WindowsPlayer)
+            return;
+
+        if (tutoMgr.tutoComplete == false && tutoMgr.nowTuto != Tutorial.Tuto_4)
+        {
+            return;
+        }
+
+        KitchenMgr kitchenMgr = KitchenMgr.Instance;
+        if (kitchenMgr.cameraObj.lookArea != LookArea.Kitchen)
+        {
+            return;
+        }
+        if (IsMax())
+        {
+            isHold = true;
+            obj.gameObject.SetActive(false);
+            kitchenMgr.dragObj.DragStrainter(chickenCnt, DragState.Chicken_Strainter);
+        }
+    }
+
+    public void OnMouseUp()
+    {
+        if (Application.platform == RuntimePlatform.WindowsPlayer)
+            return;
+
+        if (tutoMgr.tutoComplete == false && tutoMgr.nowTuto != Tutorial.Tuto_4)
+        {
+            return;
+        }
+
+        KitchenMgr kitchenMgr = KitchenMgr.Instance;
+
+        if (kitchenMgr.dragState != DragState.Chicken_Strainter)
+        {
+            return;
+        }
+
+        kitchenMgr.dragState = DragState.None;
         if (kitchenMgr.mouseArea == DragArea.Oil_Zone)
         {
-            //치킨 튀기기 시작
-            if (kitchenMgr.oilZone.Cook_Start(chickenCnt,this))
+            if (kitchenMgr.oilZone.Cook_Start(chickenCnt, this))
             {
                 int removeCnt = chickenCnt;
                 for (int i = 0; i < removeCnt; i++)
@@ -113,7 +227,7 @@ public class ChickenStrainter : Mgr
             }
         }
 
-        isDrag = false;
+        isHold = false;
         obj.gameObject.SetActive(true);
     }
 
@@ -142,9 +256,12 @@ public class ChickenStrainter : Mgr
 
         if (IsMax())
         {
-            foreach (ScrollObj sObj in scrollObj)
+            if (Application.platform != RuntimePlatform.WindowsPlayer)
             {
-                sObj.isRun = false;
+                foreach (ScrollObj sObj in scrollObj)
+                {
+                    sObj.isRun = false;
+                }
             }
 
             if (tutoMgr.tutoComplete == false)
@@ -168,13 +285,15 @@ public class ChickenStrainter : Mgr
         //트레이에 올려져있는 닭 감소
         if (chickenCnt <= 0)
             return false;
-
-        foreach(ScrollObj sObj in scrollObj)
+        if (Application.platform != RuntimePlatform.WindowsPlayer)
         {
-            sObj.isRun = true;
+            foreach (ScrollObj sObj in scrollObj)
+            {
+                sObj.isRun = true;
+            }
         }
 
-        chickenCnt--;
+            chickenCnt--;
         chickenAni[chickenCnt].gameObject.SetActive(false);
 
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
@@ -190,9 +309,12 @@ public class ChickenStrainter : Mgr
         Array.ForEach(chickenAni, x => x.gameObject.SetActive(false));
         obj.gameObject.SetActive(true);
 
-        foreach (ScrollObj sObj in scrollObj)
+        if (Application.platform != RuntimePlatform.WindowsPlayer)
         {
-            sObj.isRun = true;
+            foreach (ScrollObj sObj in scrollObj)
+            {
+                sObj.isRun = true;
+            }
         }
 
         KitchenMgr kitchenMgr = KitchenMgr.Instance;

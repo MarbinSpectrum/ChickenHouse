@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,13 +16,13 @@ public class Oil_Zone : Mgr
     [System.Serializable]
     public struct OilMachine
     {
-        //Æ¢±è±â
+        //íŠ€ê¹€ê¸°
         public Image machine0;
-        //Æ¢±è±â ÀÔ±¸
+        //íŠ€ê¹€ê¸° ì…êµ¬
         public Image machine1;
-        /** ±â±â ÀÌ¹ÌÁö **/
+        /** ê¸°ê¸° ì´ë¯¸ì§€ **/
         public Sprite[] machineImg0;
-        /** ±â±â ÀÌ¹ÌÁö **/
+        /** ê¸°ê¸° ì´ë¯¸ì§€ **/
         public Sprite[] machineImg1;
     }
     public OilMachine oilMahcine;
@@ -41,14 +41,16 @@ public class Oil_Zone : Mgr
     [SerializeField] private TutoObj                tutoObj;
     [SerializeField] private TutoObj                tutoObj2;
 
+    public bool isHold { get; private set; } = false;
+
     private float           gaugeTime;
-    /**´ß °¹¼ö **/
+    /**ë‹­ ê°¯ìˆ˜ **/
     private int             chickenCnt;     
-    /** Ä¡Å² ¿ä¸® Á¤µµ **/
+    /** ì¹˜í‚¨ ìš”ë¦¬ ì •ë„ **/
     private ChickenState    chickenState = ChickenState.NotCook;
-    /** ¿ä¸® ÀÏ½Ã Á¤Áö ¿©ºÎ **/
+    /** ìš”ë¦¬ ì¼ì‹œ ì •ì§€ ì—¬ë¶€ **/
     private bool            pauseCook;
-    /** ¿ä¸® ÄÚ·çÆ¾ **/
+    /** ìš”ë¦¬ ì½”ë£¨í‹´ **/
     private IEnumerator     cookCor;
 
     private ChickenStrainter chickenStrainter;
@@ -60,12 +62,12 @@ public class Oil_Zone : Mgr
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
         if (kitchenMgr.dragState == DragState.Chicken_Strainter && chickenState == ChickenState.NotCook)
         {
-            //ÇØ´ç ±â¸§Æ¢±â´Â°÷ÀÌ Á¶¸®ÁßÀÌ ¾Æ´Ô
+            //í•´ë‹¹ ê¸°ë¦„íŠ€ê¸°ëŠ”ê³³ì´ ì¡°ë¦¬ì¤‘ì´ ì•„ë‹˜
             selectImg.enabled = true;
         }
         else
         {
-            //³ª¸ÓÁö »óÅÂ¸é ÀÌ¹ÌÁö°¡ º¸ÀÌÁö ¾Ê´Â´Ù.
+            //ë‚˜ë¨¸ì§€ ìƒíƒœë©´ ì´ë¯¸ì§€ê°€ ë³´ì´ì§€ ì•ŠëŠ”ë‹¤.
             selectImg.enabled = false;
         }
 
@@ -82,41 +84,212 @@ public class Oil_Zone : Mgr
         kitchenMgr.mouseArea = DragArea.None;
     }
 
-    public void OnMouseDrag()
+    public void HoldStrainter()
     {
         if (tutoMgr.tutoComplete == false && tutoMgr.nowTuto != Tutorial.Tuto_5_2)
         {
-            //Æ©Åä¸®¾óÀÌ ¾ÆÁ÷ ¿Ï·á¾ÈµÈµí
-            //È¤½Ã¸ğ¸£´Ï Æ©Åä¸®¾ó Å¸ÀÌ¹Ö¶§¸¸ ÀÛµ¿ÇÏµµ·Ï ¸·¾Æ³õÀÚ
+            //íŠœí† ë¦¬ì–¼ì´ ì•„ì§ ì™„ë£Œì•ˆëœë“¯
+            //í˜¹ì‹œëª¨ë¥´ë‹ˆ íŠœí† ë¦¬ì–¼ íƒ€ì´ë°ë•Œë§Œ ì‘ë™í•˜ë„ë¡ ë§‰ì•„ë†“ì
+            return;
+        }
+
+
+        KitchenMgr kitchenMgr = KitchenMgr.Instance;
+        if (kitchenMgr.dragObj.holdGameObj == null)
+        {
+            HoldStrainter(true);
+        }
+        else if (kitchenMgr.dragObj.holdGameObj == gameObject)
+        {
+            HoldStrainter(false);
+        }
+        else if (kitchenMgr.dragObj.holdGameObj != gameObject)
+        {
+            ChickenStrainter chickenStrainter = kitchenMgr.dragObj.holdGameObj.GetComponent<ChickenStrainter>();
+            Oil_Zone oilZone = kitchenMgr.dragObj.holdGameObj.GetComponent<Oil_Zone>();
+
+            if (chickenStrainter)
+            {
+                chickenStrainter.PutDown(this);
+                return;
+            }
+
+            if (oilZone)
+            {
+                oilZone.PutDown(this);
+                return;
+            }
+
+            kitchenMgr.dragState = DragState.None;
+            kitchenMgr.dragObj.HoldObj(null);
+            kitchenMgr.dragObj.HoldOut();
+        }
+    }
+
+    public void HoldStrainter(bool state)
+    {
+        //ì¸ìŠ¤í™í„°ì— ëŒì–´ì„œ ì‚¬ìš©í•˜ëŠ” í•¨ìˆ˜ì„
+
+        if (Application.platform != RuntimePlatform.WindowsPlayer)
+            return;
+
+        KitchenMgr kitchenMgr = KitchenMgr.Instance;
+        if (state)
+        {
+            if (tutoMgr.tutoComplete == false && tutoMgr.nowTuto != Tutorial.Tuto_5_2)
+            {
+                //íŠœí† ë¦¬ì–¼ì´ ì•„ì§ ì™„ë£Œì•ˆëœë“¯
+                //í˜¹ì‹œëª¨ë¥´ë‹ˆ íŠœí† ë¦¬ì–¼ íƒ€ì´ë°ë•Œë§Œ ì‘ë™í•˜ë„ë¡ ë§‰ì•„ë†“ì
+                return;
+            }
+
+            if (kitchenMgr.cameraObj.lookArea != LookArea.Kitchen)
+            {
+                //ì£¼ë°©ì„ ë³´ê³ ìˆëŠ” ìƒíƒœì—ì„œë§Œ ìƒí˜¸ ì‘ìš© ê°€ëŠ¥
+                return;
+            }
+
+            if (chickenState == ChickenState.NotCook)
+            {
+                //ì¡°ë¦¬ ì‹œì‘ì „ì´ë©´ ë‹¹ì—°íˆ ë“œë˜ê·¸ì•ˆë¨
+                return;
+            }
+
+            if (isHold)
+            {
+                return;
+            }
+
+            if (pauseCook == false)
+            {
+                //ìš”ë¦¬ ì¼ì‹œì •ì§€
+                Cook_Pause(true);
+            }
+
+            //ì˜¤ì¼ì¡´ì—ì„œ ì¹˜í‚¨ê±´ì§€ë¥¼ êº¼ë‚¸ë‹¤. ë“œë˜ê·¸ ì‹œì‘
+            kitchenMgr.dragObj.DragStrainter(chickenCnt, DragState.Fry_Chicken, oilShader.Mode, oilShader.LerpValue);
+
+            //ë²„ë¦¬ê¸° ë²„íŠ¼ë„ í‘œì‹œí•´ì¤€ë‹¤.
+            if (tutoMgr.tutoComplete == false && tutoMgr.nowTuto == Tutorial.Tuto_5_2)
+            {
+                //íŠœí† ë¦¬ì–¼ì¤‘ì—ëŠ” ë²„ë¦¬ê¸° ë²„íŠ¼ì´ í‘œì‹œë˜ì§€ì•ŠìŒ
+            }
+            else
+            {
+                kitchenMgr.ui.takeOut.OpenBtn();
+            }
+            isHold = true;
+            kitchenMgr.dragObj.HoldObj(gameObject);
+            runCookImg.ForEach((x) => x.enabled = false);
+        }
+        else
+        {
+            if (isHold == false)
+            {
+                return;
+            }
+
+            if (pauseCook)
+            {
+                //ìš”ë¦¬ ë‹¤ì‹œì‹œì‘
+                Cook_Pause(false);
+            }
+
+            kitchenMgr.ui.takeOut.CloseBtn();
+            kitchenMgr.dragObj.HoldObj(null);
+            kitchenMgr.dragState = DragState.None;
+            isHold = false;
+            runCookImg.ForEach((x) => x.enabled = true);
+        }
+    }
+
+    public void PutDown(ChickenPack pChickenPack)
+    {
+        if (isHold == false)
+            return;
+
+        KitchenMgr kitchenMgr = KitchenMgr.Instance;
+        if (pChickenPack.PackCkicken(chickenCnt, chickenState, ChickenSpicy.None, ChickenSpicy.None))
+        {
+
+            //ì¹˜í‚¨íŒ©ì— ì¹˜í‚¨ ë„£ê¸°
+            pChickenPack.Set_ChickenShader(oilShader.Mode, oilShader.LerpValue);
+            pChickenPack.UpdatePack();
+
+            //ìš”ë¦¬ ì¢…ë£Œ
+            Cook_Stop();
+
+            if (tutoMgr.tutoComplete == false && tutoMgr.nowTuto == Tutorial.Tuto_5_2)
+            {
+                //íŠœí† ë¦¬ì–¼ì—ì„œëŠ” ì¹´ìš´í„° ì´ë™ë²„íŠ¼ì´ ì•ˆë‚˜ì˜´
+                tutoObj2.PlayTuto();
+            }
+            else
+            {
+                //ì¹˜í‚¨ì„ ì˜¬ë ¤ë†“ìŒ ì¹´ìš´í„°ë¡œ ì´ë™ì€ ê°€ëŠ¥
+                //kitchenMgr.ui.goCounter.OpenBtn();
+            }
+
+            kitchenMgr.ui.takeOut.CloseBtn();
+            kitchenMgr.dragObj.HoldObj(null);
+            kitchenMgr.dragState = DragState.None;
+            isHold = false;
+            runCookImg.ForEach((x) => x.enabled = false);
+        }
+        else
+        {
+            HoldStrainter(false);
+        }
+    }
+
+    private void PutDown(Oil_Zone pOilZone)
+    {
+        if (isHold == false)
+            return;
+
+        if (pOilZone.ChangeOilZone(chickenCnt, chickenTime, gaugeTime))
+        {
+            Cook_Stop();
+            HoldStrainter(false);
+            runCookImg.ForEach((x) => x.enabled = false);
+        }
+        else
+        {
+            HoldStrainter(false);
+        }
+    }
+
+    public void OnMouseDrag()
+    {
+        if (Application.platform == RuntimePlatform.WindowsPlayer)
+            return;
+
+        if (tutoMgr.tutoComplete == false && tutoMgr.nowTuto != Tutorial.Tuto_5_2)
+        {
             return;
         }
 
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
         if (kitchenMgr.cameraObj.lookArea != LookArea.Kitchen)
         {
-            //ÁÖ¹æÀ» º¸°íÀÖ´Â »óÅÂ¿¡¼­¸¸ »óÈ£ ÀÛ¿ë °¡´É
             return;
         }
 
         if (chickenState == ChickenState.NotCook)
         {
-            //Á¶¸® ½ÃÀÛÀüÀÌ¸é ´ç¿¬È÷ µå·¡±×¾ÈµÊ
             return;
         }
 
         if (pauseCook == false)
         {
-            //¿ä¸® ÀÏ½ÃÁ¤Áö
             Cook_Pause(true);
         }
 
-        //¿ÀÀÏÁ¸¿¡¼­ Ä¡Å²°ÇÁö¸¦ ²¨³½´Ù. µå·¡±× ½ÃÀÛ
         kitchenMgr.dragObj.DragStrainter(chickenCnt, DragState.Fry_Chicken, oilShader.Mode, oilShader.LerpValue);
 
-        //¹ö¸®±â ¹öÆ°µµ Ç¥½ÃÇØÁØ´Ù.
         if (tutoMgr.tutoComplete == false && tutoMgr.nowTuto == Tutorial.Tuto_5_2)
         {
-            //Æ©Åä¸®¾óÁß¿¡´Â ¹ö¸®±â ¹öÆ°ÀÌ Ç¥½ÃµÇÁö¾ÊÀ½
+
         }
         else
         {
@@ -128,33 +301,31 @@ public class Oil_Zone : Mgr
 
     public void OnMouseUp()
     {
+        if (Application.platform == RuntimePlatform.WindowsPlayer)
+            return;
+
         if (tutoMgr.tutoComplete == false && tutoMgr.nowTuto != Tutorial.Tuto_5_2)
         {
-            //Æ©Åä¸®¾óÀÌ ¾ÆÁ÷ ¿Ï·á¾ÈµÈµí
-            //È¤½Ã¸ğ¸£´Ï Æ©Åä¸®¾ó Å¸ÀÌ¹Ö¶§¸¸ ÀÛµ¿ÇÏµµ·Ï ¸·¾Æ³õÀÚ
             return;
         }
 
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
 
-        if(kitchenMgr.dragState != DragState.Fry_Chicken)
+        if (kitchenMgr.dragState != DragState.Fry_Chicken)
         {
-            //Æ¢±äÄ¡Å²À» µå·¡±× ÁßÀÏ¶§ ¸¶¿ì½º¸¦ ³õÀº °æ¿ì¸¸ Ã¼Å©ÇÑ´Ù.
             return;
         }
 
-        //¹ö¸®±â ¹öÆ° ºñÈ°¼º
         kitchenMgr.ui.takeOut.CloseBtn();
 
         kitchenMgr.dragState = DragState.None;
 
         if (kitchenMgr.mouseArea == DragArea.Trash_Btn)
         {
-            //¹ö¸®±â ¹öÆ°Ã³¸®
             kitchenMgr.ui.takeOut.ChickenStrainter_TakeOut(this);
             return;
         }
-        else if(kitchenMgr.mouseArea == DragArea.Oil_Zone)
+        else if (kitchenMgr.mouseArea == DragArea.Oil_Zone)
         {
             if (kitchenMgr.oilZone.ChangeOilZone(chickenCnt, chickenTime, gaugeTime))
             {
@@ -162,45 +333,38 @@ public class Oil_Zone : Mgr
                 return;
             }
         }
-        else if(kitchenMgr.mouseArea == DragArea.Chicken_Pack)
+        else if (kitchenMgr.mouseArea == DragArea.Chicken_Pack)
         {
-            //Ä¡Å²Åë¿¡ Ä¡Å² ³Ö±â
-            if(kitchenMgr.chickenPack.PackCkicken(chickenCnt, chickenState,ChickenSpicy.None,ChickenSpicy.None))
+            if (kitchenMgr.chickenPack.PackCkicken(chickenCnt, chickenState, ChickenSpicy.None, ChickenSpicy.None))
             {
-                //Ä¡Å²ÆÑ¿¡ Ä¡Å² ³Ö±â
                 kitchenMgr.chickenPack.Set_ChickenShader(oilShader.Mode, oilShader.LerpValue);
                 kitchenMgr.chickenPack.UpdatePack();
 
-                //¿ä¸® Á¾·á
                 Cook_Stop();
 
                 if (tutoMgr.tutoComplete == false && tutoMgr.nowTuto == Tutorial.Tuto_5_2)
                 {
-                    //Æ©Åä¸®¾ó¿¡¼­´Â Ä«¿îÅÍ ÀÌµ¿¹öÆ°ÀÌ ¾È³ª¿È
                     tutoObj2.PlayTuto();
                 }
                 else
                 {
-                    //Ä¡Å²À» ¿Ã·Á³õÀ½ Ä«¿îÅÍ·Î ÀÌµ¿Àº °¡´É
                     //kitchenMgr.ui.goCounter.OpenBtn();
                 }
 
                 return;
             }
-            else if(chickenPackList.AddChickenPack(chickenCnt, chickenState, ChickenSpicy.None, ChickenSpicy.None, 
+            else if (chickenPackList.AddChickenPack(chickenCnt, chickenState, ChickenSpicy.None, ChickenSpicy.None,
                 oilShader.Mode, oilShader.LerpValue))
             {
-                //¿ä¸® Á¾·á
                 Cook_Stop();
 
                 if (tutoMgr.tutoComplete == false && tutoMgr.nowTuto == Tutorial.Tuto_5_2)
                 {
-                    //Æ©Åä¸®¾ó¿¡¼­´Â Ä«¿îÅÍ ÀÌµ¿¹öÆ°ÀÌ ¾È³ª¿È
+       
                     tutoObj2.PlayTuto();
                 }
                 else
                 {
-                    //Ä¡Å²À» ¿Ã·Á³õÀ½ Ä«¿îÅÍ·Î ÀÌµ¿Àº °¡´É
                     //kitchenMgr.ui.goCounter.OpenBtn();
                 }
 
@@ -210,12 +374,12 @@ public class Oil_Zone : Mgr
 
         if (pauseCook)
         {
-            //¿ä¸® ´Ù½Ã½ÃÀÛ
             Cook_Pause(false);
         }
 
         runCookImg.ForEach((x) => x.enabled = true);
     }
+
 
     private void Update()
     {
@@ -238,7 +402,7 @@ public class Oil_Zone : Mgr
 
     private float GetCookSpeedRate()
     {
-        //¾÷±×·¹ÀÌµå ¼Óµµ¿¡ µû¶ó¼­ »óÅÂ ¼³Á¤
+        //ì—…ê·¸ë ˆì´ë“œ ì†ë„ì— ë”°ë¼ì„œ ìƒíƒœ ì„¤ì •
         if (gameMgr.playData.useItem[(int)ShopItem.OIL_Zone_4])
         {
             return 2.6f;
@@ -262,29 +426,29 @@ public class Oil_Zone : Mgr
     {
         if(chickenState != ChickenState.NotCook)
         {
-            //Á¶¸® ½ÃÀÛÀü¿¡¸¸ ¿ä¸®½ÃÀÛÀÌ °¡´É
+            //ì¡°ë¦¬ ì‹œì‘ì „ì—ë§Œ ìš”ë¦¬ì‹œì‘ì´ ê°€ëŠ¥
             return false;
         }
 
-        //¿ä¸® ½ÃÀÛ
+        //ìš”ë¦¬ ì‹œì‘
 
         chickenStrainter = pChickenStrainter;
         selectImg.enabled = false;
         Cook_Pause(false);
 
-        //³ÖÀº Ä¡Å²°¹¼ö ÆÄ¾Ç
+        //ë„£ì€ ì¹˜í‚¨ê°¯ìˆ˜ íŒŒì•…
         chickenCnt = pChickenCnt;
 
         runCookImg.ForEach((x) => x.enabled = true);
 
         if (cookCor != null)
         {
-            //½ÇÇàÁßÀÎ ÄÚ·çÆ¾ÀÌ ÀÖÀ»¼öµµÀÖÀ¸´Ï±î. Á¤ÁöÃ³¸®
+            //ì‹¤í–‰ì¤‘ì¸ ì½”ë£¨í‹´ì´ ìˆì„ìˆ˜ë„ìˆìœ¼ë‹ˆê¹Œ. ì •ì§€ì²˜ë¦¬
             StopCoroutine(cookCor);
             cookCor = null;
         }
 
-        //Á¶¸®Ã³¸® ½ÃÀÛ
+        //ì¡°ë¦¬ì²˜ë¦¬ ì‹œì‘
         cookCor = RunningCook(0, 0);
         StartCoroutine(cookCor);
 
@@ -295,27 +459,27 @@ public class Oil_Zone : Mgr
     {
         if (chickenState != ChickenState.NotCook)
         {
-            //Á¶¸® ½ÃÀÛÀü¿¡¸¸ ¿ä¸®½ÃÀÛÀÌ °¡´É
+            //ì¡°ë¦¬ ì‹œì‘ì „ì—ë§Œ ìš”ë¦¬ì‹œì‘ì´ ê°€ëŠ¥
             return false;
         }
 
-        //¿ä¸® ½ÃÀÛ
+        //ìš”ë¦¬ ì‹œì‘
         selectImg.enabled = false;
         Cook_Pause(false);
 
-        //³ÖÀº Ä¡Å²°¹¼ö ÆÄ¾Ç
+        //ë„£ì€ ì¹˜í‚¨ê°¯ìˆ˜ íŒŒì•…
         chickenCnt = pChickenCnt;
 
         runCookImg.ForEach((x) => x.enabled = true);
 
         if (cookCor != null)
         {
-            //½ÇÇàÁßÀÎ ÄÚ·çÆ¾ÀÌ ÀÖÀ»¼öµµÀÖÀ¸´Ï±î. Á¤ÁöÃ³¸®
+            //ì‹¤í–‰ì¤‘ì¸ ì½”ë£¨í‹´ì´ ìˆì„ìˆ˜ë„ìˆìœ¼ë‹ˆê¹Œ. ì •ì§€ì²˜ë¦¬
             StopCoroutine(cookCor);
             cookCor = null;
         }
 
-        //Á¶¸®Ã³¸® ½ÃÀÛ
+        //ì¡°ë¦¬ì²˜ë¦¬ ì‹œì‘
         cookCor = RunningCook(pChickenTime, pGaugeTime);
         StartCoroutine(cookCor);
 
@@ -324,24 +488,24 @@ public class Oil_Zone : Mgr
 
     private IEnumerator RunningCook(float pChickenTime, float pGaugeTime)
     {
-        //Á¶¸®Ã³¸®¿ë ÄÚ·çÆ¾
+        //ì¡°ë¦¬ì²˜ë¦¬ìš© ì½”ë£¨í‹´
         float   speedRate   = GetCookSpeedRate();
         bool    notFire     = false;
 
-        //¾÷±×·¹ÀÌµå ¼Óµµ¿¡ µû¶ó¼­ »óÅÂ ¼³Á¤
+        //ì—…ê·¸ë ˆì´ë“œ ì†ë„ì— ë”°ë¼ì„œ ìƒíƒœ ì„¤ì •
         if(gameMgr.playData.useItem[(int)ShopItem.OIL_Zone_4])
         {
-            //ÃÖ´ë ·¹º§ÀÏ °æ¿ì Å¸Áö¾Ê´Â´Ù.
+            //ìµœëŒ€ ë ˆë²¨ì¼ ê²½ìš° íƒ€ì§€ì•ŠëŠ”ë‹¤.
             notFire = true;
         }
 
         //------------------------------------------------------------------
-        //Á¶¸® ½ÃÀÛºÎ
+        //ì¡°ë¦¬ ì‹œì‘ë¶€
         animator.speed = speedRate;
         chickenState = ChickenState.BadChicken_0;
 
         //------------------------------------------------------------------
-        //Á¶¸®¿Ï·áºÎ
+        //ì¡°ë¦¬ì™„ë£Œë¶€
         chickenTime = pChickenTime;
         animator.Play("Oil_Zone_Good", 0, 0);
         gaugeTime = pGaugeTime;
@@ -350,7 +514,7 @@ public class Oil_Zone : Mgr
             yield return null;
             if(pauseCook == false)
             {
-                //ÀÏ½ÃÁ¤Áö°¡ ¾Æ´Ô
+                //ì¼ì‹œì •ì§€ê°€ ì•„ë‹˜
                 chickenTime += Time.deltaTime;
                 gaugeTime += Time.deltaTime;
 
@@ -363,7 +527,7 @@ public class Oil_Zone : Mgr
 
         if (tutoMgr.tutoComplete == false && tutoMgr.nowTuto == Tutorial.Tuto_4)
         {
-            //Æ©Åä¸®¾ó¿¡¼­´Â ¿©±â¼­ Á¶¸®°¡ ³¡³²
+            //íŠœí† ë¦¬ì–¼ì—ì„œëŠ” ì—¬ê¸°ì„œ ì¡°ë¦¬ê°€ ëë‚¨
             tutoObj.PlayTuto();
             yield break;
         }
@@ -372,14 +536,14 @@ public class Oil_Zone : Mgr
 
         if(notFire)
         {
-            //Å¸Áö ¾Ê°Ô ¼³Á¤µÊ
+            //íƒ€ì§€ ì•Šê²Œ ì„¤ì •ë¨
             yield break;
         }
 
         animator.speed = 1;
 
         //------------------------------------------------------------------
-        //Å¸±â ½ÃÀÛÇÏ´Â ºÎºĞ
+        //íƒ€ê¸° ì‹œì‘í•˜ëŠ” ë¶€ë¶„
 
         gaugeTime = COOK_TIME_0;
         while (chickenTime < (COOK_TIME_0 / speedRate) + COOK_TIME_1)
@@ -387,7 +551,7 @@ public class Oil_Zone : Mgr
             yield return null;
             if (pauseCook == false)
             {
-                //ÀÏ½ÃÁ¤Áö°¡ ¾Æ´Ô
+                //ì¼ì‹œì •ì§€ê°€ ì•„ë‹˜
                 chickenTime += Time.deltaTime;
             }
         }
@@ -395,14 +559,14 @@ public class Oil_Zone : Mgr
         chickenState = ChickenState.BadChicken_1;
 
         //------------------------------------------------------------------
-        //4.5ÃÊ °æ°ú Å¸±â ¾²·¹±â Ä¡Å²ÀÌ µÇ´Â ºÎºĞ
+        //4.5ì´ˆ ê²½ê³¼ íƒ€ê¸° ì“°ë ˆê¸° ì¹˜í‚¨ì´ ë˜ëŠ” ë¶€ë¶„
         animator.Play("Oil_Zone_Bad", 0, 0);
         while (chickenTime < (COOK_TIME_0 / speedRate) + COOK_TIME_1 + COOK_TIME_2)
         {
             yield return null;
             if (pauseCook == false)
             {
-                //ÀÏ½ÃÁ¤Áö°¡ ¾Æ´Ô
+                //ì¼ì‹œì •ì§€ê°€ ì•„ë‹˜
                 chickenTime += Time.deltaTime;
                 float lerpValue = (chickenTime - (COOK_TIME_0 / speedRate) - COOK_TIME_1) / COOK_TIME_2;
                 animator.Play("Oil_Zone_Bad", 0, lerpValue);
@@ -415,25 +579,29 @@ public class Oil_Zone : Mgr
 
     public void Cook_Stop()
     {
-        //¿ä¸® Á¾·á
+        //ìš”ë¦¬ ì¢…ë£Œ
         gaugeTime = 0;
         chickenTime = 0;
         runCookImg.ForEach((x) => x.enabled = false);
 
         if (cookCor != null)
         {
-            //½ÇÇàÁßÀÎ ÄÚ·çÆ¾ÀÌ ÀÖÀ»¼öµµÀÖÀ¸´Ï±î. Á¤ÁöÃ³¸®
+            //ì‹¤í–‰ì¤‘ì¸ ì½”ë£¨í‹´ì´ ìˆì„ìˆ˜ë„ìˆìœ¼ë‹ˆê¹Œ. ì •ì§€ì²˜ë¦¬
             StopCoroutine(cookCor);
             cookCor = null;
         }
 
-        //Á¶¸® ½ÃÀÛÀüÀ¸·Î µ¹¸²
+        //ì¡°ë¦¬ ì‹œì‘ì „ìœ¼ë¡œ ëŒë¦¼
         chickenState = ChickenState.NotCook;
-
-        foreach (ScrollObj sObj in scrollObj)
+        if (Application.platform != RuntimePlatform.WindowsPlayer)
         {
-            sObj.isRun = true;
+            foreach (ScrollObj sObj in scrollObj)
+            {
+                sObj.isRun = true;
+            }
         }
+
+        soundMgr.StopLoopSE(Sound.Oil_SE);
     }
 
     public void Cook_Pause(bool state)
@@ -441,7 +609,7 @@ public class Oil_Zone : Mgr
         pauseCook = state;
         if(state)
         {
-            //¾Ö´Ï¸ŞÀÌ¼Çµµ ÀÏ½ÃÁ¤Áö
+            //ì• ë‹ˆë©”ì´ì…˜ë„ ì¼ì‹œì •ì§€
             animator.speed = 0;
             foreach (ScrollObj sObj in scrollObj)
             {
@@ -451,12 +619,16 @@ public class Oil_Zone : Mgr
         }
         else
         {
-            //¾Ö´Ï¸ŞÀÌ¼Ç ´Ù½Ã ½ÇÇà
+            //ì• ë‹ˆë©”ì´ì…˜ ë‹¤ì‹œ ì‹¤í–‰
             float speedRate = GetCookSpeedRate();
             animator.speed = speedRate;
-            foreach (ScrollObj sObj in scrollObj)
+
+            if (Application.platform != RuntimePlatform.WindowsPlayer)
             {
-                sObj.isRun = true;
+                foreach (ScrollObj sObj in scrollObj)
+                {
+                    sObj.isRun = true;
+                }
             }
             soundMgr.PlayLoopSE(Sound.Oil_SE);
         }
@@ -465,7 +637,7 @@ public class Oil_Zone : Mgr
     public void Init()
     {
         /////////////////////////////////////////////////////////////////////////////////
-        //±â¸§Åë ¼¼ÆÃ
+        //ê¸°ë¦„í†µ ì„¸íŒ…
         if (gameMgr.playData.useItem[(int)ShopItem.OIL_Zone_1])
         {
             oilMahcine.machine0.sprite = oilMahcine.machineImg0[0];

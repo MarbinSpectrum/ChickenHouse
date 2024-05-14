@@ -30,6 +30,8 @@ public class KitchenBell : Mgr
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
         GuestMgr guestMgr = GuestMgr.Instance;
         kitchenMgr.ui.goCounter.CloseBtn();
+        guestMgr.CloseTalkBox();
+
         kitchenMgr.cameraObj.ChangeLook(LookArea.Counter, () =>
         {
             Drink drink = tableDrinkSlot.hasDrink ? Drink.Cola : Drink.None;

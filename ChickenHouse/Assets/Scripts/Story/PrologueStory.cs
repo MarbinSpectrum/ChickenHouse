@@ -207,7 +207,7 @@ public class PrologueStory : Mgr
         {
             yield return new WaitForSeconds(1f);
 
-            sceneMgr.SceneLoad(Scene.INGAME, SceneChangeAni.CIRCLE);
+            sceneMgr.SceneLoad(Scene.INGAME,true, SceneChangeAni.CIRCLE);
         }
         StartCoroutine(RunCor());
     }
