@@ -65,6 +65,7 @@ SOY_SPICY	간장양념	Soy Spicy
 HOT_SPICY	치킨양념	Hot Spicy
 HELL_SPICY	붉닭양념	Hell Spicy
 PRINKLE_SPICY	뿌링클양념	Prinkle Spicy
+CARBONARA_SPICY	까르보나라양념	Carbonara Spicy
 BBQ_SPICY	바베큐양념	BBQ Spicy
 HOT_SPICY_CHICKEN	양념치킨	Hot Spicy Chicken
 HELL_CHICKEN	불닭치킨	Hell Chicken

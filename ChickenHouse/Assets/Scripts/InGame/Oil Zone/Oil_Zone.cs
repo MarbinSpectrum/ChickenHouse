@@ -86,17 +86,19 @@ public class Oil_Zone : Mgr
 
     public void HoldStrainter()
     {
-        if (tutoMgr.tutoComplete == false && tutoMgr.nowTuto != Tutorial.Tuto_5_2)
-        {
-            //튜토리얼이 아직 완료안된듯
-            //혹시모르니 튜토리얼 타이밍때만 작동하도록 막아놓자
+        if (PlatformCheck.IsWindow() == false)
             return;
-        }
-
 
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
         if (kitchenMgr.dragObj.holdGameObj == null)
         {
+            if (tutoMgr.tutoComplete == false && tutoMgr.nowTuto != Tutorial.Tuto_5_2)
+            {
+                //튜토리얼이 아직 완료안된듯
+                //혹시모르니 튜토리얼 타이밍때만 작동하도록 막아놓자
+                return;
+            }
+
             HoldStrainter(true);
         }
         else if (kitchenMgr.dragObj.holdGameObj == gameObject)
@@ -110,6 +112,13 @@ public class Oil_Zone : Mgr
 
             if (chickenStrainter)
             {
+                if (tutoMgr.tutoComplete == false && tutoMgr.nowTuto != Tutorial.Tuto_4)
+                {
+                    //튜토리얼이 아직 완료안된듯
+                    //혹시모르니 튜토리얼 타이밍때만 작동하도록 막아놓자
+                    return;
+                }
+
                 chickenStrainter.PutDown(this);
                 return;
             }
@@ -130,19 +139,12 @@ public class Oil_Zone : Mgr
     {
         //인스펙터에 끌어서 사용하는 함수임
 
-        if (Application.platform != RuntimePlatform.WindowsPlayer)
+        if (PlatformCheck.IsWindow() == false)
             return;
 
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
         if (state)
         {
-            if (tutoMgr.tutoComplete == false && tutoMgr.nowTuto != Tutorial.Tuto_5_2)
-            {
-                //튜토리얼이 아직 완료안된듯
-                //혹시모르니 튜토리얼 타이밍때만 작동하도록 막아놓자
-                return;
-            }
-
             if (kitchenMgr.cameraObj.lookArea != LookArea.Kitchen)
             {
                 //주방을 보고있는 상태에서만 상호 작용 가능
@@ -261,7 +263,7 @@ public class Oil_Zone : Mgr
 
     public void OnMouseDrag()
     {
-        if (Application.platform == RuntimePlatform.WindowsPlayer)
+        if (PlatformCheck.IsWindow())
             return;
 
         if (tutoMgr.tutoComplete == false && tutoMgr.nowTuto != Tutorial.Tuto_5_2)
@@ -301,7 +303,7 @@ public class Oil_Zone : Mgr
 
     public void OnMouseUp()
     {
-        if (Application.platform == RuntimePlatform.WindowsPlayer)
+        if (PlatformCheck.IsWindow())
             return;
 
         if (tutoMgr.tutoComplete == false && tutoMgr.nowTuto != Tutorial.Tuto_5_2)

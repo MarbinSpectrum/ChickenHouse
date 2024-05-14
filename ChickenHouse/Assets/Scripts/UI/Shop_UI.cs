@@ -51,7 +51,7 @@ public class Shop_UI : Mgr
 
     private void Start()
     {
-        gameMgr.LoadData();
+        //gameMgr.LoadData();
 
         soundMgr.PlayBGM(Sound.Shop_BG);
 

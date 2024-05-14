@@ -60,6 +60,11 @@ public class ChickenStrainter : Mgr
 
     public void HoldStrainter()
     {
+        if (PlatformCheck.IsWindow() == false)
+            return;
+
+
+
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
         if (kitchenMgr.dragObj.holdGameObj == null)
         {
@@ -80,7 +85,7 @@ public class ChickenStrainter : Mgr
     public void HoldStrainter(bool state)
     {
         //인스펙터에서 끌어서 사용하는 함수임
-        if (Application.platform != RuntimePlatform.WindowsPlayer)
+        if (PlatformCheck.IsWindow() == false)
             return;
 
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
@@ -174,7 +179,7 @@ public class ChickenStrainter : Mgr
 
     public void OnMouseDrag()
     {
-        if (Application.platform == RuntimePlatform.WindowsPlayer)
+        if (PlatformCheck.IsWindow())
             return;
 
         if (tutoMgr.tutoComplete == false && tutoMgr.nowTuto != Tutorial.Tuto_4)
@@ -197,7 +202,7 @@ public class ChickenStrainter : Mgr
 
     public void OnMouseUp()
     {
-        if (Application.platform == RuntimePlatform.WindowsPlayer)
+        if (PlatformCheck.IsWindow())
             return;
 
         if (tutoMgr.tutoComplete == false && tutoMgr.nowTuto != Tutorial.Tuto_4)
