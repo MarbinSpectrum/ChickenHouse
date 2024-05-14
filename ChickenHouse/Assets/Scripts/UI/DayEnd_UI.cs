@@ -87,6 +87,16 @@ public class DayEnd_UI : Mgr
             return;
         goNext = true;
 
+
+#if DEMO
+        if(gameMgr.playData.day == 10)
+        {
+            gameMgr.playData.money += addValue;
+            sceneMgr.SceneLoad(Scene.DEMO, false, SceneChangeAni.CIRCLE);
+            return;
+        }   
+#endif
+
         gameMgr.playData.money += addValue;
         sceneMgr.SceneLoad(Scene.SHOP,false, SceneChangeAni.CIRCLE);
     }

@@ -14,6 +14,7 @@ public class Shop_UI : Mgr
     [SerializeField] private Button         gotoNextDay;
     [SerializeField] private Resume_UI      resumeUI;
     [SerializeField] private GetNewSpicy    newSpicy;
+    [SerializeField] private MissionMoney   missonMoney;
 
     public enum ShopMenu
     {
@@ -133,6 +134,7 @@ public class Shop_UI : Mgr
     public void SetMoney()
     {
         moneyUI.SetMoney(gameMgr.playData.money);
+        missonMoney.SetMoney(gameMgr.playData.day, gameMgr.playData.money);
     }
 
     public void GotoNextDay()

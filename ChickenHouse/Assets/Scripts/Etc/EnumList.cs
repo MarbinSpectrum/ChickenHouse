@@ -351,6 +351,9 @@ public enum Scene
 
     /** 상점 **/
     SHOP    = 4,
+
+    /** 데모 **/
+    DEMO    = 5,
 }
 
 public enum SceneChangeAni
