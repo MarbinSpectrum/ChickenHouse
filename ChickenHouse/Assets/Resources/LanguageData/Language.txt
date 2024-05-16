@@ -16,18 +16,18 @@ SHOP_UPGRADE	매장 업그레이드	Shop Upgrade
 KITCHEN_TOOL	조리도구	Kitchen Tool
 ADVERTISEMENT	홍보	Advertise
 WORKER	직원	Staff
-CHECK_RESUME	이력서보기	이력서보기
+CHECK_RESUME	이력서보기	Resume
 SPICY	양념	Spicy
 BUY_COMPLETE	구입완료	Complete Purchase
-CANUSE_ITEM	사용가능	사용가능
-USE_ITEM	사용중	사용중
-EMPLOY_COMPLETE	고용완료	고용완료
+CANUSE_ITEM	사용가능	Can Use
+USE_ITEM	사용중	Be in Use
+EMPLOY_COMPLETE	고용완료	Employment
 TAKE_OUT	버리기	Take\nOut
 BGM	배경음	BGM
 SE	효과음	SE
 DAY	{0} 일차	Day {0}
 DAY_END	{0} 일차 종료	Day {0}
-GET_ITEM	{0} 획득	{0} 획득
+GET_ITEM	{0} 획득	{0}
 STORE_REVENUE	가게 매출	Store Revenue
 CHAIN_STORE_REVENUE	체인점 매출	Chain Store Revenue
 RENT	임대료	Rent
@@ -39,23 +39,23 @@ RESIDENCE	거주지	Residence
 WORKER_SALARY	급여	Salry
 SALARY	희망급여	Salary
 SKILL_ABILITY	능력/기술	Skill/Ability
-TUTO_1	먼저 닭 4개를 계란물에 넣어봅시다.	먼저 닭 4개를 계란물에 넣어봅시다.
-TUTO_2	그리고 닭을 밀가루 쪽으로 옮겨주세요.	그리고 닭을 밀가루 쪽으로 옮겨주세요.
-TUTO_3	닭 모두를 치킨 건지개에 넣어 주세요.	닭 모두를 치킨 건지개에 넣어 주세요.
-TUTO_4	이제 치킨기계로 치킨을 옮겨주세요.	이제 치킨기계로 치킨을 옮겨주세요.
-TUTO_5_0	치킨기계의 게이지가 가득차면 치킨이 완료된것입니다.	치킨기계의 게이지가 가득차면 치킨이 완료된것입니다.
-TUTO_5_1	해당 상태로 치킨을 너무 오래 방치하면\n치킨이 타므로 주의해야합니다.	해당 상태로 치킨을 너무 오래 방치하면\n치킨이 타므로 주의해야합니다.
-TUTO_5_2	이제 치킨을 치킨용기안에 넣어주세요.	이제 치킨을 치킨용기안에 넣어주세요.
-TUTO_6	콜라와 치킨무도 넣어주세요.	콜라와 치킨무도 넣어주세요.
-TUTO_7	치킨도 올려주세요.	손님에게 전달할 치킨이 완료되었습니다.\n상단 버튼을 눌러서 카운터로 이동합니다.
-TUTO_8	치킨이 준비 되었습니다.\n종을 울려서 카운터로 이동합니다.	치킨이 준비 되었습니다.\n종을 울려서 카운터로 이동합니다.
-PROLOGUE_1	어 여기 있었군. 우리가 찾느라\n얼마나 힘들었는지 알아?	어 여기 있었군. 우리가 찾느라\n얼마나 힘들었는지 알아?
-PROLOGUE_2	우리한테 빚을 져서 차린 게 고작 이런 치킨집이라니\n이걸로 우리한테 빚진 걸 갚을 수 있겠어?	우리한테 빚을 져서 차린 게 고작 이런 치킨집이라니\n이걸로 우리한테 빚진 걸 갚을 수 있겠어?
-PROLOGUE_3	잘 들어 네가 우리한테 빚진 금액 ‘20만’ 달러!\n단 1달러도 봐줄 생각은 없으니\n각오하고 벌어들여야 할 거다!	잘 들어 네가 우리한테 빚진 금액 ‘20만’ 달러!\n단 1달러도 봐줄 생각은 없으니\n각오하고 벌어들여야 할 거다!
-PROLOGUE_4	좋아 일단은 ‘10’일의 시간을 주지\n그때 우리가 빌려준 금액 반이라도 갚아야 할 거다.	좋아 일단은 ‘10’일의 시간을 주지\n그때 우리가 빌려준 금액 반이라도 갚아야 할 거다.
-PROLOGUE_5	만약 반도 못 갚으면 그때는 돈이 될 만한\n장기를 모조리 뽑아서\n빈 껍데기는 시멘트로 채워버릴 거다!	만약 반도 못 갚으면 그때는 돈이 될 만한\n장기를 모조리 뽑아서\n빈 껍데기는 시멘트로 채워버릴 거다!
-PROLOGUE_6	좋아 잘 알아들은 거 같으니\n<color=#FF0000>10일</color> 후에 다시 오지, 그때 보자고? 사장님	좋아 잘 알아들은 거 같으니\n<color=#FF0000>10일</color> 후에 다시 오지, 그때 보자고? 사장님
-CHANGE_LANGUAGE	설정이 변경되었습니다.\n게임이 재시작됩니다.	설정이 변경되었습니다.\n게임이 재시작됩니다.
+TUTO_1	먼저 닭 4개를 계란물에 넣어봅시다.	First, I'll put four chickens in the egg water.
+TUTO_2	그리고 닭을 밀가루 쪽으로 옮겨주세요.	And move the chicken toward the flour.
+TUTO_3	닭 모두를 치킨 건지개에 넣어 주세요.	Please put all the chickens in the vegetable.
+TUTO_4	이제 치킨기계로 치킨을 옮겨주세요.	Now transfer the chicken to the fryer.
+TUTO_5_0	치킨기계의 게이지가 가득차면 치킨이 완료된것입니다.	When the gauge of the machine is full\nthe chicken is complete.
+TUTO_5_1	해당 상태로 치킨을 너무 오래 방치하면\n치킨이 타므로 주의해야합니다.	If you leave the chicken in that state for too long,\nBe careful because the chicken is burning.
+TUTO_5_2	이제 치킨을 치킨용기안에 넣어주세요.	Now put the chicken in the wrapper.
+TUTO_6	콜라와 치킨무도 넣어주세요.	Add coke and pickles, too.
+TUTO_7	치킨도 올려주세요.	Please put some chicken on top, too.
+TUTO_8	치킨이 준비 되었습니다.\n종을 울려서 카운터로 이동합니다.	Chicken is done. Press the top button\nto move to the counter.
+PROLOGUE_1	어 여기 있었군. 우리가 찾느라\n얼마나 힘들었는지 알아?	Oh, here it is. We're looking for it\nDo you know how hard it was?
+PROLOGUE_2	우리한테 빚을 져서 차린 게 고작 이런 치킨집이라니\n이걸로 우리한테 빚진 걸 갚을 수 있겠어?	I can't believe it's only a chicken restaurant\nlike this that you owe us.\nCan you pay back what you owe us with this?
+PROLOGUE_3	잘 들어 네가 우리한테 빚진 금액 ‘10만’ 달러!\n단 1달러도 봐줄 생각은 없으니\n각오하고 벌어들여야 할 거다!	Listen, you owe us $200,000!\nI won't let you off with a dollar,\nso you have to be prepared and earn it!
+PROLOGUE_4	좋아 일단은 ‘10’일의 시간을 주지\n그때 우리가 빌려준 금액 반이라도 갚아야 할 거다.	All right. I'll give you 10 days\nI think you'll have to pay back\neven half of the amount\nwe lent you at that time.
+PROLOGUE_5	만약 반도 못 갚으면 그때는 돈이 될 만한\n장기를 모조리 뽑아서\n빈 껍데기는 시멘트로 채워버릴 거다!	If you don't pay back half,\nyou'll make money by pulling out\nall your organs and filling the empty\nshell with cement!
+PROLOGUE_6	좋아 잘 알아들은 거 같으니\n<color=#FF0000>10일</color> 후에 다시 오지, 그때 보자고? 사장님	All right, all right, come back in <color=#FF0000>10 days</color>,\nand I'll see you then, boss
+CHANGE_LANGUAGE	설정이 변경되었습니다.\n게임이 재시작됩니다.	The settings have been changed.\nThe game will resume.
 KOREAN	한국어	한국어
 ENGLISH	English	English
 COLA	콜라	Cola
@@ -88,172 +88,172 @@ HOT_AND_BBQ_CHICKEN	양념반 바베큐반	양념반 바베큐반
 HOT_AND_PRINKLE_CHICKEN	양념반 뿌링클반	양념반 뿌링클반
 HOT_AND_SOY_CHICKEN	양념반 간장반	양념반 간장반
 HOT_AND_FRIED_CHICKEN	양념반 후라이드반	양념반 후라이드반
-FOX_ORDER_1	안녕하세요! 저는 후라이드한 치킨과\n콜라를 좋아하는 여우예요!	안녕하세요! 저는 후라이드한 치킨과\n콜라를 좋아하는 여우예요!
-FOX_ORDER_2	오늘은 뭔가 살짝 매콤한 양념치킨을\n먹어야 할 거 같은 기분이에요!	오늘은 뭔가 살짝 매콤한 양념치킨을\n먹어야 할 거 같은 기분이에요!
-FOX_ORDER_3	역시 치킨은 시원한 치킨 무와 함께\n소스 없이 바삭하게 즐겨야 국룰이죠!	역시 치킨은 시원한 치킨 무와 함께\n소스 없이 바삭하게 즐겨야 국룰이죠!
-FOX_ORDER_4	최근에 저는 새로운 맛의 치킨을 즐기고 싶어요!\n예를 들어 뿌링클? 	최근에 저는 새로운 맛의 치킨을 즐기고 싶어요!\n예를 들어 뿌링클? 
-FOX_ORDER_5	오늘은 양념을 찍어 먹는 치킨과\n가루를 뿌려 먹는 치킨을 주세요!	오늘은 양념을 찍어 먹는 치킨과\n가루를 뿌려 먹는 치킨을 주세요!
-FOX_ORDER_6	후라이드 치킨이랑 뿌링클 치킨을\n같이 먹으면 너무 느끼할까요?	후라이드 치킨이랑 뿌링클 치킨을\n같이 먹으면 너무 느끼할까요?
-FOX_ORDER_7	새로운 변화가 필요할 거 같아요!\n바비큐 치킨을 한번 시켜 봐야겠어요!	새로운 변화가 필요할 거 같아요!\n바비큐 치킨을 한번 시켜 봐야겠어요!
-FOX_ORDER_8	양념으로 가득한 치킨을 먹다보면\n옷에 다 묻을 거 같아요!	양념으로 가득한 치킨을 먹다보면\n옷에 다 묻을 거 같아요!
-FOX_ORDER_9	양념 치킨만 먹으면 제 혀가 부담을 느낄지 모르니\n달달함도 필요할 거 같아요!	양념 치킨만 먹으면 제 혀가 부담을 느낄지 모르니\n달달함도 필요할 거 같아요!
-FOX_ORDER_10	오늘은 특별하게 달달 한 눈 같은 치킨과\n바비큐 파티를 즐기고 싶어요!	오늘은 특별하게 달달 한 눈 같은 치킨과\n바비큐 파티를 즐기고 싶어요!
-FOX_ORDER_11	오늘의 식사는 아주 심플하게 즐기고 싶어요!	오늘의 식사는 아주 심플하게 즐기고 싶어요!
-FOX_SIDE_COLA	으아 못 참겠다! 시원한 콜라도 주세요!	으아 못 참겠다! 시원한 콜라도 주세요!
-FOX_SIDE_PICKLE	아삭아삭 시원한 치킨 무도 주세요!	아삭아삭 시원한 치킨 무도 주세요!
-FOX_ANGRY	이게 뭐에요 너무해	이게 뭐에요 너무해
-FOX_THANK_YOU	살짝 아쉽지만... 그래도 좋아요!	살짝 아쉽지만... 그래도 좋아요!
-FOX_HAPPY	드디어 단골집을 찾은거 같아요!	드디어 단골집을 찾은거 같아요!
-DOG_ORDER_1	안녕하세요! 사장님!\n간편하게 먹을 수 있는 바삭하고\n맛 좋은 기본적인 후라이드로 부탁드립니다!	안녕하세요! 사장님!\n간편하게 먹을 수 있는 바삭하고\n맛 좋은 기본적인 후라이드로 부탁드립니다!
-DOG_ORDER_2	오늘은 양념이랑 후라이드 둘 중 뭘먹지?!\n아 안되겠다! 그냥 양념 주세요!	오늘은 양념이랑 후라이드 둘 중 뭘먹지?!\n아 안되겠다! 그냥 양념 주세요!
-DOG_ORDER_3	매콤하면서 바삭한 양념치킨이 땡기니까\n오늘은 반반으로 시킬게요!	매콤하면서 바삭한 양념치킨이 땡기니까\n오늘은 반반으로 시킬게요!
-DOG_ORDER_4	안녕하세요. 사장님 오늘은 넉넉하게 즐길 수 있도록\n후라이드와 뿌링클 둘 다 주세요!	안녕하세요. 사장님 오늘은 넉넉하게 즐길 수 있도록\n후라이드와 뿌링클 둘 다 주세요!
-DOG_ORDER_5	직장 동료 중에 ‘찰스’라는 고양이가 있는데\n그 친구가 평소에는 뿌링클 치킨을 좋아했죠\n저는 양념이 좋구요! 	직장 동료 중에 ‘찰스’라는 고양이가 있는데\n그 친구가 평소에는 뿌링클 치킨을 좋아했죠\n저는 양념이 좋구요! 
-DOG_ORDER_6	아무래도 오늘은 ‘찰스’가 추천해줬던\n뿌링클 이라는 치킨을 도전해 보는 것도\n나쁘지 않을 거 같네요!	아무래도 오늘은 ‘찰스’가 추천해줬던\n뿌링클 이라는 치킨을 도전해 보는 것도\n나쁘지 않을 거 같네요!
-DOG_ORDER_7	가끔 고향 집에서 먹던 요리가 그리울 때가 많아요,\n밥에다 비벼 먹기도 했는데 그 고향에서 느꼈던\n짭짤한 감각을 다시 느껴보고 싶어요!	가끔 고향 집에서 먹던 요리가 그리울 때가 많아요,\n밥에다 비벼 먹기도 했는데 그 고향에서 느꼈던\n짭짤한 감각을 다시 느껴보고 싶어요!
-DOG_ORDER_8	오늘은 그리움과 기본적인 맛의 조합을 즐겨봐야겠군요!	오늘은 그리움과 기본적인 맛의 조합을 즐겨봐야겠군요!
-DOG_ORDER_9	오늘은 달짝지근한 매콤함을 즐기면서\n그리운 짭짤함으로 균형을 맞춰야 겠어요!	오늘은 달짝지근한 매콤함을 즐기면서\n그리운 짭짤함으로 균형을 맞춰야 겠어요!
-DOG_ORDER_10	오늘은 제 친구 ‘니치’ 녀석이 저한테 종종\n미국의 아메리칸 스타일의 치킨을\n추천해주곤 했는데 그게 혹시 맛있나요?	오늘은 제 친구 ‘니치’ 녀석이 저한테 종종\n미국의 아메리칸 스타일의 치킨을\n추천해주곤 했는데 그게 혹시 맛있나요?
-DOG_ORDER_11	아는 여우 친구가 추천했던 미국의 맛의 치킨이 먹고 싶군요!\n덤으로 평범한 치킨도 포함하죠	아는 여우 친구가 추천했던 미국의 맛의 치킨이 먹고 싶군요!\n덤으로 평범한 치킨도 포함하죠
-DOG_SIDE_COLA	일하느라 더우니 콜라도 부탁드릴게요	일하느라 더우니 콜라도 부탁드릴게요
-DOG_SIDE_PICKLE	치킨만 먹으면 느끼하니까 치킨 무도 주세요	치킨만 먹으면 느끼하니까 치킨 무도 주세요
-DOG_ANGRY	하하... 정 말 맛 있 겠 네 요	하하... 정 말 맛 있 겠 네 요
-DOG_THANK_YOU	배만 채우면 OK죠	배만 채우면 OK죠
-DOG_HAPPY	다른 동료 직원들한테도 추천해야겠어요!	다른 동료 직원들한테도 추천해야겠어요!
-CAT_ORDER_1	안녕하세요! 사장님\n간장을 곁들인 맛 좋은 치킨을 주세요!	안녕하세요! 사장님\n간장을 곁들인 맛 좋은 치킨을 주세요!
-CAT_ORDER_2	오늘은 뿌링클처럼 달고 부드러운 치킨으로\n스트레스를 풀어야 하겠어요!	오늘은 뿌링클처럼 달고 부드러운 치킨으로\n스트레스를 풀어야 하겠어요!
-CAT_ORDER_3	흠... 오늘은 고민이 좀 되네요.\n양념을 먹을까?후라이드를 먹을까?\n둘 다 가능하겠죠?	흠... 오늘은 고민이 좀 되네요.\n양념을 먹을까?후라이드를 먹을까?\n둘 다 가능하겠죠?
-CAT_ORDER_4	팀장한테 받은 스트레스를\n화끈한 더블 콤보로 풀어봐야겠어요!	팀장한테 받은 스트레스를\n화끈한 더블 콤보로 풀어봐야겠어요!
-CAT_ORDER_5	엄청나게 매운맛을 한번 도전해야겠어요!\n전 아주 진지해요!	엄청나게 매운맛을 한번 도전해야겠어요!\n전 아주 진지해요!
-CAT_ORDER_6	이렇게 먹으면 배탈 날지도 모르지만\n짭짤함과 매콤함을 같이 즐겨보고 싶어요!	이렇게 먹으면 배탈 날지도 모르지만\n짭짤함과 매콤함을 같이 즐겨보고 싶어요!
-CAT_ORDER_7	오늘은 친한 친구가 추천해준\n이탈리안의 고급스러운 맛을 즐겨보고 싶네요	오늘은 친한 친구가 추천해준\n이탈리안의 고급스러운 맛을 즐겨보고 싶네요
-CAT_ORDER_8	오늘 저녁을 매운 불닭으로만 달리면 탈 날 수 있으니\n브레이크로 부드러움이 필요할거 같아요!	오늘 저녁을 매운 불닭으로만 달리면 탈 날 수 있으니\n브레이크로 부드러움이 필요할거 같아요!
-CAT_ORDER_9	오늘 야근을 해야 할지도 몰라요\n너무 슬프니까 불닭에 간장을 먹여야겠어요	오늘 야근을 해야 할지도 몰라요\n너무 슬프니까 불닭에 간장을 먹여야겠어요
-CAT_ORDER_10	제가 양념을 먹을까.. 뿌링클을 먹을까.. 둘다 주세요!	제가 양념치킨을까.. 뿌링클을 먹을까.. 둘다 주세요!
-CAT_ORDER_11	오늘은 제가 아는 동생이 좋아하는\n가루 치킨을 시켜봐야겠어요!	오늘은 제가 아는 동생이 좋아하는\n가루 치킨을 시켜봐야겠어요!
-CAT_SIDE_COLA	단게 땡기니 콜라도 있는게 좋을거 같아요!	단게 땡기니 콜라도 있는게 좋을거 같아요!
-CAT_SIDE_PICKLE	시원한 치킨 무도 부탁드릴게요!	시원한 치킨 무도 부탁드릴게요!
-CAT_ANGRY	앞으로는 이 집에는 안와야겠네요!	앞으로는 이 집에는 안와야겠네요!
-CAT_THANK_YOU	이거면 피곤함을 달랠 수 있겠죠	이거면 피곤함을 달랠 수 있겠죠
-CAT_HAPPY	이제 여기 말고는 다른 치킨은 성에 차지도 않겠어요!	이제 여기 말고는 다른 치킨은 성에 차지도 않겠어요!
-OPOSSUM_ORDER_1	우리 마린 짱은 후라이드를 좋아하지!\n하지만 난 뿌링클을 원해!	우리 마린 짱은 후라이드를 좋아하지!\n하지만 난 뿌링클을 원해!
-OPOSSUM_ORDER_2	에잇! 나는 매운 건 질색이야!\n그렇다고 후라이드는 너무 평범해!\n간장 맛이 나는 치킨 없어???	에잇! 나는 매운 건 질색이야!\n그렇다고 후라이드는 너무 평범해!\n간장 맛이 나는 치킨 없어???
-OPOSSUM_ORDER_3	오늘은 그녀랑 데이트하는 날이야….\n현실에서? 당연히 모니터지!\n뿌링클 반! 간장 반이나 가져와!	오늘은 그녀랑 데이트하는 날이야….\n현실에서? 당연히 모니터지!\n뿌링클 반! 간장 반이나 가져와!
-OPOSSUM_ORDER_4	마린 짱의 해적선을 타고! 바다를 건너 이탈리아!	마린 짱의 해적선을 타고! 바다를 건너 이탈리아!
-OPOSSUM_ORDER_5	오늘은 특별한 날이야. 그녀처럼 고급스러운\n이탈리아의 풍미의 치킨! 그리고 내가 좋아하는 뿌링클!	오늘은 특별한 날이야. 그녀처럼 고급스러운\n이탈리아의 풍미의 치킨! 그리고 내가 좋아하는 뿌링클!
-OPOSSUM_ORDER_6	난 오늘 새로 나온 애니를 봐야 해서 굉장히 바빠!\n그러니까 간단한 치킨으로 빠르게 만들어와!	난 오늘 새로 나온 애니를 봐야 해서 굉장히 바빠!\n그러니까 간단한 치킨으로 빠르게 만들어와!
-OPOSSUM_ORDER_7	우리 마린 짱은 후라이드를 좋아하지!\n그리고 난 뿌링클이 좋아! 알았지?	우리 마린 짱은 후라이드를 좋아하지!\n그리고 난 뿌링클이 좋아! 알았지?
-OPOSSUM_ORDER_8	오늘의 나는 미국과 이탈리아를\n동시에 느끼는 고급스러운 도시 남자가 되겠어!	오늘의 나는 미국과 이탈리아를\n동시에 느끼는 고급스러운 도시 남자가 되겠어!
-OPOSSUM_ORDER_9	나와 마린 짱이 만약 결혼해서\n해외로 신혼여행을 간다면? 역시 미국이 좋겠지?!	나와 마린 짱이 만약 결혼해서\n해외로 신혼여행을 간다면? 역시 미국이 좋겠지?!
-OPOSSUM_ORDER_10	오늘의 난 평소와 달라!\n그녀를 위해서라면 어떠한 고통도 감내하는\n남자가 되겠어! 그 앞이 설령 혀의 지옥이 될지라도! 	오늘의 난 평소와 달라!\n그녀를 위해서라면 어떠한 고통도 감내하는\n남자가 되겠어! 그 앞이 설령 혀의 지옥이 될지라도! 
-OPOSSUM_ORDER_11	그녀를 위해 엄청난 혀의 고통도 견디는 강한 남자가 되겠어!\n하지만 혹시 모르니까 그 뿌 뿌링클도...	그녀를 위해 엄청난 혀의 고통도 견디는 강한 남자가 되겠어!\n하지만 혹시 모르니까 그 뿌 뿌링클도...
-OPOSSUM_SIDE_COLA	콜라? 당연히 주문하지! 눈치 없어?	콜라? 당연히 주문하지! 눈치 없어?
-OPOSSUM_SIDE_PICKLE	치킨 무? 흠 특별히 넣어줘	치킨 무? 흠 특별히 넣어줘
-OPOSSUM_ANGRY	진짜 서비스 꽝이네! 다신 안 와!	진짜 서비스 꽝이네! 다신 안 와!
-OPOSSUM_THANK_YOU	뭐 나쁘진 않네! 다음에도 와주지	뭐 나쁘진 않네! 다음에도 와주지
-OPOSSUM_HAPPY	마린 짱도 마음에 들어? 나도!	마린 짱도 마음에 들어? 나도!
-TASMANIAN_ORDER_1	YO! 지리산을 오른 듯한 지리는 기분!\n중요한 내 프라이드! 치킨!	YO! 지리산을 오른 듯한 지리는 기분!\n중요한 내 프라이드! 치킨!
-TASMANIAN_ORDER_2	매콤! 달달! 달짝! 찌근! 매달!\n나의 입맛을 돋구는 양념치킨~	매콤! 달달! 달짝! 찌근! 매달!\n나의 입맛을 돋구는 양념치킨~
-TASMANIAN_ORDER_3	오늘은 나의 Heart!를\nHot!하게 만드는 파이어! 치킨!	오늘은 나의 Heart!를\nHot!하게 만드는 파이어! 치킨!
-TASMANIAN_ORDER_4	YO! 내 안의 Beat! Vivace! Vest! barbecue!	YO! 내 안의 Beat! Vivace! Vest! barbecue!
-TASMANIAN_ORDER_5	나의 혀를 자극하는 HOT!\n진정하기 위해선 필요하지 후레쉬! 프라이드!	나의 혀를 자극하는 HOT!\n진정하기 위해선 필요하지 후레쉬! 프라이드!
-TASMANIAN_ORDER_6	느껴지는 고통! 피할 수 없다면\n즐겨라! 모여라! 매콤 HOT 콤비!	느껴지는 고통! 피할 수 없다면\n즐겨라! 모여라! 매콤 HOT 콤비!
-TASMANIAN_ORDER_7	내가 좋아하는 Vest! barbecue!\n그리고 나의 혀를 자극하는 파이어!	내가 좋아하는 Vest! barbecue!\n그리고 나의 혀를 자극하는 파이어!
-TASMANIAN_ORDER_8	난 둘 다 즐길 수 있지! 매콤! 콤보! 그리고 나의 노멀!	난 둘 다 즐길 수 있지! 매콤! 콤보! 그리고 나의 노멀!
-TASMANIAN_ORDER_9	예압 나는 준비 됐어!\n화려한 아메리칸 스타일에서 느껴지는 혓바닥의 헬!	예압 나는 준비 됐어!\n화려한 아메리칸 스타일에서 느껴지는 혓바닥의 헬!
-TASMANIAN_ORDER_10	사장님 준비됐나? 양손 번쩍 들어 올려! 붐! 붐!\n한국에는 없는 아메리칸 콤비!	사장님 준비됐나? 양손 번쩍 들어 올려! 붐! 붐!\n한국에는 없는 아메리칸 콤비!
-TASMANIAN_ORDER_11	나의 혀 위에 펼쳐지는 매서운 매콤보!\n하지만 난 막을 수 있지 아주 빠르게 Vivace!\n화끈한 불맛의 바비!	나의 혀 위에 펼쳐지는 매서운 매콤보!\n하지만 난 막을 수 있지 아주 빠르게 Vivace!\n화끈한 불맛의 바비!
-TASMANIAN_SIDE_COLA	나의 입안을 톡 쏘는 콜라도 Please!	나의 입안을 톡 쏘는 콜라도 Please!
-TASMANIAN_SIDE_PICKLE	 나의 영감을 돋구는 치킨 무 무 무빙!	 나의 영감을 돋구는 치킨 무 무 무빙!
-TASMANIAN_ANGRY	진짜 이 치킨 Damn it!	진짜 이 치킨 Damn it!
-TASMANIAN_THANK_YOU	나쁘지 않은 무난함! 앞으로도 Move!	나쁘지 않은 무난함! 앞으로도 Move!
+FOX_ORDER_1	안녕하세요! 저는 후라이드한 치킨과\n콜라를 좋아하는 여우예요!	Hello! I'm a fox who loves fried chicken and coke!
+FOX_ORDER_2	오늘은 뭔가 살짝 매콤한 양념치킨을\n먹어야 할 거 같은 기분이에요!	I feel like I'm going to have some\nspicy seasoned chicken today!
+FOX_ORDER_3	역시 치킨은 시원한 치킨 무와 함께\n소스 없이 바삭하게 즐겨야 국룰이죠!	As expected, it would be better to enjoy\nchicken simply without sauce with cool pickles!
+FOX_ORDER_4	최근에 저는 새로운 맛의 치킨을 즐기고 싶어요!\n예를 들어 뿌링클? 	Recently, I want to eat a new flavor of chicken!\nFor example, Prinkle?
+FOX_ORDER_5	오늘은 양념을 찍어 먹는 치킨과\n가루를 뿌려 먹는 치킨을 주세요!	Today, please give me chicken dipped in sauce\nand chicken sprinkled with powder!
+FOX_ORDER_6	후라이드 치킨이랑 뿌링클 치킨을\n같이 먹으면 너무 느끼할까요?	Would it be too greasy to eat fried chicken\nand Prinkle chicken together?
+FOX_ORDER_7	새로운 변화가 필요할 거 같아요!\n바비큐 치킨을 한번 시켜 봐야겠어요!	I think we need a new change!\nI should order BBQ chicken!
+FOX_ORDER_8	양념으로 가득한 치킨을 먹다보면\n옷에 다 묻을 거 같아요!	I think I'll spill it all on my clothes\nif I eat chicken full of seasoning!
+FOX_ORDER_9	양념 치킨만 먹으면 제 혀가 부담을 느낄지 모르니\n달달함도 필요할 거 같아요!	If you just eat seasoned chicken\nyour tongue might be too much\nso I think you need sweetness, too!
+FOX_ORDER_10	오늘은 특별하게 달달 한 눈 같은 치킨과\n바비큐 파티를 즐기고 싶어요!	I want to have a special snow chicken and BBQ today!
+FOX_ORDER_11	오늘의 식사는 아주 심플하게 즐기고 싶어요!	I want to enjoy my meal very simply today!
+FOX_SIDE_COLA	으아 못 참겠다! 시원한 콜라도 주세요!	Oh, I can't stand it! I'd like a cold coke, too!
+FOX_SIDE_PICKLE	아삭아삭 시원한 치킨 무도 주세요!	Please give me some cool pickles, too!
+FOX_ANGRY	이게 뭐에요 너무해	What is this? It's too much
+FOX_THANK_YOU	살짝 아쉽지만... 그래도 좋아요!	It's a bit unfortunate, but it's still good!
+FOX_HAPPY	드디어 단골집을 찾은거 같아요!	I think I've finally found a regular place!
+DOG_ORDER_1	안녕하세요! 사장님!\n간편하게 먹을 수 있는 바삭하고\n맛 좋은 기본적인 후라이드로 부탁드립니다!	Hello! Boss! I'd like a crispy and\ndelicious basic fried dish that's good to eat!
+DOG_ORDER_2	오늘은 양념이랑 후라이드 둘 중 뭘먹지?!\n아 안되겠다! 그냥 양념 주세요!	What should I eat today? Seasoning? Fried food?\nOh, no! Just seasonings, please!
+DOG_ORDER_3	매콤하면서 바삭한 양념치킨이 땡기니까\n오늘은 반반으로 시킬게요!	I'm craving spicy and crispy seasoned chicken,\nso I'll order half and half today!
+DOG_ORDER_4	안녕하세요. 사장님 오늘은 넉넉하게 즐길 수 있도록\n후라이드와 뿌링클 둘 다 주세요!	Hello boss please give me both fried and\nPrinkle so I can have plenty of fun today!
+DOG_ORDER_5	직장 동료 중에 ‘찰스’라는 고양이가 있는데\n그 친구가 평소에는 뿌링클 치킨을 좋아했죠\n저는 양념이 좋구요! 	Charles used to love Prinkle chicken.\nBut I love seasoning!
+DOG_ORDER_6	아무래도 오늘은 ‘찰스’가 추천해줬던\n뿌링클 이라는 치킨을 도전해 보는 것도\n나쁘지 않을 거 같네요!	I think it'd be good to try the chicken called Prinkle\nthat Charles recommended today!
+DOG_ORDER_7	가끔 고향 집에서 먹던 요리가 그리울 때가 많아요,\n밥에다 비벼 먹기도 했는데 그 고향에서 느꼈던\n짭짤한 감각을 다시 느껴보고 싶어요!	Sometimes I miss the foods I used to eat in my\nhometown, and I mixed them with rice,\nbut I want to relive the salty taste\nI felt in my hometown!
+DOG_ORDER_8	오늘은 그리움과 기본적인 맛의 조합을 즐겨봐야겠군요!	Today, let's enjoy the harmony of longing\nand basic taste!
+DOG_ORDER_9	오늘은 달짝지근한 매콤함을 즐기면서\n그리운 짭짤함으로 균형을 맞춰야 겠어요!	Today, I'm going to enjoy the sweet spicy taste\nand balance it with the salty taste I miss!
+DOG_ORDER_10	오늘은 제 친구 ‘니치’ 녀석이 저한테 종종\n미국의 아메리칸 스타일의 치킨을\n추천해주곤 했는데 그게 혹시 맛있나요?	Niche often recommended American chicken,\nis it delicious?
+DOG_ORDER_11	아는 여우 친구가 추천했던 미국의 맛의 치킨이 먹고 싶군요!\n덤으로 평범한 치킨도 포함하죠	I really want to eat American-flavored chicken\nthat my fox friend recommended!\nAnd please add regular chicken, too
+DOG_SIDE_COLA	일하느라 더우니 콜라도 부탁드릴게요	It's hot at work, so please give me a coke
+DOG_SIDE_PICKLE	치킨만 먹으면 느끼하니까 치킨 무도 주세요	It's greasy if you eat chicken, so please give me Pickle
+DOG_ANGRY	하하... 정 말 맛 있 겠 네 요	Haha... It must be really delicious
+DOG_THANK_YOU	배만 채우면 OK죠	As long as I'm full, it's okay
+DOG_HAPPY	다른 동료 직원들한테도 추천해야겠어요!	I should also recommend it to\nmy other fellow employees!
+CAT_ORDER_1	안녕하세요! 사장님\n간장을 곁들인 맛 좋은 치킨을 주세요!	Hello! Boss, please give me some\ndelicious chicken with soy sauce!
+CAT_ORDER_2	오늘은 뿌링클처럼 달고 부드러운 치킨으로\n스트레스를 풀어야 하겠어요!	Today, I'm going to eat sweet and soft chicken\nlike Prinkle. I need to relieve my stress
+CAT_ORDER_3	흠... 오늘은 고민이 좀 되네요.\n양념을 먹을까?후라이드를 먹을까?\n둘 다 가능하겠죠?	Um... I'm thinking about it today,\nso should I season it or eat fried food?\nBoth are possible, right?
+CAT_ORDER_4	팀장한테 받은 스트레스를\n화끈한 더블 콤보로 풀어봐야겠어요!	I'll relieve the stress from the team leader\nwith a hot double combo!
+CAT_ORDER_5	엄청나게 매운맛을 한번 도전해야겠어요!\n전 아주 진지해요!	I'll have to give it a go! I'm very serious!
+CAT_ORDER_6	이렇게 먹으면 배탈 날지도 모르지만\n짭짤함과 매콤함을 같이 즐겨보고 싶어요!	I might have an upset stomach if I eat like this,\nbut I want to enjoy the salty and spicy taste together!
+CAT_ORDER_7	오늘은 친한 친구가 추천해준\n이탈리안의 고급스러운 맛을 즐겨보고 싶네요	Today, I want to enjoy the luxurious taste\nof Italy that my close friend recommended
+CAT_ORDER_8	오늘 저녁을 매운 불닭으로만 달리면 탈 날 수 있으니\n브레이크로 부드러움이 필요할거 같아요!	If you eat spicy hell chicken, you can get upset stomach,\nso I think you need a soft taste!
+CAT_ORDER_9	오늘 야근을 해야 할지도 몰라요\n너무 슬프니까 불닭에 간장을 먹여야겠어요	I might have to work overtime today.. I'm so sad..\nI'm going to put Hell spicy and Soy spicy\non my chicken ribs
+CAT_ORDER_10	제가 양념을 먹을까.. 뿌링클을 먹을까.. 둘다 주세요!	Shall we have seasoned chicken or Prinkle? Both, please!
+CAT_ORDER_11	오늘은 제가 아는 동생이 좋아하는\n가루 치킨을 시켜봐야겠어요!	Today, I'm going to order some powdered chicken\nthat my acquaintance likes!
+CAT_SIDE_COLA	단게 땡기니 콜라도 있는게 좋을거 같아요!	I think we'd better have a glass of coke, too!
+CAT_SIDE_PICKLE	시원한 치킨 무도 부탁드릴게요!	I'd like some cool pickles, too!
+CAT_ANGRY	앞으로는 이 집에는 안와야겠네요!	I shouldn't come to this house from now on!
+CAT_THANK_YOU	이거면 피곤함을 달랠 수 있겠죠	This will relieve your tiredness
+CAT_HAPPY	이제 여기 말고는 다른 치킨은 성에 차지도 않겠어요!	I don't think I'll be satisfied with any chicken\nother than here anymore!
+OPOSSUM_ORDER_1	우리 마린 짱은 후라이드를 좋아하지!\n하지만 난 뿌링클을 원해!	Our Marine-chan loves fried food! But I want Prinkle!
+OPOSSUM_ORDER_2	에잇! 나는 매운 건 질색이야!\n그렇다고 후라이드는 너무 평범해!\n간장 맛이 나는 치킨 없어???	Hey! I hate hot food! But fried food is too normal!\nDo you have any chicken that tastes like soy sauce???
+OPOSSUM_ORDER_3	오늘은 그녀랑 데이트하는 날이야….\n현실에서? 당연히 모니터지!\n뿌링클 반! 간장 반이나 가져와!	Today is my date with her. Really?\nOf course I'm monitoring!\nPrinkle half! Bring half soy sauce!
+OPOSSUM_ORDER_4	마린 짱의 해적선을 타고! 바다를 건너 이탈리아!	From Marine-chan Pirate Ship! Across the Sea, Italy!
+OPOSSUM_ORDER_5	오늘은 특별한 날이야. 그녀처럼 고급스러운\n이탈리아의 풍미의 치킨! 그리고 내가 좋아하는 뿌링클!	Today is a special day.\nA luxurious Italian-flavored\nchicken like her! And my favorite, Prinkle!
+OPOSSUM_ORDER_6	난 오늘 새로 나온 애니를 봐야 해서 굉장히 바빠!\n그러니까 간단한 치킨으로 빠르게 만들어와!	I'm very busy because I have to see a new Annie today!\nSo quickly make some simple chicken!
+OPOSSUM_ORDER_7	우리 마린 짱은 후라이드를 좋아하지!\n그리고 난 뿌링클이 좋아! 알았지?	Marine-chan loves fried chicken!\nAnd I love Prinkle! Okay?
+OPOSSUM_ORDER_8	오늘의 나는 미국과 이탈리아를\n동시에 느끼는 고급스러운 도시 남자가 되겠어!	Today I'm going to be a posh city guy\nwho feels both America and Italy at the same time!
+OPOSSUM_ORDER_9	나와 마린 짱이 만약 결혼해서\n해외로 신혼여행을 간다면? 역시 미국이 좋겠지?!	How about marrying Marine-chan\nand going on a honeymoon abroad?\nAmerica would be nice, right?
+OPOSSUM_ORDER_10	오늘의 난 평소와 달라!\n그녀를 위해서라면 어떠한 고통도 감내하는\n남자가 되겠어! 그 앞이 설령 혀의 지옥이 될지라도! 	I am different today! For her sake,\nI will be a person who can endure any pain!\nEven if it becomes hell in front of him!
+OPOSSUM_ORDER_11	그녀를 위해 엄청난 혀의 고통도 견디는 강한 남자가 되겠어!\n하지만 혹시 모르니까 그 뿌 뿌링클도...	I will be a strong man who can stand the pain\nof her tongue for her! But just in case, Prinkle...
+OPOSSUM_SIDE_COLA	콜라? 당연히 주문하지! 눈치 없어?	Cola? Of course! You don't know what I mean?
+OPOSSUM_SIDE_PICKLE	치킨 무? 흠 특별히 넣어줘	Pickle? Hmm, please add it
+OPOSSUM_ANGRY	진짜 서비스 꽝이네! 다신 안 와!	It's really bad! It won't come again!
+OPOSSUM_THANK_YOU	뭐 나쁘진 않네! 다음에도 와주지	It's not bad! I'll come next time
+OPOSSUM_HAPPY	마린 짱도 마음에 들어? 나도!	Do you like Marine-chan? Me too!
+TASMANIAN_ORDER_1	YO! 지리산을 오른 듯한 지리는 기분!\n중요한 내 프라이드! 치킨!	Hey! It feels like climbing Jirisan Mountain!\nMy important fried chicken!
+TASMANIAN_ORDER_2	매콤! 달달! 달짝! 찌근! 매달!\n나의 입맛을 돋구는 양념치킨~	Spicy! Sweet! Sweet! Sick! Every month!\nSeasoned chicken that makes my taste better
+TASMANIAN_ORDER_3	오늘은 나의 Heart!를\nHot!하게 만드는 파이어! 치킨!	Today, fire that makes my heart! Hot! Chicken!
+TASMANIAN_ORDER_4	YO! 내 안의 Beat! Vivace! Vest! barbecue!	Yo! Inside me Beat! Vivace! Vest! barbecue!
+TASMANIAN_ORDER_5	나의 혀를 자극하는 HOT!\n진정하기 위해선 필요하지 후레쉬! 프라이드!	My tongue-in-cheeking HOT!\nI need it to calm down!Fresh! Fried!
+TASMANIAN_ORDER_6	느껴지는 고통! 피할 수 없다면\n즐겨라! 모여라! 매콤 HOT 콤비!	It hurts! If you can't avoid it, enjoy it! Together!\nSpicy HOT combination!
+TASMANIAN_ORDER_7	내가 좋아하는 Vest! barbecue!\n그리고 나의 혀를 자극하는 파이어!	My favorite Vest! barbecue!\nAnd my tongue-in-cheek fire!
+TASMANIAN_ORDER_8	난 둘 다 즐길 수 있지! 매콤! 콤보! 그리고 나의 노멀!	I can enjoy both! The spicy!\nThe combo! And my normal!
+TASMANIAN_ORDER_9	예압 나는 준비 됐어!\n화려한 아메리칸 스타일에서 느껴지는 혓바닥의 헬!	Yes, I'm ready! The Hell of the Tongue\nthat feels like a glamorous American style!
+TASMANIAN_ORDER_10	사장님 준비됐나? 양손 번쩍 들어 올려! 붐! 붐!\n한국에는 없는 아메리칸 콤비!	Are you ready? Raise your hands! Bang! Bang! Bang!\nIt's an American taste that Korea doesn't have in it!
+TASMANIAN_ORDER_11	나의 혀 위에 펼쳐지는 매서운 매콤보!\n하지만 난 막을 수 있지 아주 빠르게 Vivace!\n화끈한 불맛의 바비!	I can stop it! Hell fire!
+TASMANIAN_SIDE_COLA	나의 입안을 톡 쏘는 콜라도 Please!	Even the cola that pokes my mouth, please!
+TASMANIAN_SIDE_PICKLE	 나의 영감을 돋구는 치킨 무 무 무빙!	Pickle moving that inspires me!
+TASMANIAN_ANGRY	진짜 이 치킨 Damn it!	What the hell is this chicken!
+TASMANIAN_THANK_YOU	나쁘지 않은 무난함! 앞으로도 Move!	It's not bad. It's not bad. Let's move!
 TASMANIAN_HAPPY	Fantastic!	Fantastic!
-TIGER_ORDER_1	안녕하세요! 아저씨! 저는 치킨이 양념을 원해요!	안녕하세요! 아저씨! 저는 치킨이 양념을 원해요!
-TIGER_ORDER_2	그 그 그 뭐더라? 아!\n가루 뿌린 치킨 주세요! 맛있어서 좋아요!	그 그 그 뭐더라? 아!\n가루 뿌린 치킨 주세요! 맛있어서 좋아요!
-TIGER_ORDER_3	옛날에 가루나라 치킨이랑 양념나라\n치킨이 싸웠데요! 왜 그랬을까요?	옛날에 가루나라 치킨이랑 양념나라\n치킨이 싸웠데요! 왜 그랬을까요?
-TIGER_ORDER_4	그레이삼촌을 아세요? 삼촌은 까르보나라 치킨이 좋데요!\n저는 바비큐 좋고요! 전 까르보나라는 별로예요! 	그레이삼촌을 아세요? 삼촌은 까르보나라 치킨이 좋데요!\n저는 바비큐 좋고요! 전 까르보나라는 별로예요! 
-TIGER_ORDER_5	끔찍한 양념 용암을 지나가려면\n용감한 전설의 마법의 가루를 뿌린 치킨 영웅이 필요해!	끔찍한 양념 용암을 지나가려면\n용감한 전설의 마법의 가루를 뿌린 치킨 영웅이 필요해!
-TIGER_ORDER_6	오늘은 우리 집에 그레이삼촌이 와서 바비큐 파티에요!\n황금색으로 칠해진 고급 요리도! 물론 치킨으로! 	오늘은 우리 집에 그레이삼촌이 와서 바비큐 파티에요!\n황금색으로 칠해진 고급 요리도! 물론 치킨으로! 
-TIGER_ORDER_7	어제 꿈에서 양념을 쏘는 용이\n미국의 소스 부자를 납치하는 꿈을 꾸었어요!	어제 꿈에서 양념을 쏘는 용이\n미국의 소스 부자를 납치하는 꿈을 꾸었어요!
-TIGER_ORDER_8	오늘은 엄마랑 아빠가 좋아하는 짠 갈색 치킨을 사가야 한대요!\n반은 제가 좋아하는 가루를 뿌려도 된대요! 	오늘은 엄마랑 아빠가 좋아하는 짠 갈색 치킨을 사가야 한대요!\n반은 제가 좋아하는 가루를 뿌려도 된대요! 
-TIGER_ORDER_9	그레이삼촌이 그랬어요! 인생은 단맛이랑 쓴맛이 있데요!\n전 차라리 짭짤한 인생을 살래요!	그레이삼촌이 그랬어요! 인생은 단맛이랑 쓴맛이 있데요!\n전 차라리 짭짤한 인생을 살래요!
-TIGER_ORDER_10	주인장 양반! 여기 짭짤한 갈색 같은 인생의 치킨과\n매콤달콤한 붉은 인생의 치킨 부탁해요!	주인장 양반! 여기 짭짤한 갈색 같은 인생의 치킨과\n매콤달콤한 붉은 인생의 치킨 부탁해요!
-TIGER_ORDER_11	오늘은 대전쟁 날이에요! 동쪽 간장 군단과\n서쪽의 바비큐 군단의 전쟁!\n둘 다 먹어 버릴 거라서 저의 승!	오늘은 대전쟁 날이에요! 동쪽 간장 군단과\n서쪽의 바비큐 군단의 전쟁!\n둘 다 먹어 버릴 거라서 저의 승!
-TIGER_SIDE_COLA	그리고 꼴라!	그리고 꼴라!
-TIGER_SIDE_PICKLE	그리고 무!	그리고 무!
-TIGER_ANGRY	우웩! 다신 안 와야지!	우웩! 다신 안 와야지!
-TIGER_THANK_YOU	히히 이 정도면 합격이에요!	히히 이 정도면 합격이에요!
-TIGER_HAPPY	치킨 나라에 평화를 가져다줄 맛이에요!	치킨 나라에 평화를 가져다줄 맛이에요!
-LEMUR_ORDER_1	스케줄이 빠듯해서 빠르게 짠맛이 나는\n흑갈색 소스를 곁들인 치킨으로 부탁하죠.	스케줄이 빠듯해서 빠르게 짠맛이 나는\n흑갈색 소스를 곁들인 치킨으로 부탁하죠.
-LEMUR_ORDER_2	흠 오늘은 색다르게 19세기 이탈리아 파스타 소스를\n이용한 치킨을 주문해 보죠	흠 오늘은 색다르게 19세기 이탈리아 파스타 소스를\n이용한 치킨을 주문해 보죠
-LEMUR_ORDER_3	사장님 이탈리아의 전통과 아시아의 맛이\n통합된 특별한 메뉴를 원합니다.	사장님 이탈리아의 전통과 아시아의 맛이\n통합된 특별한 메뉴를 원합니다.
-LEMUR_ORDER_4	츄르 회사에서 근무하는 친구가 저에게\n아주 매운 소스의 치킨을 추천했죠. 볶음 라면의 소스였다죠?	츄르 회사에서 근무하는 친구가 저에게\n아주 매운 소스의 치킨을 추천했죠. 볶음 라면의 소스였다죠?
-LEMUR_ORDER_5	오늘은 아시아의 오래된 전통식과 현대판의 아주 자극적인 매운맛으로	오늘은 아시아의 오래된 전통식과 현대판의 아주 자극적인 매운맛으로
-LEMUR_ORDER_6	오늘은 치즈 시즈닝을 곁들인 듯하면서\n슈가 파우더의 맛이 느껴지면서 파슬리를 추가한 치킨을	오늘은 치즈 시즈닝을 곁들인 듯하면서\n슈가 파우더의 맛이 느껴지면서 파슬리를 추가한 치킨을
-LEMUR_ORDER_7	전 어릴 적부터 매운 걸 잘 먹지를 못했죠.\n지금은 괜찮지만 그래도 달달 한 치킨으로 매운 걸 완화해보죠	전 어릴 적부터 매운 걸 잘 먹지를 못했죠.\n지금은 괜찮지만 그래도 달달 한 치킨으로 매운 걸 완화해보죠
-LEMUR_ORDER_8	저의 지인 중 ‘미스 플라워’가 추천해준\n이탈리아의 느끼한 맛과 아주 매운맛의 조합으로 도전하죠 	저의 지인 중 ‘미스 플라워’가 추천해준\n이탈리아의 느끼한 맛과 아주 매운맛의 조합으로 도전하죠 
-LEMUR_ORDER_9	치킨에는 다양한 맛이 있죠\n하지만 손님을 만족시키기 위해서는 기본기가 중요하다고 생각해요.	치킨에는 다양한 맛이 있죠\n하지만 손님을 만족시키기 위해서는 기본기가 중요하다고 생각해요.
-LEMUR_ORDER_10	한국에서 처음으로 만들어진 특별한 소스의 치킨이 있다죠?\n저도 그 치킨을 한번 맛보고 싶군요.	한국에서 처음으로 만들어진 특별한 소스의 치킨이 있다죠?\n저도 그 치킨을 한번 맛보고 싶군요.
-LEMUR_ORDER_11	치킨집에서 반반 서비스를 통해\n가장 유명한 반반 조합을 시켜봐야겠군요.	치킨집에서 반반 서비스를 통해\n가장 유명한 반반 조합을 시켜봐야겠군요.
-LEMUR_SIDE_COLA	시원한 탄산음료도 필요하겠군요	시원한 탄산음료도 필요하겠군요
-LEMUR_SIDE_PICKLE	영양 밸런스를 위해 무도 추가하죠	영양 밸런스를 위해 무도 추가하죠
-LEMUR_ANGRY	신체 능력이 저하될거 같은 최악의 치킨이군요	신체 능력이 저하될거 같은 최악의 치킨이군요
-LEMUR_THANK_YOU	나쁘지 않네요. 다음을 기대하죠	나쁘지 않네요. 다음을 기대하죠
-LEMUR_HAPPY	서비스가 정말 나쁘지 않군요. 훌륭합니다.	서비스가 정말 나쁘지 않군요. 훌륭합니다.
-FLAMINGO_ORDER_1	와 사장님 안녕하세요!\n오늘은 제가 양념에다 발라서 치킨을 먹을까\n아니면 그냥 먹을까요? 역시 둘 다 먹죠!	와 사장님 안녕하세요!\n오늘은 제가 양념에다 발라서 치킨을 먹을까\n아니면 그냥 먹을까요? 역시 둘 다 먹죠!
-FLAMINGO_ORDER_2	제가 완전 매운게 땡기거든요?\n근데 너무 매우면 먹기 힘드니까\n부드러운 까르보나라를 같이 먹어면\n그나마 매운게 덜 하겠죠?	제가 완전 매운게 땡기거든요?\n근데 너무 매우면 먹기 힘드니까\n부드러운 까르보나라를 같이 먹어면\n그나마 매운게 덜 하겠죠?
-FLAMINGO_ORDER_3	진상 때문에 너무 스트레스받는 거 있죠?!\n안 되겠다! 오늘은 완전 매운 거로!	진상 때문에 너무 스트레스받는 거 있죠?!\n안 되겠다! 오늘은 완전 매운 거로!
-FLAMINGO_ORDER_4	사장님 안녕하세요~\n제가 꿈꾸는 매콤달콤한 인생의\n치킨으로 부탁드려요~	사장님 안녕하세요~\n제가 꿈꾸는 매콤달콤한 인생의\n치킨으로 부탁드려요~
-FLAMINGO_ORDER_5	오늘은 저의 부리를 자극할만한\n무언가가 필요해요!\n바삭! 바삭! 기름이 자글! 자글!	오늘은 저의 부리를 자극할만한\n무언가가 필요해요!\n바삭! 바삭! 기름이 자글! 자글!
-FLAMINGO_ORDER_6	어떤 이상한 쥐가 이상한 배게 가지고\n2시간은 있더라고요! 열받아!\n오늘은 덜매운 거 완전 매운 거 주세요!	어떤 이상한 쥐가 이상한 배게 가지고\n2시간은 있더라고요! 열받아!\n오늘은 덜매운 거 완전 매운 거 주세요!
-FLAMINGO_ORDER_7	오늘 일찍 퇴근한 거 있죠?\n사장님은 아직도 근무 중이세요?\n저는 퇴근했는데! 오늘은 부드럽고 기름진 거로!	오늘 일찍 퇴근한 거 있죠?\n사장님은 아직도 근무 중이세요?\n저는 퇴근했는데! 오늘은 부드럽고 기름진 거로!
-FLAMINGO_ORDER_8	오늘은 불맛이 상당히 느껴지는\n그런 맛을 맛보고 싶은 거 있죠?\n뜨거운 불판의 그릴 맛을 원해요!	오늘은 불맛이 상당히 느껴지는\n그런 맛을 맛보고 싶은 거 있죠?\n뜨거운 불판의 그릴 맛을 원해요!
-FLAMINGO_ORDER_9	카페에 고급스러운 손님이 있는데 처음 맡는\n냄새의 치킨에 무슨 맛인지 물어봤는데.\n뭐라더라? 아시아 전통의 옛 맛?	카페에 고급스러운 손님이 있는데 처음 맡는\n냄새의 치킨에 무슨 맛인지 물어봤는데.\n뭐라더라? 아시아 전통의 옛 맛?
-FLAMINGO_ORDER_10	사장님! 오늘은 짭조름한 아시아풍 치킨과!\n매콤 매콤한 치킨 주세요! 	사장님! 오늘은 짭조름한 아시아풍 치킨과!\n매콤 매콤한 치킨 주세요! 
-FLAMINGO_ORDER_11	오늘! 제가 사장님한테 혼난 거 있죠?\n오늘은 숯불 치킨에 스트레스 날릴\n엄청 매운 치킨으로 가야겠어요!	오늘! 제가 사장님한테 혼난 거 있죠?\n오늘은 숯불 치킨에 스트레스 날릴\n엄청 매운 치킨으로 가야겠어요!
-FLAMINGO_SIDE_COLA	서비스로 콜라 아시죠?	서비스로 콜라 아시죠?
-FLAMINGO_SIDE_PICKLE	딱 센스 있게 치킨 무!	딱 센스 있게 치킨 무!
-FLAMINGO_ANGRY	와 사장님 완전 센스 없으시네!	와 사장님 완전 센스 없으시네!
-FLAMINGO_THANK_YOU	혹시 리뷰 이벤트 같은거 안하나요?	혹시 리뷰 이벤트 같은거 안하나요?
-FLAMINGO_HAPPY	완전 대박! 서비스 실화예요?!	완전 대박! 서비스 실화예요?!
-DOVE_ORDER_1	이탈리아의 향수와 마법의 황금의 가루가\n둘이서 함께 운명적 만남을 가진\n그런 마법 같은 치킨을 원하오! understand?	이탈리아의 향수와 마법의 황금의 가루가\n둘이서 함께 운명적 만남을 가진\n그런 마법 같은 치킨을 원하오! understand?
-DOVE_ORDER_2	마스터! 그대는 운명을 믿소?\n운명적 만남 말이오! 나는 믿소!\n그렇기에 나는 마스터!\n당신에게 아시아의 맛을 제패한 장군과!\n황금성의 장군의 피할 수 없는 결투를 원하오!	마스터! 그대는 운명을 믿소?\n운명적 만남 말이오! 나는 믿소!\n그렇기에 나는 마스터!\n당신에게 아시아의 맛을 제패한 장군과!\n황금성의 장군의 피할 수 없는 결투를 원하오!
-DOVE_ORDER_3	마스터! 파스타 왕국의 공주와 츠유성의 왕자가\n서로 사랑에 빠져 사랑의 도피를 하는 이야기 아시오?\n주문해 볼까 하오!	마스터! 파스타 왕국의 공주와 츠유성의 왕자가\n서로 사랑에 빠져 사랑의 도피를 하는 이야기 아시오?\n주문해 볼까 하오!
-DOVE_ORDER_4	나는 사랑에 빠졌네! 그녀의 이름은 ‘미스 플라워’\n그녀의 부리처럼 부드러운 이탈리안 치킨 뜨거운 바비! Q!	나는 사랑에 빠졌네! 그녀의 이름은 ‘미스 플라워’\n그녀의 부리처럼 부드러운 이탈리안 치킨 뜨거운 바비! Q!
-DOVE_ORDER_5	지금 나의 사랑처럼 부드러운 치킨을 원하오!\n이탈리안 여행 같은 그런 맛! 난 그런 맛을 원하오!	지금 나의 사랑처럼 부드러운 치킨을 원하오!\n이탈리안 여행 같은 그런 맛! 난 그런 맛을 원하오!
-DOVE_ORDER_6	한때 내가 미국의 LA에 있을 때가 생각나는군!\n나는 외국의 비둘기들과 함께 파티를 응? 주문이나 하라고?	한때 내가 미국의 LA에 있을 때가 생각나는군!\n나는 외국의 비둘기들과 함께 파티를 응? 주문이나 하라고?
-DOVE_ORDER_7	좋은 작품이 떠올랐네! 제목은 바로\n“LA의 바비큐 전사가 되어 황금 가루를 뿌리는 요정과 썸을 타다!”라네	좋은 작품이 떠올랐네! 제목은 바로\n“LA의 바비큐 전사가 되어 황금 가루를 뿌리는 요정과 썸을 타다!”라네
-DOVE_ORDER_8	마스터 ‘미스 플라워’라는 조류를 아시나?\n그녀만 보면 나의 심장이 멈추질 않아! 간장으로 긴장을 풀어야지	마스터 ‘미스 플라워’라는 조류를 아시나?\n그녀만 보면 나의 심장이 멈추질 않아! 간장으로 긴장을 풀어야지
-DOVE_ORDER_9	나의 열렬한 심장을 표현한 듯한 치킨을 주문해야 하겠소!\n아주 맵고! 화끈한! 불사조 같은 치킨 말일세! 	나의 열렬한 심장을 표현한 듯한 치킨을 주문해야 하겠소!\n아주 맵고! 화끈한! 불사조 같은 치킨 말일세! 
-DOVE_ORDER_10	그거 아시오? 마스터 나는 외면은 이탈리안처럼\n고급스러우면서 내면은 아주 뜨거운 불 비둘기라네	그거 아시오? 마스터 나는 외면은 이탈리안처럼\n고급스러우면서 내면은 아주 뜨거운 불 비둘기라네
-DOVE_ORDER_11	오늘 나는 ‘미스 플라워’양에게 대쉬 할 생각이라네\n달콤하고 황금과 같은 그녀에게 나 불사조와 같은 비둘기인 내가! 	오늘 나는 ‘미스 플라워’양에게 대쉬 할 생각이라네\n달콤하고 황금과 같은 그녀에게 나 불사조와 같은 비둘기인 내가! 
-DOVE_SIDE_COLA	고급 콜라를 주문해 볼까 하오	고급 콜라를 주문해 볼까 하오
-DOVE_SIDE_PICKLE	원하오! 시원한 워터가 곁들어진 무!	원하오! 시원한 워터가 곁들어진 무!
-DOVE_ANGRY	이게 진짜일 리가 없어!	이게 진짜일 리가 없어!
-DOVE_THANK_YOU	흠! 이 무난함! 나쁘지 않아	흠! 이 무난함! 나쁘지 않아
-DOVE_HAPPY	엘레강트!!! 구구! 구구구구구구	엘레강트!!! 구구! 구구구구구구
-RESUME_1_NAME	찰스	찰스
-RESUME_1_RESIDENCE	털털마을	털털마을
-RESUME_2_NAME	니치	니치
-RESUME_2_RESIDENCE	꼬리마을	꼬리마을
-RESUME_3_NAME	미스 플라워	미스 플라워
-RESUME_3_RESIDENCE	짹짹마을	짹짹마을
-RESUME_4_NAME	그레이	그레이
-RESUME_4_RESIDENCE	붕붕마을	붕붕마을
-NEW_OIL_ZONE_LV1_NAME	튀김기 추가	튀김기 추가
-NEW_OIL_ZONE_LV2_NAME	튀김기 추가	튀김기 추가
-NEW_OIL_ZONE_LV3_NAME	튀김기 추가	튀김기 추가
-NEW_OIL_ZONE_LV1_INFO	튀김기를 하나 추가합니다.	튀김기를 하나 추가합니다.
-NEW_OIL_ZONE_LV2_INFO	튀김기를 하나 추가합니다.	튀김기를 하나 추가합니다.
-NEW_OIL_ZONE_LV3_INFO	튀김기를 하나 추가합니다.	튀김기를 하나 추가합니다.
-OIL_ZONE_LV1_NAME	튀김기	튀김기
-OIL_ZONE_LV2_NAME	고급 튀김기	고급 튀김기
-OIL_ZONE_LV3_NAME	특급 튀김기	특급 튀김기
-OIL_ZONE_LV4_NAME	궁극의 튀김기	궁극의 튀김기
-OIL_ZONE_LV1_INFO	일반 튀김기 입니다.	일반 튀김기 입니다.
-OIL_ZONE_LV2_INFO	치킨이 빨리 튀겨집니다.\n(속도 +40%)	치킨이 빨리 튀겨집니다.\n(속도 +40%)
-OIL_ZONE_LV3_INFO	치킨이 더 빨리 튀겨지고\n 더 맛있어집니다.\n(속도 +80%, 수입+20%)	치킨이 더 빨리 튀겨지고\n 더 맛있어집니다.\n(속도 +80%, 수입+20%)
-OIL_ZONE_LV4_INFO	치킨이 완벽하게 튀겨집니다.\n(속도 +160%, 수입+40%)\n(치킨이 타지 않습니다.)	치킨이 완벽하게 튀겨집니다.\n(속도 +160%, 수입+40%)\n(치킨이 타지 않습니다.)
+TIGER_ORDER_1	안녕하세요! 아저씨! 저는 치킨이 양념을 원해요!	Hello, mister! I want the chicken to be seasoned!
+TIGER_ORDER_2	그 그 그 뭐더라? 아!\n가루 뿌린 치킨 주세요! 맛있어서 좋아요!	What was it? Oh! Give me powdered chicken!\nI like it because it's delicious!
+TIGER_ORDER_3	옛날에 가루나라 치킨이랑 양념나라\n치킨이 싸웠데요! 왜 그랬을까요?	Once upon a time, there was a fight between\npowdered and seasoned chicken! Why did I do that?
+TIGER_ORDER_4	그레이삼촌을 아세요? 삼촌은 까르보나라 치킨이 좋데요!\n저는 바비큐 좋고요! 전 까르보나라는 별로예요! 	Do you know Uncle Gray? He loves carbonara chicken!\nI love BBQ! I don't like carbonara!
+TIGER_ORDER_5	끔찍한 양념 용암을 지나가려면\n용감한 전설의 마법의 가루를 뿌린 치킨 영웅이 필요해!	Need a brave legend magic powder-sprayed chicken\nhero to get through the terrible seasoned lava!
+TIGER_ORDER_6	오늘은 우리 집에 그레이삼촌이 와서 바비큐 파티에요!\n황금색으로 칠해진 고급 요리도! 물론 치킨으로! 	Uncle Gray is coming to my house and having a  BBQ today!\nGreat dish painted golden! Of course it's chicken!
+TIGER_ORDER_7	어제 꿈에서 양념을 쏘는 용이\n미국의 소스 부자를 납치하는 꿈을 꾸었어요!	I had a dream yesterday that a dragon shooting\na marinade hijacked an American sauce rich man!
+TIGER_ORDER_8	오늘은 엄마랑 아빠가 좋아하는 짠 갈색 치킨을 사가야 한대요!\n반은 제가 좋아하는 가루를 뿌려도 된대요! 	Today, I have to buy my mom and dad's favorite\nsalty brown chicken! I can sprinkle half the chicken\nwith my favorite powder!
+TIGER_ORDER_9	그레이삼촌이 그랬어요! 인생은 단맛이랑 쓴맛이 있데요!\n전 차라리 짭짤한 인생을 살래요!	Uncle Gray said this! Life has both sweetness\nand bitterness! I'd rather live a salty life!
+TIGER_ORDER_10	주인장 양반! 여기 짭짤한 갈색 같은 인생의 치킨과\n매콤달콤한 붉은 인생의 치킨 부탁해요!	Master! Here are some salty brown and sweet red chickens!
+TIGER_ORDER_11	오늘은 대전쟁 날이에요! 동쪽 간장 군단과\n서쪽의 바비큐 군단의 전쟁!\n둘 다 먹어 버릴 거라서 저의 승!	Today is the day of the great war!\nIt's a war between the soy sauce army\nin the east and the barbecue army in the west!\nI'm going to eat both, so it's my victory!
+TIGER_SIDE_COLA	그리고 꼴라!	and Cola
+TIGER_SIDE_PICKLE	그리고 무!	and Pickle
+TIGER_ANGRY	우웩! 다신 안 와야지!	Wow! I won't come again!
+TIGER_THANK_YOU	히히 이 정도면 합격이에요!	Hehe. This is good enough!
+TIGER_HAPPY	치킨 나라에 평화를 가져다줄 맛이에요!	It's a taste that will bring peace to the chicken country!
+LEMUR_ORDER_1	스케줄이 빠듯해서 빠르게 짠맛이 나는\n흑갈색 소스를 곁들인 치킨으로 부탁하죠.	It's a tight schedule! I'll have chicken\nwith a salty, dark brown sauce.
+LEMUR_ORDER_2	흠 오늘은 색다르게 19세기 이탈리아 파스타 소스를\n이용한 치킨을 주문해 보죠	Now, let's order chicken with 19th century\nItalian pasta sauce today
+LEMUR_ORDER_3	사장님 이탈리아의 전통과 아시아의 맛이\n통합된 특별한 메뉴를 원합니다.	Boss, I want a special menu that integrates\nItalian tradition with Asian flavor.
+LEMUR_ORDER_4	츄르 회사에서 근무하는 친구가 저에게\n아주 매운 소스의 치킨을 추천했죠. 볶음 라면의 소스였다죠?	My friend recommended me chicken with\na super spicy sauce. It was stir-fried ramen sauce, right?
+LEMUR_ORDER_5	오늘은 아시아의 오래된 전통식과 현대판의 아주 자극적인 매운맛으로	Today, I will try the traditional\nand modern spicy taste of old Asia
+LEMUR_ORDER_6	오늘은 치즈 시즈닝을 곁들인 듯하면서\n슈가 파우더의 맛이 느껴지면서 파슬리를 추가한 치킨을	I'll order powdered chicken today
+LEMUR_ORDER_7	전 어릴 적부터 매운 걸 잘 먹지를 못했죠.\n지금은 괜찮지만 그래도 달달 한 치킨으로 매운 걸 완화해보죠	I didn't eat spicy food very well since I was a kid.\nI'm fine now, but I'll try to ease the heat with sweet chicken
+LEMUR_ORDER_8	저의 지인 중 ‘미스 플라워’가 추천해준\n이탈리아의 느끼한 맛과 아주 매운맛의 조합으로 도전하죠 	I'm going to challenge with the combination\nof greasy and spicy Italian flavors\nrecommended by "Miss Flower"
+LEMUR_ORDER_9	치킨에는 다양한 맛이 있죠\n하지만 손님을 만족시키기 위해서는 기본기가 중요하다고 생각해요.	There are various flavors of chicken,\nbut I think the basics are important to satisfy customers.
+LEMUR_ORDER_10	한국에서 처음으로 만들어진 특별한 소스의 치킨이 있다죠?\n저도 그 치킨을 한번 맛보고 싶군요.	There's a special sauce chicken\nthat was first made in Korea, right?\nI want to try that chicken, too.
+LEMUR_ORDER_11	치킨집에서 반반 서비스를 통해\n가장 유명한 반반 조합을 시켜봐야겠군요.	I'll have to order the most famous half-and-half\ncombination through the half-and-half\nchicken restaurant service.
+LEMUR_SIDE_COLA	시원한 탄산음료도 필요하겠군요	I'll also need a cool soda
+LEMUR_SIDE_PICKLE	영양 밸런스를 위해 무도 추가하죠	I'll add radishes for nutritional balance
+LEMUR_ANGRY	신체 능력이 저하될거 같은 최악의 치킨이군요	It's the worst chicken that makes me lose my stamina
+LEMUR_THANK_YOU	나쁘지 않네요. 다음을 기대하죠	That's not bad. Let's look forward to the next one
+LEMUR_HAPPY	서비스가 정말 나쁘지 않군요. 훌륭합니다.	The service is really not bad, and that's great.
+FLAMINGO_ORDER_1	와 사장님 안녕하세요!\n오늘은 제가 양념에다 발라서 치킨을 먹을까\n아니면 그냥 먹을까요? 역시 둘 다 먹죠!	Wow, hello! Would you like your chicken\non the sauce or just eat it? Of course, I'll eat both!
+FLAMINGO_ORDER_2	제가 완전 매운게 땡기거든요?\n근데 너무 매우면 먹기 힘드니까\n부드러운 까르보나라를 같이 먹어면\n그나마 매운게 덜 하겠죠?	I'm craving spicy food, but if it's too spicy,\nit's hard to eat, so if you eat soft carbonara together,\nit'll be less spicy, right?
+FLAMINGO_ORDER_3	진상 때문에 너무 스트레스받는 거 있죠?!\n안 되겠다! 오늘은 완전 매운 거로!	Strange customers make me stressed out!\nI'm going to eat something really spicy today!
+FLAMINGO_ORDER_4	사장님 안녕하세요~\n제가 꿈꾸는 매콤달콤한 인생의\n치킨으로 부탁드려요~	Hello, boss. I want to eat sweet and sour chicken
+FLAMINGO_ORDER_5	오늘은 저의 부리를 자극할만한\n무언가가 필요해요!\n바삭! 바삭! 기름이 자글! 자글!	Today, I need something to stimulate my beak!\nCrisp! Crisp! Crisp! Crisp! Crisp! Crisp!
+FLAMINGO_ORDER_6	어떤 이상한 쥐가 이상한 배게 가지고\n2시간은 있더라고요! 열받아!\n오늘은 덜매운 거 완전 매운 거 주세요!	Strange Rat came to the cafe and played\nwith Strange pillow for 2 hours...\nI'm angry! Give me something that's less spicy today!
+FLAMINGO_ORDER_7	오늘 일찍 퇴근한 거 있죠?\n사장님은 아직도 근무 중이세요?\n저는 퇴근했는데! 오늘은 부드럽고 기름진 거로!	You left work early today, right? Are you still on duty?\nI'm off work! I'm going to eat something \nsoft and greasy today!
+FLAMINGO_ORDER_8	오늘은 불맛이 상당히 느껴지는\n그런 맛을 맛보고 싶은 거 있죠?\n뜨거운 불판의 그릴 맛을 원해요!	I want to taste the hell fire today!\nand I want the taste of a hot grill!
+FLAMINGO_ORDER_9	카페에 고급스러운 손님이 있는데 처음 맡는\n냄새의 치킨에 무슨 맛인지 물어봤는데.\n뭐라더라? 아시아 전통의 옛 맛?	A luxurious customer came to the cafe\nand showed me the first chicken you saw.\nWhat is it called?\nI heard it's an old taste of Asian tradition
+FLAMINGO_ORDER_10	사장님! 오늘은 짭조름한 아시아풍 치킨과!\n매콤 매콤한 치킨 주세요! 	Sir! I'll have salty Asian chicken and spicy chicken!
+FLAMINGO_ORDER_11	오늘! 제가 사장님한테 혼난 거 있죠?\n오늘은 숯불 치킨에 스트레스 날릴\n엄청 매운 치킨으로 가야겠어요!	Today! I got in trouble from my boss!\nI'm going to eat charcoal grilling\nand super spicy chicken to relieve my stress!
+FLAMINGO_SIDE_COLA	서비스로 콜라 아시죠?	You know cola for free, right?
+FLAMINGO_SIDE_PICKLE	딱 센스 있게 치킨 무!	Pickled radish with a good sense!
+FLAMINGO_ANGRY	와 사장님 완전 센스 없으시네!	Wow, the owner has no sense at all!
+FLAMINGO_THANK_YOU	혹시 리뷰 이벤트 같은거 안하나요?	Do you happen to have a review event?
+FLAMINGO_HAPPY	완전 대박! 서비스 실화예요?!	Awesome! Is this service for real?
+DOVE_ORDER_1	이탈리아의 향수와 마법의 황금의 가루가\n둘이서 함께 운명적 만남을 가진\n그런 마법 같은 치킨을 원하오! understand?	I want a magical chicken where Italian perfume\nand magical gold dust meet fatefully! Got it?
+DOVE_ORDER_2	마스터! 그대는 운명을 믿소?\n운명적 만남 말이오! 나는 믿소!\n그렇기에 나는 마스터!\n당신에게 아시아의 맛을 제패한 장군과!\n황금성의 장군의 피할 수 없는 결투를 원하오!	Master! Do you believe in fate? I do! \nI want an inevitable duel between\nAsia's golden star generals!
+DOVE_ORDER_3	마스터! 파스타 왕국의 공주와 츠유성의 왕자가\n서로 사랑에 빠져 사랑의 도피를 하는 이야기 아시오?\n주문해 볼까 하오!	Master! Do you know the story of a princess\nand a soy sauce prince from a pasta kingdom fall\nin love with each other and run away? Let's order!
+DOVE_ORDER_4	나는 사랑에 빠졌네! 그녀의 이름은 ‘미스 플라워’\n그녀의 부리처럼 부드러운 이탈리안 치킨 뜨거운 바비! Q!	I'm in Love! Her name is 'Miss Flower.'\nItalian and BBQ Chicken, it's as soft as her beak!
+DOVE_ORDER_5	지금 나의 사랑처럼 부드러운 치킨을 원하오!\n이탈리안 여행 같은 그런 맛! 난 그런 맛을 원하오!	Now I want soft chicken like my love!\nIt's the taste of a trip to Italy! I want the taste!
+DOVE_ORDER_6	한때 내가 미국의 LA에 있을 때가 생각나는군!\n나는 외국의 비둘기들과 함께 파티를 응? 주문이나 하라고?	It reminds me of when I was in LA,\nthe United States! I'd like to have a party\nwith foreign pigeons, right? Would you like to just order?
+DOVE_ORDER_7	좋은 작품이 떠올랐네! 제목은 바로\n“LA의 바비큐 전사가 되어 황금 가루를 뿌리는 요정과 썸을 타다!”라네	It reminds me of when I was in LA,\nthe United States! I want to have a party\nwith foreign pigeons!
+DOVE_ORDER_8	마스터 ‘미스 플라워’라는 조류를 아시나?\n그녀만 보면 나의 심장이 멈추질 않아! 간장으로 긴장을 풀어야지	Do you know Miss Flower, the master of birds?\nMy heart doesn't stop when I see her!\nI will relax with soy sauce
+DOVE_ORDER_9	나의 열렬한 심장을 표현한 듯한 치킨을 주문해야 하겠소!\n아주 맵고! 화끈한! 불사조 같은 치킨 말일세! 	I should order chicken to express\nmy passion! It's very spicy! It's hot! Like a phoenix!
+DOVE_ORDER_10	그거 아시오? 마스터 나는 외면은 이탈리안처럼\n고급스러우면서 내면은 아주 뜨거운 불 비둘기라네	You Know What? Master, I'm a bulldog,\nbut I'm as luxurious as an Italian\non the outside and very hot inside
+DOVE_ORDER_11	오늘 나는 ‘미스 플라워’양에게 대쉬 할 생각이라네\n달콤하고 황금과 같은 그녀에게 나 불사조와 같은 비둘기인 내가! 	Today, I'm going to confess my love to Miss Flower!\nSweet and golden to her...\nI'm going to express a fire-like heart...
+DOVE_SIDE_COLA	고급 콜라를 주문해 볼까 하오	I'm thinking about ordering a high-quality coke
+DOVE_SIDE_PICKLE	원하오! 시원한 워터가 곁들어진 무!	I want it! Pickled in cool water!
+DOVE_ANGRY	이게 진짜일 리가 없어!	This can't be real!
+DOVE_THANK_YOU	흠! 이 무난함! 나쁘지 않아	Hmm! This is easy! Not bad
+DOVE_HAPPY	엘레강트!!! 구구! 구구구구구구	Elegant! Gu! Gu! Gu! Gu
+RESUME_1_NAME	찰스	Charles
+RESUME_1_RESIDENCE	털털마을	TulTul Town
+RESUME_2_NAME	니치	Niche
+RESUME_2_RESIDENCE	꼬리마을	Tail Town
+RESUME_3_NAME	미스 플라워	Ms Flower
+RESUME_3_RESIDENCE	짹짹마을	JackJack Town
+RESUME_4_NAME	그레이	Gray
+RESUME_4_RESIDENCE	붕붕마을	BongBong Town
+NEW_OIL_ZONE_LV1_NAME	튀김기 추가	Adding a Fryer
+NEW_OIL_ZONE_LV2_NAME	튀김기 추가	Adding a Fryer
+NEW_OIL_ZONE_LV3_NAME	튀김기 추가	Adding a Fryer
+NEW_OIL_ZONE_LV1_INFO	튀김기를 하나 추가합니다.	add one more fryer.
+NEW_OIL_ZONE_LV2_INFO	튀김기를 하나 추가합니다.	add one more fryer.
+NEW_OIL_ZONE_LV3_INFO	튀김기를 하나 추가합니다.	add one more fryer.
+OIL_ZONE_LV1_NAME	튀김기	fryer
+OIL_ZONE_LV2_NAME	고급 튀김기	a high-end fryer
+OIL_ZONE_LV3_NAME	특급 튀김기	a special fryer
+OIL_ZONE_LV4_NAME	궁극의 튀김기	the ultimate fryer
+OIL_ZONE_LV1_INFO	일반 튀김기 입니다.	It's a regular fryer.
+OIL_ZONE_LV2_INFO	치킨이 빨리 튀겨집니다.\n(속도 +40%)	will be fried quickly.\n(Speed +40%)
+OIL_ZONE_LV3_INFO	치킨이 더 빨리 튀겨지고\n 더 맛있어집니다.\n(속도 +80%, 수입+20%)	will be fried quickly.\nIt becomes more delicious.\n(Speed +80%, Sales +20%)
+OIL_ZONE_LV4_INFO	치킨이 완벽하게 튀겨집니다.\n(속도 +160%, 수입+40%)\n(치킨이 타지 않습니다.)	The chicken is perfectly fried.\n(Speed +160%, Sales +40%)\n(The chicken won't burn.)
 RECIPE_LV1_NAME	간장양념	간장양념
 RECIPE_LV2_NAME	불닭양념	불닭양념
 RECIPE_LV3_NAME	프링클양념	프링클양념
@@ -264,28 +264,28 @@ RECIPE_LV2_INFO	불닭 치킨을\n만들 수 있게 됩니다	불닭 치킨을\n
 RECIPE_LV3_INFO	프링클 치킨을\n만들 수 있게 됩니다	프링클 치킨을\n만들 수 있게 됩니다
 RECIPE_LV4_INFO	까르보나라 치킨을\n만들 수 있게 됩니다	까르보나라 치킨을\n만들 수 있게 됩니다
 RECIPE_LV5_INFO	바베큐 치킨을\n만들 수 있게 됩니다	바베큐 치킨을\n만들 수 있게 됩니다
-ADVERTISEMENT_LV1_NAME	확성기 광고	확성기 광고
-ADVERTISEMENT_LV2_NAME	전단지 광고	전단지 광고
-ADVERTISEMENT_LV3_NAME	인터넷 광고	인터넷 광고
-ADVERTISEMENT_LV4_NAME	TV 광고	TV 광고
-ADVERTISEMENT_LV5_NAME	지하철 광고	지하철 광고
-ADVERTISEMENT_LV1_INFO	확성기 광고를 합니다.\n(손님 방문 딜레이 -5%)	확성기 광고를 합니다.\n(손님 방문 딜레이 -5%)
-ADVERTISEMENT_LV2_INFO	전단지 광고를 합니다.\n(손님 방문 딜레이 -7%)\n(수익+10%)	전단지 광고를 합니다.\n(손님 방문 딜레이 -7%)\n(수익+10%)
-ADVERTISEMENT_LV3_INFO	인터넷 광고를 합니다.\n(손님 방문 딜레이 -10%)\n(수익+10%)	인터넷 광고를 합니다.\n(손님 방문 딜레이 -10%)\n(수익+10%)
-ADVERTISEMENT_LV4_INFO	TV 광고를 합니다.\n(손님 방문 딜레이 -15%)\n(수익+10%)	TV 광고를 합니다.\n(손님 방문 딜레이 -15%)\n(수익+10%)
-ADVERTISEMENT_LV5_INFO	지하철 광고를 합니다.\n(손님 방문 딜레이 -20%)\n(수익+10%)	지하철 광고를 합니다.\n(손님 방문 딜레이 -20%)\n(수익+10%)
-WORKER_LV1_NAME	찰스	찰스
-WORKER_LV2_NAME	니치	니치
-WORKER_LV3_NAME	미스 플라워	미스 플라워
-WORKER_LV4_NAME	그레이	그레이
-WORKER_LV1_INFO	이력서 확인	이력서 확인
-WORKER_LV2_INFO	이력서 확인	이력서 확인
-WORKER_LV3_INFO	이력서 확인	이력서 확인
-WORKER_LV4_INFO	이력서 확인	이력서 확인
-WORKER_SKILL_1	주방보조	주방보조
-WORKER_SKILL_2	수익증가	수익증가
-WORKER_SKILL_3	가게홍보	가게홍보
-WORKER_SKILL_4	빠른 팔놀림	빠른 팔놀림
-WORKER_SKILL_5	빠른 손놀림	빠른 손놀림
-WORKER_SKILL_6	빠른 몸놀림	빠른 몸놀림
+ADVERTISEMENT_LV1_NAME	확성기 광고	a loudspeaker commercial
+ADVERTISEMENT_LV2_NAME	전단지 광고	a flyer advertisement
+ADVERTISEMENT_LV3_NAME	인터넷 광고	Internet advertising
+ADVERTISEMENT_LV4_NAME	TV 광고	TV advertisement
+ADVERTISEMENT_LV5_NAME	지하철 광고	a subway commercial
+ADVERTISEMENT_LV1_INFO	확성기 광고를 합니다.\n(손님 방문 딜레이 -5%)	Do a loudspeaker ad.\n(Visit delay -5%)
+ADVERTISEMENT_LV2_INFO	전단지 광고를 합니다.\n(손님 방문 딜레이 -7%)\n(수익+10%)	Do a flyer advertisement.\n(Delayed Visit -7%)\n(Sales + 10%)
+ADVERTISEMENT_LV3_INFO	인터넷 광고를 합니다.\n(손님 방문 딜레이 -10%)\n(수익+10%)	Do Internet advertising.\n(Delayed Visit -10%)\n(Sales + 10%)
+ADVERTISEMENT_LV4_INFO	TV 광고를 합니다.\n(손님 방문 딜레이 -15%)\n(수익+10%)	Do a TV advertising.(Delayed visit -15%)\n(Sales + 10%)
+ADVERTISEMENT_LV5_INFO	지하철 광고를 합니다.\n(손님 방문 딜레이 -20%)\n(수익+10%)	Do subway advertisement.\n(Delayed visit -20%)\n(Sales + 10%)
+WORKER_LV1_NAME	찰스	Charles
+WORKER_LV2_NAME	니치	Niche
+WORKER_LV3_NAME	미스 플라워	Ms Flower
+WORKER_LV4_NAME	그레이	Gray
+WORKER_LV1_INFO	이력서 확인	Resume
+WORKER_LV2_INFO	이력서 확인	Resume
+WORKER_LV3_INFO	이력서 확인	Resume
+WORKER_LV4_INFO	이력서 확인	Resume
+WORKER_SKILL_1	주방보조	a kitchen assistant
+WORKER_SKILL_2	수익증가	Increase in revenue
+WORKER_SKILL_3	가게홍보	Promoting the store
+WORKER_SKILL_4	빠른 팔놀림	quick arm movements
+WORKER_SKILL_5	빠른 손놀림	quick handwork
+WORKER_SKILL_6	빠른 몸놀림	quick movements
 DEMO_END	데모버전은 여기까지 입니다.\n플레이해주셔서 감사합니다.	This is the end of the demo version.\nThank you for playing.

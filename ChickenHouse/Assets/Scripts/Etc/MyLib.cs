@@ -533,11 +533,11 @@ namespace MyLib
 
         public static void CreateJsonFile(string fileName, string jsonData)
         {
-#if UNITY_EDITOR
-            string filePath = string.Format("{0}/{1}.json", Application.dataPath + "/Resources", fileName);
-#else
-            string filePath = string.Format("{0}/{1}.json", Application.persistentDataPath, fileName);
-#endif
+            string filePath = string.Empty;
+            if (PlatformCheck.IsWindow())
+                filePath = string.Format("{0}/{1}.json", Application.dataPath + "/Resources", fileName);
+            else
+                filePath = string.Format("{0}/{1}.json", Application.persistentDataPath, fileName);
             if (File.Exists(filePath))
             {
                 File.Delete(filePath);
@@ -551,11 +551,12 @@ namespace MyLib
 
         public static void DeleteJsonFile(string fileName)
         {
-#if UNITY_EDITOR
-            string filePath = string.Format("{0}/{1}.json", Application.dataPath + "/Resources", fileName);
-#else
-            string filePath = string.Format("{0}/{1}.json", Application.persistentDataPath, fileName);
-#endif
+            string filePath = string.Empty;
+            if (PlatformCheck.IsWindow())
+                filePath = string.Format("{0}/{1}.json", Application.dataPath + "/Resources", fileName);
+            else
+                filePath = string.Format("{0}/{1}.json", Application.persistentDataPath, fileName);
+
             if (File.Exists(filePath))
             {
                 File.Delete(filePath);
@@ -564,11 +565,12 @@ namespace MyLib
 
         public static T LoadJsonFile<T>(string fileName)
         {
-#if UNITY_EDITOR
-            string filePath = string.Format("{0}/{1}.json", Application.dataPath + "/Resources", fileName);
-#else
-            string filePath = string.Format("{0}/{1}.json", Application.persistentDataPath, fileName);
-#endif
+            string filePath = string.Empty;
+            if (PlatformCheck.IsWindow())
+                filePath = string.Format("{0}/{1}.json", Application.dataPath + "/Resources", fileName);
+            else
+                filePath = string.Format("{0}/{1}.json", Application.persistentDataPath, fileName);
+
             if (File.Exists(filePath) == false)
                 return default(T);
 

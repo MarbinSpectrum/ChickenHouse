@@ -282,6 +282,9 @@ public class GuestMgr : Mgr
                 {
                     //첫손님 주문
                     StartCoroutine(GuestOrder(false));
+
+                    if (kitchenMgr.cameraObj.lookArea == LookArea.Counter)
+                        ui.goKitchen.OpenBtn();
                 }
 
                 break;
@@ -432,10 +435,16 @@ public class GuestMgr : Mgr
                 waitGuest[i + 1] = null;
                 if (waitGuest[i] == null)
                     continue;
-                waitGuest[i].SetOrderSprite(guestPos[i].sortingOrder);
             }
 
             yield return new WaitForSeconds(1f);
+
+            for (int i = 0; i < waitGuest.Length; i++)
+            {
+                if (waitGuest[i] == null)
+                    continue;
+                waitGuest[i].SetOrderSprite(guestPos[i].sortingOrder);
+            }
 
             //대화창 닫기
             leaveGuest.CloseTalkBox();
@@ -534,8 +543,8 @@ public class GuestMgr : Mgr
         {
             //이미 주문을 완료한걸로 보임
 
-            if (kitchenMgr.cameraObj.lookArea == LookArea.Counter)
-                ui.goKitchen.OpenBtn();
+            //if (kitchenMgr.cameraObj.lookArea == LookArea.Counter)
+            //    ui.goKitchen.OpenBtn();
 
             yield return new WaitForSeconds(1f);
 
@@ -551,7 +560,7 @@ public class GuestMgr : Mgr
             if (kitchenMgr.cameraObj.lookArea == LookArea.Counter)
             {
                 TalkOrder();
-                ui.goKitchen.OpenBtn();
+                //ui.goKitchen.OpenBtn();
             }
         }
     }

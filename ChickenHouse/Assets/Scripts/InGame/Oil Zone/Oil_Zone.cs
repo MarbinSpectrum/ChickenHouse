@@ -595,7 +595,7 @@ public class Oil_Zone : Mgr
 
         //조리 시작전으로 돌림
         chickenState = ChickenState.NotCook;
-        if (Application.platform != RuntimePlatform.WindowsPlayer)
+        if (PlatformCheck.IsWindow() == false)
         {
             foreach (ScrollObj sObj in scrollObj)
             {
@@ -613,9 +613,12 @@ public class Oil_Zone : Mgr
         {
             //애니메이션도 일시정지
             animator.speed = 0;
-            foreach (ScrollObj sObj in scrollObj)
+            if (PlatformCheck.IsWindow() == false)
             {
-                sObj.isRun = false;
+                foreach (ScrollObj sObj in scrollObj)
+                {
+                    sObj.isRun = false;
+                }
             }
             soundMgr.StopLoopSE(Sound.Oil_SE);
         }
@@ -625,7 +628,7 @@ public class Oil_Zone : Mgr
             float speedRate = GetCookSpeedRate();
             animator.speed = speedRate;
 
-            if (Application.platform != RuntimePlatform.WindowsPlayer)
+            if (PlatformCheck.IsWindow() == false)
             {
                 foreach (ScrollObj sObj in scrollObj)
                 {

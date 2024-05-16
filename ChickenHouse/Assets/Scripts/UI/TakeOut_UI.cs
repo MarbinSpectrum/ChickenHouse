@@ -56,6 +56,9 @@ public class TakeOut_UI : Mgr
 
     public void ChickenStrainter_TakeOut(Oil_Zone pOilZone)
     {
+        if (PlatformCheck.IsWindow())
+            return;
+
         //버리기 버튼 활성화시 실행됩니다.
         if (pOilZone)
         {

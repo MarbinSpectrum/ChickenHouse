@@ -161,6 +161,9 @@ public class Option_UI : Mgr
         restartUI.restartBtn.onClick.RemoveAllListeners();
         restartUI.restartBtn.onClick.AddListener(() =>
         {
+            if (run == false)
+                return;
+            run = false;
             lanMgr.ChangeLanguage(selectLan);
             sceneMgr.SceneLoad(Scene.LOGO, false);
         });
@@ -223,7 +226,11 @@ public class Option_UI : Mgr
                 break;
             case OptionMenu.Restart:
                 {
+                    if (run == false)
+                        return;
                     run = false;
+
+                    Time.timeScale = 1;
                     mainUI.baseObj.gameObject.SetActive(false);
                     languageUI.baseObj.gameObject.SetActive(false);
                     soundUI.baseObj.gameObject.SetActive(false);
@@ -232,6 +239,8 @@ public class Option_UI : Mgr
                 break;
             case OptionMenu.Title:
                 {
+                    if (run == false)
+                        return;
                     run = false;
                     Time.timeScale = 1;
                     soundMgr.MuteSE(false);

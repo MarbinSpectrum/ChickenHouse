@@ -29,8 +29,10 @@ public class InGameCamera : Mgr
     {
         if ((float)Screen.height / (float)Screen.width > SafeArea.SCREEN_HEIGHT / SafeArea.SCREEN_WIDTH)
         {
+            float newH = (float)Screen.height * ((float)SafeArea.SCREEN_WIDTH / (float)Screen.width);
+
             float scaleRate = Mathf.Min(1, (float)Screen.height / (float)Screen.width);
-            float newValue = Mathf.Lerp(15, 25, scaleRate);
+            float newValue = 15 * (newH / (float)SafeArea.SCREEN_HEIGHT);
             Camera.main.orthographicSize = newValue;
         }
         else

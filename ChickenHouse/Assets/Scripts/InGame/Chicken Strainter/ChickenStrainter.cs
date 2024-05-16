@@ -261,7 +261,7 @@ public class ChickenStrainter : Mgr
 
         if (IsMax())
         {
-            if (Application.platform != RuntimePlatform.WindowsPlayer)
+            if (PlatformCheck.IsWindow() == false)
             {
                 foreach (ScrollObj sObj in scrollObj)
                 {
@@ -290,7 +290,7 @@ public class ChickenStrainter : Mgr
         //트레이에 올려져있는 닭 감소
         if (chickenCnt <= 0)
             return false;
-        if (Application.platform != RuntimePlatform.WindowsPlayer)
+        if (PlatformCheck.IsWindow() == false)
         {
             foreach (ScrollObj sObj in scrollObj)
             {
@@ -314,7 +314,7 @@ public class ChickenStrainter : Mgr
         Array.ForEach(chickenAni, x => x.gameObject.SetActive(false));
         obj.gameObject.SetActive(true);
 
-        if (Application.platform != RuntimePlatform.WindowsPlayer)
+        if (PlatformCheck.IsWindow() == false)
         {
             foreach (ScrollObj sObj in scrollObj)
             {

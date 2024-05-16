@@ -6,9 +6,9 @@ public class PlatformCheck
 {
     public static bool IsWindow()
     {
-        if (Application.platform == RuntimePlatform.WindowsPlayer ||
-             Application.platform == RuntimePlatform.WindowsEditor)
-            return true;
+        //if (Application.platform == RuntimePlatform.WindowsPlayer ||
+        //     Application.platform == RuntimePlatform.WindowsEditor)
+        //    return true;
         return false;
     }
 }
