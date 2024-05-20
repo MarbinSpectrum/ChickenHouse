@@ -11,6 +11,8 @@ public class DragCamera : Mgr
     [SerializeField] private float dragDis = 150f;
     [SerializeField] private float slowDis = 150f;
     [SerializeField, Range(0, 1)] private float minSpeedRate;
+    [SerializeField, Range(0, 1)] private float minSpeedLerpValue;
+
     private Vector2 prevPos;
 
     [System.Serializable] public struct DRAG_TARGET
@@ -19,10 +21,10 @@ public class DragCamera : Mgr
         public Transform trayFlour;
         public Transform strainter;
 
-        public Transform oilZone1;
-        public Transform oilZone2;
-        public Transform oilZone3;
-        public Transform oilZone4;
+        public Oil_Zone oilZone1;
+        public Oil_Zone oilZone2;
+        public Oil_Zone oilZone3;
+        public Oil_Zone oilZone4;
 
         public Transform chickenPack;
 
@@ -83,7 +85,6 @@ public class DragCamera : Mgr
             if (!(prevPos.x - nowPos.x < 0 && nowPos.x >= Screen.width - newDragDis)
                 && !(prevPos.x - nowPos.x > 0 && nowPos.x <= newDragDis))
                 return;
-
             List<Transform> targetList = new List<Transform>();
             Transform moveTrans = null;
             Vector3 nowWorldPos = Camera.main.ScreenToWorldPoint(nowPos);
@@ -100,17 +101,25 @@ public class DragCamera : Mgr
                     targetList.Add(dragTarget.strainter);
                     break;
                 case DragState.Chicken_Strainter:
-                    targetList.Add(dragTarget.oilZone1);
-                    targetList.Add(dragTarget.oilZone2);
-                    targetList.Add(dragTarget.oilZone3);
-                    targetList.Add(dragTarget.oilZone4);
+                    if (dragTarget.oilZone1.IsRun() == false)
+                        targetList.Add(dragTarget.oilZone1.transform);
+                    if (dragTarget.oilZone2.IsRun() == false)
+                        targetList.Add(dragTarget.oilZone2.transform);
+                    if (dragTarget.oilZone3.IsRun() == false)
+                        targetList.Add(dragTarget.oilZone3.transform);
+                    if (dragTarget.oilZone4.IsRun() == false)
+                        targetList.Add(dragTarget.oilZone4.transform);
                     break;
                 case DragState.Fry_Chicken:
-                    targetList.Add(dragTarget.oilZone1);
-                    targetList.Add(dragTarget.oilZone2);
-                    targetList.Add(dragTarget.oilZone3);
-                    targetList.Add(dragTarget.oilZone4);
-                    targetList.Add(dragTarget.chickenPack);
+                    //if (dragTarget.oilZone1.IsRun() == false)
+                    //    targetList.Add(dragTarget.oilZone1.transform);
+                    //if (dragTarget.oilZone2.IsRun() == false)
+                    //    targetList.Add(dragTarget.oilZone2.transform);
+                    //if (dragTarget.oilZone3.IsRun() == false)
+                    //    targetList.Add(dragTarget.oilZone3.transform);
+                    //if (dragTarget.oilZone4.IsRun() == false)
+                    //    targetList.Add(dragTarget.oilZone4.transform);
+                    //targetList.Add(dragTarget.chickenPack);
                     break;
                 case DragState.Hot_Spicy:
                 case DragState.Soy_Spicy:
@@ -119,10 +128,10 @@ public class DragCamera : Mgr
                 case DragState.Carbonara_Spicy:
                 case DragState.BBQ_Spicy:
                 case DragState.Chicken_Pack_Holl:
-                    targetList.Add(dragTarget.chickenPack);
+                    //targetList.Add(dragTarget.chickenPack);
                     break;
                 case DragState.Chicken_Pack:
-                    targetList.Add(dragTarget.chickenSlot);
+                    //targetList.Add(dragTarget.chickenSlot);
                     break;
                 case DragState.Cola:
                 case DragState.Chicken_Pickle:
@@ -151,12 +160,18 @@ public class DragCamera : Mgr
                 moveRate = Vector3.Distance(moveTrans.position, nowWorldPos) / slowDis;
                 moveRate = Mathf.Max(minSpeedRate, moveRate);
                 moveRate = Mathf.Min(1, moveRate);
+
+                float lerpValue = Mathf.Lerp(kitchenMgr.kitchenRect.content.offsetMin.x,
+                    kitchenMgr.kitchenRect.content.offsetMin.x - moveTrans.position.x, minSpeedLerpValue * moveRate);
+                movePos = new Vector3(lerpValue, 0, 0);
+            }
+            else
+            {
+                Vector3 newDic = new Vector3(prevPos.x - nowPos.x, 0, 0);
+                movePos = newDic.normalized * Time.deltaTime * speed * moveRate;
+                movePos = new Vector3(movePos.x + kitchenMgr.kitchenRect.content.offsetMin.x, 0, 0);
             }
 
-            Vector3 newDic = new Vector3(prevPos.x - nowPos.x, 0, 0);
-
-            movePos = newDic.normalized * Time.deltaTime * speed * moveRate;
-            movePos = new Vector3(movePos.x + kitchenMgr.kitchenRect.content.offsetMin.x, 0, 0);
             kitchenMgr.SetkitchenSetPos(movePos);
         }
     }

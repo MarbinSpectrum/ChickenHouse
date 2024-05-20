@@ -60,7 +60,7 @@ public class Oil_Zone : Mgr
     public void OnMouseEnter()
     {
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
-        if (kitchenMgr.dragState == DragState.Chicken_Strainter && chickenState == ChickenState.NotCook)
+        if (kitchenMgr.dragState == DragState.Chicken_Strainter && IsRun() == false)
         {
             //해당 기름튀기는곳이 조리중이 아님
             selectImg.enabled = true;
@@ -151,7 +151,7 @@ public class Oil_Zone : Mgr
                 return;
             }
 
-            if (chickenState == ChickenState.NotCook)
+            if (IsRun() == false)
             {
                 //조리 시작전이면 당연히 드래그안됨
                 return;
@@ -277,7 +277,7 @@ public class Oil_Zone : Mgr
             return;
         }
 
-        if (chickenState == ChickenState.NotCook)
+        if (IsRun() == false)
         {
             return;
         }
@@ -426,7 +426,7 @@ public class Oil_Zone : Mgr
 
     public bool Cook_Start(int pChickenCnt,ChickenStrainter pChickenStrainter)
     {
-        if(chickenState != ChickenState.NotCook)
+        if(IsRun())
         {
             //조리 시작전에만 요리시작이 가능
             return false;
@@ -459,7 +459,7 @@ public class Oil_Zone : Mgr
 
     public bool ChangeOilZone(int pChickenCnt, float pChickenTime, float pGaugeTime)
     {
-        if (chickenState != ChickenState.NotCook)
+        if (IsRun())
         {
             //조리 시작전에만 요리시작이 가능
             return false;
@@ -637,6 +637,14 @@ public class Oil_Zone : Mgr
             }
             soundMgr.PlayLoopSE(Sound.Oil_SE);
         }
+    }
+
+    public bool IsRun()
+    {
+        //작동중
+        if (chickenState == ChickenState.NotCook)
+            return false;
+        return true;
     }
 
     public void Init()
