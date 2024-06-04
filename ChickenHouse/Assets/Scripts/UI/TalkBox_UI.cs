@@ -20,6 +20,13 @@ public class TalkBox_UI : Mgr
     [SerializeField] private GameObject         obj;
     [SerializeField] private Image              hearthImg;
     [SerializeField] private RectTransform      waitTalkBox;
+    [SerializeField] private RectTransform      resultRect;
+    public struct FailObj
+    {
+        public RectTransform slot;
+        public TextMeshProUGUI textUI;
+    }
+    [SerializeField] private FailObj[] failText;
 
     private IEnumerator cor;
     private NoParaDel fun;
@@ -28,8 +35,6 @@ public class TalkBox_UI : Mgr
 
     public void ShowText(string pStr, TalkBoxType pTalkBoxType, NoParaDel pFun)
     {
-        SetTalkBtnState(true);
-
         talkStr = pStr;
         waitTalkBox.gameObject.SetActive(false);
         obj.gameObject.SetActive(true);
@@ -74,6 +79,35 @@ public class TalkBox_UI : Mgr
         }
         cor = RunCor(0.1f);
         StartCoroutine(cor);
+    }
+
+    public void ShowResult(bool spicyResult, bool chickenStateResult,
+        bool drinkResult, bool sideMenuResult)
+    {
+        return;
+
+        resultRect.gameObject.SetActive(true);
+
+        //치킨 상태
+        failText[0].slot.gameObject.SetActive(chickenStateResult == false);
+        LanguageMgr.SetString(failText[0].textUI, "FAIL_CHICKEN");
+
+        //양념 결과
+        failText[1].slot.gameObject.SetActive(spicyResult == false);
+        LanguageMgr.SetString(failText[1].textUI,"FAIL_SPICY");
+
+        //음료 결과
+        failText[2].slot.gameObject.SetActive(drinkResult == false);
+        LanguageMgr.SetString(failText[2].textUI, "FAIL_DRINK");
+
+        //사이드 결과
+        failText[3].slot.gameObject.SetActive(sideMenuResult == false);
+        LanguageMgr.SetString(failText[3].textUI, "FAIL_PICKLE");
+    }
+
+    public void CloseResult()
+    {
+        resultRect.gameObject.SetActive(false);
     }
 
     private IEnumerator RunCor(float delayTime)
@@ -121,7 +155,6 @@ public class TalkBox_UI : Mgr
         }
 
         fun?.Invoke();
-        SetTalkBtnState(false);
     }
 
     public void SkipTalk()
@@ -133,14 +166,13 @@ public class TalkBox_UI : Mgr
         }
         textUI.text = talkStr;
         fun?.Invoke();
-        SetTalkBtnState(false);
     }
 
     public void CloseTalkBox()
     {
         obj.gameObject.SetActive(false);
         waitTalkBox.gameObject.SetActive(false);
-        SetTalkBtnState(false);
+        CloseResult();
     }
 
     public void ShowWaitTalkBox()
@@ -148,15 +180,6 @@ public class TalkBox_UI : Mgr
         obj.gameObject.SetActive(false);
         waitTalkBox.gameObject.SetActive(true);
     }
-
-    private void SetTalkBtnState(bool state)
-    {
-        Button btn = GuestMgr.Instance?.skipTalkBtn;
-        if (btn == null)
-            return;
-        btn.gameObject.SetActive(state);
-    }
-
 
     public void ShowOrderTalk()
     {

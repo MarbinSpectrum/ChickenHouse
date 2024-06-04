@@ -33,7 +33,7 @@ public class GoKitchen_UI : Mgr
         fun?.Invoke();
     }
 
-    private void GoKitchen()
+    public void GoKitchen()
     {
         //주방으로 화면 전환
         if (canUse == false)
@@ -58,7 +58,10 @@ public class GoKitchen_UI : Mgr
 
         GuestMgr guestMgr = GuestMgr.Instance;
         guestMgr.CloseTalkBox();
+        guestMgr.SetSkipTalkBtnState(false);
+        guestMgr.SetGotoKitchenBtnState(false);
 
         kitchenMgr.ui.memo.OpenTriggerBox();
+        kitchenMgr.ui.workerUI.OnBox();
     } 
 }

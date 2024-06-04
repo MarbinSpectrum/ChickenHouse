@@ -14,7 +14,8 @@ public class GuestMgr : Mgr
     [SerializeField] private SpriteRenderer[] guestPos = new SpriteRenderer[GUEST_MAX];
     [SerializeField] private Dictionary<Guest, GuestObj> guests;
     [SerializeField] private Animator vinylAni;
-    public Button skipTalkBtn;
+    [SerializeField] private Button skipTalkBtn;
+    [SerializeField] private Button gotoKitchenBtn;
     [System.Serializable]
     public struct UI
     {
@@ -46,7 +47,7 @@ public class GuestMgr : Mgr
     private GuestObj        guestObj => waitGuest[0];
     /** 대기 손님 **/
     private GuestObj[]      waitGuest = new GuestObj[GUEST_MAX];
-    private int guestcnt = 0;
+    public int guestcnt { private set; get; }
     private bool moveGuest = false;
 
     private void Awake()
@@ -67,7 +68,19 @@ public class GuestMgr : Mgr
     public void Init()
     {
         skipTalkBtn.onClick.RemoveAllListeners();
-        skipTalkBtn.onClick.AddListener(() => SkipTalk());
+        skipTalkBtn.onClick.AddListener(() =>
+        {
+            if (guestObj == null || nowOrder == false)
+                return;
+            guestObj.SkipTalk();
+        });
+
+        gotoKitchenBtn.onClick.RemoveAllListeners();
+        gotoKitchenBtn.onClick.AddListener(() =>
+        {
+            ui.goKitchen.GoKitchen();
+        });
+        gotoKitchenBtn.gameObject.SetActive(false);
 
         ui.nowMoney.SetMoney(gameMgr.playData.money);
 
@@ -364,7 +377,18 @@ public class GuestMgr : Mgr
         if (guestObj == null)
             return;
 
+        guestObj.CloseResult();
         guestObj.CloseTalkBox();
+    }
+
+    public void SetSkipTalkBtnState(bool state)
+    {
+        skipTalkBtn.gameObject.SetActive(state);
+    }
+
+    public void SetGotoKitchenBtnState(bool state)
+    {
+        gotoKitchenBtn.gameObject.SetActive(state);
     }
 
     public void GiveChicken(ChickenSpicy spicy0, ChickenSpicy spicy1, ChickenState chickenState,
@@ -379,8 +403,12 @@ public class GuestMgr : Mgr
 
             //손님의 평가 진행
             GuestReviews result = guestObj.ChickenPoint(spicy0, spicy1, chickenState, pDrink, pSideMenu);
+            bool chickenStateResult = guestObj.CheckChickenState(chickenState);
+            bool spicyResult = guestObj.CheckSpicy(spicy0, spicy1);
+            bool drinkResult = guestObj.CheckDrink(pDrink);
+            bool sideResult = guestObj.CheckSide(pSideMenu);
 
-            switch(result)
+            switch (result)
             {
                 case GuestReviews.Bad:
                     {
@@ -411,7 +439,22 @@ public class GuestMgr : Mgr
                         guestObj.HappyGuest(() => NextOrder());
                     }
                     break;
-            }    
+            }
+            guestObj.ShowResult(spicyResult, chickenStateResult, drinkResult, sideResult);
+            gameMgr.sellChickenCnt += 1;
+            if (pDrink != Drink.None)
+            {
+                if (gameMgr.sellDrinkCnt.ContainsKey(pDrink) == false)
+                    gameMgr.sellDrinkCnt[pDrink] = 0;
+                gameMgr.sellDrinkCnt[pDrink]++;
+            }
+            if (pSideMenu != SideMenu.None)
+            {
+                if (gameMgr.sellSideMenuCnt.ContainsKey(pSideMenu) == false)
+                    gameMgr.sellSideMenuCnt[pSideMenu] = 0;
+                gameMgr.sellSideMenuCnt[pSideMenu]++;
+            }
+
         }
     }
 
@@ -425,7 +468,6 @@ public class GuestMgr : Mgr
             if (kitchenMgr.cameraObj.lookArea == LookArea.Counter)
                 ui.goKitchen.OpenBtn();
 
-            gameMgr.sellChickenCnt += 1;
             GuestObj leaveGuest = guestObj;
 
             waitGuest[0] = null;
@@ -466,6 +508,8 @@ public class GuestMgr : Mgr
             if (guestcnt > 0)
             {
                 bool alreadyOrder = kitchenMgr.ui.memo.HasGuestMemo(guestObj);
+                alreadyOrder = true;
+                //바로 이동하게 설정
 
                 if (alreadyOrder)
                 {
@@ -537,26 +581,26 @@ public class GuestMgr : Mgr
         if (guestObj == null)
             yield break;
 
-        nowOrder = true;
+        guestObj.CloseResult();
+        //if (pAlreadyOrder)
+        //{
+        //    //이미 주문을 완료한걸로 보임
 
-        if(pAlreadyOrder)
-        {
-            //이미 주문을 완료한걸로 보임
+        //    //if (kitchenMgr.cameraObj.lookArea == LookArea.Counter)
+        //    //    ui.goKitchen.OpenBtn();
 
-            //if (kitchenMgr.cameraObj.lookArea == LookArea.Counter)
-            //    ui.goKitchen.OpenBtn();
+        //    yield return new WaitForSeconds(1f);
 
-            yield return new WaitForSeconds(1f);
-
-            guestObj.WaitGuest();
-        }
-        else
+        //    guestObj.WaitGuest();
+        //}
+        //else
         {
             yield return new WaitForSeconds(1f);
 
             if (guestObj == null)
                 yield break;
 
+            nowOrder = true;
             if (kitchenMgr.cameraObj.lookArea == LookArea.Counter)
             {
                 TalkOrder();
@@ -565,18 +609,17 @@ public class GuestMgr : Mgr
         }
     }
 
-    private void SkipTalk()
-    {
-        if (guestObj == null)
-            return;
-        guestObj.SkipTalk();
-    }
-
     public void TalkOrder()
     {
         if (guestObj == null)
             return;
 
-        guestObj.TalkOrder();
+        gotoKitchenBtn.gameObject.SetActive(false);
+        skipTalkBtn.gameObject.SetActive(true);
+        guestObj.TalkOrder(() =>
+        {
+            gotoKitchenBtn.gameObject.SetActive(true);
+            skipTalkBtn.gameObject.SetActive(false);
+        });
     }
 }

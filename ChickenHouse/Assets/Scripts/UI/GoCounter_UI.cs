@@ -49,11 +49,16 @@ public class GoCounter_UI : Mgr
         if (tutoMgr.tutoComplete == false)
             return;
 
+        GuestMgr guestMgr = GuestMgr.Instance;
+        if (guestMgr.guestcnt <= 0)
+            return;
+
         soundMgr.PlaySE(Sound.NewOrder_SE);
 
         CloseBtn();
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
-        GuestMgr guestMgr = GuestMgr.Instance;
+        guestMgr.SetSkipTalkBtnState(true);
+
         kitchenMgr.cameraObj.ChangeLook(LookArea.Counter, () =>
         {
             //guestMgr.ui.goKitchen.OpenBtn();
@@ -62,5 +67,6 @@ public class GoCounter_UI : Mgr
 
         kitchenMgr.cameraObj.lookArea = LookArea.Counter;
         kitchenMgr.ui.memo.CloseTriggerBox();
+        kitchenMgr.ui.workerUI.OffBox();
     }
 }

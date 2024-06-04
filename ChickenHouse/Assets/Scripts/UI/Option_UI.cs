@@ -77,8 +77,7 @@ public class Option_UI : Mgr
         if (run == false)
             return;
 
-        Time.timeScale = 0;
-        soundMgr.MuteSE(true);
+        gameMgr.OptionStopGame(true);
         gameObject.SetActive(true);
         SetEvent();
         OpenMenu(OptionMenu.Main);
@@ -92,8 +91,7 @@ public class Option_UI : Mgr
         closeBtn.onClick.RemoveAllListeners();
         closeBtn.onClick.AddListener(() =>
         {
-            Time.timeScale = 1;
-            soundMgr.MuteSE(false);
+            gameMgr.OptionStopGame(false);
             gameObject.SetActive(false);
         });
         windowCloseBtn.onClick.RemoveAllListeners();
@@ -101,8 +99,7 @@ public class Option_UI : Mgr
         {
             if(nowMenu == OptionMenu.Main)
             {
-                Time.timeScale = 1;
-                soundMgr.MuteSE(false);
+                gameMgr.OptionStopGame(false);
                 gameObject.SetActive(false);
             }
             else
@@ -164,6 +161,7 @@ public class Option_UI : Mgr
             if (run == false)
                 return;
             run = false;
+            gameMgr.StopGame(false);
             lanMgr.ChangeLanguage(selectLan);
             sceneMgr.SceneLoad(Scene.LOGO, false);
         });
@@ -226,11 +224,6 @@ public class Option_UI : Mgr
                 break;
             case OptionMenu.Restart:
                 {
-                    if (run == false)
-                        return;
-                    run = false;
-
-                    Time.timeScale = 1;
                     mainUI.baseObj.gameObject.SetActive(false);
                     languageUI.baseObj.gameObject.SetActive(false);
                     soundUI.baseObj.gameObject.SetActive(false);
@@ -242,8 +235,7 @@ public class Option_UI : Mgr
                     if (run == false)
                         return;
                     run = false;
-                    Time.timeScale = 1;
-                    soundMgr.MuteSE(false);
+                    gameMgr.StopGame(false);
                     sceneMgr.SceneLoad(Scene.TITLE,false,SceneChangeAni.FADE);
                     gameObject.SetActive(false);
                 }

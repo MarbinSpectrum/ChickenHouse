@@ -176,11 +176,9 @@ public class RequireMenu
     }
 
 
-    public GuestReviews MenuPoint(GuestData pGuestData, 
-        ChickenSpicy pSpicy0, ChickenSpicy pSpicy1, ChickenState pChickenState, Drink pDrink, SideMenu pSideMenu)
+    public GuestReviews MenuPoint(ChickenSpicy pSpicy0, ChickenSpicy pSpicy1, 
+        ChickenState pChickenState, Drink pDrink, SideMenu pSideMenu)
     {
-        GameMgr gameMgr = GameMgr.Instance;
-
         //손님이 생각한 치킨 점수
         int maxPoint = 2;
         if (drink != Drink.None)
@@ -206,6 +204,7 @@ public class RequireMenu
         if (sideMenu == pSideMenu && sideMenu != SideMenu.None)
             point += 1;
 
+        //치킨상태검사
         if (pChickenState == ChickenState.BadChicken_0)
             point -= 2;
         else if (pChickenState == ChickenState.BadChicken_1)
@@ -242,5 +241,43 @@ public class RequireMenu
             else
                 return GuestReviews.Bad;
         }
+    }
+
+    public bool CheckChickenState(ChickenState pChickenState)
+    {
+        //치킨 검사
+        if (pChickenState == ChickenState.GoodChicken)
+            return true;
+        return false;
+    }
+
+    public bool CheckSpicy(ChickenSpicy pSpicy0, ChickenSpicy pSpicy1)
+    {
+        //양념 검사
+        ChickenSpicy spicy0 = (ChickenSpicy)Mathf.Min((int)pSpicy0, (int)pSpicy1);
+        ChickenSpicy spicy1 = (ChickenSpicy)Mathf.Max((int)pSpicy0, (int)pSpicy1);
+        if (spicy0 == chickenSpicy[0] && spicy1 == chickenSpicy[1])
+            return true;
+        return false;
+    }
+
+    public bool CheckDrink(Drink pDrink)
+    {
+        //드링크 검사
+        if (drink == pDrink && drink != Drink.None)
+            return true;
+        if (drink == Drink.None)
+            return true;
+        return false;
+    }
+
+    public bool CheckSide(SideMenu pSideMenu)
+    {
+        //사이드 검사
+        if (sideMenu == pSideMenu && sideMenu != SideMenu.None)
+            return true;
+        if (sideMenu == SideMenu.None)
+            return true;
+        return false;
     }
 }

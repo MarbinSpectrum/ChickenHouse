@@ -20,6 +20,9 @@ public class ShopSlot_UI : Mgr, IPointerClickHandler, IPointerEnterHandler, IPoi
     [SerializeField] private Button                     buyBtn;
     [SerializeField] private TextMeshProUGUI            btnText;
 
+    [SerializeField] private Color                      baseBtnColor;
+    [SerializeField] private Color                      useBtnColor;
+
     private ShopItem        shopItem;
     private ShopData        shopData = null;
 
@@ -127,7 +130,8 @@ public class ShopSlot_UI : Mgr, IPointerClickHandler, IPointerEnterHandler, IPoi
                     //직원이고 해당 직원을 사용중
                     LanguageMgr.SetString(btnText, "USE_ITEM");
                     buyBtn.image.raycastTarget = true;
-                    buyBtn.image.color = new Color(72 / 255f, 241 / 255f, 129 / 255f);
+
+                    buyBtn.image.color = useBtnColor;
                     buyBtn.onClick.RemoveAllListeners();
                     buyBtn.onClick.AddListener(() => {
                         UnActShopItem(
@@ -143,7 +147,7 @@ public class ShopSlot_UI : Mgr, IPointerClickHandler, IPointerEnterHandler, IPoi
                     //직원이고 해당 직원을 고용완료함
                     LanguageMgr.SetString(btnText, "EMPLOY_COMPLETE");
                     buyBtn.image.raycastTarget = true;
-                    buyBtn.image.color = new Color(125 / 255f, 152 / 255f, 248 / 255f);
+                    buyBtn.image.color = baseBtnColor;
                     buyBtn.onClick.RemoveAllListeners();
                     buyBtn.onClick.AddListener(() => UseShopItem());
                 }
@@ -158,7 +162,7 @@ public class ShopSlot_UI : Mgr, IPointerClickHandler, IPointerEnterHandler, IPoi
                     LanguageMgr.SetText(btnText, strNum);
 
                     buyBtn.image.raycastTarget = true;
-                    buyBtn.image.color = new Color(125 / 255f, 152 / 255f, 248 / 255f);
+                    buyBtn.image.color = baseBtnColor;
                     buyBtn.onClick.RemoveAllListeners();
                     buyBtn.onClick.AddListener(() => BuyShopItem());
                     buyBtn.onClick.AddListener(() => UseShopItem());
@@ -171,7 +175,7 @@ public class ShopSlot_UI : Mgr, IPointerClickHandler, IPointerEnterHandler, IPoi
                     //조리도구이고 아이템을 사용중
                     LanguageMgr.SetString(btnText, "USE_ITEM");
                     buyBtn.image.raycastTarget = false;
-                    buyBtn.image.color = new Color(72 / 255f, 241 / 255f, 129 / 255f);
+                    buyBtn.image.color = useBtnColor;
                     buyBtn.onClick.RemoveAllListeners();
                 }
                 else if (hasItem && useItem == false)
@@ -179,7 +183,7 @@ public class ShopSlot_UI : Mgr, IPointerClickHandler, IPointerEnterHandler, IPoi
                     //조리도구이고 아이템을 사용중이 아님
                     LanguageMgr.SetString(btnText, "CANUSE_ITEM");
                     buyBtn.image.raycastTarget = true;
-                    buyBtn.image.color = new Color(125 / 255f, 152 / 255f, 248 / 255f);
+                    buyBtn.image.color = baseBtnColor;
                     buyBtn.onClick.RemoveAllListeners();
                     buyBtn.onClick.AddListener(() => UseShopItem());
                 }
@@ -194,7 +198,7 @@ public class ShopSlot_UI : Mgr, IPointerClickHandler, IPointerEnterHandler, IPoi
                     LanguageMgr.SetText(btnText, strNum);
 
                     buyBtn.image.raycastTarget = true;
-                    buyBtn.image.color = new Color(125 / 255f, 152 / 255f, 248 / 255f);
+                    buyBtn.image.color = baseBtnColor;
                     buyBtn.onClick.RemoveAllListeners();
                     buyBtn.onClick.AddListener(() => BuyShopItem());
                     buyBtn.onClick.AddListener(() => UseShopItem());
@@ -209,7 +213,7 @@ public class ShopSlot_UI : Mgr, IPointerClickHandler, IPointerEnterHandler, IPoi
                     LanguageMgr.SetString(btnText, "BUY_COMPLETE");
 
                     buyBtn.image.raycastTarget = false;
-                    buyBtn.image.color = new Color(72 / 255f, 241 / 255f, 129 / 255f);
+                    buyBtn.image.color = useBtnColor;
                     buyBtn.onClick.RemoveAllListeners();
                 }
                 else
@@ -223,7 +227,7 @@ public class ShopSlot_UI : Mgr, IPointerClickHandler, IPointerEnterHandler, IPoi
                     LanguageMgr.SetText(btnText, strNum);
 
                     buyBtn.image.raycastTarget = true;
-                    buyBtn.image.color = new Color(125 / 255f, 152 / 255f, 248 / 255f);
+                    buyBtn.image.color = baseBtnColor;
                     buyBtn.onClick.RemoveAllListeners();
                     buyBtn.onClick.AddListener(() => BuyShopItem());
                 }

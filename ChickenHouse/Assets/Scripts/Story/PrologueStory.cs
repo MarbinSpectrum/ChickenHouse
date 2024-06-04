@@ -24,6 +24,8 @@ public class PrologueStory : Mgr
     private void Start()
     {
         gameMgr.LoadData();
+
+        soundMgr.MuteSE(false);
         soundMgr.PlayBGM(Sound.Prologue_BG);
 
         //첫 프롤로그는 스킵이 안되게

@@ -42,6 +42,7 @@ public class Title_UI : Mgr
         optionBtn.onClick.RemoveAllListeners();
         optionBtn.onClick.AddListener(() => optionUI.Set_UI());
 
+        soundMgr.MuteSE(false);
         soundMgr.PlayBGM(Sound.Title_BG);
 
     }

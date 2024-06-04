@@ -5,7 +5,8 @@ using TMPro;
 
 public class MissionMoney : Mgr
 {
-    [SerializeField] private TextMeshProUGUI textMesh;
+    [SerializeField] private TextMeshProUGUI targetMoneyText;
+    [SerializeField] private TextMeshProUGUI dayText;
 
     public const long TARGET_MONEY_1 = 50000;
     public const long TARGET_MONEY_2 = 250000;
@@ -13,6 +14,12 @@ public class MissionMoney : Mgr
 
     public void SetMoney(int day, long nowMoney)
     {
+        if (gameMgr?.playData != null)
+        {
+            string daySr = string.Format(LanguageMgr.GetText("DAY"), day);
+            LanguageMgr.SetText(dayText, daySr);
+        }
+
         long requireMoney = 0;
         if (day <= 10)
             requireMoney = (long)Mathf.Max(0,TARGET_MONEY_1 - nowMoney);
@@ -23,6 +30,6 @@ public class MissionMoney : Mgr
         string strLabel = LanguageMgr.GetText("MISSON_LABEL");
         string resultStr = string.Format("{0} : <color=#FF0000>{1:N0} $</color>", strLabel, requireMoney);
 
-        LanguageMgr.SetText(textMesh, resultStr);
+        LanguageMgr.SetText(targetMoneyText, resultStr);
     }
 }

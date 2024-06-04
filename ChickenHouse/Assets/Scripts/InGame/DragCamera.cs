@@ -111,15 +111,15 @@ public class DragCamera : Mgr
                         targetList.Add(dragTarget.oilZone4.transform);
                     break;
                 case DragState.Fry_Chicken:
-                    //if (dragTarget.oilZone1.IsRun() == false)
-                    //    targetList.Add(dragTarget.oilZone1.transform);
-                    //if (dragTarget.oilZone2.IsRun() == false)
-                    //    targetList.Add(dragTarget.oilZone2.transform);
-                    //if (dragTarget.oilZone3.IsRun() == false)
-                    //    targetList.Add(dragTarget.oilZone3.transform);
-                    //if (dragTarget.oilZone4.IsRun() == false)
-                    //    targetList.Add(dragTarget.oilZone4.transform);
-                    //targetList.Add(dragTarget.chickenPack);
+                    if (dragTarget.oilZone1.IsRun() == false)
+                        targetList.Add(dragTarget.oilZone1.transform);
+                    if (dragTarget.oilZone2.IsRun() == false)
+                        targetList.Add(dragTarget.oilZone2.transform);
+                    if (dragTarget.oilZone3.IsRun() == false)
+                        targetList.Add(dragTarget.oilZone3.transform);
+                    if (dragTarget.oilZone4.IsRun() == false)
+                        targetList.Add(dragTarget.oilZone4.transform);
+                    targetList.Add(dragTarget.chickenPack);
                     break;
                 case DragState.Hot_Spicy:
                 case DragState.Soy_Spicy:
@@ -140,23 +140,34 @@ public class DragCamera : Mgr
 
             }
 
-            float minDis = int.MaxValue;
-            foreach (Transform trans in targetList)
-            {
-                if (trans.gameObject.activeSelf == false)
-                    continue;
-                float dis = Vector3.Distance(trans.position, nowWorldPos);
-                if(dis < minDis)
-                {
-                    //가장가까운놈을 체크
-                    minDis = dis;
-                    moveTrans = trans;
-                }
-            }
-
             float moveRate = 1;
-            if (moveTrans != null)
+
+            if (targetList.Count > 0)
             {
+                float minDis = int.MaxValue;
+                bool checkMove = false;
+                Vector3 prevWorld = Camera.main.ScreenToWorldPoint(prevPos);
+                foreach (Transform trans in targetList)
+                {
+                    if (trans.gameObject.activeSelf == false)
+                        continue;
+                    float prevDis = Vector3.Distance(trans.position, prevWorld);
+                    float dis = Vector3.Distance(trans.position, nowWorldPos);
+                    if (dis < minDis && dis <= prevDis)
+                    {
+                        //가장가까운놈을 체크
+                        minDis = dis;
+                        moveTrans = trans;
+                        checkMove = true;
+                    }
+                }
+
+                if (checkMove == false)
+                {
+                    //목표랑 가까워지는 방향이 존재하지 않음
+                    return;
+                }
+
                 moveRate = Vector3.Distance(moveTrans.position, nowWorldPos) / slowDis;
                 moveRate = Mathf.Max(minSpeedRate, moveRate);
                 moveRate = Mathf.Min(1, moveRate);
@@ -164,6 +175,7 @@ public class DragCamera : Mgr
                 float lerpValue = Mathf.Lerp(kitchenMgr.kitchenRect.content.offsetMin.x,
                     kitchenMgr.kitchenRect.content.offsetMin.x - moveTrans.position.x, minSpeedLerpValue * moveRate);
                 movePos = new Vector3(lerpValue, 0, 0);
+
             }
             else
             {

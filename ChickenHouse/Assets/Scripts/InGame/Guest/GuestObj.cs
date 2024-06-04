@@ -90,12 +90,45 @@ public abstract class GuestObj : Mgr
 
 
     public GuestReviews ChickenPoint(ChickenSpicy spicy0, ChickenSpicy spicy1, ChickenState chickenState,
-        Drink pDrink, SideMenu pSideMenue)
+        Drink pDrink, SideMenu pSideMenu)
     {
-        GuestReviews result = requireMenu.MenuPoint(guestData, spicy0, spicy1, chickenState, pDrink, pSideMenue);
+        GuestReviews result = requireMenu.MenuPoint(spicy0, spicy1, chickenState, pDrink, pSideMenu);
 
         return result;
     }
+
+    public bool CheckChickenState(ChickenState chickenState)
+    {
+        bool result = requireMenu.CheckChickenState(chickenState);
+
+        return result;
+    }
+
+    public bool CheckSpicy(ChickenSpicy spicy0, ChickenSpicy spicy1)
+    {
+        bool result = requireMenu.CheckSpicy(spicy0, spicy1);
+
+        return result;
+    }
+
+    public bool CheckDrink(Drink pDrink)
+    {
+        bool result = requireMenu.CheckDrink(pDrink);
+
+        return result;
+    }
+
+    public bool CheckSide(SideMenu pSideMenue)
+    {
+        bool result = requireMenu.CheckSide(pSideMenue);
+
+        return result;
+    }
+
+    public void ShowResult(bool spicyResult, bool chickenStateResult, bool drinkResult, bool sideMenuResult) =>
+        talkBox.ShowResult(spicyResult, chickenStateResult, drinkResult, sideMenuResult);
+
+    public void CloseResult() => talkBox.CloseResult();
 
     public void SetOrderSprite(int order)
     {
@@ -113,5 +146,10 @@ public abstract class GuestObj : Mgr
 
     public int GetShowDay() => guestData.day;
 
-    public void SkipTalk() => talkBox.SkipTalk();
+    public void SkipTalk()
+    {
+        talkBox.SkipTalk();
+    }
+
+
 }

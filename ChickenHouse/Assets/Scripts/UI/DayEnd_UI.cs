@@ -14,7 +14,7 @@ public class DayEnd_UI : Mgr
 
     [SerializeField] private Dictionary<DayEndList, TextMeshProUGUI> infoList = new Dictionary<DayEndList, TextMeshProUGUI>();
 
-    private const int SUPPLIES_VAIUE = 10;
+    private const int SUPPLIES_VAIUE = 100;
     private bool goNext = false;
 
     private int addValue = 0;
@@ -42,9 +42,16 @@ public class DayEnd_UI : Mgr
 
         //재료값
         int suppliesUsed = gameMgr.sellChickenCnt * SUPPLIES_VAIUE;
+        foreach(var v in gameMgr.sellSideMenuCnt.Values)
+            suppliesUsed += v * SUPPLIES_VAIUE;
+        foreach (var v in gameMgr.sellDrinkCnt.Values)
+            suppliesUsed += v * SUPPLIES_VAIUE;
+
         LanguageMgr.SetString(nameList[DayEndList.Supplies_Uesd], "SUPPLIES_UESD");
-        LanguageMgr.SetText(infoList[DayEndList.Supplies_Uesd], string.Format("-{0:N0} $", suppliesUsed));
+        LanguageMgr.SetText(infoList[DayEndList.Supplies_Uesd], string.Format("-{0:N0} $", suppliesUsed));        
         total -= suppliesUsed;
+
+
 
 
         //재료값

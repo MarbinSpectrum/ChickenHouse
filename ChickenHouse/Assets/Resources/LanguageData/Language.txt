@@ -39,6 +39,10 @@ RESIDENCE	거주지	Residence
 WORKER_SALARY	급여	Salry
 SALARY	희망급여	Salary
 SKILL_ABILITY	능력/기술	Skill/Ability
+FAIL_SPICY	양념 X	Spicy X
+FAIL_CHICKEN	치킨상태 X	ChickenState X
+FAIL_DRINK	음료 X	Drink X
+FAIL_PICKLE	피클 X	Pickle X
 TUTO_1	먼저 닭 4개를 계란물에 넣어봅시다.	First, I'll put four chickens in the egg water.
 TUTO_2	그리고 닭을 밀가루 쪽으로 옮겨주세요.	And move the chicken toward the flour.
 TUTO_3	닭 모두를 치킨 건지개에 넣어 주세요.	Please put all the chickens in the vegetable.

@@ -73,6 +73,8 @@ public class KitchenMgr : Mgr
         public GoCounter_UI goCounter;
         /** 메모 **/
         public Memo_UI      memo;
+        /** 알바생 UI **/
+        public Worker_UI    workerUI;
     }
     public UI ui;
 
@@ -124,6 +126,7 @@ public class KitchenMgr : Mgr
         /////////////////////////////////////////////////////////////////////////////////
         //알바생 업무 시작
         worker.UpdateHandMoveArea();
+        ui.workerUI.Init();
     }
 
     private float KitchenWidth()

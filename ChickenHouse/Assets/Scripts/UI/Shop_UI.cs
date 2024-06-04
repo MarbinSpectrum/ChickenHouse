@@ -54,6 +54,7 @@ public class Shop_UI : Mgr
     {
         //gameMgr.LoadData();
 
+        soundMgr.MuteSE(false);
         soundMgr.PlayBGM(Sound.Shop_BG);
 
         SetMoney();

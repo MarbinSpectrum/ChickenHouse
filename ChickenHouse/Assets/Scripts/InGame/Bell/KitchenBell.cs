@@ -25,12 +25,15 @@ public class KitchenBell : Mgr
             return;
         }
 
+        GuestMgr guestMgr = GuestMgr.Instance;
+        if (guestMgr.guestcnt <= 0)
+            return;
+
         soundMgr.PlaySE(Sound.NewOrder_SE);
 
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
-        GuestMgr guestMgr = GuestMgr.Instance;
         kitchenMgr.ui.goCounter.CloseBtn();
-        guestMgr.CloseTalkBox();
+        guestMgr.SetSkipTalkBtnState(true);
 
         kitchenMgr.cameraObj.ChangeLook(LookArea.Counter, () =>
         {
@@ -52,5 +55,6 @@ public class KitchenBell : Mgr
 
         kitchenMgr.cameraObj.lookArea = LookArea.Counter;
         kitchenMgr.ui.memo.CloseTriggerBox();
+        kitchenMgr.ui.workerUI.OffBox();
     }
 }

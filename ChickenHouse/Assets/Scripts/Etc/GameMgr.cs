@@ -6,11 +6,18 @@ public class GameMgr : AwakeSingleton<GameMgr>
 {
     public int selectSaveSlot;
     public PlayData playData = null;
+    private bool stopGame = false;
 
     /** 오늘 수입 **/
     public int dayMoney;
     /** 판매한 치킨 수 **/
     public int sellChickenCnt;
+    /** 판매한 드링크 갯수 **/
+    public Dictionary<Drink, int>       sellDrinkCnt        = new Dictionary<Drink, int>();
+    /** 판매한 사이드메뉴 갯수 **/
+    public Dictionary<SideMenu, int>    sellSideMenuCnt     = new Dictionary<SideMenu, int>();
+
+
 
     //-------------------------------------------------------------------------------------------------------
     protected override void Awake()
@@ -18,6 +25,9 @@ public class GameMgr : AwakeSingleton<GameMgr>
         base.Awake();
 
         Application.targetFrameRate = 120;
+        Time.timeScale = 1;
+        SoundMgr soundMgr = SoundMgr.Instance;
+        soundMgr.MuteSE(false);
     }
 
     //-------------------------------------------------------------------------------------------------------
@@ -25,6 +35,8 @@ public class GameMgr : AwakeSingleton<GameMgr>
     {
         dayMoney = 0;
         sellChickenCnt = 0;
+        sellDrinkCnt.Clear();
+        sellSideMenuCnt.Clear();
 
         playData = LoadData(selectSaveSlot);
         playData ??= new PlayData();
@@ -46,5 +58,27 @@ public class GameMgr : AwakeSingleton<GameMgr>
             return;
         string jsonData = MyLib.Json.ObjectToJson(playData);
         MyLib.Json.CreateJsonFile(string.Format("PlayData{0}",selectSaveSlot), jsonData);
+    }
+
+    public void StopGame(bool state)
+    {
+        stopGame = state;
+        Time.timeScale = state ? 0 : 1;
+        SoundMgr soundMgr = SoundMgr.Instance;
+        soundMgr.MuteSE(state);
+    }
+
+    public void OptionStopGame(bool state)
+    {
+        if(stopGame && state == false)
+        {
+            //인게임에서 멈춤상태라면 옵션에서 풀어도 멈춤상태임
+            Time.timeScale = 0;
+            return;
+        }
+
+        Time.timeScale = state ? 0 : 1;
+        SoundMgr soundMgr = SoundMgr.Instance;
+        soundMgr.MuteSE(state);
     }
 }
