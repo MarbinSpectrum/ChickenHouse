@@ -33,7 +33,6 @@ public class KitchenBell : Mgr
 
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
         kitchenMgr.ui.goCounter.CloseBtn();
-        guestMgr.SetSkipTalkBtnState(true);
 
         kitchenMgr.cameraObj.ChangeLook(LookArea.Counter, () =>
         {

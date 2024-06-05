@@ -57,7 +57,6 @@ public class GoCounter_UI : Mgr
 
         CloseBtn();
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
-        guestMgr.SetSkipTalkBtnState(true);
 
         kitchenMgr.cameraObj.ChangeLook(LookArea.Counter, () =>
         {

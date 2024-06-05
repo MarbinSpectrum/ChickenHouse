@@ -72,7 +72,7 @@ public class GuestMgr : Mgr
         {
             if (guestObj == null || nowOrder == false)
                 return;
-            guestObj.SkipTalk();
+            SkipTalk();
         });
 
         gotoKitchenBtn.onClick.RemoveAllListeners();
@@ -162,7 +162,21 @@ public class GuestMgr : Mgr
 
                 delayValue = GUEST_DELAY_TIME * upgradeRate* dayRate;
 
-                yield return new WaitForSeconds(delayValue);
+                while(delayValue > 0)
+                {
+                    delayValue -= Time.deltaTime;
+                    if (guestcnt == 0)
+                    {
+                        //1초정도만 대기하고 손님을 바로 넣어준다.
+                        delayValue = Mathf.Min(delayValue, 1f);
+                        yield return new WaitForSeconds(delayValue);
+                        break;
+                    }
+
+                    yield return null;
+                }
+
+
             }
 
             if (ui.timer.IsEndTime())
@@ -295,9 +309,6 @@ public class GuestMgr : Mgr
                 {
                     //첫손님 주문
                     StartCoroutine(GuestOrder(false));
-
-                    if (kitchenMgr.cameraObj.lookArea == LookArea.Counter)
-                        ui.goKitchen.OpenBtn();
                 }
 
                 break;
@@ -381,6 +392,13 @@ public class GuestMgr : Mgr
         guestObj.CloseTalkBox();
     }
 
+    public void SkipTalk()
+    {
+        if (guestObj == null)
+            return;
+        guestObj.SkipTalk();
+    }
+
     public void SetSkipTalkBtnState(bool state)
     {
         skipTalkBtn.gameObject.SetActive(state);
@@ -402,6 +420,9 @@ public class GuestMgr : Mgr
             yield return new WaitForSeconds(0.5f);
 
             //손님의 평가 진행
+
+            skipTalkBtn.gameObject.SetActive(true);
+
             GuestReviews result = guestObj.ChickenPoint(spicy0, spicy1, chickenState, pDrink, pSideMenu);
             bool chickenStateResult = guestObj.CheckChickenState(chickenState);
             bool spicyResult = guestObj.CheckSpicy(spicy0, spicy1);
@@ -460,14 +481,12 @@ public class GuestMgr : Mgr
 
     private void NextOrder()
     {
+        skipTalkBtn.gameObject.SetActive(false);
+
         StartCoroutine(RunCor());
         IEnumerator RunCor()
         {
             KitchenMgr kitchenMgr = KitchenMgr.Instance;
-
-            if (kitchenMgr.cameraObj.lookArea == LookArea.Counter)
-                ui.goKitchen.OpenBtn();
-
             GuestObj leaveGuest = guestObj;
 
             waitGuest[0] = null;
@@ -542,6 +561,7 @@ public class GuestMgr : Mgr
     {
         moveGuest = true;
 
+        float guestSpeed = 2f;
         float lerpTime = 0;
         while (lerpTime < 1)
         {
@@ -555,7 +575,7 @@ public class GuestMgr : Mgr
                 waitGuest[i].transform.localScale = Vector3.Lerp(guestPos[i + 1].transform.localScale, guestPos[i].transform.localScale, lerpTime);
             }
 
-            lerpTime += Time.deltaTime;
+            lerpTime += Time.deltaTime * guestSpeed;
             yield return null;
         }
 
@@ -604,7 +624,7 @@ public class GuestMgr : Mgr
             if (kitchenMgr.cameraObj.lookArea == LookArea.Counter)
             {
                 TalkOrder();
-                //ui.goKitchen.OpenBtn();
+                ui.goKitchen.OpenBtn();
             }
         }
     }
@@ -614,12 +634,23 @@ public class GuestMgr : Mgr
         if (guestObj == null)
             return;
 
+        KitchenMgr kitchenMgr = KitchenMgr.Instance;
+
         gotoKitchenBtn.gameObject.SetActive(false);
         skipTalkBtn.gameObject.SetActive(true);
+
         guestObj.TalkOrder(() =>
         {
-            gotoKitchenBtn.gameObject.SetActive(true);
-            skipTalkBtn.gameObject.SetActive(false);
+            if (kitchenMgr.cameraObj.lookArea == LookArea.Kitchen)
+            {
+                gotoKitchenBtn.gameObject.SetActive(false);
+                skipTalkBtn.gameObject.SetActive(false);
+            }
+            else
+            {
+                gotoKitchenBtn.gameObject.SetActive(true);
+                skipTalkBtn.gameObject.SetActive(false);
+            }
         });
     }
 }

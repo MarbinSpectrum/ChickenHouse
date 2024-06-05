@@ -36,10 +36,14 @@ public class GoKitchen_UI : Mgr
     public void GoKitchen()
     {
         //주방으로 화면 전환
-        if (canUse == false)
-            return;
-        CloseBtn();
+        //if (canUse == false)
+        //    return;
+
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
+        if (kitchenMgr.cameraObj.lookArea == LookArea.Kitchen)
+            return;
+
+        CloseBtn();
         kitchenMgr.cameraObj.ChangeLook(LookArea.Kitchen, () =>
         {
             kitchenMgr.cameraObj.lookArea = LookArea.Kitchen;
@@ -58,6 +62,7 @@ public class GoKitchen_UI : Mgr
 
         GuestMgr guestMgr = GuestMgr.Instance;
         guestMgr.CloseTalkBox();
+        guestMgr.SkipTalk();
         guestMgr.SetSkipTalkBtnState(false);
         guestMgr.SetGotoKitchenBtnState(false);
 

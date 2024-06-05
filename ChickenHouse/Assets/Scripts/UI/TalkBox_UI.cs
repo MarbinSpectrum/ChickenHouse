@@ -155,6 +155,7 @@ public class TalkBox_UI : Mgr
         }
 
         fun?.Invoke();
+        fun = null;
     }
 
     public void SkipTalk()
@@ -166,6 +167,7 @@ public class TalkBox_UI : Mgr
         }
         textUI.text = talkStr;
         fun?.Invoke();
+        fun = null;
     }
 
     public void CloseTalkBox()
