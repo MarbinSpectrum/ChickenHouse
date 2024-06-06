@@ -143,6 +143,16 @@ public enum Guest
     Flamingo = 8,
     /** ∫Òµ—±‚ **/
     Dove = 9,
+    /** ∆“¥ı **/
+    Panda = 10,
+    /** ∑°º≠∆“¥ı **/
+    RedPanda = 11,
+    /** ≈‰≥¢ **/
+    Rabbit = 12,
+    /** «ÿ¥ﬁ **/
+    SeaOtter = 13,
+    /** ªÁΩø **/
+    Deer = 14,
 
     MAX
 }
