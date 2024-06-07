@@ -188,21 +188,56 @@ public enum Sound
     NewOrder_SE = 205,
 
     /** 목소리 목록 **/
+    //개
     Voice0_SE   = 250,
+
+    //여우 & 고양이
     Voice1_SE   = 251,
     Voice2_SE   = 252,
+
+    //줄무늬 원숭이
     Voice3_SE   = 253,
     Voice4_SE   = 254,
+
+    //태지베니아 데빌
     Voice5_SE   = 255,
     Voice6_SE   = 256,
+
+    //흰주머니쥐 & 빚쟁이
     Voice7_SE   = 257,
     Voice8_SE   = 258,
+
+    //플라밍고
     Voice9_SE   = 259,
     Voice10_SE  = 260,
+
+    //비둘기
     Voice11_SE  = 261,
     Voice12_SE  = 262,
+
+    //호랑이
     Voice13_SE  = 263,
     Voice14_SE  = 264,
+
+    //판다
+    Voice15_SE  = 265,
+    Voice16_SE  = 266,
+
+    //래서판다
+    Voice17_SE = 267,
+    Voice18_SE = 268,
+
+    //토끼
+    Voice19_SE = 269,
+    Voice20_SE = 270,
+
+    //사슴
+    Voice21_SE = 271,
+    Voice22_SE = 272,
+
+    //해달
+    Voice23_SE = 273,
+    Voice24_SE = 274,
 }
 
 public enum TalkBoxType

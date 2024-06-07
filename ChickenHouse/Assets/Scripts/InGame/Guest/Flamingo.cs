@@ -10,158 +10,37 @@ public class Flamingo : GuestObj
 
         talkStr = string.Empty;
         if (menuIdx == 0)
-        {
             talkStr = LanguageMgr.GetText("FLAMINGO_ORDER_1");
-            if (requireMenu.drink == Drink.Cola)
-            {
-                talkStr += "\n";
-                talkStr += LanguageMgr.GetText("FLAMINGO_SIDE_COLA");
-            }
-            if (requireMenu.sideMenu == SideMenu.Pickle)
-            {
-                talkStr += "\n";
-                talkStr += LanguageMgr.GetText("FLAMINGO_SIDE_PICKLE");
-            }
-        }
         else if (menuIdx == 1)
-        {
             talkStr = LanguageMgr.GetText("FLAMINGO_ORDER_2");
-            if (requireMenu.drink == Drink.Cola)
-            {
-                talkStr += "\n";
-                talkStr += LanguageMgr.GetText("FLAMINGO_SIDE_COLA");
-            }
-            if (requireMenu.sideMenu == SideMenu.Pickle)
-            {
-                talkStr += "\n";
-                talkStr += LanguageMgr.GetText("FLAMINGO_SIDE_PICKLE");
-            }
-        }
         else if (menuIdx == 2)
-        {
             talkStr = LanguageMgr.GetText("FLAMINGO_ORDER_3");
-            if (requireMenu.drink == Drink.Cola)
-            {
-                talkStr += "\n";
-                talkStr += LanguageMgr.GetText("FLAMINGO_SIDE_COLA");
-            }
-            if (requireMenu.sideMenu == SideMenu.Pickle)
-            {
-                talkStr += "\n";
-                talkStr += LanguageMgr.GetText("FLAMINGO_SIDE_PICKLE");
-            }
-        }
         else if (menuIdx == 3)
-        {
             talkStr = LanguageMgr.GetText("FLAMINGO_ORDER_4");
-            if (requireMenu.drink == Drink.Cola)
-            {
-                talkStr += "\n";
-                talkStr += LanguageMgr.GetText("FLAMINGO_SIDE_COLA");
-            }
-            if (requireMenu.sideMenu == SideMenu.Pickle)
-            {
-                talkStr += "\n";
-                talkStr += LanguageMgr.GetText("FLAMINGO_SIDE_PICKLE");
-            }
-        }
         else if (menuIdx == 4)
-        {
             talkStr = LanguageMgr.GetText("FLAMINGO_ORDER_5");
-            if (requireMenu.drink == Drink.Cola)
-            {
-                talkStr += "\n";
-                talkStr += LanguageMgr.GetText("FLAMINGO_SIDE_COLA");
-            }
-            if (requireMenu.sideMenu == SideMenu.Pickle)
-            {
-                talkStr += "\n";
-                talkStr += LanguageMgr.GetText("FLAMINGO_SIDE_PICKLE");
-            }
-        }
         else if (menuIdx == 5)
-        {
             talkStr = LanguageMgr.GetText("FLAMINGO_ORDER_6");
-            if (requireMenu.drink == Drink.Cola)
-            {
-                talkStr += "\n";
-                talkStr += LanguageMgr.GetText("FLAMINGO_SIDE_COLA");
-            }
-            if (requireMenu.sideMenu == SideMenu.Pickle)
-            {
-                talkStr += "\n";
-                talkStr += LanguageMgr.GetText("FLAMINGO_SIDE_PICKLE");
-            }
-        }
         else if (menuIdx == 6)
-        {
             talkStr = LanguageMgr.GetText("FLAMINGO_ORDER_7");
-            if (requireMenu.drink == Drink.Cola)
-            {
-                talkStr += "\n";
-                talkStr += LanguageMgr.GetText("FLAMINGO_SIDE_COLA");
-            }
-            if (requireMenu.sideMenu == SideMenu.Pickle)
-            {
-                talkStr += "\n";
-                talkStr += LanguageMgr.GetText("FLAMINGO_SIDE_PICKLE");
-            }
-        }
         else if (menuIdx == 7)
-        {
             talkStr = LanguageMgr.GetText("FLAMINGO_ORDER_8");
-            if (requireMenu.drink == Drink.Cola)
-            {
-                talkStr += "\n";
-                talkStr += LanguageMgr.GetText("FLAMINGO_SIDE_COLA");
-            }
-            if (requireMenu.sideMenu == SideMenu.Pickle)
-            {
-                talkStr += "\n";
-                talkStr += LanguageMgr.GetText("FLAMINGO_SIDE_PICKLE");
-            }
-        }
         else if (menuIdx == 8)
-        {
             talkStr = LanguageMgr.GetText("FLAMINGO_ORDER_9");
-            if (requireMenu.drink == Drink.Cola)
-            {
-                talkStr += "\n";
-                talkStr += LanguageMgr.GetText("FLAMINGO_SIDE_COLA");
-            }
-            if (requireMenu.sideMenu == SideMenu.Pickle)
-            {
-                talkStr += "\n";
-                talkStr += LanguageMgr.GetText("FLAMINGO_SIDE_PICKLE");
-            }
-        }
         else if (menuIdx == 9)
-        {
             talkStr = LanguageMgr.GetText("FLAMINGO_ORDER_10");
-            if (requireMenu.drink == Drink.Cola)
-            {
-                talkStr += "\n";
-                talkStr += LanguageMgr.GetText("FLAMINGO_SIDE_COLA");
-            }
-            if (requireMenu.sideMenu == SideMenu.Pickle)
-            {
-                talkStr += "\n";
-                talkStr += LanguageMgr.GetText("FLAMINGO_SIDE_PICKLE");
-            }
-        }
         else if (menuIdx == 10)
-        {
             talkStr = LanguageMgr.GetText("FLAMINGO_ORDER_11");
-            if (requireMenu.drink == Drink.Cola)
-            {
-                talkStr += "\n";
-                talkStr += LanguageMgr.GetText("FLAMINGO_SIDE_COLA");
-            }
-            if (requireMenu.sideMenu == SideMenu.Pickle)
-            {
-                talkStr += "\n";
-                talkStr += LanguageMgr.GetText("FLAMINGO_SIDE_PICKLE");
-            }
+
+        if (requireMenu.drink == Drink.Cola)
+        {
+            talkStr += "\n";
+            talkStr += LanguageMgr.GetText("FLAMINGO_SIDE_COLA");
+        }
+        if (requireMenu.sideMenu == SideMenu.Pickle)
+        {
+            talkStr += "\n";
+            talkStr += LanguageMgr.GetText("FLAMINGO_SIDE_PICKLE");
         }
     }
 

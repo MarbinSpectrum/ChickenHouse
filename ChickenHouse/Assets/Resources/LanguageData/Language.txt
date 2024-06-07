@@ -236,6 +236,86 @@ DOVE_SIDE_PICKLE	원하오! 시원한 워터가 곁들어진 무!	I want it! Pic
 DOVE_ANGRY	이게 진짜일 리가 없어!	This can't be real!
 DOVE_THANK_YOU	흠! 이 무난함! 나쁘지 않아	Hmm! This is easy! Not bad
 DOVE_HAPPY	엘레강트!!! 구구! 구구구구구구	Elegant! Gu! Gu! Gu! Gu
+PANDA_ORDER_1	아저씨 그 제가 너무너무 배고파서 그런데\n바삭한 치킨을 주세요! 근데 그냥 치킨말고\n아무 소스도 안 뿌린 거!	Mister! I'm really really hungry, so could\nyou please give me crispy chicken?\nBut just the chicken without any sauce, please!
+PANDA_ORDER_2	아저씨! 그 제가 매운걸 잘 못 먹어요!\n그래서 말이죠! 안 매운 치킨 주세요!\n달고 맵긴한데  안 매운 거로요!	Mister! I can't handle spicy food very well!\nSo, please, give me non-spicy chicken!\nSweet and a little spicy is okay,\nbut not too spicy!
+PANDA_ORDER_3	아저씨! 그 똥 냄새가 날 거 같은데\n똥 냄새가 안 나는 치킨 주세요!	Mister! Please give me chicken that\ndoesn't smell like poop even though\nit seems like it might!
+PANDA_ORDER_4	아저씨! 그 엄마가 빠스따를 만들어 줬는데\n너무 맛있는 거 있죠? 혹시 그거 치킨에도 묻힐수 있어요?	Mister! My mom made pasta!\nit was really delicious.\nIs there something like that for chicken?\nCan you put that on the chicken?
+PANDA_ORDER_5	아저씨! 그 치킨집에 마법의 가루를 뿌려서\n만든 치킨도 있다면서요?! 저도! 저도 주세요!	Mister! I heard there's chicken made\nwith magic dust at that chicken place!\nI want some too! Please!
+PANDA_ORDER_6	아저씨! 그 언제 한 번인가 불로 숯불로 구워서\n엄청 매울 줄 알았는데 안 매웠던 치킨 주세요! 	Mister! I thought it was going to be spicy\nbecause it was grilled over charcoal\nfire before, but surprisingly it wasn't.\nPlease give me that chicken!
+PANDA_ORDER_7	아저씨! 그 평범한 거랑 매운데 안 매운 거랑 같이 주세요!	Mister! Please give me both the ordinary\none and It's spicy, but it's not spicy!
+PANDA_ORDER_8	아저씨! 그 치킨에다 마법에 가루랑\n똥 냄새날 거 같은 거랑 같이 주세요!	Mister! Please give me the chicken with\nmagic powder and something that\nsmells like poop!
+PANDA_ORDER_9	아저씨! 그 안 매운 빨간 치킨이랑\n갈색 치킨이랑 같이 주문되어요?	Mister! Can I order the non-spicy red chicken\nand the brown chicken together?
+PANDA_ORDER_10	아저씨! 그 뭐더라 달면서 짭짤한 거랑 엄마가\n저한테 파스타 만들어 줄 때 넣은 거랑 같이 주세요!	Mister! Please give me the one that's sweet\nand salty, like what my mom puts in pasta\nwhen she makes it for me!
+PANDA_ORDER_11	아저씨! 그 똥 냄새랑 숯불 냄새가 나는 걸로 주세요!\n아!근데 똥 냄새는 실제로 안 나요!	Mister! Please give me the one that smells\nlike poopand charcoal! Oh! But actually,\nit doesn't smell like poop!
+PANDA_SIDE_COLA	목이 따끔거리는 물도 주세요!	Please give me some water that\nstings my throat as well!
+PANDA_SIDE_PICKLE	시원하고 아삭거리는 네모도!	Refreshing and crisp squares!
+PANDA_ANGRY	엄마가 이런 데서 사는 거 아니래요!	My mom says she doesn't\ncome to places like this.
+PANDA_THANK_YOU	다음에도 올게요	I'll come again next time.
+PANDA_HAPPY	엄마한테 여기 또 와도 되는지 물어볼게요!	I'll ask if it's okay for me to come\nhere again from my mom!
+REDPANDA_ORDER_1	고급 기름을 사용해 바싹하게 튀긴 음식을 주세요	Please give me food fried in\npremium oil until it's crispy.
+REDPANDA_ORDER_2	게임은 잘하는데 입은 더러운 민족이 개발한 치킨 주세요	Give me the chicken developed by\na nation that's good at gaming but\nhas a dirty mouth.
+REDPANDA_ORDER_3	인구수는 많은데 속이 좁아터진\n민족이 개발한 소스의 치킨을 주세요	lease give me the chicken with sauce\ndeveloped by a populous but\nnarrow-minded nation.
+REDPANDA_ORDER_4	스파게티 면을 부수면 발작하는\n민족의 치킨을 주세요	Please give me the chicken of\nthe nation where breaking spaghetti\nnoodles causes seizures.
+REDPANDA_ORDER_5	아동용 게임이 유일하게 19금인 나라의\n마법의 가루를 뿌린 치킨 주세요	Please give me the chicken sprinkled\nwith magic powder from the country\nwhere children's games are rated 19+
+REDPANDA_ORDER_6	원시시대부터 전해 내려오는 고대의\n전통 방식의 소스의 치킨 주세요	Please give me the chicken with sauce\nmade using ancient traditional methods\npassed down since primitive times.
+REDPANDA_ORDER_7	저출산 문제로 망할 것 같은 국가에서 만든\n세계적으로 유명한 소스 치킨을 주세요.	Please give me the globally famous sauce\nchicken made in a country facing the risk\nof decline due to low birth rates.
+REDPANDA_ORDER_8	기름을 이용해 바싹하게 튀긴 치킨이랑\n게임은 잘하는데 입이 더러운\n민족의 치킨 세트로 주세요	Give me a set of chicken fried to crispy\nperfection with oil and the chicken of\na nation where they excel in gaming\nbut have dirty mouths.
+REDPANDA_ORDER_9	아동용 게임이 유일하게 19금이면서 출산율이\n바닥을 찍는 나라에서 개발한 마법의 치킨과\n엄청 매운 치킨으로	Give me the magical chicken developed\nin a country where children's games are\nrated 19+ and the birth rate is at rock bottom,\nalong with some extremely spicy chicken
+REDPANDA_ORDER_10	스파게티면 부수면 발작하는 민족과\n인구수는 많은데 속이 좁은 민족의 콤보로 주세요	Give me a combo of the nation that\nhas a fit when spaghetti is broken\nand the nation that has a large population\nbut is narrow-minded.
+REDPANDA_ORDER_11	원시시대부터 전해 내려오는 고대전통 방식으로\n만든 치킨과 기본적인 방식으로 만든 치킨의\n콤보로 부탁해요.	Please give me a combo of chicken\nmade with an ancient traditional\nmethod and chicken made with\na basic method.
+REDPANDA_SIDE_COLA	이가 썩을 수도 있는 달달 한 음료도 주세요	Please give me a sweet drink\nthat could rot my teeth.
+REDPANDA_SIDE_PICKLE	아삭하고 시원한 무도 주세요	Please give me some crispy and\nrefreshing pickle.
+REDPANDA_ANGRY	와 망해라	Go to hell!!
+REDPANDA_THANK_YOU	좀 더 노력하면 대박 날지도?	Maybe it'll be a hit if you try a\nbit harder?
+REDPANDA_HAPPY	이 치킨집 뭔가 심상치 않네요	This restaurant is quite remarkable!
+RABBIT_ORDER_1	가게 꼴이 말이 아니네~ 혹시 모르니까\n후라이드만 시켜봐야지	he appearance of the store is beyond\nwords Just in case, let's order only\nfried chicken.
+RABBIT_ORDER_2	혹시 어디 망하거나 빚져서 치킨집 차린 거예요?\n양념은 할 수는 있을지 몰라~	Did you happen to set up this chicken joint\nafter failing somewhere or accumulating debts?\nI'm not sure if you can make seasoned chicken.
+RABBIT_ORDER_3	이 가게에서 할 수 있을지 모르지만,\n이탈리아 고급식 까르보나라 가능하죠?	I'm not sure if they can do it here,\nbut is Italian gourmet carbonara possible?
+RABBIT_ORDER_4	흠~ 이 가게 언제 망할지도 모르는데\n뿌링클은 먹어봐야지~	Hmm~ Since we don't even know when\nthis place might go under, let's give the\n'Prinkle' a try~
+RABBIT_ORDER_5	사장님~ 간장도 당연히 있죠?\n요즘 치킨 가게는 웬만하면 다 있던데~	Boss~ Of course, you have soy sauce too, right? \nhese days, most chicken places have it.
+RABBIT_ORDER_6	사장님 혹시 바비큐 치킨 가능한가요?\n안되면 완전 허접 치킨집인데~	Boss, is barbecue chicken available?\nIf not, it's a really terrible chicken joint~
+RABBIT_ORDER_7	오늘 완전 매운 거 땅기는데 무슨 말인지 알죠?\n모르면 완전 연애 센스 허접일듯!	Today, I really feel like eating something\nsuper spicy. You know what I mean, right?\nIf you don't, it's like having absolutely\nno dating sense!
+RABBIT_ORDER_8	사장님 연애는 해보셨어요? 뭐 했어도 헤어졌을 테지만~\n아 맞다! 양념이랑 뿌링클이요	Boss, have you ever been in a relationship?\nNo matter what you did, you probably would\nhave broken up anyway~\nOh, right! Seasoned and 'Prinkle', please.
+RABBIT_ORDER_9	사장님은 저한테 고마워해야 할 걸요?\n장사가 잘 안되는 가게인데도 주문해주니까요.\n간장이랑 후라이드나 주세요!	Shouldn't you be grateful to me, boss?\nDespite the business not doing well,\nI'm still ordering. Please give me some\nsoy sauce and fried chicken!
+RABBIT_ORDER_10	사장님~ 가장 기본적인 콤보로~ 뭔지 알지?\n모르면 완전 허접 사장~	Boss~ Do you know what the most\nbasic combo is? If you don't know,\nyou're a complete incompetent boss~
+RABBIT_ORDER_11	남친이랑 자주 데이트하면서 먹던 까르보나라랑\n바비큐로 같이 주세요! 뭐 사장님은 모르려나~	Give me the carbonara and barbecue combo,\nthe ones my boyfriend and I often enjoyed\non our dates! I wonder if the boss even\nknows about it~
+RABBIT_SIDE_COLA	콜라는 당연히 줘야 하는 거 아님?	Isn't giving cola obvious?
+RABBIT_SIDE_PICKLE	아니 치킨 무를 안주는 치킨집이 있다?	Wait, there are chicken joints\nthat don't serve pickle?
+RABBIT_ANGRY	하! 이 가게 금방 망할 듯 허접!	Ha! This place seems like\nit's going to fail soon, so tacky!
+RABBIT_THANK_YOU	뭐 봐줄 만하네! 열심히 해봐요	Not bad! Give it your best shot.
+RABBIT_HAPPY	앞으로도 올 거니까 얼굴이나 외우라고!	I'll be back in the next time,\nyou better remember my face!
+SEAOTTER_ORDER_1	사장님~ 요 깔끔한 기름에다 닭 한 마리\n맛있게 함 튀겨 주이소~	Boss, could you fry one chicken\nin clean oil, please?
+SEAOTTER_ORDER_2	사장님~ 닭고기 매콤하게 양념\n칠해 맛있게 만들어 주이소~	Boss, could you please season\nthe chicken spicy and make it tasty?
+SEAOTTER_ORDER_3	사장님~ 닭 한 마리 간장에다\n푹 담가서 맛있게 만들어 주이소~	Boss, could you please marinate a whole\nchicken in soy sauce to make it delicious?
+SEAOTTER_ORDER_4	사장님~ 닭고기 한 마리 기품있게 깔보나라\n묻혀서 느끼하게 만들어 주이소~	Boss, could you please dress a\nwhole chicken in carbonara sauce\nto make it greasy?
+SEAOTTER_ORDER_5	사장님~ 여기 입천장 떨어질 정도로\n매운 불같은 닭 한 마리 주이소~	Boss, please give me a chicken as\nspicy as if it could blow the roof\noff my mouth.
+SEAOTTER_ORDER_6	사장님~ 노란 가루 묻혀서 달짝 찌끈한\n맛 나는 닭 하나 주이소~	Boss, please give me a chicken\ncoated in yellow powder with\na salty-sweet
+SEAOTTER_ORDER_7	사장님~ 여기 닭 한 마리 화끈하게\n숯불 맛 나게 함 만들어 주이소~	Boss, please make me a chicken here,\nfiery and smoky, just like a charcoal grill.
+SEAOTTER_ORDER_8	사장님~ 닭고기 기름에다 푹 튀겨서\n반은 양념 칠 좀 해주이소~	Boss, please fry the chicken\nthoroughly in oil, and for half of it,\ncould you season it a bit?
+SEAOTTER_ORDER_9	사장님~ 나 좀 입천장 떨어질 정도로\n매운 닭이랑 달고 짠 닭 좀 주이소~	Boss, could you please give me a chicken\nthat's spicy enough to blow my roof off,\nand also a sweet-salty chicken?
+SEAOTTER_ORDER_10	사장님~ 오늘 닭 하나 잡아서 반은 간장에\n반은 양념에 담가 주이소~	Boss, today, could you please marinate\none chicken, half in soy sauce and\nthe other half in seasoning?
+SEAOTTER_ORDER_11	사장님~ 닭 하나 기름으로 튀겨서 반만\n깔보나라 소스로 좀 발라 주이소~	Boss, please fry one chicken in oil\nand then coat half of it with\ncarbonara sauce.
+SEAOTTER_SIDE_COLA	내 닭만 먹으면 목이 메서 콜라도 좀 주이소~	When I eat only chicken, my throat\ngets blocked, so could I have some\ncola too, please?
+SEAOTTER_SIDE_PICKLE	닭을 먹는데 무가 빠짐 안되지!	Can't miss out on pickles when\neating chicken!
+SEAOTTER_ANGRY	서비스가 너무 허술하네~ 허술해~	The service here is quite sloppy indeed.
+SEAOTTER_THANK_YOU	사장님 장사 잘하이소~	Boss, you're doing well in business!
+SEAOTTER_HAPPY	오매! 내 여기서만 먹어야 하겠네!	Oh! I must only eat here!
+DEER_ORDER_1	과거에 노예들이 버려진 부위를\n기름에 튀겨 만든 음식은 무엇일까요?	What is the food made by frying\ndiscarded parts in oil, which was\ncreated by slaves in the past?
+DEER_ORDER_2	과거 한국에서 식으면 퍽퍽해지는 치킨의 맛을\n살리기 위해 물엿과 고추장으로 만든 치킨은 무엇일까요?	What is the chicken made with syrup and\nred pepper paste, which was created in past Korea?
+DEER_ORDER_3	숯쟁이, 석탄 광부를 이탈리아어로 해석하면 무슨 단어가 나올까요?	What word in Italian translates to\n'charcoal burner' or 'coal miner'
+DEER_ORDER_4	기원전 2세기에 '장(醬)'이라는 한자가\n처음 기록된 것을 기원으로 보는 소스가 무엇인지 아세요?	Do you know what sauce is believed to\noriginate from the Chinese character '醬'\nfirst recorded in the 2nd century BC?
+DEER_ORDER_5	스페인어에서 '바바코아'라는 단어를\n따서 이름 지은 요리가 무엇인지 아세요?	Do you know what dish is named after\nthe Spanish word 'barbacoa'?
+DEER_ORDER_6	2012년 4월 16일에 출시되어 세계적으로 인기 있는,\n스코빌 지수 4400을 자랑하는 소스가 무엇인지 아세요?	Do you know what sauce, released on\nApril 16, 2012, boasts a Scoville rating of\n4400 and is globally popular?
+DEER_ORDER_7	동화에서 마법사가 마법의 가루를 뿌리는 장면에서\n착안해 영어 단어 'twinkle'을 합성하여\n이름 지은 치킨이 무엇인지 아세요?	Do you know which chicken is named by\ncombining the word 'sprinkle' with the\nEnglish word 'twinkle' from a fairy tale scene?
+DEER_ORDER_8	계란 노른자, 경성 치즈, 염장 돼지고기,\n후추로 만든 소스와 원시 시대부터 시작된\n비법으로 만든 치킨을 주세요!	Please give me the chicken made with an\nancient secret recipe, along with a sauce\nmade from egg yolks, hard cheese, salted pork,\nand pepper!
+DEER_ORDER_9	치킨 맛을 살리기 위해 물엿과\n고추장을 쓴 소스와, 세계적으로 인기 있는\n스코빌 지수 4400의 조합으로 부탁해요!	Please combine a sauce made with starch syrup\nand red pepper paste to enhance the chicken\nflavor with a sauce that has a Scoville rating of\n4400 and is popular worldwide!
+DEER_ORDER_10	한국에서 유명세 치른 치킨이\n두 가지 있는데 그게 뭘까요?\n힌트는 엄청 매운 거랑 단짠 한 거예요!	Two types of chicken are famous in Korea.\nCan you guess what they are?\nHere’s a hint: one is very spicy,\nand the other is sweet and salty!
+DEER_ORDER_11	메주를 콩물에 오랫동안 담가 발효시킨 소스와\n치킨 메뉴 중 가장 보편적인 것을 반반 주세요!	Please give me the chicken with a sauce\nmade by fermenting meju in soybean water\nfor a long time, along\nwith the most popular chicken.
+DEER_SIDE_COLA	1886년 미국에서 만든 음료도 주세요	Please also give me the beverage created\nin the United States in 1886.
+DEER_SIDE_PICKLE	양념치킨 개발자가 같이 만든 무 초절임도 주세요!	Please also give me the pickled radish,\ndeveloped by the seasoning chicken developer!
+DEER_ANGRY	프랑스 혁명이 일어날 서비스네요!	It's revolutionary service!
+DEER_THANK_YOU	무난한 치킨업계 서비스네요!	It's a typical chicken industry service!
+DEER_HAPPY	이 가게 왠지 대박 날 거 같아요!	This shop seems like it's going to be a big hit!
 RESUME_1_NAME	찰스	Charles
 RESUME_1_RESIDENCE	털털마을	TulTul Town
 RESUME_2_NAME	니치	Niche

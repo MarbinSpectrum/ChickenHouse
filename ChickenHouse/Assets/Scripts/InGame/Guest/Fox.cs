@@ -10,144 +10,47 @@ public class Fox : GuestObj
 
         talkStr = string.Empty;
         if (menuIdx == 0)
-        {
             talkStr = LanguageMgr.GetText("FOX_ORDER_1");
-            if (requireMenu.sideMenu == SideMenu.Pickle)
-            {
-                talkStr += "\n";
-                talkStr += LanguageMgr.GetText("FOX_SIDE_PICKLE");
-            }
-        }
         else if (menuIdx == 1)
-        {
             talkStr = LanguageMgr.GetText("FOX_ORDER_2");
-            if (requireMenu.drink == Drink.Cola)
-            {
-                talkStr += "\n";
-                talkStr += LanguageMgr.GetText("FOX_SIDE_COLA");
-            }
-            if (requireMenu.sideMenu == SideMenu.Pickle)
-            {
-                talkStr += "\n";
-                talkStr += LanguageMgr.GetText("FOX_SIDE_PICKLE");
-            }
-        }
         else if (menuIdx == 2)
-        {
             talkStr = LanguageMgr.GetText("FOX_ORDER_3");
-            if (requireMenu.drink == Drink.Cola)
-            {
-                talkStr += "\n";
-                talkStr += LanguageMgr.GetText("FOX_SIDE_COLA");
-            }
-        }
         else if (menuIdx == 3)
-        {
             talkStr = LanguageMgr.GetText("FOX_ORDER_4");
-            if (requireMenu.drink == Drink.Cola)
-            {
-                talkStr += "\n";
-                talkStr += LanguageMgr.GetText("FOX_SIDE_COLA");
-            }
-            if (requireMenu.sideMenu == SideMenu.Pickle)
-            {
-                talkStr += "\n";
-                talkStr += LanguageMgr.GetText("FOX_SIDE_PICKLE");
-            }
-        }
         else if (menuIdx == 4)
-        {
             talkStr = LanguageMgr.GetText("FOX_ORDER_5");
-            if (requireMenu.drink == Drink.Cola)
-            {
-                talkStr += "\n";
-                talkStr += LanguageMgr.GetText("FOX_SIDE_COLA");
-            }
-            if (requireMenu.sideMenu == SideMenu.Pickle)
-            {
-                talkStr += "\n";
-                talkStr += LanguageMgr.GetText("FOX_SIDE_PICKLE");
-            }
-        }
         else if (menuIdx == 5)
-        {
             talkStr = LanguageMgr.GetText("FOX_ORDER_6");
-            if (requireMenu.drink == Drink.Cola)
-            {
-                talkStr += "\n";
-                talkStr += LanguageMgr.GetText("FOX_SIDE_COLA");
-            }
-            if (requireMenu.sideMenu == SideMenu.Pickle)
-            {
-                talkStr += "\n";
-                talkStr += LanguageMgr.GetText("FOX_SIDE_PICKLE");
-            }
-        }
         else if (menuIdx == 6)
-        {
             talkStr = LanguageMgr.GetText("FOX_ORDER_7");
-            if (requireMenu.drink == Drink.Cola)
-            {
-                talkStr += "\n";
-                talkStr += LanguageMgr.GetText("FOX_SIDE_COLA");
-            }
-            if (requireMenu.sideMenu == SideMenu.Pickle)
-            {
-                talkStr += "\n";
-                talkStr += LanguageMgr.GetText("FOX_SIDE_PICKLE");
-            }
-        }
         else if (menuIdx == 7)
-        {
             talkStr = LanguageMgr.GetText("FOX_ORDER_8");
-            if (requireMenu.drink == Drink.Cola)
-            {
-                talkStr += "\n";
-                talkStr += LanguageMgr.GetText("FOX_SIDE_COLA");
-            }
-            if (requireMenu.sideMenu == SideMenu.Pickle)
-            {
-                talkStr += "\n";
-                talkStr += LanguageMgr.GetText("FOX_SIDE_PICKLE");
-            }
-        }
         else if (menuIdx == 8)
-        {
             talkStr = LanguageMgr.GetText("FOX_ORDER_9");
-            if (requireMenu.drink == Drink.Cola)
-            {
-                talkStr += "\n";
-                talkStr += LanguageMgr.GetText("FOX_SIDE_COLA");
-            }
-            if (requireMenu.sideMenu == SideMenu.Pickle)
-            {
-                talkStr += "\n";
-                talkStr += LanguageMgr.GetText("FOX_SIDE_PICKLE");
-            }
-        }
         else if (menuIdx == 9)
-        {
             talkStr = LanguageMgr.GetText("FOX_ORDER_10");
-            if (requireMenu.drink == Drink.Cola)
+        else if (menuIdx == 10)
+            talkStr = LanguageMgr.GetText("FOX_ORDER_11");
+
+        if (requireMenu.drink == Drink.Cola)
+        {
+            if(menuIdx == 0)
+            {
+                //대사에 콜라를 달라는 대사가 달려있음
+            }
+            else
             {
                 talkStr += "\n";
                 talkStr += LanguageMgr.GetText("FOX_SIDE_COLA");
-            }
-            if (requireMenu.sideMenu == SideMenu.Pickle)
-            {
-                talkStr += "\n";
-                talkStr += LanguageMgr.GetText("FOX_SIDE_PICKLE");
             }
         }
-        else if (menuIdx == 10)
+        if (requireMenu.sideMenu == SideMenu.Pickle)
         {
-            talkStr = LanguageMgr.GetText("FOX_ORDER_11");
-            if (requireMenu.drink == Drink.Cola)
+            if (menuIdx == 2)
             {
-                talkStr += "\n";
-                talkStr += LanguageMgr.GetText("FOX_SIDE_COLA");
+                //대사에 피클을 달라는 대사가 달려있음
             }
-            if (requireMenu.sideMenu == SideMenu.Pickle)
+            else
             {
                 talkStr += "\n";
                 talkStr += LanguageMgr.GetText("FOX_SIDE_PICKLE");
