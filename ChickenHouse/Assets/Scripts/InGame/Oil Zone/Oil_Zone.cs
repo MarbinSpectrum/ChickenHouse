@@ -86,7 +86,7 @@ public class Oil_Zone : Mgr
 
     public void HoldStrainter()
     {
-        if (PlatformCheck.IsWindow() == false)
+        if (CheckMode.IsDropMode() == false)
             return;
 
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
@@ -139,7 +139,7 @@ public class Oil_Zone : Mgr
     {
         //인스펙터에 끌어서 사용하는 함수임
 
-        if (PlatformCheck.IsWindow() == false)
+        if (CheckMode.IsDropMode() == false)
             return;
 
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
@@ -263,7 +263,7 @@ public class Oil_Zone : Mgr
 
     public void OnMouseDrag()
     {
-        if (PlatformCheck.IsWindow())
+        if (CheckMode.IsDropMode())
             return;
 
         if (tutoMgr.tutoComplete == false && tutoMgr.nowTuto != Tutorial.Tuto_5_2)
@@ -287,6 +287,7 @@ public class Oil_Zone : Mgr
             Cook_Pause(true);
         }
 
+        isHold = true;
         kitchenMgr.dragObj.DragStrainter(chickenCnt, DragState.Fry_Chicken, oilShader.Mode, oilShader.LerpValue);
 
         if (tutoMgr.tutoComplete == false && tutoMgr.nowTuto == Tutorial.Tuto_5_2)
@@ -303,7 +304,7 @@ public class Oil_Zone : Mgr
 
     public void OnMouseUp()
     {
-        if (PlatformCheck.IsWindow())
+        if (CheckMode.IsDropMode())
             return;
 
         if (tutoMgr.tutoComplete == false && tutoMgr.nowTuto != Tutorial.Tuto_5_2)
@@ -317,7 +318,7 @@ public class Oil_Zone : Mgr
         {
             return;
         }
-
+        isHold = false;
         kitchenMgr.ui.takeOut.CloseBtn();
 
         kitchenMgr.dragState = DragState.None;
@@ -584,6 +585,7 @@ public class Oil_Zone : Mgr
         //요리 종료
         gaugeTime = 0;
         chickenTime = 0;
+        isHold = false;
         runCookImg.ForEach((x) => x.enabled = false);
 
         if (cookCor != null)
@@ -595,7 +597,7 @@ public class Oil_Zone : Mgr
 
         //조리 시작전으로 돌림
         chickenState = ChickenState.NotCook;
-        if (PlatformCheck.IsWindow() == false)
+        if (CheckMode.IsDropMode() == false)
         {
             foreach (ScrollObj sObj in scrollObj)
             {
@@ -613,7 +615,7 @@ public class Oil_Zone : Mgr
         {
             //애니메이션도 일시정지
             animator.speed = 0;
-            if (PlatformCheck.IsWindow() == false)
+            if (CheckMode.IsDropMode() == false)
             {
                 foreach (ScrollObj sObj in scrollObj)
                 {
@@ -628,7 +630,7 @@ public class Oil_Zone : Mgr
             float speedRate = GetCookSpeedRate();
             animator.speed = speedRate;
 
-            if (PlatformCheck.IsWindow() == false)
+            if (CheckMode.IsDropMode() == false)
             {
                 foreach (ScrollObj sObj in scrollObj)
                 {
@@ -671,5 +673,6 @@ public class Oil_Zone : Mgr
             oilMahcine.machine0.sprite = oilMahcine.machineImg0[3];
             oilMahcine.machine1.sprite = oilMahcine.machineImg1[3];
         }
+        isHold = false;
     }
 }

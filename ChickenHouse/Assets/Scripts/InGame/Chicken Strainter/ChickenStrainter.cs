@@ -60,7 +60,7 @@ public class ChickenStrainter : Mgr
 
     public void HoldStrainter()
     {
-        if (PlatformCheck.IsWindow() == false)
+        if (CheckMode.IsDropMode() == false)
             return;
 
 
@@ -85,7 +85,7 @@ public class ChickenStrainter : Mgr
     public void HoldStrainter(bool state)
     {
         //인스펙터에서 끌어서 사용하는 함수임
-        if (PlatformCheck.IsWindow() == false)
+        if (CheckMode.IsDropMode() == false)
             return;
 
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
@@ -179,7 +179,7 @@ public class ChickenStrainter : Mgr
 
     public void OnMouseDrag()
     {
-        if (PlatformCheck.IsWindow())
+        if (CheckMode.IsDropMode())
             return;
 
         if (tutoMgr.tutoComplete == false && tutoMgr.nowTuto != Tutorial.Tuto_4)
@@ -202,7 +202,7 @@ public class ChickenStrainter : Mgr
 
     public void OnMouseUp()
     {
-        if (PlatformCheck.IsWindow())
+        if (CheckMode.IsDropMode())
             return;
 
         if (tutoMgr.tutoComplete == false && tutoMgr.nowTuto != Tutorial.Tuto_4)
@@ -261,7 +261,7 @@ public class ChickenStrainter : Mgr
 
         if (IsMax())
         {
-            if (PlatformCheck.IsWindow() == false)
+            if (CheckMode.IsDropMode() == false)
             {
                 foreach (ScrollObj sObj in scrollObj)
                 {
@@ -290,7 +290,7 @@ public class ChickenStrainter : Mgr
         //트레이에 올려져있는 닭 감소
         if (chickenCnt <= 0)
             return false;
-        if (PlatformCheck.IsWindow() == false)
+        if (CheckMode.IsDropMode() == false)
         {
             foreach (ScrollObj sObj in scrollObj)
             {
@@ -314,7 +314,7 @@ public class ChickenStrainter : Mgr
         Array.ForEach(chickenAni, x => x.gameObject.SetActive(false));
         obj.gameObject.SetActive(true);
 
-        if (PlatformCheck.IsWindow() == false)
+        if (CheckMode.IsDropMode() == false)
         {
             foreach (ScrollObj sObj in scrollObj)
             {

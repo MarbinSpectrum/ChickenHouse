@@ -6,7 +6,7 @@ public class GameMgr : AwakeSingleton<GameMgr>
 {
     public int selectSaveSlot;
     public PlayData playData = null;
-    private bool stopGame = false;
+    public bool stopGame { private set; get; }
 
     /** ¿À´Ã ¼öÀÔ **/
     public int dayMoney;

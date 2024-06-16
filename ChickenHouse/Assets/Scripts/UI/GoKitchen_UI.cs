@@ -17,6 +17,18 @@ public class GoKitchen_UI : Mgr
         btn.onClick.AddListener(() => GoKitchen());
     }
 
+    private void Update()
+    {
+        if(CheckMode.IsWindow() && gameMgr.stopGame == false)
+        {
+            //PC버전에서는 스페이스바로 주방으로 이동 가능
+            if(Input.GetKeyUp(KeyCode.Space))
+            {
+                GoKitchen();
+            }
+        }
+    }
+
     public void OpenBtn(NoParaDel fun = null)
     {
         //버튼 활성화
@@ -36,8 +48,8 @@ public class GoKitchen_UI : Mgr
     public void GoKitchen()
     {
         //주방으로 화면 전환
-        //if (canUse == false)
-        //    return;
+        if (canUse == false)
+            return;
 
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
         if (kitchenMgr.cameraObj.lookArea == LookArea.Kitchen)
@@ -46,7 +58,6 @@ public class GoKitchen_UI : Mgr
         CloseBtn();
         kitchenMgr.cameraObj.ChangeLook(LookArea.Kitchen, () =>
         {
-            kitchenMgr.cameraObj.lookArea = LookArea.Kitchen;
             if(tutoMgr.tutoComplete == false)
             {
                 //튜토리얼을 진행안한듯?

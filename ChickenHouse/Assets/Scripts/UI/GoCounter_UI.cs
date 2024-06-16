@@ -63,8 +63,6 @@ public class GoCounter_UI : Mgr
             //guestMgr.ui.goKitchen.OpenBtn();
         });
 
-
-        kitchenMgr.cameraObj.lookArea = LookArea.Counter;
         kitchenMgr.ui.memo.CloseTriggerBox();
         kitchenMgr.ui.workerUI.OffBox();
     }

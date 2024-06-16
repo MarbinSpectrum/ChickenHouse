@@ -6,10 +6,10 @@ public class InGameCamera : Mgr
 {
     [SerializeField] private ChangeLook changeLook;
     [SerializeField] private DragCamera dragCamera;
-    [SerializeField] private LookArea   startArea;
+    [SerializeField] private LookArea startArea;
 
     /** 보고있는 지역 **/
-    [System.NonSerialized] public LookArea lookArea;
+    public LookArea lookArea { private set; get; }
 
     private void Awake()
     {
@@ -43,6 +43,7 @@ public class InGameCamera : Mgr
 
     public void ChangeLook(LookArea pLookArea, NoParaDel fun = null)
     {
+        lookArea = pLookArea;
         if (pLookArea == LookArea.Kitchen)
         {
             //dragCamera.SetInitPos();

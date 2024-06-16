@@ -133,11 +133,13 @@ public class Memo_UI : Mgr
     public void OpenTriggerBox()
     {
         memoObjs.alpha = 1;
+        memoObjs.blocksRaycasts = true;
     }
 
     public void CloseTriggerBox()
     {
         memoObjs.alpha = 0;
+        memoObjs.blocksRaycasts = false;
     }
 
     public void OpenMemo(int num)
@@ -146,6 +148,7 @@ public class Memo_UI : Mgr
         //메모지를 확대함
         animator.Play("Open");
         memoText.text = memoStr[num - 1];
+        gameMgr.StopGame(true);
         deep.gameObject.SetActive(true);
     }
 
@@ -154,6 +157,7 @@ public class Memo_UI : Mgr
         //인스펙터에서 끌어서 사용하는 함수임
         //메모지를 닫음
         animator.Play("Close");
+        gameMgr.StopGame(false);
         deep.gameObject.SetActive(false);
     }
 }

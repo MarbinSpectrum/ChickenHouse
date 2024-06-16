@@ -52,7 +52,6 @@ public class KitchenBell : Mgr
         });
 
 
-        kitchenMgr.cameraObj.lookArea = LookArea.Counter;
         kitchenMgr.ui.memo.CloseTriggerBox();
         kitchenMgr.ui.workerUI.OffBox();
     }

@@ -16,6 +16,7 @@ public class GuestMgr : Mgr
     [SerializeField] private Animator vinylAni;
     [SerializeField] private Button skipTalkBtn;
     [SerializeField] private Button gotoKitchenBtn;
+
     [System.Serializable]
     public struct UI
     {
@@ -70,7 +71,7 @@ public class GuestMgr : Mgr
         skipTalkBtn.onClick.RemoveAllListeners();
         skipTalkBtn.onClick.AddListener(() =>
         {
-            if (guestObj == null || nowOrder == false)
+            if (guestObj == null)
                 return;
             SkipTalk();
         });
@@ -308,7 +309,13 @@ public class GuestMgr : Mgr
                 if (guestcnt == 1)
                 {
                     //첫손님 주문
-                    StartCoroutine(GuestOrder(false));
+
+                    if (kitchenMgr.cameraObj.lookArea == LookArea.Counter)
+                    {
+                        ui.goKitchen.OpenBtn();
+                    }
+
+                    StartCoroutine(GuestOrder());
                 }
 
                 break;
@@ -498,6 +505,11 @@ public class GuestMgr : Mgr
                     continue;
             }
 
+            if (kitchenMgr.cameraObj.lookArea == LookArea.Counter)
+            {
+                ui.goKitchen.OpenBtn();
+            }
+
             yield return new WaitForSeconds(1f);
 
             for (int i = 0; i < waitGuest.Length; i++)
@@ -526,22 +538,8 @@ public class GuestMgr : Mgr
             //대기 손님 이동 애니메이션
             if (guestcnt > 0)
             {
-                bool alreadyOrder = kitchenMgr.ui.memo.HasGuestMemo(guestObj);
-                alreadyOrder = true;
-                //바로 이동하게 설정
-
-                if (alreadyOrder)
-                {
-                    StartCoroutine(MoveGuest());
-                    StartCoroutine(GuestOrder(alreadyOrder));
-                }
-                else
-                {
-                    //이동후 다음 손님 주문
-                    yield return StartCoroutine(MoveGuest());
-                    StartCoroutine(GuestOrder(alreadyOrder));
-
-                }
+                StartCoroutine(MoveGuest());
+                StartCoroutine(GuestOrder());
             }
         }
     }
@@ -592,7 +590,7 @@ public class GuestMgr : Mgr
         moveGuest = false;
     }
 
-    private IEnumerator GuestOrder(bool pAlreadyOrder)
+    private IEnumerator GuestOrder()
     {
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
 
@@ -602,31 +600,20 @@ public class GuestMgr : Mgr
             yield break;
 
         guestObj.CloseResult();
-        //if (pAlreadyOrder)
-        //{
-        //    //이미 주문을 완료한걸로 보임
 
-        //    //if (kitchenMgr.cameraObj.lookArea == LookArea.Counter)
-        //    //    ui.goKitchen.OpenBtn();
+        if (kitchenMgr.cameraObj.lookArea != LookArea.Counter)
+            yield break;
 
-        //    yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1f);
 
-        //    guestObj.WaitGuest();
-        //}
-        //else
-        {
-            yield return new WaitForSeconds(1f);
+        if (kitchenMgr.cameraObj.lookArea != LookArea.Counter)
+            yield break;
 
-            if (guestObj == null)
-                yield break;
+        if (guestObj == null)
+            yield break;
 
-            nowOrder = true;
-            if (kitchenMgr.cameraObj.lookArea == LookArea.Counter)
-            {
-                TalkOrder();
-                ui.goKitchen.OpenBtn();
-            }
-        }
+        nowOrder = true;
+        TalkOrder();
     }
 
     public void TalkOrder()
@@ -637,20 +624,24 @@ public class GuestMgr : Mgr
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
 
         gotoKitchenBtn.gameObject.SetActive(false);
-        skipTalkBtn.gameObject.SetActive(true);
-
-        guestObj.TalkOrder(() =>
+        skipTalkBtn.gameObject.SetActive(false);
+        if (kitchenMgr.cameraObj.lookArea == LookArea.Counter)
         {
-            if (kitchenMgr.cameraObj.lookArea == LookArea.Kitchen)
+            skipTalkBtn.gameObject.SetActive(true);
+            guestObj.TalkOrder(() =>
             {
-                gotoKitchenBtn.gameObject.SetActive(false);
-                skipTalkBtn.gameObject.SetActive(false);
-            }
-            else
-            {
-                gotoKitchenBtn.gameObject.SetActive(true);
-                skipTalkBtn.gameObject.SetActive(false);
-            }
-        });
+                if (kitchenMgr.cameraObj.lookArea == LookArea.Kitchen)
+                {
+                    gotoKitchenBtn.gameObject.SetActive(false);
+                    skipTalkBtn.gameObject.SetActive(false);
+                }
+                else
+                {
+                    //gotoKitchenBtn.gameObject.SetActive(true);
+                    skipTalkBtn.gameObject.SetActive(false);
+                }
+            });
+
+        }
     }
 }

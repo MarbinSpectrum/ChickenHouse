@@ -534,7 +534,7 @@ namespace MyLib
         public static void CreateJsonFile(string fileName, string jsonData)
         {
             string filePath = string.Empty;
-            if (PlatformCheck.IsWindow())
+            if (CheckMode.IsDropMode())
                 filePath = string.Format("{0}/{1}.json", Application.dataPath + "/Resources", fileName);
             else
                 filePath = string.Format("{0}/{1}.json", Application.persistentDataPath, fileName);
@@ -552,7 +552,7 @@ namespace MyLib
         public static void DeleteJsonFile(string fileName)
         {
             string filePath = string.Empty;
-            if (PlatformCheck.IsWindow())
+            if (CheckMode.IsDropMode())
                 filePath = string.Format("{0}/{1}.json", Application.dataPath + "/Resources", fileName);
             else
                 filePath = string.Format("{0}/{1}.json", Application.persistentDataPath, fileName);
@@ -566,7 +566,7 @@ namespace MyLib
         public static T LoadJsonFile<T>(string fileName)
         {
             string filePath = string.Empty;
-            if (PlatformCheck.IsWindow())
+            if (CheckMode.IsDropMode())
                 filePath = string.Format("{0}/{1}.json", Application.dataPath + "/Resources", fileName);
             else
                 filePath = string.Format("{0}/{1}.json", Application.persistentDataPath, fileName);
