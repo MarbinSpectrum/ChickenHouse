@@ -14,10 +14,17 @@ public class PlayData
     /** 사용 아이템 상태 **/
     public bool[] useItem = new bool[(int)ShopItem.MAX];
 
+    /** 퀘스트 상태(0: 진행안함 ,1: 진행중 ,2: 완료) **/
+    public int[] quest      = new int[(int)Quest.MAX];
+    /** 퀘스트 진행정도 **/
+    public int[] questCnt   = new int[(int)Quest.MAX];
+
     public PlayData()
     {
         hasItem[(int)ShopItem.OIL_Zone_1] = true;
         useItem[(int)ShopItem.OIL_Zone_1] = true;
+        quest[(int)Quest.MainQuest_1] = 1;
+
     }
 
     public int GetMenuValue(GuestReviews review, ChickenSpicy spicy0, ChickenSpicy spicy1, ChickenState chickenState,
@@ -75,7 +82,6 @@ public class PlayData
             percent += 10;
 
         int resultValue = (totalValue * percent) / 100;
-
         switch(review)
         {
             case GuestReviews.Bad:
@@ -86,12 +92,12 @@ public class PlayData
                 return (int)(resultValue * 1.5f);
         }
 
-
         return resultValue;
     }
 
     private int GetSpicyValue(ChickenSpicy spicy)
     {
+        //양념장 가격
         switch(spicy)
         {
             case ChickenSpicy.Not:

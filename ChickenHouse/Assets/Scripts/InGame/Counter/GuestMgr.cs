@@ -612,6 +612,9 @@ public class GuestMgr : Mgr
         if (guestObj == null)
             yield break;
 
+        //도감에 해동 손님 등록
+        bookMgr.ActGuestData(guestObj.guest);
+
         nowOrder = true;
         TalkOrder();
     }

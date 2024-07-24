@@ -20,7 +20,7 @@ CHECK_RESUME	이력서보기	Resume
 SPICY	양념	Spicy
 BUY_COMPLETE	구입완료	Complete Purchase
 CANUSE_ITEM	사용가능	Can Use
-USE_ITEM	사용중	Be in Use
+USE_ITEM	사용중	Use
 EMPLOY_COMPLETE	고용완료	Employment
 TAKE_OUT	버리기	Take\nOut
 BGM	배경음	BGM
@@ -43,6 +43,14 @@ FAIL_SPICY	양념 X	Spicy X
 FAIL_CHICKEN	치킨상태 X	ChickenState X
 FAIL_DRINK	음료 X	Drink X
 FAIL_PICKLE	피클 X	Pickle X
+QUEST	임무	Quest
+BOOK	도감	Book
+FILE	파일	File
+TO_DO_LIST	해야할 일	To-do list
+MY_HOUSE	내 집	My House
+EXIT	나가기	Exit
+GUEST	손님	Guest
+SEASONING	양념	Seasoning
 TUTO_1	먼저 닭 4개를 계란물에 넣어봅시다.	First, I'll put four chickens in the egg water.
 TUTO_2	그리고 닭을 밀가루 쪽으로 옮겨주세요.	And move the chicken toward the flour.
 TUTO_3	닭 모두를 치킨 건지개에 넣어 주세요.	Please put all the chickens in the vegetable.
@@ -372,4 +380,9 @@ WORKER_SKILL_3	가게홍보	Promoting the store
 WORKER_SKILL_4	빠른 팔놀림	quick arm movements
 WORKER_SKILL_5	빠른 손놀림	quick handwork
 WORKER_SKILL_6	빠른 몸놀림	quick movements
+QUEST_NAME_1	빚 갚기	Pay off debt
+QUEST_INFO_1	너구리에게 빌린 돈 50000$를 갚아야한다. \n기간은 7일준다고 했다.\n빨리 준비해야 될거같다.	I need to repay the $50,000\nI borrowed from the raccoon.\nHe gave me 7 days.\nI need to prepare quickly.
+QUEST_SUMMARY_1	※ 기간안에 50000$를 갚자!!	※ Let's repay the $5,000 within the deadline!!
+QUEST_DETAIL_1	남은 기간 : {0}일	Remaining days : {0}
+QUEST_DETAIL_2	남은 금액 : {0} / {1}$	Remaining money : {0} / {1}$
 DEMO_END	데모버전은 여기까지 입니다.\n플레이해주셔서 감사합니다.	This is the end of the demo version.\nThank you for playing.

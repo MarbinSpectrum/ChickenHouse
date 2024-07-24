@@ -118,6 +118,8 @@ public enum ChickenSpicy
     BBQ         = 5,
     /** 까르보나라 소스 **/
     Carbonara   = 6,
+
+    MAX
 }
 
 
@@ -399,6 +401,30 @@ public enum Scene
 
     /** 데모 **/
     DEMO    = 5,
+}
+
+public enum DiaryMenu
+{
+    Quest,
+    Book,
+    File,
+}
+
+public enum BookMenu
+{
+    Guest,
+    Seasoning,
+}
+
+public enum Quest
+{
+    /** 퀘스트 메인 **/
+    MainQuest_1     = 0,        //빚갚기 메인 퀘스트
+
+
+
+
+    MAX,
 }
 
 public enum SceneChangeAni
