@@ -9,6 +9,7 @@ public class Diary_UI : Mgr
     [SerializeField] private DiaryUI_PostIt postIt;
     [SerializeField] private DiaryUI_Book   book;
     [SerializeField] private DiaryUI_Quest  quest;
+    [SerializeField] private DiaryUI_File   file;
 
     private DiaryMenu nowMenu;
 
@@ -40,6 +41,7 @@ public class Diary_UI : Mgr
 
         quest.SetState(false);
         book.SetState(false);
+        file.SetState(false);
 
         switch (nowMenu)
         {
@@ -52,6 +54,8 @@ public class Diary_UI : Mgr
                 book.SetState(true);
                 break;
             case DiaryMenu.File:
+                file.SetUI();
+                file.SetState(true);
                 break;
         }
     }

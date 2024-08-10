@@ -399,8 +399,11 @@ public enum Scene
     /** 상점 **/
     SHOP    = 4,
 
+    /** 마을 **/
+    TOWN    = 5,
+
     /** 데모 **/
-    DEMO    = 5,
+    DEMO,
 }
 
 public enum DiaryMenu
@@ -425,6 +428,16 @@ public enum Quest
 
 
     MAX,
+}
+
+public enum TownMap
+{
+    None = -1,
+
+    /** 털털마을 **/
+    TulTulTown = 0,
+    /** 네코 직업 소개소 **/
+    NekoJobBank = 1,
 }
 
 public enum SceneChangeAni

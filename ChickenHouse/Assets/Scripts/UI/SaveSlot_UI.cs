@@ -75,7 +75,7 @@ public class SaveSlot_UI : Mgr
             slotObj.loadBtn.onClick.AddListener(() =>
             {
                 gameMgr.selectSaveSlot = num;
-                sceneMgr.SceneLoad(Scene.INGAME,false,SceneChangeAni.FADE);
+                sceneMgr.SceneLoad(Scene.INGAME, false, SceneChangeAni.FADE);
             });
             slotObj.deleteBtn.onClick.RemoveAllListeners();
             slotObj.deleteBtn.onClick.AddListener(() =>

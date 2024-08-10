@@ -1,6 +1,9 @@
 Key	Korea	English
 OK	확인	Ok
 CANCLE	취소	Cancle
+YES	네	Yes
+NO	아니요	No
+SAVE_CHECK_MSG	이전 기록이 삭제됩니다.\n저장하겠습니까?	Previous records will be deleted.\nDo you want to save?
 NEW_GAME	새로하기	New Game
 LOAD_GAME	이어하기	Load Game
 QUIT_GAME	종료하기	Quit Game
@@ -43,7 +46,7 @@ FAIL_SPICY	양념 X	Spicy X
 FAIL_CHICKEN	치킨상태 X	ChickenState X
 FAIL_DRINK	음료 X	Drink X
 FAIL_PICKLE	피클 X	Pickle X
-QUEST	임무	Quest
+QUEST	임무	Tasks
 BOOK	도감	Book
 FILE	파일	File
 TO_DO_LIST	해야할 일	To-do list
@@ -51,6 +54,30 @@ MY_HOUSE	내 집	My House
 EXIT	나가기	Exit
 GUEST	손님	Guest
 SEASONING	양념	Seasoning
+EMPTY	빈 공간	Empty
+LOAD	불러오기	Load
+SAVE	저장하기	Save
+CHICKEN_PRICE	기본 치킨 가격	Base Chicken Price
+CHICKEN_RES	치킨 재료비	Chicken Ingredients Value
+DRINK_PRICE	음료 재료비	Drink Ingredients Value
+SIDEMENU_PRICE	사이드메뉴 재료비	Side Menu Ingredients Value
+COOK_SPEED	조리 속도	Cook Speed
+PROFIT_RATE	수익률	Profit Rate
+WORKER_SPEED	알바생 속도	Worker Speed
+SALE_VALUE	상점 할인율	Merchant Rate
+GUEST_RATE	손님 등장 속도	Guest Spawn Rate
+MAX_GUEST_PATIENCE	손님 인내심 상한	Max Guest Patience
+GUEST_TIP	손님 팁	Guest Tip
+PLAYER_INFO	상세정보	Player Info
+RECORD	기록	Record
+TULTUL_TOWN	털털마을	TulTul Town
+CHICKEN_RESTAURANT	치킨 가게	Chicken Restaurant
+NEKO_JOB_BANK	네코 직원 소개소	Neko Job Bank
+CHEF_PAUXS_COOKING_UTENSILS	파우 쉐프의 주방도구	Chef Paux`s Cooking Utensils
+OPEN_RESTAURANT	영업 시작	Open Restaurant
+USE_SHOP	상점 이용	Use Shop
+EMPLOY_WORKER	직원 고용	Employ Worker
+OPEN_RESTAURANT_CHECK_MSG	영업을 시작합니까?	Are you opening the restaurant?
 TUTO_1	먼저 닭 4개를 계란물에 넣어봅시다.	First, I'll put four chickens in the egg water.
 TUTO_2	그리고 닭을 밀가루 쪽으로 옮겨주세요.	And move the chicken toward the flour.
 TUTO_3	닭 모두를 치킨 건지개에 넣어 주세요.	Please put all the chickens in the vegetable.
@@ -385,4 +412,39 @@ QUEST_INFO_1	너구리에게 빌린 돈 50000$를 갚아야한다. \n기간은 7
 QUEST_SUMMARY_1	※ 기간안에 50000$를 갚자!!	※ Let's repay the $5,000 within the deadline!!
 QUEST_DETAIL_1	남은 기간 : {0}일	Remaining days : {0}
 QUEST_DETAIL_2	남은 금액 : {0} / {1}$	Remaining money : {0} / {1}$
+BOOK_HOT_SPICY	프라이드 치킨에 바르는 \n매콤달콤한 소스, \n이 소스는 치킨 요리의\n대표적인 맛 중 하나이다.	The sweet and spicy sauce used on fried chicken is one of the signature flavors in chicken cuisine.
+BOOK_SOY_SPICY	간장치킨 양념은 중국에서 기원한 소스로,  달콤하고 짭짤한 맛을 냅니다. 치킨에 발라 구워내거나 튀긴 치킨에 버무려 즐기는 대표적인 치킨 양념입니다.	Soy sauce originates from China and offers a sweet and savory taste. It is a popular chicken seasoning, often used for glazing roasted chicken or tossing with fried chicken.
+BOOK_HELL_SPICY	매운 맛이 특징인 한국의 양념입니다.\n원래는 볶음라면소스로 \n사용되었습니다.	It's a Korean sauce known for its spiciness. Originally, it was used as a stir-fried ramen sauce.
+BOOK_PRINKLE_SPICY	이 양념은 달콤하고 짭짤한 맛이 나며, 프라이드 치킨 위에 뿌려 먹으면 더욱\n맛있습니다.\n특히 젊은층과 어린이들 사이에서 인기가 많습니다.	This seasoning has a sweet and salty flavor, and it tastes even better when sprinkled on fried chicken. It's especially popular among young people and children.
+BOOK_BBQ_SPICY	달콤하고 짭짤하며 약간의 매운맛이 특징인 바비큐\n스타일의 소스입니다.\n치킨, 소고기, 돼지고기 등 다양한 바비큐 요리에 적용할 수 있습니다.	It is a barbecue-style sauce characterized by its sweet, savory, and slightly spicy flavor. It can be applied to various barbecue dishes such as chicken, beef, and pork.
+BOOK_CARBONARA_SPICY	이탈리아의 전통적인\n파스타 소스입니다.\n계란 노른자, 경성 치즈, 염장 돼지고기, 후추를 사용해서 만들었습니다.	This is a traditional Italian pasta sauce made with egg yolks, hard cheese, cured pork, and black pepper.
+BOOK_FOX_NAME	여우	Fox
+BOOK_FOX_INFO	유라시아 중학교 2학년 3반의 여우\n명랑한 성격을  소유한 그녀는 좋아하는 것이 확실합니다.	A fox from Class 3, Grade 2 at Eurasia Middle School, she has a cheerful personality and is certainly fond of what she likes.
+BOOK_CAT_NAME	고양이	Cat
+BOOK_CAT_INFO	츄르 전문 회사에 다니는 에이스 직원\n회사의 살인적인 업무량에 피곤으로 찌들어져 있습니다.\n그런 그녀를 달랠 수 있는 것은 바로 맛 좋은 치킨!\n회사를 포함해 주변의 동물들에게 친절하고 부드러운 성격이지만 살인적인 업무량으로 인해 예민한 면이 있습니다.	A top employee at a company specializing in treats, she is worn out from the company's grueling workload. The only thing that can soothe her is delicious chicken! Although she has a kind and gentle personality towards her colleagues and other animals, the relentless workload has made her quite sensitive.
+BOOK_DOG_NAME	강아지	Dog
+BOOK_DOG_INFO	배관공으로 일하는 그는 주말을 제외한 5일 동안 열심히 일하는 부지러한 강아지입니다.\n다소 눈치가 부족하고 성급한 면이 있지만, 항상 남을 배려하려고 노력합니다.	He is a diligent dog who works hard as a plumber for five days a week, excluding weekends. Though he can be somewhat oblivious and impatient, he always strives to be considerate of others.
+BOOK_TIGER_NAME	호랑이	TIGER
+BOOK_TIGER_INFO	꼬리가 풍성한 어린 육식 초등학교 3학년,\n천진난만하며 호기심이 많으며 아직 어려서 그런지 말하는 게 특이하다.	A young carnivorous elementary school third-grader with a bushy tail. Innocent and curious, and perhaps due to their age, they have a unique way of speaking.
+BOOK_PANDA_NAME	판다	Panda
+BOOK_PANDA_INFO	동물 유치원 초식반의 유치원생 판다는 어린 호랑이 소녀와 절친 사이로 지내는 착한 판다입니다.\n순수한 성격을 가졌으며 엄마밖에 모르는 마마보이같은 성격입니다	A kind panda in the herbivore class of Animal Kindergarten. This panda is close friends with a young tiger girl and has a pure personality, resembling a mama's boy who knows only his mother.
+BOOK_TASMANIAN_NAME	태지매니아 데빌	Tasmanian Devil
+BOOK_TASMANIAN_INFO	주머니쥐와 친구이며 래퍼를 하고 있지만 실력은 별로다. 쿨한 성격을 가졌으며 시도 때도 없이 흥이 넘친다.	A friend of the pocket mouse and a rapper, though not very skilled. He has a cool personality and is always full of energy, often bursting with enthusiasm.
+BOOK_FLAMINGO_NAME	플라밍고	Flamingo
+BOOK_FLAMINGO_INFO	옆집의 플라멘코 카페에서 일하는 아르바이트생\n착하고 성실한 성격이지만 말이 좀 많은 수다쟁이다	Part-time worker at the Flamenco Café next door. She is kind and diligent, but she's also quite chatty and talkative.
+BOOK_REDPANDA_NAME	레서판다	Red Panda
+BOOK_REDPANDA_INFO	인터넷 중독 증세가 있는 그녀는 학교에서 졸기만 하며\n공부에는 관심이 없지만 인터넷에서 외국의 대한 이야기는 관심이 많습니다,\n입은 험하지만 착한 성격을 가졌으며 호기심이 많습니다	She suffers from internet addiction and only sleeps in class. Although she's not interested in studying, she is very curious about stories from foreign countries on the internet. She has a rough way of speaking but a kind nature and is very curious.
+BOOK_LEMUR_NAME	알락꼬리여우원숭이	Lemur
+BOOK_LEMUR_INFO	유명한 바나나회사(Luna Bananna)의 CEO인 여사장\n상당히 냉철하고 딱딱하며 굉장히 까다롭다.	The CEO of the famous banana company (Luna Banana), she is quite aloof, strict, and very demanding.
+BOOK_RABBIT_NAME	토끼	Rabbit
+BOOK_RABBIT_INFO	학교에서 엘리트로 활약하며 학교에서는 모범생이지만 속은 그렇지 않은 토끼 학생입니다.\n굉장히 싸가지없는 말투로 타인의 기분을 나쁘게 하지만 알고보면 좋은면도 있습니다.	A rabbit student who excels as an elite at school and is a model student on the surface, but isn't quite as perfect inside. They often speak in a very rude manner that can hurt others' feelings, but they have a good side as well.
+BOOK_DOVE_NAME	비둘기	Dove
+BOOK_DOVE_INFO	본인을 귀족?이라 칭하는 비둘기\n허나 정체는 아무도 모른다.\n남의 말을 잘 듣지 않으며 무언가 나르시시즘이 심하다.	A pigeon who refers to themselves as a noble. However, no one knows their true identity. They don’t listen well to others and exhibit strong narcissistic tendencies.
+BOOK_OPOSSUM_NAME	주머니쥐	Virginia Opossum
+BOOK_OPOSSUM_INFO	만화와 애니메이션을 매우 좋아하는 주머니쥐입니다.\n다소 무례하며 소심한 면이 있습니다.	He loves comics and animations very much. They can be somewhat rude and shy.
+BOOK_DEER_NAME	사슴	Deer
+BOOK_DEER_INFO	책을 매우 좋아하는 그녀는 하라는 근무는 안하고 책을 읽을 정도로 책을 매우 사랑합니다.\n굉장히 4차원적인 성격으로 인해 굉장히 난해한 질문을 자주합니다.	She loves books immensely and is so passionate about reading that she neglects her work responsibilities. Her very eccentric personality often leads her to ask perplexing questions.
+BOOK_SEAOTTER_NAME	해달	Sea Otter
+BOOK_SEAOTTER_INFO	먼 시골에서 살다 도시로 이사와 해산물을 파는 일을 하는 해달입니다.\n사투리로 인해 억양이 쌔 드쌘 성격 같지만 남을 배려할줄 아는 부드러운 성격의 소유자입니다.	A sea otter who moved from a distant countryside to the city to work in seafood sales. Despite having a strong accent that might come off as rough, they have a considerate and gentle personality.
+EMPLOYMENT_NPC_TALK_0	안녕하세요! 네코 직원 소개소에\n오신 것을 환영합니다.	Hello! Welcome to the Neko Job Bank.
 DEMO_END	데모버전은 여기까지 입니다.\n플레이해주셔서 감사합니다.	This is the end of the demo version.\nThank you for playing.

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,8 +17,6 @@ public class GameMgr : AwakeSingleton<GameMgr>
     public Dictionary<Drink, int>       sellDrinkCnt        = new Dictionary<Drink, int>();
     /** 판매한 사이드메뉴 갯수 **/
     public Dictionary<SideMenu, int>    sellSideMenuCnt     = new Dictionary<SideMenu, int>();
-
-
 
     //-------------------------------------------------------------------------------------------------------
     protected override void Awake()
@@ -56,6 +55,20 @@ public class GameMgr : AwakeSingleton<GameMgr>
     {
         if (playData == null)
             return;
+
+        DateTime dateTime = DateTime.Now;
+        int saveYear = dateTime.Year;
+        int saveMonth = dateTime.Month;
+        int saveDay = dateTime.Day;
+        int saveHour = dateTime.Hour;
+        int saveMin = dateTime.Minute;
+        playData.saveYear = saveYear;
+        playData.saveMonth = saveMonth;
+        playData.saveDay = saveDay;
+        playData.saveHour = saveHour;
+        playData.saveMin = saveMin;
+
+
         string jsonData = MyLib.Json.ObjectToJson(playData);
         MyLib.Json.CreateJsonFile(string.Format("PlayData{0}",selectSaveSlot), jsonData);
     }

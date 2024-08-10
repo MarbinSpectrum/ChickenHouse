@@ -21,6 +21,7 @@ public class TalkBox_UI : Mgr
     [SerializeField] private Image              hearthImg;
     [SerializeField] private RectTransform      waitTalkBox;
     [SerializeField] private RectTransform      resultRect;
+    [SerializeField] private float              delayTime = 0.1f;
     public struct FailObj
     {
         public RectTransform slot;
@@ -77,7 +78,7 @@ public class TalkBox_UI : Mgr
             StopCoroutine(cor);
             cor = null;
         }
-        cor = RunCor(0.1f);
+        cor = RunCor(delayTime);
         StartCoroutine(cor);
     }
 

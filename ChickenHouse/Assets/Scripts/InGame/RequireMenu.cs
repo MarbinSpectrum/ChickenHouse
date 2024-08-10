@@ -23,6 +23,7 @@ public class RequireMenu
 
     public bool CreateMenu(GuestData pGuestData, float nowTime,bool isTuto)
     {
+        chickenSpicy ??= new ChickenSpicy[2];
         if (isTuto)
         {
             menuIdx = 0;

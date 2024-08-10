@@ -13,7 +13,7 @@ public abstract class GuestObj : Mgr
     [SerializeField] protected  TalkBox_UI      talkBox;
     [SerializeField] public     Guest           guest;
 
-    protected RequireMenu requireMenu = new RequireMenu();
+    public RequireMenu requireMenu = new RequireMenu();
     protected string talkStr;
 
     public virtual void ShowGuest()

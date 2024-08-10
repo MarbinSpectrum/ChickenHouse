@@ -10,9 +10,10 @@ public class DiaryUI_BookScroll_Init : LoopScrollInit
     private List<ChickenSpicy>  spicyList = new List<ChickenSpicy>();
     private List<Transform> spicyListObjs = new List<Transform>();
 
+    [SerializeField] private DiaryUI_Book               diary;
     [SerializeField] private DiaryUI_BookGuestSlot      guestSlot;
     [SerializeField] private DiaryUI_BookSeasoningSlot  seasoningSlot;
-    
+
     private BookMenu slotMode;
 
     public void SetGuestList(List<Guest> newList)
@@ -129,6 +130,12 @@ public class DiaryUI_BookScroll_Init : LoopScrollInit
 
                     Guest guest = guestList[idx];
                     diarySlot.SetData(guest);
+                    diarySlot.SetClickEvent(() =>
+                    {
+                        diary.SetSelectGuest(guest);
+                        loopScrollRect.RefillCells();
+                    });
+
                 }
                 break;
             case BookMenu.Seasoning:
@@ -142,6 +149,11 @@ public class DiaryUI_BookScroll_Init : LoopScrollInit
 
                     ChickenSpicy spicy = spicyList[idx];
                     diarySlot.SetData(spicy);
+                    diarySlot.SetClickEvent(() =>
+                    {
+                        diary.SetSelectSeasoning(spicy);
+                        loopScrollRect.RefillCells();
+                    });
                 }
                 break;
         }

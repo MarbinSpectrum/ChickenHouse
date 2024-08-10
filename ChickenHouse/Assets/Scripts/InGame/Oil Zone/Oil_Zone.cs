@@ -391,7 +391,7 @@ public class Oil_Zone : Mgr
 
     private void UpdateGauge()
     {
-        float speedRate = GetCookSpeedRate();
+        float speedRate = gameMgr.playData.GetCookSpeedRate();
         float lerpValue = gaugeTime / (COOK_TIME_0 / speedRate);
         lerpValue = Mathf.Clamp(lerpValue, 0, 1);
         float Angle = Mathf.Lerp(90, 270, 1 - lerpValue);
@@ -401,28 +401,6 @@ public class Oil_Zone : Mgr
             gauge.hand.localEulerAngles = new Vector3(0, 0, r);
             gauge.bar.fillAmount = lerpValue;
         }
-    }
-
-    private float GetCookSpeedRate()
-    {
-        //업그레이드 속도에 따라서 상태 설정
-        if (gameMgr.playData.useItem[(int)ShopItem.OIL_Zone_4])
-        {
-            return 2.6f;
-        }
-        else if (gameMgr.playData.useItem[(int)ShopItem.OIL_Zone_3])
-        {
-            return 1.8f;
-        }
-        else if (gameMgr.playData.useItem[(int)ShopItem.OIL_Zone_2])
-        {
-            return 1.4f;
-        }
-        else if (gameMgr.playData.useItem[(int)ShopItem.OIL_Zone_1])
-        {
-            return 1f;
-        }
-        return 1;
     }
 
     public bool Cook_Start(int pChickenCnt,ChickenStrainter pChickenStrainter)
@@ -492,7 +470,7 @@ public class Oil_Zone : Mgr
     private IEnumerator RunningCook(float pChickenTime, float pGaugeTime)
     {
         //조리처리용 코루틴
-        float   speedRate   = GetCookSpeedRate();
+        float   speedRate   = gameMgr.playData.GetCookSpeedRate();
         bool    notFire     = false;
 
         //업그레이드 속도에 따라서 상태 설정
@@ -627,7 +605,7 @@ public class Oil_Zone : Mgr
         else
         {
             //애니메이션 다시 실행
-            float speedRate = GetCookSpeedRate();
+            float speedRate = gameMgr.playData.GetCookSpeedRate();
             animator.speed = speedRate;
 
             if (CheckMode.IsDropMode() == false)

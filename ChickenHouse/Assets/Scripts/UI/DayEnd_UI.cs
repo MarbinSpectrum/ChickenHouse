@@ -14,7 +14,6 @@ public class DayEnd_UI : Mgr
 
     [SerializeField] private Dictionary<DayEndList, TextMeshProUGUI> infoList = new Dictionary<DayEndList, TextMeshProUGUI>();
 
-    private const int SUPPLIES_VAIUE = 100;
     private bool goNext = false;
 
     private int addValue = 0;
@@ -35,26 +34,23 @@ public class DayEnd_UI : Mgr
         total += storeRevenue;
 
         //임대료 표시
-        int rentValue = 100;
+        int rentValue = gameMgr.playData.RentValue();
         LanguageMgr.SetString(nameList[DayEndList.Rent], "RENT");
         LanguageMgr.SetText(infoList[DayEndList.Rent], string.Format("-{0:N0} $", rentValue));
         total -= rentValue;
 
         //재료값
-        int suppliesUsed = gameMgr.sellChickenCnt * SUPPLIES_VAIUE;
+        int suppliesUsed = gameMgr.sellChickenCnt * PlayData.CHICKEN_RES_VAIUE;
         foreach(var v in gameMgr.sellSideMenuCnt.Values)
-            suppliesUsed += v * SUPPLIES_VAIUE;
+            suppliesUsed += v * PlayData.SIDE_MENU_RES_VAIUE;
         foreach (var v in gameMgr.sellDrinkCnt.Values)
-            suppliesUsed += v * SUPPLIES_VAIUE;
+            suppliesUsed += v * PlayData.DRINK_RES_VAIUE;
 
         LanguageMgr.SetString(nameList[DayEndList.Supplies_Uesd], "SUPPLIES_UESD");
         LanguageMgr.SetText(infoList[DayEndList.Supplies_Uesd], string.Format("-{0:N0} $", suppliesUsed));        
         total -= suppliesUsed;
 
-
-
-
-        //재료값
+        //아르바이트 고용비용
         ResumeData resumeData = gameMgr.playData.GetNowWorkerData();
         int salary = 0;
         if(resumeData != null)
@@ -105,6 +101,6 @@ public class DayEnd_UI : Mgr
 #endif
 
         gameMgr.playData.money += addValue;
-        sceneMgr.SceneLoad(Scene.SHOP,false, SceneChangeAni.CIRCLE);
+        sceneMgr.SceneLoad(Scene.TOWN, false, SceneChangeAni.CIRCLE);
     }
 }

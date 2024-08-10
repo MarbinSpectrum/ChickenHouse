@@ -251,7 +251,7 @@ TextureImporter:
         width: 119
         height: 123
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -259,6 +259,111 @@ TextureImporter:
       bones: []
       spriteID: 2dd39f85567355144ace964bcd8ea29f
       internalID: 1493097511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Diary_UI_2_7
+      rect:
+        serializedVersion: 2
+        x: 688
+        y: 629
+        width: 131
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 858af1dca4c6d2745a092a7b40937213
+      internalID: -1109261081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Diary_UI_2_8
+      rect:
+        serializedVersion: 2
+        x: 689
+        y: 329
+        width: 542
+        height: 282
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6404755bb57594d4c8d5ea571d4246f6
+      internalID: -987152792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Diary_UI_2_9
+      rect:
+        serializedVersion: 2
+        x: 689
+        y: 296
+        width: 542
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 10, z: 0, w: 4}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 609148c00c8988d429429ed9475393c1
+      internalID: 2131603744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Diary_UI_2_10
+      rect:
+        serializedVersion: 2
+        x: 842
+        y: 612
+        width: 549
+        height: 464
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 446af14fe1e7ccc4baa934c43787a5a9
+      internalID: 1191839430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Diary_UI_2_11
+      rect:
+        serializedVersion: 2
+        x: 692
+        y: 24
+        width: 300
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a155c7ae886a46742b5a0e5b88557b8c
+      internalID: 32550312
       vertices: []
       indices: 
       edges: []
@@ -276,10 +381,15 @@ TextureImporter:
     nameFileIdTable:
       Diary_UI_2_2: -1421274039
       Diary_UI_2_3: -1992850821
+      Diary_UI_2_10: 1191839430
       Diary_UI_2_6: 1493097511
+      Diary_UI_2_8: -987152792
       Diary_UI_2_1: 446427514
       Diary_UI_2_4: -282284190
+      Diary_UI_2_11: 32550312
+      Diary_UI_2_7: -1109261081
       Diary_UI_2_5: 1596450882
+      Diary_UI_2_9: 2131603744
       Diary_UI_2_0: -1106067805
   spritePackingTag: 
   pSDRemoveMatte: 0

@@ -8,7 +8,7 @@ public class GuestMgr : Mgr
     public static GuestMgr Instance;
 
     private const float START_GUEST_WAIT    = 3f;
-    private const float GUEST_DELAY_TIME    = 30f;
+    public const float  GUEST_DELAY_TIME    = 30f;
     private const int   GUEST_MAX           = 6;
 
     [SerializeField] private SpriteRenderer[] guestPos = new SpriteRenderer[GUEST_MAX];
@@ -129,39 +129,7 @@ public class GuestMgr : Mgr
                 }
 
                 //¼Õ´Ô µô·¹ÀÌ
-                float delayValue = GUEST_DELAY_TIME;
-                float dayRate = 1;
-                if (gameMgr.playData.day == 1)
-                    dayRate = 1;
-                else if (gameMgr.playData.day == 2)
-                    dayRate = 0.95f;
-                else if (gameMgr.playData.day == 3)
-                    dayRate = 0.9f;
-                else if (gameMgr.playData.day == 4)
-                    dayRate = 0.85f;
-                else
-                    dayRate = 0.8f;
-
-                float upgradeRate = 1;
-                if (gameMgr.playData.hasItem[(int)ShopItem.Advertisement_5])
-                    upgradeRate -= 0.05f;
-                if (gameMgr.playData.hasItem[(int)ShopItem.Advertisement_4])
-                    upgradeRate -= 0.07f;
-                if (gameMgr.playData.hasItem[(int)ShopItem.Advertisement_3])
-                    upgradeRate -= 0.1f;
-                if (gameMgr.playData.hasItem[(int)ShopItem.Advertisement_2])
-                    upgradeRate -= 0.15f;
-                if (gameMgr.playData.hasItem[(int)ShopItem.Advertisement_1])
-                    upgradeRate -= 0.2f;
-
-                ResumeData resumeData = gameMgr.playData.GetNowWorkerData();
-                if (resumeData != null)
-                {
-                    if (resumeData.skill.Contains(WorkerSkill.WorkerSkill_3))
-                        upgradeRate -= 0.07f;
-                }
-
-                delayValue = GUEST_DELAY_TIME * upgradeRate* dayRate;
+                float delayValue = GUEST_DELAY_TIME * gameMgr.playData.GuestDelayRate();
 
                 while(delayValue > 0)
                 {
@@ -462,12 +430,15 @@ public class GuestMgr : Mgr
                         ui.getMoney.RunAni(getValue);
 
                         gameMgr.dayMoney += getValue;
+
+
                         ui.nowMoney.SetMoney(gameMgr.playData.money + gameMgr.dayMoney);
 
                         guestObj.HappyGuest(() => NextOrder());
                     }
                     break;
             }
+
             guestObj.ShowResult(spicyResult, chickenStateResult, drinkResult, sideResult);
             gameMgr.sellChickenCnt += 1;
             if (pDrink != Drink.None)
