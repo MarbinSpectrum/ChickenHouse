@@ -13,4 +13,5 @@ public class Mgr : SerializedMonoBehaviour
     public static ShopMgr       shopMgr     { get => ShopMgr.Instance; }
     public static QuestMgr      questMgr    { get => QuestMgr.Instance; }
     public static BookMgr       bookMgr     { get => BookMgr.Instance; }
+    public static WorkerMgr     workerMgr   { get => WorkerMgr.Instance; }
 }

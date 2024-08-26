@@ -11,7 +11,6 @@ public class DiaryUI_FilePlayerInfo : Mgr
     [SerializeField] private TextMeshProUGUI sideMenuResValue;
     [SerializeField] private TextMeshProUGUI cookSpeed;
     [SerializeField] private TextMeshProUGUI incomeUp;
-    [SerializeField] private TextMeshProUGUI workerSpeed;
     [SerializeField] private TextMeshProUGUI saleValue;
     [SerializeField] private TextMeshProUGUI guestRate;
     [SerializeField] private TextMeshProUGUI geustWait;
@@ -55,16 +54,6 @@ public class DiaryUI_FilePlayerInfo : Mgr
         {
             string incomeUpStr = string.Format(PERCENT_FORMAT, incomeUpValue);
             LanguageMgr.SetText(incomeUp, incomeUpStr);
-        }
-
-        //아르바이트생 속도
-        float workerSpeedValue = pPlayData.WorkerSpeed() * 100f;
-        if (incomeUpValue == 0)
-            LanguageMgr.SetText(workerSpeed, "0%");
-        else
-        {
-            string workerSpeedUpStr = string.Format(PERCENT_FORMAT, workerSpeedValue);
-            LanguageMgr.SetText(workerSpeed, workerSpeedUpStr);
         }
 
         //상점할인률

@@ -18,6 +18,8 @@ public class GameMgr : AwakeSingleton<GameMgr>
     /** 판매한 사이드메뉴 갯수 **/
     public Dictionary<SideMenu, int>    sellSideMenuCnt     = new Dictionary<SideMenu, int>();
 
+    public static int TARGET_MONEY_1 = 10000;
+
     //-------------------------------------------------------------------------------------------------------
     protected override void Awake()
     {

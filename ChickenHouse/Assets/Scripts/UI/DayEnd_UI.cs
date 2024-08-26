@@ -51,7 +51,7 @@ public class DayEnd_UI : Mgr
         total -= suppliesUsed;
 
         //아르바이트 고용비용
-        ResumeData resumeData = gameMgr.playData.GetNowWorkerData();
+        WorkerData resumeData = null;
         int salary = 0;
         if(resumeData != null)
             salary = resumeData.salary;

@@ -113,6 +113,18 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -167,7 +179,7 @@ TextureImporter:
         width: 257
         height: 140
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -175,6 +187,48 @@ TextureImporter:
       bones: []
       spriteID: c345727eee135294a8e6c3900b82a7b6
       internalID: -976937856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Road_3
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 327
+        width: 99
+        height: 79
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 7, y: 0, z: 7, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee683a6b1cac72348b4cea20b88d7871
+      internalID: 9249212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Town Road_4
+      rect:
+        serializedVersion: 2
+        x: 395
+        y: 328
+        width: 31
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39aaa96e894b54d43a19d90154563d5c
+      internalID: -1050477627
       vertices: []
       indices: 
       edges: []
@@ -191,6 +245,8 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       Town Road_2: -976937856
+      Town Road_4: -1050477627
+      Town Road_3: 9249212
       Town Road_0: -261361390
       Town Road_1: -1347402274
   spritePackingTag: 

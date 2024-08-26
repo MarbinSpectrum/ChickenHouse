@@ -5,7 +5,7 @@ using UnityEngine;
 public class ShopMgr : AwakeSingleton<ShopMgr>
 {
     [SerializeField] private Dictionary<ShopItem, ShopData> shopData = new Dictionary<ShopItem, ShopData>();
-    [SerializeField] private Dictionary<ShopItem, ResumeData> resumeData = new Dictionary<ShopItem, ResumeData>();
+    [SerializeField] private Dictionary<ShopItem, WorkerData> resumeData = new Dictionary<ShopItem, WorkerData>();
 
     public ShopData GetShopData(ShopItem pShopItem)
     {
@@ -15,7 +15,7 @@ public class ShopMgr : AwakeSingleton<ShopMgr>
         return null;
     }
 
-    public ResumeData GetResumeData(ShopItem pShopItem)
+    public WorkerData GetResumeData(ShopItem pShopItem)
     {
         //이력서 정보 얻기
         if (resumeData.ContainsKey(pShopItem))

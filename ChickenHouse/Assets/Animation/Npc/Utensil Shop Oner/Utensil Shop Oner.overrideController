@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Utensil Shop Oner
+  m_Controller: {fileID: 9100000, guid: 2470930b36a11df44bd58ec4705a6cb1, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 64fb1df4c76992f4ebde2fa67b7c72b2, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: d387d82e472501f4b94fbd158627d987, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: aa6a2292c1d42d94ca1629307072bf3c, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 73d445b7959c4b64f813ac4275b5c884, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 699c1549c6436704f920a71ff082082c, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: e1b666ddb05268e4cb415bb807631348, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: f9030d58d07d2794b86bbe96ee4f3710, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 88c2efe834bb7f94ba60e907c0d3a6ea, type: 2}

@@ -251,6 +251,12 @@ public enum TalkBoxType
 
 }
 
+public enum UtensilShopMenu
+{
+    Fryer_Buy       = 0,    //튀김기 구매
+    Fryer_Add       = 1,    //튀김기 추가
+}
+
 public enum ShopItem
 {
     None                = 0,
@@ -280,25 +286,29 @@ public enum ShopItem
     Advertisement_4     = 304,      //광고 업그레이드(손님 딜레이 -40%,수익 +10%);
     Advertisement_5     = 305,      //광고 업그레이드(손님 딜레이 -50%,수익 +10%);
 
-    /** 아르바이트생 업그레이드 **/
-    Worker_1            = 401,      //알바생 고용(치킨을 계란물에 넣어줌)
-    Worker_2            = 402,      //알바생 교육(알바생 움직임이 빨라짐)
-    Worker_3            = 403,      //알바생 교육(치킨에 튀김가루를 묻혀줌)
-    Worker_4            = 404,      //알바생 교육(알바생 움직임이 빨라짐)
-    Worker_5            = 405,      //알바생 교육(치킨을 치킨건지에 넣어줌)
-    Worker_6            = 406,      //알바생 교육(알바생 움직임이 빨라짐)
-
     MAX                 = 10000,
+}
+
+public enum EWorker
+{
+    Worker_1,
+    Worker_2,
+    Worker_3,
+    Worker_4,
+
+    MAX
 }
 
 public enum WorkerSkill
 {
-    WorkerSkill_1    = 100,      //주방보조
-    WorkerSkill_2    = 200,      //수익증가
-    WorkerSkill_3    = 300,      //가게홍보
-    WorkerSkill_4    = 400,      //빠른 팔놀림
-    WorkerSkill_5    = 500,      //빠른 손놀림
-    WorkerSkill_6    = 600,      //빠른 몸놀림
+    WorkerSkill_1    = 100,      //주방보조 경력자(주방에서의 움직임 +50%)
+    WorkerSkill_2    = 200,      //치킨가게 경력자(주방에서의 움직임 +100%)
+    WorkerSkill_3    = 300,      //튀김 전문가(튀기는 속도+100%, 치킨이 타지 않음)
+    WorkerSkill_4    = 400,      //잘생긴외모(팁 증가 +100%)
+    WorkerSkill_5    = 500,      //카운터 업무 경력자(카운터에 배치시 손님이 방문률 +50%)
+    WorkerSkill_6    = 600,      //먹보(종종 치킨 한 조각을 빼 먹음)
+    WorkerSkill_7    = 700,      //독심술(손님이 원하는 치킨 양념을 알려줌)
+    WorkerSkill_8    = 800,      //건망증(카운터에 배치시 2% 확률로 손님의 주문이 제대로 전달되지 않음)
 }
 
 public enum DayEndList
@@ -438,6 +448,10 @@ public enum TownMap
     TulTulTown = 0,
     /** 네코 직업 소개소 **/
     NekoJobBank = 1,
+    /** 파우 쉐프의 조리 도구 **/
+    ChefPauxsCookingUtensils = 2,
+    /** 긴 코 광고 회사 **/
+    LongNoseCompany = 3,
 }
 
 public enum SceneChangeAni

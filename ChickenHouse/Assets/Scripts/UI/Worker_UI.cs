@@ -11,7 +11,7 @@ public class Worker_UI : Mgr
 
     public void Init()
     {
-        ResumeData resumeData = gameMgr.playData.GetNowWorkerData();
+        WorkerData resumeData = null;
 
         foreach(RectTransform rect in workerObjs)
             rect.gameObject.SetActive(false);

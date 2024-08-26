@@ -41,6 +41,7 @@ AGE	나이	Age
 RESIDENCE	거주지	Residence
 WORKER_SALARY	급여	Salry
 SALARY	희망급여	Salary
+SALARY_FORMAT	수익의 {0}%	{0}% of the revenue
 SKILL_ABILITY	능력/기술	Skill/Ability
 FAIL_SPICY	양념 X	Spicy X
 FAIL_CHICKEN	치킨상태 X	ChickenState X
@@ -78,6 +79,19 @@ OPEN_RESTAURANT	영업 시작	Open Restaurant
 USE_SHOP	상점 이용	Use Shop
 EMPLOY_WORKER	직원 고용	Employ Worker
 OPEN_RESTAURANT_CHECK_MSG	영업을 시작합니까?	Are you opening the restaurant?
+EMPLOY	고용	Employ
+DEPOSIT	계약금	Deposit
+CONTRACT_COMPLETE	계약완료	Contract Complete
+CONTRACT_CHECK_MSG	직원으로 고용합니까?	Do you want to hire this employee?
+PURCHASE_CHECK_MSG	물건을 구입합니까?	Do you buy things?
+UTENSILS_TAB_0	튀김기\n구입	Fryer\nBuy
+UTENSILS_TAB_1	튀김기\n추가	Fryer\nAdd
+BUY_ITEM	물건 구입	Buy Item
+LONG_NOSE_COMPANY	긴 코 광고 회사	Long Nose Advertising Company
+LONG_NOSE_CONTRACT_CHECK_MSG	해당 광고를 계약합니까?	Do you agree to this advertisement contract?
+ADVERTISEMENT_CONTRACT	광고 계약	Advertisement contract
+CONTRACT	계약	Contract
+PURCHASE	구입	Purchase
 TUTO_1	먼저 닭 4개를 계란물에 넣어봅시다.	First, I'll put four chickens in the egg water.
 TUTO_2	그리고 닭을 밀가루 쪽으로 옮겨주세요.	And move the chicken toward the flour.
 TUTO_3	닭 모두를 치킨 건지개에 넣어 주세요.	Please put all the chickens in the vegetable.
@@ -401,12 +415,22 @@ WORKER_LV1_INFO	이력서 확인	Resume
 WORKER_LV2_INFO	이력서 확인	Resume
 WORKER_LV3_INFO	이력서 확인	Resume
 WORKER_LV4_INFO	이력서 확인	Resume
-WORKER_SKILL_1	주방보조	a kitchen assistant
-WORKER_SKILL_2	수익증가	Increase in revenue
-WORKER_SKILL_3	가게홍보	Promoting the store
-WORKER_SKILL_4	빠른 팔놀림	quick arm movements
-WORKER_SKILL_5	빠른 손놀림	quick handwork
-WORKER_SKILL_6	빠른 몸놀림	quick movements
+WORKER_SKILL_1	주방보조 경력자	Kitchen assistant Experience
+WORKER_SKILL_2	치킨가게 경력자	Chicken restaurant Experience
+WORKER_SKILL_3	튀김 전문가	Frying Expert
+WORKER_SKILL_4	아름다운	Beautiful
+WORKER_SKILL_5	카운터 업무 경력자	Counter work Experience
+WORKER_SKILL_6	먹보	Glutton
+WORKER_SKILL_7	독심술	Mind Scan
+WORKER_SKILL_8	건망증	Forgetfulness
+WORKER_SKILL_INFO_1	직원 속도 +50%	Worker Speed +50%
+WORKER_SKILL_INFO_2	직원 속도 +100%	Worker Speed +100%
+WORKER_SKILL_INFO_3	튀기는 속도+100%, 치킨이 타지 않음	Frying Speed +100%, The chicken won't burn.
+WORKER_SKILL_INFO_4	팁 증가 +100%	Tip +100%
+WORKER_SKILL_INFO_5	카운터에 배치시 손님 방문 딜레이 -25%	Visit delay -25% when placed at the counter
+WORKER_SKILL_INFO_6	종종 치킨 한 조각을 빼 먹음	Occasionally sneaks a piece of chicken.
+WORKER_SKILL_INFO_7	손님이 원하는 치킨을 알려줌	Let the customers know the menu they want.
+WORKER_SKILL_INFO_8	카운터에 배치시 2% 확률로 손님의 주문이 제대로 전달되지 않음	When assigned to the counter, there is a 2% chance that a customer's order may not be communicated correctly
 QUEST_NAME_1	빚 갚기	Pay off debt
 QUEST_INFO_1	너구리에게 빌린 돈 50000$를 갚아야한다. \n기간은 7일준다고 했다.\n빨리 준비해야 될거같다.	I need to repay the $50,000\nI borrowed from the raccoon.\nHe gave me 7 days.\nI need to prepare quickly.
 QUEST_SUMMARY_1	※ 기간안에 50000$를 갚자!!	※ Let's repay the $5,000 within the deadline!!
@@ -446,5 +470,16 @@ BOOK_DEER_NAME	사슴	Deer
 BOOK_DEER_INFO	책을 매우 좋아하는 그녀는 하라는 근무는 안하고 책을 읽을 정도로 책을 매우 사랑합니다.\n굉장히 4차원적인 성격으로 인해 굉장히 난해한 질문을 자주합니다.	She loves books immensely and is so passionate about reading that she neglects her work responsibilities. Her very eccentric personality often leads her to ask perplexing questions.
 BOOK_SEAOTTER_NAME	해달	Sea Otter
 BOOK_SEAOTTER_INFO	먼 시골에서 살다 도시로 이사와 해산물을 파는 일을 하는 해달입니다.\n사투리로 인해 억양이 쌔 드쌘 성격 같지만 남을 배려할줄 아는 부드러운 성격의 소유자입니다.	A sea otter who moved from a distant countryside to the city to work in seafood sales. Despite having a strong accent that might come off as rough, they have a considerate and gentle personality.
-EMPLOYMENT_NPC_TALK_0	안녕하세요! 네코 직원 소개소에\n오신 것을 환영합니다.	Hello! Welcome to the Neko Job Bank.
+EMPLOYMENT_NPC_TALK_0	어서 오세요! 네코 직원 소개소에\n오신 걸 환영합니다.\n어떤 도움이 필요하신가요?	Hello! You've arrived at\nNeko Job Bank.\nHow can we assist you today?
+EMPLOYMENT_NPC_TALK_1	환영합니다! 오늘 어떤 직원이 필요하신지\n알려주시면 바로 도와드릴게요.	Welcome! Let us know what\nkind of staff you need today,\nand we'll assist you right away.
+EMPLOYMENT_NPC_TALK_2	어서 오세요! 필요한 직원이\n있으시면 말씀해 주세요.\n최선을 다해 찾아드리겠습니다.	Hello! If you need any worker,\nplease let us know.\nWe'll do our best to find\nthe better person for you.
+EMPLOYMENT_NPC_TALK_3	환영합니다! 어떤 직원이 필요하신가요?\n함께 완벽한 인재를 찾아드리겠습니다.	Welcome! What kind of worker\nare you looking for?\nWe’ll help you find the perfect\ncandidate together.
+UTENSILS_NPC_TALK_0	뭐 필요한 거 있어? 빨리 말해.\n안 그러면 바빠서 못 도와줄지도 몰라.	Need anything?\nSpeak up quickly.\nOtherwise, I might be\ntoo busy to help.
+UTENSILS_NPC_TALK_1	어이, 여기 왔으면 필요한 게\n있을 텐데. 도와줄까?	Hey, now that you're here,\nyou must need something.\nCan I help you?
+UTENSILS_NPC_TALK_2	어서 와. 뭘 찾고 있어?	Welcome.\nWhat are you looking for?
+UTENSILS_NPC_TALK_3	필요한 게 있으면 말해.\n여기 있는 건 다 최고급이야.	If you need anything,\njust let me know.\nEverything here is top quality
+LONGNOSE_NPC_TALK_0	Long Nose에 오신것을 환영합니다.\n귀하의 브랜드를 높이는\n데 큰 도움을 드리겠습니다.	Welcome to "Long Nose"\nand we will greatly help you\nincrease your brand.
+LONGNOSE_NPC_TALK_1	좋은 광고를 만들고 싶으신가요?\n좋은 곳에 오셨습니다.	Do you want to make a\ngood advertisement?\nYou are in a good place.
+LONGNOSE_NPC_TALK_2	계약을 위해 오셨군요?\n어떻게 하면 잊을 수 없는 광고를\n만들 수 있는지 논의해 봅시다.	So you're here for a contract?\nLet's discuss how we can make\nunforgettable advertisements.
+LONGNOSE_NPC_TALK_3	여러분의 브랜드를 세상에\n알릴 준비가 되었나요?\n계약을 시작합시다.	Are you ready to promote\nyour brand to the world?\nLet's start a contract.
 DEMO_END	데모버전은 여기까지 입니다.\n플레이해주셔서 감사합니다.	This is the end of the demo version.\nThank you for playing.

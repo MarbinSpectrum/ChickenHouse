@@ -10,17 +10,6 @@ public class Worker_Hand : Mgr
     [SerializeField] private Image handImg1;
     [SerializeField] private Image handImg2;
 
-    [System.Serializable]
-    public struct SPRITE
-    {
-        /** 엄지 **/
-        public Sprite hand0;
-        /** 나머지 손 **/
-        public Sprite hand1;
-        /** 보통 상태 손 **/
-        public Sprite hand2;
-    }
-    [SerializeField] private Dictionary<ShopItem, SPRITE> handSprite;
 
     public WorkerHandState handState { private set; get; }
 
@@ -30,10 +19,11 @@ public class Worker_Hand : Mgr
         handAni.SetInteger("HandState", (int)pWorkerHandState);
     }
 
-    public void SetWorkerImg(ShopItem pWorker)
+    public void SetWorkerImg(EWorker pWorker)
     {
-        handImg0.sprite = handSprite[pWorker].hand0;
-        handImg1.sprite = handSprite[pWorker].hand1;
-        handImg2.sprite = handSprite[pWorker].hand2;
+        WorkerData workerData = workerMgr.GetWorkerData(pWorker);
+        handImg0.sprite = workerData.handSprite.hand0;
+        handImg1.sprite = workerData.handSprite.hand1;
+        handImg2.sprite = workerData.handSprite.hand2;
     }
 }

@@ -43,6 +43,20 @@ public class Town : Mgr
                     diaryBtn.gameObject.SetActive(false);
                 }
                 break;
+            case TownMap.ChefPauxsCookingUtensils:
+                {
+                    ChefPauxsCookingUtensils chefPauxsCookingUtensils = townMap[pTownMap].GetComponent<ChefPauxsCookingUtensils>();
+                    chefPauxsCookingUtensils.SetInit();
+                    diaryBtn.gameObject.SetActive(false);
+                }
+                break;
+            case TownMap.LongNoseCompany:
+                {
+                    LongNose longNose = townMap[pTownMap].GetComponent<LongNose>();
+                    longNose.SetInit();
+                    diaryBtn.gameObject.SetActive(false);
+                }
+                break;
         }
     }
 
@@ -62,11 +76,12 @@ public class Town : Mgr
             switch(nowArea)
             {
                 case TownMap.TulTulTown:
-                    moveAni.Play("FadeOn");
-                    break;
                 case TownMap.NekoJobBank:
+                case TownMap.ChefPauxsCookingUtensils:
+                case TownMap.LongNoseCompany:
                     moveAni.Play("FadeOn");
                     break;
+
             }
 
 
@@ -78,6 +93,8 @@ public class Town : Mgr
                     moveAni.Play("FadeOff");
                     break;
                 case TownMap.NekoJobBank:
+                case TownMap.ChefPauxsCookingUtensils:
+                case TownMap.LongNoseCompany:
                     moveAni.Play("CircleOff");
                     break;
             }

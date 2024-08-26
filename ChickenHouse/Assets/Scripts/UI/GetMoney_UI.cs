@@ -9,7 +9,7 @@ public class GetMoney_UI : Mgr
     [SerializeField] private TextMeshProUGUI textUI;
     public void RunAni(int num)
     {
-        textUI.text = string.Format("{0} $", num);
+        textUI.text = string.Format("{0:N0} $", num);
         ani.Play();
 
         soundMgr.PlaySE(Sound.GetMoney_SE);

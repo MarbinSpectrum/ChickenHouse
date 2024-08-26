@@ -22,6 +22,9 @@ public class PlayData
     /** 사용 아이템 상태 **/
     public bool[] useItem = new bool[(int)ShopItem.MAX];
 
+    /** 직원 보유 상태 **/
+    public bool[] hasWorker = new bool[(int)EWorker.MAX];
+
     /** 퀘스트 상태(0: 진행안함 ,1: 진행중 ,2: 완료) **/
     public int[] quest      = new int[(int)Quest.MAX];
     /** 퀘스트 진행정도 **/
@@ -36,6 +39,9 @@ public class PlayData
     {
         hasItem[(int)ShopItem.OIL_Zone_1] = true;
         useItem[(int)ShopItem.OIL_Zone_1] = true;
+
+        hasWorker[(int)EWorker.Worker_1] = true;
+
         quest[(int)Quest.MainQuest_1] = 1;
 
     }
@@ -131,12 +137,6 @@ public class PlayData
         else if (useItem[(int)ShopItem.OIL_Zone_4])
             rate += 0.4f;
 
-        ResumeData resumeData = GetNowWorkerData();
-        if (resumeData != null)
-        {
-            if (resumeData.skill.Contains(WorkerSkill.WorkerSkill_2))
-                rate += 0.2f;
-        }
         if (hasItem[(int)ShopItem.Advertisement_2])
             rate += 0.1f;
         if (hasItem[(int)ShopItem.Advertisement_3])
@@ -175,12 +175,6 @@ public class PlayData
         if (hasItem[(int)ShopItem.Advertisement_1])
             upgradeRate -= 0.2f;
 
-        ResumeData resumeData = GetNowWorkerData();
-        if (resumeData != null)
-        {
-            if (resumeData.skill.Contains(WorkerSkill.WorkerSkill_3))
-                upgradeRate -= 0.07f;
-        }
         return upgradeRate * dayRate;
     }
 
@@ -205,32 +199,6 @@ public class PlayData
         return 0;
     }
 
-    public ShopItem GetNowWorker()
-    {
-        //현재 사용중인 손님
-        ShopItem shopItem = ShopItem.None;
-        if (hasItem[(int)ShopItem.Worker_1] && useItem[(int)ShopItem.Worker_1])
-            shopItem = ShopItem.Worker_1;
-        else if (hasItem[(int)ShopItem.Worker_2] && useItem[(int)ShopItem.Worker_2])
-            shopItem = ShopItem.Worker_2;
-        else if (hasItem[(int)ShopItem.Worker_3] && useItem[(int)ShopItem.Worker_3])
-            shopItem = ShopItem.Worker_3;
-        else if (hasItem[(int)ShopItem.Worker_4] && useItem[(int)ShopItem.Worker_4])
-            shopItem = ShopItem.Worker_4;
-        else if (hasItem[(int)ShopItem.Worker_5] && useItem[(int)ShopItem.Worker_5])
-            shopItem = ShopItem.Worker_5;
-        else if (hasItem[(int)ShopItem.Worker_6] && useItem[(int)ShopItem.Worker_6])
-            shopItem = ShopItem.Worker_6;
-
-        return shopItem;
-    }
-
-    public float WorkerSpeed()
-    {
-        float value = 0;
-        return value;
-    }
-
     public float ShopSaleValue()
     {
         float value = 0;
@@ -240,14 +208,5 @@ public class PlayData
     public int RentValue()
     {
         return 100;
-    }
-
-    public ResumeData GetNowWorkerData()
-    {
-        //현재 사용주인 손님 정보
-        ShopItem shopItem = GetNowWorker();
-
-        ResumeData resumeData = ShopMgr.Instance?.GetResumeData(shopItem);
-        return resumeData;
     }
 }

@@ -106,8 +106,8 @@ public class DiaryUI_Quest : Mgr
                     strDetail += string.Format(LanguageMgr.GetText("QUEST_DETAIL_1"), day);
                     strDetail += "\n";
 
-                    long money = (int)Mathf.Min(MissionMoney.TARGET_MONEY_1, gameMgr.playData.money);
-                    strDetail += string.Format(LanguageMgr.GetText("QUEST_DETAIL_2"), money, MissionMoney.TARGET_MONEY_1);
+                    long money = (int)Mathf.Min(GameMgr.TARGET_MONEY_1, gameMgr.playData.money);
+                    strDetail += string.Format(LanguageMgr.GetText("QUEST_DETAIL_2"), money, GameMgr.TARGET_MONEY_1);
 
                     LanguageMgr.SetText(questDetail, strDetail);
                 }
