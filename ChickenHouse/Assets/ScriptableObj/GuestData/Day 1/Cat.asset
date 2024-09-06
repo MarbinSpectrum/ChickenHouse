@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04698e8fab843ca4f97de157c35a91e2, type: 3}
+  m_Name: Cat
+  m_EditorClassIdentifier: 
+  face: {fileID: 21300000, guid: ac5f626fec0a1f1458e4ee1a09ad8d96, type: 3}
+  bookImg: {fileID: 21300000, guid: 4d8c6611a4641554b9b386a36dcc38e5, type: 3}
+  bookNameKey: BOOK_CAT_NAME
+  bookInfoKey: BOOK_CAT_INFO
+  day: 1
+  canDrinkAlcohol: 1
+  goodChicken:
+  - openDay: 0
+    spicy0: 2
+    spicy1: 2
+    drink: 0
+    sideMenu: 0
+  - openDay: 0
+    spicy0: 4
+    spicy1: 4
+    drink: 0
+    sideMenu: 0
+  - openDay: 0
+    spicy0: 0
+    spicy1: 1
+    drink: 0
+    sideMenu: 0
+  - openDay: 3
+    spicy0: 1
+    spicy1: 3
+    drink: 0
+    sideMenu: 0
+  - openDay: 3
+    spicy0: 3
+    spicy1: 3
+    drink: 0
+    sideMenu: 0
+  - openDay: 2
+    spicy0: 2
+    spicy1: 1
+    drink: 0
+    sideMenu: 0
+  - openDay: 5
+    spicy0: 6
+    spicy1: 6
+    drink: 0
+    sideMenu: 0
+  - openDay: 5
+    spicy0: 3
+    spicy1: 6
+    drink: 0
+    sideMenu: 0
+  - openDay: 4
+    spicy0: 3
+    spicy1: 2
+    drink: 0
+    sideMenu: 0
+  - openDay: 4
+    spicy0: 1
+    spicy1: 4
+    drink: 0
+    sideMenu: 0
+  - openDay: 4
+    spicy0: 4
+    spicy1: 4
+    drink: 0
+    sideMenu: 0

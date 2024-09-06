@@ -25,9 +25,12 @@ public class TablePickleSlot : Mgr
             //음료가 이미 놓여있음
             return;
         }
+
         if (kitchenMgr.dragState == DragState.Chicken_Pickle)
         {
             //음료를 놓을수있는 상태이긴하다.
+            SideMenuData sideMenuData = subMenuMgr.GetSideMenuData(SideMenu.Pickle);
+            pickleImg.sprite = sideMenuData.img;
             pickleImg.color = new Color(1, 1, 1, 0.5f);
             slotUI.gameObject.SetActive(true);
         }

@@ -3,7 +3,8 @@ OK	확인	Ok
 CANCLE	취소	Cancle
 YES	네	Yes
 NO	아니요	No
-SAVE_CHECK_MSG	이전 기록이 삭제됩니다.\n저장하겠습니까?	Previous records will be deleted.\nDo you want to save?
+SAVE_COVER_CHECK_MSG	이전 기록이 삭제됩니다.\n저장하겠습니까?	Previous records will be deleted.\nDo you want to save?
+SAVE_CHECK_MSG	게임을 저장하겠습니까?	Do you want to save the game?
 NEW_GAME	새로하기	New Game
 LOAD_GAME	이어하기	Load Game
 QUIT_GAME	종료하기	Quit Game
@@ -55,6 +56,7 @@ MY_HOUSE	내 집	My House
 EXIT	나가기	Exit
 GUEST	손님	Guest
 SEASONING	양념	Seasoning
+DRINK_AND_PICKLE	음료 & 피클	Drink & Pickle
 EMPTY	빈 공간	Empty
 LOAD	불러오기	Load
 SAVE	저장하기	Save
@@ -89,9 +91,20 @@ UTENSILS_TAB_1	튀김기\n추가	Fryer\nAdd
 BUY_ITEM	물건 구입	Buy Item
 LONG_NOSE_COMPANY	긴 코 광고 회사	Long Nose Advertising Company
 LONG_NOSE_CONTRACT_CHECK_MSG	해당 광고를 계약합니까?	Do you agree to this advertisement contract?
+KITCHEN_SET_CHECK_MSG	아직 직원을 배치하지 않았습니다.\n다음으로 넘어가겠습니까?	The staff has not been assigned yet!\nWould you like to move on\nto the next step?
+MENU_SET_CHECK_MSG_0	양념을 하나 이상 배치해야합니다!	You must place at least one seasoning!
+MENU_SET_CHECK_MSG_1	음료를 하나 이상 배치해야합니다!	You must place at least one drink!
+MENU_SET_CHECK_MSG_2	피클을 하나 이상 배치해야합니다!	You must place at least one pickle!
 ADVERTISEMENT_CONTRACT	광고 계약	Advertisement contract
 CONTRACT	계약	Contract
 PURCHASE	구입	Purchase
+DEPLOYABLE_STAFF	배치 가능한 직원	Deployable staff
+EMPLOYEE_ASSIGNMENT	직원 업무 할당	Employee assignment
+NEXT	다음	Next
+BACK	뒤로	Back
+DRINK_SLOT	음료	Drink
+PICKLE_SLOT	피클	Pickle
+SELLING_PRICE	판매 수익	Selling Price
 TUTO_1	먼저 닭 4개를 계란물에 넣어봅시다.	First, I'll put four chickens in the egg water.
 TUTO_2	그리고 닭을 밀가루 쪽으로 옮겨주세요.	And move the chicken toward the flour.
 TUTO_3	닭 모두를 치킨 건지개에 넣어 주세요.	Please put all the chickens in the vegetable.
@@ -112,35 +125,25 @@ CHANGE_LANGUAGE	설정이 변경되었습니다.\n게임이 재시작됩니다.	
 KOREAN	한국어	한국어
 ENGLISH	English	English
 COLA	콜라	Cola
+COLA_INFO	치킨과 같이 먹으면 안성맞춤인 탄산음료.	Soda perfect with chicken.
+BEER	맥주	Beer
+BEER_INFO	시원한 목 넘김과 풍부한 맛으로\n치킨의 맛을 한층 더 살려주는 맥주.\n(술을 못 먹는 손님은 구입하지 않습니다.)	With a cool throat and a rich tasteBeer that makes the taste of chicken even more alive.\n<size=13>(We don't buy customers who can't drink alcohol.)</size>
 PICKLE	치킨무	Pickle
+PICKLE_INFO	치킨의 느끼함을 잡아주고 입안을 상큼하게 만들어주는, 아삭아삭한 식감의 새콤달콤한 필수 반찬입니다!	It's a sweet and sour must-have side dish with a crunchy texture that catches the greasyness of chicken and makes the mouth fresh!
 CHICKEN	치킨	Chicken
 FRIED_CHICKEN	후라이드 치킨	Fried Chicken
 SOY_SPICY	간장양념	Soy Spicy
+SOY_SPICY_INFO	바삭하게 튀긴 치킨에 짭조름하고 달콤한\n간장 소스를 입혀 감칠맛을 더한 인기 치킨 양념	A popular chicken seasoning with crispy fried chicken coated in a savory and sweet soy sauce, enhancing its rich flavor.
 HOT_SPICY	치킨양념	Hot Spicy
-HELL_SPICY	붉닭양념	Hell Spicy
+HOT_SPICY_INFO	바삭한 치킨에 달콤하고 매콤한 소스를 듬뿍 뿌려 인기를 끌고 있다.	It's a popular menu with crispy chicken sprinkled with a lot of sweet and spicy sauce
+HELL_SPICY	불닭양념	Hell Spicy
+HELL_SPICY_INFO	한때 볶음라면의 소스로 사용되었던 양념,\n강렬한 매운맛과 달콤한 맛이 어우러져\n강한 자극과 깊은 풍미를 냅니다.	A seasoning that was once used for stir-fried ramen, it combines intense spiciness with a hint of sweetness, creating a strong kick and deep flavor.
 PRINKLE_SPICY	뿌링클양념	Prinkle Spicy
+PRINKLE_SPICY_INFO	고소하고 향긋한 파슬리와 마늘 가루가 조화를 이루는 양념으로, 치킨에 풍부한 맛과 향을 더합니다.	It is a seasoning that combines savory and fragrant parsley and garlic powder, adding rich taste and aroma to the chicken.
 CARBONARA_SPICY	까르보나라양념	Carbonara Spicy
+CARBONARA_SPICY_INFO	크림처럼 부드럽고 질감이 풍부한 양념\n고소하고 부드러운 맛이 특징인 양념입니다.	creamy and textured seasoning\nIt is a seasoning characterized by a savory and soft taste.
 BBQ_SPICY	바베큐양념	BBQ Spicy
-HOT_SPICY_CHICKEN	양념치킨	Hot Spicy Chicken
-HELL_CHICKEN	불닭치킨	Hell Chicken
-SOY_CHICKEN	간장치킨	Soy Chicken
-PRINKLE_CHICKEN	뿌링클치킨	Prinkle Chicken
-BBQ_CHICKEN	바베큐치킨	BBQ Chicken
-BBQ_AND_HELL_CHICKEN	바베큐반 불닭반	바베큐반 불닭반
-BBQ_AND_FRIED_CHICKEN	바베큐반 후라이드반	바베큐반 후라이드반
-PRINKLE_AND_FRIED_CHICKEN	뿌링클반 후라이드반	뿌링클반 후라이드반
-PRINKLE_AND_HELL_CHICKEN	뿌링클반 불닭반	뿌링클반 불닭반
-PRINKLE_AND_BBQ_CHICKEN	뿌링클반 바베큐반	뿌링클반 바베큐반
-HELL_AND_FRIED_CHICKEN	불닭반 후라이드반	불닭반 후라이드반
-HELL_AND_HOT_CHICKEN	불닭반 양념반	불닭반 양념반
-HELL_AND_SOY_CHICKEN	불닭반 간장반	불닭반 간장반
-SOY_AND_BBQ_CHICKEN	간장반 바베큐반	간장반 바베큐반
-SOY_AND_PRINKLE_CHICKEN	간장반 뿌링클반	간장반 뿌링클반
-SOY_AND_FRIED_CHICKEN	간장반 후라이드반	간장반 후라이드반
-HOT_AND_BBQ_CHICKEN	양념반 바베큐반	양념반 바베큐반
-HOT_AND_PRINKLE_CHICKEN	양념반 뿌링클반	양념반 뿌링클반
-HOT_AND_SOY_CHICKEN	양념반 간장반	양념반 간장반
-HOT_AND_FRIED_CHICKEN	양념반 후라이드반	양념반 후라이드반
+BBQ_SPICY_INFO	달콤하고 매콤하며 풍부한 맛을 지닌 양념입니다. 특유의 깊고 그을린 맛이 특징입니다.	It is a seasoning with a sweet, spicy, and rich taste. It is characterized by its unique deep, scorched taste.
 FOX_ORDER_1	안녕하세요! 저는 후라이드한 치킨과\n콜라를 좋아하는 여우예요!	Hello! I'm a fox who loves fried chicken and coke!
 FOX_ORDER_2	오늘은 뭔가 살짝 매콤한 양념치킨을\n먹어야 할 거 같은 기분이에요!	I feel like I'm going to have some\nspicy seasoned chicken today!
 FOX_ORDER_3	역시 치킨은 시원한 치킨 무와 함께\n소스 없이 바삭하게 즐겨야 국룰이죠!	As expected, it would be better to enjoy\nchicken simply without sauce with cool pickles!
@@ -169,6 +172,7 @@ DOG_ORDER_9	오늘은 달짝지근한 매콤함을 즐기면서\n그리운 짭�
 DOG_ORDER_10	오늘은 제 친구 ‘니치’ 녀석이 저한테 종종\n미국의 아메리칸 스타일의 치킨을\n추천해주곤 했는데 그게 혹시 맛있나요?	Niche often recommended American chicken,\nis it delicious?
 DOG_ORDER_11	아는 여우 친구가 추천했던 미국의 맛의 치킨이 먹고 싶군요!\n덤으로 평범한 치킨도 포함하죠	I really want to eat American-flavored chicken\nthat my fox friend recommended!\nAnd please add regular chicken, too
 DOG_SIDE_COLA	일하느라 더우니 콜라도 부탁드릴게요	It's hot at work, so please give me a coke
+DOG_SIDE_BEER	일하느라 더우니 시원한 맥주도 부탁드릴게요	It's hot at work, so please give me a cold beer.
 DOG_SIDE_PICKLE	치킨만 먹으면 느끼하니까 치킨 무도 주세요	It's greasy if you eat chicken, so please give me Pickle
 DOG_ANGRY	하하... 정 말 맛 있 겠 네 요	Haha... It must be really delicious
 DOG_THANK_YOU	배만 채우면 OK죠	As long as I'm full, it's okay
@@ -185,6 +189,7 @@ CAT_ORDER_9	오늘 야근을 해야 할지도 몰라요\n너무 슬프니까 불
 CAT_ORDER_10	제가 양념을 먹을까.. 뿌링클을 먹을까.. 둘다 주세요!	Shall we have seasoned chicken or Prinkle? Both, please!
 CAT_ORDER_11	오늘은 제가 아는 동생이 좋아하는\n가루 치킨을 시켜봐야겠어요!	Today, I'm going to order some powdered chicken\nthat my acquaintance likes!
 CAT_SIDE_COLA	단게 땡기니 콜라도 있는게 좋을거 같아요!	I think we'd better have a glass of coke, too!
+CAT_SIDE_BEER	시원한게 땡기니 맥주도 있는게 좋을거 같아요!	I think we'd better have a glass of beer, too!
 CAT_SIDE_PICKLE	시원한 치킨 무도 부탁드릴게요!	I'd like some cool pickles, too!
 CAT_ANGRY	앞으로는 이 집에는 안와야겠네요!	I shouldn't come to this house from now on!
 CAT_THANK_YOU	이거면 피곤함을 달랠 수 있겠죠	This will relieve your tiredness
@@ -217,7 +222,8 @@ TASMANIAN_ORDER_9	예압 나는 준비 됐어!\n화려한 아메리칸 스타일
 TASMANIAN_ORDER_10	사장님 준비됐나? 양손 번쩍 들어 올려! 붐! 붐!\n한국에는 없는 아메리칸 콤비!	Are you ready? Raise your hands! Bang! Bang! Bang!\nIt's an American taste that Korea doesn't have in it!
 TASMANIAN_ORDER_11	나의 혀 위에 펼쳐지는 매서운 매콤보!\n하지만 난 막을 수 있지 아주 빠르게 Vivace!\n화끈한 불맛의 바비!	I can stop it! Hell fire!
 TASMANIAN_SIDE_COLA	나의 입안을 톡 쏘는 콜라도 Please!	Even the cola that pokes my mouth, please!
-TASMANIAN_SIDE_PICKLE	 나의 영감을 돋구는 치킨 무 무 무빙!	Pickle moving that inspires me!
+TASMANIAN_SIDE_BEER	나의 목을 자극하는 맥주도 Please!	The beer that irritates my throat, please!
+TASMANIAN_SIDE_PICKLE	나의 영감을 돋구는 치킨 무 무 무빙!	Pickle moving that inspires me!
 TASMANIAN_ANGRY	진짜 이 치킨 Damn it!	What the hell is this chicken!
 TASMANIAN_THANK_YOU	나쁘지 않은 무난함! 앞으로도 Move!	It's not bad. It's not bad. Let's move!
 TASMANIAN_HAPPY	Fantastic!	Fantastic!
@@ -249,6 +255,7 @@ LEMUR_ORDER_9	치킨에는 다양한 맛이 있죠\n하지만 손님을 만족�
 LEMUR_ORDER_10	한국에서 처음으로 만들어진 특별한 소스의 치킨이 있다죠?\n저도 그 치킨을 한번 맛보고 싶군요.	There's a special sauce chicken\nthat was first made in Korea, right?\nI want to try that chicken, too.
 LEMUR_ORDER_11	치킨집에서 반반 서비스를 통해\n가장 유명한 반반 조합을 시켜봐야겠군요.	I'll have to order the most famous half-and-half\ncombination through the half-and-half\nchicken restaurant service.
 LEMUR_SIDE_COLA	시원한 탄산음료도 필요하겠군요	I'll also need a cool soda
+LEMUR_SIDE_BEER	시원한 맥주도 필요하겠군요	I'll also need a cool beer
 LEMUR_SIDE_PICKLE	영양 밸런스를 위해 무도 추가하죠	I'll add radishes for nutritional balance
 LEMUR_ANGRY	신체 능력이 저하될거 같은 최악의 치킨이군요	It's the worst chicken that makes me lose my stamina
 LEMUR_THANK_YOU	나쁘지 않네요. 다음을 기대하죠	That's not bad. Let's look forward to the next one
@@ -281,6 +288,7 @@ DOVE_ORDER_9	나의 열렬한 심장을 표현한 듯한 치킨을 주문해야 
 DOVE_ORDER_10	그거 아시오? 마스터 나는 외면은 이탈리안처럼\n고급스러우면서 내면은 아주 뜨거운 불 비둘기라네	You Know What? Master, I'm a bulldog,\nbut I'm as luxurious as an Italian\non the outside and very hot inside
 DOVE_ORDER_11	오늘 나는 ‘미스 플라워’양에게 대쉬 할 생각이라네\n달콤하고 황금과 같은 그녀에게 나 불사조와 같은 비둘기인 내가! 	Today, I'm going to confess my love to Miss Flower!\nSweet and golden to her...\nI'm going to express a fire-like heart...
 DOVE_SIDE_COLA	고급 콜라를 주문해 볼까 하오	I'm thinking about ordering a high-quality coke
+DOVE_SIDE_BEER	고급 맥주를 주문해 볼까 하오	I'm thinking about ordering a high-quality beer
 DOVE_SIDE_PICKLE	원하오! 시원한 워터가 곁들어진 무!	I want it! Pickled in cool water!
 DOVE_ANGRY	이게 진짜일 리가 없어!	This can't be real!
 DOVE_THANK_YOU	흠! 이 무난함! 나쁘지 않아	Hmm! This is easy! Not bad
@@ -345,6 +353,7 @@ SEAOTTER_ORDER_9	사장님~ 나 좀 입천장 떨어질 정도로\n매운 닭이
 SEAOTTER_ORDER_10	사장님~ 오늘 닭 하나 잡아서 반은 간장에\n반은 양념에 담가 주이소~	Boss, today, could you please marinate\none chicken, half in soy sauce and\nthe other half in seasoning?
 SEAOTTER_ORDER_11	사장님~ 닭 하나 기름으로 튀겨서 반만\n깔보나라 소스로 좀 발라 주이소~	Boss, please fry one chicken in oil\nand then coat half of it with\ncarbonara sauce.
 SEAOTTER_SIDE_COLA	내 닭만 먹으면 목이 메서 콜라도 좀 주이소~	When I eat only chicken, my throat\ngets blocked, so could I have some\ncola too, please?
+SEAOTTER_SIDE_BEER	내 닭만 먹으면 목이 메서 맥주도 좀 주이소~	When I eat only chicken, my throat\ngets blocked, so could I have some\nbeer too, please?
 SEAOTTER_SIDE_PICKLE	닭을 먹는데 무가 빠짐 안되지!	Can't miss out on pickles when\neating chicken!
 SEAOTTER_ANGRY	서비스가 너무 허술하네~ 허술해~	The service here is quite sloppy indeed.
 SEAOTTER_THANK_YOU	사장님 장사 잘하이소~	Boss, you're doing well in business!

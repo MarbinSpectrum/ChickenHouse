@@ -37,6 +37,7 @@ public class Deer : GuestObj
             talkStr += "\n";
             talkStr += LanguageMgr.GetText("DEER_SIDE_COLA");
         }
+
         if (requireMenu.sideMenu == SideMenu.Pickle)
         {
             talkStr += "\n";

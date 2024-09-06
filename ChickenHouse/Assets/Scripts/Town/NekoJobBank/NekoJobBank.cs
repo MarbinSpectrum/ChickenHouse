@@ -184,8 +184,10 @@ public class NekoJobBank : Mgr
             resume.rightArrow.gameObject.SetActive(false);
             resume.employMenu.gameObject.SetActive(false);
 
-            gameMgr.playData.hasWorker[(int)worker] = true;
-            gameMgr.SaveData();
+            PlayData playData = gameMgr.playData;
+            playData.hasWorker[(int)worker] = true;
+            playData.money -= workerData.deposit;
+
             resume.stampAni.gameObject.SetActive(true);
         });
     }

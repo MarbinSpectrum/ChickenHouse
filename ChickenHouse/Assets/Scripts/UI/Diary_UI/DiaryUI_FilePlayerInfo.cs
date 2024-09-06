@@ -26,7 +26,7 @@ public class DiaryUI_FilePlayerInfo : Mgr
     {
 
         //기본 치킨 가격
-        string chickenPriceStr = string.Format(MONEY_FORMAT, PlayData.DEFAULT_CHICKEN_VALUE);
+        string chickenPriceStr = string.Format(MONEY_FORMAT, PlayData.DEFAULT_CHICKEN_PRICE);
         LanguageMgr.SetText(chickenPrice, chickenPriceStr);
 
         //치킨 재료 값
@@ -67,7 +67,7 @@ public class DiaryUI_FilePlayerInfo : Mgr
         }
 
         //손님 방문 주기
-        float guestDelayValue = GuestMgr.GUEST_DELAY_TIME * gameMgr.playData.GuestDelayRate();
+        float guestDelayValue = GuestSystem.GUEST_DELAY_TIME * gameMgr.playData.GuestDelayRate();
         string guestDelayValueStr = string.Format(TIME_FORMAT, guestDelayValue);
         LanguageMgr.SetText(guestRate, guestDelayValueStr);
 

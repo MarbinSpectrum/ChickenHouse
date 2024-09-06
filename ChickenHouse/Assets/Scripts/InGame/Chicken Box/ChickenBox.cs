@@ -34,7 +34,17 @@ public class ChickenBox : Mgr
         //손을때면 치킨이 떨어짐
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
 
-        if (kitchenMgr.mouseArea == DragArea.Tray_Egg && 
+        if (kitchenMgr.mouseArea == DragArea.Bowl_Egg &&
+           kitchenMgr.dragState == DragState.Normal)
+        {
+            //계란물쪽으로 치킨을 드래그함
+            if (kitchenMgr.bowlEgg.AddChicken())
+            {
+                kitchenMgr.dragState = DragState.None;
+                return;
+            }
+        }
+        else if (kitchenMgr.mouseArea == DragArea.Tray_Egg && 
             kitchenMgr.dragState == DragState.Normal)
         {
             //계란물쪽으로 치킨을 드래그함

@@ -66,7 +66,9 @@ public class LongNoseContractAD_UI : Mgr
         {
             PlayData playData = gameMgr.playData;
             playData.hasItem[(int)pItem] = true;
-            gameMgr.SaveData();
+
+            ShopData shopData = shopMgr.GetShopData(pItem);
+            playData.money -= shopData.money;
 
             SetMenu();
         });

@@ -80,7 +80,7 @@ public class Memo_UI : Mgr
             }
             else
             {
-                GuestMgr guestMgr = GuestMgr.Instance;
+                GuestSystem guestMgr = GuestSystem.Instance;
                 guestMgr.LeaveGuest(i);
                 RemoveMemo(i);
                 return;

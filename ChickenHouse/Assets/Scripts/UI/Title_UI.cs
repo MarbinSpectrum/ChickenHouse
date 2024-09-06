@@ -8,21 +8,22 @@ public class Title_UI : Mgr
     [SerializeField] private Button         loadGameBtn;
     [SerializeField] private Button         newGameBtn;
     [SerializeField] private Button         quitGameBtn;
-    [SerializeField] private SaveSlot_UI    saveSlotUI;
 
     [SerializeField] private Button         optionBtn;
     [SerializeField] private Option_UI      optionUI;
 
-    private List<PlayData> playDatas = new List<PlayData>();
     private void Awake()
     {
-        for (int i = 0; i < SaveSlot_UI.MAX_SLOT; i++)
+        bool hasData = false;
+        for (int i = 0; i < 6; i++)
         {
             PlayData data = gameMgr.LoadData(i);
-            playDatas.Add(data);
+            if (data == null)
+                continue;
+            hasData = true;
         }
+        loadGameBtn.gameObject.SetActive(hasData);
 
-        loadGameBtn.gameObject.SetActive(playDatas[0] != null);
         loadGameBtn.onClick.RemoveAllListeners();
         loadGameBtn.onClick.AddListener(() => LoadGame());
 
@@ -49,18 +50,21 @@ public class Title_UI : Mgr
 
     private void NewGame()
     {
-        gameMgr.DeleteData(0);
-        gameMgr.selectSaveSlot = 0;
-        sceneMgr.SceneLoad(Scene.PROLOGUE, false, SceneChangeAni.FADE);
+        gameMgr.OpenRecordUI(true, false, (saveSlot) =>
+        {
+            int slotNum = (int)saveSlot;
+            gameMgr.selectSaveSlot = slotNum;
+            sceneMgr.SceneLoad(Scene.PROLOGUE, false, SceneChangeAni.FADE);
+        });
     }
 
     private void LoadGame()
     {
-        gameMgr.selectSaveSlot = 0;
-        sceneMgr.SceneLoad(Scene.INGAME,false, SceneChangeAni.FADE);
-
-        return;
-
-        saveSlotUI.SetSlot_UI(playDatas);
+        gameMgr.OpenRecordUI(false, true, (saveSlot) =>
+        {
+            int slotNum = (int)saveSlot;
+            gameMgr.selectSaveSlot = slotNum;
+            sceneMgr.SceneLoad(Scene.PROLOGUE, false, SceneChangeAni.FADE);
+        });
     }
 }

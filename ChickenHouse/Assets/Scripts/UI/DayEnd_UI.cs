@@ -80,7 +80,7 @@ public class DayEnd_UI : Mgr
 
         addValue = total;
 
-        GuestMgr guestMgr = GuestMgr.Instance;
+        GuestSystem guestMgr = GuestSystem.Instance;
         guestMgr.ui.nowMoney.SetMoney(gameMgr.playData.money + addValue);
     }
 
@@ -90,9 +90,10 @@ public class DayEnd_UI : Mgr
             return;
         goNext = true;
 
+        gameMgr.playData.day++;
 
 #if DEMO
-        if(gameMgr.playData.day == 10)
+        if (gameMgr.playData.day == 10)
         {
             gameMgr.playData.money += addValue;
             sceneMgr.SceneLoad(Scene.DEMO, false, SceneChangeAni.CIRCLE);
@@ -101,6 +102,6 @@ public class DayEnd_UI : Mgr
 #endif
 
         gameMgr.playData.money += addValue;
-        sceneMgr.SceneLoad(Scene.TOWN, false, SceneChangeAni.CIRCLE);
+        sceneMgr.SceneLoad(Scene.TOWN, true, SceneChangeAni.CIRCLE);
     }
 }

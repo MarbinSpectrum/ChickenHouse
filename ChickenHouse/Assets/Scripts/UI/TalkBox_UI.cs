@@ -187,7 +187,7 @@ public class TalkBox_UI : Mgr
     public void ShowOrderTalk()
     {
         //인스펙터에 끌어서 사용하는 함수임
-        GuestMgr guestMgr = GuestMgr.Instance;
+        GuestSystem guestMgr = GuestSystem.Instance;
         if (guestMgr == null)
             return;
         guestMgr.TalkOrder();

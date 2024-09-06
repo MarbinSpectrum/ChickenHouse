@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04698e8fab843ca4f97de157c35a91e2, type: 3}
+  m_Name: Tasmanian Devil
+  m_EditorClassIdentifier: 
+  face: {fileID: 21300000, guid: 5b818133987c272439b15a01d5b58019, type: 3}
+  bookImg: {fileID: 21300000, guid: c8e1ada6bc164774baff84942922f051, type: 3}
+  bookNameKey: BOOK_TASMANIAN_NAME
+  bookInfoKey: BOOK_TASMANIAN_INFO
+  day: 3
+  canDrinkAlcohol: 1
+  goodChicken:
+  - openDay: 0
+    spicy0: 0
+    spicy1: 0
+    drink: 0
+    sideMenu: 0
+  - openDay: 0
+    spicy0: 1
+    spicy1: 1
+    drink: 0
+    sideMenu: 0
+  - openDay: 0
+    spicy0: 3
+    spicy1: 3
+    drink: 0
+    sideMenu: 0
+  - openDay: 5
+    spicy0: 5
+    spicy1: 5
+    drink: 0
+    sideMenu: 0
+  - openDay: 3
+    spicy0: 3
+    spicy1: 0
+    drink: 0
+    sideMenu: 0
+  - openDay: 3
+    spicy0: 1
+    spicy1: 3
+    drink: 0
+    sideMenu: 0
+  - openDay: 5
+    spicy0: 5
+    spicy1: 3
+    drink: 0
+    sideMenu: 0
+  - openDay: 3
+    spicy0: 1
+    spicy1: 0
+    drink: 0
+    sideMenu: 0
+  - openDay: 5
+    spicy0: 5
+    spicy1: 3
+    drink: 0
+    sideMenu: 0
+  - openDay: 5
+    spicy0: 5
+    spicy1: 0
+    drink: 0
+    sideMenu: 0
+  - openDay: 6
+    spicy0: 1
+    spicy1: 5
+    drink: 0
+    sideMenu: 0

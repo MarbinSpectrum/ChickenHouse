@@ -71,7 +71,7 @@ public class GoKitchen_UI : Mgr
 
         });
 
-        GuestMgr guestMgr = GuestMgr.Instance;
+        GuestSystem guestMgr = GuestSystem.Instance;
         guestMgr.CloseTalkBox();
         guestMgr.SkipTalk();
         guestMgr.SetSkipTalkBtnState(false);

@@ -13,7 +13,7 @@ public class RestaurantOpenCheck : Mgr
     {
         //인스펙터로 끌어서 사용하는 함수
         gameObject.SetActive(false);
-        sceneMgr.SceneLoad(Scene.INGAME, false, SceneChangeAni.FADE);
+        sceneMgr.SceneLoad(Scene.INGAME, true, SceneChangeAni.FADE);
     }
 
     public void OepnNo()

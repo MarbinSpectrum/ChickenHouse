@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04698e8fab843ca4f97de157c35a91e2, type: 3}
+  m_Name: Sea Otter
+  m_EditorClassIdentifier: 
+  face: {fileID: 21300000, guid: 00d48cbd73026ed4586fba27c3c7b42d, type: 3}
+  bookImg: {fileID: 21300000, guid: 3ef0868445c92c7448dd9182d042ae28, type: 3}
+  bookNameKey: BOOK_SEAOTTER_NAME
+  bookInfoKey: BOOK_SEAOTTER_INFO
+  day: 8
+  canDrinkAlcohol: 1
+  goodChicken:
+  - openDay: 1
+    spicy0: 0
+    spicy1: 0
+    drink: 0
+    sideMenu: 0
+  - openDay: 2
+    spicy0: 1
+    spicy1: 1
+    drink: 0
+    sideMenu: 0
+  - openDay: 3
+    spicy0: 2
+    spicy1: 2
+    drink: 0
+    sideMenu: 0
+  - openDay: 4
+    spicy0: 6
+    spicy1: 6
+    drink: 0
+    sideMenu: 0
+  - openDay: 5
+    spicy0: 3
+    spicy1: 3
+    drink: 0
+    sideMenu: 0
+  - openDay: 5
+    spicy0: 5
+    spicy1: 5
+    drink: 0
+    sideMenu: 0
+  - openDay: 5
+    spicy0: 4
+    spicy1: 4
+    drink: 0
+    sideMenu: 0
+  - openDay: 3
+    spicy0: 0
+    spicy1: 1
+    drink: 0
+    sideMenu: 0
+  - openDay: 6
+    spicy0: 2
+    spicy1: 6
+    drink: 0
+    sideMenu: 0
+  - openDay: 6
+    spicy0: 5
+    spicy1: 1
+    drink: 0
+    sideMenu: 0
+  - openDay: 6
+    spicy0: 4
+    spicy1: 0
+    drink: 0
+    sideMenu: 0

@@ -5,20 +5,23 @@ using UnityEngine;
 
 public class GameMgr : AwakeSingleton<GameMgr>
 {
-    public int selectSaveSlot;
-    public PlayData playData = null;
+    [NonSerialized] public int selectSaveSlot;
+    [NonSerialized] public PlayData playData = null;
     public bool stopGame { private set; get; }
 
     /** 오늘 수입 **/
-    public int dayMoney;
+    [NonSerialized] public int dayMoney;
     /** 판매한 치킨 수 **/
-    public int sellChickenCnt;
+    [NonSerialized] public int sellChickenCnt;
     /** 판매한 드링크 갯수 **/
-    public Dictionary<Drink, int>       sellDrinkCnt        = new Dictionary<Drink, int>();
+    [NonSerialized] public Dictionary<Drink, int>       sellDrinkCnt        = new Dictionary<Drink, int>();
     /** 판매한 사이드메뉴 갯수 **/
-    public Dictionary<SideMenu, int>    sellSideMenuCnt     = new Dictionary<SideMenu, int>();
+    [NonSerialized] public Dictionary<SideMenu, int>    sellSideMenuCnt     = new Dictionary<SideMenu, int>();
 
-    public static int TARGET_MONEY_1 = 10000;
+    [SerializeField] private GameRecord_UI gameRecord;
+
+    public static int TARGET_MONEY_1 = 50000;
+
 
     //-------------------------------------------------------------------------------------------------------
     protected override void Awake()
@@ -28,19 +31,35 @@ public class GameMgr : AwakeSingleton<GameMgr>
         Application.targetFrameRate = 120;
         Time.timeScale = 1;
         SoundMgr soundMgr = SoundMgr.Instance;
-        soundMgr.MuteSE(false);
+        if(soundMgr != null)
+            soundMgr.MuteSE(false);
+    }
+
+    private void Update()
+    {
+        if (Input.acceleration.y > 0.5f)
+        {
+            //화면 방향에따라서 자동으로 회전하도록 설정
+            if (Screen.orientation == ScreenOrientation.LandscapeRight)
+                Screen.orientation = ScreenOrientation.LandscapeLeft;
+            else
+                Screen.orientation = ScreenOrientation.LandscapeRight;
+        }
     }
 
     //-------------------------------------------------------------------------------------------------------
     public void LoadData()
     {
+        playData = LoadData(selectSaveSlot);
+        playData ??= new PlayData();
+    }
+
+    public void InitData()
+    {
         dayMoney = 0;
         sellChickenCnt = 0;
         sellDrinkCnt.Clear();
         sellSideMenuCnt.Clear();
-
-        playData = LoadData(selectSaveSlot);
-        playData ??= new PlayData();
     }
 
     public PlayData LoadData(int select)
@@ -95,5 +114,16 @@ public class GameMgr : AwakeSingleton<GameMgr>
         Time.timeScale = state ? 0 : 1;
         SoundMgr soundMgr = SoundMgr.Instance;
         soundMgr.MuteSE(state);
+    }
+
+    public void OpenRecordUI(bool canSave, bool canLoad, OneParaDel pFun)
+    {
+        gameRecord.SetUI(canSave, canLoad, pFun);
+        gameRecord.gameObject.SetActive(true);
+    }
+
+    public void CloseRecordUI()
+    {
+        gameRecord.gameObject.SetActive(false);
     }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class DragObj : Mgr
 {
@@ -16,21 +17,15 @@ public class DragObj : Mgr
     [SerializeField] private CHICKEN_SPRITE chickenSprite;
     [SerializeField] private Image chickenImg;
 
-    /** 양념 치킨 소스 **/
-    [SerializeField] private GameObject     hotSpicy;
-    /** 간장 치킨 소스 **/
-    [SerializeField] private GameObject     soySpicy;
-    /** 불닭 치킨 소스 **/
-    [SerializeField] private GameObject     hellSpicy;
-    /** 뿌링클 치킨 소스 **/
-    [SerializeField] private GameObject     prinkleSpicy;
-    /** 까르보나라 치킨 소스 **/
-    [SerializeField] private GameObject     carbonaraSpicy;
-    /** 바베큐 치킨 소스 **/
-    [SerializeField] private GameObject     bbqSpicy;
-
-    /** 치킨 무 **/
-    [SerializeField] private GameObject     chickenRadish;
+    /** 양념 **/
+    [System.Serializable]
+    public struct SPICY_OBJ
+    {
+        public RectTransform    spicyRect;
+        public Image            spicyImg;
+        public TextMeshProUGUI  spicyText;
+    }
+    [SerializeField] private SPICY_OBJ spicyObj;
 
     /** 치킨 건지 **/
     [SerializeField] private GameObject         strainterObj;
@@ -39,8 +34,25 @@ public class DragObj : Mgr
     /** 치킨 박스 */
     [SerializeField] private GameObject         chickenBox;
 
-    /** 콜라 **/
-    [SerializeField] private GameObject         cola;
+    /** 음료 **/
+    [System.Serializable]
+    public struct DRINK_OBJ
+    {
+        public RectTransform    drinkRect;
+        public Image            drinkImg;
+        public TextMeshProUGUI  drinkText;
+    }
+    [SerializeField] private DRINK_OBJ drinkObj;
+
+    /** 사이드 메뉴 **/
+    [System.Serializable]
+    public struct SIDEMENU_OBJ
+    {
+        public RectTransform    sideMenuRect;
+        public Image            sideMenuImg;
+        public TextMeshProUGUI  sideMenuText;
+    }
+    [SerializeField] private SIDEMENU_OBJ sideMenuObj;
 
     /** 치킨 **/
     [System.Serializable]
@@ -96,57 +108,19 @@ public class DragObj : Mgr
                 }
                 return;
             case DragState.Hot_Spicy:
-                {
-                    //치킨 양념을 드래그한 상태
-                    hotSpicy.gameObject.SetActive(true);
-
-                    MoveMousePos();
-                }
-                return;
             case DragState.Soy_Spicy:
-                {
-                    //간장 양념을 드래그한 상태
-                    soySpicy.gameObject.SetActive(true);
-
-                    MoveMousePos();
-                }
-                break;
             case DragState.Hell_Spicy:
-                {
-                    //불닭 양념을 드래그한 상태
-                    hellSpicy.gameObject.SetActive(true);
-
-                    MoveMousePos();
-                }
-                break;
             case DragState.Prinkle_Spicy:
-                {
-                    //뿌링클 양념을 드래그한 상태
-                    prinkleSpicy.gameObject.SetActive(true);
-
-                    MoveMousePos();
-                }
-                break;
             case DragState.Carbonara_Spicy:
-                {
-                    //까르보나라 양념을 드래그한 상태
-                    carbonaraSpicy.gameObject.SetActive(true);
-
-                    MoveMousePos();
-                }
-                break;
             case DragState.BBQ_Spicy:
                 {
-                    //바베큐 양념을 드래그한 상태
-                    bbqSpicy.gameObject.SetActive(true);
+                    //양념을 드래그한 상태
+                    spicyObj.spicyRect.gameObject.SetActive(true);
 
-                    MoveMousePos();
-                }
-                break;
-            case DragState.Chicken_Pickle:
-                {
-                    //치킨 무를 드래그한 상태
-                    chickenRadish.gameObject.SetActive(true);
+                    ChickenSpicy    chickenSpicy    = spicyMgr.GetDragStateSpicy(kitchenMgr.dragState);
+                    SpicyData       spicyData       = spicyMgr.GetSpicyData(chickenSpicy);
+                    spicyObj.spicyImg.sprite        = spicyData.img;
+                    LanguageMgr.SetString(spicyObj.spicyText, spicyData.nameKey);
 
                     MoveMousePos();
                 }
@@ -160,10 +134,29 @@ public class DragObj : Mgr
                     MoveMousePos();
                 }
                 return;
+            case DragState.Beer:
             case DragState.Cola:
                 {
+                    Drink       eDrink      = subMenuMgr.GetDragStateDrink(kitchenMgr.dragState);
+                    DrinkData   drinkData   = subMenuMgr.GetDrinkData(eDrink);
+
                     //음료를 드래그한 상태
-                    cola.gameObject.SetActive(true);
+                    drinkObj.drinkImg.sprite = drinkData.img;
+                    drinkObj.drinkRect.gameObject.SetActive(true);
+                    LanguageMgr.SetString(drinkObj.drinkText, drinkData.nameKey);
+
+                    MoveMousePos();
+                }
+                return;
+            case DragState.Chicken_Pickle:
+                {
+                    SideMenu        eSideMenu       = subMenuMgr.GetDragStateSideMenu(kitchenMgr.dragState);
+                    SideMenuData    sideMenuData    = subMenuMgr.GetSideMenuData(eSideMenu);
+
+                    //치킨 무를 드래그한 상태
+                    sideMenuObj.sideMenuImg.sprite = sideMenuData.img;
+                    sideMenuObj.sideMenuRect.gameObject.SetActive(true);
+                    LanguageMgr.SetString(sideMenuObj.sideMenuText, sideMenuData.nameKey);
 
                     MoveMousePos();
                 }
@@ -175,15 +168,10 @@ public class DragObj : Mgr
     {
         chickenImg.gameObject.SetActive(false);
         strainterObj.gameObject.SetActive(false);
-        hotSpicy.gameObject.SetActive(false);
-        chickenRadish.gameObject.SetActive(false);
         chickenBox.gameObject.SetActive(false);
-        cola.gameObject.SetActive(false);
-        soySpicy.gameObject.SetActive(false);
-        hellSpicy.gameObject.SetActive(false);
-        prinkleSpicy.gameObject.SetActive(false);
-        carbonaraSpicy.gameObject.SetActive(false);
-        bbqSpicy.gameObject.SetActive(false);
+        spicyObj.spicyRect.gameObject.SetActive(false);
+        drinkObj.drinkRect.gameObject.SetActive(false);
+        sideMenuObj.sideMenuRect.gameObject.SetActive(false);
     }
 
     private void MoveMousePos()

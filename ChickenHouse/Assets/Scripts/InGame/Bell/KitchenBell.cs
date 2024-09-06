@@ -25,7 +25,7 @@ public class KitchenBell : Mgr
             return;
         }
 
-        GuestMgr guestMgr = GuestMgr.Instance;
+        GuestSystem guestMgr = GuestSystem.Instance;
         if (guestMgr.guestcnt <= 0)
             return;
 
@@ -40,7 +40,7 @@ public class KitchenBell : Mgr
             SideMenu sideMenu = tablePickleSlot.hasPickle ? SideMenu.Pickle : SideMenu.None;
             ChickenSpicy spicy0 = (ChickenSpicy)Mathf.Min((int)tableChicken.source0, (int)tableChicken.source1);
             ChickenSpicy spicy1 = (ChickenSpicy)Mathf.Max((int)tableChicken.source0, (int)tableChicken.source1);
-            GuestMgr guestMgr = GuestMgr.Instance;
+            GuestSystem guestMgr = GuestSystem.Instance;
             guestMgr.GiveChicken(spicy0, spicy1, tableChicken.chickenState,
               drink, sideMenu);
 

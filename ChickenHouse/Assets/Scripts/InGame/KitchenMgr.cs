@@ -13,8 +13,12 @@ public class KitchenMgr : Mgr
     [System.NonSerialized] public ChickenBox       chickenBox;
     /** 계란물 통 **/
     [System.NonSerialized] public TrayEgg          trayEgg;
+    /** 계란물 그릇 **/
+    [System.NonSerialized] public BowlEgg          bowlEgg;
     /** 밀가루 통 **/
     [System.NonSerialized] public TrayFlour        trayFlour;
+    /** 밀가루 통2 **/
+    [System.NonSerialized] public TrayFlour2        trayFlour2;
     /** 치킨 건지 **/
     [System.NonSerialized] public ChickenStrainter chickenStrainter;
     /** 기름 **/
@@ -41,26 +45,15 @@ public class KitchenMgr : Mgr
     public ScrollRect       kitchenRect;
     /** 알바생 **/
     public Worker worker;
+    /** 양념 **/
+    [SerializeField] private List<ChickenSpicyObj>  spicys      = new List<ChickenSpicyObj>();
+    /** 드링크 **/
+    [SerializeField] private List<DrinkObj>         drinks      = new List<DrinkObj>();
+    /** 피클 **/
+    [SerializeField] private List<SideMenuObj>      sideMenus   = new List<SideMenuObj>();
 
-    [System.Serializable]
-    public struct Spicy
-    {
-        //치킨 소스
-
-        /** 양념 치킨 양념 **/
-        public GameObject hotSpicy;
-        /** 간장 양념 **/
-        public GameObject soySpicy;
-        /** 붉닭 양념 **/
-        public GameObject hellSpicy;
-        /** 프링클 양념 **/
-        public GameObject prinkleSpicy;
-        /** 까르보나라 양념 **/
-        public GameObject carbonaraSpicy;
-        /** 바베큐 양념 **/
-        public GameObject bbqSpicy;
-    }
-    public Spicy spicy;
+    [SerializeField] private List<Oil_Zone>         oilMachines         = new List<Oil_Zone>();
+    [SerializeField] private List<GameObject>       chickenPackslots    = new List<GameObject>();
 
     [System.Serializable]
     public struct UI
@@ -96,32 +89,92 @@ public class KitchenMgr : Mgr
     {
         /////////////////////////////////////////////////////////////////////////////////
         //양념통 세팅
+        spicys.ForEach((x) => x.gameObject.SetActive(false));
+        for(int i = 0; i < gameMgr.playData.spicyState.Length; i++)
+        {
+            if((ChickenSpicy)gameMgr.playData.spicyState[i] == ChickenSpicy.None)
+            {
+                spicys[i].gameObject.SetActive(false);
+            }
+            else
+            {
+                spicys[i].SetObj((ChickenSpicy)gameMgr.playData.spicyState[i]);
+                spicys[i].gameObject.SetActive(true);
+            }
+        }
 
-        spicy.soySpicy.gameObject.SetActive(false);
-        spicy.hellSpicy.gameObject.SetActive(false);
-        spicy.prinkleSpicy.gameObject.SetActive(false);
-        spicy.carbonaraSpicy.gameObject.SetActive(false);
-        spicy.bbqSpicy.gameObject.SetActive(false);
-        if (gameMgr.playData.hasItem[(int)ShopItem.Recipe_1])
+        /////////////////////////////////////////////////////////////////////////////////
+        //음료 세팅
+        drinks.ForEach((x) => x.gameObject.SetActive(false));
+        for (int i = 0; i < gameMgr.playData.drinkState.Length; i++)
         {
-            spicy.soySpicy.gameObject.SetActive(true);
+            if ((Drink)gameMgr.playData.drinkState[i] == Drink.None)
+            {
+                drinks[i].gameObject.SetActive(false);
+            }
+            else
+            {
+                drinks[i].SetObj((Drink)gameMgr.playData.drinkState[i]);
+                drinks[i].gameObject.SetActive(true);
+            }
         }
-        if (gameMgr.playData.hasItem[(int)ShopItem.Recipe_2])
+
+        /////////////////////////////////////////////////////////////////////////////////
+        //사이드메뉴 세팅
+        sideMenus.ForEach((x) => x.gameObject.SetActive(false));
+        for (int i = 0; i < gameMgr.playData.sideMenuState.Length; i++)
         {
-            spicy.hellSpicy.gameObject.SetActive(true);
+            if ((SideMenu)gameMgr.playData.sideMenuState[i] == SideMenu.None)
+            {
+                sideMenus[i].gameObject.SetActive(false);
+            }
+            else
+            {
+                sideMenus[i].SetObj((SideMenu)gameMgr.playData.sideMenuState[i]);
+                sideMenus[i].gameObject.SetActive(true);
+            }
         }
-        if (gameMgr.playData.hasItem[(int)ShopItem.Recipe_3])
+
+        /////////////////////////////////////////////////////////////////////////////////
+        //튀김기&치킨상자 준비
+        foreach (Oil_Zone oilZone in oilMachines)
         {
-            spicy.prinkleSpicy.gameObject.SetActive(true);
+            oilZone.Init();
         }
-        if (gameMgr.playData.hasItem[(int)ShopItem.Recipe_4])
+
+        if (gameMgr.playData.hasItem[(int)ShopItem.NEW_OIL_ZONE_1])
         {
-            spicy.carbonaraSpicy.gameObject.SetActive(true);
+            chickenPackslots[1].gameObject.SetActive(true);
+            oilMachines[1].gameObject.SetActive(true);
         }
-        if (gameMgr.playData.hasItem[(int)ShopItem.Recipe_5])
+        else
         {
-            spicy.bbqSpicy.gameObject.SetActive(true);
+            oilMachines[1].gameObject.SetActive(false);
+            chickenPackslots[1].gameObject.SetActive(false);
         }
+
+        if (gameMgr.playData.hasItem[(int)ShopItem.NEW_OIL_ZONE_2])
+        {
+            chickenPackslots[2].gameObject.SetActive(true);
+            oilMachines[2].gameObject.SetActive(true);
+        }
+        else
+        {
+            oilMachines[2].gameObject.SetActive(false);
+            chickenPackslots[2].gameObject.SetActive(false);
+        }
+
+        if (gameMgr.playData.hasItem[(int)ShopItem.NEW_OIL_ZONE_3])
+        {
+            chickenPackslots[3].gameObject.SetActive(true);
+            oilMachines[3].gameObject.SetActive(true);
+        }
+        else
+        {
+            oilMachines[3].gameObject.SetActive(false);
+            chickenPackslots[3].gameObject.SetActive(false);
+        }
+
 
         /////////////////////////////////////////////////////////////////////////////////
         //알바생 업무 시작

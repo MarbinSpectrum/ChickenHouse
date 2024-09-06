@@ -6,17 +6,14 @@ using TMPro;
 
 public class StartGame : Mgr
 {
-    [SerializeField] private List<Oil_Zone> oilMachines = new List<Oil_Zone>();
-    [SerializeField] private List<GameObject> chickenPackslots = new List<GameObject>();
+    [SerializeField] private RectTransform dayStartAni;
 
-    private void Start()
+    public void Run()
     {
-        gameMgr.LoadData();
-
-        GuestMgr guestMgr = GuestMgr.Instance;
-        if(guestMgr != null)
+        GuestSystem guestSystem = GuestSystem.Instance;
+        if(guestSystem != null)
         {
-            guestMgr.Init();
+            guestSystem.Init();
         }
 
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
@@ -24,43 +21,8 @@ public class StartGame : Mgr
         {
             kitchenMgr.Init();
         }
-        foreach(Oil_Zone oilZone in oilMachines)
-        {
-            oilZone.Init();
-        }
-        if (gameMgr.playData.hasItem[(int)ShopItem.NEW_OIL_ZONE_1])
-        {
-            chickenPackslots[1].gameObject.SetActive(true);
-            oilMachines[1].gameObject.SetActive(true);
-        }
-        else
-        {
-            oilMachines[1].gameObject.SetActive(false);
-            chickenPackslots[1].gameObject.SetActive(false);
-        }
-
-        if (gameMgr.playData.hasItem[(int)ShopItem.NEW_OIL_ZONE_2])
-        {
-            chickenPackslots[2].gameObject.SetActive(true);
-            oilMachines[2].gameObject.SetActive(true);
-        }
-        else
-        {
-            oilMachines[2].gameObject.SetActive(false);
-            chickenPackslots[2].gameObject.SetActive(false);
-        }
-
-        if (gameMgr.playData.hasItem[(int)ShopItem.NEW_OIL_ZONE_3])
-        {
-            chickenPackslots[3].gameObject.SetActive(true);
-            oilMachines[3].gameObject.SetActive(true);
-        }
-        else
-        {
-            oilMachines[3].gameObject.SetActive(false);
-            chickenPackslots[3].gameObject.SetActive(false);
-        }
-
+      
         soundMgr.PlayBGM(Sound.InGame_BG);
+        dayStartAni.gameObject.SetActive(true);
     }
 }

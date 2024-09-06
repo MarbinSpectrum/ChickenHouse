@@ -15,6 +15,11 @@ public class ChickenLerp_Shader : Mgr
     private float LerpValue = -1;
     [SerializeField, Range(0, 1)] private float lerpValue;
 
+    public void SetValue(float v)
+    {
+        img.material.SetFloat("_LerpValue", v);
+    }
+
     private void Update()
     {
         if (img == null || mat == null)

@@ -33,7 +33,11 @@ public enum DragArea
     /** 치킨 슬롯 **/
     Chicken_Slot        = 9,
     /** 사이드 메뉴 슬롯 **/
-    SideMenu_Slot         = 10,
+    SideMenu_Slot       = 10,
+    /** 계란물(Bowl) **/
+    Bowl_Egg            = 11,
+    /** 밀가루2 **/
+    Tray_Flour2         = 12,
 }
 
 public enum GuestReviews
@@ -84,6 +88,8 @@ public enum DragState
     BBQ_Spicy       = 15,
     /** 치킨 박스(구멍) **/
     Chicken_Pack_Holl = 16,
+    /** 맥주 **/
+    Beer            = 17,
 }
 
 public enum ChickenState
@@ -272,12 +278,20 @@ public enum ShopItem
     NEW_OIL_ZONE_2      = 152,      //기름통 추가
     NEW_OIL_ZONE_3      = 153,      //기름통 추가
 
-    /** 레시피 업그레이드(총 수입은 레시피의 수치 합산) **/
-    Recipe_1            = 201,      //간장치킨(수입 +20%)
-    Recipe_2            = 202,      //불닭치킨(수입 +20%)
-    Recipe_3            = 203,      //프링클치킨(수입 +20%)
-    Recipe_4            = 204,      //까르보나라(수입 +20%)
-    Recipe_5            = 205,      //바베큐치킨(수입 +20%)
+    /** 레시피 **/
+    Recipe_0            = 200,      //양념치킨
+    Recipe_1            = 201,      //간장치킨
+    Recipe_2            = 202,      //불닭치킨
+    Recipe_3            = 203,      //프링클치킨
+    Recipe_4            = 204,      //까르보나라
+    Recipe_5            = 205,      //바베큐치킨
+
+    /** 음료 **/
+    Cola                = 231,      //콜라
+    Beer                = 232,      //맥주
+
+    /** 사이드 메뉴 **/
+    Pickle              = 261,      //치킨무
 
     /** 광고 업그레이드 **/
     Advertisement_1     = 301,      //광고 업그레이드(손님 딜레이 -10%);
@@ -291,10 +305,12 @@ public enum ShopItem
 
 public enum EWorker
 {
-    Worker_1,
-    Worker_2,
-    Worker_3,
-    Worker_4,
+    None        = 0,
+
+    Worker_1    = 1,
+    Worker_2    = 2,
+    Worker_3    = 3,
+    Worker_4    = 4,
 
     MAX
 }
@@ -334,7 +350,9 @@ public enum Drink
 {
     None            = 0,
     Cola            = 1,
+    Beer            = 2,
 
+    MAX,
 }
 
 public enum SideMenu
@@ -342,6 +360,7 @@ public enum SideMenu
     None            = 0,
     Pickle          = 1,
 
+    MAX,
 }
 
 public enum WorkerHandState

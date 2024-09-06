@@ -26,9 +26,20 @@ public class TableDrinkSlot : Mgr
             return;
         }
 
+
         if (kitchenMgr.dragState == DragState.Cola)
         {
             //음료를 놓을수있는 상태이긴하다.
+            DrinkData drinkData = subMenuMgr.GetDrinkData(Drink.Cola);
+            drinkImg.sprite = drinkData.img;
+            drinkImg.color = new Color(1, 1, 1, 0.5f);
+            slotUI.gameObject.SetActive(true);
+        }
+        else if (kitchenMgr.dragState == DragState.Beer)
+        {
+            //음료를 놓을수있는 상태이긴하다.
+            DrinkData drinkData = subMenuMgr.GetDrinkData(Drink.Beer);
+            drinkImg.sprite = drinkData.img;
             drinkImg.color = new Color(1, 1, 1, 0.5f);
             slotUI.gameObject.SetActive(true);
         }

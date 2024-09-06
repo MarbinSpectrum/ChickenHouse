@@ -7,10 +7,10 @@ public class RequireMenu
     //손님이 원하는 메뉴에 대한 정보가 담긴 객체입니다.
 
     /** 피클을 요구할 확률 **/
-    private const int PICKLE_PER = 40;
+    private const int SIDEMENU_PER = 40;
 
     /** 콜라를 요구할 확률 **/
-    private const int COLA_PER = 40;
+    private const int DRINK_PER = 40;
 
     /** 원하는 치킨 소스 **/
     public ChickenSpicy[] chickenSpicy { get; private set; } = new ChickenSpicy[2];
@@ -63,8 +63,8 @@ public class RequireMenu
             if (drink == Drink.None)
             {
                 int randomValue = Random.Range(0, 100);
-                if (randomValue < COLA_PER)
-                    drink = Drink.Cola;
+                if (randomValue < DRINK_PER)
+                    drink = guestMenu.GetRandomDrink(pGuestData.canDrinkAlcohol);
             }
 
             //고정 사이드 메뉴가 없으면 랜덤하게 정한다.
@@ -72,110 +72,13 @@ public class RequireMenu
             if (sideMenu == SideMenu.None)
             {
                 int randomValue = Random.Range(0, 100);
-                if (randomValue < PICKLE_PER)
-                    sideMenu = SideMenu.Pickle;
+                if (randomValue < SIDEMENU_PER)
+                    sideMenu = guestMenu.GetRandomSideMenu();
             }
 
             return true;
         }
     }
-
-    public string GetChickenName()
-    {
-        ChickenSpicy spicy0 = (ChickenSpicy)Mathf.Min((int)chickenSpicy[0], (int)chickenSpicy[1]);
-        ChickenSpicy spicy1 = (ChickenSpicy)Mathf.Max((int)chickenSpicy[0], (int)chickenSpicy[1]);
-
-        //주문한 치킨 이름 반환
-        switch (spicy0)
-        {
-            case ChickenSpicy.None:
-                {
-                    switch (spicy1)
-                    {
-                        case ChickenSpicy.None:
-                            return LanguageMgr.GetText("FRIED_CHICKEN");
-                        case ChickenSpicy.Hot:
-                            return LanguageMgr.GetText("HOT_AND_FRIED_CHICKEN");
-                        case ChickenSpicy.Soy:
-                            return LanguageMgr.GetText("SOY_AND_FRIED_CHICKEN");
-                        case ChickenSpicy.Hell:
-                            return LanguageMgr.GetText("HELL_AND_FRIED_CHICKEN");
-                        case ChickenSpicy.Prinkle:
-                            return LanguageMgr.GetText("PRINKLE_AND_FRIED_CHICKEN");
-                        case ChickenSpicy.BBQ:
-                            return LanguageMgr.GetText("BBQ_AND_FRIED_CHICKEN");
-                    }
-                }
-                break;
-            case ChickenSpicy.Hot:
-                {
-                    switch (spicy1)
-                    {
-                        case ChickenSpicy.Hot:
-                            return LanguageMgr.GetText("HOT_SPICY_CHICKEN");
-                        case ChickenSpicy.Soy:
-                            return LanguageMgr.GetText("HOT_AND_SOY_CHICKEN");
-                        case ChickenSpicy.Hell:
-                            return LanguageMgr.GetText("HELL_AND_HOT_CHICKEN");
-                        case ChickenSpicy.Prinkle:
-                            return LanguageMgr.GetText("HOT_AND_PRINKLE_CHICKEN");
-                        case ChickenSpicy.BBQ:
-                            return LanguageMgr.GetText("HOT_AND_BBQ_CHICKEN");
-                    }
-                }
-                break;
-            case ChickenSpicy.Soy:
-                {
-                    switch (spicy1)
-                    {
-                        case ChickenSpicy.Soy:
-                            return LanguageMgr.GetText("SOY_CHICKEN");
-                        case ChickenSpicy.Hell:
-                            return LanguageMgr.GetText("HELL_AND_SOY_CHICKEN");
-                        case ChickenSpicy.Prinkle:
-                            return LanguageMgr.GetText("SOY_AND_PRINKLE_CHICKEN");
-                        case ChickenSpicy.BBQ:
-                            return LanguageMgr.GetText("SOY_AND_BBQ_CHICKEN");
-                    }
-                }
-                break;
-            case ChickenSpicy.Hell:
-                {
-                    switch (spicy1)
-                    {
-                        case ChickenSpicy.Hell:
-                            return LanguageMgr.GetText("HELL_CHICKEN");
-                        case ChickenSpicy.Prinkle:
-                            return LanguageMgr.GetText("PRINKLE_AND_HELL_CHICKEN");
-                        case ChickenSpicy.BBQ:
-                            return LanguageMgr.GetText("BBQ_AND_HELL_CHICKEN");
-                    }
-                }
-                break;
-            case ChickenSpicy.Prinkle:
-                {
-                    switch (spicy1)
-                    {
-                        case ChickenSpicy.Prinkle:
-                            return LanguageMgr.GetText("PRINKLE_CHICKEN");
-                        case ChickenSpicy.BBQ:
-                            return LanguageMgr.GetText("PRINKLE_AND_BBQ_CHICKEN");
-                    }
-                }
-                break;
-            case ChickenSpicy.BBQ:
-                {
-                    switch (spicy1)
-                    {
-                        case ChickenSpicy.BBQ:
-                            return LanguageMgr.GetText("BBQ_CHICKEN");
-                    }
-                }
-                break;
-        }
-        return string.Empty;
-    }
-
 
     public GuestReviews MenuPoint(ChickenSpicy pSpicy0, ChickenSpicy pSpicy1, 
         ChickenState pChickenState, Drink pDrink, SideMenu pSideMenu)

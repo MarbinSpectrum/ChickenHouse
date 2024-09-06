@@ -37,6 +37,12 @@ public class Lemur : GuestObj
             talkStr += "\n";
             talkStr += LanguageMgr.GetText("LEMUR_SIDE_COLA");
         }
+        else if (requireMenu.drink == Drink.Beer)
+        {
+            talkStr += "\n";
+            talkStr += LanguageMgr.GetText("LEMUR_SIDE_BEER");
+        }
+
         if (requireMenu.sideMenu == SideMenu.Pickle)
         {
             talkStr += "\n";

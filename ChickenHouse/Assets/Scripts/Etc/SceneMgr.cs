@@ -6,7 +6,11 @@ using UnityEngine.SceneManagement;
 public class SceneMgr : AwakeSingleton<SceneMgr>
 {
     [SerializeField] private Dictionary<SceneChangeAni,Animator> changeList = new Dictionary<SceneChangeAni, Animator>();
-    [SerializeField] private RectTransform saveObj;
+    [SerializeField] private RectTransform saveAni;
+    [SerializeField] private RectTransform saveCheckUI;
+
+    private bool saveCheckFlag = false;
+    private bool saveDataFlag = false;
 
     public void SceneLoad(Scene scene,bool save, SceneChangeAni changeAni = SceneChangeAni.NOT)
     {
@@ -23,15 +27,24 @@ public class SceneMgr : AwakeSingleton<SceneMgr>
 
         if(save)
         {
-            saveObj.gameObject.SetActive(true);
+            saveCheckFlag = false;
+            saveDataFlag = false;
 
-            GameMgr gameMgr = GameMgr.Instance;
-            gameMgr.SaveData();
+            saveCheckUI.gameObject.SetActive(true);
 
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitUntil(() => saveCheckFlag);
+
+            saveCheckUI.gameObject.SetActive(false);
+
         }
 
-        saveObj.gameObject.SetActive(false);
+        if(saveDataFlag)
+        {
+            //저장확인용 플래그
+            saveAni.gameObject.SetActive(true);
+            yield return new WaitForSeconds(1.5f);
+            saveAni.gameObject.SetActive(false);
+        }
 
         SoundMgr soundMgr = SoundMgr.Instance;
         soundMgr.StopSE();
@@ -41,5 +54,28 @@ public class SceneMgr : AwakeSingleton<SceneMgr>
 
         if (changeList.ContainsKey(changeAni))
             changeList[changeAni].Play("Off");
+    }
+
+    public void ShowAnimation(SceneChangeAni changeAni,bool show)
+    {
+        if (changeList.ContainsKey(changeAni))
+            changeList[changeAni].Play(show ? "On" : "Off");
+    }
+
+    public void SaveCheckYes()
+    {
+        GameMgr gameMgr = GameMgr.Instance;
+        gameMgr.OpenRecordUI(true,false, (saveSlot) =>
+        {
+            int slotNum = (int)saveSlot;
+            gameMgr.selectSaveSlot = slotNum;
+            saveCheckFlag = true;
+            saveDataFlag = true;
+        });
+    }
+
+    public void SaveCheckNo()
+    {
+        saveCheckFlag = true;
     }
 }
