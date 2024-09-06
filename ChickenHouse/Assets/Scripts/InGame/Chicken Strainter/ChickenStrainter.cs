@@ -169,7 +169,7 @@ public class ChickenStrainter : Mgr
                 RemoveChicken();
             }
 
-            kitchenMgr.worker.UpdateHandMoveArea();
+            kitchenMgr.UpdateWorkerAct();
         }
 
         isHold = false;
@@ -228,7 +228,7 @@ public class ChickenStrainter : Mgr
                     RemoveChicken();
                 }
 
-                kitchenMgr.worker.UpdateHandMoveArea();
+                kitchenMgr.UpdateWorkerAct();
             }
         }
 
@@ -278,7 +278,7 @@ public class ChickenStrainter : Mgr
         }
 
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
-        kitchenMgr.worker.UpdateHandMoveArea();
+        kitchenMgr.UpdateWorkerAct();
 
         return true;
     }
@@ -302,7 +302,7 @@ public class ChickenStrainter : Mgr
         chickenAni[chickenCnt].gameObject.SetActive(false);
 
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
-        kitchenMgr.worker.UpdateHandMoveArea();
+        kitchenMgr.UpdateWorkerAct();
 
         return true;
     }
@@ -323,6 +323,6 @@ public class ChickenStrainter : Mgr
         }
 
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
-        kitchenMgr.worker.UpdateHandMoveArea();
+        kitchenMgr.UpdateWorkerAct();
     }
 }

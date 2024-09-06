@@ -74,8 +74,7 @@ public class GameMgr : AwakeSingleton<GameMgr>
 
     public void SaveData()
     {
-        if (playData == null)
-            return;
+        playData ??= new PlayData();
 
         DateTime dateTime = DateTime.Now;
         int saveYear = dateTime.Year;

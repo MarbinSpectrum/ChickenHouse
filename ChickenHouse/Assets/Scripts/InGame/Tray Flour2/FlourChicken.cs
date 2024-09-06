@@ -11,8 +11,8 @@ public class FlourChicken : Mgr
 
     public bool isEmpty;
     public bool isDrag;
-    private int clickCnt = 0;
-    private const int MAX_CLICK_CNT = 5;
+    private float value = 0;
+    private const float MAX_VALUE = 5;
 
     public void SpawnChicken()
     {
@@ -20,7 +20,7 @@ public class FlourChicken : Mgr
         isEmpty = false;
         lerpImg.gameObject.SetActive(true);
         isDrag = false;
-        clickCnt = 0;
+        value = 0;
         lerpImg.SetValue(0);
     }
 
@@ -53,7 +53,7 @@ public class FlourChicken : Mgr
             //주방을 보고있는 상태에서만 상호 작용 가능
             return;
         }
-        if(clickCnt != MAX_CLICK_CNT)
+        if(IsComplete() == false)
         {
             //완료되지않음
             return;
@@ -64,16 +64,17 @@ public class FlourChicken : Mgr
         isDrag = true;
     }
 
-    public void ClickChicken()
+    public void ClickChicken(float v)
     {
-        if (clickCnt == MAX_CLICK_CNT)
+        if (IsComplete())
         {
             //이미 밀가루 다 묻힘
             return;
         }
-        clickCnt++;
-        lerpImg.SetValue((float)clickCnt / MAX_CLICK_CNT);
+        value+=v;
+        lerpImg.SetValue((float)value / MAX_VALUE);
     }
+
 
 
     public void OnMouseUp()
@@ -111,5 +112,23 @@ public class FlourChicken : Mgr
     {
         eventBox.anchoredPosition = pos;
         eventBox.sizeDelta = size;
+    }
+
+    public bool IsComplete()
+    {
+        //밀가루 묻히기 작업이 완료됬는지 여부를 반환
+        return value >= MAX_VALUE;
+    }
+
+    public void WorkerFlourChickenPutAway()
+    {
+        if (isDrag)
+            return;
+        value = MAX_VALUE;
+        lerpImg.SetValue(1);
+        lerpImg.gameObject.SetActive(true);
+
+        KitchenMgr kitchenMgr = KitchenMgr.Instance;
+        kitchenMgr.UpdateWorkerAct();
     }
 }

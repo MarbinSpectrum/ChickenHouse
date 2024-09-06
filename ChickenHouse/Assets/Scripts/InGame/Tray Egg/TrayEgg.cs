@@ -83,7 +83,7 @@ public class TrayEgg : Mgr
                 }
 
                 KitchenMgr kitchenMgr = KitchenMgr.Instance;
-                kitchenMgr.worker.UpdateHandMoveArea();
+                kitchenMgr.UpdateWorkerAct();
 
                 return true;
             }
@@ -118,7 +118,7 @@ public class TrayEgg : Mgr
         RefreshSlotCollider();
 
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
-        kitchenMgr.worker.UpdateHandMoveArea();
+        kitchenMgr.UpdateWorkerAct();
 
         return true;
     }

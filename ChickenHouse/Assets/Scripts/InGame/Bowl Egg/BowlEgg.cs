@@ -21,6 +21,8 @@ public class BowlEgg : Mgr
     [SerializeField] private TutoObj            tutoObj;
     [SerializeField] private BowlChicken        bowlChicken;
 
+    public bool isDrag => bowlChicken.isDrag;
+
     public void OnMouseEnter()
     {
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
@@ -72,9 +74,14 @@ public class BowlEgg : Mgr
         }
 
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
-        kitchenMgr.worker.UpdateHandMoveArea();
+        kitchenMgr.UpdateWorkerAct();
 
         return true;
+    }
+
+    public void WorkerEggChickenPutAway()
+    {
+        bowlChicken.WorkerEggChickenPutAway();
     }
 
     public bool IsMax() => (chickenCnt == MAX_CHICKEN_SLOT);
@@ -89,8 +96,19 @@ public class BowlEgg : Mgr
         bowlChicken.gameObject.SetActive(false);
         bowlChicken.Init();
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
-        //kitchenMgr.worker.UpdateHandMoveArea();
+        kitchenMgr.UpdateWorkerAct();
 
         return true;
+    }
+
+    public bool CompleteEgg()
+    {
+        //계란물 묻히기 작업이 완료됬는지 여부를 반환
+        return bowlChicken.CompleteEgg();
+    }
+
+    public void WorkerDragChicken(float v)
+    {
+        bowlChicken.WorkerDragChicken(v);
     }
 }

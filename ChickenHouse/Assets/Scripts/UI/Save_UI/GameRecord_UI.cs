@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameRecord_UI : Mgr
 {
+    [SerializeField] private RectTransform saveRect;
     [SerializeField] private RectTransform saveCoverCheck;
     [SerializeField] private RectTransform saveMenu;
     [SerializeField] private RectTransform saveBtn;
@@ -27,6 +28,7 @@ public class GameRecord_UI : Mgr
         fun = pFun;
 
         saveCoverCheck.gameObject.SetActive(false);
+        saveRect.gameObject.SetActive(false);
 
         saveBtn.gameObject.SetActive(canSave);
         loadBtn.gameObject.SetActive(canLoad);
@@ -48,8 +50,15 @@ public class GameRecord_UI : Mgr
         playData = pPlayData;
         saveSlot = pSaveSlot;
 
-        saveCoverCheck.gameObject.SetActive(true);
+        saveRect.gameObject.SetActive(true);
+        saveCoverCheck.gameObject.SetActive(false);
         saveMenu.transform.position = pSaveSlot.transform.position;
+    }
+
+    public void CloseSaveRect()
+    {
+        //인스펙터로 끌어서 사용하는 함수
+        saveRect.gameObject.SetActive(false);
     }
 
     public void CloseSaveCoverUI()
@@ -112,5 +121,6 @@ public class GameRecord_UI : Mgr
     {
         //인스펙터로 끌어서 사용하는 함수
         saveCoverCheck.gameObject.SetActive(false);
+        saveRect.gameObject.SetActive(false);
     }
 }

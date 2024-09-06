@@ -19,6 +19,7 @@ public class Timer_UI : Mgr
     public float time = 0;
 
     private bool run = false;
+    private int dayFlag = -1;
 
     private void Update()
     {
@@ -33,8 +34,9 @@ public class Timer_UI : Mgr
 
         SetTime(time, MAX_TIME);
 
-        if (gameMgr?.playData != null)
+        if (gameMgr?.playData != null && dayFlag == -1)
         {
+            dayFlag = gameMgr.playData.day;
             string daySr = string.Format(LanguageMgr.GetText("DAY"), gameMgr.playData.day);
             LanguageMgr.SetText(dayText, daySr);
             LanguageMgr.SetText(dayTitle, daySr);

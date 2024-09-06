@@ -44,7 +44,7 @@ public class KitchenMgr : Mgr
     /** 주방 Rect **/
     public ScrollRect       kitchenRect;
     /** 알바생 **/
-    public Worker worker;
+    [SerializeField] private Worker_Kitchen   workerKitchen;
     /** 양념 **/
     [SerializeField] private List<ChickenSpicyObj>  spicys      = new List<ChickenSpicyObj>();
     /** 드링크 **/
@@ -178,8 +178,13 @@ public class KitchenMgr : Mgr
 
         /////////////////////////////////////////////////////////////////////////////////
         //알바생 업무 시작
-        worker.UpdateHandMoveArea();
+        UpdateWorkerAct();
         ui.workerUI.Init();
+    }
+
+    public void UpdateWorkerAct()
+    {
+        workerKitchen.UpdateWorkerAct();
     }
 
     private float KitchenWidth()

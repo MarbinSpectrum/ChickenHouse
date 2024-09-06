@@ -85,7 +85,7 @@ public class TrayFlour2 : Mgr
                 }
 
                 KitchenMgr kitchenMgr = KitchenMgr.Instance;
-                //kitchenMgr.worker.UpdateHandMoveArea();
+                kitchenMgr.UpdateWorkerAct();
 
                 return true;
             }
@@ -110,6 +110,21 @@ public class TrayFlour2 : Mgr
         return cnt > 0;
     }
 
+    public bool IsComplete()
+    {
+        foreach (FlourChicken flourChicken in flourChickens)
+        {
+            if (flourChicken.isEmpty)
+                continue;
+            if (flourChicken.isDrag)
+                continue;
+            if (flourChicken.IsComplete())
+                continue;
+            return false;
+        }
+        return true;
+    }
+
     public bool RemoveChicken()
     {
         //트레이에 올려져있는 닭 감소
@@ -119,8 +134,20 @@ public class TrayFlour2 : Mgr
 
         RefreshSlotCollider();
 
+        foreach (FlourChicken flourChicken in flourChickens)
+        {
+            if (flourChicken.isEmpty)
+                continue;
+            if (flourChicken.isDrag)
+                continue;
+            if (flourChicken.IsComplete() == false)
+                continue;
+            flourChicken.RemoveChicken();
+            break;
+        }
+
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
-        //kitchenMgr.worker.UpdateHandMoveArea();
+        kitchenMgr.UpdateWorkerAct();
 
         return true;
     }
@@ -162,7 +189,7 @@ public class TrayFlour2 : Mgr
         }
     }
 
-    public void ClickChickens()
+    public void ClickChickens(float v)
     {
         bool nowDrag = false;
         foreach (FlourChicken flourChicken in flourChickens)
@@ -174,9 +201,33 @@ public class TrayFlour2 : Mgr
                 nowDrag = true;
                 continue;
             }
-            flourChicken.ClickChicken();
+            flourChicken.ClickChicken(v);
         }
         if(nowDrag == false)
         particleSystem.Play();
+    }
+
+    public void WorkerFlourChickenPutAway()
+    {
+        foreach (FlourChicken flourChicken in flourChickens)
+        {
+            if (flourChicken.isEmpty == false)
+                continue;
+            if (flourChicken.isDrag)
+                continue;
+            flourChicken.WorkerFlourChickenPutAway();
+        }
+    }
+
+    public bool NowDrag()
+    {
+        foreach (FlourChicken flourChicken in flourChickens)
+        {
+            if (flourChicken.isEmpty)
+                continue;
+            if (flourChicken.isDrag)
+                return true;
+        }
+        return false;
     }
 }

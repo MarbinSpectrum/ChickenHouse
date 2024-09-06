@@ -13,6 +13,7 @@ public class BowlChicken : Mgr
     private bool init;
     private float eggTime = 0;
     private const float EGG_DELAY = 1f;
+    public bool isDrag { private set; get; }
 
     public void Init()
     {
@@ -48,8 +49,9 @@ public class BowlChicken : Mgr
             //주방을 보고있는 상태에서만 상호 작용 가능
             return;
         }
+        isDrag = true;
 
-        if(eggTime < EGG_DELAY)
+        if (CompleteEgg() == false)
         {
             eggTime += Time.deltaTime;
             float v = eggTime / EGG_DELAY;
@@ -79,7 +81,7 @@ public class BowlChicken : Mgr
         {
             //타원 범위안이라면 마우스 좌표로
             lerpShader.transform.position = mousePos;
-        }    
+        }
         else
         {
             //타원밖이면 타원안에서 최대한 마우스 좌표랑 가까운 곳으로 이동하도록
@@ -109,6 +111,8 @@ public class BowlChicken : Mgr
             return;
         }
 
+        isDrag = false;
+
         //손을때면 치킨이 떨어짐
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
 
@@ -120,6 +124,7 @@ public class BowlChicken : Mgr
             {
                 kitchenMgr.dragState = DragState.None;
                 bowlEgg.RemoveChicken();
+                kitchenMgr.UpdateWorkerAct();
                 return;
             }
         }
@@ -131,15 +136,42 @@ public class BowlChicken : Mgr
             {
                 kitchenMgr.dragState = DragState.None;
                 bowlEgg.RemoveChicken();
+                kitchenMgr.UpdateWorkerAct();
                 return;
             }
         }
+        kitchenMgr.UpdateWorkerAct();
 
         kitchenMgr.dragState = DragState.None;
 
-        if(bowlEgg.IsMax())
+        if (bowlEgg.IsMax())
             lerpShader.gameObject.SetActive(true);
         else
             lerpShader.gameObject.SetActive(false);
+    }
+
+    public bool CompleteEgg()
+    {
+        //계란물 묻히기 작업이 완료됬는지 여부를 반환
+        return eggTime >= EGG_DELAY;
+    }
+
+    public void WorkerEggChickenPutAway()
+    {
+        if (isDrag)
+            return;
+        Init();
+        eggTime = EGG_DELAY;
+        lerpShader.SetValue(1);
+        lerpShader.gameObject.SetActive(true);
+
+        KitchenMgr kitchenMgr = KitchenMgr.Instance;
+        kitchenMgr.UpdateWorkerAct();
+    }
+
+    public void WorkerDragChicken(float v)
+    {
+        eggTime += v;
+        lerpShader.SetValue(eggTime/ EGG_DELAY);
     }
 }

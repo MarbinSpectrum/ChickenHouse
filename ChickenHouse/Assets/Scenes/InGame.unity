@@ -4629,7 +4629,7 @@ MonoBehaviour:
   cameraObj: {fileID: 689780473}
   dragObj: {fileID: 1010039775}
   kitchenRect: {fileID: 2092061959}
-  worker: {fileID: 884100223}
+  workerKitchen: {fileID: 884100223}
   spicys:
   - {fileID: 1006471564}
   - {fileID: 1252058158}
@@ -5500,6 +5500,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49fdbd079b4aa8d4cb096cc55ab62ee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!21 &156015255
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Lerp UI(Clone)
+  m_Shader: {fileID: 4800000, guid: 146d6628858cde048b0359eac77ff63a, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 11b831fd27497454a8ba64e08127212f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SubTex:
+        m_Texture: {fileID: 2800000, guid: 310c1a12045eb7f41bfb8d86c0847daa, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - PixelSnap: 0
+    - _LerpValue: 0
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []
 --- !u!1 &157937125
 GameObject:
   m_ObjectHideFlags: 0
@@ -12247,12 +12282,12 @@ MonoBehaviour:
         - m_Target: {fileID: 1208198170}
           m_TargetAssemblyTypeName: TrayFlour2, Assembly-CSharp
           m_MethodName: ClickChickens
-          m_Mode: 1
+          m_Mode: 4
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
-            m_FloatArgument: 0
+            m_FloatArgument: 1
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
@@ -16409,41 +16444,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 438655493}
   m_CullTransparentMesh: 1
---- !u!21 &442568503
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Lerp UI(Clone)
-  m_Shader: {fileID: 4800000, guid: 146d6628858cde048b0359eac77ff63a, type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 11b831fd27497454a8ba64e08127212f, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SubTex:
-        m_Texture: {fileID: 2800000, guid: 310c1a12045eb7f41bfb8d86c0847daa, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - PixelSnap: 0
-    - _LerpValue: 0
-    m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-  m_BuildTextureStacks: []
 --- !u!1 &444880023
 GameObject:
   m_ObjectHideFlags: 0
@@ -27144,11 +27144,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 884100222}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 10.9, y: 1.1}
+  m_AnchoredPosition: {x: 23.5, y: 1.1}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &755592241
@@ -32897,9 +32897,9 @@ RectTransform:
   - {fileID: 1039968832}
   - {fileID: 1611543857}
   - {fileID: 393084858}
+  - {fileID: 1898614647}
   - {fileID: 1805941817}
   - {fileID: 755255319}
-  - {fileID: 2071039145}
   m_Father: {fileID: 1434763597}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -32931,19 +32931,19 @@ MonoBehaviour:
     SerializationNodes: []
   leftHand: {fileID: 1406118941}
   rightHand: {fileID: 1361160421}
-  trayEgg: {fileID: 1633830353}
-  trayFlour: {fileID: 1344352355}
+  bowlEgg: {fileID: 1860923069}
+  trayFlour: {fileID: 1208198170}
   chickenStrainter: {fileID: 934197237}
   leftHandArea:
     chickenDummyPos: {fileID: 1611543857}
-    trayEggPos: {fileID: 393084858}
-    trayFlourPos: {fileID: 0}
-    chickenStrainterPos: {fileID: 0}
+    bowlEggPos: {fileID: 393084858}
+    trayFlourPos2: {fileID: 1898614647}
+    chickenStrainterPos: {fileID: 934197234}
   rightHandArea:
-    chickenDummyPos: {fileID: 0}
-    trayEggPos: {fileID: 1805941817}
-    trayFlourPos: {fileID: 755255319}
-    chickenStrainterPos: {fileID: 2071039145}
+    chickenDummyPos: {fileID: 1805941817}
+    bowlEggPos: {fileID: 1860923065}
+    trayFlourPos2: {fileID: 1805941817}
+    chickenStrainterPos: {fileID: 755255319}
 --- !u!114 &884100224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44870,8 +44870,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4280427556
-  m_fontColor: {r: 0.14117648, g: 0.14117648, b: 0.13333334, a: 1}
+    rgba: 4282264041
+  m_fontColor: {r: 0.9137255, g: 0.16078432, b: 0.24313726, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -47416,12 +47416,12 @@ MonoBehaviour:
         - m_Target: {fileID: 1208198170}
           m_TargetAssemblyTypeName: TrayFlour2, Assembly-CSharp
           m_MethodName: ClickChickens
-          m_Mode: 1
+          m_Mode: 4
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
-            m_FloatArgument: 0
+            m_FloatArgument: 1
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
@@ -49461,8 +49461,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4280624421
-  m_fontColor: {r: 0.14509805, g: 0.14509805, b: 0.14509805, a: 1}
+    rgba: 4292557115
+  m_fontColor: {r: 0.23137255, g: 0.22352941, b: 0.85882354, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -53797,8 +53797,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4280624421
-  m_fontColor: {r: 0.14509805, g: 0.14509805, b: 0.14509805, a: 1}
+    rgba: 4292557115
+  m_fontColor: {r: 0.23305357, g: 0.22272164, b: 0.8584906, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -55593,8 +55593,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4280427556
-  m_fontColor: {r: 0.14117648, g: 0.14117648, b: 0.13333334, a: 1}
+    rgba: 4282264041
+  m_fontColor: {r: 0.9150943, g: 0.15970986, b: 0.24329859, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -60009,12 +60009,12 @@ MonoBehaviour:
         - m_Target: {fileID: 1208198170}
           m_TargetAssemblyTypeName: TrayFlour2, Assembly-CSharp
           m_MethodName: ClickChickens
-          m_Mode: 1
+          m_Mode: 4
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
-            m_FloatArgument: 0
+            m_FloatArgument: 1
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
@@ -60392,12 +60392,12 @@ MonoBehaviour:
         - m_Target: {fileID: 1208198170}
           m_TargetAssemblyTypeName: TrayFlour2, Assembly-CSharp
           m_MethodName: ClickChickens
-          m_Mode: 1
+          m_Mode: 4
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
-            m_FloatArgument: 0
+            m_FloatArgument: 1
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
@@ -68210,8 +68210,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4280427556
-  m_fontColor: {r: 0.14117648, g: 0.14117648, b: 0.13333334, a: 1}
+    rgba: 4282264041
+  m_fontColor: {r: 0.9137255, g: 0.16078432, b: 0.24313726, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -68637,8 +68637,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4280624421
-  m_fontColor: {r: 0.14509805, g: 0.14509805, b: 0.14509805, a: 1}
+    rgba: 4292557115
+  m_fontColor: {r: 0.23137255, g: 0.22352941, b: 0.85882354, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -69600,11 +69600,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 884100222}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.25, y: 1.1}
+  m_AnchoredPosition: {x: 13.2, y: 1.1}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1806766806
@@ -70594,8 +70594,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4280624421
-  m_fontColor: {r: 0.14509805, g: 0.14509805, b: 0.14509805, a: 1}
+    rgba: 4292557115
+  m_fontColor: {r: 0.23137257, g: 0.22352943, b: 0.8588236, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -72151,6 +72151,42 @@ RectTransform:
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 3.61, y: 7.92}
   m_SizeDelta: {x: 11.5, y: 5}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1898614646
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1898614647}
+  m_Layer: 5
+  m_Name: LeftHand Pos 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1898614647
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1898614646}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 884100222}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 10.1, y: 1.1}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1900618733
 GameObject:
@@ -75679,7 +75715,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 442568503}
+  m_Material: {fileID: 156015255}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -78733,42 +78769,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2069980364}
   m_CullTransparentMesh: 1
---- !u!1 &2071039144
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2071039145}
-  m_Layer: 5
-  m_Name: RightHand Pos 2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &2071039145
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2071039144}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 884100222}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 23.1, y: 1.1}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2072472574
 GameObject:
   m_ObjectHideFlags: 0
