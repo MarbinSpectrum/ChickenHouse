@@ -82,9 +82,6 @@ public class TrayEgg : Mgr
                     }
                 }
 
-                KitchenMgr kitchenMgr = KitchenMgr.Instance;
-                kitchenMgr.UpdateWorkerAct();
-
                 return true;
             }
         }
@@ -116,9 +113,6 @@ public class TrayEgg : Mgr
         chickenCnt--;
 
         RefreshSlotCollider();
-
-        KitchenMgr kitchenMgr = KitchenMgr.Instance;
-        kitchenMgr.UpdateWorkerAct();
 
         return true;
     }

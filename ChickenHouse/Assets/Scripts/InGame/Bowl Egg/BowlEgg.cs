@@ -73,9 +73,6 @@ public class BowlEgg : Mgr
             }
         }
 
-        KitchenMgr kitchenMgr = KitchenMgr.Instance;
-        kitchenMgr.UpdateWorkerAct();
-
         return true;
     }
 
@@ -95,8 +92,6 @@ public class BowlEgg : Mgr
 
         bowlChicken.gameObject.SetActive(false);
         bowlChicken.Init();
-        KitchenMgr kitchenMgr = KitchenMgr.Instance;
-        kitchenMgr.UpdateWorkerAct();
 
         return true;
     }

@@ -82,9 +82,6 @@ public class TrayFlour : Mgr
                     }
                 }
 
-                KitchenMgr kitchenMgr = KitchenMgr.Instance;
-                kitchenMgr.UpdateWorkerAct();
-
                 return true;
             }
         }
@@ -108,7 +105,7 @@ public class TrayFlour : Mgr
         return cnt > 0;
     }
 
-        public bool RemoveChicken()
+    public bool RemoveChicken()
     {
         //트레이에 올려져있는 닭 감소
         if (chickenCnt <= 0)
@@ -116,9 +113,6 @@ public class TrayFlour : Mgr
         chickenCnt--;
 
         RefreshSlotCollider();
-
-        KitchenMgr kitchenMgr = KitchenMgr.Instance;
-        kitchenMgr.UpdateWorkerAct();
 
         return true;
     }

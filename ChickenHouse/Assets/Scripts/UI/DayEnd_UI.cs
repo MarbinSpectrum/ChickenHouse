@@ -51,17 +51,24 @@ public class DayEnd_UI : Mgr
         total -= suppliesUsed;
 
         //아르바이트 고용비용
-        WorkerData resumeData = null;
+        WorkerData resumeData0 = workerMgr.GetWorkerData((EWorker)gameMgr.playData.workerPos[(int)KitchenSet_UI.KitchenSetWorkerPos.KitchenWorker0]);
+        WorkerData resumeData1 = workerMgr.GetWorkerData((EWorker)gameMgr.playData.workerPos[(int)KitchenSet_UI.KitchenSetWorkerPos.KitchenWorker1]);
+        WorkerData resumeData2 = workerMgr.GetWorkerData((EWorker)gameMgr.playData.workerPos[(int)KitchenSet_UI.KitchenSetWorkerPos.CounterWorker]);
         int salary = 0;
-        if(resumeData != null)
-            salary = resumeData.salary;
-        if(salary > 0)
+        if(resumeData0 != null)
+            salary += resumeData0.salary;
+        if (resumeData1 != null)
+            salary += resumeData1.salary;
+        if (resumeData2 != null)
+            salary += resumeData2.salary;
+        if (salary > 0)
         {
+            int workerSalary = (int)(gameMgr.dayMoney * salary / 100f);
             nameList[DayEndList.Salary].gameObject.SetActive(true);
             infoList[DayEndList.Salary].gameObject.SetActive(true);
             LanguageMgr.SetString(nameList[DayEndList.Salary], "WORKER_SALARY");
-            LanguageMgr.SetText(infoList[DayEndList.Salary], string.Format("-{0:N0} $", salary));
-            total -= salary;
+            LanguageMgr.SetText(infoList[DayEndList.Salary], string.Format("-{0:N0} $", workerSalary));
+            total -= workerSalary;
         }
         else
         {

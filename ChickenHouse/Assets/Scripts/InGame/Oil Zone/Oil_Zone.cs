@@ -53,9 +53,16 @@ public class Oil_Zone : Mgr
     /** 요리 코루틴 **/
     private IEnumerator     cookCor;
 
-    private ChickenStrainter chickenStrainter;
-
     private float           chickenTime;
+
+    private WorkerData resumeData
+    {
+        get
+        {
+            EWorker eWorker = (EWorker)gameMgr.playData.workerPos[(int)KitchenSet_UI.KitchenSetWorkerPos.KitchenWorker1];
+            return workerMgr.GetWorkerData(eWorker);
+        }
+    }
 
     public void OnMouseEnter()
     {
@@ -391,7 +398,7 @@ public class Oil_Zone : Mgr
 
     private void UpdateGauge()
     {
-        float speedRate = gameMgr.playData.GetCookSpeedRate();
+        float speedRate = GetOilZoneSpeedRate();
         float lerpValue = gaugeTime / (COOK_TIME_0 / speedRate);
         lerpValue = Mathf.Clamp(lerpValue, 0, 1);
         float Angle = Mathf.Lerp(90, 270, 1 - lerpValue);
@@ -403,7 +410,7 @@ public class Oil_Zone : Mgr
         }
     }
 
-    public bool Cook_Start(int pChickenCnt,ChickenStrainter pChickenStrainter)
+    public bool Cook_Start(int pChickenCnt)
     {
         if(IsRun())
         {
@@ -412,8 +419,6 @@ public class Oil_Zone : Mgr
         }
 
         //요리 시작
-
-        chickenStrainter = pChickenStrainter;
         selectImg.enabled = false;
         Cook_Pause(false);
 
@@ -470,7 +475,7 @@ public class Oil_Zone : Mgr
     private IEnumerator RunningCook(float pChickenTime, float pGaugeTime)
     {
         //조리처리용 코루틴
-        float   speedRate   = gameMgr.playData.GetCookSpeedRate();
+        float   speedRate   = GetOilZoneSpeedRate();
         bool    notFire     = false;
 
         //업그레이드 속도에 따라서 상태 설정
@@ -478,6 +483,15 @@ public class Oil_Zone : Mgr
         {
             //최대 레벨일 경우 타지않는다.
             notFire = true;
+        }
+
+        if(resumeData != null)
+        {
+            if (resumeData.skill.Contains(WorkerSkill.WorkerSkill_3))
+            {
+                //튀김 전문가 타지 않는다.
+                notFire = true;
+            }
         }
 
         //------------------------------------------------------------------
@@ -605,7 +619,7 @@ public class Oil_Zone : Mgr
         else
         {
             //애니메이션 다시 실행
-            float speedRate = gameMgr.playData.GetCookSpeedRate();
+            float speedRate = GetOilZoneSpeedRate();
             animator.speed = speedRate;
 
             if (CheckMode.IsDropMode() == false)
@@ -627,29 +641,68 @@ public class Oil_Zone : Mgr
         return true;
     }
 
+    public void WorkerCookStopChicken(Worker_OilZone workerOilZone)
+    {
+        workerOilZone.SetStrainterState(chickenState, oilShader.Mode, oilShader.LerpValue);
+        Cook_Stop();
+    }
+
+    public bool IsComplete()
+    {
+        //조리완료 여부(조금탄거랑,많이탄것도 일단 완료된걸로 취급)
+        if (isHold)
+            return false;
+        if (chickenState == ChickenState.NotCook)
+            return false;
+        if (chickenState == ChickenState.BadChicken_0)
+            return false;
+        if (chickenState == ChickenState.BadChicken_1)
+            return true;
+        if (chickenState == ChickenState.BadChicken_2)
+            return true;
+        if (chickenState == ChickenState.GoodChicken)
+            return true;
+        return false;
+    }
+
+    private float GetOilZoneSpeedRate()
+    {
+        float speedRate = gameMgr.playData.GetOilZoneSpeedRate();
+        if (resumeData != null)
+        {
+            if (resumeData.skill.Contains(WorkerSkill.WorkerSkill_3))
+            {
+                //튀김 전문가 튀기는 속도+100%
+                speedRate = speedRate * (100f + 100f) / 100f;
+            }
+        }
+
+        return speedRate;
+    }
+
     public void Init()
     {
         /////////////////////////////////////////////////////////////////////////////////
         //기름통 세팅
-        if (gameMgr.playData.useItem[(int)ShopItem.OIL_Zone_1])
+        if (gameMgr.playData.useItem[(int)ShopItem.OIL_Zone_4])
         {
-            oilMahcine.machine0.sprite = oilMahcine.machineImg0[0];
-            oilMahcine.machine1.sprite = oilMahcine.machineImg1[0];
-        }
-        else if (gameMgr.playData.useItem[(int)ShopItem.OIL_Zone_2])
-        {
-            oilMahcine.machine0.sprite = oilMahcine.machineImg0[1];
-            oilMahcine.machine1.sprite = oilMahcine.machineImg1[1];
+            oilMahcine.machine0.sprite = oilMahcine.machineImg0[3];
+            oilMahcine.machine1.sprite = oilMahcine.machineImg1[3];
         }
         else if (gameMgr.playData.useItem[(int)ShopItem.OIL_Zone_3])
         {
             oilMahcine.machine0.sprite = oilMahcine.machineImg0[2];
             oilMahcine.machine1.sprite = oilMahcine.machineImg1[2];
         }
-        else if (gameMgr.playData.useItem[(int)ShopItem.OIL_Zone_4])
+        else if (gameMgr.playData.useItem[(int)ShopItem.OIL_Zone_2])
         {
-            oilMahcine.machine0.sprite = oilMahcine.machineImg0[3];
-            oilMahcine.machine1.sprite = oilMahcine.machineImg1[3];
+            oilMahcine.machine0.sprite = oilMahcine.machineImg0[1];
+            oilMahcine.machine1.sprite = oilMahcine.machineImg1[1];
+        }
+        else if (gameMgr.playData.useItem[(int)ShopItem.OIL_Zone_1])
+        {
+            oilMahcine.machine0.sprite = oilMahcine.machineImg0[0];
+            oilMahcine.machine1.sprite = oilMahcine.machineImg1[0];
         }
         isHold = false;
     }

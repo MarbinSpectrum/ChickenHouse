@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Worker_Kitchen : Mgr
 {
-    private const float DEFAULT_MOVE_SPEED = 35;
-    private const float DEFAULT_HAND_DELAY = 0.1f;
-
+    [SerializeField] private float moveSpeed = 35;
+    [SerializeField] private float handDelay = 0.1f;
+    [SerializeField] private float eggDelay = 0.1f;
+    [SerializeField] private float flourDelay = 0.1f;
     /** 알바생 손 **/
     [SerializeField] private Worker_Hand        leftHand;
     [SerializeField] private Worker_Hand        rightHand;
@@ -53,7 +54,7 @@ public class Worker_Kitchen : Mgr
         }
     }
 
-    public void UpdateWorkerAct()
+    public void WorkerAct()
     {
         leftHand.gameObject.SetActive(true);
         rightHand.gameObject.SetActive(true);
@@ -68,6 +69,12 @@ public class Worker_Kitchen : Mgr
         leftHand.SetWorkerImg(eWorker);
         rightHand.SetWorkerImg(eWorker);
 
+        LeftHandAct();
+        RightHandAct();
+    }
+
+    private void LeftHandAct()
+    {
         //왼손이할거
         //왼손이 계란물묻힌 치킨을 들고잇으면 밀가루존에가서 치킨을 놓고온다.(만약 도중에 밀가루존이 꽉차버리면 계란통에 치킨조각을 다시 넣자)
         //왼손이 빈손이고 계란물통에 계란물을 덜 묻힌 치킨이있으면 계란물통에서 계란물을 묻히는 작업진행
@@ -75,9 +82,9 @@ public class Worker_Kitchen : Mgr
         //왼손에 치킨을들고있으면 계란물있는데로 이동해서 치킨을 놓도록하자(치킨이 들고있는데 계란물존이 깍차있는 경우는 없도록하자)
         //왼손이 빈손이고 계란물통에 치킨이 없으면 치킨박스로 이동해서 치킨을 집는다.(도중에 꽉차게되면 해당 작업이 취소됨)
 
-        if(leftHand.handState == WorkerHandState.EggChicken && trayFlour.IsMax() == false)
+        if (leftHand.handState == WorkerHandState.EggChicken && trayFlour.IsMax() == false)
         {
-            MoveHand(0, leftHandArea, leftHand, DragArea.Tray_Flour2, () =>
+            MoveHand(0, leftHandArea, leftHand, DragArea.Tray_Flour2, handDelay, () =>
             {
                 if (trayFlour.IsMax())
                 {
@@ -89,32 +96,45 @@ public class Worker_Kitchen : Mgr
                     leftHand.SetState(WorkerHandState.None);
                     trayFlour.AddChicken();
                 }
+                LeftHandAct();
             });
         }
         else if (leftHand.handState == WorkerHandState.EggChicken && trayFlour.IsMax() && bowlEgg.CompleteEgg() == false)
         {
-            leftHand.SetState(WorkerHandState.None);
-            bowlEgg.WorkerEggChickenPutAway();
+            MoveHand(0, leftHandArea, leftHand, DragArea.None, handDelay, () =>
+            {
+                leftHand.SetState(WorkerHandState.None);
+                bowlEgg.WorkerEggChickenPutAway();
+                LeftHandAct();
+            });
         }
         else if (leftHand.handState == WorkerHandState.EggChicken && trayFlour.IsMax() && bowlEgg.CompleteEgg())
         {
-            leftHand.SetState(WorkerHandState.None);
-        }
-        else if(bowlEgg.isDrag)
-        {
-            leftHand.SetState(WorkerHandState.None);
-        }
-        else if (leftHand.handState == WorkerHandState.None && bowlEgg.IsMax() && bowlEgg.CompleteEgg() == false)
-        {
-            MoveHand(0, leftHandArea, leftHand, DragArea.Bowl_Egg, () =>
+            MoveHand(0, leftHandArea, leftHand, DragArea.None, handDelay, () =>
             {
-                if(bowlEgg.isDrag)
+                leftHand.SetState(WorkerHandState.None);
+                LeftHandAct();
+            });
+        }
+        else if (bowlEgg.isDrag)
+        {
+            MoveHand(0, leftHandArea, leftHand, DragArea.None, handDelay, () =>
+            {
+                leftHand.SetState(WorkerHandState.None);
+                LeftHandAct();
+            });
+        }
+        else if ((leftHand.handState == WorkerHandState.None || leftHand.handState == WorkerHandState.HandShake) && bowlEgg.IsMax() && bowlEgg.CompleteEgg() == false)
+        {
+            MoveHand(0, leftHandArea, leftHand, DragArea.Bowl_Egg, eggDelay,() =>
+            {
+                if (bowlEgg.isDrag)
                 {
                     leftHand.SetState(WorkerHandState.None);
                 }
                 else if (bowlEgg.CompleteEgg())
                 {
-                    if(trayFlour.IsMax() == false)
+                    if (trayFlour.IsMax() == false)
                     {
                         leftHand.SetState(WorkerHandState.EggChicken);
                         bowlEgg.RemoveChicken();
@@ -126,13 +146,15 @@ public class Worker_Kitchen : Mgr
                 }
                 else
                 {
+                    leftHand.SetState(WorkerHandState.HandShake);
                     bowlEgg.WorkerDragChicken(0.1f);
                 }
+                LeftHandAct();
             });
         }
         else if (leftHand.handState == WorkerHandState.None && bowlEgg.IsMax() && bowlEgg.CompleteEgg())
         {
-            MoveHand(0, leftHandArea, leftHand, DragArea.Bowl_Egg, () =>
+            MoveHand(0, leftHandArea, leftHand, DragArea.Bowl_Egg, handDelay, () =>
             {
                 if (bowlEgg.isDrag)
                 {
@@ -147,11 +169,12 @@ public class Worker_Kitchen : Mgr
                     leftHand.SetState(WorkerHandState.EggChicken);
                     bowlEgg.RemoveChicken();
                 }
+                LeftHandAct();
             });
         }
         else if (leftHand.handState == WorkerHandState.NormalChicken && bowlEgg.IsMax() == false)
         {
-            MoveHand(0, leftHandArea, leftHand, DragArea.Bowl_Egg, () =>
+            MoveHand(0, leftHandArea, leftHand, DragArea.Bowl_Egg, handDelay, () =>
             {
                 if (bowlEgg.IsMax())
                 {
@@ -162,15 +185,20 @@ public class Worker_Kitchen : Mgr
                     leftHand.SetState(WorkerHandState.None);
                     bowlEgg.AddChicken();
                 }
+                LeftHandAct();
             });
         }
         else if (leftHand.handState == WorkerHandState.NormalChicken && bowlEgg.IsMax())
         {
-            leftHand.SetState(WorkerHandState.None);
+            MoveHand(0, leftHandArea, leftHand, DragArea.Chicken_Box, handDelay, () =>
+            {
+                leftHand.SetState(WorkerHandState.None);
+                LeftHandAct();
+            });
         }
         else if (leftHand.handState == WorkerHandState.None && bowlEgg.IsMax() == false)
         {
-            MoveHand(0, leftHandArea, leftHand, DragArea.Chicken_Box, () =>
+            MoveHand(0, leftHandArea, leftHand, DragArea.Chicken_Box, handDelay, () =>
             {
                 if (bowlEgg.IsMax())
                 {
@@ -180,17 +208,29 @@ public class Worker_Kitchen : Mgr
                 {
                     leftHand.SetState(WorkerHandState.NormalChicken);
                 }
+                LeftHandAct();
             });
         }
         else if (leftHand.handState == WorkerHandState.None && bowlEgg.IsMax())
         {
-            leftHand.SetState(WorkerHandState.None);
+            MoveHand(0, leftHandArea, leftHand, DragArea.None, handDelay, () =>
+            {
+                leftHand.SetState(WorkerHandState.None);
+                LeftHandAct();
+            });
         }
         else
         {
-            leftHand.SetState(WorkerHandState.None);
+            MoveHand(0, leftHandArea, leftHand, DragArea.None, handDelay, () =>
+            {
+                leftHand.SetState(WorkerHandState.None);
+                LeftHandAct();
+            });
         }
+    }
 
+    private void RightHandAct()
+    {
         //오른손이할거
         //1.기본 상태는 "밀가루 묻히기" 모드임
         //2.계란물 묻힌 치킨을 밀가루를 묻히러감
@@ -199,9 +239,9 @@ public class Worker_Kitchen : Mgr
         //5. "밀가루 묻히기" 모드는 밀가루존에 밀가루를 덜 묻힌 치킨 조각이있으면 밀가루존에 밀가루 작업을 진행함
         //6. "밀가루 묻히기" 모드에서 밀가루존에 치킨이 가득차 밀가루를 다 묻힌 치킨만 존재하게 되면 "치킨건지로 옮기기"모드로 전환됨
 
-        if(rightHand.handState == WorkerHandState.FlourChicken && chickenStrainter.IsMax() == false)
+        if (rightHand.handState == WorkerHandState.FlourChicken && chickenStrainter.IsMax() == false)
         {
-            MoveHand(1, rightHandArea, rightHand, DragArea.Chicken_Strainter, () =>
+            MoveHand(1, rightHandArea, rightHand, DragArea.Chicken_Strainter, handDelay, () =>
             {
                 if (chickenStrainter.IsMax())
                 {
@@ -213,50 +253,80 @@ public class Worker_Kitchen : Mgr
                     rightHand.SetState(WorkerHandState.None);
                     chickenStrainter.AddChicken();
                 }
+                RightHandAct();
             });
         }
         else if (rightHand.handState == WorkerHandState.FlourChicken && chickenStrainter.IsMax() && trayFlour.IsMax() == false)
         {
-            rightHand.SetState(WorkerHandState.None);
-            trayFlour.WorkerFlourChickenPutAway();
+            MoveHand(1, rightHandArea, rightHand, DragArea.None, handDelay, () =>
+            {
+                rightHand.SetState(WorkerHandState.None);
+                trayFlour.WorkerFlourChickenPutAway();
+                RightHandAct();
+            });
         }
         else if (rightHand.handState == WorkerHandState.FlourChicken && chickenStrainter.IsMax() && trayFlour.IsMax() && trayFlour.IsComplete())
         {
-            rightHand.SetState(WorkerHandState.None);
+            MoveHand(1, rightHandArea, rightHand, DragArea.None, handDelay, () =>
+            {
+                rightHand.SetState(WorkerHandState.None);
+                RightHandAct();
+            });
         }
         else if (trayFlour.NowDrag())
         {
-            rightHand.SetState(WorkerHandState.None);
+            MoveHand(1, rightHandArea, rightHand, DragArea.None, handDelay, () =>
+            {
+                rightHand.SetState(WorkerHandState.None);
+                RightHandAct();
+            });
         }
-        else if (rightHand.handState == WorkerHandState.None && trayFlour.IsComplete() == false)
+        else if (rightHand.handState == WorkerHandState.None && trayFlour.IsComplete() && chickenStrainter.IsMax() == false)
         {
-            MoveHand(1, rightHandArea, rightHand, DragArea.Tray_Flour2, () =>
+            MoveHand(1, rightHandArea, rightHand, DragArea.Tray_Flour2, handDelay, () =>
+            {
+                if (chickenStrainter.IsMax())
+                {
+                    rightHand.SetState(WorkerHandState.None);
+                }
+                else
+                {
+                    rightHand.SetState(WorkerHandState.FlourChicken);
+                    trayFlour.WorkerRemoveChicken();
+                }
+                RightHandAct();
+            });
+        }
+        else if (rightHand.handState == WorkerHandState.None && trayFlour.HasNotComplete())
+        {
+            MoveHand(1, rightHandArea, rightHand, DragArea.Tray_Flour2, flourDelay,() =>
             {
                 if (trayFlour.NowDrag())
                 {
                     rightHand.SetState(WorkerHandState.None);
+                }
+                else if(trayFlour.HasNotComplete())
+                {
+                    trayFlour.ClickChickens(1);
                 }
                 else if (trayFlour.IsComplete())
                 {
                     if (chickenStrainter.IsMax() == false)
                     {
                         rightHand.SetState(WorkerHandState.FlourChicken);
-                        trayFlour.RemoveChicken();
+                        trayFlour.WorkerRemoveChicken();
                     }
                     else
                     {
                         rightHand.SetState(WorkerHandState.None);
                     }
                 }
-                else
-                {
-                    trayFlour.ClickChickens(1);
-                }
+                RightHandAct();
             });
         }
         else if (rightHand.handState == WorkerHandState.None && trayFlour.IsComplete())
         {
-            MoveHand(1, rightHandArea, rightHand, DragArea.Tray_Flour2, () =>
+            MoveHand(1, rightHandArea, rightHand, DragArea.Tray_Flour2, handDelay, () =>
             {
                 if (trayFlour.NowDrag())
                 {
@@ -269,17 +339,22 @@ public class Worker_Kitchen : Mgr
                 else if (trayFlour.IsComplete())
                 {
                     rightHand.SetState(WorkerHandState.FlourChicken);
-                    trayFlour.RemoveChicken();
+                    trayFlour.WorkerRemoveChicken();
                 }
+                RightHandAct();
             });
         }
         else
         {
-            rightHand.SetState(WorkerHandState.None);
+            MoveHand(1, rightHandArea, rightHand, DragArea.None, handDelay, () =>
+            {
+                rightHand.SetState(WorkerHandState.None);
+                RightHandAct();
+            });
         }
     }
 
-    public void MoveHand(int handNum, MOVEAREA moveArea, Worker_Hand hand, DragArea pArea, NoParaDel fun)
+    private void MoveHand(int handNum, MOVEAREA moveArea, Worker_Hand hand, DragArea pArea, float pDelay, NoParaDel fun)
     {
         moveHandCor ??= new Dictionary<int, IEnumerator>();
 
@@ -292,26 +367,36 @@ public class Worker_Kitchen : Mgr
             StopCoroutine(moveHandCor[handNum]);
             moveHandCor[handNum] = null;
         }
-        moveHandCor[handNum] = MoveHandCor(moveArea, hand, pArea, fun);
+        moveHandCor[handNum] = MoveHandCor(moveArea, hand, pArea, pDelay, fun);
         StartCoroutine(moveHandCor[handNum]);
     }
 
-    private IEnumerator MoveHandCor(MOVEAREA moveArea, Worker_Hand hand, DragArea pArea, NoParaDel fun)
+    private IEnumerator MoveHandCor(MOVEAREA moveArea, Worker_Hand hand, DragArea pArea, float pDelay, NoParaDel fun)
     {
-        if(pArea == DragArea.None)
-        {
-            hand.SetState(WorkerHandState.None);
-            yield break;
-        }
 
         float speedValue = 100;
         if (resumeData.skill.Contains(WorkerSkill.WorkerSkill_1))
+        {
+            //주방보조 경력자(직원 속도 +50%)
             speedValue += 50;
+        }
         if (resumeData.skill.Contains(WorkerSkill.WorkerSkill_2))
+        {
+            //치킨가게 경력자(직원 속도 +100%)
             speedValue += 100;
+        }
         speedValue /= 100f;
 
-        float moveSpeed = DEFAULT_MOVE_SPEED * speedValue;
+        float moveSpeed = this.moveSpeed * speedValue;
+        float handWaitTime = pDelay / speedValue;
+
+        if(pArea == DragArea.None)
+        {
+            hand.SetState(WorkerHandState.None);
+            yield return new WaitForSeconds(handWaitTime);
+            fun?.Invoke();
+            yield break;
+        }
 
         //손 이동
         Transform movePos = hand.transform;
@@ -349,14 +434,11 @@ public class Worker_Kitchen : Mgr
             yield return null;
         }
 
-        float handWaitTime = DEFAULT_HAND_DELAY / speedValue;
 
         yield return new WaitForSeconds(handWaitTime);
 
         hand.transform.position = movePos.position;
 
         fun?.Invoke();
-
-        UpdateWorkerAct();
     }
 }

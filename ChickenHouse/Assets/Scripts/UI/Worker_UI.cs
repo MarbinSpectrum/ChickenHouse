@@ -11,16 +11,24 @@ public class Worker_UI : Mgr
 
     public void Init()
     {
-        WorkerData resumeData = null;
-
-        foreach(RectTransform rect in workerObjs)
+        foreach (RectTransform rect in workerObjs)
             rect.gameObject.SetActive(false);
 
-        //초상화 설정
-        if(resumeData != null)
+        for (KitchenSet_UI.KitchenSetWorkerPos pos = KitchenSet_UI.KitchenSetWorkerPos.KitchenWorker0; pos < KitchenSet_UI.KitchenSetWorkerPos.MAX; pos++)
         {
-            workerObjs[0].gameObject.SetActive(true);
-            icon[0].sprite = resumeData.face;
+            int idx = (int)pos;
+            EWorker eWorker = (EWorker)gameMgr.playData.workerPos[idx];
+            WorkerData resumeData = workerMgr.GetWorkerData(eWorker);
+            if (resumeData == null)
+                continue;
+
+
+            //초상화 설정
+            if (resumeData != null)
+            {
+                workerObjs[idx].gameObject.SetActive(true);
+                icon[idx].sprite = resumeData.face;
+            }
         }
 
         OffBox();

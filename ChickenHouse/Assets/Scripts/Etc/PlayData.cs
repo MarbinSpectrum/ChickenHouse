@@ -102,7 +102,7 @@ public class PlayData
         return rate;
     }
 
-    public float GetCookSpeedRate()
+    public float GetOilZoneSpeedRate()
     {
         //업그레이드 속도에 따라서 상태 설정
         if (useItem[(int)ShopItem.OIL_Zone_4])
@@ -129,10 +129,10 @@ public class PlayData
         //수익 증가률
         float rate = 0;
 
-        if (useItem[(int)ShopItem.OIL_Zone_3])
-            rate += 0.2f;
-        else if (useItem[(int)ShopItem.OIL_Zone_4])
+        if (useItem[(int)ShopItem.OIL_Zone_4])
             rate += 0.4f;
+        else if (useItem[(int)ShopItem.OIL_Zone_3])
+            rate += 0.2f;
 
         if (hasItem[(int)ShopItem.Advertisement_2])
             rate += 0.1f;

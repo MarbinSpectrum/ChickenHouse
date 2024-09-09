@@ -127,8 +127,5 @@ public class FlourChicken : Mgr
         value = MAX_VALUE;
         lerpImg.SetValue(1);
         lerpImg.gameObject.SetActive(true);
-
-        KitchenMgr kitchenMgr = KitchenMgr.Instance;
-        kitchenMgr.UpdateWorkerAct();
     }
 }

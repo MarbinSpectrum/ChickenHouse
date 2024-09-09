@@ -52,6 +52,14 @@ public enum GuestReviews
     Happy               = 4,
 }
 
+public enum DragZone
+{
+    None,
+    KitchenTable,
+    OilZone,
+    SpicyTable,
+}
+
 public enum DragState
 {
     /** None **/
@@ -373,6 +381,12 @@ public enum WorkerHandState
     EggChicken          = 2,
     /** 밀가루 묻힌 치킨 집으러가는중 **/
     FlourChicken        = 3,
+    /** 계란물 묻히기 위해서 손으로 젓는거 **/
+    HandShake           = 4,
+    /** 밀가루 묻힌 치킨이 들어있는 치킨건지 들기 **/
+    StrainterFlour      = 5,
+    /** 튀기기가 끝난 치킨건지 들기 **/
+    StrainterFry        = 6,
 }
 
 public enum Tutorial
@@ -454,7 +468,9 @@ public enum Quest
     MainQuest_1     = 0,        //빚갚기 메인 퀘스트
 
 
-
+    SubQuest_1      = 1000,     //치킨 5마리 팔기(간장치킨 오픈)
+    SubQuest_2      = 1001,     //간장치킨 5마리 팔기(불닭치킨 오픈)
+    SubQuest_3      = 1002,     //불닭치킨 10마리 팔기(프링클치킨 오픈)
 
     MAX,
 }

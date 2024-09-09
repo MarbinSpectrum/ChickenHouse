@@ -29,7 +29,7 @@ public class KitchenSet_UI : Mgr
     }
     private KitchenSetWorkerPos dropPos = KitchenSetWorkerPos.None;
 
-    private int maxWorker = 1;
+    private int maxWorker = 2;
 
     public void Init()
     {

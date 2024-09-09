@@ -161,15 +161,13 @@ public class ChickenStrainter : Mgr
         kitchenMgr.dragState = DragState.None;
 
         //치킨 튀기기 시작
-        if (pOilZone.Cook_Start(chickenCnt, this))
+        if (pOilZone.Cook_Start(chickenCnt))
         {
             int removeCnt = chickenCnt;
             for (int i = 0; i < removeCnt; i++)
             {
                 RemoveChicken();
             }
-
-            kitchenMgr.UpdateWorkerAct();
         }
 
         isHold = false;
@@ -220,15 +218,13 @@ public class ChickenStrainter : Mgr
         kitchenMgr.dragState = DragState.None;
         if (kitchenMgr.mouseArea == DragArea.Oil_Zone)
         {
-            if (kitchenMgr.oilZone.Cook_Start(chickenCnt, this))
+            if (kitchenMgr.oilZone.Cook_Start(chickenCnt))
             {
                 int removeCnt = chickenCnt;
                 for (int i = 0; i < removeCnt; i++)
                 {
                     RemoveChicken();
                 }
-
-                kitchenMgr.UpdateWorkerAct();
             }
         }
 
@@ -277,9 +273,6 @@ public class ChickenStrainter : Mgr
             }
         }
 
-        KitchenMgr kitchenMgr = KitchenMgr.Instance;
-        kitchenMgr.UpdateWorkerAct();
-
         return true;
     }
 
@@ -301,9 +294,6 @@ public class ChickenStrainter : Mgr
             chickenCnt--;
         chickenAni[chickenCnt].gameObject.SetActive(false);
 
-        KitchenMgr kitchenMgr = KitchenMgr.Instance;
-        kitchenMgr.UpdateWorkerAct();
-
         return true;
     }
 
@@ -321,8 +311,5 @@ public class ChickenStrainter : Mgr
                 sObj.isRun = true;
             }
         }
-
-        KitchenMgr kitchenMgr = KitchenMgr.Instance;
-        kitchenMgr.UpdateWorkerAct();
     }
 }

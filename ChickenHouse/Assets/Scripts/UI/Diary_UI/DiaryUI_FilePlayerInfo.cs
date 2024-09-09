@@ -42,7 +42,7 @@ public class DiaryUI_FilePlayerInfo : Mgr
         LanguageMgr.SetText(sideMenuResValue, sideMenuResStr);
 
         //조리 속도
-        float cookSpeedValue = pPlayData.GetCookSpeedRate() * 100f;
+        float cookSpeedValue = pPlayData.GetOilZoneSpeedRate() * 100f;
         string cookSpeedStr = string.Format(PERCENT_FORMAT, cookSpeedValue);
         LanguageMgr.SetText(cookSpeed, cookSpeedStr);
 

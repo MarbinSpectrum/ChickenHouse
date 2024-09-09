@@ -10,7 +10,22 @@ public class TrayFlour2 : Mgr
     private const float DEFAULT_SLOT_HEIGHT = 3.5f;
 
     /**닭 갯수 **/
-    private int chickenCnt;
+    public int chickenCnt
+    {
+        get
+        {
+            int cnt = 0;
+            foreach (FlourChicken flourChicken in flourChickens)
+            {
+                if (flourChicken.isEmpty)
+                    continue;
+                cnt++;
+            }
+            return cnt;
+        }
+
+
+    }
 
     [System.Serializable]
     public struct SPITE_IMG
@@ -58,7 +73,6 @@ public class TrayFlour2 : Mgr
             return false;
 
         //트레이에 올려져있는 닭 증가
-        chickenCnt++;
         soundMgr.PlaySE(Sound.Put_SE);
 
         image.sprite = sprite.normalSprite;
@@ -83,9 +97,6 @@ public class TrayFlour2 : Mgr
                         tutoObj.PlayTuto();
                     }
                 }
-
-                KitchenMgr kitchenMgr = KitchenMgr.Instance;
-                kitchenMgr.UpdateWorkerAct();
 
                 return true;
             }
@@ -119,10 +130,23 @@ public class TrayFlour2 : Mgr
             if (flourChicken.isDrag)
                 continue;
             if (flourChicken.IsComplete())
-                continue;
-            return false;
+                return true;
         }
-        return true;
+        return false;
+    }
+
+    public bool HasNotComplete()
+    {
+        foreach (FlourChicken flourChicken in flourChickens)
+        {
+            if (flourChicken.isEmpty)
+                continue;
+            if (flourChicken.isDrag)
+                continue;
+            if (flourChicken.IsComplete() == false)
+                return true;
+        }
+        return false;
     }
 
     public bool RemoveChicken()
@@ -130,10 +154,14 @@ public class TrayFlour2 : Mgr
         //트레이에 올려져있는 닭 감소
         if (chickenCnt <= 0)
             return false;
-        chickenCnt--;
 
         RefreshSlotCollider();
 
+        return true;
+    }
+
+    public void WorkerRemoveChicken()
+    {
         foreach (FlourChicken flourChicken in flourChickens)
         {
             if (flourChicken.isEmpty)
@@ -145,11 +173,6 @@ public class TrayFlour2 : Mgr
             flourChicken.RemoveChicken();
             break;
         }
-
-        KitchenMgr kitchenMgr = KitchenMgr.Instance;
-        kitchenMgr.UpdateWorkerAct();
-
-        return true;
     }
 
     public void RefreshSlotCollider()
@@ -191,19 +214,23 @@ public class TrayFlour2 : Mgr
 
     public void ClickChickens(float v)
     {
-        bool nowDrag = false;
+        bool playEffect = false;
         foreach (FlourChicken flourChicken in flourChickens)
         {
             if (flourChicken.isEmpty)
                 continue;
             if (flourChicken.isDrag)
             {
-                nowDrag = true;
+                playEffect = true;
                 continue;
             }
+            if (flourChicken.IsComplete())
+                continue;
+            playEffect = true;
             flourChicken.ClickChicken(v);
         }
-        if(nowDrag == false)
+        if (playEffect == false)
+            return;
         particleSystem.Play();
     }
 
@@ -216,6 +243,7 @@ public class TrayFlour2 : Mgr
             if (flourChicken.isDrag)
                 continue;
             flourChicken.WorkerFlourChickenPutAway();
+            break;
         }
     }
 

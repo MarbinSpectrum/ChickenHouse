@@ -43,8 +43,12 @@ public class KitchenMgr : Mgr
     public DragObj          dragObj;
     /** 주방 Rect **/
     public ScrollRect       kitchenRect;
-    /** 알바생 **/
-    [SerializeField] private Worker_Kitchen   workerKitchen;
+
+    /** 주방 알바생 **/
+    [SerializeField] private Worker_Kitchen     workerKitchen;
+    /** 튀김기 알바생 **/
+    [SerializeField] private Worker_OilZone     workerOilZone;
+
     /** 양념 **/
     [SerializeField] private List<ChickenSpicyObj>  spicys      = new List<ChickenSpicyObj>();
     /** 드링크 **/
@@ -142,6 +146,35 @@ public class KitchenMgr : Mgr
             oilZone.Init();
         }
 
+        if(gameMgr.playData.hasItem[(int)ShopItem.OIL_Zone_4])
+        {
+            gameMgr.playData.useItem[(int)ShopItem.OIL_Zone_1] = false;
+            gameMgr.playData.useItem[(int)ShopItem.OIL_Zone_2] = false;
+            gameMgr.playData.useItem[(int)ShopItem.OIL_Zone_3] = false;
+            gameMgr.playData.useItem[(int)ShopItem.OIL_Zone_4] = true;
+        }
+        else if (gameMgr.playData.hasItem[(int)ShopItem.OIL_Zone_3])
+        {
+            gameMgr.playData.useItem[(int)ShopItem.OIL_Zone_1] = false;
+            gameMgr.playData.useItem[(int)ShopItem.OIL_Zone_2] = false;
+            gameMgr.playData.useItem[(int)ShopItem.OIL_Zone_3] = true;
+            gameMgr.playData.useItem[(int)ShopItem.OIL_Zone_4] = false;
+        }
+        else if (gameMgr.playData.hasItem[(int)ShopItem.OIL_Zone_2])
+        {
+            gameMgr.playData.useItem[(int)ShopItem.OIL_Zone_1] = false;
+            gameMgr.playData.useItem[(int)ShopItem.OIL_Zone_2] = true;
+            gameMgr.playData.useItem[(int)ShopItem.OIL_Zone_3] = false;
+            gameMgr.playData.useItem[(int)ShopItem.OIL_Zone_4] = false;
+        }
+        else if (gameMgr.playData.hasItem[(int)ShopItem.OIL_Zone_1])
+        {
+            gameMgr.playData.useItem[(int)ShopItem.OIL_Zone_1] = true;
+            gameMgr.playData.useItem[(int)ShopItem.OIL_Zone_2] = false;
+            gameMgr.playData.useItem[(int)ShopItem.OIL_Zone_3] = false;
+            gameMgr.playData.useItem[(int)ShopItem.OIL_Zone_4] = false;
+        }
+
         if (gameMgr.playData.hasItem[(int)ShopItem.NEW_OIL_ZONE_1])
         {
             chickenPackslots[1].gameObject.SetActive(true);
@@ -178,13 +211,14 @@ public class KitchenMgr : Mgr
 
         /////////////////////////////////////////////////////////////////////////////////
         //알바생 업무 시작
-        UpdateWorkerAct();
+        WorkerAct();
         ui.workerUI.Init();
     }
 
-    public void UpdateWorkerAct()
+    private void WorkerAct()
     {
-        workerKitchen.UpdateWorkerAct();
+        workerKitchen.WorkerAct();
+        workerOilZone.WorkerAct();
     }
 
     private float KitchenWidth()
@@ -195,8 +229,23 @@ public class KitchenMgr : Mgr
     public void SetkitchenSetPos(Vector2 movePos)
     {
         float width = KitchenWidth();
-        kitchenRect.content.transform.Translate(movePos);
         kitchenRect.content.offsetMin = new Vector2(Mathf.Clamp(movePos.x, -width, 0), kitchenRect.content.offsetMin.y);
         kitchenRect.content.offsetMax = new Vector2(kitchenRect.content.offsetMin.x + width, kitchenRect.content.offsetMax.y);
+    }
+
+    public void AddkitchenSetPos(float v, DragCamera.DRAG_OUTLINE outline)
+    {
+        float dis = Mathf.Abs(kitchenRect.content.offsetMin.x - outline.head.offsetMin.x);
+        float dis2 = Mathf.Abs(kitchenRect.content.offsetMin.x + v - outline.head.offsetMin.x);
+        if (kitchenRect.content.offsetMin.x + v < outline.head.offsetMin.x && dis <= dis2)
+        {
+            return;
+        }
+        else if (kitchenRect.content.offsetMin.x + v > outline.tail.offsetMin.x && dis <= dis2)
+        {
+            return;
+        }
+
+        SetkitchenSetPos(new Vector2(kitchenRect.content.offsetMin.x + v, 0));
     }
 }

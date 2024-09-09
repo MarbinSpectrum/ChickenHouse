@@ -22,4 +22,17 @@ public class ChickenPackList : Mgr
         }
         return false;
     }
+
+    public bool CanAddChickenPack()
+    {
+        foreach (ChickenPack pack in chickenPacks)
+        {
+            if (pack.chickenCnt <= 0)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
 }

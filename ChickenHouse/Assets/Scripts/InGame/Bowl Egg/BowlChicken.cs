@@ -124,7 +124,6 @@ public class BowlChicken : Mgr
             {
                 kitchenMgr.dragState = DragState.None;
                 bowlEgg.RemoveChicken();
-                kitchenMgr.UpdateWorkerAct();
                 return;
             }
         }
@@ -136,11 +135,9 @@ public class BowlChicken : Mgr
             {
                 kitchenMgr.dragState = DragState.None;
                 bowlEgg.RemoveChicken();
-                kitchenMgr.UpdateWorkerAct();
                 return;
             }
         }
-        kitchenMgr.UpdateWorkerAct();
 
         kitchenMgr.dragState = DragState.None;
 
@@ -164,9 +161,6 @@ public class BowlChicken : Mgr
         eggTime = EGG_DELAY;
         lerpShader.SetValue(1);
         lerpShader.gameObject.SetActive(true);
-
-        KitchenMgr kitchenMgr = KitchenMgr.Instance;
-        kitchenMgr.UpdateWorkerAct();
     }
 
     public void WorkerDragChicken(float v)

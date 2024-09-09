@@ -48,7 +48,7 @@ public class UtensilShop_UI : Mgr
             return;
         string moneyStr = string.Format(MONEY_FORMAT, playData.money);
         LanguageMgr.SetText(playerMoney, moneyStr);
-
+        nowMenu = pMenu;
         slotContents.anchoredPosition = Vector2.zero;
         for (int i = 0; i < tabInfo.tabImg.Length; i++)
         {
