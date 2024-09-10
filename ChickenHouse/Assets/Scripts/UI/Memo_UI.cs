@@ -54,7 +54,7 @@ public class Memo_UI : Mgr
 
         for (int i = 0; i < timeValue.Count; i++)
         {
-            if (kitchenMgr.cameraObj.lookArea == LookArea.Kitchen && tutoMgr.tutoComplete)
+            if (kitchenMgr.cameraObj.lookArea == LookArea.Kitchen && tutoMgr.tutoComplete1)
                 timeValue[i] -= Time.deltaTime;
 
             if (timeValue[i] > 0)

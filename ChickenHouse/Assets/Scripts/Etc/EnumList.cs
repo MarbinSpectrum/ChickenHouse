@@ -442,8 +442,23 @@ public enum Tutorial
     /** 카운터로 가져가기 **/
     Tuto_12,
 
-    /** 튜토리얼 완료 **/
-    Tuto_Complete
+
+    ////////////////////////////////////////////////////////////////////////
+
+    /** 직원 배치 **/
+    Worker_Tuto_1_0,
+    Worker_Tuto_1_1,
+    Worker_Tuto_2_0,
+    Worker_Tuto_2_1,
+    Worker_Tuto_2_2,
+
+    ////////////////////////////////////////////////////////////////////////
+
+    /** 메뉴 배치 **/
+    Menu_Tuto_1,
+    Menu_Tuto_2_0,
+    Menu_Tuto_2_1,
+    Menu_Tuto_2_2,
 }
 
 public enum Scene

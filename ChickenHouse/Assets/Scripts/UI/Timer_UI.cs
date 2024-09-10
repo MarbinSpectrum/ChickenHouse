@@ -26,7 +26,7 @@ public class Timer_UI : Mgr
         if (run)
             time += Time.deltaTime;
 
-        if (tutoMgr.tutoComplete == false)
+        if (tutoMgr.tutoComplete1 == false)
         {
             //튜토리얼 완료를 아직 못해서 시간은 안간다.
             time = 0;

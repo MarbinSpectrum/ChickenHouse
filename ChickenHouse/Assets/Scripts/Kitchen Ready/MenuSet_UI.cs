@@ -28,12 +28,13 @@ public class MenuSet_UI : Mgr
     [SerializeField] private MenuSetSideMenuToken   dragSideMenuToken;
     [SerializeField] private List<RectTransform>    dropSideMenuList;
 
-    [SerializeField] private RectTransform          infoRect;
+    [SerializeField] public RectTransform          infoRect;
     [SerializeField] private TextMeshProUGUI        nameText;
     [SerializeField] private TextMeshProUGUI        infoText;
     [SerializeField] private TextMeshProUGUI        priceText;
 
     [SerializeField] private RectTransform          backBtn;
+    [SerializeField] private TutoObj                tutoObj;
 
     private ChickenSpicy[]  setSpicyState       = new ChickenSpicy[(int)MenuSetPos.SpicyMAX];
     private Drink[]         setDrinkState       = new Drink[(int)MenuSetPos.DrinkMAX];
@@ -169,11 +170,7 @@ public class MenuSet_UI : Mgr
         RefreshDrink();
         RefreshSideMenu();
 
-        if (nowDragType == MenuSetDragType.None)
-        {
-            infoRect.gameObject.SetActive(false);
-        }
-        else if (nowDragType == MenuSetDragType.Spicy)
+        if (nowDragType == MenuSetDragType.Spicy)
         {
             infoRect.gameObject.SetActive(true);
             SpicyData spicyData = spicyMgr.GetSpicyData((ChickenSpicy)dragObj);
@@ -503,6 +500,21 @@ public class MenuSet_UI : Mgr
     {
         if (nowDragType != MenuSetDragType.None)
             return;
+
+        if (tutoMgr.tutoComplete3 == false && pDrayType != MenuSetDragType.Spicy)
+            return;
+        if (tutoMgr.tutoComplete3 == false && pDrayType == MenuSetDragType.Spicy)
+        {
+            foreach (ChickenSpicy checkSpicy in setSpicyState)
+            {
+                if (checkSpicy == (ChickenSpicy)pDragObj)
+                {
+                    //배치되어있는 양념 드래그
+                    return;
+                }
+            }
+        }
+
         dragObj = pDragObj;
         nowDragType = pDrayType;
         RefreshToken();
@@ -546,6 +558,13 @@ public class MenuSet_UI : Mgr
                                 setSpicyState[(int)prevPos] = setSpicyState[(int)dropPos];
                             }
                             setSpicyState[(int)dropPos] = (ChickenSpicy)dragObj;
+                        }
+
+                        if (tutoMgr.tutoComplete3 == false )
+                        {
+                            tutoMgr.tutoComplete3 = true;
+                            PlayerPrefs.SetInt("TUTO_3", 1);
+                            tutoObj.PlayTuto();
                         }
                     }
                 }

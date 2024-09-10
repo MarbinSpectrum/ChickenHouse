@@ -121,12 +121,21 @@ TUTO_9_1	손님의 주문에 알맞는 메뉴를 준비해주면됩니다.	손�
 TUTO_10	콜라와 치킨무도 넣어주세요.	Add coke and pickles, too.
 TUTO_11	치킨도 올려주세요.	Please put some chicken on top, too.
 TUTO_12	치킨이 준비 되었습니다.\n종을 울려서 카운터로 이동합니다.	Chicken is done. Press the top button\nto move to the counter.
+WORKER_TUTO_1_0	가게를 효율적으로 운영하기 위해서는 직원은 필수적입니다.	가게를 효율적으로 운영하기 위해서는 직원은 필수적입니다.
+WORKER_TUTO_1_1	직원을 주방 테이블쪽으로 배치해봅시다.	직원을 주방 테이블쪽으로 배치해봅시다.
+WORKER_TUTO_2_0	왼쪽하단을 확인해보면 직원의 상세정보도 확인해볼 수 있습니다.	왼쪽하단을 확인해보면 직원의 상세정보도 확인해볼 수 있습니다.
+WORKER_TUTO_2_1	이를 참고하여 적합한 업무에 배치하는 것이 중요합니다. 	이를 참고하여 적합한 업무에 배치하는 것이 중요합니다. 
+WORKER_TUTO_2_2	적절한 배치로 가게를 성공적으로 운영해봅시다!	적절한 배치로 가게를 성공적으로 운영해봅시다!
+MENU_TUTO_1	새로운 양념이 추가되었습니다. 주방에 배치해봅시다.	새로운 양념이 추가되었습니다. 주방에 배치해봅시다.
+MENU_TUTO_2_0	주방에 양념,피클,음료를 배치하면 손님들이 해당 메뉴를 주문하게 됩니다.	주방에 양념,피클,음료를 배치하면 손님들이 해당 메뉴를 주문하게 됩니다.
+MENU_TUTO_2_1	왼쪽하단을 확인해보면 배치한 메뉴의 상세정보도 확인할 수 있습니다.	왼쪽하단을 확인해보면 배치한 메뉴의 상세정보도 확인할 수 있습니다.
+MENU_TUTO_2_2	메뉴를 적절하게 배치해서 가게를 성공적으로 운영해봅시다!	메뉴를 적절하게 배치해서 가게를 성공적으로 운영해봅시다!
 PROLOGUE_1	어 여기 있었군. 우리가 찾느라\n얼마나 힘들었는지 알아?	Oh, here it is. We're looking for it\nDo you know how hard it was?
 PROLOGUE_2	우리한테 빚을 져서 차린 게 고작 이런 치킨집이라니\n이걸로 우리한테 빚진 걸 갚을 수 있겠어?	I can't believe it's only a chicken restaurant\nlike this that you owe us.\nCan you pay back what you owe us with this?
-PROLOGUE_3	잘 들어 네가 우리한테 빚진 금액 ‘10만’ 달러!\n단 1달러도 봐줄 생각은 없으니\n각오하고 벌어들여야 할 거다!	Listen, you owe us $200,000!\nI won't let you off with a dollar,\nso you have to be prepared and earn it!
-PROLOGUE_4	좋아 일단은 ‘10’일의 시간을 주지\n그때 우리가 빌려준 금액 반이라도 갚아야 할 거다.	All right. I'll give you 10 days\nI think you'll have to pay back\neven half of the amount\nwe lent you at that time.
-PROLOGUE_5	만약 반도 못 갚으면 그때는 돈이 될 만한\n장기를 모조리 뽑아서\n빈 껍데기는 시멘트로 채워버릴 거다!	If you don't pay back half,\nyou'll make money by pulling out\nall your organs and filling the empty\nshell with cement!
-PROLOGUE_6	좋아 잘 알아들은 거 같으니\n<color=#FF0000>10일</color> 후에 다시 오지, 그때 보자고? 사장님	All right, all right, come back in <color=#FF0000>10 days</color>,\nand I'll see you then, boss
+PROLOGUE_3	잘 들어 네가 우리한테 빚진 금액 ‘10만’ 달러!\n단 1달러도 봐줄 생각은 없으니\n각오하고 벌어들여야 할 거다!	Listen, you owe us $100,000!\nI won't let you off with a dollar,\nso you have to be prepared and earn it!
+PROLOGUE_4	좋아 일단은 일주일의 시간을 주지\n그때 우리가 빌려준 금액을 반드시 갚아야 할 거다.	Alright, I'll give you a week. By then, you must repay the amount we lent you.
+PROLOGUE_5	만약 갚지 못하면 그때는 돈이 될 만한\n장기를 모조리 뽑아서\n빈 껍데기는 시멘트로 채워버릴 거다!	If you can't repay, we'll rip out every organ worth money and fill the empty shell with cement!
+PROLOGUE_6	좋아 잘 알아들은 거 같으니\n일주일후에 다시 오지, 그때 보자고? 사장님	Good, it seems like you understand well. We'll be back in a week, then. See you then, boss.
 CHANGE_LANGUAGE	설정이 변경되었습니다.\n게임이 재시작됩니다.	The settings have been changed.\nThe game will resume.
 KOREAN	한국어	한국어
 ENGLISH	English	English

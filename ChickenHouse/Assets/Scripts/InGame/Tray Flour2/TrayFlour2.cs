@@ -74,7 +74,7 @@ public class TrayFlour2 : Mgr
         if (IsMax())
             return false;
 
-        if (tutoMgr.tutoComplete == false && (tutoMgr.nowTuto == Tutorial.Tuto_3 || tutoMgr.nowTuto == Tutorial.Tuto_5) == false)
+        if (tutoMgr.tutoComplete1 == false && (tutoMgr.nowTuto == Tutorial.Tuto_3 || tutoMgr.nowTuto == Tutorial.Tuto_5) == false)
         {
             //해당 상태아니면 안되야됨
             return false;
@@ -96,7 +96,7 @@ public class TrayFlour2 : Mgr
 
                 RefreshSlotCollider();
 
-                if (tutoMgr.tutoComplete == false)
+                if (tutoMgr.tutoComplete1 == false)
                 {
                     //튜토리얼을 진행안한듯?
                     //튜토리얼로 진입
@@ -220,7 +220,7 @@ public class TrayFlour2 : Mgr
     public void ClickChickens(float v)
     {
 
-        if (tutoMgr.tutoComplete == false && (tutoMgr.nowTuto == Tutorial.Tuto_4 || tutoMgr.nowTuto == Tutorial.Tuto_5) == false)
+        if (tutoMgr.tutoComplete1 == false && (tutoMgr.nowTuto == Tutorial.Tuto_4 || tutoMgr.nowTuto == Tutorial.Tuto_5) == false)
         {
             //해당 상태아니면 안되야됨
             return;
@@ -246,7 +246,7 @@ public class TrayFlour2 : Mgr
             return;
         particleSystem.Play();
 
-        if(tutoMgr.tutoComplete == false && tutoMgr.nowTuto == Tutorial.Tuto_4 && IsComplete())
+        if(tutoMgr.tutoComplete1 == false && tutoMgr.nowTuto == Tutorial.Tuto_4 && IsComplete())
         {
             tutoObj2.PlayTuto();
         }
@@ -258,7 +258,7 @@ public class TrayFlour2 : Mgr
                 if (flourChicken.IsComplete() == false)
                     allComplete = false;
 
-            if (tutoMgr.tutoComplete == false && allComplete)
+            if (tutoMgr.tutoComplete1 == false && allComplete)
             {
                 //튜토리얼을 진행안한듯?
                 //튜토리얼로 진입

@@ -111,7 +111,7 @@ public class GuestSystem : Mgr
         //인게임 코루틴
         while (true)
         {
-            if (tutoMgr.tutoComplete == false)
+            if (tutoMgr.tutoComplete1 == false)
             {
                 //손님이 이동중일대는 대기
                 yield return new WaitWhile(() => moveGuest);
@@ -120,7 +120,7 @@ public class GuestSystem : Mgr
                 CreateGuest();
 
                 //튜토리얼동안 대기
-                yield return new WaitUntil(() => tutoMgr.tutoComplete);
+                yield return new WaitUntil(() => tutoMgr.tutoComplete1);
 
                 //잠깐 대기
                 yield return new WaitForSeconds(2f);
@@ -241,7 +241,7 @@ public class GuestSystem : Mgr
                 //손님을 호출
                 int guestRandom = Random.Range(0, guestList.Count);
                 Guest nowGuest = guestList[guestRandom];
-                if(tutoMgr.tutoComplete == false)
+                if(tutoMgr.tutoComplete1 == false)
                 {
                     //튜토리얼에서는 고정으로 여우가 나옴
                     nowGuest = Guest.Fox;
@@ -489,11 +489,11 @@ public class GuestSystem : Mgr
             //대화창 닫기
             leaveGuest.CloseTalkBox();
 
-            if (tutoMgr.tutoComplete == false)
+            if (tutoMgr.tutoComplete1 == false)
             {
                 //튜토리얼 완료
-                tutoMgr.tutoComplete = true;
-                PlayerPrefs.SetInt("TUTO", 1);
+                tutoMgr.tutoComplete1 = true;
+                PlayerPrefs.SetInt("TUTO_1", 1);
             }
 
             //손님떠남처리

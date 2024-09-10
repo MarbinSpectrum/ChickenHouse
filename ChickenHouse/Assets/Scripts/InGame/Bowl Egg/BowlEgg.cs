@@ -66,7 +66,8 @@ public class BowlEgg : Mgr
 
         if (IsMax())
         {
-            if (tutoMgr.tutoComplete == false)
+            KitchenMgr kitchenMgr = KitchenMgr.Instance;
+            if (tutoMgr.tutoComplete1 == false && kitchenMgr.cameraObj.lookArea == LookArea.Kitchen)
             {
                 //튜토리얼을 진행안한듯?
                 //튜토리얼로 진입

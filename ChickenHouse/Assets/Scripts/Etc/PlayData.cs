@@ -48,6 +48,7 @@ public class PlayData
     public PlayData()
     {
         hasItem[(int)ShopItem.Recipe_0] = true;
+        hasItem[(int)ShopItem.Recipe_1] = true;
         spicyState[(int)MenuSet_UI.MenuSetPos.Spicy0] = (int)ChickenSpicy.Hot;
 
         hasItem[(int)ShopItem.Cola] = true;

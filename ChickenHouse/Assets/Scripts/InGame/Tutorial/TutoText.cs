@@ -61,6 +61,33 @@ public class TutoText : Mgr
             case Tutorial.Tuto_12:
                 LanguageMgr.SetString(text, "TUTO_12");
                 break;
+            case Tutorial.Worker_Tuto_1_0:
+                LanguageMgr.SetString(text, "WORKER_TUTO_1_0");
+                break;
+            case Tutorial.Worker_Tuto_1_1:
+                LanguageMgr.SetString(text, "WORKER_TUTO_1_1");
+                break;
+            case Tutorial.Worker_Tuto_2_0:
+                LanguageMgr.SetString(text, "WORKER_TUTO_2_0");
+                break;
+            case Tutorial.Worker_Tuto_2_1:
+                LanguageMgr.SetString(text, "WORKER_TUTO_2_1");
+                break;
+            case Tutorial.Worker_Tuto_2_2:
+                LanguageMgr.SetString(text, "WORKER_TUTO_2_2");
+                break;
+            case Tutorial.Menu_Tuto_1:
+                LanguageMgr.SetString(text, "MENU_TUTO_1");
+                break;
+            case Tutorial.Menu_Tuto_2_0:
+                LanguageMgr.SetString(text, "MENU_TUTO_2_0");
+                break;
+            case Tutorial.Menu_Tuto_2_1:
+                LanguageMgr.SetString(text, "MENU_TUTO_2_1");
+                break;
+            case Tutorial.Menu_Tuto_2_2:
+                LanguageMgr.SetString(text, "MENU_TUTO_2_2");
+                break;
         }
         tutoObj.gameObject.SetActive(true);
     }

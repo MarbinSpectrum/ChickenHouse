@@ -11,8 +11,9 @@ public class KitchenSet_UI : Mgr
     [SerializeField] private KitchenSetWorkerToken[] workerTokenPoint;
     [SerializeField] private KitchenSetWorkerToken dragToken;
     [SerializeField] private TextMeshProUGUI workerMaxText;
-    [SerializeField] private RectTransform skillRect;
+    [SerializeField] public RectTransform skillRect;
     [SerializeField] private List<KitchenWorkerInfoList> skillList;
+    [SerializeField] private TutoObj tutoObj;
     private List<KitchenSetWorkerToken> tokens = new List<KitchenSetWorkerToken>();
 
     private EWorker[] workerArea = new EWorker[3];
@@ -139,10 +140,6 @@ public class KitchenSet_UI : Mgr
                 skillList[i].gameObject.SetActive(true);
             }
         }
-        else
-        {
-            skillRect.gameObject.SetActive(false);
-        }
     }
 
     public void DragToken(EWorker pWorker)
@@ -197,6 +194,13 @@ public class KitchenSet_UI : Mgr
             }
         }
 
+        if(tutoMgr.tutoComplete2 == false && tutoMgr.nowTuto == Tutorial.Worker_Tuto_1_1 && dropPos == KitchenSetWorkerPos.KitchenWorker0)
+        {
+            tutoObj.PlayTuto();
+            tutoMgr.tutoComplete2 = true;
+            PlayerPrefs.SetInt("TUTO_2", 1);
+        }
+
         dragWorker = EWorker.None;
         RefreshToken();
     }
@@ -205,6 +209,10 @@ public class KitchenSet_UI : Mgr
     {
         //인스펙터에서 끌어서 사용하는 함수임
         if (dragWorker == EWorker.None)
+            return;
+        if (tutoMgr.tutoComplete2 == false && tutoMgr.nowTuto != Tutorial.Worker_Tuto_1_1)
+            return;
+        if (tutoMgr.tutoComplete2 == false && tutoMgr.nowTuto == Tutorial.Worker_Tuto_1_1 && pArea != 1)
             return;
 
         int useWorkerCnt = GetUseWorkerCnt();
@@ -232,6 +240,10 @@ public class KitchenSet_UI : Mgr
     {
         //인스펙터에서 끌어서 사용하는 함수임
         if (dragWorker == EWorker.None)
+            return;
+        if (tutoMgr.tutoComplete2 == false && tutoMgr.nowTuto != Tutorial.Worker_Tuto_1_1)
+            return;
+        if (tutoMgr.tutoComplete2 == false && tutoMgr.nowTuto == Tutorial.Worker_Tuto_1_1 && pArea != 1)
             return;
 
         workerTokenPoint[pArea].SetUI(workerArea[pArea], 1f);

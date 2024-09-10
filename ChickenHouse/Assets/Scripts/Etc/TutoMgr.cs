@@ -7,7 +7,14 @@ public class TutoMgr : AwakeSingleton<TutoMgr>
 {
     public Tutorial nowTuto     { private set; get; }
 
-    public bool tutoComplete;
+    //주방 조리 튜토리얼
+    public bool tutoComplete1;
+
+    //직원 배치 튜토리얼
+    public bool tutoComplete2;
+
+    //양념 배치 튜토리얼
+    public bool tutoComplete3;
 
     private TutoText tutoText;
 
@@ -15,9 +22,10 @@ public class TutoMgr : AwakeSingleton<TutoMgr>
     {
         base.Awake();
 #if (TEST_TUTO == false)
-        tutoComplete = PlayerPrefs.GetInt("TUTO", 0) == 1;
+        tutoComplete1 = PlayerPrefs.GetInt("TUTO_1", 0) == 1;
+        tutoComplete2 = PlayerPrefs.GetInt("TUTO_2", 0) == 1;
+        tutoComplete3 = PlayerPrefs.GetInt("TUTO_3", 0) == 1;
 #endif
-
     }
 
     //---------------------------------------------------------------------------------------------
