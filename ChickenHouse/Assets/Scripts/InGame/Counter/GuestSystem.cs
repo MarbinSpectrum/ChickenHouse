@@ -48,6 +48,16 @@ public class GuestSystem : Mgr
     public int guestcnt { private set; get; }
     private bool moveGuest = false;
 
+    private WorkerData counterWorker
+    {
+        get
+        {
+            EWorker eWorker = (EWorker)gameMgr.playData.workerPos[(int)KitchenSet_UI.KitchenSetWorkerPos.CounterWorker];
+            return workerMgr.GetWorkerData(eWorker);
+        }
+    }
+
+
     private void Awake()
     {
         SetSingleton();
@@ -129,8 +139,13 @@ public class GuestSystem : Mgr
 
                 //손님 딜레이
                 float delayValue = GUEST_DELAY_TIME * gameMgr.playData.GuestDelayRate();
+                if (counterWorker != null && counterWorker.skill.Contains(WorkerSkill.WorkerSkill_5))
+                {
+                    //카운터 업무 경력자(카운터에 배치시 손님이 방문률 +50%)
+                    delayValue *= 0.5f;
+                }
 
-                while(delayValue > 0)
+                while (delayValue > 0)
                 {
                     delayValue -= Time.deltaTime;
                     if (guestcnt == 0)
@@ -347,9 +362,12 @@ public class GuestSystem : Mgr
     }
 
     public void GiveChicken(ChickenSpicy spicy0, ChickenSpicy spicy1, ChickenState chickenState,
-                            Drink pDrink, SideMenu pSideMenu)
+                            Drink pDrink, SideMenu pSideMenu,bool useWorker)
     {
+        //useWorker : 직원 사용여부
+
         vinylAni.gameObject.SetActive(true);
+        KitchenMgr kitchenMgr = KitchenMgr.Instance;
 
         StartCoroutine(RunCor());
         IEnumerator RunCor()
@@ -358,7 +376,8 @@ public class GuestSystem : Mgr
 
             //손님의 평가 진행
 
-            skipTalkBtn.gameObject.SetActive(true);
+            if (useWorker == false)
+                skipTalkBtn.gameObject.SetActive(true);
 
             GuestReviews result = guestObj.ChickenPoint(spicy0, spicy1, chickenState, pDrink, pSideMenu);
             bool chickenStateResult = guestObj.CheckChickenState(chickenState);
@@ -370,33 +389,46 @@ public class GuestSystem : Mgr
             {
                 case GuestReviews.Bad:
                     {
-                        guestObj.AngryGuest(() => NextOrder());
+                        if (useWorker)
+                            kitchenMgr.RunWorkerTalkBox(WorkerCounterTalkBox.Bad);
+                        else
+                            guestObj.AngryGuest(() => NextOrder());
                     }
                     break;
                 case GuestReviews.Normal:
                     {
                         //돈지불
                         int getValue = gameMgr.playData.GetMenuValue(result, spicy0, spicy1, chickenState, pDrink, pSideMenu);
-                        ui.getMoney.RunAni(getValue);
-
+                        ui.getMoney.RunAni(getValue, 0);
                         gameMgr.dayMoney += getValue;
                         ui.nowMoney.SetMoney(gameMgr.playData.money + gameMgr.dayMoney);
 
-                        guestObj.ThankGuest(() => NextOrder());
+                        if (useWorker)
+                            kitchenMgr.RunWorkerTalkBox(WorkerCounterTalkBox.Normal);
+                        else
+                            guestObj.ThankGuest(() => NextOrder());
                     }
                     break;
                 case GuestReviews.Happy:
                     {
                         //돈지불
                         int getValue = gameMgr.playData.GetMenuValue(result, spicy0, spicy1, chickenState, pDrink, pSideMenu);
-                        ui.getMoney.RunAni(getValue);
+                        float tipRate = gameMgr.playData.TipRate();
+                        if(counterWorker != null && counterWorker.skill.Contains(WorkerSkill.WorkerSkill_4))
+                        {
+                            //잘생긴외모(팁 증가 +100%)
+                            tipRate = tipRate * (100f + 100f) / 100f;
+                        }
 
-                        gameMgr.dayMoney += getValue;
-
-
+                        int tipValue = (int)(getValue * tipRate);
+                        ui.getMoney.RunAni(getValue, tipValue);
+                        gameMgr.dayMoney += (getValue + tipValue);
                         ui.nowMoney.SetMoney(gameMgr.playData.money + gameMgr.dayMoney);
 
-                        guestObj.HappyGuest(() => NextOrder());
+                        if (useWorker)
+                            kitchenMgr.RunWorkerTalkBox(WorkerCounterTalkBox.Good);
+                        else
+                            guestObj.HappyGuest(() => NextOrder());
                     }
                     break;
             }
@@ -416,6 +448,8 @@ public class GuestSystem : Mgr
                 gameMgr.sellSideMenuCnt[pSideMenu]++;
             }
 
+            if (useWorker)
+                NextOrder();
         }
     }
 

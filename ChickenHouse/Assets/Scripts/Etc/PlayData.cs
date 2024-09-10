@@ -48,18 +48,18 @@ public class PlayData
     public PlayData()
     {
         hasItem[(int)ShopItem.Recipe_0] = true;
+        spicyState[(int)MenuSet_UI.MenuSetPos.Spicy0] = (int)ChickenSpicy.Hot;
 
         hasItem[(int)ShopItem.Cola] = true;
+        drinkState[(int)MenuSet_UI.MenuSetPos.Drink0] = (int)Drink.Cola;
 
         hasItem[(int)ShopItem.Pickle] = true;
+        sideMenuState[(int)MenuSet_UI.MenuSetPos.SideMenu0] = (int)SideMenu.Pickle;
 
         hasItem[(int)ShopItem.OIL_Zone_1] = true;
         useItem[(int)ShopItem.OIL_Zone_1] = true;
 
-        hasWorker[(int)EWorker.Worker_1] = true;
-
         quest[(int)Quest.MainQuest_1] = 1;
-
     }
 
     public int GetMenuValue(GuestReviews review, ChickenSpicy spicy0, ChickenSpicy spicy1, ChickenState chickenState,
@@ -89,8 +89,6 @@ public class PlayData
                 return 0;
             case GuestReviews.Normal:
                 return resultValue;
-            case GuestReviews.Happy:
-                return (int)(resultValue * (1f + TipRate()));
         }
 
         return resultValue;

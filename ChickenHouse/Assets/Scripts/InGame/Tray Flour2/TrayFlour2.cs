@@ -38,6 +38,8 @@ public class TrayFlour2 : Mgr
     [SerializeField] private Image image;
     [SerializeField] private FlourChicken[] flourChickens;
     [SerializeField] private TutoObj tutoObj;
+    [SerializeField] private TutoObj tutoObj2;
+    [SerializeField] private TutoObj tutoObj3;
     [SerializeField] private ParticleSystem particleSystem;
 
     public void OnMouseEnter()
@@ -72,6 +74,12 @@ public class TrayFlour2 : Mgr
         if (IsMax())
             return false;
 
+        if (tutoMgr.tutoComplete == false && (tutoMgr.nowTuto == Tutorial.Tuto_3 || tutoMgr.nowTuto == Tutorial.Tuto_5) == false)
+        {
+            //해당 상태아니면 안되야됨
+            return false;
+        }
+
         //트레이에 올려져있는 닭 증가
         soundMgr.PlaySE(Sound.Put_SE);
 
@@ -88,14 +96,11 @@ public class TrayFlour2 : Mgr
 
                 RefreshSlotCollider();
 
-                if (IsMax())
+                if (tutoMgr.tutoComplete == false)
                 {
-                    if (tutoMgr.tutoComplete == false)
-                    {
-                        //튜토리얼을 진행안한듯?
-                        //튜토리얼로 진입
-                        tutoObj.PlayTuto();
-                    }
+                    //튜토리얼을 진행안한듯?
+                    //튜토리얼로 진입
+                    tutoObj.PlayTuto();
                 }
 
                 return true;
@@ -214,6 +219,14 @@ public class TrayFlour2 : Mgr
 
     public void ClickChickens(float v)
     {
+
+        if (tutoMgr.tutoComplete == false && (tutoMgr.nowTuto == Tutorial.Tuto_4 || tutoMgr.nowTuto == Tutorial.Tuto_5) == false)
+        {
+            //해당 상태아니면 안되야됨
+            return;
+        }
+
+        //인스펙터에서 끌어서 사용되는 함수
         bool playEffect = false;
         foreach (FlourChicken flourChicken in flourChickens)
         {
@@ -232,6 +245,27 @@ public class TrayFlour2 : Mgr
         if (playEffect == false)
             return;
         particleSystem.Play();
+
+        if(tutoMgr.tutoComplete == false && tutoMgr.nowTuto == Tutorial.Tuto_4 && IsComplete())
+        {
+            tutoObj2.PlayTuto();
+        }
+
+        if (IsMax())
+        {
+            bool allComplete = true;
+            foreach (FlourChicken flourChicken in flourChickens)
+                if (flourChicken.IsComplete() == false)
+                    allComplete = false;
+
+            if (tutoMgr.tutoComplete == false && allComplete)
+            {
+                //튜토리얼을 진행안한듯?
+                //튜토리얼로 진입
+
+                tutoObj3.PlayTuto();
+            }
+        }
     }
 
     public void WorkerFlourChickenPutAway()

@@ -28,7 +28,6 @@ public class ChickenStrainter : Mgr
     [SerializeField] private ScrollObj[]    scrollObj;
     [SerializeField] private GameObject     obj;
     [SerializeField] private TutoObj        tutoObj;
-
     public void OnMouseEnter()
     {
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
@@ -91,7 +90,7 @@ public class ChickenStrainter : Mgr
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
         if (state)
         {
-            if (tutoMgr.tutoComplete == false && tutoMgr.nowTuto != Tutorial.Tuto_4)
+            if (tutoMgr.tutoComplete == false && tutoMgr.nowTuto != Tutorial.Tuto_7)
             {
                 //튜토리얼이 아직 완료안된듯
                 //혹시모르니 튜토리얼 타이밍때만 작동하도록 막아놓자
@@ -136,7 +135,7 @@ public class ChickenStrainter : Mgr
 
     public void PutDown(Oil_Zone pOilZone)
     {
-        if (tutoMgr.tutoComplete == false && tutoMgr.nowTuto != Tutorial.Tuto_4)
+        if (tutoMgr.tutoComplete == false && tutoMgr.nowTuto != Tutorial.Tuto_7)
         {
             //튜토리얼이 아직 완료안된듯
             //혹시모르니 튜토리얼 타이밍때만 작동하도록 막아놓자
@@ -180,7 +179,7 @@ public class ChickenStrainter : Mgr
         if (CheckMode.IsDropMode())
             return;
 
-        if (tutoMgr.tutoComplete == false && tutoMgr.nowTuto != Tutorial.Tuto_4)
+        if (tutoMgr.tutoComplete == false && tutoMgr.nowTuto != Tutorial.Tuto_7)
         {
             return;
         }
@@ -203,7 +202,7 @@ public class ChickenStrainter : Mgr
         if (CheckMode.IsDropMode())
             return;
 
-        if (tutoMgr.tutoComplete == false && tutoMgr.nowTuto != Tutorial.Tuto_4)
+        if (tutoMgr.tutoComplete == false && tutoMgr.nowTuto != Tutorial.Tuto_7)
         {
             return;
         }

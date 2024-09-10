@@ -107,7 +107,7 @@ public class ChickenPack : Mgr
 
     public void OnMouseDrag()
     {
-        if (tutoMgr.tutoComplete == false && tutoMgr.nowTuto != Tutorial.Tuto_7)
+        if (tutoMgr.tutoComplete == false && tutoMgr.nowTuto != Tutorial.Tuto_11)
         {
             //튜토리얼 중에는 드래그 불가능
             return;
@@ -137,7 +137,7 @@ public class ChickenPack : Mgr
 
     public void OnMouseUp()
     {
-        if (tutoMgr.tutoComplete == false && tutoMgr.nowTuto != Tutorial.Tuto_7)
+        if (tutoMgr.tutoComplete == false && tutoMgr.nowTuto != Tutorial.Tuto_11)
         {
             //튜토리얼 중에는 드래그 불가능
             return;
@@ -179,7 +179,7 @@ public class ChickenPack : Mgr
                 kitchenMgr.chickenSlot.Set_ChickenShader(chickenMode, chickenLerpValue);
                 kitchenMgr.chickenSlot.UpdatePack();
 
-                if (tutoMgr.tutoComplete == false && tutoMgr.nowTuto == Tutorial.Tuto_7)
+                if (tutoMgr.tutoComplete == false && tutoMgr.nowTuto == Tutorial.Tuto_11)
                 {
                     tutoObj.PlayTuto();
                 }

@@ -112,7 +112,7 @@ public class TableChickenSlot : Mgr
 
     public void OnMouseUp()
     {
-        if (tutoMgr.tutoComplete == false && tutoMgr.nowTuto != Tutorial.Tuto_8)
+        if (tutoMgr.tutoComplete == false && tutoMgr.nowTuto != Tutorial.Tuto_12)
         {
             //튜토리얼 중에는 드래그 불가능
             return;

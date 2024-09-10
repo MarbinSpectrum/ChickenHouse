@@ -28,14 +28,8 @@ public class TutoText : Mgr
             case Tutorial.Tuto_4:
                 LanguageMgr.SetString(text, "TUTO_4");
                 break;
-            case Tutorial.Tuto_5_0:
-                LanguageMgr.SetString(text, "TUTO_5_0");
-                break;
-            case Tutorial.Tuto_5_1:
-                LanguageMgr.SetString(text, "TUTO_5_1");
-                break;
-            case Tutorial.Tuto_5_2:
-                LanguageMgr.SetString(text, "TUTO_5_2");
+            case Tutorial.Tuto_5:
+                LanguageMgr.SetString(text, "TUTO_5");
                 break;
             case Tutorial.Tuto_6:
                 LanguageMgr.SetString(text, "TUTO_6");
@@ -43,8 +37,29 @@ public class TutoText : Mgr
             case Tutorial.Tuto_7:
                 LanguageMgr.SetString(text, "TUTO_7");
                 break;
-            case Tutorial.Tuto_8:
-                LanguageMgr.SetString(text, "TUTO_8");
+            case Tutorial.Tuto_8_0:
+                LanguageMgr.SetString(text, "TUTO_8_0");
+                break;
+            case Tutorial.Tuto_8_1:
+                LanguageMgr.SetString(text, "TUTO_8_1");
+                break;
+            case Tutorial.Tuto_8_2:
+                LanguageMgr.SetString(text, "TUTO_8_2");
+                break;
+            case Tutorial.Tuto_9_0:
+                LanguageMgr.SetString(text, "TUTO_9_0");
+                break;
+            case Tutorial.Tuto_9_1:
+                LanguageMgr.SetString(text, "TUTO_9_1");
+                break;
+            case Tutorial.Tuto_10:
+                LanguageMgr.SetString(text, "TUTO_10");
+                break;
+            case Tutorial.Tuto_11:
+                LanguageMgr.SetString(text, "TUTO_11");
+                break;
+            case Tutorial.Tuto_12:
+                LanguageMgr.SetString(text, "TUTO_12");
                 break;
         }
         tutoObj.gameObject.SetActive(true);

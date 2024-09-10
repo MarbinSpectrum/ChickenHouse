@@ -90,7 +90,7 @@ public class TableDrinkSlot : Mgr
 
         soundMgr.PlaySE(Sound.Put_SE);
 
-        if (tutoMgr.tutoComplete == false && tutoMgr.nowTuto == Tutorial.Tuto_6 && pickleSlot.hasPickle)
+        if (tutoMgr.tutoComplete == false && tutoMgr.nowTuto == Tutorial.Tuto_10 && pickleSlot.hasPickle)
         {
             tutoObj.PlayTuto();
 

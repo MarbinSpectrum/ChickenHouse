@@ -48,6 +48,8 @@ public class KitchenMgr : Mgr
     [SerializeField] private Worker_Kitchen     workerKitchen;
     /** Æ¢±è±â ¾Ë¹Ù»ý **/
     [SerializeField] private Worker_OilZone     workerOilZone;
+    /** Æ¢±è±â ¾Ë¹Ù»ý **/
+    [SerializeField] private Worker_Counter     workerCounter;
 
     /** ¾ç³ä **/
     [SerializeField] private List<ChickenSpicyObj>  spicys      = new List<ChickenSpicyObj>();
@@ -141,11 +143,6 @@ public class KitchenMgr : Mgr
 
         /////////////////////////////////////////////////////////////////////////////////
         //Æ¢±è±â&Ä¡Å²»óÀÚ ÁØºñ
-        foreach (Oil_Zone oilZone in oilMachines)
-        {
-            oilZone.Init();
-        }
-
         if(gameMgr.playData.hasItem[(int)ShopItem.OIL_Zone_4])
         {
             gameMgr.playData.useItem[(int)ShopItem.OIL_Zone_1] = false;
@@ -173,6 +170,10 @@ public class KitchenMgr : Mgr
             gameMgr.playData.useItem[(int)ShopItem.OIL_Zone_2] = false;
             gameMgr.playData.useItem[(int)ShopItem.OIL_Zone_3] = false;
             gameMgr.playData.useItem[(int)ShopItem.OIL_Zone_4] = false;
+        }
+        foreach (Oil_Zone oilZone in oilMachines)
+        {
+            oilZone.Init();
         }
 
         if (gameMgr.playData.hasItem[(int)ShopItem.NEW_OIL_ZONE_1])
@@ -213,6 +214,20 @@ public class KitchenMgr : Mgr
         //¾Ë¹Ù»ý ¾÷¹« ½ÃÀÛ
         WorkerAct();
         ui.workerUI.Init();
+
+        if ((EWorker)gameMgr.playData.workerPos[(int)KitchenSet_UI.KitchenSetWorkerPos.CounterWorker] == EWorker.None)
+        {
+            cameraObj.ChangeLook(LookArea.Counter);
+            ui.memo.CloseTriggerBox();
+            ui.workerUI.OffBox();
+        }
+        else
+        {
+            cameraObj.ChangeLook(LookArea.Kitchen);
+            ui.memo.OpenTriggerBox();
+            ui.workerUI.OnBox();
+
+        }
     }
 
     private void WorkerAct()
@@ -248,4 +263,6 @@ public class KitchenMgr : Mgr
 
         SetkitchenSetPos(new Vector2(kitchenRect.content.offsetMin.x + v, 0));
     }
+
+    public void RunWorkerTalkBox(WorkerCounterTalkBox pWorkerCounterTalkBox) => workerCounter.RunTalkBox(pWorkerCounterTalkBox);
 }

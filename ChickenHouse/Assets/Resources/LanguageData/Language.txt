@@ -105,16 +105,22 @@ BACK	뒤로	Back
 DRINK_SLOT	음료	Drink
 PICKLE_SLOT	피클	Pickle
 SELLING_PRICE	판매 수익	Selling Price
-TUTO_1	먼저 닭 4개를 계란물에 넣어봅시다.	First, I'll put four chickens in the egg water.
-TUTO_2	그리고 닭을 밀가루 쪽으로 옮겨주세요.	And move the chicken toward the flour.
-TUTO_3	닭 모두를 치킨 건지개에 넣어 주세요.	Please put all the chickens in the vegetable.
-TUTO_4	이제 치킨기계로 치킨을 옮겨주세요.	Now transfer the chicken to the fryer.
-TUTO_5_0	치킨기계의 게이지가 가득차면 치킨이 완료된것입니다.	When the gauge of the machine is full\nthe chicken is complete.
-TUTO_5_1	해당 상태로 치킨을 너무 오래 방치하면\n치킨이 타므로 주의해야합니다.	If you leave the chicken in that state for too long,\nBe careful because the chicken is burning.
-TUTO_5_2	이제 치킨을 치킨용기안에 넣어주세요.	Now put the chicken in the wrapper.
-TUTO_6	콜라와 치킨무도 넣어주세요.	Add coke and pickles, too.
-TUTO_7	치킨도 올려주세요.	Please put some chicken on top, too.
-TUTO_8	치킨이 준비 되었습니다.\n종을 울려서 카운터로 이동합니다.	Chicken is done. Press the top button\nto move to the counter.
+TIP	팁	Tip
+TUTO_1	먼저 닭을 달걀물에 넣어봅시다.	First, I'll put chickens in the egg water.
+TUTO_2	달걀물이 골고루 묻도록 닭을 잘 저어주세요.	Stir the chicken well so that the egg water is evenly coated.
+TUTO_3	이제 달걀물을 묻힌 닭을 오른쪽으로 옮겨주세요. 	이제 달걀물을 묻힌 닭을 오른쪽으로 옮겨주세요. 
+TUTO_4	닭에 밀가루를 묻혀주세요.	닭에 밀가루를 묻혀주세요.
+TUTO_5	해당 작업을 반복해서 오른쪽 트레이를 가득채워주세요.	해당 작업을 반복해서 오른쪽 트레이를 가득채워주세요.
+TUTO_6	닭 모두를 치킨 건지개에 넣어 주세요.	Please put all the chickens in the vegetable.
+TUTO_7	이제 튀김기로 치킨을 옮겨주세요.	Now transfer the chicken to the fryer.
+TUTO_8_0	튀김기의 게이지가 가득차면 치킨이 완료된것입니다.	When the gauge of the machine is full\nthe chicken is complete.
+TUTO_8_1	해당 상태로 치킨을 너무 오래 방치하면\n치킨이 타므로 주의해야합니다.	If you leave the chicken in that state for too long,\nBe careful because the chicken is burning.
+TUTO_8_2	이제 치킨을 치킨용기안에 넣어주세요.	Now put the chicken in the wrapper.
+TUTO_9_0	왼쪽상단의 쪽지를 클릭하면\n손님의 주문을 확인할 수 있습니다.	왼쪽상단의 쪽지를 클릭하면\n손님의 주문을 확인할 수 있습니다.
+TUTO_9_1	손님의 주문에 알맞는 메뉴를 준비해주면됩니다.	손님의 주문에 알맞는 메뉴를 준비해주면됩니다.
+TUTO_10	콜라와 치킨무도 넣어주세요.	Add coke and pickles, too.
+TUTO_11	치킨도 올려주세요.	Please put some chicken on top, too.
+TUTO_12	치킨이 준비 되었습니다.\n종을 울려서 카운터로 이동합니다.	Chicken is done. Press the top button\nto move to the counter.
 PROLOGUE_1	어 여기 있었군. 우리가 찾느라\n얼마나 힘들었는지 알아?	Oh, here it is. We're looking for it\nDo you know how hard it was?
 PROLOGUE_2	우리한테 빚을 져서 차린 게 고작 이런 치킨집이라니\n이걸로 우리한테 빚진 걸 갚을 수 있겠어?	I can't believe it's only a chicken restaurant\nlike this that you owe us.\nCan you pay back what you owe us with this?
 PROLOGUE_3	잘 들어 네가 우리한테 빚진 금액 ‘10만’ 달러!\n단 1달러도 봐줄 생각은 없으니\n각오하고 벌어들여야 할 거다!	Listen, you owe us $200,000!\nI won't let you off with a dollar,\nso you have to be prepared and earn it!
@@ -443,6 +449,9 @@ WORKER_SKILL_INFO_8	카운터에 배치시 2% 확률로 손님의 주문이 제�
 QUEST_NAME_1	빚 갚기	Pay off debt
 QUEST_INFO_1	너구리에게 빌린 돈 50000$를 갚아야한다. \n기간은 7일준다고 했다.\n빨리 준비해야 될거같다.	I need to repay the $50,000\nI borrowed from the raccoon.\nHe gave me 7 days.\nI need to prepare quickly.
 QUEST_SUMMARY_1	※ 기간안에 50000$를 갚자!!	※ Let's repay the $5,000 within the deadline!!
+SUB_QUEST_NAME_1	장사를 시작해보자	Let's sell chicken
+SUB_QUEST_INFO_1	우선 치킨 5마리를 팔아보자.	Let's sell five chickens first.
+SUB_QUEST_SUMMARY_1	※ 치킨 5마리 팔기.	※ Selling 5 chickens.
 QUEST_DETAIL_1	남은 기간 : {0}일	Remaining days : {0}
 QUEST_DETAIL_2	남은 금액 : {0} / {1}$	Remaining money : {0} / {1}$
 BOOK_HOT_SPICY	프라이드 치킨에 바르는 \n매콤달콤한 소스, \n이 소스는 치킨 요리의\n대표적인 맛 중 하나이다.	The sweet and spicy sauce used on fried chicken is one of the signature flavors in chicken cuisine.

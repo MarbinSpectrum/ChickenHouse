@@ -15,6 +15,9 @@ public class BowlChicken : Mgr
     private const float EGG_DELAY = 1f;
     public bool isDrag { private set; get; }
 
+    //Tuto_3
+    [SerializeField] private TutoObj tutoObj;
+
     public void Init()
     {
         if (init == false)
@@ -31,7 +34,7 @@ public class BowlChicken : Mgr
 
     public void OnMouseDrag()
     {
-        if (tutoMgr.tutoComplete == false && tutoMgr.nowTuto != Tutorial.Tuto_2)
+        if (tutoMgr.tutoComplete == false && (tutoMgr.nowTuto == Tutorial.Tuto_2 || tutoMgr.nowTuto == Tutorial.Tuto_3 || tutoMgr.nowTuto == Tutorial.Tuto_5) == false)
         {
             //튜토리얼이 아직 완료안된듯
             //혹시모르니 튜토리얼 타이밍때만 작동하도록 막아놓자
@@ -63,6 +66,12 @@ public class BowlChicken : Mgr
         }
         else
         {
+            if (tutoMgr.tutoComplete == false && tutoMgr.nowTuto == Tutorial.Tuto_2)
+            {
+                //다 저어줌 튜토리얼 진행
+                tutoObj.PlayTuto();
+            }
+
             kitchenMgr.dragState = DragState.Egg;
             lerpShader.gameObject.SetActive(false);
         }
@@ -104,7 +113,7 @@ public class BowlChicken : Mgr
 
     public void OnMouseUp()
     {
-        if (tutoMgr.tutoComplete == false && tutoMgr.nowTuto != Tutorial.Tuto_2)
+        if (tutoMgr.tutoComplete == false && (tutoMgr.nowTuto == Tutorial.Tuto_2 || tutoMgr.nowTuto == Tutorial.Tuto_3 || tutoMgr.nowTuto == Tutorial.Tuto_5) == false)
         {
             //튜토리얼이 아직 완료안된듯
             //혹시모르니 튜토리얼 타이밍때만 작동하도록 막아놓자

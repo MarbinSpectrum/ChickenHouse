@@ -12,7 +12,7 @@ public class KitchenBell : Mgr
     public void CompleteBtn()
     {
 
-        if (tutoMgr.tutoComplete == false && tutoMgr.nowTuto != Tutorial.Tuto_8)
+        if (tutoMgr.tutoComplete == false && tutoMgr.nowTuto != Tutorial.Tuto_12)
         {            
             //튜토리얼이 아직 완료안된듯
             //혹시모르니 튜토리얼 타이밍때만 작동하도록 막아놓자
@@ -34,25 +34,38 @@ public class KitchenBell : Mgr
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
         kitchenMgr.ui.goCounter.CloseBtn();
 
-        kitchenMgr.cameraObj.ChangeLook(LookArea.Counter, () =>
+        void GiveChicken(bool useWorker)
         {
             Drink drink = tableDrinkSlot.hasDrink ? Drink.Cola : Drink.None;
             SideMenu sideMenu = tablePickleSlot.hasPickle ? SideMenu.Pickle : SideMenu.None;
             ChickenSpicy spicy0 = (ChickenSpicy)Mathf.Min((int)tableChicken.source0, (int)tableChicken.source1);
             ChickenSpicy spicy1 = (ChickenSpicy)Mathf.Max((int)tableChicken.source0, (int)tableChicken.source1);
-            GuestSystem guestMgr = GuestSystem.Instance;
+
             guestMgr.GiveChicken(spicy0, spicy1, tableChicken.chickenState,
-              drink, sideMenu);
+              drink, sideMenu, useWorker);
 
             tableChicken.Init();
             tableDrinkSlot.Init();
             tablePickleSlot.Init();
             kitchenMgr.ui.memo.RemoveMemo(0);
-            //guestMgr.ui.goKitchen.OpenBtn();
-        });
+        }
+
+        if ((EWorker)gameMgr.playData.workerPos[(int)KitchenSet_UI.KitchenSetWorkerPos.CounterWorker] != EWorker.None)
+        {
+            //직원 사용해서 카운터로 이동안함
+            GiveChicken(true);
+        }
+        else
+        {
+            //직원을 사용하지 않았기에 카운터로 이동해서 계산
+            kitchenMgr.cameraObj.ChangeLook(LookArea.Counter, () =>
+            {
+                GiveChicken(false);
+                kitchenMgr.ui.memo.CloseTriggerBox();
+                kitchenMgr.ui.workerUI.OffBox();
+            });
+        }
 
 
-        kitchenMgr.ui.memo.CloseTriggerBox();
-        kitchenMgr.ui.workerUI.OffBox();
     }
 }

@@ -14,6 +14,7 @@ public class Title_UI : Mgr
 
     private void Awake()
     {
+        gameMgr.playData = null;
         bool hasData = false;
         for (int i = 0; i < 6; i++)
         {

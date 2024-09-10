@@ -33,7 +33,7 @@ public class Memo_UI : Mgr
         if (kitchenMgr == null)
             return;
 
-        //초기 메모지 상태 설정
+        //메모지 상태 설정
         if(kitchenMgr.cameraObj.lookArea == LookArea.Counter)
         {
             memoObjs.alpha = 0;

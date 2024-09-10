@@ -30,8 +30,6 @@ public class Worker_UI : Mgr
                 icon[idx].sprite = resumeData.face;
             }
         }
-
-        OffBox();
     }
 
     public void OffBox()

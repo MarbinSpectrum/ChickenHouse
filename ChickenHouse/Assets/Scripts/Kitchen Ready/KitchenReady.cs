@@ -32,6 +32,38 @@ public class KitchenReady : Mgr
 
         kitchenSetUI.Init();
         menuSetUI.Init();
+
+        //직원을 보유하지 않으면 직원화면이 안나옴
+        bool hasWorker = false;
+        for (EWorker worker = EWorker.Worker_1; worker < EWorker.MAX; worker++)
+        {
+            if (gameMgr.playData.hasWorker[(int)worker])
+            {
+                hasWorker = true;
+                break;
+            }
+        }
+
+        //양념이 두개 이상 보유 중일때부터 메뉴화면이 나옴
+        int hasSpicyCnt = 0;
+        for (ChickenSpicy spicy = ChickenSpicy.Hot; spicy < ChickenSpicy.MAX; spicy++)
+        {
+            if (gameMgr.playData.hasItem[(int)spicy])
+            {
+                hasSpicyCnt++;
+                break;
+            }
+        }
+
+        if (hasWorker)
+            menuRect.transform.position = menuPos[(int)EUIPos.KitchenSet].transform.position;
+        else if (hasSpicyCnt >= 2)
+            menuRect.transform.position = menuPos[(int)EUIPos.MenuSet].transform.position;
+        else
+        {
+            gameObject.SetActive(false);
+            startGame.Run();
+        }
     }
 
     public void MoveToKitchenSetPos()
@@ -49,7 +81,21 @@ public class KitchenReady : Mgr
         }
         else
         {
-            MoveDic(EUIPos.MenuSet);
+            //양념이 두개 이상 보유 중일때부터 메뉴화면이 나옴
+            int hasSpicyCnt = 0;
+            for (ChickenSpicy spicy = ChickenSpicy.Hot; spicy < ChickenSpicy.MAX; spicy++)
+            {
+                if (gameMgr.playData.hasItem[(int)spicy])
+                {
+                    hasSpicyCnt++;
+                    break;
+                }
+            }
+
+            if (hasSpicyCnt >= 2)
+                MoveDic(EUIPos.MenuSet);
+            else
+                StartGame();
         }
     }
 

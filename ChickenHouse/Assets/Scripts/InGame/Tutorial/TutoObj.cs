@@ -11,10 +11,13 @@ public class TutoObj : Mgr
     [SerializeField] private float      delay;
     [SerializeField] private Image      nextBtn;
 
-
+    private bool tutoFlag = false;
 
    public void PlayTuto()
     {
+        if (tutoFlag)
+            return;
+        tutoFlag = true;
         StartCoroutine(RunToto());
     }
 

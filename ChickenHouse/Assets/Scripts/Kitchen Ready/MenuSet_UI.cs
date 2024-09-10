@@ -33,6 +33,7 @@ public class MenuSet_UI : Mgr
     [SerializeField] private TextMeshProUGUI        infoText;
     [SerializeField] private TextMeshProUGUI        priceText;
 
+    [SerializeField] private RectTransform          backBtn;
 
     private ChickenSpicy[]  setSpicyState       = new ChickenSpicy[(int)MenuSetPos.SpicyMAX];
     private Drink[]         setDrinkState       = new Drink[(int)MenuSetPos.DrinkMAX];
@@ -74,6 +75,18 @@ public class MenuSet_UI : Mgr
 
     public void Init()
     {
+        //뒤로가기 버튼은 보유 직원이 없으면 나올필요가 없다.
+        bool actBackBtn = false;
+        for(EWorker worker = EWorker.Worker_1; worker < EWorker.MAX; worker++)
+        {
+            if (gameMgr.playData.hasWorker[(int)worker])
+            {
+                actBackBtn = true;
+                break;
+            }
+        }
+        backBtn.gameObject.SetActive(actBackBtn);
+
         int drinkCnt = 0;
         for (Drink drink = Drink.Cola; drink < Drink.MAX; drink++)
             if (gameMgr.playData.hasItem[(int)drink])

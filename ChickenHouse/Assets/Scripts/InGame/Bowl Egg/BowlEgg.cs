@@ -18,6 +18,7 @@ public class BowlEgg : Mgr
     }
     [SerializeField] private SPITE_IMG          sprite;
     [SerializeField] private Image              image;
+    //Tuto_2
     [SerializeField] private TutoObj            tutoObj;
     [SerializeField] private BowlChicken        bowlChicken;
 
