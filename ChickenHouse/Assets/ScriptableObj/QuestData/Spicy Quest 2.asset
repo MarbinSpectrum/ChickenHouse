@@ -10,9 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cd4319cc09f0593489e59b71adb9b3ec, type: 3}
-  m_Name: SubQuest_1
+  m_Name: Spicy Quest 2
   m_EditorClassIdentifier: 
-  quest: 1000
-  questNameKey: SUB_QUEST_NAME_1
-  questInfoKey: SUB_QUEST_INFO_1
-  questSummaryKey: SUB_QUEST_SUMMARY_1
+  quest: 1001
+  questNameKey: SPICY_QUEST_NAME_2
+  questInfoKey: SPICY_QUEST_INFO_2
+  questSummaryKey: SPICY_QUEST_SUMMARY_2
+  nextQuest: 1001
+  rewards: ca000000

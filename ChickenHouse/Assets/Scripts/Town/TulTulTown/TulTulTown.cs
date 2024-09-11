@@ -55,6 +55,8 @@ public class TulTulTown : Mgr
     {
         //인스펙터로 끌어서 사용할 함수임
         //특정Zone에서 특정 dic으로 이동시 이동될Zone을 임의로 정해줌
+
+        soundMgr.PlaySE(Sound.Walk_SE);
         switch(nowZone)
         {
             case Zone.ChickenHeaven:
@@ -161,6 +163,7 @@ public class TulTulTown : Mgr
     {
         //인스펙터로 끌어서 사용하는 함수
 
+        soundMgr.PlaySE(Sound.Btn_SE);
         switch (nowZone)
         {
             case Zone.ChickenHeaven:

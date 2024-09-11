@@ -17,7 +17,7 @@ public class GetMoney_UI : Mgr
 
         if(tip != 0)
         {
-            tipTtextUI.text = string.Format("{0} +{1:N0} $", LanguageMgr.GetText("TIP"), num);
+            tipTtextUI.text = string.Format("{0} +{1:N0} $", LanguageMgr.GetText("TIP"), tip);
             tipAni.Play();
         }
 

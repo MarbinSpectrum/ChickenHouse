@@ -14,4 +14,8 @@ public class QuestData : ScriptableObject
     public string questInfoKey;
     [Header("퀘스트 요약")]
     public string questSummaryKey;
+    [Header("다음 퀘스트")]
+    public Quest nextQuest;
+    [Header("보상")]
+    public List<ShopItem> rewards;
 }

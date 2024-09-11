@@ -143,34 +143,6 @@ public class KitchenMgr : Mgr
 
         /////////////////////////////////////////////////////////////////////////////////
         //Æ¢±è±â&Ä¡Å²»óÀÚ ÁØºñ
-        if(gameMgr.playData.hasItem[(int)ShopItem.OIL_Zone_4])
-        {
-            gameMgr.playData.useItem[(int)ShopItem.OIL_Zone_1] = false;
-            gameMgr.playData.useItem[(int)ShopItem.OIL_Zone_2] = false;
-            gameMgr.playData.useItem[(int)ShopItem.OIL_Zone_3] = false;
-            gameMgr.playData.useItem[(int)ShopItem.OIL_Zone_4] = true;
-        }
-        else if (gameMgr.playData.hasItem[(int)ShopItem.OIL_Zone_3])
-        {
-            gameMgr.playData.useItem[(int)ShopItem.OIL_Zone_1] = false;
-            gameMgr.playData.useItem[(int)ShopItem.OIL_Zone_2] = false;
-            gameMgr.playData.useItem[(int)ShopItem.OIL_Zone_3] = true;
-            gameMgr.playData.useItem[(int)ShopItem.OIL_Zone_4] = false;
-        }
-        else if (gameMgr.playData.hasItem[(int)ShopItem.OIL_Zone_2])
-        {
-            gameMgr.playData.useItem[(int)ShopItem.OIL_Zone_1] = false;
-            gameMgr.playData.useItem[(int)ShopItem.OIL_Zone_2] = true;
-            gameMgr.playData.useItem[(int)ShopItem.OIL_Zone_3] = false;
-            gameMgr.playData.useItem[(int)ShopItem.OIL_Zone_4] = false;
-        }
-        else if (gameMgr.playData.hasItem[(int)ShopItem.OIL_Zone_1])
-        {
-            gameMgr.playData.useItem[(int)ShopItem.OIL_Zone_1] = true;
-            gameMgr.playData.useItem[(int)ShopItem.OIL_Zone_2] = false;
-            gameMgr.playData.useItem[(int)ShopItem.OIL_Zone_3] = false;
-            gameMgr.playData.useItem[(int)ShopItem.OIL_Zone_4] = false;
-        }
         foreach (Oil_Zone oilZone in oilMachines)
         {
             oilZone.Init();

@@ -11,17 +11,10 @@ public class GameMgr : AwakeSingleton<GameMgr>
 
     /** 오늘 수입 **/
     [NonSerialized] public int dayMoney;
-    /** 판매한 치킨 수 **/
-    [NonSerialized] public int sellChickenCnt;
-    /** 판매한 드링크 갯수 **/
-    [NonSerialized] public Dictionary<Drink, int>       sellDrinkCnt        = new Dictionary<Drink, int>();
-    /** 판매한 사이드메뉴 갯수 **/
-    [NonSerialized] public Dictionary<SideMenu, int>    sellSideMenuCnt     = new Dictionary<SideMenu, int>();
+    /** 판매한 메뉴 **/
+    [NonSerialized] public List<GuestMenu> sellMenu = new List<GuestMenu>();
 
     [SerializeField] private GameRecord_UI gameRecord;
-
-    public static int TARGET_MONEY_1 = 50000;
-
 
     //-------------------------------------------------------------------------------------------------------
     protected override void Awake()
@@ -57,9 +50,7 @@ public class GameMgr : AwakeSingleton<GameMgr>
     public void InitData()
     {
         dayMoney = 0;
-        sellChickenCnt = 0;
-        sellDrinkCnt.Clear();
-        sellSideMenuCnt.Clear();
+        sellMenu.Clear();
     }
 
     public PlayData LoadData(int select)
@@ -124,5 +115,25 @@ public class GameMgr : AwakeSingleton<GameMgr>
     public void CloseRecordUI()
     {
         gameRecord.gameObject.SetActive(false);
+    }
+
+    public void DayEndEvent()
+    {
+        //날짜가 바뀔때 처리되는 이벤트
+        QuestMgr questMgr = QuestMgr.Instance;
+
+        //퀘스트 진행도 적용
+        questMgr.QuestApply();
+
+        //새로운 퀘스트 등록
+        switch (playData.day)
+        {
+            case 2:
+                {
+                    questMgr.AddQuest(Quest.SpicyQuest_1);
+                    questMgr.AddQuest(Quest.DrinkQuest_1);
+                }
+                break;
+        }
     }
 }

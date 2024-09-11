@@ -24,6 +24,8 @@ public class DiaryUI_FilePlayerInfo : Mgr
 
     public void SetUI(PlayData pPlayData)
     {
+        if(pPlayData == null)
+            return;
 
         //기본 치킨 가격
         string chickenPriceStr = string.Format(MONEY_FORMAT, PlayData.DEFAULT_CHICKEN_PRICE);

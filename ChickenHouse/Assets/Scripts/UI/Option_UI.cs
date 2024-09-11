@@ -163,7 +163,7 @@ public class Option_UI : Mgr
             run = false;
             gameMgr.StopGame(false);
             lanMgr.ChangeLanguage(selectLan);
-            sceneMgr.SceneLoad(Scene.LOGO, false);
+            sceneMgr.SceneLoad(Scene.LOGO, false, false);
         });
     }
 
@@ -236,7 +236,7 @@ public class Option_UI : Mgr
                         return;
                     run = false;
                     gameMgr.StopGame(false);
-                    sceneMgr.SceneLoad(Scene.TITLE,false,SceneChangeAni.FADE);
+                    sceneMgr.SceneLoad(Scene.TITLE, false, false, SceneChangeAni.FADE);
                     gameObject.SetActive(false);
                 }
                 break;

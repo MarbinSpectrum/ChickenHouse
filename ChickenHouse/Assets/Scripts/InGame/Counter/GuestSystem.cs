@@ -434,20 +434,13 @@ public class GuestSystem : Mgr
             }
 
             guestObj.ShowResult(spicyResult, chickenStateResult, drinkResult, sideResult);
-            gameMgr.sellChickenCnt += 1;
-            if (pDrink != Drink.None)
-            {
-                if (gameMgr.sellDrinkCnt.ContainsKey(pDrink) == false)
-                    gameMgr.sellDrinkCnt[pDrink] = 0;
-                gameMgr.sellDrinkCnt[pDrink]++;
-            }
-            if (pSideMenu != SideMenu.None)
-            {
-                if (gameMgr.sellSideMenuCnt.ContainsKey(pSideMenu) == false)
-                    gameMgr.sellSideMenuCnt[pSideMenu] = 0;
-                gameMgr.sellSideMenuCnt[pSideMenu]++;
-            }
 
+            GuestMenu sellMenu = new GuestMenu();
+            sellMenu.spicy0 = spicy0;
+            sellMenu.spicy1 = spicy1;
+            sellMenu.drink = pDrink;
+            sellMenu.sideMenu = pSideMenu;
+            gameMgr.sellMenu.Add(sellMenu);
             if (useWorker)
                 NextOrder();
         }

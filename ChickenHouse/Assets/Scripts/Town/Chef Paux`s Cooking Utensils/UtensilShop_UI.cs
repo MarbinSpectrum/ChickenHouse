@@ -39,6 +39,7 @@ public class UtensilShop_UI : Mgr
     {
         //인스펙터로 끌어서 사용하는 함수
         SelectMenu((UtensilShopMenu)menuNum);
+        soundMgr.PlaySE(Sound.Btn_SE);
     }
 
     private void SelectMenu(UtensilShopMenu pMenu)
@@ -110,6 +111,8 @@ public class UtensilShop_UI : Mgr
     {
         purchaseCheck.SetUI(()=>
         {
+            soundMgr.PlaySE(Sound.GetMoney_SE);
+
             PlayData playData = gameMgr.playData;
             playData.hasItem[(int)pItem] = true;
 

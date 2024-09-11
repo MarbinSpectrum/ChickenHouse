@@ -37,8 +37,10 @@ public class ChefPauxsCookingUtensils : Mgr
             oner.animator.Play("Talk");
 
             string str = GetNPC_Talk_Text();
+            soundMgr.PlayLoopSE(Sound.Voice25_SE);
             oner.talkBox.ShowText(str, TalkBoxType.Normal, () =>
             {
+                soundMgr.StopLoopSE(Sound.Voice25_SE);
                 oner.animator.Play("Idle");
             });
 
@@ -68,6 +70,8 @@ public class ChefPauxsCookingUtensils : Mgr
     public void ShowUtensilsUI()
     {
         //인스펙터에 끌어서 사용하는 함수
+        soundMgr.StopLoopSE(Sound.Voice25_SE);
+        soundMgr.PlaySE(Sound.Btn_SE);
         oner.talkBox.CloseTalkBox();
         utensilshopUI.SetUI();
         utensilshopUI.gameObject.SetActive(true);
@@ -76,6 +80,8 @@ public class ChefPauxsCookingUtensils : Mgr
     public void CloseUtensilsUI()
     {
         //인스펙터에 끌어서 사용하는 함수
+        soundMgr.StopLoopSE(Sound.Voice25_SE);
+        soundMgr.PlaySE(Sound.Btn_SE);
         utensilshopUI.gameObject.SetActive(false);
     }
 }

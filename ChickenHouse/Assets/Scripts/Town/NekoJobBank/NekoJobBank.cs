@@ -63,8 +63,10 @@ public class NekoJobBank : Mgr
             oner.animator.Play("Talk");
 
             string str = GetNPC_Talk_Text();
+            soundMgr.PlayLoopSE(Sound.Voice26_SE);
             oner.talkBox.ShowText(str, TalkBoxType.Normal, () =>
             {
+                soundMgr.StopLoopSE(Sound.Voice26_SE);
                 oner.animator.Play("Idle");
             });
 
@@ -111,6 +113,8 @@ public class NekoJobBank : Mgr
     public void ShowResumeUI()
     {
         //인스펙터에 끌어서 사용하는 함수
+        soundMgr.StopLoopSE(Sound.Voice26_SE);
+        soundMgr.PlaySE(Sound.Btn_SE);
         oner.talkBox.CloseTalkBox();
 
         resume.rect.gameObject.SetActive(true);
@@ -121,6 +125,8 @@ public class NekoJobBank : Mgr
     public void CloseResumeUI()
     {
         //인스펙터에 끌어서 사용하는 함수
+        soundMgr.StopLoopSE(Sound.Voice26_SE);
+        soundMgr.PlaySE(Sound.Btn_SE);
         if (actResumeUI == false)
             return;
         resume.rect.gameObject.SetActive(false);
@@ -129,6 +135,7 @@ public class NekoJobBank : Mgr
     public void ResumeArrowBtn(int dic)
     {
         //인스펙터에 끌어서 사용하는 함수
+        soundMgr.PlaySE(Sound.Btn_SE);
         int nextIdx = resumeSelectIdx + dic;
         if (workerList.Count <= nextIdx || nextIdx < 0)
             return;
@@ -169,7 +176,7 @@ public class NekoJobBank : Mgr
     public void EmployBtn()
     {
         //인스펙터에 끌어서 사용하는 함수
-
+        soundMgr.PlaySE(Sound.Btn_SE);
         EWorker worker = workerList[resumeSelectIdx];
         WorkerData workerData = workerMgr.GetWorkerData(worker);
         if(workerData.deposit > gameMgr.playData.money)

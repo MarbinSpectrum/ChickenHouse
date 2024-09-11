@@ -19,8 +19,6 @@ public class PlayData
     public long money;
     /** 보유 아이템 상태 **/
     public bool[] hasItem = new bool[(int)ShopItem.MAX];
-    /** 사용 아이템 상태 **/
-    public bool[] useItem = new bool[(int)ShopItem.MAX];
 
     /** 직원 보유 상태 **/
     public bool[] hasWorker = new bool[(int)EWorker.MAX];
@@ -48,7 +46,6 @@ public class PlayData
     public PlayData()
     {
         hasItem[(int)ShopItem.Recipe_0] = true;
-        hasItem[(int)ShopItem.Recipe_1] = true;
         spicyState[(int)MenuSet_UI.MenuSetPos.Spicy0] = (int)ChickenSpicy.Hot;
 
         hasItem[(int)ShopItem.Cola] = true;
@@ -58,7 +55,6 @@ public class PlayData
         sideMenuState[(int)MenuSet_UI.MenuSetPos.SideMenu0] = (int)SideMenu.Pickle;
 
         hasItem[(int)ShopItem.OIL_Zone_1] = true;
-        useItem[(int)ShopItem.OIL_Zone_1] = true;
 
         quest[(int)Quest.MainQuest_1] = 1;
     }
@@ -78,9 +74,10 @@ public class PlayData
 
         int percent = 100 + (int)(GetPriceUpRate()*100);
 
-        if (useItem[(int)ShopItem.OIL_Zone_3])
+        ShopItem nowOilZone = NowOilZone();
+        if (nowOilZone == ShopItem.OIL_Zone_3)
             percent += 20;
-        else if (useItem[(int)ShopItem.OIL_Zone_4])
+        else if (nowOilZone == ShopItem.OIL_Zone_4)
             percent += 40;
 
         int resultValue = (totalValue * percent) / 100;
@@ -104,22 +101,15 @@ public class PlayData
     public float GetOilZoneSpeedRate()
     {
         //업그레이드 속도에 따라서 상태 설정
-        if (useItem[(int)ShopItem.OIL_Zone_4])
-        {
-            return 2.6f;
-        }
-        else if (useItem[(int)ShopItem.OIL_Zone_3])
-        {
-            return 1.8f;
-        }
-        else if (useItem[(int)ShopItem.OIL_Zone_2])
-        {
-            return 1.4f;
-        }
-        else if (useItem[(int)ShopItem.OIL_Zone_1])
-        {
+        ShopItem nowOilZone = NowOilZone();
+        if (nowOilZone == ShopItem.OIL_Zone_1)
             return 1f;
-        }
+        else if (nowOilZone == ShopItem.OIL_Zone_2)
+            return 1.4f;
+        else if (nowOilZone == ShopItem.OIL_Zone_3)
+            return 1.8f;
+        else if (nowOilZone == ShopItem.OIL_Zone_4)
+            return 2.6f;
         return 1;
     }
 
@@ -127,11 +117,11 @@ public class PlayData
     {
         //수익 증가률
         float rate = 0;
-
-        if (useItem[(int)ShopItem.OIL_Zone_4])
-            rate += 0.4f;
-        else if (useItem[(int)ShopItem.OIL_Zone_3])
+        ShopItem nowOilZone = NowOilZone();
+        if (nowOilZone == ShopItem.OIL_Zone_3)
             rate += 0.2f;
+        else if (nowOilZone == ShopItem.OIL_Zone_4)
+            rate += 0.4f;
 
         if (hasItem[(int)ShopItem.Advertisement_2])
             rate += 0.1f;
@@ -258,6 +248,19 @@ public class PlayData
                 return true;
         }
         return false;
+    }
+
+    public ShopItem NowOilZone()
+    {
+        if (hasItem[(int)ShopItem.OIL_Zone_4])
+            return ShopItem.OIL_Zone_4;
+        if (hasItem[(int)ShopItem.OIL_Zone_3])
+            return ShopItem.OIL_Zone_3;
+        if (hasItem[(int)ShopItem.OIL_Zone_2])
+            return ShopItem.OIL_Zone_2;
+        if (hasItem[(int)ShopItem.OIL_Zone_1])
+            return ShopItem.OIL_Zone_1;
+        return ShopItem.None;
     }
 
     public float ShopSaleValue()

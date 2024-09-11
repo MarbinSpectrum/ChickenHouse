@@ -34,6 +34,7 @@ public class Town : Mgr
                     else if (pPrevMap == TownMap.NekoJobBank)
                         tultulTown.SetInit(TulTulTown.Zone.JobBank);
                     diaryBtn.gameObject.SetActive(true);
+                    soundMgr.PlayBGM(Sound.Town_BG);
                 }
                 break;
             case TownMap.NekoJobBank:
@@ -41,6 +42,7 @@ public class Town : Mgr
                     NekoJobBank nekoJobBank = townMap[pTownMap].GetComponent<NekoJobBank>();
                     nekoJobBank.SetInit();
                     diaryBtn.gameObject.SetActive(false);
+                    soundMgr.StopBGM();
                 }
                 break;
             case TownMap.ChefPauxsCookingUtensils:
@@ -48,6 +50,7 @@ public class Town : Mgr
                     ChefPauxsCookingUtensils chefPauxsCookingUtensils = townMap[pTownMap].GetComponent<ChefPauxsCookingUtensils>();
                     chefPauxsCookingUtensils.SetInit();
                     diaryBtn.gameObject.SetActive(false);
+                    soundMgr.StopBGM();
                 }
                 break;
             case TownMap.LongNoseCompany:
@@ -55,6 +58,7 @@ public class Town : Mgr
                     LongNose longNose = townMap[pTownMap].GetComponent<LongNose>();
                     longNose.SetInit();
                     diaryBtn.gameObject.SetActive(false);
+                    soundMgr.StopBGM();
                 }
                 break;
         }

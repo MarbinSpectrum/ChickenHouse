@@ -38,8 +38,10 @@ public class LongNose : Mgr
             oner.animator.Play("Talk");
 
             string str = GetNPC_Talk_Text();
+            soundMgr.PlayLoopSE(Sound.Voice27_SE);
             oner.talkBox.ShowText(str, TalkBoxType.Normal, () =>
             {
+                soundMgr.StopLoopSE(Sound.Voice27_SE);
                 oner.animator.Play("Idle");
             });
 
@@ -69,6 +71,8 @@ public class LongNose : Mgr
     public void ShowContractUI()
     {
         //인스펙터에 끌어서 사용하는 함수
+        soundMgr.StopLoopSE(Sound.Voice27_SE);
+        soundMgr.PlaySE(Sound.Btn_SE);
         oner.talkBox.CloseTalkBox();
         longNoseContractUI.SetUI();
         longNoseContractUI.gameObject.SetActive(true);
@@ -77,6 +81,8 @@ public class LongNose : Mgr
     public void CloseContractUI()
     {
         //인스펙터에 끌어서 사용하는 함수
+        soundMgr.StopLoopSE(Sound.Voice27_SE);
+        soundMgr.PlaySE(Sound.Btn_SE);
         longNoseContractUI.gameObject.SetActive(false);
     }
 }

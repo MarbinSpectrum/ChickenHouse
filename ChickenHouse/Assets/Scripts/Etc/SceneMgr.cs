@@ -1,23 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class SceneMgr : AwakeSingleton<SceneMgr>
 {
     [SerializeField] private Dictionary<SceneChangeAni,Animator> changeList = new Dictionary<SceneChangeAni, Animator>();
-    [SerializeField] private RectTransform saveAni;
-    [SerializeField] private RectTransform saveCheckUI;
+    [SerializeField] private RectTransform      saveAni;
+    [SerializeField] private RectTransform      saveCheckUI;
+    [SerializeField] private RewardItem         rewardItem;
 
     private bool saveCheckFlag = false;
     private bool saveDataFlag = false;
 
-    public void SceneLoad(Scene scene,bool save, SceneChangeAni changeAni = SceneChangeAni.NOT)
+    private bool rewardWaitFlag = false;
+
+    public void SceneLoad(Scene scene, bool quesstCheck, bool save, SceneChangeAni changeAni = SceneChangeAni.NOT)
     {
-        StartCoroutine(RunSceneLoad(scene, save, changeAni));
+        StartCoroutine(RunSceneLoad(scene, quesstCheck, save, changeAni));
     }
 
-    private IEnumerator RunSceneLoad(Scene scene, bool save, SceneChangeAni changeAni)
+    private IEnumerator RunSceneLoad(Scene scene, bool quesstCheck, bool save, SceneChangeAni changeAni)
     {
         //씬이동 코루틴
         if(changeList.ContainsKey(changeAni))
@@ -25,7 +30,49 @@ public class SceneMgr : AwakeSingleton<SceneMgr>
 
         yield return new WaitForSeconds(1f);
 
-        if(save)
+        if (quesstCheck)
+        {
+            GameMgr     gameMgr     = GameMgr.Instance;
+            PlayData    playData    = gameMgr.playData;
+            QuestMgr    questMgr    = QuestMgr.Instance;
+            ShopMgr     shopMgr     = ShopMgr.Instance;
+            List<ShopItem>  rewardList  = new List<ShopItem>();
+            List<Quest>     nextQuest   = new List<Quest>();
+            for(Quest quest = Quest.MainQuest_1; quest < Quest.MAX; quest++)
+            {
+                //클리어한 퀘스트의 다음 퀘스트와, 보상을 정리한다.
+                if (playData.quest[(int)quest] != 1)
+                    continue;
+                if(questMgr.ClearCheck(quest))
+                {
+                    playData.quest[(int)quest] = 2;
+                    QuestData       questData   = questMgr.GetQuestData(quest);
+                    List<ShopItem>  rewardItems = questData.rewards;
+                    Quest           getNewQuest = questData.nextQuest;
+                    foreach(ShopItem reward in rewardItems)
+                        rewardList.Add(reward);
+                    nextQuest.Add(getNewQuest);
+                }
+            }
+
+            //새로운 퀘스트 등록
+            for(int i = 0; i < nextQuest.Count; i++)
+                questMgr.AddQuest(nextQuest[i]);
+
+            //보상 표시 및 보상 적용
+            for (int i = 0; i < rewardList.Count; i++)
+            {
+                rewardWaitFlag = false;
+                rewardItem.gameObject.SetActive(true);
+                ShopData shopData = shopMgr.GetShopData(rewardList[i]);
+                rewardItem.SetUI(shopData,()=> RewardWaitCheck());
+                yield return new WaitUntil(() => rewardWaitFlag);
+                rewardItem.gameObject.SetActive(false);
+                playData.hasItem[(int)rewardList[i]] = true;
+            }
+        }
+
+        if (save)
         {
             saveCheckFlag = false;
             saveDataFlag = false;
@@ -77,5 +124,10 @@ public class SceneMgr : AwakeSingleton<SceneMgr>
     public void SaveCheckNo()
     {
         saveCheckFlag = true;
+    }
+
+    private void RewardWaitCheck()
+    {
+        rewardWaitFlag = true;
     }
 }

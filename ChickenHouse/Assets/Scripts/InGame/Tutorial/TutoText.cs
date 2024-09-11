@@ -7,7 +7,7 @@ public class TutoText : Mgr
 {
     [SerializeField] private TextMeshProUGUI    text;
     [SerializeField] private GameObject         tutoObj;
-    private void Awake()
+    private void Start()
     {
         tutoMgr.RegistTutoText(this);
     }

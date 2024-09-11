@@ -106,6 +106,7 @@ DRINK_SLOT	음료	Drink
 PICKLE_SLOT	피클	Pickle
 SELLING_PRICE	판매 수익	Selling Price
 TIP	팁	Tip
+REWARD	보상	Reward
 TUTO_1	먼저 닭을 달걀물에 넣어봅시다.	First, I'll put chickens in the egg water.
 TUTO_2	달걀물이 골고루 묻도록 닭을 잘 저어주세요.	Stir the chicken well so that the egg water is evenly coated.
 TUTO_3	이제 달걀물을 묻힌 닭을 오른쪽으로 옮겨주세요. 	이제 달걀물을 묻힌 닭을 오른쪽으로 옮겨주세요. 
@@ -458,11 +459,25 @@ WORKER_SKILL_INFO_8	카운터에 배치시 2% 확률로 손님의 주문이 제�
 QUEST_NAME_1	빚 갚기	Pay off debt
 QUEST_INFO_1	너구리에게 빌린 돈 50000$를 갚아야한다. \n기간은 7일준다고 했다.\n빨리 준비해야 될거같다.	I need to repay the $50,000\nI borrowed from the raccoon.\nHe gave me 7 days.\nI need to prepare quickly.
 QUEST_SUMMARY_1	※ 기간안에 50000$를 갚자!!	※ Let's repay the $5,000 within the deadline!!
-SUB_QUEST_NAME_1	장사를 시작해보자	Let's sell chicken
-SUB_QUEST_INFO_1	우선 치킨 5마리를 팔아보자.	Let's sell five chickens first.
-SUB_QUEST_SUMMARY_1	※ 치킨 5마리 팔기.	※ Selling 5 chickens.
+SPICY_QUEST_NAME_1	장사를 시작해보자.	Let's sell chicken
+SPICY_QUEST_INFO_1	우선 치킨 5마리를 팔아보자.	Let's sell five chickens first.
+SPICY_QUEST_SUMMARY_1	※ 치킨 5마리 팔기	※ Selling 5 chickens
+SPICY_QUEST_NAME_2	간장 소스의 달인	Master of soy sauce
+SPICY_QUEST_INFO_2	간장 치킨 5마리를 팔아보자.	Let's sell five soy chickens.
+SPICY_QUEST_SUMMARY_2	※ 간장치킨 5마리 팔기	※ Selling 5 soy chickens
+SPICY_QUEST_NAME_3	불닭 소스의 달인	Master of hell sauce
+SPICY_QUEST_INFO_3	불닭 치킨 10마리를 팔아보자.	Let's sell ten hell chickens.
+SPICY_QUEST_SUMMARY_3	※ 불닭치킨 10마리 팔기	※ Selling 10 hell chickens
+DRINK_QUEST_NAME_1	시원한 콜라	Cool cola
+DRINK_QUEST_INFO_1	콜라 20개를 팔아보자.	Let's sell 20 colas.
+DRINK_QUEST_SUMMARY_1	※ 콜라 20개 팔기	※ Selling 20 colas
+DRINK_QUEST_NAME_2	담백한 맥주	Plain beer
+DRINK_QUEST_INFO_2	맥주를 20개를 팔아보자.	Let's sell 20 beers.
+DRINK_QUEST_SUMMARY_2	※ 맥주 20개 팔기	※ Selling 20 beers
 QUEST_DETAIL_1	남은 기간 : {0}일	Remaining days : {0}
-QUEST_DETAIL_2	남은 금액 : {0} / {1}$	Remaining money : {0} / {1}$
+QUEST_DETAIL_2	치킨 {0}/{1}	Chicken {0}/{1}
+QUEST_DETAIL_3	콜라 {0}/{1}	Cola {0}/{1}
+QUEST_DETAIL_4	맥주 {0}/{1}	Beer {0}/{1}
 BOOK_HOT_SPICY	프라이드 치킨에 바르는 \n매콤달콤한 소스, \n이 소스는 치킨 요리의\n대표적인 맛 중 하나이다.	The sweet and spicy sauce used on fried chicken is one of the signature flavors in chicken cuisine.
 BOOK_SOY_SPICY	간장치킨 양념은 중국에서 기원한 소스로,  달콤하고 짭짤한 맛을 냅니다. 치킨에 발라 구워내거나 튀긴 치킨에 버무려 즐기는 대표적인 치킨 양념입니다.	Soy sauce originates from China and offers a sweet and savory taste. It is a popular chicken seasoning, often used for glazing roasted chicken or tossing with fried chicken.
 BOOK_HELL_SPICY	매운 맛이 특징인 한국의 양념입니다.\n원래는 볶음라면소스로 \n사용되었습니다.	It's a Korean sauce known for its spiciness. Originally, it was used as a stir-fried ramen sauce.

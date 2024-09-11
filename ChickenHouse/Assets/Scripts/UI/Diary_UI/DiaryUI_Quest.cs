@@ -11,6 +11,8 @@ public class DiaryUI_Quest : Mgr
     [SerializeField] private TextMeshProUGUI    questInfo;
     [SerializeField] private TextMeshProUGUI    questSummary;
     [SerializeField] private TextMeshProUGUI    questDetail;
+    [SerializeField] private RectTransform      questRewardRect;
+    [SerializeField] private TextMeshProUGUI    questReward;
 
     [SerializeField] private RectTransform      questListContent;
     [SerializeField] private DiaryUI_QuestListObj    questObj;
@@ -78,12 +80,13 @@ public class DiaryUI_Quest : Mgr
 
             bool isEnd = ((i + 1) == quest.Count);
             bool isSelect = (selectQuest == quest[i]);
+            QuestData questData = quest[i];
             questListObj[i].gameObject.SetActive(true);
             questListObj[i].SetData(quest[i], isSelect, isEnd);
             questListObj[i].SetEventTrigger(() =>
             {
-                SetUI(quest[i]);
-                ShowQuestInfo(quest[i]);
+                SetUI(questData);
+                ShowQuestInfo(questData);
             });
         }
     }
@@ -98,18 +101,82 @@ public class DiaryUI_Quest : Mgr
         LanguageMgr.SetString(questSummary, pQuest.questSummaryKey);
 
         string strDetail = string.Empty;
-        switch(pQuest.quest)
+        string rewardText = string.Empty;
+        QuestData questData = questMgr.GetQuestData(pQuest.quest);
+        for (int i = 0; i < questData.rewards.Count; i++)
+        {
+            ShopItem shopItem = questData.rewards[i];
+            if (shopItem == ShopItem.None)
+                continue;
+            ShopData shopData = shopMgr.GetShopData(shopItem);
+            string shopItemStr = LanguageMgr.GetText(shopData.nameKey);
+            rewardText += shopItemStr;
+            if (i + 1 != questData.rewards.Count)
+                rewardText += ", ";
+        }
+        switch (pQuest.quest)
         {
             case Quest.MainQuest_1:
                 {
-                    int day = Mathf.Max(0, 7 - gameMgr.playData.day + 1);
+                    int day = Mathf.Max(0, QuestMgr.MAIN_QUEST_1_LIMIT_DAY - gameMgr.playData.day + 1);
                     strDetail += string.Format(LanguageMgr.GetText("QUEST_DETAIL_1"), day);
-                    strDetail += "\n";
-
-                    long money = (int)Mathf.Min(GameMgr.TARGET_MONEY_1, gameMgr.playData.money);
-                    strDetail += string.Format(LanguageMgr.GetText("QUEST_DETAIL_2"), money, GameMgr.TARGET_MONEY_1);
 
                     LanguageMgr.SetText(questDetail, strDetail);
+                    questRewardRect.gameObject.SetActive(false);
+                }
+                break;
+            case Quest.SpicyQuest_1:
+                {
+                    int nowChicken = Mathf.Min(QuestMgr.SPICY_QUEST_1_CNT, gameMgr.playData.questCnt[(int)Quest.SpicyQuest_1]);
+                    strDetail += string.Format(LanguageMgr.GetText("QUEST_DETAIL_2"), nowChicken, QuestMgr.SPICY_QUEST_1_CNT);
+
+                    LanguageMgr.SetText(questDetail, strDetail);
+                    questRewardRect.gameObject.SetActive(true);
+                    LanguageMgr.SetText(questReward, rewardText);
+                }
+                break;
+            case Quest.SpicyQuest_2:
+                {
+                    int nowChicken = Mathf.Min(QuestMgr.SPICY_QUEST_2_CNT, gameMgr.playData.questCnt[(int)Quest.SpicyQuest_2]);
+                    strDetail += string.Format(LanguageMgr.GetText("QUEST_DETAIL_2"), nowChicken, QuestMgr.SPICY_QUEST_2_CNT);
+
+                    LanguageMgr.SetText(questDetail, strDetail);
+                    questRewardRect.gameObject.SetActive(true);
+
+                    LanguageMgr.SetText(questReward, rewardText);
+                }
+                break;
+            case Quest.SpicyQuest_3:
+                {
+                    int nowChicken = Mathf.Min(QuestMgr.SPICY_QUEST_3_CNT, gameMgr.playData.questCnt[(int)Quest.SpicyQuest_3]);
+                    strDetail += string.Format(LanguageMgr.GetText("QUEST_DETAIL_2"), nowChicken, QuestMgr.SPICY_QUEST_3_CNT);
+
+                    LanguageMgr.SetText(questDetail, strDetail);
+                    questRewardRect.gameObject.SetActive(true);
+
+                    LanguageMgr.SetText(questReward, rewardText);
+                }
+                break;
+            case Quest.DrinkQuest_1:
+                {
+                    int colaCnt = Mathf.Min(QuestMgr.DRINK_QUEST_1_CNT, gameMgr.playData.questCnt[(int)Quest.DrinkQuest_1]);
+                    strDetail += string.Format(LanguageMgr.GetText("QUEST_DETAIL_3"), colaCnt, QuestMgr.DRINK_QUEST_1_CNT);
+
+                    LanguageMgr.SetText(questDetail, strDetail);
+                    questRewardRect.gameObject.SetActive(true);
+
+                    LanguageMgr.SetText(questReward, rewardText);
+                }
+                break;
+            case Quest.DrinkQuest_2:
+                {
+                    int beerCnt = Mathf.Min(QuestMgr.DRINK_QUEST_2_CNT, gameMgr.playData.questCnt[(int)Quest.DrinkQuest_2]);
+                    strDetail += string.Format(LanguageMgr.GetText("QUEST_DETAIL_3"), beerCnt, QuestMgr.DRINK_QUEST_2_CNT);
+
+                    LanguageMgr.SetText(questDetail, strDetail);
+                    questRewardRect.gameObject.SetActive(true);
+
+                    LanguageMgr.SetText(questReward, rewardText);
                 }
                 break;
         }

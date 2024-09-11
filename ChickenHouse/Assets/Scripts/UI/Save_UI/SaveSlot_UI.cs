@@ -76,7 +76,8 @@ public class SaveSlot_UI : Mgr
     public void OpenSlotMenu()
     {
         //인스펙터로 끌어서 사용하는 함수
-        if(canSave)
+        soundMgr.PlaySE(Sound.Btn_SE);
+        if (canSave)
             saveUI.SetUI(slotNum, playData, this);
         else if(canLoad && playData != null)
             saveUI.SetUI(slotNum, playData, this);

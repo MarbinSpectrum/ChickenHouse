@@ -64,6 +64,8 @@ public class LongNoseContractAD_UI : Mgr
     {
         contractCheck.SetUI(() =>
         {
+            soundMgr.PlaySE(Sound.GetMoney_SE);
+
             PlayData playData = gameMgr.playData;
             playData.hasItem[(int)pItem] = true;
 

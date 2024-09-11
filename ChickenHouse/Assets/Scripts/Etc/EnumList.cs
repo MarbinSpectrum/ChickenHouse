@@ -183,6 +183,7 @@ public enum Sound
     Title_BG    = 101,
     Shop_BG     = 102,
     Prologue_BG = 103,
+    Town_BG     = 104,
 
     //-------------------------------------------------------------------------------
     /** 기름 튀기는 소리 **/
@@ -202,6 +203,12 @@ public enum Sound
 
     /** 주문추가 **/
     NewOrder_SE = 205,
+
+    /** 버튼 소리 **/
+    Btn_SE = 206,
+
+    /** 걷는 소리 **/
+    Walk_SE = 207,
 
     /** 목소리 목록 **/
     //개
@@ -254,6 +261,15 @@ public enum Sound
     //해달
     Voice23_SE = 273,
     Voice24_SE = 274,
+
+    //불독
+    Voice25_SE = 275,
+
+    //나이든 고양이
+    Voice26_SE = 276,
+
+    //코끼리
+    Voice27_SE = 277,
 }
 
 public enum TalkBoxType
@@ -501,12 +517,16 @@ public enum BookMenu
 public enum Quest
 {
     /** 퀘스트 메인 **/
-    MainQuest_1     = 0,        //빚갚기 메인 퀘스트
+    None              = -1,
+    MainQuest_1       = 0,        //빚갚기 메인 퀘스트
 
 
-    SubQuest_1      = 1000,     //치킨 5마리 팔기(간장치킨 오픈)
-    SubQuest_2      = 1001,     //간장치킨 5마리 팔기(불닭치킨 오픈)
-    SubQuest_3      = 1002,     //불닭치킨 10마리 팔기(프링클치킨 오픈)
+    SpicyQuest_1      = 1000,     //치킨 5마리 팔기         (간장치킨 오픈)
+    SpicyQuest_2      = 1001,     //간장치킨 5마리 팔기     (불닭치킨 오픈)
+    SpicyQuest_3      = 1002,     //불닭치킨 10마리 팔기    
+    
+    DrinkQuest_1      = 2000,     //콜라 20개 팔기          (맥주 오픈)
+    DrinkQuest_2      = 2001,     //맥주 20개 팔기          
 
     MAX,
 }

@@ -58,12 +58,14 @@ public class GameRecord_UI : Mgr
     public void CloseSaveRect()
     {
         //인스펙터로 끌어서 사용하는 함수
+        soundMgr.PlaySE(Sound.Btn_SE);
         saveRect.gameObject.SetActive(false);
     }
 
     public void CloseSaveCoverUI()
     {
         //인스펙터로 끌어서 사용하는 함수
+        soundMgr.PlaySE(Sound.Btn_SE);
         saveCoverCheck.gameObject.SetActive(false);
     }
 
@@ -72,6 +74,8 @@ public class GameRecord_UI : Mgr
         //인스펙터로 끌어서 사용하는 함수
         if (playData == null)
         {
+            soundMgr.PlaySE(Sound.Btn_SE);
+
             //빈 슬롯
             saveCoverCheck.gameObject.SetActive(false);
 
@@ -93,10 +97,12 @@ public class GameRecord_UI : Mgr
         if (playData == null)
             return;
 
+        soundMgr.PlaySE(Sound.Btn_SE);
+
         gameMgr.selectSaveSlot = slotNum;
         gameMgr.LoadData();
 
-        sceneMgr.SceneLoad(Scene.TOWN, false, SceneChangeAni.FADE);
+        sceneMgr.SceneLoad(Scene.TOWN, false, false, SceneChangeAni.FADE);
 
         fun?.Invoke(slotNum);
     }
@@ -104,6 +110,8 @@ public class GameRecord_UI : Mgr
     public void SaveCoverCheckYes()
     {
         //인스펙터로 끌어서 사용하는 함수
+        soundMgr.PlaySE(Sound.Btn_SE);
+        
         saveCoverCheck.gameObject.SetActive(false);
 
         //덮어쓰기
@@ -120,6 +128,8 @@ public class GameRecord_UI : Mgr
     public void SaveCoverCheckNo()
     {
         //인스펙터로 끌어서 사용하는 함수
+        soundMgr.PlaySE(Sound.Btn_SE);
+
         saveCoverCheck.gameObject.SetActive(false);
         saveRect.gameObject.SetActive(false);
     }

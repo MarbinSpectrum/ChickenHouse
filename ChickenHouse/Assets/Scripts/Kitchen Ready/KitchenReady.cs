@@ -29,10 +29,6 @@ public class KitchenReady : Mgr
     {
         gameMgr.InitData();
 
-#if UNITY_EDITOR
-        gameMgr.LoadData();
-#endif
-
         kitchenSetUI.Init();
         menuSetUI.Init();
 
@@ -56,20 +52,16 @@ public class KitchenReady : Mgr
         if (hasWorker)
         {
             menuRect.transform.position = menuPos[(int)EUIPos.KitchenSet].transform.position;
+            soundMgr.PlayBGM(Sound.Shop_BG);
             if (tutoMgr.tutoComplete2 == false)
-            {
                 workerTuto.PlayTuto();
-            }
-
         }
         else if (hasSpicyCnt >= 2)
         {
             menuRect.transform.position = menuPos[(int)EUIPos.MenuSet].transform.position;
+            soundMgr.PlayBGM(Sound.Shop_BG);
             if (tutoMgr.tutoComplete3 == false)
-            {
                 menuTuto.PlayTuto();
-            }
-
         }
         else
         {

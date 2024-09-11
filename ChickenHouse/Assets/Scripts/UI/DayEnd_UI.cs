@@ -40,11 +40,15 @@ public class DayEnd_UI : Mgr
         total -= rentValue;
 
         //Àç·á°ª
-        int suppliesUsed = gameMgr.sellChickenCnt * PlayData.CHICKEN_RES_VAIUE;
-        foreach(var v in gameMgr.sellSideMenuCnt.Values)
-            suppliesUsed += v * PlayData.SIDE_MENU_RES_VAIUE;
-        foreach (var v in gameMgr.sellDrinkCnt.Values)
-            suppliesUsed += v * PlayData.DRINK_RES_VAIUE;
+        int suppliesUsed = 0;
+        foreach(GuestMenu guestMenu in gameMgr.sellMenu)
+        {
+            if (guestMenu.sideMenu != SideMenu.None)
+                suppliesUsed += PlayData.SIDE_MENU_RES_VAIUE;
+            if (guestMenu.drink != Drink.None)
+                suppliesUsed += PlayData.DRINK_RES_VAIUE;
+            suppliesUsed += PlayData.CHICKEN_RES_VAIUE;
+        }
 
         LanguageMgr.SetString(nameList[DayEndList.Supplies_Uesd], "SUPPLIES_UESD");
         LanguageMgr.SetText(infoList[DayEndList.Supplies_Uesd], string.Format("-{0:N0} $", suppliesUsed));        
@@ -98,17 +102,18 @@ public class DayEnd_UI : Mgr
         goNext = true;
 
         gameMgr.playData.day++;
+        gameMgr.DayEndEvent();
 
 #if DEMO
-        if (gameMgr.playData.day == 10)
+        if (gameMgr.playData.day == 7)
         {
             gameMgr.playData.money += addValue;
-            sceneMgr.SceneLoad(Scene.DEMO, false, SceneChangeAni.CIRCLE);
+            sceneMgr.SceneLoad(Scene.DEMO, false, false, SceneChangeAni.CIRCLE);
             return;
         }   
 #endif
 
         gameMgr.playData.money += addValue;
-        sceneMgr.SceneLoad(Scene.TOWN, true, SceneChangeAni.CIRCLE);
+        sceneMgr.SceneLoad(Scene.TOWN,true, true, SceneChangeAni.CIRCLE);
     }
 }

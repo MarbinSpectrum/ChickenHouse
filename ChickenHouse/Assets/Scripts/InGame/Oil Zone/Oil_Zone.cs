@@ -479,7 +479,8 @@ public class Oil_Zone : Mgr
         bool    notFire     = false;
 
         //업그레이드 속도에 따라서 상태 설정
-        if(gameMgr.playData.useItem[(int)ShopItem.OIL_Zone_4])
+        ShopItem nowOilZone = gameMgr.playData.NowOilZone();
+        if (nowOilZone == ShopItem.OIL_Zone_4)
         {
             //최대 레벨일 경우 타지않는다.
             notFire = true;
@@ -684,25 +685,26 @@ public class Oil_Zone : Mgr
     {
         /////////////////////////////////////////////////////////////////////////////////
         //기름통 세팅
-        if (gameMgr.playData.useItem[(int)ShopItem.OIL_Zone_4])
+        ShopItem nowOilZone = gameMgr.playData.NowOilZone();
+        if (nowOilZone == ShopItem.OIL_Zone_1)
         {
-            oilMahcine.machine0.sprite = oilMahcine.machineImg0[3];
-            oilMahcine.machine1.sprite = oilMahcine.machineImg1[3];
+            oilMahcine.machine0.sprite = oilMahcine.machineImg0[0];
+            oilMahcine.machine1.sprite = oilMahcine.machineImg1[0];
         }
-        else if (gameMgr.playData.useItem[(int)ShopItem.OIL_Zone_3])
-        {
-            oilMahcine.machine0.sprite = oilMahcine.machineImg0[2];
-            oilMahcine.machine1.sprite = oilMahcine.machineImg1[2];
-        }
-        else if (gameMgr.playData.useItem[(int)ShopItem.OIL_Zone_2])
+        else if (nowOilZone == ShopItem.OIL_Zone_2)
         {
             oilMahcine.machine0.sprite = oilMahcine.machineImg0[1];
             oilMahcine.machine1.sprite = oilMahcine.machineImg1[1];
         }
-        else if (gameMgr.playData.useItem[(int)ShopItem.OIL_Zone_1])
+        else if (nowOilZone == ShopItem.OIL_Zone_3)
         {
-            oilMahcine.machine0.sprite = oilMahcine.machineImg0[0];
-            oilMahcine.machine1.sprite = oilMahcine.machineImg1[0];
+            oilMahcine.machine0.sprite = oilMahcine.machineImg0[2];
+            oilMahcine.machine1.sprite = oilMahcine.machineImg1[2];
+        }
+        else if (nowOilZone == ShopItem.OIL_Zone_4)
+        {
+            oilMahcine.machine0.sprite = oilMahcine.machineImg0[3];
+            oilMahcine.machine1.sprite = oilMahcine.machineImg1[3];
         }
         isHold = false;
     }

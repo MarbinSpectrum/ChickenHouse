@@ -51,17 +51,19 @@ public class Title_UI : Mgr
 
     private void NewGame()
     {
+        soundMgr.PlaySE(Sound.Btn_SE);
         gameMgr.OpenRecordUI(true, false, (saveSlot) =>
         {
             int slotNum = (int)saveSlot;
             gameMgr.selectSaveSlot = slotNum;
-            sceneMgr.SceneLoad(Scene.PROLOGUE, false, SceneChangeAni.FADE);
+            sceneMgr.SceneLoad(Scene.PROLOGUE, false, false, SceneChangeAni.FADE);
             gameMgr.CloseRecordUI();
         });
     }
 
     private void LoadGame()
     {
+        soundMgr.PlaySE(Sound.Btn_SE);
         gameMgr.OpenRecordUI(false, true, (saveSlot) =>
         {
             int slotNum = (int)saveSlot;
@@ -69,12 +71,12 @@ public class Title_UI : Mgr
             if(gameMgr.playData.day == 1)
             {
                 //1일차는 프롤로그부터 시작
-                sceneMgr.SceneLoad(Scene.PROLOGUE, false, SceneChangeAni.FADE);
+                sceneMgr.SceneLoad(Scene.PROLOGUE, false, false, SceneChangeAni.FADE);
             }
             else
             {
                 //나머지 경우는 타운에서 시작
-                sceneMgr.SceneLoad(Scene.TOWN, false, SceneChangeAni.FADE);
+                sceneMgr.SceneLoad(Scene.TOWN, false, false, SceneChangeAni.FADE);
             }
             gameMgr.CloseRecordUI();
         });

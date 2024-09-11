@@ -63,7 +63,7 @@ public class DiaryUI_FileSaveMenu : Mgr
         gameMgr.selectSaveSlot = slotNum;
         gameMgr.LoadData();
 
-        sceneMgr.SceneLoad(Scene.TOWN, false, SceneChangeAni.FADE);
+        sceneMgr.SceneLoad(Scene.TOWN,false, false, SceneChangeAni.FADE);
     }
 
     public void SaveCheckYes()
