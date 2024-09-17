@@ -146,6 +146,15 @@ public class KitchenSet_UI : Mgr
     {
         if (dragWorker != EWorker.None)
             return;
+        if(gameMgr.playData.tutoComplete2 == false)
+        {
+            if (workerArea[(int)KitchenSetWorkerPos.CounterWorker] == dragWorker)
+                return;
+            if (workerArea[(int)KitchenSetWorkerPos.KitchenWorker0] == dragWorker)
+                return;
+            if (workerArea[(int)KitchenSetWorkerPos.KitchenWorker1] == dragWorker)
+                return;
+        }
         dragWorker = pWorker;
         RefreshToken();
     }
@@ -194,11 +203,10 @@ public class KitchenSet_UI : Mgr
             }
         }
 
-        if(tutoMgr.tutoComplete2 == false && tutoMgr.nowTuto == Tutorial.Worker_Tuto_1_1 && dropPos == KitchenSetWorkerPos.KitchenWorker0)
+        if(gameMgr.playData.tutoComplete2 == false && tutoMgr.nowTuto == Tutorial.Worker_Tuto_1_1 && dropPos == KitchenSetWorkerPos.KitchenWorker0)
         {
             tutoObj.PlayTuto();
-            tutoMgr.tutoComplete2 = true;
-            PlayerPrefs.SetInt("TUTO_2", 1);
+            gameMgr.playData.tutoComplete2 = true;
         }
 
         dragWorker = EWorker.None;
@@ -210,9 +218,9 @@ public class KitchenSet_UI : Mgr
         //인스펙터에서 끌어서 사용하는 함수임
         if (dragWorker == EWorker.None)
             return;
-        if (tutoMgr.tutoComplete2 == false && tutoMgr.nowTuto != Tutorial.Worker_Tuto_1_1)
+        if (gameMgr.playData.tutoComplete2 == false && tutoMgr.nowTuto != Tutorial.Worker_Tuto_1_1)
             return;
-        if (tutoMgr.tutoComplete2 == false && tutoMgr.nowTuto == Tutorial.Worker_Tuto_1_1 && pArea != 1)
+        if (gameMgr.playData.tutoComplete2 == false && tutoMgr.nowTuto == Tutorial.Worker_Tuto_1_1 && pArea != 1)
             return;
 
         int useWorkerCnt = GetUseWorkerCnt();
@@ -241,9 +249,9 @@ public class KitchenSet_UI : Mgr
         //인스펙터에서 끌어서 사용하는 함수임
         if (dragWorker == EWorker.None)
             return;
-        if (tutoMgr.tutoComplete2 == false && tutoMgr.nowTuto != Tutorial.Worker_Tuto_1_1)
+        if (gameMgr.playData.tutoComplete2 == false && tutoMgr.nowTuto != Tutorial.Worker_Tuto_1_1)
             return;
-        if (tutoMgr.tutoComplete2 == false && tutoMgr.nowTuto == Tutorial.Worker_Tuto_1_1 && pArea != 1)
+        if (gameMgr.playData.tutoComplete2 == false && tutoMgr.nowTuto == Tutorial.Worker_Tuto_1_1 && pArea != 1)
             return;
 
         workerTokenPoint[pArea].SetUI(workerArea[pArea], 1f);

@@ -46,7 +46,7 @@ public class GoCounter_UI : Mgr
         if (canUse == false)
             return;
 
-        if (tutoMgr.tutoComplete1 == false)
+        if (gameMgr.playData.tutoComplete1 == false)
             return;
 
         GuestSystem guestMgr = GuestSystem.Instance;

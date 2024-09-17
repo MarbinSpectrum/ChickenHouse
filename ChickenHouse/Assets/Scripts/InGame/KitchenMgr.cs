@@ -213,6 +213,27 @@ public class KitchenMgr : Mgr
         return kitchenRect.content.sizeDelta.x;
     }
 
+    public void UpdateOilZoneLoopSE()
+    {
+        bool isRun = false;
+        foreach (Oil_Zone oilZone in oilMachines)
+        {
+            if (oilZone.gameObject.activeSelf == false)
+                continue;
+            if (oilZone.IsRun() == false)
+                continue;
+            if (oilZone.isHold)
+                continue;
+            isRun = true;
+            break;
+        }
+
+        if(isRun)
+            soundMgr.PlayLoopSE(Sound.Oil_SE);
+        else
+            soundMgr.StopLoopSE(Sound.Oil_SE);
+    }
+
     public void SetkitchenSetPos(Vector2 movePos)
     {
         float width = KitchenWidth();

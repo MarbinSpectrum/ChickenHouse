@@ -53,14 +53,14 @@ public class KitchenReady : Mgr
         {
             menuRect.transform.position = menuPos[(int)EUIPos.KitchenSet].transform.position;
             soundMgr.PlayBGM(Sound.Shop_BG);
-            if (tutoMgr.tutoComplete2 == false)
+            if (gameMgr.playData.tutoComplete2 == false)
                 workerTuto.PlayTuto();
         }
         else if (hasSpicyCnt >= 2)
         {
             menuRect.transform.position = menuPos[(int)EUIPos.MenuSet].transform.position;
             soundMgr.PlayBGM(Sound.Shop_BG);
-            if (tutoMgr.tutoComplete3 == false)
+            if (gameMgr.playData.tutoComplete3 == false)
                 menuTuto.PlayTuto();
         }
         else
@@ -72,6 +72,8 @@ public class KitchenReady : Mgr
 
     public void MoveToKitchenSetPos()
     {
+        if (gameMgr.playData.tutoComplete3 == false)
+            return;
         MoveDic(EUIPos.KitchenSet);
     }
 
@@ -79,6 +81,10 @@ public class KitchenReady : Mgr
     {
         int useWorkerCnt = kitchenSetUI.GetUseWorkerCnt();
         int hasSpicyCnt = 0;
+
+        if (gameMgr.playData.tutoComplete2 == false)
+            return;
+
         for (ChickenSpicy spicy = ChickenSpicy.Hot; spicy < ChickenSpicy.MAX; spicy++)
             if (gameMgr.playData.HasRecipe(spicy))
                 hasSpicyCnt++;
@@ -127,11 +133,11 @@ public class KitchenReady : Mgr
             menuRect.transform.position = menuPos[idx].transform.position;
             dontClick.gameObject.SetActive(false);
 
-            if(tutoMgr.tutoComplete2 == false && eUIPos == EUIPos.KitchenSet)
+            if(gameMgr.playData.tutoComplete2 == false && eUIPos == EUIPos.KitchenSet)
             {
                 workerTuto.PlayTuto();
             }
-            else if (tutoMgr.tutoComplete3 == false && eUIPos == EUIPos.MenuSet)
+            else if (gameMgr.playData.tutoComplete3 == false && eUIPos == EUIPos.MenuSet)
             {
                 menuTuto.PlayTuto();
             }
@@ -140,7 +146,10 @@ public class KitchenReady : Mgr
     }
     public void StartGame()
     {
-        if(menuSetUI.GetUseSpicyCnt() <= 0)
+        if (gameMgr.playData.tutoComplete3 == false)
+            return;
+
+        if (menuSetUI.GetUseSpicyCnt() <= 0)
         {
             //양념을 하나 이상 배치해야지 게임을 시작할 수 있다.
             menuSetCheck.SetUI("MENU_SET_CHECK_MSG_0");

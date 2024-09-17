@@ -374,7 +374,7 @@ public class Worker_Kitchen : Mgr
     private IEnumerator MoveHandCor(MOVEAREA moveArea, Worker_Hand hand, DragArea pArea, float pDelay, NoParaDel fun)
     {
 
-        float speedValue = 100;
+        float speedValue = 100f + gameMgr.playData.GetWorkerSpeedUpRate();
         if (resumeData.skill.Contains(WorkerSkill.WorkerSkill_1))
         {
             //주방보조 경력자(직원 속도 +50%)

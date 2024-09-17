@@ -74,7 +74,7 @@ public class TrayEgg : Mgr
 
                 if (IsMax())
                 {
-                    if (tutoMgr.tutoComplete1 == false)
+                    if (gameMgr.playData.tutoComplete1 == false)
                     {
                         //튜토리얼을 진행안한듯?
                         //튜토리얼로 진입

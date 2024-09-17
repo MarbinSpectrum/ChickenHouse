@@ -11,7 +11,7 @@ public class BookMgr : AwakeSingleton<BookMgr>
     {
         SetSingleton();
 
-        IsActSpicy(ChickenSpicy.Hot);
+        ActSpicyData(ChickenSpicy.Hot);
     }
 
     public bool IsActGuest(Guest pGuest)

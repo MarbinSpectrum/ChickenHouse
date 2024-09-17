@@ -55,6 +55,8 @@ public class TulTulTown : Mgr
     {
         //인스펙터로 끌어서 사용할 함수임
         //특정Zone에서 특정 dic으로 이동시 이동될Zone을 임의로 정해줌
+        if (gameMgr.playData.tutoComplete4 == false)
+            return;
 
         soundMgr.PlaySE(Sound.Walk_SE);
         switch(nowZone)
@@ -90,7 +92,7 @@ public class TulTulTown : Mgr
         }
     }
 
-    private void MoveZone(Zone pZone)
+    public void MoveZone(Zone pZone,NoParaDel fun = null)
     {
         if (nowMove)
             return;
@@ -155,6 +157,7 @@ public class TulTulTown : Mgr
                     }
                     break;
             }
+            fun?.Invoke();
         }
         StartCoroutine(Run());
     }
@@ -162,6 +165,8 @@ public class TulTulTown : Mgr
     public void RunMenuBtn()
     {
         //인스펙터로 끌어서 사용하는 함수
+        if (gameMgr.playData.tutoComplete4 == false)
+            return;
 
         soundMgr.PlaySE(Sound.Btn_SE);
         switch (nowZone)

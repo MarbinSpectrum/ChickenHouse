@@ -17,12 +17,12 @@ public class SceneMgr : AwakeSingleton<SceneMgr>
 
     private bool rewardWaitFlag = false;
 
-    public void SceneLoad(Scene scene, bool quesstCheck, bool save, SceneChangeAni changeAni = SceneChangeAni.NOT)
+    public void SceneLoad(Scene scene, bool questCheck, bool save, SceneChangeAni changeAni = SceneChangeAni.NOT)
     {
-        StartCoroutine(RunSceneLoad(scene, quesstCheck, save, changeAni));
+        StartCoroutine(RunSceneLoad(scene, questCheck, save, changeAni));
     }
 
-    private IEnumerator RunSceneLoad(Scene scene, bool quesstCheck, bool save, SceneChangeAni changeAni)
+    private IEnumerator RunSceneLoad(Scene scene, bool questCheck, bool save, SceneChangeAni changeAni)
     {
         //씬이동 코루틴
         if(changeList.ContainsKey(changeAni))
@@ -30,7 +30,7 @@ public class SceneMgr : AwakeSingleton<SceneMgr>
 
         yield return new WaitForSeconds(1f);
 
-        if (quesstCheck)
+        if (questCheck)
         {
             GameMgr     gameMgr     = GameMgr.Instance;
             PlayData    playData    = gameMgr.playData;
@@ -69,6 +69,13 @@ public class SceneMgr : AwakeSingleton<SceneMgr>
                 yield return new WaitUntil(() => rewardWaitFlag);
                 rewardItem.gameObject.SetActive(false);
                 playData.hasItem[(int)rewardList[i]] = true;
+                ChickenSpicy chickenSpicy = SpicyMgr.RecipeGetSpicy(rewardList[i]);
+                if(chickenSpicy != ChickenSpicy.None)
+                {
+                    //양념을 새로 얻음 도감에 등록
+                    BookMgr bookMgr = BookMgr.Instance;
+                    bookMgr.ActSpicyData(chickenSpicy);
+                }       
             }
         }
 

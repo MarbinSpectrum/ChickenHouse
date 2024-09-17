@@ -501,9 +501,9 @@ public class MenuSet_UI : Mgr
         if (nowDragType != MenuSetDragType.None)
             return;
 
-        if (tutoMgr.tutoComplete3 == false && pDrayType != MenuSetDragType.Spicy)
+        if (gameMgr.playData.tutoComplete3 == false && pDrayType != MenuSetDragType.Spicy)
             return;
-        if (tutoMgr.tutoComplete3 == false && pDrayType == MenuSetDragType.Spicy)
+        if (gameMgr.playData.tutoComplete3 == false && pDrayType == MenuSetDragType.Spicy)
         {
             foreach (ChickenSpicy checkSpicy in setSpicyState)
             {
@@ -560,10 +560,9 @@ public class MenuSet_UI : Mgr
                             setSpicyState[(int)dropPos] = (ChickenSpicy)dragObj;
                         }
 
-                        if (tutoMgr.tutoComplete3 == false )
+                        if (gameMgr.playData.tutoComplete3 == false )
                         {
-                            tutoMgr.tutoComplete3 = true;
-                            PlayerPrefs.SetInt("TUTO_3", 1);
+                            gameMgr.playData.tutoComplete3 = true;
                             tutoObj.PlayTuto();
                         }
                     }

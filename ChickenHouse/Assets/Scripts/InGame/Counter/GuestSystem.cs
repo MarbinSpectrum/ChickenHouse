@@ -111,7 +111,7 @@ public class GuestSystem : Mgr
         //인게임 코루틴
         while (true)
         {
-            if (tutoMgr.tutoComplete1 == false)
+            if (gameMgr.playData.tutoComplete1 == false)
             {
                 //손님이 이동중일대는 대기
                 yield return new WaitWhile(() => moveGuest);
@@ -120,7 +120,7 @@ public class GuestSystem : Mgr
                 CreateGuest();
 
                 //튜토리얼동안 대기
-                yield return new WaitUntil(() => tutoMgr.tutoComplete1);
+                yield return new WaitUntil(() => gameMgr.playData.tutoComplete1);
 
                 //잠깐 대기
                 yield return new WaitForSeconds(2f);
@@ -138,7 +138,7 @@ public class GuestSystem : Mgr
                 }
 
                 //손님 딜레이
-                float delayValue = GUEST_DELAY_TIME * gameMgr.playData.GuestDelayRate();
+                float delayValue = GUEST_DELAY_TIME * gameMgr.playData.GuestTotalDelayRate()/100f;
                 if (counterWorker != null && counterWorker.skill.Contains(WorkerSkill.WorkerSkill_5))
                 {
                     //카운터 업무 경력자(카운터에 배치시 손님이 방문률 +50%)
@@ -241,7 +241,7 @@ public class GuestSystem : Mgr
                 //손님을 호출
                 int guestRandom = Random.Range(0, guestList.Count);
                 Guest nowGuest = guestList[guestRandom];
-                if(tutoMgr.tutoComplete1 == false)
+                if(gameMgr.playData.tutoComplete1 == false)
                 {
                     //튜토리얼에서는 고정으로 여우가 나옴
                     nowGuest = Guest.Fox;
@@ -275,7 +275,7 @@ public class GuestSystem : Mgr
                     soundMgr.PlaySE(Sound.NewOrder_SE);
                 string talkStr = newGuest.GetTalkText();
                 Sprite guestFace = newGuest.GetGuestFace();
-                kitchenMgr.ui.memo.AddMemo(talkStr, guestFace, Memo_UI.MAX_TIME, newGuest);
+                kitchenMgr.ui.memo.AddMemo(talkStr, guestFace, newGuest);
 
                 newGuest.gameObject.SetActive(true);
                 newGuest.CloseTalkBox();
@@ -385,6 +385,9 @@ public class GuestSystem : Mgr
             bool drinkResult = guestObj.CheckDrink(pDrink);
             bool sideResult = guestObj.CheckSide(pSideMenu);
 
+            //도감에 해동 손님 등록
+            bookMgr.ActGuestData(guestObj.guest);
+
             switch (result)
             {
                 case GuestReviews.Bad:
@@ -413,7 +416,7 @@ public class GuestSystem : Mgr
                     {
                         //돈지불
                         int getValue = gameMgr.playData.GetMenuValue(result, spicy0, spicy1, chickenState, pDrink, pSideMenu);
-                        float tipRate = gameMgr.playData.TipRate();
+                        float tipRate = gameMgr.playData.TipRate()/100f;
                         if(counterWorker != null && counterWorker.skill.Contains(WorkerSkill.WorkerSkill_4))
                         {
                             //잘생긴외모(팁 증가 +100%)
@@ -482,11 +485,10 @@ public class GuestSystem : Mgr
             //대화창 닫기
             leaveGuest.CloseTalkBox();
 
-            if (tutoMgr.tutoComplete1 == false)
+            if (gameMgr.playData.tutoComplete1 == false)
             {
                 //튜토리얼 완료
-                tutoMgr.tutoComplete1 = true;
-                PlayerPrefs.SetInt("TUTO_1", 1);
+                gameMgr.playData.tutoComplete1 = true;
             }
 
             //손님떠남처리
@@ -571,9 +573,6 @@ public class GuestSystem : Mgr
 
         if (guestObj == null)
             yield break;
-
-        //도감에 해동 손님 등록
-        bookMgr.ActGuestData(guestObj.guest);
 
         nowOrder = true;
         TalkOrder();

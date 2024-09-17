@@ -11,8 +11,9 @@ public class Memo_UI : Mgr
     [SerializeField] private Animator           animator;
     [SerializeField] private Image              deep;
     [SerializeField] private CanvasGroup        memoObjs;
+    [SerializeField] private Timer_UI           timerUI;
 
-    public const float MAX_TIME = 80;
+    public const float MAX_TIME = 60;
 
     private List<GuestObj> guestObjs    = new List<GuestObj>();
     private List<string> memoStr        = new List<string>();
@@ -54,13 +55,18 @@ public class Memo_UI : Mgr
 
         for (int i = 0; i < timeValue.Count; i++)
         {
-            if (kitchenMgr.cameraObj.lookArea == LookArea.Kitchen && tutoMgr.tutoComplete1)
-                timeValue[i] -= Time.deltaTime;
+            if (kitchenMgr.cameraObj.lookArea == LookArea.Kitchen && gameMgr.playData.tutoComplete1)
+            {
+                if (timerUI.IsEndTime())
+                    timeValue[i] -= Time.deltaTime*1.2f;
+                else if (i == 0)
+                    timeValue[i] -= Time.deltaTime;
+            }
+
+            timeValue[i] = Mathf.Clamp(timeValue[i], 0, MAX_TIME);
 
             if (timeValue[i] > 0)
-            {
-                timeValue[i] = Mathf.Max(0, timeValue[i]);
-
+            {                
                 float lerpValue = timeValue[i] / MAX_TIME;
                 Color colorValue = goodColor;
                 const float goodColorValue = 0.8f;
@@ -75,6 +81,9 @@ public class Memo_UI : Mgr
                     tempValue /= (goodColorValue - badColorValue);
                     colorValue = Color.Lerp(badColor, goodColor, tempValue);
                 }
+                if (timerUI.IsEndTime())
+                    colorValue = Color.Lerp(badColor, goodColor, 0);
+
                 gauge[i].fillAmount = lerpValue;
                 gauge[i].color = colorValue;
             }
@@ -88,8 +97,9 @@ public class Memo_UI : Mgr
         }
     }
 
-    public void AddMemo(string str,Sprite guestFace, float waitTime,GuestObj pGuestObj)
+    public void AddMemo(string str,Sprite guestFace,GuestObj pGuestObj)
     {
+        float waitTime = MAX_TIME * gameMgr.playData.GuestPatience()/100f;
         timeValue.Add(waitTime);
         guestSprite.Add(guestFace);
         memoStr.Add(str);

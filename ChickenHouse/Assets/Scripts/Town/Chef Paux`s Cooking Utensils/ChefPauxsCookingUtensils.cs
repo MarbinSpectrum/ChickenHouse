@@ -84,4 +84,10 @@ public class ChefPauxsCookingUtensils : Mgr
         soundMgr.PlaySE(Sound.Btn_SE);
         utensilshopUI.gameObject.SetActive(false);
     }
+
+    public void StopTalk()
+    {
+        //인스펙터에서 끌어서 사용하는 함수
+        soundMgr.StopLoopSE(Sound.Voice25_SE);
+    }
 }

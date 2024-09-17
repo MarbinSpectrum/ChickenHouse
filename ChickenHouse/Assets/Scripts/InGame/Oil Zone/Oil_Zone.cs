@@ -99,7 +99,7 @@ public class Oil_Zone : Mgr
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
         if (kitchenMgr.dragObj.holdGameObj == null)
         {
-            if (tutoMgr.tutoComplete1 == false && tutoMgr.nowTuto != Tutorial.Tuto_8_2)
+            if (gameMgr.playData.tutoComplete1 == false && tutoMgr.nowTuto != Tutorial.Tuto_8_2)
             {
                 //튜토리얼이 아직 완료안된듯
                 //혹시모르니 튜토리얼 타이밍때만 작동하도록 막아놓자
@@ -119,7 +119,7 @@ public class Oil_Zone : Mgr
 
             if (chickenStrainter)
             {
-                if (tutoMgr.tutoComplete1 == false && tutoMgr.nowTuto != Tutorial.Tuto_7)
+                if (gameMgr.playData.tutoComplete1 == false && tutoMgr.nowTuto != Tutorial.Tuto_7)
                 {
                     //튜토리얼이 아직 완료안된듯
                     //혹시모르니 튜토리얼 타이밍때만 작동하도록 막아놓자
@@ -179,7 +179,7 @@ public class Oil_Zone : Mgr
             kitchenMgr.dragObj.DragStrainter(chickenCnt, DragState.Fry_Chicken, oilShader.Mode, oilShader.LerpValue);
 
             //버리기 버튼도 표시해준다.
-            if (tutoMgr.tutoComplete1 == false && tutoMgr.nowTuto == Tutorial.Tuto_8_2)
+            if (gameMgr.playData.tutoComplete1 == false && tutoMgr.nowTuto == Tutorial.Tuto_8_2)
             {
                 //튜토리얼중에는 버리기 버튼이 표시되지않음
             }
@@ -188,6 +188,7 @@ public class Oil_Zone : Mgr
                 kitchenMgr.ui.takeOut.OpenBtn();
             }
             isHold = true;
+            kitchenMgr.UpdateOilZoneLoopSE();
             kitchenMgr.dragObj.HoldObj(gameObject);
             runCookImg.ForEach((x) => x.enabled = false);
         }
@@ -208,6 +209,7 @@ public class Oil_Zone : Mgr
             kitchenMgr.dragObj.HoldObj(null);
             kitchenMgr.dragState = DragState.None;
             isHold = false;
+            kitchenMgr.UpdateOilZoneLoopSE();
             runCookImg.ForEach((x) => x.enabled = true);
         }
     }
@@ -228,7 +230,7 @@ public class Oil_Zone : Mgr
             //요리 종료
             Cook_Stop();
 
-            if (tutoMgr.tutoComplete1 == false && tutoMgr.nowTuto == Tutorial.Tuto_8_2)
+            if (gameMgr.playData.tutoComplete1 == false && tutoMgr.nowTuto == Tutorial.Tuto_8_2)
             {
                 //튜토리얼에서는 카운터 이동버튼이 안나옴
                 tutoObj2.PlayTuto();
@@ -243,12 +245,14 @@ public class Oil_Zone : Mgr
             kitchenMgr.dragObj.HoldObj(null);
             kitchenMgr.dragState = DragState.None;
             isHold = false;
+
             runCookImg.ForEach((x) => x.enabled = false);
         }
         else
         {
             HoldStrainter(false);
         }
+        kitchenMgr.UpdateOilZoneLoopSE();
     }
 
     private void PutDown(Oil_Zone pOilZone)
@@ -273,7 +277,7 @@ public class Oil_Zone : Mgr
         if (CheckMode.IsDropMode())
             return;
 
-        if (tutoMgr.tutoComplete1 == false && tutoMgr.nowTuto != Tutorial.Tuto_8_2)
+        if (gameMgr.playData.tutoComplete1 == false && tutoMgr.nowTuto != Tutorial.Tuto_8_2)
         {
             return;
         }
@@ -295,9 +299,10 @@ public class Oil_Zone : Mgr
         }
 
         isHold = true;
+        kitchenMgr.UpdateOilZoneLoopSE();
         kitchenMgr.dragObj.DragStrainter(chickenCnt, DragState.Fry_Chicken, oilShader.Mode, oilShader.LerpValue);
 
-        if (tutoMgr.tutoComplete1 == false && tutoMgr.nowTuto == Tutorial.Tuto_8_2)
+        if (gameMgr.playData.tutoComplete1 == false && tutoMgr.nowTuto == Tutorial.Tuto_8_2)
         {
 
         }
@@ -314,7 +319,7 @@ public class Oil_Zone : Mgr
         if (CheckMode.IsDropMode())
             return;
 
-        if (tutoMgr.tutoComplete1 == false && tutoMgr.nowTuto != Tutorial.Tuto_8_2)
+        if (gameMgr.playData.tutoComplete1 == false && tutoMgr.nowTuto != Tutorial.Tuto_8_2)
         {
             return;
         }
@@ -326,6 +331,7 @@ public class Oil_Zone : Mgr
             return;
         }
         isHold = false;
+        kitchenMgr.UpdateOilZoneLoopSE();
         kitchenMgr.ui.takeOut.CloseBtn();
 
         kitchenMgr.dragState = DragState.None;
@@ -352,7 +358,7 @@ public class Oil_Zone : Mgr
 
                 Cook_Stop();
 
-                if (tutoMgr.tutoComplete1 == false && tutoMgr.nowTuto == Tutorial.Tuto_8_2)
+                if (gameMgr.playData.tutoComplete1 == false && tutoMgr.nowTuto == Tutorial.Tuto_8_2)
                 {
                     tutoObj2.PlayTuto();
                 }
@@ -368,7 +374,7 @@ public class Oil_Zone : Mgr
             {
                 Cook_Stop();
 
-                if (tutoMgr.tutoComplete1 == false && tutoMgr.nowTuto == Tutorial.Tuto_8_2)
+                if (gameMgr.playData.tutoComplete1 == false && tutoMgr.nowTuto == Tutorial.Tuto_8_2)
                 {
        
                     tutoObj2.PlayTuto();
@@ -438,6 +444,9 @@ public class Oil_Zone : Mgr
         cookCor = RunningCook(0, 0);
         StartCoroutine(cookCor);
 
+        KitchenMgr kitchenMgr = KitchenMgr.Instance;
+        kitchenMgr.UpdateOilZoneLoopSE();
+
         return true;
     }
 
@@ -468,6 +477,9 @@ public class Oil_Zone : Mgr
         //조리처리 시작
         cookCor = RunningCook(pChickenTime, pGaugeTime);
         StartCoroutine(cookCor);
+
+        KitchenMgr kitchenMgr = KitchenMgr.Instance;
+        kitchenMgr.UpdateOilZoneLoopSE();
 
         return true;
     }
@@ -521,7 +533,7 @@ public class Oil_Zone : Mgr
         animator.Play("Oil_Zone_Good", 0, 1);
         chickenState = ChickenState.GoodChicken;
 
-        if (tutoMgr.tutoComplete1 == false && tutoMgr.nowTuto == Tutorial.Tuto_7)
+        if (gameMgr.playData.tutoComplete1 == false && tutoMgr.nowTuto == Tutorial.Tuto_7)
         {
             //튜토리얼에서는 여기서 조리가 끝남
             tutoObj.PlayTuto();
@@ -598,7 +610,8 @@ public class Oil_Zone : Mgr
             }
         }
 
-        soundMgr.StopLoopSE(Sound.Oil_SE);
+        KitchenMgr kitchenMgr = KitchenMgr.Instance;
+        kitchenMgr.UpdateOilZoneLoopSE();
     }
 
     public void Cook_Pause(bool state)
@@ -615,7 +628,6 @@ public class Oil_Zone : Mgr
                     sObj.isRun = false;
                 }
             }
-            soundMgr.StopLoopSE(Sound.Oil_SE);
         }
         else
         {
@@ -630,7 +642,6 @@ public class Oil_Zone : Mgr
                     sObj.isRun = true;
                 }
             }
-            soundMgr.PlayLoopSE(Sound.Oil_SE);
         }
     }
 
@@ -674,7 +685,7 @@ public class Oil_Zone : Mgr
             if (resumeData.skill.Contains(WorkerSkill.WorkerSkill_3))
             {
                 //튀김 전문가 튀기는 속도+100%
-                speedRate = speedRate * (100f + 100f) / 100f;
+                speedRate = speedRate + 100f;
             }
         }
 

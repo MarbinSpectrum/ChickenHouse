@@ -7,16 +7,50 @@ public class Town : Mgr
     [SerializeField] private Dictionary<TownMap, RectTransform> townMap = new Dictionary<TownMap, RectTransform>();
     [SerializeField] private Animator                           moveAni;
     [SerializeField] private RectTransform                      diaryBtn;
+    [SerializeField] private WarningText                        warningText;
+    [SerializeField] private TutoObj                            tutoObj1;
+    [SerializeField] private TutoObj                            tutoObj2;
+    [SerializeField] private TutoObj                            tutoObj3;
+    [SerializeField] private TutoObj                            tutoObj4;
+    [SerializeField] private TutoObj                            tutoObj5;
 
     /** 현재 지역 **/
     private TownMap nowArea = TownMap.TulTulTown;
     /** 중복 이동 방지용 **/
     private bool isMove = false;
 
+    private bool warningFlag = false;
+
     private void Start()
     {
         ActTownMove(TownMap.None,nowArea);
         isMove = false;
+
+        if(gameMgr.playData.tutoComplete4 == false)
+        {
+            tutoObj1.PlayTuto();
+        }
+
+        if (warningFlag == false)
+        {
+            warningFlag = true;
+            if (gameMgr.playData.quest[(int)Quest.MainQuest_1] == 1)
+            {
+                //메인퀘스트1 진행중
+                if (QuestMgr.MAIN_QUEST_1_LIMIT_DAY - gameMgr.playData.day <= 0)
+                {
+                    //퀘스트 오늘안에 완료해야함
+                    string str = LanguageMgr.GetText("QUEST_WARNING");
+                    warningText.SetText(str);
+                }
+                else if (QuestMgr.MAIN_QUEST_1_LIMIT_DAY - gameMgr.playData.day <= 2)
+                {
+                    //퀘스트 이틀안에 완료 해야함
+                    string str = LanguageMgr.GetText("QUEST_WARNING_MSG");
+                    warningText.SetWarningMsgText(str);
+                }
+            }
+        }
     }
 
     public void ActTownMove(TownMap pPrevMap, TownMap pTownMap)
@@ -42,7 +76,7 @@ public class Town : Mgr
                     NekoJobBank nekoJobBank = townMap[pTownMap].GetComponent<NekoJobBank>();
                     nekoJobBank.SetInit();
                     diaryBtn.gameObject.SetActive(false);
-                    soundMgr.StopBGM();
+                    soundMgr.PlayBGM(Sound.Shop_BG);
                 }
                 break;
             case TownMap.ChefPauxsCookingUtensils:
@@ -50,7 +84,7 @@ public class Town : Mgr
                     ChefPauxsCookingUtensils chefPauxsCookingUtensils = townMap[pTownMap].GetComponent<ChefPauxsCookingUtensils>();
                     chefPauxsCookingUtensils.SetInit();
                     diaryBtn.gameObject.SetActive(false);
-                    soundMgr.StopBGM();
+                    soundMgr.PlayBGM(Sound.Shop_BG);
                 }
                 break;
             case TownMap.LongNoseCompany:
@@ -58,7 +92,7 @@ public class Town : Mgr
                     LongNose longNose = townMap[pTownMap].GetComponent<LongNose>();
                     longNose.SetInit();
                     diaryBtn.gameObject.SetActive(false);
-                    soundMgr.StopBGM();
+                    soundMgr.PlayBGM(Sound.Shop_BG);
                 }
                 break;
         }
@@ -108,5 +142,38 @@ public class Town : Mgr
             isMove = false;
         }
         StartCoroutine(Run());
+    }
+
+    public void TutoEvent()
+    {
+        if (gameMgr.playData.tutoComplete4)
+            return;
+        switch(tutoMgr.nowTuto)
+        {
+            case Tutorial.Town_Tuto_1:
+                {
+                    TulTulTown tultulTown = townMap[TownMap.TulTulTown].GetComponent<TulTulTown>();
+                    tultulTown.MoveZone(TulTulTown.Zone.JobBank, () => tutoObj2.PlayTuto());
+                }
+                break;
+            case Tutorial.Town_Tuto_2:
+                {
+                    TulTulTown tultulTown = townMap[TownMap.TulTulTown].GetComponent<TulTulTown>();
+                    tultulTown.MoveZone(TulTulTown.Zone.CookingUtensils, () => tutoObj3.PlayTuto());
+                }
+                break;
+            case Tutorial.Town_Tuto_3:
+                {
+                    TulTulTown tultulTown = townMap[TownMap.TulTulTown].GetComponent<TulTulTown>();
+                    tultulTown.MoveZone(TulTulTown.Zone.LongNose, () => tutoObj4.PlayTuto());
+                }
+                break;
+            case Tutorial.Town_Tuto_4:
+                {
+                    TulTulTown tultulTown = townMap[TownMap.TulTulTown].GetComponent<TulTulTown>();
+                    tultulTown.MoveZone(TulTulTown.Zone.ChickenHeaven, () => tutoObj5.PlayTuto());
+                }
+                break;
+        }
     }
 }

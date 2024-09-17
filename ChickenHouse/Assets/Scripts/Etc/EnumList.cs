@@ -188,27 +188,26 @@ public enum Sound
     //-------------------------------------------------------------------------------
     /** 기름 튀기는 소리 **/
     Oil_SE = 200,
-
     /** 아이템 두는 소리 **/
     Put_SE = 201,
-
     /** 돈 획득 소리 **/
     GetMoney_SE = 202,
-
     /** 튀김조리 완료 소리 **/
     Oil_Zone_End_SE = 203,
-
     /** 소스획득 **/
     GetSpicy_SE = 204,
-
     /** 주문추가 **/
     NewOrder_SE = 205,
-
     /** 버튼 소리 **/
     Btn_SE = 206,
-
     /** 걷는 소리 **/
     Walk_SE = 207,
+    /** 종이 소리 **/
+    Paper_SE = 208, 
+    /** 페이지 소리 **/
+    Page_SE = 209,
+    /** 도장 소리 **/
+    Stamp_SE = 210,
 
     /** 목소리 목록 **/
     //개
@@ -318,11 +317,11 @@ public enum ShopItem
     Pickle              = 261,      //치킨무
 
     /** 광고 업그레이드 **/
-    Advertisement_1     = 301,      //광고 업그레이드(손님 딜레이 -10%);
-    Advertisement_2     = 302,      //광고 업그레이드(손님 딜레이 -20%,수익 +10%);
-    Advertisement_3     = 303,      //광고 업그레이드(손님 딜레이 -30%,수익 +10%);
-    Advertisement_4     = 304,      //광고 업그레이드(손님 딜레이 -40%,수익 +10%);
-    Advertisement_5     = 305,      //광고 업그레이드(손님 딜레이 -50%,수익 +10%);
+    Advertisement_1     = 301,      //광고 업그레이드(손님 딜레이 -5%);
+    Advertisement_2     = 302,      //광고 업그레이드(손님 딜레이 -7%,수익 +10%);
+    Advertisement_3     = 303,      //광고 업그레이드(손님 딜레이 -10%,수익 +10%);
+    Advertisement_4     = 304,      //광고 업그레이드(손님 딜레이 -15%,수익 +10%);
+    Advertisement_5     = 305,      //광고 업그레이드(손님 딜레이 -20%,수익 +10%);
 
     MAX                 = 10000,
 }
@@ -460,7 +459,6 @@ public enum Tutorial
 
 
     ////////////////////////////////////////////////////////////////////////
-
     /** 직원 배치 **/
     Worker_Tuto_1_0,
     Worker_Tuto_1_1,
@@ -469,12 +467,27 @@ public enum Tutorial
     Worker_Tuto_2_2,
 
     ////////////////////////////////////////////////////////////////////////
-
     /** 메뉴 배치 **/
     Menu_Tuto_1,
     Menu_Tuto_2_0,
     Menu_Tuto_2_1,
     Menu_Tuto_2_2,
+
+    ////////////////////////////////////////////////////////////////////////
+    /** 마을 및 일기장 **/
+    Town_Tuto_1,
+    Town_Tuto_2,
+    Town_Tuto_3,
+    Town_Tuto_4,
+    Town_Tuto_5,
+    Town_Tuto_6,
+    Town_Tuto_7,
+    Town_Tuto_8,
+    Town_Tuto_9,
+    Town_Tuto_10,
+    Town_Tuto_11,
+    Town_Tuto_12,
+    Town_Tuto_13,
 }
 
 public enum Scene
@@ -501,6 +514,33 @@ public enum Scene
     DEMO,
 }
 
+public enum CookLvStat
+{
+    None                    = 0,
+    /** 치킨 기본 가격 인상($) **/
+    IncreaseChickenPrice    = 1,
+    /** 치킨 재료비 감소($) **/
+    DecreaseChickenRes      = 2,
+    /** 음료 재료비 감소($) **/
+    DecreaseDrinkRes        = 3,
+    /** 피클 재료비 감소($) **/
+    DecreasePickleRes       = 4,
+    /** 직원 속도 증가(%)   **/
+    WorkerSpeedUp           = 5,
+    /** 수익 증가(%)        **/
+    IncomeUp                = 6,
+    /** 상점 할인(%)        **/
+    ShopSale                = 7,
+    /** 손님 방문률(%)      **/
+    GuestSpawnRate          = 8,
+    /** 손님 인내심 상한(%) **/
+    GuestPatience           = 9,
+    /** 손님 팁(%)          **/
+    Tip                     = 10,
+    /** 임대료($)           **/
+    Rent                    = 11,
+}
+
 public enum DiaryMenu
 {
     Quest,
@@ -521,11 +561,14 @@ public enum Quest
     MainQuest_1       = 0,        //빚갚기 메인 퀘스트
 
 
-    SpicyQuest_1      = 1000,     //치킨 5마리 팔기         (간장치킨 오픈)
-    SpicyQuest_2      = 1001,     //간장치킨 5마리 팔기     (불닭치킨 오픈)
-    SpicyQuest_3      = 1002,     //불닭치킨 10마리 팔기    
-    
-    DrinkQuest_1      = 2000,     //콜라 20개 팔기          (맥주 오픈)
+    SpicyQuest_1      = 1000,     //치킨 5마리 팔기                (간장치킨 오픈)
+    SpicyQuest_2      = 1001,     //간장치킨 5마리 팔기            (닭치킨 오픈)
+    SpicyQuest_3      = 1002,     //불닭치킨 5마리 팔기            (프링클 치킨 오픈)
+    SpicyQuest_4      = 1003,     //프링클 치킨 10마리 팔기        (까르보나라 치킨 오픈)
+    SpicyQuest_5      = 1004,     //까르보나라치킨 10마리 팔기     (BBQ 치킨 오픈) 
+    SpicyQuest_6      = 1005,     //BBQ치킨 10마리 팔기    
+
+    DrinkQuest_1      = 2000,     //콜라 20개 팔기                 (맥주 오픈)
     DrinkQuest_2      = 2001,     //맥주 20개 팔기          
 
     MAX,

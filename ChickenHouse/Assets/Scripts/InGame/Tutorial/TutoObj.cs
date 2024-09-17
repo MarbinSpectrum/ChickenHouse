@@ -13,7 +13,7 @@ public class TutoObj : Mgr
 
     private bool tutoFlag = false;
 
-   public void PlayTuto()
+    public void PlayTuto()
     {
         if (tutoFlag)
             return;
@@ -24,12 +24,12 @@ public class TutoObj : Mgr
     private IEnumerator RunToto()
     {
         KitchenMgr      kitchenMgr  = KitchenMgr.Instance;
-        kitchenMgr.kitchenRect.enabled = false;
+        if (kitchenMgr != null)
+            kitchenMgr.kitchenRect.enabled = false;
 
-        RectTransform   kitchenRect = kitchenMgr.kitchenRect.content;
-
-        if (tutoPos != null)
+        if (tutoPos != null && kitchenMgr != null)
         {
+            RectTransform   kitchenRect = kitchenMgr.kitchenRect.content;
             float distance = Mathf.Abs(kitchenRect.transform.position.x - tutoPos.position.x);
 
             yield return new WaitForSeconds(delay);
@@ -62,7 +62,8 @@ public class TutoObj : Mgr
     public void CloseTuto()
     {
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
-        kitchenMgr.kitchenRect.enabled = true;
+        if (kitchenMgr != null)
+            kitchenMgr.kitchenRect.enabled = true;
 
         tutoMgr.CloseText();
         tutoObj.SetActive(false);

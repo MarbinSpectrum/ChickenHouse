@@ -77,10 +77,28 @@ public class Option_UI : Mgr
         if (run == false)
             return;
 
+        if (tutoMgr.NowRunTuto())
+            return;
+
+        soundMgr.PlaySE(Sound.Btn_SE);
         gameMgr.OptionStopGame(true);
         gameObject.SetActive(true);
         SetEvent();
         OpenMenu(OptionMenu.Main);
+    }
+
+    public void Close_UI()
+    {
+        if (run == false)
+            return;
+
+        if (nowMenu == OptionMenu.Main)
+        {
+            gameMgr.OptionStopGame(false);
+            gameObject.SetActive(false);
+        }
+        else
+            OpenMenu(OptionMenu.Main);
     }
 
     private void SetEvent()
@@ -97,7 +115,8 @@ public class Option_UI : Mgr
         windowCloseBtn.onClick.RemoveAllListeners();
         windowCloseBtn.onClick.AddListener(() =>
         {
-            if(nowMenu == OptionMenu.Main)
+            soundMgr.PlaySE(Sound.Btn_SE);
+            if (nowMenu == OptionMenu.Main)
             {
                 gameMgr.OptionStopGame(false);
                 gameObject.SetActive(false);
@@ -110,16 +129,19 @@ public class Option_UI : Mgr
         mainUI.languageBtn.onClick.RemoveAllListeners();
         mainUI.languageBtn.onClick.AddListener(() =>
         {
+            soundMgr.PlaySE(Sound.Btn_SE);
             OpenMenu(OptionMenu.Language);
         });
         mainUI.soundBtn.onClick.RemoveAllListeners();
         mainUI.soundBtn.onClick.AddListener(() =>
         {
+            soundMgr.PlaySE(Sound.Btn_SE);
             OpenMenu(OptionMenu.Sound);
         });
         mainUI.titleBtn.onClick.RemoveAllListeners();
         mainUI.titleBtn.onClick.AddListener(() =>
         {
+            soundMgr.PlaySE(Sound.Btn_SE);
             OpenMenu(OptionMenu.Title);
         });
 
@@ -127,6 +149,7 @@ public class Option_UI : Mgr
         languageUI.okBtn.onClick.RemoveAllListeners();
         languageUI.okBtn.onClick.AddListener(() =>
         {
+            soundMgr.PlaySE(Sound.Btn_SE);
             if (lanMgr.nowLanguage == selectLan)
             {
                 OpenMenu(OptionMenu.Main);
@@ -139,6 +162,7 @@ public class Option_UI : Mgr
         soundUI.okBtn.onClick.RemoveAllListeners();
         soundUI.okBtn.onClick.AddListener(() =>
         {
+            soundMgr.PlaySE(Sound.Btn_SE);
             OpenMenu(OptionMenu.Main);
         });
 
@@ -158,6 +182,7 @@ public class Option_UI : Mgr
         restartUI.restartBtn.onClick.RemoveAllListeners();
         restartUI.restartBtn.onClick.AddListener(() =>
         {
+            soundMgr.PlaySE(Sound.Btn_SE);
             if (run == false)
                 return;
             run = false;

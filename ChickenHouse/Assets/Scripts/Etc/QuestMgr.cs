@@ -10,9 +10,12 @@ public class QuestMgr : AwakeSingleton<QuestMgr>
     public static int MAIN_QUEST_1_LIMIT_DAY = 7;
     public static int SPICY_QUEST_1_CNT = 5;
     public static int SPICY_QUEST_2_CNT = 5;
-    public static int SPICY_QUEST_3_CNT = 10;
-    public static int DRINK_QUEST_1_CNT = 20;
-    public static int DRINK_QUEST_2_CNT = 20;
+    public static int SPICY_QUEST_3_CNT = 5;
+    public static int SPICY_QUEST_4_CNT = 10;
+    public static int SPICY_QUEST_5_CNT = 10;
+    public static int SPICY_QUEST_6_CNT = 10;
+    public static int DRINK_QUEST_1_CNT = 10;
+    public static int DRINK_QUEST_2_CNT = 10;
 
     public QuestData GetQuestData(Quest pQuest)
     {
@@ -52,12 +55,29 @@ public class QuestMgr : AwakeSingleton<QuestMgr>
                 return playData.questCnt[(int)pQuest] >= SPICY_QUEST_2_CNT;
             case Quest.SpicyQuest_3:
                 return playData.questCnt[(int)pQuest] >= SPICY_QUEST_3_CNT;
+            case Quest.SpicyQuest_4:
+                return playData.questCnt[(int)pQuest] >= SPICY_QUEST_4_CNT;
+            case Quest.SpicyQuest_5:
+                return playData.questCnt[(int)pQuest] >= SPICY_QUEST_5_CNT;
+            case Quest.SpicyQuest_6:
+                return playData.questCnt[(int)pQuest] >= SPICY_QUEST_6_CNT;
             case Quest.DrinkQuest_1:
                 return playData.questCnt[(int)pQuest] >= DRINK_QUEST_1_CNT;
             case Quest.DrinkQuest_2:
                 return playData.questCnt[(int)pQuest] >= DRINK_QUEST_2_CNT;
         }
 
+        return false;
+    }
+
+    public static bool IsMainQuest(Quest pQuest)
+    {
+        //ÇØ´ç Äù½ºÆ®°¡ ¸ÞÀÎ Äù½ºÆ®ÀÎ°¡
+        switch (pQuest)
+        {
+            case Quest.MainQuest_1:
+                return true;
+        }
         return false;
     }
 
@@ -90,7 +110,7 @@ public class QuestMgr : AwakeSingleton<QuestMgr>
                     break;
                 case Quest.SpicyQuest_3:
                     {
-                        //ºÒ´ßÄ¡Å² 10¸¶¸® ÆÈ±â
+                        //ºÒ´ßÄ¡Å² 5¸¶¸® ÆÈ±â
                         int hellChicken = 0;
                         foreach (GuestMenu guestMenu in gameMgr.sellMenu)
                             if (guestMenu.spicy0 == ChickenSpicy.Hell || guestMenu.spicy1 == ChickenSpicy.Hell)
@@ -98,9 +118,39 @@ public class QuestMgr : AwakeSingleton<QuestMgr>
                         playData.questCnt[(int)quest] += hellChicken;
                     }
                     break;
+                case Quest.SpicyQuest_4:
+                    {
+                        //ÇÁ¸µÅ¬ Ä¡Å² 10¸¶¸® ÆÈ±â
+                        int prinkleChicken = 0;
+                        foreach (GuestMenu guestMenu in gameMgr.sellMenu)
+                            if (guestMenu.spicy0 == ChickenSpicy.Prinkle || guestMenu.spicy1 == ChickenSpicy.Prinkle)
+                                prinkleChicken++;
+                        playData.questCnt[(int)quest] += prinkleChicken;
+                    }
+                    break;
+                case Quest.SpicyQuest_5:
+                    {
+                        //±î¸£º¸³ª¶ó Ä¡Å² 10¸¶¸® ÆÈ±â
+                        int carbonaraChicken = 0;
+                        foreach (GuestMenu guestMenu in gameMgr.sellMenu)
+                            if (guestMenu.spicy0 == ChickenSpicy.Carbonara || guestMenu.spicy1 == ChickenSpicy.Carbonara)
+                                carbonaraChicken++;
+                        playData.questCnt[(int)quest] += carbonaraChicken;
+                    }
+                    break;
+                case Quest.SpicyQuest_6:
+                    {
+                        //BBQÄ¡Å² 10 ¸¶¸® ÆÈ±â
+                        int bbqChicken = 0;
+                        foreach (GuestMenu guestMenu in gameMgr.sellMenu)
+                            if (guestMenu.spicy0 == ChickenSpicy.BBQ || guestMenu.spicy1 == ChickenSpicy.BBQ)
+                                bbqChicken++;
+                        playData.questCnt[(int)quest] += bbqChicken;
+                    }
+                    break;
                 case Quest.DrinkQuest_1:
                     {
-                        //ÄÝ¶ó 20°³ ÆÈ±â
+                        //ÄÝ¶ó 10°³ ÆÈ±â
                         int colaCnt = 0;
                         foreach (GuestMenu guestMenu in gameMgr.sellMenu)
                             if (guestMenu.drink == Drink.Cola)
@@ -110,7 +160,7 @@ public class QuestMgr : AwakeSingleton<QuestMgr>
                     break;
                 case Quest.DrinkQuest_2:
                     {
-                        //¸ÆÁÖ 20°³ ÆÈ±â
+                        //¸ÆÁÖ 10°³ ÆÈ±â
                         int beerCnt = 0;
                         foreach (GuestMenu guestMenu in gameMgr.sellMenu)
                             if (guestMenu.drink == Drink.Beer)

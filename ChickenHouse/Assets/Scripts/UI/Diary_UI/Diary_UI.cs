@@ -15,6 +15,11 @@ public class Diary_UI : Mgr
 
     public void Set_UI()
     {
+        //if (tutoMgr.NowRunTuto())
+        //    return;
+
+        soundMgr.PlaySE(Sound.Page_SE);
+
         gameObject.SetActive(true);
 
         //닫기 버튼 처리
@@ -32,6 +37,7 @@ public class Diary_UI : Mgr
     {
         //인스펙터로 끌어다 쓰는 함수임
         Set_UI((DiaryMenu)menuIdx);
+        soundMgr.PlaySE(Sound.Paper_SE);
     }
 
     public void Set_UI(DiaryMenu pMenu)

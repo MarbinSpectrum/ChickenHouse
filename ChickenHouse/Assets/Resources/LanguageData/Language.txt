@@ -61,10 +61,10 @@ EMPTY	빈 공간	Empty
 LOAD	불러오기	Load
 SAVE	저장하기	Save
 CHICKEN_PRICE	기본 치킨 가격	Base Chicken Price
-CHICKEN_RES	치킨 재료비	Chicken Ingredients Value
-DRINK_PRICE	음료 재료비	Drink Ingredients Value
-SIDEMENU_PRICE	사이드메뉴 재료비	Side Menu Ingredients Value
-COOK_SPEED	조리 속도	Cook Speed
+CHICKEN_RES_DECREASE	치킨 재료비 감소	Chicken Cost Savings
+DRINK_PRICE_DECREASE	음료 재료비 감소	Drink Cost Savings
+SIDEMENU_PRICE_DECREASE	피클 재료비 감소	Pickle Cost Savings
+WORKER_SPEED	직원 속도	Worker Speed
 PROFIT_RATE	수익률	Profit Rate
 WORKER_SPEED	알바생 속도	Worker Speed
 SALE_VALUE	상점 할인율	Merchant Rate
@@ -100,6 +100,7 @@ CONTRACT	계약	Contract
 PURCHASE	구입	Purchase
 DEPLOYABLE_STAFF	배치 가능한 직원	Deployable staff
 EMPLOYEE_ASSIGNMENT	직원 업무 할당	Employee assignment
+KITCHEN_READY	주방 준비	Kitchen preparation
 NEXT	다음	Next
 BACK	뒤로	Back
 DRINK_SLOT	음료	Drink
@@ -107,30 +108,45 @@ PICKLE_SLOT	피클	Pickle
 SELLING_PRICE	판매 수익	Selling Price
 TIP	팁	Tip
 REWARD	보상	Reward
+QUEST_WARNING	오늘 내로 달성되어야 하는 매우 중요한 퀘스트가 있으니 필히 확인해 주세요.	There is a very important quest that needs to be achieved within today, so please make sure to check it out.
+QUEST_WARNING_MSG	빚 상환일까지 이틀밖에 남지 않았습니다.\n이틀동안은 돈을 아끼는것을 추천드립니다.	You only have two days until your debt repayment date.\nI recommend saving money for two days.
 TUTO_1	먼저 닭을 달걀물에 넣어봅시다.	First, I'll put chickens in the egg water.
 TUTO_2	달걀물이 골고루 묻도록 닭을 잘 저어주세요.	Stir the chicken well so that the egg water is evenly coated.
-TUTO_3	이제 달걀물을 묻힌 닭을 오른쪽으로 옮겨주세요. 	이제 달걀물을 묻힌 닭을 오른쪽으로 옮겨주세요. 
-TUTO_4	닭에 밀가루를 묻혀주세요.	닭에 밀가루를 묻혀주세요.
-TUTO_5	해당 작업을 반복해서 오른쪽 트레이를 가득채워주세요.	해당 작업을 반복해서 오른쪽 트레이를 가득채워주세요.
+TUTO_3	이제 달걀물을 묻힌 닭을 오른쪽으로 옮겨주세요. 	Now move the chicken dipped in egg water to the right.
+TUTO_4	닭에 밀가루를 묻혀주세요.	Please coat the chicken with flour.
+TUTO_5	해당 작업을 반복해서 오른쪽 트레이를 가득채워주세요.	Repeat this task and fill the right tray.
 TUTO_6	닭 모두를 치킨 건지개에 넣어 주세요.	Please put all the chickens in the vegetable.
 TUTO_7	이제 튀김기로 치킨을 옮겨주세요.	Now transfer the chicken to the fryer.
 TUTO_8_0	튀김기의 게이지가 가득차면 치킨이 완료된것입니다.	When the gauge of the machine is full\nthe chicken is complete.
 TUTO_8_1	해당 상태로 치킨을 너무 오래 방치하면\n치킨이 타므로 주의해야합니다.	If you leave the chicken in that state for too long,\nBe careful because the chicken is burning.
 TUTO_8_2	이제 치킨을 치킨용기안에 넣어주세요.	Now put the chicken in the wrapper.
-TUTO_9_0	왼쪽상단의 쪽지를 클릭하면\n손님의 주문을 확인할 수 있습니다.	왼쪽상단의 쪽지를 클릭하면\n손님의 주문을 확인할 수 있습니다.
-TUTO_9_1	손님의 주문에 알맞는 메뉴를 준비해주면됩니다.	손님의 주문에 알맞는 메뉴를 준비해주면됩니다.
+TUTO_9_0	왼쪽상단의 쪽지를 클릭하면\n손님의 주문을 확인할 수 있습니다.	Click on the note at the top left.\nWe can confirm your order.
+TUTO_9_1	손님의 주문에 알맞는 메뉴를 준비해주면됩니다.	You can prepare a menu suitable for your order.
 TUTO_10	콜라와 치킨무도 넣어주세요.	Add coke and pickles, too.
 TUTO_11	치킨도 올려주세요.	Please put some chicken on top, too.
 TUTO_12	치킨이 준비 되었습니다.\n종을 울려서 카운터로 이동합니다.	Chicken is done. Press the top button\nto move to the counter.
-WORKER_TUTO_1_0	가게를 효율적으로 운영하기 위해서는 직원은 필수적입니다.	가게를 효율적으로 운영하기 위해서는 직원은 필수적입니다.
-WORKER_TUTO_1_1	직원을 주방 테이블쪽으로 배치해봅시다.	직원을 주방 테이블쪽으로 배치해봅시다.
-WORKER_TUTO_2_0	왼쪽하단을 확인해보면 직원의 상세정보도 확인해볼 수 있습니다.	왼쪽하단을 확인해보면 직원의 상세정보도 확인해볼 수 있습니다.
-WORKER_TUTO_2_1	이를 참고하여 적합한 업무에 배치하는 것이 중요합니다. 	이를 참고하여 적합한 업무에 배치하는 것이 중요합니다. 
-WORKER_TUTO_2_2	적절한 배치로 가게를 성공적으로 운영해봅시다!	적절한 배치로 가게를 성공적으로 운영해봅시다!
-MENU_TUTO_1	새로운 양념이 추가되었습니다. 주방에 배치해봅시다.	새로운 양념이 추가되었습니다. 주방에 배치해봅시다.
-MENU_TUTO_2_0	주방에 양념,피클,음료를 배치하면 손님들이 해당 메뉴를 주문하게 됩니다.	주방에 양념,피클,음료를 배치하면 손님들이 해당 메뉴를 주문하게 됩니다.
-MENU_TUTO_2_1	왼쪽하단을 확인해보면 배치한 메뉴의 상세정보도 확인할 수 있습니다.	왼쪽하단을 확인해보면 배치한 메뉴의 상세정보도 확인할 수 있습니다.
-MENU_TUTO_2_2	메뉴를 적절하게 배치해서 가게를 성공적으로 운영해봅시다!	메뉴를 적절하게 배치해서 가게를 성공적으로 운영해봅시다!
+WORKER_TUTO_1_0	가게를 효율적으로 운영하기 위해서는 직원은 필수적입니다.	Employees are essential to run the store efficiently.
+WORKER_TUTO_1_1	직원을 주방 테이블쪽으로 배치해봅시다.	Let's arrange the staff towards the kitchen table.
+WORKER_TUTO_2_0	왼쪽하단을 확인해보면 직원의 상세정보도 확인해볼 수 있습니다.	If you check the bottom left, you can also check the details of the employees.
+WORKER_TUTO_2_1	이를 참고하여 적합한 업무에 배치하는 것이 중요합니다. 	It is important to refer to this and place it in a suitable job.
+WORKER_TUTO_2_2	적절한 배치로 가게를 성공적으로 운영해봅시다!	Let's run the store successfully with the right arrangement!
+MENU_TUTO_1	새로운 양념이 추가되었습니다. 주방에 배치해봅시다.	A new seasoning has been added. Let's put it in the kitchen.
+MENU_TUTO_2_0	주방에 양념,피클,음료를 배치하면 손님들이 해당 메뉴를 주문하게 됩니다.	Place seasoning, pickles, and drinks in the kitchen and customers will order them.
+MENU_TUTO_2_1	왼쪽하단을 확인해보면 배치한 메뉴의 상세정보도 확인할 수 있습니다.	If you check the bottom left, you can also check the details of the menu you placed.
+MENU_TUTO_2_2	메뉴를 적절하게 배치해서 가게를 성공적으로 운영해봅시다!	Let's successfully run the store by properly arranging the menu!
+TOWN_TUTO_1	마을에서는 다양한 활동을 할 수 있습니다.	You can engage in a variety of activities in the village.
+TOWN_TUTO_2	직원고용소입니다. 가게에서 함께 일할 직원을 고용할 수 있습니다.	This is a Job Bank. You can hire staff to work with you at your store.
+TOWN_TUTO_3	주방도구상점입니다. 주방에서 사용할 조리도구를 구입할 수 있는 곳입니다.	This is a kitchenware shop.\nIt's a place where you can buy cooking utensils for use in the kitchen.
+TOWN_TUTO_4	광고 회사입니다. 가게 광고를 통해 더 많은 손님을 유치할 수 있습니다.	It's an advertising company.\nYou can attract more customers through store advertising.
+TOWN_TUTO_5	모든 준비가 끝났으면 가게로 돌아와서 장사를 시작하면됩니다. 	Once all the preparations are complete\nreturn to the store and start the business.
+TOWN_TUTO_6	일기장을 통해서도 여러가지를 할 수 있습니다.	You can do various things using the diary as well.
+TOWN_TUTO_7	진행 사항을 저장하거나 불러올 수 있고	You can save or load your progress.
+TOWN_TUTO_8	현재 장사숙련도를 파악할 수 있습니다.	You can assess your current business proficiency.
+TOWN_TUTO_9	장사 숙련도는 장사를 할수록 높아지며\n숙련도가 높을수록 더 효과적으로 장사를 할 수 있습니다.	Business proficiency increases with experience,\nhigher proficiency allows you to run the business more effectively.
+TOWN_TUTO_10	현재 해야 할 일도 확인할 수 있습니다.	You can also see the tasks that need to be completed.
+TOWN_TUTO_11	빨간 글씨로 표시된 항목은 기간 내에 반드시 완료해야 하는 일입니다.	Items marked in red are tasks that must be completed within the timeframe.
+TOWN_TUTO_12	해당 기간안에 꼭 해결해야합니다!	It must be resolved without fail within the given timeframe!
+TOWN_TUTO_13	주기적으로 확인하여 기한 내에 해결하도록 합시다.	Let's regularly check to ensure it's resolved within the deadline.
 PROLOGUE_1	어 여기 있었군. 우리가 찾느라\n얼마나 힘들었는지 알아?	Oh, here it is. We're looking for it\nDo you know how hard it was?
 PROLOGUE_2	우리한테 빚을 져서 차린 게 고작 이런 치킨집이라니\n이걸로 우리한테 빚진 걸 갚을 수 있겠어?	I can't believe it's only a chicken restaurant\nlike this that you owe us.\nCan you pay back what you owe us with this?
 PROLOGUE_3	잘 들어 네가 우리한테 빚진 금액 ‘10만’ 달러!\n단 1달러도 봐줄 생각은 없으니\n각오하고 벌어들여야 할 거다!	Listen, you owe us $100,000!\nI won't let you off with a dollar,\nso you have to be prepared and earn it!
@@ -457,8 +473,8 @@ WORKER_SKILL_INFO_6	종종 치킨 한 조각을 빼 먹음	Occasionally sneaks a
 WORKER_SKILL_INFO_7	손님이 원하는 치킨을 알려줌	Let the customers know the menu they want.
 WORKER_SKILL_INFO_8	카운터에 배치시 2% 확률로 손님의 주문이 제대로 전달되지 않음	When assigned to the counter, there is a 2% chance that a customer's order may not be communicated correctly
 QUEST_NAME_1	빚 갚기	Pay off debt
-QUEST_INFO_1	너구리에게 빌린 돈 50000$를 갚아야한다. \n기간은 7일준다고 했다.\n빨리 준비해야 될거같다.	I need to repay the $50,000\nI borrowed from the raccoon.\nHe gave me 7 days.\nI need to prepare quickly.
-QUEST_SUMMARY_1	※ 기간안에 50000$를 갚자!!	※ Let's repay the $5,000 within the deadline!!
+QUEST_INFO_1	너구리에게 빌린 돈 100,000$를 갚아야한다. \n기간은 7일준다고 했다.\n빨리 준비해야 될거같다.	I need to repay the $100,000\nI borrowed from the raccoon.\nHe gave me 7 days.\nI need to prepare quickly.
+QUEST_SUMMARY_1	※ 기간안에 100,000$를 갚자!!	※ Let's repay the $100,000 within the deadline!!
 SPICY_QUEST_NAME_1	장사를 시작해보자.	Let's sell chicken
 SPICY_QUEST_INFO_1	우선 치킨 5마리를 팔아보자.	Let's sell five chickens first.
 SPICY_QUEST_SUMMARY_1	※ 치킨 5마리 팔기	※ Selling 5 chickens
@@ -466,8 +482,17 @@ SPICY_QUEST_NAME_2	간장 소스의 달인	Master of soy sauce
 SPICY_QUEST_INFO_2	간장 치킨 5마리를 팔아보자.	Let's sell five soy chickens.
 SPICY_QUEST_SUMMARY_2	※ 간장치킨 5마리 팔기	※ Selling 5 soy chickens
 SPICY_QUEST_NAME_3	불닭 소스의 달인	Master of hell sauce
-SPICY_QUEST_INFO_3	불닭 치킨 10마리를 팔아보자.	Let's sell ten hell chickens.
-SPICY_QUEST_SUMMARY_3	※ 불닭치킨 10마리 팔기	※ Selling 10 hell chickens
+SPICY_QUEST_INFO_3	불닭 치킨 5마리를 팔아보자.	Let's sell five hell chickens.
+SPICY_QUEST_SUMMARY_3	※ 불닭치킨 5마리 팔기	※ Selling 5 hell chickens
+SPICY_QUEST_NAME_4	프링클 양념의 달인	Master of prinkle sauce
+SPICY_QUEST_INFO_4	프링클 치킨 10마리를 팔아보자.	Let's sell ten prinkle chickens.
+SPICY_QUEST_SUMMARY_4	※ 프링클 치킨 10마리 팔기	※ Selling 10 prinkle chickens
+SPICY_QUEST_NAME_5	까르보나라 소스의 달인	Master of carbonara sauce
+SPICY_QUEST_INFO_5	까르보나라 치킨 10마리를 팔아보자.	Let's sell ten carbonara chickens.
+SPICY_QUEST_SUMMARY_5	※ 까르보나라 치킨 10마리 팔기	※ Selling 10 carbonara chickens
+SPICY_QUEST_NAME_6	BBQ 소스의 달인	Master of bbq sauce
+SPICY_QUEST_INFO_6	BBQ 치킨 10마리를 팔아보자.	Let's sell ten bbq chickens.
+SPICY_QUEST_SUMMARY_6	※ BBQ 치킨 10마리 팔기	※ Selling 10 bbq chickens
 DRINK_QUEST_NAME_1	시원한 콜라	Cool cola
 DRINK_QUEST_INFO_1	콜라 20개를 팔아보자.	Let's sell 20 colas.
 DRINK_QUEST_SUMMARY_1	※ 콜라 20개 팔기	※ Selling 20 colas

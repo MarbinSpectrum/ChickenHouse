@@ -23,7 +23,7 @@ public class SpicyMgr : AwakeSingleton<SpicyMgr>
         return spicyData.price;
     }
 
-    public DragState GetSpicyDragState(ChickenSpicy pChickenSpicy)
+    public static DragState GetSpicyDragState(ChickenSpicy pChickenSpicy)
     {
         switch (pChickenSpicy)
         {
@@ -43,7 +43,7 @@ public class SpicyMgr : AwakeSingleton<SpicyMgr>
         return DragState.None;
     }
 
-    public ChickenSpicy GetDragStateSpicy(DragState pDragState)
+    public static ChickenSpicy GetDragStateSpicy(DragState pDragState)
     {
         switch (pDragState)
         {
@@ -61,5 +61,49 @@ public class SpicyMgr : AwakeSingleton<SpicyMgr>
                 return ChickenSpicy.BBQ;
         }
         return ChickenSpicy.None;
+    }
+
+    public static ChickenSpicy RecipeGetSpicy(ShopItem shopItem)
+    {
+        //레시피에 해당하는 양념 반환
+        switch (shopItem)
+        {
+            case ShopItem.Recipe_0:
+                return ChickenSpicy.Hot;
+            case ShopItem.Recipe_1:
+                return ChickenSpicy.Soy;
+            case ShopItem.Recipe_2:
+                return ChickenSpicy.Hell;
+            case ShopItem.Recipe_3:
+                return ChickenSpicy.Prinkle;
+            case ShopItem.Recipe_4:
+                return ChickenSpicy.Carbonara;
+            case ShopItem.Recipe_5:
+                return ChickenSpicy.BBQ;
+        }
+        return ChickenSpicy.Not;
+    }
+
+    public static ShopItem SpicyGetRecipe(ChickenSpicy pSpicy)
+    {
+        //양념에 해당하는 레시피 반환
+        switch (pSpicy)
+        {
+            case ChickenSpicy.None:
+                return ShopItem.None;
+            case ChickenSpicy.Hot:
+                return ShopItem.Recipe_0;
+            case ChickenSpicy.Soy:
+                return ShopItem.Recipe_1;
+            case ChickenSpicy.Hell:
+                return ShopItem.Recipe_2;
+            case ChickenSpicy.Prinkle:
+                return ShopItem.Recipe_3;
+            case ChickenSpicy.Carbonara:
+                return ShopItem.Recipe_4;
+            case ChickenSpicy.BBQ:
+                return ShopItem.Recipe_5;
+        }
+        return ShopItem.None;
     }
 }

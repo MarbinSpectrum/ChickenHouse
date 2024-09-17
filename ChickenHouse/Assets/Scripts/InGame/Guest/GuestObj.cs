@@ -30,7 +30,7 @@ public abstract class GuestObj : Mgr
 
     public virtual bool CreateMenu(float orderTime)
     {
-        bool isTuto = tutoMgr.tutoComplete1 == false;
+        bool isTuto = gameMgr.playData.tutoComplete1 == false;
 
         return requireMenu.CreateMenu(guestData, orderTime, isTuto);
     }

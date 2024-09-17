@@ -15,10 +15,10 @@ MonoBehaviour:
   face: {fileID: 21300000, guid: 7b6e9beac5a5b9f4ca96e082d9b70326, type: 3}
   nameKey: RESUME_3_NAME
   age: 35
-  deposit: 10000
+  deposit: 30000
   residenceKey: RESUME_3_RESIDENCE
   salary: 5
-  skill: 90010000f401000020030000
+  skill: 90010000f4010000
   handSprite:
     hand0: {fileID: 21300000, guid: 7480d545b62049b40a76c5bfbeb55408, type: 3}
     hand1: {fileID: 21300000, guid: 06ebce7c1b876b843935b15134353b8f, type: 3}

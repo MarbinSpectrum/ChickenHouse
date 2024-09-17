@@ -37,6 +37,7 @@ public class DiaryUI_Quest : Mgr
             return;
 
         quest.Clear();
+        List<QuestData> sideQuest = new List<QuestData>();
         for (int i = 0; i < playData.quest.Length; i++)
         {
             if (playData.quest[i] != 1)
@@ -48,8 +49,14 @@ public class DiaryUI_Quest : Mgr
             //진행중인 퀘스트 등록
             Quest q = (Quest)i;
             QuestData questData = questMgr.GetQuestData(q);
-            quest.Add(questData);
+            if (QuestMgr.IsMainQuest(q))
+                quest.Add(questData);
+            else
+                sideQuest.Add(questData);
         }
+        for(int i = 0; i < sideQuest.Count; i++)
+            quest.Add(sideQuest[i]);
+
     }
 
     public void SetState(bool state)
@@ -157,6 +164,39 @@ public class DiaryUI_Quest : Mgr
                     LanguageMgr.SetText(questReward, rewardText);
                 }
                 break;
+            case Quest.SpicyQuest_4:
+                {
+                    int nowChicken = Mathf.Min(QuestMgr.SPICY_QUEST_4_CNT, gameMgr.playData.questCnt[(int)Quest.SpicyQuest_4]);
+                    strDetail += string.Format(LanguageMgr.GetText("QUEST_DETAIL_2"), nowChicken, QuestMgr.SPICY_QUEST_4_CNT);
+
+                    LanguageMgr.SetText(questDetail, strDetail);
+                    questRewardRect.gameObject.SetActive(true);
+
+                    LanguageMgr.SetText(questReward, rewardText);
+                }
+                break;
+            case Quest.SpicyQuest_5:
+                {
+                    int nowChicken = Mathf.Min(QuestMgr.SPICY_QUEST_5_CNT, gameMgr.playData.questCnt[(int)Quest.SpicyQuest_5]);
+                    strDetail += string.Format(LanguageMgr.GetText("QUEST_DETAIL_2"), nowChicken, QuestMgr.SPICY_QUEST_5_CNT);
+
+                    LanguageMgr.SetText(questDetail, strDetail);
+                    questRewardRect.gameObject.SetActive(true);
+
+                    LanguageMgr.SetText(questReward, rewardText);
+                }
+                break;
+            case Quest.SpicyQuest_6:
+                {
+                    int nowChicken = Mathf.Min(QuestMgr.SPICY_QUEST_6_CNT, gameMgr.playData.questCnt[(int)Quest.SpicyQuest_6]);
+                    strDetail += string.Format(LanguageMgr.GetText("QUEST_DETAIL_2"), nowChicken, QuestMgr.SPICY_QUEST_6_CNT);
+
+                    LanguageMgr.SetText(questDetail, strDetail);
+                    questRewardRect.gameObject.SetActive(true);
+
+                    LanguageMgr.SetText(questReward, rewardText);
+                }
+                break;
             case Quest.DrinkQuest_1:
                 {
                     int colaCnt = Mathf.Min(QuestMgr.DRINK_QUEST_1_CNT, gameMgr.playData.questCnt[(int)Quest.DrinkQuest_1]);
@@ -171,7 +211,7 @@ public class DiaryUI_Quest : Mgr
             case Quest.DrinkQuest_2:
                 {
                     int beerCnt = Mathf.Min(QuestMgr.DRINK_QUEST_2_CNT, gameMgr.playData.questCnt[(int)Quest.DrinkQuest_2]);
-                    strDetail += string.Format(LanguageMgr.GetText("QUEST_DETAIL_3"), beerCnt, QuestMgr.DRINK_QUEST_2_CNT);
+                    strDetail += string.Format(LanguageMgr.GetText("QUEST_DETAIL_4"), beerCnt, QuestMgr.DRINK_QUEST_2_CNT);
 
                     LanguageMgr.SetText(questDetail, strDetail);
                     questRewardRect.gameObject.SetActive(true);

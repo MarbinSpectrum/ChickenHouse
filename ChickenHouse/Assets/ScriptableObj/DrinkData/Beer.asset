@@ -16,3 +16,4 @@ MonoBehaviour:
   nameKey: BEER
   infoKey: BEER_INFO
   price: 800
+  cost: 100

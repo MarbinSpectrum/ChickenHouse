@@ -12,7 +12,7 @@ public class BowlChicken : Mgr
     private Vector3 basePos;
     private bool init;
     private float eggTime = 0;
-    private const float EGG_DELAY = 1f;
+    private const float EGG_DELAY = 0.5f;
     public bool isDrag { private set; get; }
 
     //Tuto_3
@@ -34,7 +34,7 @@ public class BowlChicken : Mgr
 
     public void OnMouseDrag()
     {
-        if (tutoMgr.tutoComplete1 == false && (tutoMgr.nowTuto == Tutorial.Tuto_2 || tutoMgr.nowTuto == Tutorial.Tuto_3 || tutoMgr.nowTuto == Tutorial.Tuto_5) == false)
+        if (gameMgr.playData.tutoComplete1 == false && (tutoMgr.nowTuto == Tutorial.Tuto_2 || tutoMgr.nowTuto == Tutorial.Tuto_3 || tutoMgr.nowTuto == Tutorial.Tuto_5) == false)
         {
             //튜토리얼이 아직 완료안된듯
             //혹시모르니 튜토리얼 타이밍때만 작동하도록 막아놓자
@@ -66,7 +66,7 @@ public class BowlChicken : Mgr
         }
         else
         {
-            if (tutoMgr.tutoComplete1 == false && tutoMgr.nowTuto == Tutorial.Tuto_2)
+            if (gameMgr.playData.tutoComplete1 == false && tutoMgr.nowTuto == Tutorial.Tuto_2)
             {
                 //다 저어줌 튜토리얼 진행
                 tutoObj.PlayTuto();
@@ -113,7 +113,7 @@ public class BowlChicken : Mgr
 
     public void OnMouseUp()
     {
-        if (tutoMgr.tutoComplete1 == false && (tutoMgr.nowTuto == Tutorial.Tuto_2 || tutoMgr.nowTuto == Tutorial.Tuto_3 || tutoMgr.nowTuto == Tutorial.Tuto_5) == false)
+        if (gameMgr.playData.tutoComplete1 == false && (tutoMgr.nowTuto == Tutorial.Tuto_2 || tutoMgr.nowTuto == Tutorial.Tuto_3 || tutoMgr.nowTuto == Tutorial.Tuto_5) == false)
         {
             //튜토리얼이 아직 완료안된듯
             //혹시모르니 튜토리얼 타이밍때만 작동하도록 막아놓자

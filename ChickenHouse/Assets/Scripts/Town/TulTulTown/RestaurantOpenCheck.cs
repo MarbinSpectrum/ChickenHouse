@@ -14,7 +14,7 @@ public class RestaurantOpenCheck : Mgr
         //인스펙터로 끌어서 사용하는 함수
         soundMgr.PlaySE(Sound.Btn_SE);
         gameObject.SetActive(false);
-        sceneMgr.SceneLoad(Scene.INGAME,false, true, SceneChangeAni.FADE);
+        sceneMgr.SceneLoad(Scene.INGAME,false, false, SceneChangeAni.FADE);
     }
 
     public void OepnNo()

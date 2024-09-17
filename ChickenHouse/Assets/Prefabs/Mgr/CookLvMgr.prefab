@@ -1,0 +1,1256 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3350054421459247791
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2390997684446548599}
+  - component: {fileID: 1787860875111875346}
+  m_Layer: 0
+  m_Name: CookLvMgr
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2390997684446548599
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3350054421459247791}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1787860875111875346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3350054421459247791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbfc319832b35924997fb34ec7bc25a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: lvData
+      Entry: 7
+      Data: 0|Unity.Plastic.Antlr3.Runtime.Misc.ListStack`1[[CookLvMgr+LvData, Assembly-CSharp]],
+        Unity.Plastic.Antlr3.Runtime
+    - Name: 
+      Entry: 12
+      Data: 99
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 1
+    - Name: value
+      Entry: 3
+      Data: 10
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 2
+    - Name: value
+      Entry: 3
+      Data: 10
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 3
+    - Name: value
+      Entry: 3
+      Data: 10
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 4
+    - Name: value
+      Entry: 3
+      Data: 10
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 5
+    - Name: value
+      Entry: 3
+      Data: 10
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 6
+    - Name: value
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 7
+    - Name: value
+      Entry: 3
+      Data: 5
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 8
+    - Name: value
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 9
+    - Name: value
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 10
+    - Name: value
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 11
+    - Name: value
+      Entry: 3
+      Data: 50
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 1
+    - Name: value
+      Entry: 3
+      Data: 20
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 2
+    - Name: value
+      Entry: 3
+      Data: 20
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 3
+    - Name: value
+      Entry: 3
+      Data: 20
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 4
+    - Name: value
+      Entry: 3
+      Data: 20
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 5
+    - Name: value
+      Entry: 3
+      Data: 10
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 6
+    - Name: value
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 7
+    - Name: value
+      Entry: 3
+      Data: 5
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 8
+    - Name: value
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 9
+    - Name: value
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 10
+    - Name: value
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 11
+    - Name: value
+      Entry: 3
+      Data: 100
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 1
+    - Name: value
+      Entry: 3
+      Data: 30
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 2
+    - Name: value
+      Entry: 3
+      Data: 30
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 3
+    - Name: value
+      Entry: 3
+      Data: 30
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 4
+    - Name: value
+      Entry: 3
+      Data: 30
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 5
+    - Name: value
+      Entry: 3
+      Data: 10
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 6
+    - Name: value
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 7
+    - Name: value
+      Entry: 3
+      Data: 5
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 8
+    - Name: value
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 9
+    - Name: value
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 10
+    - Name: value
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 11
+    - Name: value
+      Entry: 3
+      Data: 150
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 1
+    - Name: value
+      Entry: 3
+      Data: 40
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 2
+    - Name: value
+      Entry: 3
+      Data: 40
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 3
+    - Name: value
+      Entry: 3
+      Data: 40
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 4
+    - Name: value
+      Entry: 3
+      Data: 40
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 5
+    - Name: value
+      Entry: 3
+      Data: 10
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 6
+    - Name: value
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 7
+    - Name: value
+      Entry: 3
+      Data: 5
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 8
+    - Name: value
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 9
+    - Name: value
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 10
+    - Name: value
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 11
+    - Name: value
+      Entry: 3
+      Data: 200
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 1
+    - Name: value
+      Entry: 3
+      Data: 50
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 2
+    - Name: value
+      Entry: 3
+      Data: 50
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 3
+    - Name: value
+      Entry: 3
+      Data: 50
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 4
+    - Name: value
+      Entry: 3
+      Data: 50
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 5
+    - Name: value
+      Entry: 3
+      Data: 10
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 6
+    - Name: value
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 7
+    - Name: value
+      Entry: 3
+      Data: 5
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 8
+    - Name: value
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 9
+    - Name: value
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 10
+    - Name: value
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 11
+    - Name: value
+      Entry: 3
+      Data: 250
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 1
+    - Name: value
+      Entry: 3
+      Data: 60
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 2
+    - Name: value
+      Entry: 3
+      Data: 60
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 3
+    - Name: value
+      Entry: 3
+      Data: 60
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 4
+    - Name: value
+      Entry: 3
+      Data: 60
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 5
+    - Name: value
+      Entry: 3
+      Data: 10
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 6
+    - Name: value
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 7
+    - Name: value
+      Entry: 3
+      Data: 5
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 8
+    - Name: value
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 9
+    - Name: value
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 10
+    - Name: value
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 1
+    - Name: value
+      Entry: 3
+      Data: 70
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 2
+    - Name: value
+      Entry: 3
+      Data: 70
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 3
+    - Name: value
+      Entry: 3
+      Data: 70
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 4
+    - Name: value
+      Entry: 3
+      Data: 70
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 5
+    - Name: value
+      Entry: 3
+      Data: 10
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 6
+    - Name: value
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 8
+    - Name: value
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 9
+    - Name: value
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 10
+    - Name: value
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 1
+    - Name: value
+      Entry: 3
+      Data: 80
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 2
+    - Name: value
+      Entry: 3
+      Data: 80
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 3
+    - Name: value
+      Entry: 3
+      Data: 80
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 4
+    - Name: value
+      Entry: 3
+      Data: 80
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 5
+    - Name: value
+      Entry: 3
+      Data: 10
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 6
+    - Name: value
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 8
+    - Name: value
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 9
+    - Name: value
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 10
+    - Name: value
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 1
+    - Name: value
+      Entry: 3
+      Data: 90
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 2
+    - Name: value
+      Entry: 3
+      Data: 90
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 3
+    - Name: value
+      Entry: 3
+      Data: 90
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 4
+    - Name: value
+      Entry: 3
+      Data: 90
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 5
+    - Name: value
+      Entry: 3
+      Data: 10
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 6
+    - Name: value
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 8
+    - Name: value
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 9
+    - Name: value
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 10
+    - Name: value
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 1
+    - Name: value
+      Entry: 3
+      Data: 100
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 2
+    - Name: value
+      Entry: 3
+      Data: 100
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 3
+    - Name: value
+      Entry: 3
+      Data: 100
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 4
+    - Name: value
+      Entry: 3
+      Data: 100
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 6
+    - Name: value
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 8
+    - Name: value
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CookLvMgr+LvData, Assembly-CSharp
+    - Name: cookLvStat
+      Entry: 3
+      Data: 10
+    - Name: value
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 

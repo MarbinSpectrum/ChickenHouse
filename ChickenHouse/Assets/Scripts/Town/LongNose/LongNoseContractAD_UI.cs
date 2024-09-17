@@ -70,7 +70,8 @@ public class LongNoseContractAD_UI : Mgr
             playData.hasItem[(int)pItem] = true;
 
             ShopData shopData = shopMgr.GetShopData(pItem);
-            playData.money -= shopData.money;
+            int newMoney = (int)(shopData.money * (100f - gameMgr.playData.ShopSaleValue()) / 100f);
+            playData.money -= newMoney;
 
             SetMenu();
         });

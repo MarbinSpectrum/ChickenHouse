@@ -88,6 +88,45 @@ public class TutoText : Mgr
             case Tutorial.Menu_Tuto_2_2:
                 LanguageMgr.SetString(text, "MENU_TUTO_2_2");
                 break;
+            case Tutorial.Town_Tuto_1:
+                LanguageMgr.SetString(text, "TOWN_TUTO_1");
+                break;
+            case Tutorial.Town_Tuto_2:
+                LanguageMgr.SetString(text, "TOWN_TUTO_2");
+                break;
+            case Tutorial.Town_Tuto_3:
+                LanguageMgr.SetString(text, "TOWN_TUTO_3");
+                break;
+            case Tutorial.Town_Tuto_4:
+                LanguageMgr.SetString(text, "TOWN_TUTO_4");
+                break;
+            case Tutorial.Town_Tuto_5:
+                LanguageMgr.SetString(text, "TOWN_TUTO_5");
+                break;
+            case Tutorial.Town_Tuto_6:
+                LanguageMgr.SetString(text, "TOWN_TUTO_6");
+                break;
+            case Tutorial.Town_Tuto_7:
+                LanguageMgr.SetString(text, "TOWN_TUTO_7");
+                break;
+            case Tutorial.Town_Tuto_8:
+                LanguageMgr.SetString(text, "TOWN_TUTO_8");
+                break;
+            case Tutorial.Town_Tuto_9:
+                LanguageMgr.SetString(text, "TOWN_TUTO_9");
+                break;
+            case Tutorial.Town_Tuto_10:
+                LanguageMgr.SetString(text, "TOWN_TUTO_10");
+                break;
+            case Tutorial.Town_Tuto_11:
+                LanguageMgr.SetString(text, "TOWN_TUTO_11");
+                break;
+            case Tutorial.Town_Tuto_12:
+                LanguageMgr.SetString(text, "TOWN_TUTO_12");
+                break;
+            case Tutorial.Town_Tuto_13:
+                LanguageMgr.SetString(text, "TOWN_TUTO_13");
+                break;
         }
         tutoObj.gameObject.SetActive(true);
     }

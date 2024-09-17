@@ -6,12 +6,26 @@ using UnityEngine;
 [System.Serializable]
 public class PlayData
 {
+    //주방 조리 튜토리얼
+    public bool tutoComplete1;
+    //직원 배치 튜토리얼
+    public bool tutoComplete2;
+    //양념 배치 튜토리얼
+    public bool tutoComplete3;
+    //마을 튜토리얼
+    public bool tutoComplete4;
+
     /** 저장한 실제 시간 **/
     public int saveYear;
     public int saveMonth;
     public int saveDay;
     public int saveHour;
     public int saveMin;
+
+    /** 장사숙련도 **/
+    public int cookLv;
+    /** 장사숙련도 경험치 **/
+    public int cookExp;
 
     /** 일차 **/
     public int day = 1;
@@ -40,8 +54,8 @@ public class PlayData
     
     public const int DEFAULT_CHICKEN_PRICE = 600;
     public const int CHICKEN_RES_VAIUE = 100;
-    public const int DRINK_RES_VAIUE = 100;
-    public const int SIDE_MENU_RES_VAIUE = 100;
+    public const int DEFAULT_RENT_PRICE = 1000;
+    public const int TUP_RATE_VALUE = 50;
 
     public PlayData()
     {
@@ -63,7 +77,7 @@ public class PlayData
         Drink pDrink, SideMenu pSideMenue)
     {
         //메뉴 가격
-        int defaultValue = DEFAULT_CHICKEN_PRICE;
+        int defaultValue = ChickenPrice();
 
         int spicyValue0 = SpicyMgr.Instance.GetSpicyPrice(spicy0);
         int spicyValue1 = SpicyMgr.Instance.GetSpicyPrice(spicy1);
@@ -72,7 +86,7 @@ public class PlayData
 
         int totalValue = defaultValue + spicyValue0 + spicyValue1 + drinkValue + sideMenuValue;
 
-        int percent = 100 + (int)(GetPriceUpRate()*100);
+        int percent = 100 + (int)(GetTotalPriceUpRate());
 
         ShopItem nowOilZone = NowOilZone();
         if (nowOilZone == ShopItem.OIL_Zone_3)
@@ -80,7 +94,7 @@ public class PlayData
         else if (nowOilZone == ShopItem.OIL_Zone_4)
             percent += 40;
 
-        int resultValue = (totalValue * percent) / 100;
+        int resultValue = (int)(totalValue * (percent/100f));
         switch(review)
         {
             case GuestReviews.Bad:
@@ -94,8 +108,49 @@ public class PlayData
 
     public float TipRate()
     {
-        float rate = 0.5f;
+        float rate = TUP_RATE_VALUE;
+        CookLvMgr cookLvMgr = CookLvMgr.Instance;
+        int lvValue = cookLvMgr.GetLvSumValue(CookLvStat.Tip, cookLv);
+        rate += lvValue;
+
         return rate;
+    }
+
+    public int ChickenPrice()
+    {
+        int value = DEFAULT_CHICKEN_PRICE;
+        CookLvMgr cookLvMgr = CookLvMgr.Instance;
+        int lvValue = cookLvMgr.GetLvSumValue(CookLvStat.DecreaseDrinkRes, cookLv);
+        value += lvValue;
+        return value;
+    }
+
+    public float DecreaseChickenRes()
+    {
+        CookLvMgr cookLvMgr = CookLvMgr.Instance;
+        int lvValue = cookLvMgr.GetLvSumValue(CookLvStat.DecreaseChickenRes, cookLv);
+        return lvValue;
+    }
+
+    public float DecreaseDrinkRes()
+    {
+        CookLvMgr cookLvMgr = CookLvMgr.Instance;
+        int lvValue = cookLvMgr.GetLvSumValue(CookLvStat.DecreaseDrinkRes, cookLv);
+        return lvValue;
+    }
+
+    public float DecreasePickleRes()
+    {
+        CookLvMgr cookLvMgr = CookLvMgr.Instance;
+        int lvValue = cookLvMgr.GetLvSumValue(CookLvStat.DecreasePickleRes, cookLv);
+        return lvValue;
+    }
+
+    public float GetWorkerSpeedUpRate()
+    {
+        CookLvMgr cookLvMgr = CookLvMgr.Instance;
+        int lvValue = cookLvMgr.GetLvSumValue(CookLvStat.WorkerSpeedUp, cookLv);
+        return lvValue;
     }
 
     public float GetOilZoneSpeedRate()
@@ -103,88 +158,88 @@ public class PlayData
         //업그레이드 속도에 따라서 상태 설정
         ShopItem nowOilZone = NowOilZone();
         if (nowOilZone == ShopItem.OIL_Zone_1)
-            return 1f;
+            return 100f;
         else if (nowOilZone == ShopItem.OIL_Zone_2)
-            return 1.4f;
+            return 140f;
         else if (nowOilZone == ShopItem.OIL_Zone_3)
-            return 1.8f;
+            return 180f;
         else if (nowOilZone == ShopItem.OIL_Zone_4)
-            return 2.6f;
-        return 1;
+            return 260f;
+        return 100;
     }
 
     public float GetPriceUpRate()
     {
+        CookLvMgr cookLvMgr = CookLvMgr.Instance;
+        int lvValue = cookLvMgr.GetLvSumValue(CookLvStat.IncomeUp, cookLv);
+        return lvValue;
+    }
+
+    public float GetTotalPriceUpRate()
+    {
         //수익 증가률
-        float rate = 0;
+        float rate = GetPriceUpRate();
         ShopItem nowOilZone = NowOilZone();
         if (nowOilZone == ShopItem.OIL_Zone_3)
-            rate += 0.2f;
+            rate += 20f;
         else if (nowOilZone == ShopItem.OIL_Zone_4)
-            rate += 0.4f;
+            rate += 40f;
 
         if (hasItem[(int)ShopItem.Advertisement_2])
-            rate += 0.1f;
+            rate += 10f;
         if (hasItem[(int)ShopItem.Advertisement_3])
-            rate += 0.1f;
+            rate += 10f;
         if (hasItem[(int)ShopItem.Advertisement_4])
-            rate += 0.1f;
+            rate += 10f;
         if (hasItem[(int)ShopItem.Advertisement_5])
-            rate += 0.1f;
+            rate += 10f;
         return rate;
+    }
+
+    public float GuestPatience()
+    {
+        CookLvMgr cookLvMgr = CookLvMgr.Instance;
+        int lvValue = cookLvMgr.GetLvSumValue(CookLvStat.GuestPatience, cookLv);
+        return 100f + lvValue;
     }
 
     public float GuestDelayRate()
     {
+        CookLvMgr cookLvMgr = CookLvMgr.Instance;
+        int lvValue = cookLvMgr.GetLvSumValue(CookLvStat.GuestPatience, cookLv);
+        return 100f - lvValue;
+    }
+
+    public float GuestTotalDelayRate()
+    {
         //게스트 딜레이 배율
-        float dayRate = 1;
-        if (day == 1)
-            dayRate = 1;
-        else if (day == 2)
-            dayRate = 0.95f;
-        else if (day == 3)
-            dayRate = 0.9f;
-        else if (day == 4)
-            dayRate = 0.85f;
-        else
-            dayRate = 0.8f;
+        float rate = GuestDelayRate();
 
-        float upgradeRate = 1;
         if (hasItem[(int)ShopItem.Advertisement_5])
-            upgradeRate -= 0.05f;
+            rate -= 5;
         if (hasItem[(int)ShopItem.Advertisement_4])
-            upgradeRate -= 0.07f;
+            rate -= 7f;
         if (hasItem[(int)ShopItem.Advertisement_3])
-            upgradeRate -= 0.1f;
+            rate -= 10f;
         if (hasItem[(int)ShopItem.Advertisement_2])
-            upgradeRate -= 0.15f;
+            rate -= 15;
         if (hasItem[(int)ShopItem.Advertisement_1])
-            upgradeRate -= 0.2f;
+            rate -= 20f;
 
-        return upgradeRate * dayRate;
+        return rate;
     }
 
     public bool HasRecipe(ChickenSpicy pSpicy)
     {
         //해당 종류의 양념의 레시피를 가지고 있는지 여부
-        switch(pSpicy)
-        {
-            case ChickenSpicy.None:
-                return true;
-            case ChickenSpicy.Hot:
-                return hasItem[(int)ShopItem.Recipe_0];
-            case ChickenSpicy.Soy:
-                return hasItem[(int)ShopItem.Recipe_1];
-            case ChickenSpicy.Hell:
-                return hasItem[(int)ShopItem.Recipe_2];
-            case ChickenSpicy.Prinkle:
-                return hasItem[(int)ShopItem.Recipe_3];
-            case ChickenSpicy.Carbonara:
-                return hasItem[(int)ShopItem.Recipe_4];
-            case ChickenSpicy.BBQ:
-                return hasItem[(int)ShopItem.Recipe_5];
-        }
-        return false;
+        if (pSpicy == ChickenSpicy.None)
+            return true;
+
+        ShopItem shopItem = SpicyMgr.SpicyGetRecipe(pSpicy);
+        if (shopItem == ShopItem.None)
+            return false;
+
+        return hasItem[(int)shopItem];
     }
 
     public bool HasDrink(Drink pDrink)
@@ -266,13 +321,17 @@ public class PlayData
     public float ShopSaleValue()
     {
         //상점 할인률
-        float value = 0;
+        CookLvMgr cookLvMgr = CookLvMgr.Instance;
+        int lvValue = cookLvMgr.GetLvSumValue(CookLvStat.ShopSale, cookLv);
+        float value = lvValue;
         return value;
     }
 
     public int RentValue()
     {
         //임대료
-        return 100;
+        CookLvMgr cookLvMgr = CookLvMgr.Instance;
+        int lvValue = cookLvMgr.GetLvSumValue(CookLvStat.Rent, cookLv);
+        return Mathf.Max(0, DEFAULT_RENT_PRICE - lvValue);
     }
 }

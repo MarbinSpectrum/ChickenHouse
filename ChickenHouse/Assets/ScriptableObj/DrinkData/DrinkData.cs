@@ -14,4 +14,6 @@ public class DrinkData : ScriptableObject
     public string infoKey;
     [Header("판매가격")]
     public int price;
+    [Header("원가")]
+    public int cost;
 }

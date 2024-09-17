@@ -84,7 +84,7 @@ public class TableChickenSlot : Mgr
 
     public void OnMouseDrag()
     {
-        if (tutoMgr.tutoComplete1 == false)
+        if (gameMgr.playData.tutoComplete1 == false)
         {
             //튜토리얼 중에는 드래그 불가능
             return;
@@ -112,7 +112,7 @@ public class TableChickenSlot : Mgr
 
     public void OnMouseUp()
     {
-        if (tutoMgr.tutoComplete1 == false && tutoMgr.nowTuto != Tutorial.Tuto_12)
+        if (gameMgr.playData.tutoComplete1 == false && tutoMgr.nowTuto != Tutorial.Tuto_12)
         {
             //튜토리얼 중에는 드래그 불가능
             return;

@@ -79,6 +79,7 @@ public class SoundMgr : AwakeSingleton<SoundMgr>
             audio = loopSE[sound];
         }
 
+
         if (audio == null)
         {
             //해당 사운드 오브젝트가 없으므로 생성
@@ -87,9 +88,11 @@ public class SoundMgr : AwakeSingleton<SoundMgr>
             audio.transform.name = sound.ToString();
         }
 
+
         audio.volume = seValue;
         audio.clip = clip;
-        audio.Play();
+        if (audio.isPlaying == false)
+            audio.Play();
         audio.loop = true;
     }
 

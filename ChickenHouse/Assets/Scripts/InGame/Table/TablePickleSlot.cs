@@ -53,7 +53,7 @@ public class TablePickleSlot : Mgr
 
     public void OnMouseDown()
     {
-        if (tutoMgr.tutoComplete1 == false)
+        if (gameMgr.playData.tutoComplete1 == false)
         {
             //튜토리얼에서는 제거가 되지않음
             return;
@@ -81,7 +81,7 @@ public class TablePickleSlot : Mgr
 
         soundMgr.PlaySE(Sound.Put_SE);
 
-        if (tutoMgr.tutoComplete1 == false && tutoMgr.nowTuto == Tutorial.Tuto_10 && drinkSlot.hasDrink)
+        if (gameMgr.playData.tutoComplete1 == false && tutoMgr.nowTuto == Tutorial.Tuto_10 && drinkSlot.hasDrink)
         {
             tutoObj.PlayTuto();
 

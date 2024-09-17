@@ -117,7 +117,7 @@ public class DragObj : Mgr
                     //양념을 드래그한 상태
                     spicyObj.spicyRect.gameObject.SetActive(true);
 
-                    ChickenSpicy    chickenSpicy    = spicyMgr.GetDragStateSpicy(kitchenMgr.dragState);
+                    ChickenSpicy    chickenSpicy    = SpicyMgr.GetDragStateSpicy(kitchenMgr.dragState);
                     SpicyData       spicyData       = spicyMgr.GetSpicyData(chickenSpicy);
                     spicyObj.spicyImg.sprite        = spicyData.img;
                     LanguageMgr.SetString(spicyObj.spicyText, spicyData.nameKey);

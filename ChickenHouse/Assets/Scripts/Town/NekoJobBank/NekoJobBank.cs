@@ -169,7 +169,8 @@ public class NekoJobBank : Mgr
             actResumeUI = true;
         });
         string depositText = LanguageMgr.GetText("DEPOSIT");
-        string depositString = string.Format("{0} : {1:N0} $", depositText,workerData.deposit);
+        int newDeposit = (int)(workerData.deposit * (100f - gameMgr.playData.ShopSaleValue()) / 100f);
+        string depositString = string.Format("{0} : {1:N0} $", newDeposit);
         LanguageMgr.SetText(resume.deposit, depositString);
     }
 
@@ -179,7 +180,8 @@ public class NekoJobBank : Mgr
         soundMgr.PlaySE(Sound.Btn_SE);
         EWorker worker = workerList[resumeSelectIdx];
         WorkerData workerData = workerMgr.GetWorkerData(worker);
-        if(workerData.deposit > gameMgr.playData.money)
+        int newDeposit = (int)(workerData.deposit * (100f - gameMgr.playData.ShopSaleValue()) / 100f);
+        if (newDeposit > gameMgr.playData.money)
         {
             //계약금 부족
             return;
@@ -187,15 +189,23 @@ public class NekoJobBank : Mgr
 
         employMsgBox.SetUI(()=>
         {
+            soundMgr.PlaySE(Sound.Stamp_SE);
+
             resume.leftArrow.gameObject.SetActive(false);
             resume.rightArrow.gameObject.SetActive(false);
             resume.employMenu.gameObject.SetActive(false);
 
             PlayData playData = gameMgr.playData;
             playData.hasWorker[(int)worker] = true;
-            playData.money -= workerData.deposit;
+            playData.money -= newDeposit;
 
             resume.stampAni.gameObject.SetActive(true);
         });
+    }
+
+    public void StopTalk()
+    {
+        //인스펙터에서 끌어서 사용하는 함수
+        soundMgr.StopLoopSE(Sound.Voice26_SE);
     }
 }

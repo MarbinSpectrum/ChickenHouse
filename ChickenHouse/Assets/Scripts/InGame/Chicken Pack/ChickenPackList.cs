@@ -13,6 +13,8 @@ public class ChickenPackList : Mgr
 
         foreach(ChickenPack pack in chickenPacks)
         {
+            if (pack.gameObject.activeSelf == false)
+                continue;
             if (pack.PackCkicken(pChickenCnt, pChickenState, spicy0, spicy1))
             {
                 pack.Set_ChickenShader(pMode, pLerpValue);
@@ -27,6 +29,8 @@ public class ChickenPackList : Mgr
     {
         foreach (ChickenPack pack in chickenPacks)
         {
+            if (pack.gameObject.activeSelf == false)
+                continue;
             if (pack.chickenCnt <= 0)
             {
                 return true;

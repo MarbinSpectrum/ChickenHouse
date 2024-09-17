@@ -1,18 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class DiaryUI_FilePlayerInfo : Mgr
 {
+    [SerializeField] private TextMeshProUGUI cookLv;
+    [SerializeField] private TextMeshProUGUI cookExp;
+    [SerializeField] private Image           cookExpBar;
+    [SerializeField] private TextMeshProUGUI cookReward;
+
     [SerializeField] private TextMeshProUGUI chickenPrice;
     [SerializeField] private TextMeshProUGUI chickenResPrice;
     [SerializeField] private TextMeshProUGUI drinkResValue;
     [SerializeField] private TextMeshProUGUI sideMenuResValue;
-    [SerializeField] private TextMeshProUGUI cookSpeed;
+    [SerializeField] private TextMeshProUGUI workerSpeed;
     [SerializeField] private TextMeshProUGUI incomeUp;
     [SerializeField] private TextMeshProUGUI saleValue;
-    [SerializeField] private TextMeshProUGUI guestRate;
+    [SerializeField] private TextMeshProUGUI guestSpawnRate;
     [SerializeField] private TextMeshProUGUI geustWait;
     [SerializeField] private TextMeshProUGUI guestTip;
     [SerializeField] private TextMeshProUGUI rentValue;
@@ -21,35 +27,72 @@ public class DiaryUI_FilePlayerInfo : Mgr
     private const string MONEY_FORMAT = "{0:N0}<size=15>$</size>";
     private const string PERCENT_FORMAT = "{0:#,###}<size=15>%</size>";
     private const string TIME_FORMAT = "{0:N2}<size=15>s</size>";
+    private const string LV_FORMAT = "Lv {0}";
+    private const string EXP_FORMAX = "{0}/{1}";
 
     public void SetUI(PlayData pPlayData)
     {
         if(pPlayData == null)
             return;
 
+        //조리숙련도
+        string cookLvStr = string.Format(LV_FORMAT, pPlayData.cookLv);
+        LanguageMgr.SetText(cookLv, cookLvStr);
+
+        //조리숙련도 경험치
+        if(pPlayData.cookLv < cookLvMgr.MAX_LV)
+        {
+            string cookExpStr = string.Format(EXP_FORMAX, pPlayData.cookExp, cookLvMgr.RequireExp(pPlayData.cookLv + 1));
+            LanguageMgr.SetText(cookExp, cookExpStr);
+            cookExp.gameObject.SetActive(true);
+            cookExpBar.fillAmount = pPlayData.cookExp / cookLvMgr.RequireExp(pPlayData.cookLv + 1);
+        }
+        else
+        {
+            cookExp.gameObject.SetActive(false);
+            cookExpBar.fillAmount = 1;
+        }
+
+        //조리숙련도 보상
+        if (pPlayData.cookLv < cookLvMgr.MAX_LV)
+        {
+            LanguageMgr.SetText(cookLv, LvRewardText(pPlayData.cookLv+1));
+            cookLv.gameObject.SetActive(true);
+        }
+        else
+        {
+            cookLv.gameObject.SetActive(false);
+        }
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
         //기본 치킨 가격
-        string chickenPriceStr = string.Format(MONEY_FORMAT, PlayData.DEFAULT_CHICKEN_PRICE);
+        string chickenPriceStr = string.Format(MONEY_FORMAT, pPlayData.ChickenPrice());
         LanguageMgr.SetText(chickenPrice, chickenPriceStr);
 
-        //치킨 재료 값
-        string chickenResStr = string.Format(MONEY_FORMAT, PlayData.CHICKEN_RES_VAIUE);
+        //치킨 재료 값 감소 값
+        string chickenResStr = string.Format(MONEY_FORMAT, pPlayData.DecreaseChickenRes());
         LanguageMgr.SetText(chickenResPrice, chickenResStr);
 
-        //드링크 재료 값
-        string drinkResStr = string.Format(MONEY_FORMAT, PlayData.DRINK_RES_VAIUE);
+        //드링크 재료 값 감소 값
+        string drinkResStr = string.Format(MONEY_FORMAT, pPlayData.DecreaseDrinkRes());
         LanguageMgr.SetText(drinkResValue, drinkResStr);
 
-        //사이드 메뉴 재료 값
-        string sideMenuResStr = string.Format(MONEY_FORMAT, PlayData.SIDE_MENU_RES_VAIUE);
+        //피클 재료 값 감소 률
+        string sideMenuResStr = string.Format(MONEY_FORMAT, pPlayData.DecreasePickleRes());
         LanguageMgr.SetText(sideMenuResValue, sideMenuResStr);
 
-        //조리 속도
-        float cookSpeedValue = pPlayData.GetOilZoneSpeedRate() * 100f;
-        string cookSpeedStr = string.Format(PERCENT_FORMAT, cookSpeedValue);
-        LanguageMgr.SetText(cookSpeed, cookSpeedStr);
+        //직원 속도
+        float workerSpeedValue = 100f + pPlayData.GetWorkerSpeedUpRate();
+        if (workerSpeedValue == 0)
+            LanguageMgr.SetText(workerSpeed, "0%");
+        else
+        {
+            string workerSpeedStr = string.Format(PERCENT_FORMAT, workerSpeedValue);
+            LanguageMgr.SetText(workerSpeed, workerSpeedStr);
+        }
 
         //수익증가률
-        float incomeUpValue = pPlayData.GetPriceUpRate() * 100f;
+        float incomeUpValue = pPlayData.GetPriceUpRate();
         if (incomeUpValue == 0)
             LanguageMgr.SetText(incomeUp, "0%");
         else
@@ -59,7 +102,7 @@ public class DiaryUI_FilePlayerInfo : Mgr
         }
 
         //상점할인률
-        float shopSaleValue = pPlayData.ShopSaleValue() * 100f;
+        float shopSaleValue = pPlayData.ShopSaleValue();
         if (shopSaleValue == 0)
             LanguageMgr.SetText(saleValue, "0%");
         else
@@ -68,15 +111,25 @@ public class DiaryUI_FilePlayerInfo : Mgr
             LanguageMgr.SetText(saleValue, shopSaleValueStr);
         }
 
-        //손님 방문 주기
-        float guestDelayValue = GuestSystem.GUEST_DELAY_TIME * gameMgr.playData.GuestDelayRate();
-        string guestDelayValueStr = string.Format(TIME_FORMAT, guestDelayValue);
-        LanguageMgr.SetText(guestRate, guestDelayValueStr);
+        //손님 방문 속도
+        float guestSpawnRateValue = gameMgr.playData.GuestDelayRate();
+        if (guestSpawnRateValue == 0)
+            LanguageMgr.SetText(guestSpawnRate, "0%");
+        else
+        {
+            string guestSpawnRateValueStr = string.Format(PERCENT_FORMAT, guestSpawnRateValue);
+            LanguageMgr.SetText(guestSpawnRate, guestSpawnRateValueStr);
+        }
 
         //손님 인내심 상한
-        float maxPatienceValue = Memo_UI.MAX_TIME * gameMgr.playData.GuestDelayRate();
-        string maxPatienceValueStr = string.Format(TIME_FORMAT, maxPatienceValue);
-        LanguageMgr.SetText(geustWait, maxPatienceValueStr);
+        float maxPatienceValue = gameMgr.playData.GuestPatience();
+        if (maxPatienceValue == 0)
+            LanguageMgr.SetText(guestSpawnRate, "0%");
+        else
+        {
+            string maxPatienceValueStr = string.Format(PERCENT_FORMAT, maxPatienceValue);
+            LanguageMgr.SetText(geustWait, maxPatienceValueStr);
+        }
 
         //손님 팁
         float tipRateValue = pPlayData.TipRate();
@@ -92,8 +145,16 @@ public class DiaryUI_FilePlayerInfo : Mgr
         string rentValueStr = string.Format(MONEY_FORMAT, pPlayData.RentValue());
         LanguageMgr.SetText(rentValue, rentValueStr);
 
-
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        //보유 자본
         string moneyStr = string.Format(MONEY_FORMAT, pPlayData.money);
         LanguageMgr.SetText(money, moneyStr);
+    }
+
+    private string LvRewardText(int pLv)
+    {
+        string result = string.Empty;
+
+        return result;
     }
 }

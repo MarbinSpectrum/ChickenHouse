@@ -85,4 +85,10 @@ public class LongNose : Mgr
         soundMgr.PlaySE(Sound.Btn_SE);
         longNoseContractUI.gameObject.SetActive(false);
     }
+
+    public void StopTalk()
+    {
+        //인스펙터에서 끌어서 사용하는 함수
+        soundMgr.StopLoopSE(Sound.Voice27_SE);
+    }
 }

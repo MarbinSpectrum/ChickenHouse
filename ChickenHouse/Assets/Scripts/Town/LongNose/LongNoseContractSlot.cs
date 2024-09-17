@@ -41,7 +41,8 @@ public class LongNoseContractSlot : Mgr
         LanguageMgr.SetString(itemInfo, shopData.infoKey);
         itemIcon.sprite = shopData.icon;
 
-        string moneyStr = string.Format(MONEY_FORMAT, shopData.money);
+        int newMoney = (int)(shopData.money * (100f - gameMgr.playData.ShopSaleValue()) / 100f);
+        string moneyStr = string.Format(MONEY_FORMAT, newMoney);
         LanguageMgr.SetText(itemCost, moneyStr);
         if (playData.money >= shopData.money)
             itemCost.color = costColor.goodColor;
@@ -59,7 +60,8 @@ public class LongNoseContractSlot : Mgr
         if (shopData == null)
             return;
 
-        if (playData.money < shopData.money)
+        int newMoney = (int)(shopData.money * (100f - gameMgr.playData.ShopSaleValue()) / 100f);
+        if (playData.money < newMoney)
         {
             //돈이 부족하다.
             return;

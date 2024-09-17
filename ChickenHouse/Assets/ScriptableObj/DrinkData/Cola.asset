@@ -16,3 +16,4 @@ MonoBehaviour:
   nameKey: COLA
   infoKey: COLA_INFO
   price: 500
+  cost: 100

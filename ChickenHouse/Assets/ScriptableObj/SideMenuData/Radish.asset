@@ -16,3 +16,4 @@ MonoBehaviour:
   nameKey: PICKLE
   infoKey: PICKLE_INFO
   price: 300
+  cost: 100

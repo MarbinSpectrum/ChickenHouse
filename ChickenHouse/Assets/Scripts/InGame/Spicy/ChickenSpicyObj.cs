@@ -12,7 +12,7 @@ public class ChickenSpicyObj : Mgr
     public void SetObj(ChickenSpicy pChickenSpicy)
     {
         eChickenSpicy = pChickenSpicy;
-        eDragState = spicyMgr.GetSpicyDragState(eChickenSpicy);
+        eDragState = SpicyMgr.GetSpicyDragState(eChickenSpicy);
 
         SpicyData spicyData = spicyMgr.GetSpicyData(eChickenSpicy);
         spicyImg.sprite = spicyData.img;
@@ -20,7 +20,7 @@ public class ChickenSpicyObj : Mgr
 
     public void OnMouseDrag()
     {
-        if (tutoMgr.tutoComplete1 == false)
+        if (gameMgr.playData.tutoComplete1 == false)
         {
             //튜토리얼이 아직 완료안된듯 막아놓자
             return;
@@ -44,7 +44,7 @@ public class ChickenSpicyObj : Mgr
 
     public void OnMouseUp()
     {
-        if (tutoMgr.tutoComplete1 == false)
+        if (gameMgr.playData.tutoComplete1 == false)
         {
             //튜토리얼이 아직 완료안된듯 막아놓자
             return;

@@ -12,6 +12,7 @@ public class DiaryUI_QuestListObj : Mgr
     [SerializeField] private TextMeshProUGUI    diaryName;
     [SerializeField] private Button             eventTrigger;
     [SerializeField] private Color              notSelectColor;
+    [SerializeField] private Color              notSelectMainQuest;
     [SerializeField] private Color              selectColor;
 
     public void SetData(QuestData pQuest, bool pSelect, bool pEndQuest)
@@ -28,7 +29,10 @@ public class DiaryUI_QuestListObj : Mgr
         else
         {
             //선택중이 아님
-            diaryName.color = notSelectColor;
+            if(QuestMgr.IsMainQuest(pQuest.quest))
+                diaryName.color = notSelectMainQuest;
+            else
+                diaryName.color = notSelectColor;
             select.enabled  = false;
         }
 

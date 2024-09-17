@@ -261,7 +261,7 @@ public class Worker_OilZone : Mgr
     private IEnumerator MoveHandCor(Worker_Hand hand, Transform targetTrans, float pDelay, NoParaDel fun)
     {
 
-        float speedValue = 100;
+        float speedValue = 100 + gameMgr.playData.GetWorkerSpeedUpRate();
         if (resumeData.skill.Contains(WorkerSkill.WorkerSkill_1))
         {
             //주방보조 경력자(직원 속도 +50%)
