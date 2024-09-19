@@ -17,3 +17,4 @@ MonoBehaviour:
   infoKey: HELL_SPICY_INFO
   price: 75
   bookInfoKey: BOOK_HELL_SPICY
+  exp: 300

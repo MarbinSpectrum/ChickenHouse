@@ -552,6 +552,7 @@ public enum BookMenu
 {
     Guest,
     Seasoning,
+    Etc,
 }
 
 public enum Quest

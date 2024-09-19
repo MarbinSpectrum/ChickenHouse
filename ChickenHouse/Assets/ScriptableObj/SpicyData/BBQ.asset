@@ -17,3 +17,4 @@ MonoBehaviour:
   infoKey: BBQ_SPICY_INFO
   price: 100
   bookInfoKey: BOOK_BBQ_SPICY
+  exp: 600

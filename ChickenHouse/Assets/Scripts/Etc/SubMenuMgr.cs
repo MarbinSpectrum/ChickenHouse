@@ -47,6 +47,19 @@ public class SubMenuMgr : AwakeSingleton<SubMenuMgr>
         return false;
     }
 
+    public static Drink ShopItemGetDrink(ShopItem shopItem)
+    {
+        //아이템에 해당하는 음료반환
+        switch (shopItem)
+        {
+            case ShopItem.Cola:
+                return Drink.Cola;
+            case ShopItem.Beer:
+                return Drink.Beer;
+        }
+        return Drink.None;
+    }
+
     public SideMenuData GetSideMenuData(SideMenu pSideMenu)
     {
         //사이드 메뉴 정보 얻기
@@ -69,6 +82,17 @@ public class SubMenuMgr : AwakeSingleton<SubMenuMgr>
         switch(pDragState)
         {
             case DragState.Chicken_Pickle:
+                return SideMenu.Pickle;
+        }
+        return SideMenu.None;
+    }
+
+    public static SideMenu ShopItemGetSideMenu(ShopItem shopItem)
+    {
+        //아이템에 해당하는 사이드메뉴반환
+        switch (shopItem)
+        {
+            case ShopItem.Pickle:
                 return SideMenu.Pickle;
         }
         return SideMenu.None;

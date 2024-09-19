@@ -23,7 +23,10 @@ public class DiaryUI_QuestListObj : Mgr
         if(pSelect)
         {
             //º±≈√¡ﬂ
-            diaryName.color = selectColor;
+            if (QuestMgr.IsMainQuest(pQuest.quest))
+                diaryName.color = notSelectMainQuest;
+            else
+                diaryName.color = selectColor;
             select.enabled  = true;
         }
         else

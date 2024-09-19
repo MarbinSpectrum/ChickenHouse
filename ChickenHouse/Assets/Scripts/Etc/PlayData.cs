@@ -59,6 +59,8 @@ public class PlayData
 
     public PlayData()
     {
+        cookLv = 1;
+
         hasItem[(int)ShopItem.Recipe_0] = true;
         spicyState[(int)MenuSet_UI.MenuSetPos.Spicy0] = (int)ChickenSpicy.Hot;
 
@@ -207,7 +209,7 @@ public class PlayData
     {
         CookLvMgr cookLvMgr = CookLvMgr.Instance;
         int lvValue = cookLvMgr.GetLvSumValue(CookLvStat.GuestPatience, cookLv);
-        return 100f - lvValue;
+        return 100f + lvValue;
     }
 
     public float GuestTotalDelayRate()
@@ -216,15 +218,15 @@ public class PlayData
         float rate = GuestDelayRate();
 
         if (hasItem[(int)ShopItem.Advertisement_5])
-            rate -= 5;
+            rate += 5;
         if (hasItem[(int)ShopItem.Advertisement_4])
-            rate -= 7f;
+            rate += 7f;
         if (hasItem[(int)ShopItem.Advertisement_3])
-            rate -= 10f;
+            rate += 10f;
         if (hasItem[(int)ShopItem.Advertisement_2])
-            rate -= 15;
+            rate += 15;
         if (hasItem[(int)ShopItem.Advertisement_1])
-            rate -= 20f;
+            rate += 20f;
 
         return rate;
     }

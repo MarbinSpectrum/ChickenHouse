@@ -17,3 +17,4 @@ MonoBehaviour:
   infoKey: CARBONARA_SPICY_INFO
   price: 100
   bookInfoKey: BOOK_CARBONARA_SPICY
+  exp: 500

@@ -45,7 +45,7 @@ public class DiaryUI_FilePlayerInfo : Mgr
             string cookExpStr = string.Format(EXP_FORMAX, pPlayData.cookExp, cookLvMgr.RequireExp(pPlayData.cookLv + 1));
             LanguageMgr.SetText(cookExp, cookExpStr);
             cookExp.gameObject.SetActive(true);
-            cookExpBar.fillAmount = pPlayData.cookExp / cookLvMgr.RequireExp(pPlayData.cookLv + 1);
+            cookExpBar.fillAmount = pPlayData.cookExp / (float)cookLvMgr.RequireExp(pPlayData.cookLv + 1);
         }
         else
         {
@@ -56,12 +56,12 @@ public class DiaryUI_FilePlayerInfo : Mgr
         //조리숙련도 보상
         if (pPlayData.cookLv < cookLvMgr.MAX_LV)
         {
-            LanguageMgr.SetText(cookLv, LvRewardText(pPlayData.cookLv+1));
-            cookLv.gameObject.SetActive(true);
+            LanguageMgr.SetText(cookReward, LvRewardText(pPlayData.cookLv+1));
+            cookReward.gameObject.SetActive(true);
         }
         else
         {
-            cookLv.gameObject.SetActive(false);
+            cookReward.gameObject.SetActive(false);
         }
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -92,7 +92,7 @@ public class DiaryUI_FilePlayerInfo : Mgr
         }
 
         //수익증가률
-        float incomeUpValue = pPlayData.GetPriceUpRate();
+        float incomeUpValue = pPlayData.GetPriceUpRate()+100f;
         if (incomeUpValue == 0)
             LanguageMgr.SetText(incomeUp, "0%");
         else
@@ -153,8 +153,77 @@ public class DiaryUI_FilePlayerInfo : Mgr
 
     private string LvRewardText(int pLv)
     {
-        string result = string.Empty;
+        CookLvMgr.LvData lvData = cookLvMgr.GetLvData(pLv);
+        switch(lvData.cookLvStat)
+        {
+            case CookLvStat.IncreaseChickenPrice:
+                {
+                    string strFormat = LanguageMgr.GetText("COOK_LV_REWARD_1");
+                    string str = string.Format(strFormat, pLv, lvData.value);
+                    return str;
+                }
+            case CookLvStat.DecreaseChickenRes:
+                {
+                    string strFormat = LanguageMgr.GetText("COOK_LV_REWARD_2");
+                    string str = string.Format(strFormat, pLv, lvData.value);
+                    return str;
+                }
+            case CookLvStat.DecreaseDrinkRes:
+                {
+                    string strFormat = LanguageMgr.GetText("COOK_LV_REWARD_3");
+                    string str = string.Format(strFormat, pLv, lvData.value);
+                    return str;
+                }
+            case CookLvStat.DecreasePickleRes:
+                {
+                    string strFormat = LanguageMgr.GetText("COOK_LV_REWARD_4");
+                    string str = string.Format(strFormat, pLv, lvData.value);
+                    return str;
+                }
+            case CookLvStat.WorkerSpeedUp:
+                {
+                    string strFormat = LanguageMgr.GetText("COOK_LV_REWARD_5");
+                    string str = string.Format(strFormat, pLv, lvData.value);
+                    return str;
+                }
+            case CookLvStat.IncomeUp:
+                {
+                    string strFormat = LanguageMgr.GetText("COOK_LV_REWARD_6");
+                    string str = string.Format(strFormat, pLv, lvData.value);
+                    return str;
+                }
+            case CookLvStat.ShopSale:
+                {
+                    string strFormat = LanguageMgr.GetText("COOK_LV_REWARD_7");
+                    string str = string.Format(strFormat, pLv, lvData.value);
+                    return str;
+                }
+            case CookLvStat.GuestSpawnRate:
+                {
+                    string strFormat = LanguageMgr.GetText("COOK_LV_REWARD_8");
+                    string str = string.Format(strFormat, pLv, lvData.value);
+                    return str;
+                }
+            case CookLvStat.GuestPatience:
+                {
+                    string strFormat = LanguageMgr.GetText("COOK_LV_REWARD_9");
+                    string str = string.Format(strFormat, pLv, lvData.value);
+                    return str;
+                }
+            case CookLvStat.Tip:
+                {
+                    string strFormat = LanguageMgr.GetText("COOK_LV_REWARD_10");
+                    string str = string.Format(strFormat, pLv, lvData.value);
+                    return str;
+                }
+            case CookLvStat.Rent:
+                {
+                    string strFormat = LanguageMgr.GetText("COOK_LV_REWARD_11");
+                    string str = string.Format(strFormat, pLv, lvData.value);
+                    return str;
+                }
+        }
 
-        return result;
+        return string.Empty;
     }
 }

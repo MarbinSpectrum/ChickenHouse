@@ -17,7 +17,7 @@ public class DiaryUI_BookSeasoningSlot : Mgr, IBeginDragHandler, IEndDragHandler
     {
         seasoningFace.SetUI(pChickenSpicy);
 
-        bool isAct = bookMgr.IsActSpicy(pChickenSpicy);
+        bool isAct = BookMgr.IsActSpicy(pChickenSpicy);
 
         //얻은 양념은 이미지 활성화
         Image img = seasoningFace.GetNowImg();

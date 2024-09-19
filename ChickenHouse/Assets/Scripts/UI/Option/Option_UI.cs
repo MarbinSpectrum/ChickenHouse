@@ -12,7 +12,7 @@ public class Option_UI : Mgr
     {
         Main,
         Language,
-        Sound,
+        Etc,
         Restart,
         Title,
     }
@@ -47,12 +47,16 @@ public class Option_UI : Mgr
     }
 
     [System.Serializable]
-    public struct SoundUI
+    public struct EtcUI
     {
         public RectTransform    baseObj;
         public Slider           seSlider;
         public Slider           bgmSlider;
         public Button           okBtn;
+
+        public RectTransform    windowObj;
+        public Image            windowCheckMark;
+        public Button           checkWindowBtn;
     }
 
     [System.Serializable]
@@ -65,7 +69,7 @@ public class Option_UI : Mgr
 
     [SerializeField] private MainUI         mainUI;
     [SerializeField] private LanguageUI     languageUI;
-    [SerializeField] private SoundUI        soundUI;
+    [SerializeField] private EtcUI          etcUI;
     [SerializeField] private ReStartUI      restartUI;
 
     private OptionMenu  nowMenu;
@@ -136,7 +140,7 @@ public class Option_UI : Mgr
         mainUI.soundBtn.onClick.AddListener(() =>
         {
             soundMgr.PlaySE(Sound.Btn_SE);
-            OpenMenu(OptionMenu.Sound);
+            OpenMenu(OptionMenu.Etc);
         });
         mainUI.titleBtn.onClick.RemoveAllListeners();
         mainUI.titleBtn.onClick.AddListener(() =>
@@ -159,23 +163,40 @@ public class Option_UI : Mgr
         });
 
         //사운드 버튼
-        soundUI.okBtn.onClick.RemoveAllListeners();
-        soundUI.okBtn.onClick.AddListener(() =>
+        etcUI.okBtn.onClick.RemoveAllListeners();
+        etcUI.okBtn.onClick.AddListener(() =>
         {
             soundMgr.PlaySE(Sound.Btn_SE);
             OpenMenu(OptionMenu.Main);
         });
 
-        soundUI.seSlider.onValueChanged.RemoveAllListeners();
-        soundUI.seSlider.onValueChanged.AddListener((v) =>
+        etcUI.seSlider.onValueChanged.RemoveAllListeners();
+        etcUI.seSlider.onValueChanged.AddListener((v) =>
         {
             soundMgr.SetSE_Volume(v);
         
         });
-        soundUI.bgmSlider.onValueChanged.RemoveAllListeners();
-        soundUI.bgmSlider.onValueChanged.AddListener((v) =>
+        etcUI.bgmSlider.onValueChanged.RemoveAllListeners();
+        etcUI.bgmSlider.onValueChanged.AddListener((v) =>
         {
             soundMgr.SetBGM_Volume(v);
+        });
+
+        etcUI.checkWindowBtn.onClick.RemoveAllListeners();
+        etcUI.checkWindowBtn.onClick.AddListener(() =>
+        {
+            if(Screen.fullScreen)
+            {
+                Screen.SetResolution(1280, 720, false);
+                etcUI.windowCheckMark.gameObject.SetActive(true);
+                PlayerPrefs.SetInt(GameMgr.WINDOW_MODE_KEY, 0);
+            }
+            else
+            {
+                Screen.SetResolution(1920, 1080, true);
+                etcUI.windowCheckMark.gameObject.SetActive(false);
+                PlayerPrefs.SetInt(GameMgr.WINDOW_MODE_KEY, 1);
+            }   
         });
 
         //재시작 버튼
@@ -201,7 +222,7 @@ public class Option_UI : Mgr
                 {
                     mainUI.baseObj.gameObject.SetActive(true);
                     languageUI.baseObj.gameObject.SetActive(false);
-                    soundUI.baseObj.gameObject.SetActive(false);
+                    etcUI.baseObj.gameObject.SetActive(false);
                     restartUI.baseObj.gameObject.SetActive(false);
 
                     mainUI.soundBtn.gameObject.SetActive(mainUI.runSound);
@@ -218,7 +239,7 @@ public class Option_UI : Mgr
 
                     mainUI.baseObj.gameObject.SetActive(false);
                     languageUI.baseObj.gameObject.SetActive(true);
-                    soundUI.baseObj.gameObject.SetActive(false);
+                    etcUI.baseObj.gameObject.SetActive(false);
                     restartUI.baseObj.gameObject.SetActive(false);
 
                     crossIcon.gameObject.SetActive(false);
@@ -233,14 +254,27 @@ public class Option_UI : Mgr
                     languageUI.scrollRect.verticalNormalizedPosition = 0;
                 }
                 break;
-            case OptionMenu.Sound:
+            case OptionMenu.Etc:
                 {
-                    soundUI.seSlider.value  = soundMgr.seValue;
-                    soundUI.bgmSlider.value = soundMgr.bgmValue;
+                    etcUI.seSlider.value  = soundMgr.seValue;
+                    etcUI.bgmSlider.value = soundMgr.bgmValue;
+
+                    if(CheckMode.IsWindow())
+                    {
+                        etcUI.windowObj.gameObject.SetActive(true);
+                        if (Screen.fullScreen)
+                            etcUI.windowCheckMark.gameObject.SetActive(false);
+                        else
+                            etcUI.windowCheckMark.gameObject.SetActive(true);
+                    }
+                    else
+                    {
+                        etcUI.windowObj.gameObject.SetActive(false);
+                    }
 
                     mainUI.baseObj.gameObject.SetActive(false);
                     languageUI.baseObj.gameObject.SetActive(false);
-                    soundUI.baseObj.gameObject.SetActive(true);
+                    etcUI.baseObj.gameObject.SetActive(true);
                     restartUI.baseObj.gameObject.SetActive(false);
 
                     crossIcon.gameObject.SetActive(false);
@@ -251,7 +285,7 @@ public class Option_UI : Mgr
                 {
                     mainUI.baseObj.gameObject.SetActive(false);
                     languageUI.baseObj.gameObject.SetActive(false);
-                    soundUI.baseObj.gameObject.SetActive(false);
+                    etcUI.baseObj.gameObject.SetActive(false);
                     restartUI.baseObj.gameObject.SetActive(true);
                 }
                 break;

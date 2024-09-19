@@ -17,3 +17,4 @@ MonoBehaviour:
   infoKey: PICKLE_INFO
   price: 300
   cost: 100
+  exp: 100

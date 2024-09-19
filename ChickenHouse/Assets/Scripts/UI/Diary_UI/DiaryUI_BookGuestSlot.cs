@@ -16,7 +16,7 @@ public class DiaryUI_BookGuestSlot : Mgr, IBeginDragHandler, IEndDragHandler, ID
     {
         guestFace.SetUI(pGuest);
 
-        bool isAct = bookMgr.IsActGuest(pGuest);
+        bool isAct = BookMgr.IsActGuest(pGuest);
 
         //만나본 손님은 이미지 활성화
         Image img = guestFace.GetNowImg();

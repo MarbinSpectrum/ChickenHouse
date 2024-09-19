@@ -15,4 +15,6 @@ public class SpicyData : ScriptableObject
     public int price;
     [Header("도감 설명")]
     public string bookInfoKey;
+    [Header("경험치")]
+    public int exp;
 }

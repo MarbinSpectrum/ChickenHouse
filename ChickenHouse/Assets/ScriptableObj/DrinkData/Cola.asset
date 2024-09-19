@@ -17,3 +17,4 @@ MonoBehaviour:
   infoKey: COLA_INFO
   price: 500
   cost: 100
+  exp: 100

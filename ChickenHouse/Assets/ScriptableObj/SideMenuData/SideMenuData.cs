@@ -15,4 +15,6 @@ public class SideMenuData : ScriptableObject
     public int price;
     [Header("원가")]
     public int cost;
+    [Header("경험치")]
+    public int exp;
 }

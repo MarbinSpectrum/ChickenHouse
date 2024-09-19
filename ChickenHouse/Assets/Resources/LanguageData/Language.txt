@@ -8,8 +8,8 @@ SAVE_CHECK_MSG	게임을 저장하겠습니까?	Do you want to save the game?
 NEW_GAME	새로하기	New Game
 LOAD_GAME	이어하기	Load Game
 QUIT_GAME	종료하기	Quit Game
-LANGUAGE_OPTION	언어	Language
-SOUND_OPTION	사운드 설정	SOUND
+LANGUAGE_OPTION	언어 변경	Language
+ETC_OPTION	기타 설정	Setting
 SAVING	저장중	Saving
 GO_TITLE	타이틀로 이동	Go Title
 GO_KITCHEN	주방으로	Go Kitchen
@@ -66,7 +66,6 @@ DRINK_PRICE_DECREASE	음료 재료비 감소	Drink Cost Savings
 SIDEMENU_PRICE_DECREASE	피클 재료비 감소	Pickle Cost Savings
 WORKER_SPEED	직원 속도	Worker Speed
 PROFIT_RATE	수익률	Profit Rate
-WORKER_SPEED	알바생 속도	Worker Speed
 SALE_VALUE	상점 할인율	Merchant Rate
 GUEST_RATE	손님 등장 속도	Guest Spawn Rate
 MAX_GUEST_PATIENCE	손님 인내심 상한	Max Guest Patience
@@ -110,6 +109,23 @@ TIP	팁	Tip
 REWARD	보상	Reward
 QUEST_WARNING	오늘 내로 달성되어야 하는 매우 중요한 퀘스트가 있으니 필히 확인해 주세요.	There is a very important quest that needs to be achieved within today, so please make sure to check it out.
 QUEST_WARNING_MSG	빚 상환일까지 이틀밖에 남지 않았습니다.\n이틀동안은 돈을 아끼는것을 추천드립니다.	You only have two days until your debt repayment date.\nI recommend saving money for two days.
+ETC	기타	Etc
+DRINK_HEADER	음료	Drink
+PICKLE_HEADER	피클	Pickle
+WINDIW_MODE	창모드	Window Mode
+ALCOHOLIC	주류	Alcoholic
+DRINKABLE	술을 마쉼	Drinkable
+COOK_LV_REWARD_1	Lv {0} 달성시 치킨 가격 +{1}$	Lv {0} reached: Increase chicken price +{1}$
+COOK_LV_REWARD_2	Lv {0} 달성시 치킨 원가 감소 {1}$	Lv {0} reached: Chicken cost cut {1}$
+COOK_LV_REWARD_3	Lv {0} 달성시 음료 원가 감소 {1}$	Lv {0} reached: Drink cost cut {1}$
+COOK_LV_REWARD_4	Lv {0} 달성시 피클 원가 감소 {1}$	Lv {0} reached: Pickle cost cut {1}$
+COOK_LV_REWARD_5	Lv {0} 달성시 직원 속도 +{1}%	Lv {0} reached: Worker speed +{1}%
+COOK_LV_REWARD_6	Lv {0} 달성시 수익 +{1}%	Lv {0} reached: Profit rate +{1}%
+COOK_LV_REWARD_7	Lv {0} 달성시 상점 할인율 +{1}%	Lv {0} reached: Shop sale +{1}%
+COOK_LV_REWARD_8	Lv {0} 달성시 손님 등장 속도 +{1}%	Lv {0} reached: Guest spawn Rate +{1}%
+COOK_LV_REWARD_9	Lv {0} 달성시 손님 인내심 상한 +{1}%	Lv {0} reached: Max guest patience +{1}%
+COOK_LV_REWARD_10	Lv {0} 달성시 팁 +{1}%	Lv {0} reached: Tip +{1}%
+COOK_LV_REWARD_11	Lv {0} 달성시 임대료 -{1}$	Lv {0} reached: Rent -{1}$
 TUTO_1	먼저 닭을 달걀물에 넣어봅시다.	First, I'll put chickens in the egg water.
 TUTO_2	달걀물이 골고루 묻도록 닭을 잘 저어주세요.	Stir the chicken well so that the egg water is evenly coated.
 TUTO_3	이제 달걀물을 묻힌 닭을 오른쪽으로 옮겨주세요. 	Now move the chicken dipped in egg water to the right.
@@ -443,11 +459,11 @@ ADVERTISEMENT_LV2_NAME	전단지 광고	a flyer advertisement
 ADVERTISEMENT_LV3_NAME	인터넷 광고	Internet advertising
 ADVERTISEMENT_LV4_NAME	TV 광고	TV advertisement
 ADVERTISEMENT_LV5_NAME	지하철 광고	a subway commercial
-ADVERTISEMENT_LV1_INFO	확성기 광고를 합니다.\n(손님 방문 딜레이 -5%)	Do a loudspeaker ad.\n(Visit delay -5%)
-ADVERTISEMENT_LV2_INFO	전단지 광고를 합니다.\n(손님 방문 딜레이 -7%)\n(수익+10%)	Do a flyer advertisement.\n(Delayed Visit -7%)\n(Sales + 10%)
-ADVERTISEMENT_LV3_INFO	인터넷 광고를 합니다.\n(손님 방문 딜레이 -10%)\n(수익+10%)	Do Internet advertising.\n(Delayed Visit -10%)\n(Sales + 10%)
-ADVERTISEMENT_LV4_INFO	TV 광고를 합니다.\n(손님 방문 딜레이 -15%)\n(수익+10%)	Do a TV advertising.(Delayed visit -15%)\n(Sales + 10%)
-ADVERTISEMENT_LV5_INFO	지하철 광고를 합니다.\n(손님 방문 딜레이 -20%)\n(수익+10%)	Do subway advertisement.\n(Delayed visit -20%)\n(Sales + 10%)
+ADVERTISEMENT_LV1_INFO	확성기 광고를 합니다.\n(손님 방문 속도 +5%)	Do a loudspeaker ad.\n(Guest Spawn Rate +5%)
+ADVERTISEMENT_LV2_INFO	전단지 광고를 합니다.\n(손님 방문 속도 +7%)\n(수익+10%)	Do a flyer advertisement.\n(Guest Spawn Rate +7%)\n(Sales + 10%)
+ADVERTISEMENT_LV3_INFO	인터넷 광고를 합니다.\n(손님 방문 속도 +10%)\n(수익+10%)	Do Internet advertising.\n(Guest Spawn Rate +10%)\n(Sales + 10%)
+ADVERTISEMENT_LV4_INFO	TV 광고를 합니다.\n(손님 방문 속도 +15%)\n(수익+10%)	Do a TV advertising.(Guest Spawn Rate +15%)\n(Sales + 10%)
+ADVERTISEMENT_LV5_INFO	지하철 광고를 합니다.\n(손님 방문 속도 +20%)\n(수익+10%)	Do subway advertisement.\n(Guest Spawn Rate +20%)\n(Sales + 10%)
 WORKER_LV1_NAME	찰스	Charles
 WORKER_LV2_NAME	니치	Niche
 WORKER_LV3_NAME	미스 플라워	Ms Flower

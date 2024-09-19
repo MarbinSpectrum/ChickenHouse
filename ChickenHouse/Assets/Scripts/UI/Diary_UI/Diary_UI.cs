@@ -10,13 +10,13 @@ public class Diary_UI : Mgr
     [SerializeField] private DiaryUI_Book   book;
     [SerializeField] private DiaryUI_Quest  quest;
     [SerializeField] private DiaryUI_File   file;
-
+    [SerializeField] private RectTransform dontClick;
     private DiaryMenu nowMenu;
 
     public void Set_UI()
     {
-        //if (tutoMgr.NowRunTuto())
-        //    return;
+        if (tutoMgr.NowRunTuto())
+            return;
 
         soundMgr.PlaySE(Sound.Page_SE);
 
@@ -65,4 +65,34 @@ public class Diary_UI : Mgr
                 break;
         }
     }
+
+    public void TutoEventRun1()
+    {
+        //인스펙터로 끌어서 사용하는 함수
+        ActDonClick(true);
+        gameObject.SetActive(true);
+        Set_UI(DiaryMenu.File);
+    }
+
+    public void TutoEventRun2()
+    {
+        //인스펙터로 끌어서 사용하는 함수
+        ActDonClick(true);
+        gameObject.SetActive(true);
+        Set_UI(DiaryMenu.Quest);
+    }
+
+    public void TutoEventRun3()
+    {
+        //인스펙터로 끌어서 사용하는 함수
+        ActDonClick(false);
+        gameObject.SetActive(false);
+        if(gameMgr.playData.tutoComplete4 == false)
+        {
+            //튜토리얼 완료
+            gameMgr.playData.tutoComplete4 = true;
+        }
+    }
+
+    public void ActDonClick(bool state) => dontClick.gameObject.SetActive(state);
 }

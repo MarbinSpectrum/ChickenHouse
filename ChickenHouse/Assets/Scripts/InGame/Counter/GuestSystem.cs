@@ -138,7 +138,7 @@ public class GuestSystem : Mgr
                 }
 
                 //손님 딜레이
-                float delayValue = GUEST_DELAY_TIME * gameMgr.playData.GuestTotalDelayRate()/100f;
+                float delayValue = GUEST_DELAY_TIME / (gameMgr.playData.GuestTotalDelayRate()/100f);
                 if (counterWorker != null && counterWorker.skill.Contains(WorkerSkill.WorkerSkill_5))
                 {
                     //카운터 업무 경력자(카운터에 배치시 손님이 방문률 +50%)
@@ -386,7 +386,7 @@ public class GuestSystem : Mgr
             bool sideResult = guestObj.CheckSide(pSideMenu);
 
             //도감에 해동 손님 등록
-            bookMgr.ActGuestData(guestObj.guest);
+            BookMgr.ActGuestData(guestObj.guest);
 
             switch (result)
             {

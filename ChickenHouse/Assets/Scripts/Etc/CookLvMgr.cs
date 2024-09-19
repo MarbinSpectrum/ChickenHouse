@@ -9,6 +9,12 @@ public class CookLvMgr : AwakeSingleton<CookLvMgr>
     {
         public CookLvStat   cookLvStat;
         public int          value;
+
+        public LvData(CookLvStat pCookLvStat,int pValue)
+        {
+            cookLvStat = pCookLvStat;
+            value = pValue;
+        }
     }
 
     //idx = 0이면 2레벨에 도달시 얻는 보상임
@@ -17,11 +23,13 @@ public class CookLvMgr : AwakeSingleton<CookLvMgr>
 
     public int RequireExp(int pLv)
     {
-        return 800 + (pLv - 2) * 1200;
+        //pLV달서에 필요한 경험치
+        return 800 + (pLv - 2) * 400;
     }
 
     public int GetLvSumValue(CookLvStat statType, int pLV)
     {
+        //pLV까지의 보상
         int sum = 0;
         for(int lv = 0; lv <= pLV-2; lv++)
         {
@@ -35,13 +43,14 @@ public class CookLvMgr : AwakeSingleton<CookLvMgr>
         return sum;
     }
 
-    public int GetLvValue(int pLV)
+    public LvData GetLvData(int pLV)
     {
+        //pLV달성시 보상
         int tempLv = pLV - 2;
         if (tempLv < 0)
-            return 0;
+            return new LvData(CookLvStat.None,0);
         if (lvData.Count <= tempLv)
-            return 0;
-        return lvData[tempLv].value;
+            return new LvData(CookLvStat.None, 0);
+        return lvData[tempLv];
     }
 }

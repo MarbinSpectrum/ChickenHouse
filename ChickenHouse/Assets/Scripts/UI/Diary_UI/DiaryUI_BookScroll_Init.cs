@@ -4,116 +4,36 @@ using UnityEngine;
 
 public class DiaryUI_BookScroll_Init : LoopScrollInit
 {
-    private List<Guest>         guestList = new List<Guest>();
-    private List<Transform> guestListObjs = new List<Transform>();
-
-    private List<ChickenSpicy>  spicyList = new List<ChickenSpicy>();
-    private List<Transform> spicyListObjs = new List<Transform>();
-
     [SerializeField] private DiaryUI_Book               diary;
-    [SerializeField] private DiaryUI_BookGuestSlot      guestSlot;
-    [SerializeField] private DiaryUI_BookSeasoningSlot  seasoningSlot;
 
     private BookMenu slotMode;
 
-    public void SetGuestList(List<Guest> newList)
+    public void SetMode(BookMenu pBookMenu)
     {
-        ClearList();
+        slotMode = pBookMenu;
 
-        slotMode = BookMenu.Guest;
-
-        AddList();
-
-        guestList = newList;
-        item = guestSlot.gameObject;
-
-        Init(guestList.Count);
-    }
-
-    public void SetSpicyList(List<ChickenSpicy> newList)
-    {
-        ClearList();
-
-        slotMode = BookMenu.Seasoning;
-
-        AddList();
-
-        spicyList = newList;
-        item = seasoningSlot.gameObject;
-
-        Init(spicyList.Count);
-    }
-
-    private void ClearList()
-    {
-        switch(slotMode)
-        {
-            case BookMenu.Guest:
-                {
-                    guestListObjs.Clear();
-                    for (int i = 0; i < loopScrollRect.content.childCount; i++)
-                    {
-                        Transform trans = loopScrollRect.content.GetChild(i);
-                        guestListObjs.Add(trans);
-                    }
-                    for (int i = 0; i < guestListObjs.Count; i++)
-                    {
-                        Transform trans = guestListObjs[i];
-                        trans.parent = loopScrollRect.content.parent;
-                        trans.gameObject.SetActive(false);
-                    }
-                }
-                break;
-            case BookMenu.Seasoning:
-                {
-                    spicyListObjs.Clear();
-                    for (int i = 0; i < loopScrollRect.content.childCount; i++)
-                    {
-                        Transform trans = loopScrollRect.content.GetChild(i);
-                        spicyListObjs.Add(trans);
-                    }
-                    for (int i = 0; i < spicyListObjs.Count; i++)
-                    {
-                        Transform trans = spicyListObjs[i];
-                        trans.parent = loopScrollRect.content.parent;
-                        trans.gameObject.SetActive(false);
-                    }
-                }
-                break;
-
-        }
-    }
-
-    private void AddList()
-    {
         switch (slotMode)
         {
             case BookMenu.Guest:
                 {
-                    for (int i = 0; i < guestListObjs.Count; i++)
-                    {
-                        Transform trans = guestListObjs[i];
-                        trans.parent = loopScrollRect.content;
-                        trans.gameObject.SetActive(true);
-                    }
-                    guestListObjs.Clear();
+                    int cnt = Mathf.CeilToInt(diary.guestList.Count / (float)4);
+                    Init(cnt);
                 }
                 break;
             case BookMenu.Seasoning:
                 {
-                    for (int i = 0; i < spicyListObjs.Count; i++)
-                    {
-                        Transform trans = spicyListObjs[i];
-                        trans.parent = loopScrollRect.content;
-                        trans.gameObject.SetActive(true);
-                    }
-                    spicyListObjs.Clear();
+                    int cnt = Mathf.CeilToInt(diary.spicyList.Count / (float)4);
+                    Init(cnt);
                 }
                 break;
-
+            case BookMenu.Etc:
+                {
+                    int cnt = diary.etcList.Count;
+                    Init(cnt);
+                }
+                break;
         }
     }
-
 
     public override void ProvideData(Transform transform, int idx)
     {
@@ -121,39 +41,98 @@ public class DiaryUI_BookScroll_Init : LoopScrollInit
         {
             case BookMenu.Guest:
                 {
-                    DiaryUI_BookGuestSlot diarySlot = transform.GetComponent<DiaryUI_BookGuestSlot>();
+                    DiaryUI_BookScrollObj diarySlot = transform.GetComponent<DiaryUI_BookScrollObj>();
                     if (diarySlot == null)
                         return;
 
-                    if (guestList.Count <= idx)
-                        return;
+                    List<Guest> guests = new List<Guest>();
+                    guests.Add(Guest.None);
+                    guests.Add(Guest.None);
+                    guests.Add(Guest.None);
+                    guests.Add(Guest.None);
 
-                    Guest guest = guestList[idx];
-                    diarySlot.SetData(guest);
-                    diarySlot.SetClickEvent(() =>
+                    for(int i = 0; i < 4; i++)
                     {
-                        diary.SetSelectGuest(guest);
-                        loopScrollRect.RefillCells();
-                    });
+                        int newIdx = idx * 4 + i;
+                        if (newIdx >= diary.guestList.Count)
+                            break;
+                        guests[i] = diary.guestList[newIdx];
+                    }
+
+                    diarySlot.SetData(
+                        guests[0], () =>
+                        {
+                            diary.SetSelectGuest(guests[0]);
+                            loopScrollRect.RefillCells();
+                        },
+                        guests[1], () =>
+                        {
+                            diary.SetSelectGuest(guests[1]);
+                            loopScrollRect.RefillCells();
+                        },
+                        guests[2], () =>
+                        {
+                            diary.SetSelectGuest(guests[2]);
+                            loopScrollRect.RefillCells();
+                        },
+                        guests[3], () =>
+                        {
+                            diary.SetSelectGuest(guests[3]);
+                            loopScrollRect.RefillCells();
+                        });
 
                 }
                 break;
             case BookMenu.Seasoning:
                 {
-                    DiaryUI_BookSeasoningSlot diarySlot = transform.GetComponent<DiaryUI_BookSeasoningSlot>();
+                    DiaryUI_BookScrollObj diarySlot = transform.GetComponent<DiaryUI_BookScrollObj>();
                     if (diarySlot == null)
                         return;
 
-                    if (spicyList.Count <= idx)
+                    List<ChickenSpicy> spicys = new List<ChickenSpicy>();
+                    spicys.Add(ChickenSpicy.Not);
+                    spicys.Add(ChickenSpicy.Not);
+                    spicys.Add(ChickenSpicy.Not);
+                    spicys.Add(ChickenSpicy.Not);
+
+                    for (int i = 0; i < 4; i++)
+                    {
+                        int newIdx = idx * 4 + i;
+                        if (newIdx >= diary.spicyList.Count)
+                            break;
+                        spicys[i] = diary.spicyList[newIdx];
+                    }
+
+                    diarySlot.SetData(
+                        spicys[0], () =>
+                        {
+                            diary.SetSelectSeasoning(spicys[0]);
+                            loopScrollRect.RefillCells();
+                        },
+                        spicys[1], () =>
+                        {
+                            diary.SetSelectSeasoning(spicys[1]);
+                            loopScrollRect.RefillCells();
+                        },
+                        spicys[2], () =>
+                        {
+                            diary.SetSelectSeasoning(spicys[2]);
+                            loopScrollRect.RefillCells();
+                        },
+                        spicys[3], () =>
+                        {
+                            diary.SetSelectSeasoning(spicys[3]);
+                            loopScrollRect.RefillCells();
+                        });
+                }
+                break;
+            case BookMenu.Etc:
+                {
+                    DiaryUI_BookScrollObj diarySlot = transform.GetComponent<DiaryUI_BookScrollObj>();
+                    if (diarySlot == null)
                         return;
 
-                    ChickenSpicy spicy = spicyList[idx];
-                    diarySlot.SetData(spicy);
-                    diarySlot.SetClickEvent(() =>
-                    {
-                        diary.SetSelectSeasoning(spicy);
-                        loopScrollRect.RefillCells();
-                    });
+                    diarySlot.SetData(diary.etcList[idx]);
                 }
                 break;
         }

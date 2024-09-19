@@ -17,3 +17,4 @@ MonoBehaviour:
   infoKey: PRINKLE_SPICY_INFO
   price: 100
   bookInfoKey: BOOK_PRINKLE_SPICY
+  exp: 400

@@ -17,3 +17,4 @@ MonoBehaviour:
   infoKey: BEER_INFO
   price: 800
   cost: 100
+  exp: 100

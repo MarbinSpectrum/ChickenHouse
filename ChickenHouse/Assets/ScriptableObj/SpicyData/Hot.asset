@@ -17,3 +17,4 @@ MonoBehaviour:
   infoKey: HOT_SPICY_INFO
   price: 50
   bookInfoKey: BOOK_HOT_SPICY
+  exp: 100

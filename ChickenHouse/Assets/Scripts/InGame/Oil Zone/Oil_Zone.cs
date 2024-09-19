@@ -404,7 +404,7 @@ public class Oil_Zone : Mgr
 
     private void UpdateGauge()
     {
-        float speedRate = GetOilZoneSpeedRate();
+        float speedRate = GetOilZoneSpeedRate() / 100f;
         float lerpValue = gaugeTime / (COOK_TIME_0 / speedRate);
         lerpValue = Mathf.Clamp(lerpValue, 0, 1);
         float Angle = Mathf.Lerp(90, 270, 1 - lerpValue);
@@ -487,7 +487,7 @@ public class Oil_Zone : Mgr
     private IEnumerator RunningCook(float pChickenTime, float pGaugeTime)
     {
         //조리처리용 코루틴
-        float   speedRate   = GetOilZoneSpeedRate();
+        float   speedRate   = GetOilZoneSpeedRate()/100f;
         bool    notFire     = false;
 
         //업그레이드 속도에 따라서 상태 설정
@@ -632,7 +632,7 @@ public class Oil_Zone : Mgr
         else
         {
             //애니메이션 다시 실행
-            float speedRate = GetOilZoneSpeedRate();
+            float speedRate = GetOilZoneSpeedRate()/100f;
             animator.speed = speedRate;
 
             if (CheckMode.IsDropMode() == false)

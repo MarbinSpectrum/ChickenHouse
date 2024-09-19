@@ -148,11 +148,11 @@ public class KitchenSet_UI : Mgr
             return;
         if(gameMgr.playData.tutoComplete2 == false)
         {
-            if (workerArea[(int)KitchenSetWorkerPos.CounterWorker] == dragWorker)
+            if (workerArea[(int)KitchenSetWorkerPos.CounterWorker] == pWorker)
                 return;
-            if (workerArea[(int)KitchenSetWorkerPos.KitchenWorker0] == dragWorker)
+            if (workerArea[(int)KitchenSetWorkerPos.KitchenWorker0] == pWorker)
                 return;
-            if (workerArea[(int)KitchenSetWorkerPos.KitchenWorker1] == dragWorker)
+            if (workerArea[(int)KitchenSetWorkerPos.KitchenWorker1] == pWorker)
                 return;
         }
         dragWorker = pWorker;

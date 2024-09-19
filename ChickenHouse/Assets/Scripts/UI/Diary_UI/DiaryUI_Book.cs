@@ -9,13 +9,59 @@ public class DiaryUI_Book : Mgr
     [SerializeField] private DiaryUI_BookTag            bookTag;
     [SerializeField] private DiaryUI_BookSeasoningInfo  seasoningInfo;
     [SerializeField] private DiaryUI_BookGuestInfo      guestInfo;
+    [SerializeField] private DiaryUI_BookSubMenuInfo    subMenuInfo;
+    public List<Guest>          guestList { private set; get; } = new List<Guest>();
+    public List<ChickenSpicy>   spicyList { private set; get; } = new List<ChickenSpicy>();
+    public List<EtcList>        etcList   { private set; get; } = new List<EtcList>();
 
-    private List<Guest>         guestList = new List<Guest>();
-    private List<ChickenSpicy>  spicyList = new List<ChickenSpicy>();
+    public class EtcList
+    {
+        public List<Drink>      drinks             { private set; get; } = new List<Drink>();
+        public List<SideMenu>   sideMenus          { private set; get; } = new List<SideMenu>();
+        public List<NoParaDel>  funs    { private set; get; } = new List<NoParaDel>(); 
+        public bool isDrinkHeader       { private set; get; } = false;
+        public bool isSideMenuHeader    { private set; get; } = false;
+        public EtcList(Drink pDrink0, NoParaDel fun0, Drink pDrink1, NoParaDel fun1, Drink pDrink2, NoParaDel fun2, Drink pDrink3, NoParaDel fun3)
+        {
+            drinks.Add(pDrink0);
+            drinks.Add(pDrink1);
+            drinks.Add(pDrink2);
+            drinks.Add(pDrink3);
+            funs.Add(fun0);
+            funs.Add(fun1);
+            funs.Add(fun2);
+            funs.Add(fun3);
+        }
+
+        public EtcList(SideMenu pSideMenu0, NoParaDel fun0, SideMenu pSideMenu1, NoParaDel fun1, SideMenu pSideMenu2, NoParaDel fun2, SideMenu pSideMenu3, NoParaDel fun3)
+        {
+            sideMenus.Add(pSideMenu0);
+            sideMenus.Add(pSideMenu1);
+            sideMenus.Add(pSideMenu2);
+            sideMenus.Add(pSideMenu3);
+            funs.Add(fun0);
+            funs.Add(fun1);
+            funs.Add(fun2);
+            funs.Add(fun3);
+        }
+
+        public EtcList(int headerType)
+        {
+            if (headerType == 1)
+                isDrinkHeader = true;
+            else if (headerType == 2)
+                isSideMenuHeader = true;
+        }
+    }
+
 
     private BookMenu            nowMenu;
     public  Guest               selectGuestSlot { private set; get; }
     public  ChickenSpicy        selectSpicySlot { private set; get; }
+    public  Drink               selectDrinkSlot { private set; get; }
+    public  SideMenu            selectSideMenuSlot { private set; get; }
+
+
 
     public void SetUI()
     {
@@ -40,10 +86,25 @@ public class DiaryUI_Book : Mgr
         selectGuestSlot = pGuest;
         guestInfo.SetUI(pGuest);
     }
+
     public void SetSelectSeasoning(ChickenSpicy pSpicy)
     {
         selectSpicySlot = pSpicy;
         seasoningInfo.SetUI(selectSpicySlot);
+    }
+
+    public void SetSelectEtc(Drink pDrink)
+    {
+        selectDrinkSlot = pDrink;
+        selectSideMenuSlot = SideMenu.None;
+        subMenuInfo.SetUI(pDrink);
+    }
+
+    public void SetSelectEtc(SideMenu pSideMenu)
+    {
+        selectDrinkSlot = Drink.None;
+        selectSideMenuSlot = pSideMenu;
+        subMenuInfo.SetUI(pSideMenu);
     }
 
     public void SetUI(BookMenu pMenu)
@@ -56,24 +117,84 @@ public class DiaryUI_Book : Mgr
                 {
                     SetSelectSeasoning(ChickenSpicy.None);
                     SetSelectGuest(Guest.Fox);
+                    SetSelectEtc(SideMenu.None);
 
                     //손님 목록 갱신
                     guestList.Clear();
                     for (Guest guest = Guest.Fox; guest < Guest.MAX; guest++)
                         guestList.Add(guest);
-                    bookScrollInit.SetGuestList(guestList);
+                    bookScrollInit.SetMode(BookMenu.Guest);
                 }
                 break;
             case BookMenu.Seasoning:
                 {
                     SetSelectSeasoning(ChickenSpicy.Hot);
                     SetSelectGuest(Guest.None);
+                    SetSelectEtc(SideMenu.None);
 
                     //양념 목록 갱신
                     spicyList.Clear();
                     for (ChickenSpicy spicy = ChickenSpicy.Hot; spicy < ChickenSpicy.MAX; spicy++)
                         spicyList.Add(spicy);
-                    bookScrollInit.SetSpicyList(spicyList);
+                    bookScrollInit.SetMode(BookMenu.Seasoning);
+                }
+                break;
+            case BookMenu.Etc:
+                {
+                    SetSelectSeasoning(ChickenSpicy.None);
+                    SetSelectGuest(Guest.None);
+                    SetSelectEtc(Drink.Cola);
+
+                    //기타 갱신
+                    etcList.Clear();
+                    etcList.Add(new EtcList(1));
+                    etcList.Add(
+                        new EtcList(
+                            Drink.Cola, () =>
+                            {
+                                SetSelectEtc(Drink.Cola);
+                                bookScrollInit.loopScrollRect.RefillCells();
+                            }, 
+                            Drink.Beer, () =>
+                            {
+                                SetSelectEtc(Drink.Beer);
+                                bookScrollInit.loopScrollRect.RefillCells();
+                            }, 
+                            Drink.None, () =>
+                            {
+
+                                bookScrollInit.loopScrollRect.RefillCells();
+                            }, 
+                            Drink.None, () =>
+                            {
+
+                                bookScrollInit.loopScrollRect.RefillCells();
+                            }));
+                    etcList.Add(new EtcList(2));
+                    etcList.Add(
+                        new EtcList(
+                            SideMenu.Pickle, () =>
+                            {
+                                SetSelectEtc(SideMenu.Pickle);
+                                bookScrollInit.loopScrollRect.RefillCells();
+                            },
+                            SideMenu.None, () =>
+                            {
+
+                                bookScrollInit.loopScrollRect.RefillCells();
+                            },
+                            SideMenu.None, () =>
+                            {
+
+                                bookScrollInit.loopScrollRect.RefillCells();
+                            },
+                            SideMenu.None, () =>
+                            {
+
+                                bookScrollInit.loopScrollRect.RefillCells();
+                            }));
+
+                    bookScrollInit.SetMode(BookMenu.Etc);
                 }
                 break;
         }

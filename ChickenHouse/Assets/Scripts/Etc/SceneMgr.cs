@@ -12,17 +12,17 @@ public class SceneMgr : AwakeSingleton<SceneMgr>
     [SerializeField] private RectTransform      saveCheckUI;
     [SerializeField] private RewardItem         rewardItem;
 
-    private bool saveCheckFlag = false;
+    private bool dayEndCheckFlag = false;
     private bool saveDataFlag = false;
 
     private bool rewardWaitFlag = false;
 
-    public void SceneLoad(Scene scene, bool questCheck, bool save, SceneChangeAni changeAni = SceneChangeAni.NOT)
+    public void SceneLoad(Scene scene, bool questCheck, bool dayEnd, SceneChangeAni changeAni = SceneChangeAni.NOT)
     {
-        StartCoroutine(RunSceneLoad(scene, questCheck, save, changeAni));
+        StartCoroutine(RunSceneLoad(scene, questCheck, dayEnd, changeAni));
     }
 
-    private IEnumerator RunSceneLoad(Scene scene, bool questCheck, bool save, SceneChangeAni changeAni)
+    private IEnumerator RunSceneLoad(Scene scene, bool questCheck, bool dayEnd, SceneChangeAni changeAni)
     {
         //씬이동 코루틴
         if(changeList.ContainsKey(changeAni))
@@ -73,20 +73,31 @@ public class SceneMgr : AwakeSingleton<SceneMgr>
                 if(chickenSpicy != ChickenSpicy.None)
                 {
                     //양념을 새로 얻음 도감에 등록
-                    BookMgr bookMgr = BookMgr.Instance;
-                    bookMgr.ActSpicyData(chickenSpicy);
-                }       
+                    BookMgr.ActSpicyData(chickenSpicy);
+                }
+                Drink drink = SubMenuMgr.ShopItemGetDrink(rewardList[i]);
+                if (drink != Drink.None)
+                {
+                    //음료를 새로 얻음 도감에 등록
+                    BookMgr.ActDrinkData(drink);
+                }
+                SideMenu sideMenu = SubMenuMgr.ShopItemGetSideMenu(rewardList[i]);
+                if (sideMenu != SideMenu.None)
+                {
+                    //사이드메뉴를 새로 얻음 도감에 등록
+                    BookMgr.ActSideMenuData(sideMenu);
+                }
             }
         }
 
-        if (save)
+        if (dayEnd)
         {
-            saveCheckFlag = false;
+            dayEndCheckFlag = false;
             saveDataFlag = false;
 
             saveCheckUI.gameObject.SetActive(true);
 
-            yield return new WaitUntil(() => saveCheckFlag);
+            yield return new WaitUntil(() => dayEndCheckFlag);
 
             saveCheckUI.gameObject.SetActive(false);
 
@@ -123,14 +134,14 @@ public class SceneMgr : AwakeSingleton<SceneMgr>
         {
             int slotNum = (int)saveSlot;
             gameMgr.selectSaveSlot = slotNum;
-            saveCheckFlag = true;
+            dayEndCheckFlag = true;
             saveDataFlag = true;
         });
     }
 
     public void SaveCheckNo()
     {
-        saveCheckFlag = true;
+        dayEndCheckFlag = true;
     }
 
     private void RewardWaitCheck()

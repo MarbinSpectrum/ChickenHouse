@@ -11,6 +11,7 @@ public class DiaryUI_BookGuestInfo : Mgr
     [SerializeField] private Image                      gusetImg;
     [SerializeField] private TextMeshProUGUI            guestName;
     [SerializeField] private TextMeshProUGUI            guestInfo;
+    [SerializeField] private RectTransform              drinkable;
 
     private const float IMG_WIDTH   = 600;
     private const float IMG_HEIGHT  = 512;
@@ -21,7 +22,7 @@ public class DiaryUI_BookGuestInfo : Mgr
 
     public void SetUI(Guest pGuest)
     {
-        bool isAct = bookMgr.IsActGuest(pGuest);
+        bool isAct = BookMgr.IsActGuest(pGuest);
         rect.gameObject.SetActive(isAct);
 
         SetImgSize(pGuest);
@@ -32,7 +33,12 @@ public class DiaryUI_BookGuestInfo : Mgr
         gusetImg.sprite = guestData.bookImg;
 
         LanguageMgr.SetString(guestName, guestData.bookNameKey);
-        LanguageMgr.SetString(guestInfo, guestData.bookInfoKey);       
+        LanguageMgr.SetString(guestInfo, guestData.bookInfoKey);
+
+        if (guestData.canDrinkAlcohol)
+            drinkable.gameObject.SetActive(true);
+        else
+            drinkable.gameObject.SetActive(false);
     }
 
     private void SetImgSize(Guest pGuest)

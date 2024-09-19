@@ -1,0 +1,83 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+
+
+public class DiaryUI_BookSubMenuInfo : Mgr
+{
+    [SerializeField] private TextMeshProUGUI itemName;
+    [SerializeField] private TextMeshProUGUI itemExplain;
+    [SerializeField] private TextMeshProUGUI itemMoney;
+    [SerializeField] private TextMeshProUGUI itemCost;
+    [SerializeField] private RectTransform  rect;
+    [SerializeField] private Image          face;
+    [SerializeField] private RectTransform alcoholic;
+    private const string MONEY_FORMAT = "{0}<size=10>$</size>";
+    private const string COST_MONEY_FORMAT = "-{0}<size=5>$</size>";
+
+    public void SetUI(Drink pDrink)
+    {
+        bool isAct = BookMgr.IsActDrink(pDrink);
+        rect.gameObject.SetActive(isAct);
+        if (isAct == false)
+            return;
+        DrinkData drinkData = subMenuMgr.GetDrinkData(pDrink);
+
+        face.sprite = drinkData.img;
+        face.GetComponent<RectTransform>().sizeDelta = new Vector2(55, 70);
+
+        LanguageMgr.SetString(itemName, drinkData.nameKey);
+        LanguageMgr.SetString(itemExplain, drinkData.infoKey);
+
+        if (subMenuMgr.IsAlcohol(pDrink))
+            alcoholic.gameObject.SetActive(true);
+        else
+            alcoholic.gameObject.SetActive(false);
+
+        string moneyStr = string.Format(MONEY_FORMAT, drinkData.price);
+        LanguageMgr.SetString(itemMoney, moneyStr);
+        if (drinkData.cost > 0)
+        {
+            itemCost.gameObject.SetActive(true);
+            string costStr = string.Format(COST_MONEY_FORMAT, drinkData.cost);
+            LanguageMgr.SetString(itemCost, costStr);
+        }
+        else
+        {
+            itemCost.gameObject.SetActive(false);
+        }
+    }
+
+    public void SetUI(SideMenu pSideMenu)
+    {
+        bool isAct = BookMgr.IsActSideMenu(pSideMenu);
+        rect.gameObject.SetActive(isAct);
+        if (isAct == false)
+            return;
+        SideMenuData sideMenuData = subMenuMgr.GetSideMenuData(pSideMenu);
+
+        face.sprite = sideMenuData.img;
+        face.GetComponent<RectTransform>().sizeDelta = new Vector2(55, 55);
+
+        LanguageMgr.SetString(itemName, sideMenuData.nameKey);
+        LanguageMgr.SetString(itemExplain, sideMenuData.infoKey);
+
+        alcoholic.gameObject.SetActive(false);
+
+        string moneyStr = string.Format(MONEY_FORMAT, sideMenuData.price);
+        LanguageMgr.SetString(itemMoney, moneyStr);
+
+        if (sideMenuData.cost > 0)
+        {
+            itemCost.gameObject.SetActive(true);
+            string costStr = string.Format(COST_MONEY_FORMAT, sideMenuData.cost);
+            LanguageMgr.SetString(itemCost, costStr);
+        }
+        else
+        {
+            itemCost.gameObject.SetActive(false);
+        }
+    }
+}
