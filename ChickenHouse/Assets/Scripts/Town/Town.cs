@@ -8,6 +8,7 @@ public class Town : Mgr
     [SerializeField] private Animator                           moveAni;
     [SerializeField] private RectTransform                      diaryBtn;
     [SerializeField] private WarningText                        warningText;
+    [SerializeField] private WakeupMsg                          wakeUpMsg;
     [SerializeField] private TutoObj                            tutoObj1;
     [SerializeField] private TutoObj                            tutoObj2;
     [SerializeField] private TutoObj                            tutoObj3;
@@ -31,10 +32,20 @@ public class Town : Mgr
             tutoObj1.PlayTuto();
         }
 
-        if (warningFlag == false)
+        if(WakeupMsg.wakeUpFlag)
+        {
+            wakeUpMsg.SetUI();
+        }
+        else if (warningFlag == false)
         {
             warningFlag = true;
-            if (gameMgr.playData.quest[(int)Quest.MainQuest_1] == 1)
+            if (gameMgr.playData.quest[(int)Quest.Event_0_Quest] == 1)
+            {
+                //Event 0 진행중
+                string str = LanguageMgr.GetText("EVENT0_WARNING_2");
+                warningText.SetText(str);
+            }
+            else if (gameMgr.playData.quest[(int)Quest.MainQuest_1] == 1)
             {
                 //메인퀘스트1 진행중
                 if (QuestMgr.MAIN_QUEST_1_LIMIT_DAY - gameMgr.playData.day <= 0)
@@ -43,7 +54,7 @@ public class Town : Mgr
                     string str = LanguageMgr.GetText("QUEST_WARNING");
                     warningText.SetText(str);
                 }
-                else if (QuestMgr.MAIN_QUEST_1_LIMIT_DAY - gameMgr.playData.day <= 2)
+                else if (QuestMgr.MAIN_QUEST_1_LIMIT_DAY - gameMgr.playData.day == 1)
                 {
                     //퀘스트 이틀안에 완료 해야함
                     string str = LanguageMgr.GetText("QUEST_WARNING_MSG");

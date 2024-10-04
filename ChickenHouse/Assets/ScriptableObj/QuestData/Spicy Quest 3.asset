@@ -17,4 +17,4 @@ MonoBehaviour:
   questInfoKey: SPICY_QUEST_INFO_3
   questSummaryKey: SPICY_QUEST_SUMMARY_3
   nextQuest: 1003
-  rewards: cb000000
+  rewards: 00000000

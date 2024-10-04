@@ -36,8 +36,8 @@ public class KitchenBell : Mgr
 
         void GiveChicken(bool useWorker)
         {
-            Drink drink = tableDrinkSlot.hasDrink ? Drink.Cola : Drink.None;
-            SideMenu sideMenu = tablePickleSlot.hasPickle ? SideMenu.Pickle : SideMenu.None;
+            Drink drink = tableDrinkSlot.drink;
+            SideMenu sideMenu = tablePickleSlot.pickle;
             ChickenSpicy spicy0 = (ChickenSpicy)Mathf.Min((int)tableChicken.source0, (int)tableChicken.source1);
             ChickenSpicy spicy1 = (ChickenSpicy)Mathf.Max((int)tableChicken.source0, (int)tableChicken.source1);
 

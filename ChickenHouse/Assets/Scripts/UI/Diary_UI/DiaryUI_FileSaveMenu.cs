@@ -63,7 +63,16 @@ public class DiaryUI_FileSaveMenu : Mgr
         gameMgr.selectSaveSlot = slotNum;
         gameMgr.LoadData();
 
-        sceneMgr.SceneLoad(Scene.TOWN,false, false, SceneChangeAni.FADE);
+        if (gameMgr.playData.day == 1)
+        {
+            //1일차는 프롤로그부터 시작
+            sceneMgr.SceneLoad(Scene.PROLOGUE, false, false, SceneChangeAni.FADE);
+        }
+        else
+        {
+            //나머지 경우는 타운에서 시작
+            sceneMgr.SceneLoad(Scene.TOWN, false, false, SceneChangeAni.FADE);
+        }
     }
 
     public void SaveCheckYes()

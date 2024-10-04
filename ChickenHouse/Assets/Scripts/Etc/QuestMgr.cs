@@ -6,8 +6,10 @@ public class QuestMgr : AwakeSingleton<QuestMgr>
 {
     [SerializeField] private Dictionary<Quest, QuestData> questData = new Dictionary<Quest, QuestData>();
 
-    public static int TARGET_MONEY_1 = 100000;
+    public static int TARGET_MONEY_1 = 50000;
     public static int MAIN_QUEST_1_LIMIT_DAY = 7;
+    public static int EVENT0_CNT = 10;
+    public static int EVENT0_DAY = 4;
     public static int SPICY_QUEST_1_CNT = 5;
     public static int SPICY_QUEST_2_CNT = 5;
     public static int SPICY_QUEST_3_CNT = 5;
@@ -49,6 +51,8 @@ public class QuestMgr : AwakeSingleton<QuestMgr>
         {
             case Quest.MainQuest_1:
                 return playData.money >= TARGET_MONEY_1;
+            case Quest.Event_0_Quest:
+                return playData.questCnt[(int)pQuest] >= EVENT0_CNT;
             case Quest.SpicyQuest_1:
                 return playData.questCnt[(int)pQuest] >= SPICY_QUEST_1_CNT;
             case Quest.SpicyQuest_2:

@@ -78,7 +78,14 @@ public class Worker_OilZone : Mgr
         Oil_Zone canUseOilZone = CanOilZone();
         Transform oilZoneTrans = CanOilZoneTrans();
 
-        if (leftHand.handState == WorkerHandState.StrainterFlour && canUseOilZone != null)
+        if (KitchenMgr.Instance == null || (KitchenMgr.Instance != null && KitchenMgr.Instance.runWorker == false))
+        {
+            MoveHand(0, leftHand, leftWaitTrans, handDelay, () =>
+            {
+                LeftHandAct();
+            });
+        }
+        else if (leftHand.handState == WorkerHandState.StrainterFlour && canUseOilZone != null)
         {
             MoveHand(0, leftHand, oilZoneTrans, handDelay, () =>
             {
@@ -161,7 +168,14 @@ public class Worker_OilZone : Mgr
         Oil_Zone    completeOilZone         = CompleteOilZone();
         Transform   completeOilZoneTrans    = CompleteOilZoneTrans();
 
-        if (rightHand.handState == WorkerHandState.StrainterFry && chickenPackList.CanAddChickenPack())
+        if (KitchenMgr.Instance == null || (KitchenMgr.Instance != null && KitchenMgr.Instance.runWorker == false))
+        {
+            MoveHand(1, rightHand, rightWaitTrans, handDelay, () =>
+            {
+                RightHandAct();
+            });
+        }
+        else if (rightHand.handState == WorkerHandState.StrainterFry && chickenPackList.CanAddChickenPack())
         {
             MoveHand(1, rightHand, chickenPackTrans, handDelay, () =>
             {

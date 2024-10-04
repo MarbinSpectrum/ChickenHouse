@@ -90,10 +90,10 @@ public class SceneMgr : AwakeSingleton<SceneMgr>
             }
         }
 
+        saveDataFlag = false;
         if (dayEnd)
         {
             dayEndCheckFlag = false;
-            saveDataFlag = false;
 
             saveCheckUI.gameObject.SetActive(true);
 
@@ -136,6 +136,7 @@ public class SceneMgr : AwakeSingleton<SceneMgr>
             gameMgr.selectSaveSlot = slotNum;
             dayEndCheckFlag = true;
             saveDataFlag = true;
+            gameMgr.CloseRecordUI();
         });
     }
 

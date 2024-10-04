@@ -25,7 +25,7 @@ public class DiaryUI_BookSeasoningInfo : Mgr
         LanguageMgr.SetString(itemName, spicyData.nameKey);
         LanguageMgr.SetString(itemExplain, spicyData.bookInfoKey);
         string moneyStr = string.Format(MONEY_FORMAT, spicyData.price);
-        LanguageMgr.SetString(itemMoney, moneyStr);
+        itemMoney.text = moneyStr;
     }
 
 }

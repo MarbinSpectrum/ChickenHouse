@@ -8,8 +8,19 @@ public class SoundMgr : AwakeSingleton<SoundMgr>
     [SerializeField] private AudioSource bgm;
     [SerializeField] private AudioSource se;
 
+    public struct SE_List
+    {
+        public Sound sound;
+        public float seValue;
+        public SE_List(Sound pSound,float pSeValue)
+        {
+            sound = pSound;
+            seValue = pSeValue;
+        }
+    }
+
     private Dictionary<Sound, AudioSource> loopSE = new Dictionary<Sound, AudioSource>();
-    private List<Sound> seList = new List<Sound>();
+    private List<SE_List> seList = new List<SE_List>();
 
     public float bgmValue   { get; private set; }
     public float seValue    { get; private set; }
@@ -29,12 +40,12 @@ public class SoundMgr : AwakeSingleton<SoundMgr>
     private void Update()
     {
         //한 프레임에 정해진 사운드만 실행
-        foreach(Sound sound in seList)
+        foreach(SE_List list in seList)
         {
-            if(sounds.ContainsKey(sound))
+            if(sounds.ContainsKey(list.sound))
             {
-                AudioClip clip = sounds[sound];
-                se.volume = seValue;
+                AudioClip clip = sounds[list.sound];
+                se.volume = list.seValue;
                 se.PlayOneShot(clip);
             }
         }
@@ -58,7 +69,13 @@ public class SoundMgr : AwakeSingleton<SoundMgr>
     public void PlaySE(Sound sound)
     {
         //sound에 해당하는 사운드를 효과음 리스트에 등록
-        seList.Add(sound);
+        seList.Add(new SE_List(sound,seValue));
+    }
+
+    public void PlaySE(Sound sound,float v)
+    {
+        //sound에 해당하는 사운드를 효과음 리스트에 등록
+        seList.Add(new SE_List(sound, v));
     }
 
     public void PlayLoopSE(Sound sound)

@@ -11,6 +11,7 @@ public class UtensilShop_UI : Mgr
     [SerializeField] private UtensilPurchaseCheck   purchaseCheck;
     [SerializeField] private Tab                    tabInfo;
     [SerializeField] private TextMeshProUGUI        playerMoney;
+    [SerializeField]private ChefPauxsCookingUtensils chefPauxsCookingUtensils;
 
     private struct Tab
     {
@@ -23,7 +24,6 @@ public class UtensilShop_UI : Mgr
     }
 
     private UtensilShopMenu nowMenu;
-    private List<ShopItem>  itemList = new List<ShopItem>();
     private List<UtensilShopMenuSlot> shopMenus = new List<UtensilShopMenuSlot>();
 
     private const string MONEY_FORMAT = "{0:N0}<size=15>$</size>";
@@ -65,36 +65,10 @@ public class UtensilShop_UI : Mgr
             }
         }
 
-        void AddItemList(ShopItem pItem)
-        {
-            PlayData playData = gameMgr.playData;
-            if (playData.hasItem[(int)pItem])
-                return;
-            itemList.Add(pItem);
-        }
-
-        itemList.Clear();
-        switch (pMenu)
-        {
-            case UtensilShopMenu.Fryer_Buy:
-                {
-                    AddItemList(ShopItem.OIL_Zone_1);
-                    AddItemList(ShopItem.OIL_Zone_2);
-                    AddItemList(ShopItem.OIL_Zone_3);
-                    AddItemList(ShopItem.OIL_Zone_4);
-                }
-                break;
-            case UtensilShopMenu.Fryer_Add:
-                {
-                    AddItemList(ShopItem.NEW_OIL_ZONE_1);
-                    AddItemList(ShopItem.NEW_OIL_ZONE_2);
-                    AddItemList(ShopItem.NEW_OIL_ZONE_3);
-                }
-                break;  
-        }
+        chefPauxsCookingUtensils.UpdateList(pMenu);
 
         shopMenus.ForEach((x) => x.gameObject.SetActive(false));
-        for (int i = 0; i < itemList.Count; i++)
+        for (int i = 0; i < chefPauxsCookingUtensils.itemList.Count; i++)
         {
             if(i >= shopMenus.Count)
             {
@@ -102,7 +76,7 @@ public class UtensilShop_UI : Mgr
                 shopMenus.Add(slotMenu);
             }
 
-            shopMenus[i].SetData(itemList[i], (item) => ItemBuyCheckUI((ShopItem)item));
+            shopMenus[i].SetData(chefPauxsCookingUtensils.itemList[i], (item) => ItemBuyCheckUI((ShopItem)item));
             shopMenus[i].gameObject.SetActive(true);
         }
     }

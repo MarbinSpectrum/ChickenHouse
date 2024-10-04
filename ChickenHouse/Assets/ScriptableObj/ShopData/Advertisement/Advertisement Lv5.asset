@@ -15,4 +15,4 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: bd2d8c7b16079984b983fc2fb4d0c138, type: 3}
   nameKey: ADVERTISEMENT_LV5_NAME
   infoKey: ADVERTISEMENT_LV5_INFO
-  money: 16000
+  money: 40000

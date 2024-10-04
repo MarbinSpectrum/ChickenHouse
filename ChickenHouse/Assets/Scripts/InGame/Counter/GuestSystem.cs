@@ -31,6 +31,8 @@ public class GuestSystem : Mgr
         public Timer_UI     timer;
         /** 날짜 종료 **/
         public DayEnd_UI    dayEnd;
+        /** 이벤트0 UI **/
+        public Event0_UI    event0_UI;
     }
     public UI ui;
 
@@ -97,7 +99,6 @@ public class GuestSystem : Mgr
         StartCoroutine(RunGuestCycle());
         StartCoroutine(EndCheck());
 
-        ui.timer.RunTimer();
         //ui.goKitchen.OpenBtn();
     }
 
@@ -162,7 +163,12 @@ public class GuestSystem : Mgr
 
             }
 
-            if (ui.timer.IsEndTime())
+            if (gameMgr.playData.quest[(int)Quest.Event_0_Quest] == 1 && ui.event0_UI.battleResult != Event_0_Battle_Result.None)
+            {
+                //배틀종료
+                break;
+            }
+            else if (ui.timer.IsEndTime())
             {
                 //종료시간이라면 탈출
                 break;
@@ -173,14 +179,24 @@ public class GuestSystem : Mgr
 
     public IEnumerator EndCheck()
     {
-        //영업종료시간까지 대기
-        yield return new WaitUntil(() => ui.timer.IsEndTime());
+        if (gameMgr.playData.quest[(int)Quest.Event_0_Quest] == 1)
+        {
+            yield return new WaitUntil(() => ui.event0_UI.battleResult != Event_0_Battle_Result.None);
 
-        //손님이 0명일때까지 대기
-        yield return new WaitUntil(() => (guestcnt == 0));
+            //종료
+            ui.dayEnd.ShowResult();
+        }
+        else
+        {
+            //영업종료시간까지 대기
+            yield return new WaitUntil(() => ui.timer.IsEndTime());
 
-        //종료
-        ui.dayEnd.ShowResult();
+            //손님이 0명일때까지 대기
+            yield return new WaitUntil(() => (guestcnt == 0));
+
+            //종료
+            ui.dayEnd.ShowResult();
+        }
     }
 
 
@@ -432,6 +448,9 @@ public class GuestSystem : Mgr
                             kitchenMgr.RunWorkerTalkBox(WorkerCounterTalkBox.Good);
                         else
                             guestObj.HappyGuest(() => NextOrder());
+
+                        if (gameMgr.playData.quest[(int)Quest.Event_0_Quest] == 1)
+                            ui.event0_UI.AddPlayerCnt();
                     }
                     break;
             }

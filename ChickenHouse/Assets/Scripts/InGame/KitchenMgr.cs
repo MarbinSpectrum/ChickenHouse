@@ -61,6 +61,8 @@ public class KitchenMgr : Mgr
     [SerializeField] private List<Oil_Zone>         oilMachines         = new List<Oil_Zone>();
     [SerializeField] private List<GameObject>       chickenPackslots    = new List<GameObject>();
 
+    public bool runWorker { get; private set; }
+
     [System.Serializable]
     public struct UI
     {
@@ -206,6 +208,11 @@ public class KitchenMgr : Mgr
     {
         workerKitchen.WorkerAct();
         workerOilZone.WorkerAct();
+    }
+
+    public void RunWorker(bool state)
+    {
+        runWorker = state;
     }
 
     private float KitchenWidth()

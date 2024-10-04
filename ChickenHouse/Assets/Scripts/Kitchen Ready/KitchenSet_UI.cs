@@ -206,7 +206,6 @@ public class KitchenSet_UI : Mgr
         if(gameMgr.playData.tutoComplete2 == false && tutoMgr.nowTuto == Tutorial.Worker_Tuto_1_1 && dropPos == KitchenSetWorkerPos.KitchenWorker0)
         {
             tutoObj.PlayTuto();
-            gameMgr.playData.tutoComplete2 = true;
         }
 
         dragWorker = EWorker.None;

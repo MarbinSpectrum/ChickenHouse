@@ -115,6 +115,17 @@ PICKLE_HEADER	피클	Pickle
 WINDIW_MODE	창모드	Window Mode
 ALCOHOLIC	주류	Alcoholic
 DRINKABLE	술을 마쉼	Drinkable
+WAKE_UP_MSG	안좋은 꿈을 꾸신거 같습니다. 아직 {0}일차입니다.\n열심히 일을 해서 빚을 갚도록합시다.	It seems like you had a bad dream.\nIt's only day {0}.\nLet's work hard and pay off that debt.
+REFUSAL	거절	Refusal
+ACCEPT	수락	Accept
+EVENT0_WARNING_1	패배시 치킨양념 한개를 잃습니다.	Upon defeat, lose one chicken seasoning.
+EVENT0_WARNING_2	오후에 상대 치킨집이랑 대결이 예정되어있습니다. 준비를 해주세요!	A match against the rival chicken restaurant is scheduled for the afternoon. Please get ready!
+STEAL_RECIPE	{0}을 뺏겻습니다!	I had {0} stolen!
+PIG_TALK_1	이거 이거 그런 서비스로 손님이 만족하겠나~ 쿠히힉!	Well, well, do you really think customers will be satisfied\nwith that kind of service? Oink!
+PIG_TALK_2	쿠힉힉힉 돼지 사료도 이것보단 고급스럽겠구먼~	Oink! Oink! Oink! Even pig feed would be\nmore high-end than this~
+PIG_TALK_3	아니 혹시 쿠힉! 그거 사장 얼굴을\n본떠 만든 치킨인가? 완전 개판이구먼!	Wait, is that chicken made to look like the boss's face?\nIt’s a complete mess!
+PIG_TALK_4	쿠히힉! 손이 그렇게 느려터져서야!\n영 못 쓰겠구먼! 컨트롤이 중요한데 말이야!	Oink! With hands that slow, you’re completely useless!\nControl is everything, you know!
+PIG_TALK_5	쿠히힉힉힉 눈은 뜨고 치킨을 만드는 건가?! 장님이 따로 없으시구먼!	Oink! Oink! Are you making chicken with your eyes open?!\nYou’re blind as a bat!
 COOK_LV_REWARD_1	Lv {0} 달성시 치킨 가격 +{1}$	Lv {0} reached: Increase chicken price +{1}$
 COOK_LV_REWARD_2	Lv {0} 달성시 치킨 원가 감소 {1}$	Lv {0} reached: Chicken cost cut {1}$
 COOK_LV_REWARD_3	Lv {0} 달성시 음료 원가 감소 {1}$	Lv {0} reached: Drink cost cut {1}$
@@ -163,12 +174,35 @@ TOWN_TUTO_10	현재 해야 할 일도 확인할 수 있습니다.	You can also s
 TOWN_TUTO_11	빨간 글씨로 표시된 항목은 기간 내에 반드시 완료해야 하는 일입니다.	Items marked in red are tasks that must be completed within the timeframe.
 TOWN_TUTO_12	해당 기간안에 꼭 해결해야합니다!	It must be resolved without fail within the given timeframe!
 TOWN_TUTO_13	주기적으로 확인하여 기한 내에 해결하도록 합시다.	Let's regularly check to ensure it's resolved within the deadline.
+EVENT_0_TUTO_1	대결의 규칙에 대해서 설명해드리겠습니다.	I will explain the rules of the duel.
+EVENT_0_TUTO_2	규칙은 간단합니다. 치킨 10마리를 먼저 파는 쪽이 승리합니다.	The rules are simple: the first side to sell 10 chickens wins.
+EVENT_0_TUTO_3	빨간색은 당신이 치킨을 판매한 갯수이고 파란색은 상대편이 판매한 갯수입니다.	The red represents the number of chickens you've sold,\nwhile the blue represents the number sold by your opponent.
+EVENT_0_TUTO_4	판매갯수는 고객의 주문에 만족한 치킨을 전달했을때만 카운트됩니다.	The sales count only includes chickens delivered\nthat satisfied the customers' orders.
+EVENT_0_TUTO_5	제한된 시간은 없고, 어느쪽이든 10마리를 팔았다면 경기는 종료됩니다.	There is no time limit; the match ends\nas soon as either side sells 10 chickens.
+EVENT_0_TUTO_6	건투를 빕니다!	Good luck!
 PROLOGUE_1	어 여기 있었군. 우리가 찾느라\n얼마나 힘들었는지 알아?	Oh, here it is. We're looking for it\nDo you know how hard it was?
 PROLOGUE_2	우리한테 빚을 져서 차린 게 고작 이런 치킨집이라니\n이걸로 우리한테 빚진 걸 갚을 수 있겠어?	I can't believe it's only a chicken restaurant\nlike this that you owe us.\nCan you pay back what you owe us with this?
-PROLOGUE_3	잘 들어 네가 우리한테 빚진 금액 ‘10만’ 달러!\n단 1달러도 봐줄 생각은 없으니\n각오하고 벌어들여야 할 거다!	Listen, you owe us $100,000!\nI won't let you off with a dollar,\nso you have to be prepared and earn it!
+PROLOGUE_3	잘 들어 네가 우리한테 빚진 금액 ‘5만’ 달러!\n단 1달러도 봐줄 생각은 없으니\n각오하고 벌어들여야 할 거다!	Listen, you owe us $50,000!\nI won't let you off with a dollar,\nso you have to be prepared and earn it!
 PROLOGUE_4	좋아 일단은 일주일의 시간을 주지\n그때 우리가 빌려준 금액을 반드시 갚아야 할 거다.	Alright, I'll give you a week. By then, you must repay the amount we lent you.
 PROLOGUE_5	만약 갚지 못하면 그때는 돈이 될 만한\n장기를 모조리 뽑아서\n빈 껍데기는 시멘트로 채워버릴 거다!	If you can't repay, we'll rip out every organ worth money and fill the empty shell with cement!
 PROLOGUE_6	좋아 잘 알아들은 거 같으니\n일주일후에 다시 오지, 그때 보자고? 사장님	Good, it seems like you understand well. We'll be back in a week, then. See you then, boss.
+BAD_END_1	하, 내가 친절하게 시간을 그렇게나\n주었는데 그정도 밖에 못 갚았어?	Oh, I gave you plenty of time\nto pay me back,and this is all you've got?
+BAD_END_2	나머지는 네놈 장기로 갚아야겠지?!	Guess you'll have to pay\nthe rest with your organs, huh?!
+EVENT0_1	쿠히힉! 쿠히힉! 어이 여기 사장님 계시는가?	Oink! Oink! Hey, is the boss here?
+EVENT0_2	이거 이거 반갑구먼~ 나 여기 건너편에\n새로 치킨집을 개업한사장이올시다!	Well, well, isn’t this a pleasure~\nI’m the owner of the new chicken restaurant\nacross the street!
+EVENT0_3	쿠히힉! 근데 이거 치킨집 시설이\n완전 돼지우리 구만! 쿠힉!	Oink! But this chicken shop\nlooks just like a pigsty! Oink!
+EVENT0_4	보아하니 ‘빚’ 때문에 장사를 하고 있다던데\n그러니까 가게가 이 모양이지~	I heard you're only running\nthis place because of debt.\nNo wonder it looks like this~
+EVENT0_5	으잉? 어떻게 알았냐고? 쿠히히힉!\n여기 치킨집 사장이 사채 때문에 장사하고 있다는\n거지인 건 이미 다 소문이 났다고! 쿠힉힉힉!	Huh? How do I know? Snort snort!\nEveryone’s already talking about\nhow the owner here is running this place \nbecause of loan sharks! Oink! Oink!
+EVENT0_6	뭐 그쪽이랑 담소나 나누자 온 건 아니고 쿠힉!	Well, I didn’t come here just to chat with you, Oink!
+EVENT0_7	나나 그쪽이나 서로 같은 동네에\n같은 치킨집이 있는 건 영 불편하잖아?\n그러니까 나랑 내기해보는 게 어때?”	You know, having both our chicken shops\nin the same neighborhood \nis quite uncomfortable, right?\nSo how about we make a bet?
+EVENT0_8	같은 치킨집이라 할지라도 쿠힉!\n결국엔 더 맛있는 집에 오겠지?	Even if we're both chicken shops,\nOink! In the end, customers will choose\nthe tastier one, right?
+EVENT0_9	어때? 서로 치킨집의 레시피를 걸고!\n경쟁을 하는거야! 나는 우리 가문의 전해 내려오는\n특급요리비법을 걸어주지!	What do you think?\nLet’s compete with the recipes\nof our chicken shops on the line!\nI’ll put our family’s secret recipe on the table!
+EVENT0_10_0	쿠히힉! 좋아! 두말하기 없기다?!	Oink! Great! No more talking?!
+EVENT0_10_1	쿠힉힉힉 이거 사장이 찌질한 겁쟁이였구먼?!\n쿠힉힉힉힉힉!	Oink! So the boss is just a\npathetic coward, huh?! Oink!
+EVENT0_11_0	쿠히이이익! 이 이건 말도 안 돼! 이건 속임수야!	Ooink! This is ridiculous! This is cheating!
+EVENT0_11_1	내가 이딴 하수구 처리장 같은 치킨집의\n사장한테 지다니! 말도 안 된다고!	I can't believe I lost to the owner of this filthy chicken shop that looks like a sewer! This is nonsense!
+EVENT0_12_0	쿠힉힉힉힉! 이럴 줄 알았어! 역시 솜씨가 형편없구먼!	Oink oink oink! I knew it! Your skills are just pathetic!
+EVENT0_12_1	이런 식으로 장사를 하니 빚을 갚는 건\n완전 물 건너갔구먼~ 쿠힉힉힉힉!	With this kind of business, paying off your debts is completely out of the question! Oink oink oink!
 CHANGE_LANGUAGE	설정이 변경되었습니다.\n게임이 재시작됩니다.	The settings have been changed.\nThe game will resume.
 KOREAN	한국어	한국어
 ENGLISH	English	English
@@ -489,8 +523,8 @@ WORKER_SKILL_INFO_6	종종 치킨 한 조각을 빼 먹음	Occasionally sneaks a
 WORKER_SKILL_INFO_7	손님이 원하는 치킨을 알려줌	Let the customers know the menu they want.
 WORKER_SKILL_INFO_8	카운터에 배치시 2% 확률로 손님의 주문이 제대로 전달되지 않음	When assigned to the counter, there is a 2% chance that a customer's order may not be communicated correctly
 QUEST_NAME_1	빚 갚기	Pay off debt
-QUEST_INFO_1	너구리에게 빌린 돈 100,000$를 갚아야한다. \n기간은 7일준다고 했다.\n빨리 준비해야 될거같다.	I need to repay the $100,000\nI borrowed from the raccoon.\nHe gave me 7 days.\nI need to prepare quickly.
-QUEST_SUMMARY_1	※ 기간안에 100,000$를 갚자!!	※ Let's repay the $100,000 within the deadline!!
+QUEST_INFO_1	너구리에게 빌린 돈 50,000$를 갚아야한다. \n기간은 7일준다고 했다.\n빨리 준비해야 될거같다.	I need to repay the $50,000\nI borrowed from the raccoon.\nHe gave me 7 days.\nI need to prepare quickly.
+QUEST_SUMMARY_1	※ 기간안에 50,000$를 갚자!!	※ Let's repay the $50,000 within the deadline!!
 SPICY_QUEST_NAME_1	장사를 시작해보자.	Let's sell chicken
 SPICY_QUEST_INFO_1	우선 치킨 5마리를 팔아보자.	Let's sell five chickens first.
 SPICY_QUEST_SUMMARY_1	※ 치킨 5마리 팔기	※ Selling 5 chickens
@@ -515,6 +549,9 @@ DRINK_QUEST_SUMMARY_1	※ 콜라 20개 팔기	※ Selling 20 colas
 DRINK_QUEST_NAME_2	담백한 맥주	Plain beer
 DRINK_QUEST_INFO_2	맥주를 20개를 팔아보자.	Let's sell 20 beers.
 DRINK_QUEST_SUMMARY_2	※ 맥주 20개 팔기	※ Selling 20 beers
+EVENT_0_QUEST_NAME	레시피를 걸고 대결!	A duel for the recipe!
+EVENT_0_QUEST_INFO	건너편 가게가 치킨 레시피를 걸고\n대결을 걸어왔다.\n본때를 보여줘야 된다!	The shop across the street has challenged us to a duel with chicken recipes on the line.\nWe need to show them what we're made of!
+EVENT_0_QUEST_SUMMARY	※ 대결에서 승리하자.	※ Let's win the duel.
 QUEST_DETAIL_1	남은 기간 : {0}일	Remaining days : {0}
 QUEST_DETAIL_2	치킨 {0}/{1}	Chicken {0}/{1}
 QUEST_DETAIL_3	콜라 {0}/{1}	Cola {0}/{1}

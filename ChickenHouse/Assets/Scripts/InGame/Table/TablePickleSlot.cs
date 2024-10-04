@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class TablePickleSlot : Mgr
 {
     /** 피클이 올려졌는지 여부 **/
-    public bool hasPickle { get; private set; }
+    public SideMenu pickle { get; private set; }
 
     [SerializeField] private TableDrinkSlot drinkSlot;
     [SerializeField] private Image          pickleImg;
@@ -20,7 +20,7 @@ public class TablePickleSlot : Mgr
         kitchenMgr.mouseArea = DragArea.SideMenu_Slot;
         kitchenMgr.pickleSlot = this;
 
-        if (hasPickle)
+        if (pickle != SideMenu.None)
         {
             //음료가 이미 놓여있음
             return;
@@ -42,7 +42,7 @@ public class TablePickleSlot : Mgr
         kitchenMgr.mouseArea = DragArea.None;
         kitchenMgr.pickleSlot = null;
 
-        if (hasPickle)
+        if (pickle != SideMenu.None)
         {
             //음료가 이미 놓여있음
             return;
@@ -60,20 +60,20 @@ public class TablePickleSlot : Mgr
         }
 
         //올려져있는 피클을 제거할때 사용
-        if (hasPickle == false)
+        if (pickle == SideMenu.None)
             return;
 
         pickleImg.color = new Color(0, 0, 0, 0);
         slotUI.gameObject.SetActive(true);
 
-        hasPickle = false;
+        pickle = SideMenu.None;
 
         scrollObj.isRun = true;
     }
 
-    public bool Put_Pickle()
+    public bool Put_Pickle(SideMenu eSideMenu)
     {
-        if (hasPickle)
+        if (pickle != SideMenu.None)
         {
             //이미 치킨무가 놓임
             return false;
@@ -81,7 +81,7 @@ public class TablePickleSlot : Mgr
 
         soundMgr.PlaySE(Sound.Put_SE);
 
-        if (gameMgr.playData.tutoComplete1 == false && tutoMgr.nowTuto == Tutorial.Tuto_10 && drinkSlot.hasDrink)
+        if (gameMgr.playData.tutoComplete1 == false && tutoMgr.nowTuto == Tutorial.Tuto_10 && drinkSlot.drink != Drink.None)
         {
             tutoObj.PlayTuto();
 
@@ -92,7 +92,7 @@ public class TablePickleSlot : Mgr
         pickleImg.color = new Color(1, 1, 1, 1);
         slotUI.gameObject.SetActive(false);
 
-        hasPickle = true;
+        pickle = eSideMenu;
 
         scrollObj.isRun = false;
 
@@ -104,7 +104,7 @@ public class TablePickleSlot : Mgr
         pickleImg.color = new Color(0, 0, 0, 0);
         slotUI.gameObject.SetActive(true);
 
-        hasPickle = false;
+        pickle = SideMenu.None;
 
         scrollObj.isRun = true;
     }

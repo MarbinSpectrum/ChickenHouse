@@ -16,13 +16,20 @@ public class LongNose : Mgr
     [SerializeField] private Oner oner;
     [SerializeField] private Animation showMenu;
     [SerializeField] private RectTransform header;
+    [SerializeField] private RectTransform adUIBtn;
     [SerializeField] private LongNoseContractAD_UI longNoseContractUI;
+    public List<ShopItem> itemList { get; private set; } = new List<ShopItem>();
 
     public void SetInit()
     {
         oner.talkBox.CloseTalkBox();
         showMenu.gameObject.SetActive(false);
         header.gameObject.SetActive(false);
+
+        UpdateList();
+
+        //메뉴 활성화 여부
+        adUIBtn.gameObject.SetActive(itemList.Count != 0);
 
         IEnumerator Run()
         {
@@ -51,6 +58,24 @@ public class LongNose : Mgr
         StartCoroutine(Run());
     }
 
+    public void UpdateList()
+    {
+        void AddItemList(ShopItem pItem)
+        {
+            PlayData playData = gameMgr.playData;
+            if (playData.hasItem[(int)pItem])
+                return;
+            itemList.Add(pItem);
+        }
+
+        itemList.Clear();
+        AddItemList(ShopItem.Advertisement_1);
+        AddItemList(ShopItem.Advertisement_2);
+        AddItemList(ShopItem.Advertisement_3);
+        AddItemList(ShopItem.Advertisement_4);
+        AddItemList(ShopItem.Advertisement_5);
+    }
+
     private string GetNPC_Talk_Text()
     {
         int r = Random.Range(0, 4);
@@ -74,6 +99,8 @@ public class LongNose : Mgr
         soundMgr.StopLoopSE(Sound.Voice27_SE);
         soundMgr.PlaySE(Sound.Btn_SE);
         oner.talkBox.CloseTalkBox();
+
+        UpdateList();
         longNoseContractUI.SetUI();
         longNoseContractUI.gameObject.SetActive(true);
     }

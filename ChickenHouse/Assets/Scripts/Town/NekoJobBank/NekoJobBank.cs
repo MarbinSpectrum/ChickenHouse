@@ -29,6 +29,7 @@ public class NekoJobBank : Mgr
     }
     [SerializeField] private Resume resume;
     [SerializeField] private WorkerContractCheck employMsgBox;
+    [SerializeField] private Money_UI moneyUI;
 
     private List<EWorker> workerList = new List<EWorker>();
     private int resumeSelectIdx = 0;
@@ -161,6 +162,8 @@ public class NekoJobBank : Mgr
         resume.rightArrow.gameObject.SetActive(false);
         resume.employMenu.gameObject.SetActive(false);
         actResumeUI = false;
+        moneyUI.SetMoney(gameMgr.playData.money);
+
         resume.resumeUI.SetData(workerData,()=>
         {
             resume.leftArrow.gameObject.SetActive(leftArrowAct);
@@ -198,7 +201,7 @@ public class NekoJobBank : Mgr
             PlayData playData = gameMgr.playData;
             playData.hasWorker[(int)worker] = true;
             playData.money -= newDeposit;
-
+            moneyUI.SetMoney(playData.money);
             resume.stampAni.gameObject.SetActive(true);
         });
     }

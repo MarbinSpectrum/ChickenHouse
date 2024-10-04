@@ -184,6 +184,9 @@ public enum Sound
     Shop_BG     = 102,
     Prologue_BG = 103,
     Town_BG     = 104,
+    Morning_BG  = 105,
+    Ready_BG    = 106,
+    Event_0_BG  = 107,
 
     //-------------------------------------------------------------------------------
     /** 기름 튀기는 소리 **/
@@ -269,6 +272,13 @@ public enum Sound
 
     //코끼리
     Voice27_SE = 277,
+
+    //돼지
+    Voice28_SE = 278,
+
+    /** 목소리 목록 **/
+    //너구리 웃는소리
+    Laugh0_SE = 400,
 }
 
 public enum TalkBoxType
@@ -488,6 +498,15 @@ public enum Tutorial
     Town_Tuto_11,
     Town_Tuto_12,
     Town_Tuto_13,
+
+    ////////////////////////////////////////////////////////////////////////
+    /** 치킨 레시피 대결 **/
+    Event_0_Tuto_1,
+    Event_0_Tuto_2,
+    Event_0_Tuto_3,
+    Event_0_Tuto_4,
+    Event_0_Tuto_5,
+    Event_0_Tuto_6,
 }
 
 public enum Scene
@@ -509,6 +528,12 @@ public enum Scene
 
     /** 마을 **/
     TOWN    = 5,
+
+    /** 이벤트 0 **/
+    EVENT_0 = 6,
+
+    /** 배드 엔드 **/
+    BAD_END = 7,
 
     /** 데모 **/
     DEMO,
@@ -555,12 +580,21 @@ public enum BookMenu
     Etc,
 }
 
+public enum Event_0_Battle_Result
+{
+    None,
+    Draw,
+    Win,
+    Lose,
+}
+
 public enum Quest
 {
     /** 퀘스트 메인 **/
     None              = -1,
     MainQuest_1       = 0,        //빚갚기 메인 퀘스트
 
+    Event_0_Quest      = 100,      //치킨집 배틀
 
     SpicyQuest_1      = 1000,     //치킨 5마리 팔기                (간장치킨 오픈)
     SpicyQuest_2      = 1001,     //간장치킨 5마리 팔기            (닭치킨 오픈)

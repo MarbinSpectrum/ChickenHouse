@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class KitchenReady : Mgr
 {
     [SerializeField] private RectTransform dontClick;
     [SerializeField] private RectTransform menuRect;
     [SerializeField] private RectTransform[] menuPos;
-
+    [SerializeField] private Image      nextBtn0;
+    [SerializeField] private Image      nextBtn1;
+    [SerializeField] private Image      backBtn0;
     [SerializeField] private StartGame startGame;
 
     [SerializeField] private KitchenSet_UI      kitchenSetUI;
@@ -52,16 +55,23 @@ public class KitchenReady : Mgr
         if (hasWorker)
         {
             menuRect.transform.position = menuPos[(int)EUIPos.KitchenSet].transform.position;
-            soundMgr.PlayBGM(Sound.Shop_BG);
+            soundMgr.PlayBGM(Sound.Ready_BG);
             if (gameMgr.playData.tutoComplete2 == false)
+            {
                 workerTuto.PlayTuto();
+                nextBtn0.raycastTarget = false;
+            }
         }
-        else if (hasSpicyCnt >= 2)
+        else if ((hasSpicyCnt >= 2 && gameMgr.playData.tutoComplete3 == false) || gameMgr.playData.tutoComplete3)
         {
             menuRect.transform.position = menuPos[(int)EUIPos.MenuSet].transform.position;
-            soundMgr.PlayBGM(Sound.Shop_BG);
+            soundMgr.PlayBGM(Sound.Ready_BG);
             if (gameMgr.playData.tutoComplete3 == false)
+            {
                 menuTuto.PlayTuto();
+                nextBtn1.raycastTarget = false;
+                backBtn0.raycastTarget = false;
+            }
         }
         else
         {
@@ -93,7 +103,7 @@ public class KitchenReady : Mgr
             //직원을 모두 배치 못한듯?
             kitchenSetCheck.SetUI(() =>
             {
-                if (hasSpicyCnt >= 2)
+                if ((hasSpicyCnt >= 2 && gameMgr.playData.tutoComplete3 == false) || gameMgr.playData.tutoComplete3)
                     MoveDic(EUIPos.MenuSet);
                 else
                     StartGame();
@@ -102,8 +112,7 @@ public class KitchenReady : Mgr
         else
         {
             //양념이 두개 이상 보유 중일때부터 메뉴화면이 나옴
-
-            if (hasSpicyCnt >= 2)
+            if ((hasSpicyCnt >= 2 && gameMgr.playData.tutoComplete3 == false) || gameMgr.playData.tutoComplete3)
                 MoveDic(EUIPos.MenuSet);
             else
                 StartGame();
@@ -136,18 +145,36 @@ public class KitchenReady : Mgr
             if(gameMgr.playData.tutoComplete2 == false && eUIPos == EUIPos.KitchenSet)
             {
                 workerTuto.PlayTuto();
+                nextBtn0.raycastTarget = false;
             }
             else if (gameMgr.playData.tutoComplete3 == false && eUIPos == EUIPos.MenuSet)
             {
                 menuTuto.PlayTuto();
+                nextBtn1.raycastTarget = false;
+                backBtn0.raycastTarget = false;
             }
         }
         StartCoroutine(Run());
     }
+
+    public void EndTuto1()
+    {
+        //인스펙터 끌어쓰는 함수
+        nextBtn0.raycastTarget = true;
+        gameMgr.playData.tutoComplete2 = true;
+    }
+
+    public void EndTuto2()
+    {
+        //인스펙터 끌어쓰는 함수
+        nextBtn1.raycastTarget = true;
+        backBtn0.raycastTarget = true;
+        gameMgr.playData.tutoComplete3 = true;
+    }
+
+
     public void StartGame()
     {
-        if (gameMgr.playData.tutoComplete3 == false)
-            return;
 
         if (menuSetUI.GetUseSpicyCnt() <= 0)
         {

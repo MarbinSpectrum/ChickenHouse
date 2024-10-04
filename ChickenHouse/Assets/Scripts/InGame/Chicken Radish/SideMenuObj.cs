@@ -59,7 +59,7 @@ public class SideMenuObj : Mgr
         if (kitchenMgr.mouseArea == DragArea.SideMenu_Slot)
         {
             //치킨 무를 올려놓는다.
-            if (kitchenMgr.pickleSlot.Put_Pickle())
+            if (kitchenMgr.pickleSlot.Put_Pickle(eSideMenu))
             {
                 return;
             }

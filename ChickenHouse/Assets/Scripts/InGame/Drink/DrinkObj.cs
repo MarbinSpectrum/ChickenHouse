@@ -62,7 +62,7 @@ public class DrinkObj : Mgr
         if (kitchenMgr.mouseArea == DragArea.SideMenu_Slot)
         {
             //음료를 올려놓는다.
-            if (kitchenMgr.drinkSlot.Put_Drink())
+            if (kitchenMgr.drinkSlot.Put_Drink(eDrink))
             {
                 return;
             }

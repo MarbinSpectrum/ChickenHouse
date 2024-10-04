@@ -82,7 +82,14 @@ public class Worker_Kitchen : Mgr
         //왼손에 치킨을들고있으면 계란물있는데로 이동해서 치킨을 놓도록하자(치킨이 들고있는데 계란물존이 깍차있는 경우는 없도록하자)
         //왼손이 빈손이고 계란물통에 치킨이 없으면 치킨박스로 이동해서 치킨을 집는다.(도중에 꽉차게되면 해당 작업이 취소됨)
 
-        if (leftHand.handState == WorkerHandState.EggChicken && trayFlour.IsMax() == false)
+        if (KitchenMgr.Instance == null || (KitchenMgr.Instance != null && KitchenMgr.Instance.runWorker == false))
+        {
+            MoveHand(0, leftHandArea, leftHand, DragArea.None, handDelay, () =>
+            {
+                LeftHandAct();
+            });
+        }
+        else if (leftHand.handState == WorkerHandState.EggChicken && trayFlour.IsMax() == false)
         {
             MoveHand(0, leftHandArea, leftHand, DragArea.Tray_Flour2, handDelay, () =>
             {
@@ -239,7 +246,14 @@ public class Worker_Kitchen : Mgr
         //5. "밀가루 묻히기" 모드는 밀가루존에 밀가루를 덜 묻힌 치킨 조각이있으면 밀가루존에 밀가루 작업을 진행함
         //6. "밀가루 묻히기" 모드에서 밀가루존에 치킨이 가득차 밀가루를 다 묻힌 치킨만 존재하게 되면 "치킨건지로 옮기기"모드로 전환됨
 
-        if (rightHand.handState == WorkerHandState.FlourChicken && chickenStrainter.IsMax() == false)
+        if (KitchenMgr.Instance == null || (KitchenMgr.Instance != null && KitchenMgr.Instance.runWorker == false))
+        {
+            MoveHand(1, rightHandArea, rightHand, DragArea.None, handDelay, () =>
+            {
+                RightHandAct();
+            });
+        }
+        else if (rightHand.handState == WorkerHandState.FlourChicken && chickenStrainter.IsMax() == false)
         {
             MoveHand(1, rightHandArea, rightHand, DragArea.Chicken_Strainter, handDelay, () =>
             {

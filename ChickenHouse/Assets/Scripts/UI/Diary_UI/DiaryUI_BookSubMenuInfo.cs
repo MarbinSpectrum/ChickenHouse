@@ -37,12 +37,12 @@ public class DiaryUI_BookSubMenuInfo : Mgr
             alcoholic.gameObject.SetActive(false);
 
         string moneyStr = string.Format(MONEY_FORMAT, drinkData.price);
-        LanguageMgr.SetString(itemMoney, moneyStr);
+        itemMoney.text = moneyStr;
         if (drinkData.cost > 0)
         {
             itemCost.gameObject.SetActive(true);
             string costStr = string.Format(COST_MONEY_FORMAT, drinkData.cost);
-            LanguageMgr.SetString(itemCost, costStr);
+            itemCost.text = costStr;
         }
         else
         {
@@ -67,13 +67,13 @@ public class DiaryUI_BookSubMenuInfo : Mgr
         alcoholic.gameObject.SetActive(false);
 
         string moneyStr = string.Format(MONEY_FORMAT, sideMenuData.price);
-        LanguageMgr.SetString(itemMoney, moneyStr);
+        itemMoney.text = moneyStr;
 
         if (sideMenuData.cost > 0)
         {
             itemCost.gameObject.SetActive(true);
             string costStr = string.Format(COST_MONEY_FORMAT, sideMenuData.cost);
-            LanguageMgr.SetString(itemCost, costStr);
+            itemCost.text = costStr;
         }
         else
         {

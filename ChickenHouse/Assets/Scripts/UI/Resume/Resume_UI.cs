@@ -19,6 +19,7 @@ public class Resume_UI : Mgr
     public void SetData(WorkerData pResumeData, NoParaDel pFun = null)
     {
         aniEndFun = pFun;
+        
         animator.Rebind();
 
         //증명사진

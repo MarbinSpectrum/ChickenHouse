@@ -52,7 +52,7 @@ public class PlayData
     /** 퀘스트 진행정도 **/
     public int[] questCnt   = new int[(int)Quest.MAX];
     
-    public const int DEFAULT_CHICKEN_PRICE = 600;
+    public const int DEFAULT_CHICKEN_PRICE = 1000;
     public const int CHICKEN_RES_VAIUE = 100;
     public const int DEFAULT_RENT_PRICE = 1000;
     public const int TUP_RATE_VALUE = 50;

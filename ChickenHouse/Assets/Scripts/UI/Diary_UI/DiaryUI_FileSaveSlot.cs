@@ -63,6 +63,12 @@ public class DiaryUI_FileSaveSlot : Mgr
 
             //진행중인 퀘스트 등록
             Quest q = (Quest)i;
+
+            if(QuestMgr.IsMainQuest(q) == false)
+            {
+                continue;
+            }
+
             QuestData questData = questMgr.GetQuestData(q);
             LanguageMgr.SetString(questName, questData.questNameKey);
             break;

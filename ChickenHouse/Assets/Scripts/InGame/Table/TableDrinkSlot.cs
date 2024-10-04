@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class TableDrinkSlot : Mgr
 {
     /** 음료가 올려졌는지 여부 **/
-    public bool hasDrink { get; private set; }
+    public Drink drink { get; private set; }
 
     [SerializeField] private TablePickleSlot    pickleSlot;
     [SerializeField] private Image              drinkImg;
@@ -20,7 +20,7 @@ public class TableDrinkSlot : Mgr
         kitchenMgr.mouseArea = DragArea.SideMenu_Slot;
         kitchenMgr.drinkSlot = this;
 
-        if (hasDrink)
+        if (drink != Drink.None)
         {
             //음료가 이미 놓여있음
             return;
@@ -51,7 +51,7 @@ public class TableDrinkSlot : Mgr
         kitchenMgr.mouseArea = DragArea.None;
         kitchenMgr.drinkSlot = null;
 
-        if (hasDrink)
+        if (drink != Drink.None)
         {
             //음료가 이미 놓여있음
             return;
@@ -69,20 +69,20 @@ public class TableDrinkSlot : Mgr
         }
 
         //올려져있는 음료를 제거할때 사용
-        if (hasDrink == false)
+        if (drink == Drink.None)
             return;
 
         drinkImg.color = new Color(0, 0, 0, 0);
         slotUI.gameObject.SetActive(true);
 
-        hasDrink = false;
+        drink = Drink.None;
 
         scrollObj.isRun = true;
     }
 
-    public bool Put_Drink()
+    public bool Put_Drink(Drink eDrink)
     {
-        if (hasDrink)
+        if (drink != Drink.None)
         {
             //이미 음료가 놓임
             return false;
@@ -90,7 +90,7 @@ public class TableDrinkSlot : Mgr
 
         soundMgr.PlaySE(Sound.Put_SE);
 
-        if (gameMgr.playData.tutoComplete1 == false && tutoMgr.nowTuto == Tutorial.Tuto_10 && pickleSlot.hasPickle)
+        if (gameMgr.playData.tutoComplete1 == false && tutoMgr.nowTuto == Tutorial.Tuto_10 && pickleSlot.pickle != SideMenu.None)
         {
             tutoObj.PlayTuto();
 
@@ -101,7 +101,7 @@ public class TableDrinkSlot : Mgr
         drinkImg.color = new Color(1, 1, 1, 1);
         slotUI.gameObject.SetActive(false);
 
-        hasDrink = true;
+        drink = eDrink;
 
         scrollObj.isRun = false;
 
@@ -113,7 +113,7 @@ public class TableDrinkSlot : Mgr
         drinkImg.color = new Color(0, 0, 0, 0);
         slotUI.gameObject.SetActive(true);
 
-        hasDrink = false;
+        drink = Drink.None;
 
         scrollObj.isRun = true;
     }

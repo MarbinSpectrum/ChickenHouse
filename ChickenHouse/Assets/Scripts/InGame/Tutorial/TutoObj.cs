@@ -47,12 +47,14 @@ public class TutoObj : Mgr
         }
         else
         {
-            yield return new WaitForSeconds(delay);
+            if(delay > 0)
+                yield return new WaitForSeconds(delay);
         }
 
+        yield return new WaitUntil(() => tutoMgr.CanTuto());
 
-        tutoMgr.ShowText(tutoType);
         tutoObj.SetActive(true);
+        tutoMgr.ShowText(tutoType);
 
         yield return new WaitForSeconds(1f);
 

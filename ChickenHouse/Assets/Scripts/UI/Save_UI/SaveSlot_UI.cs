@@ -34,7 +34,7 @@ public class SaveSlot_UI : Mgr
         canLoad = pCanLoad;
         playData = pPlayData;
 
-        saveUI.gameObject.SetActive(false);
+        //saveUI.gameObject.SetActive(false);
 
         if (pPlayData == null)
         {
@@ -62,6 +62,11 @@ public class SaveSlot_UI : Mgr
             if (pPlayData.quest[i] != 1)
             {
                 //진행중이 아닌 퀘스트
+                continue;
+            }
+
+            if(QuestMgr.IsMainQuest((Quest)i) == false)
+            {
                 continue;
             }
 

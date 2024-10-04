@@ -16,6 +16,13 @@ public class TutoMgr : AwakeSingleton<TutoMgr>
 
     //---------------------------------------------------------------------------------------------
 
+    public bool CanTuto()
+    {
+        if (tutoText != null)
+            return true;
+        return false;
+    }
+
     public void RegistTutoText(TutoText pTutoText)
     {
         //튜토리얼 텍스트 등록
@@ -24,7 +31,7 @@ public class TutoMgr : AwakeSingleton<TutoMgr>
 
     public void ShowText(Tutorial tutoType)
     {
-        if (tutoText == null)
+        if (CanTuto() == false)
             return;
         tutoText.ShowText(tutoType);
     }

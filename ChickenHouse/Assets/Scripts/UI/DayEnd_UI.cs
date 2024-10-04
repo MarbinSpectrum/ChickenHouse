@@ -106,21 +106,35 @@ public class DayEnd_UI : Mgr
         if (goNext)
             return;
         goNext = true;
-
-#if DEMO
-        if (gameMgr.playData.day == 7)
-        {
-            gameMgr.playData.money += addValue;
-            sceneMgr.SceneLoad(Scene.DEMO, false, false, SceneChangeAni.CIRCLE);
-            return;
-        }   
-#endif
-
+        gameMgr.playData.money += addValue;
         gameMgr.playData.day++;
         gameMgr.DayEndEvent();
 
+        if (gameMgr.playData.quest[(int)Quest.Event_0_Quest] == 0 && gameMgr.playData.day == QuestMgr.EVENT0_DAY)
+        {
+            sceneMgr.SceneLoad(Scene.EVENT_0, true, false, SceneChangeAni.CIRCLE);
+            return;
+        }
+        else if (gameMgr.playData.quest[(int)Quest.Event_0_Quest] == 1)
+        {
+            sceneMgr.SceneLoad(Scene.EVENT_0, false, false, SceneChangeAni.CIRCLE);
+            return;
+        }
+        else if (gameMgr.playData.quest[(int)Quest.MainQuest_1] == 1 && gameMgr.playData.day == QuestMgr.MAIN_QUEST_1_LIMIT_DAY + 1)
+        {
+            if (questMgr.ClearCheck(Quest.MainQuest_1))
+            {
+#if DEMO
+                sceneMgr.SceneLoad(Scene.DEMO, false, false, SceneChangeAni.CIRCLE);
+#endif
+            }
+            else
+            {
+                sceneMgr.SceneLoad(Scene.BAD_END, true, false, SceneChangeAni.CIRCLE);
+            }
+            return;
+        }
 
-        gameMgr.playData.money += addValue;
-        sceneMgr.SceneLoad(Scene.TOWN,true, true, SceneChangeAni.CIRCLE);
+        sceneMgr.SceneLoad(Scene.TOWN, true, true, SceneChangeAni.CIRCLE);
     }
 }

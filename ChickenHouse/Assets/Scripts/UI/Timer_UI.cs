@@ -6,8 +6,8 @@ using TMPro;
 
 public class Timer_UI : Mgr
 {
-    private const int MAX_TIME  = 180;
-    private const int BASE_HOUR = 9;
+    private const int MAX_TIME  = 120;
+    private const int BASE_HOUR = 11;
 
     [SerializeField] private Image              guage;
     [SerializeField] private RectTransform      clockHand;
@@ -15,6 +15,9 @@ public class Timer_UI : Mgr
     [SerializeField] private TextMeshProUGUI    timeText;
 
     [SerializeField] private TextMeshProUGUI    dayTitle;
+
+    [SerializeField] private RectTransform normalMode;
+    [SerializeField] private RectTransform eventMode;
 
     public float time = 0;
 
@@ -42,7 +45,7 @@ public class Timer_UI : Mgr
             LanguageMgr.SetText(dayTitle, daySr);
         }
 
-        int addHour = (int)(time / 15f);
+        int addHour = (int)(time / 10f);
 
         int hour = Mathf.Min(24, BASE_HOUR + addHour);
         string timeStr = string.Empty;
@@ -71,5 +74,9 @@ public class Timer_UI : Mgr
         return time >= MAX_TIME; 
     }
 
-
+    public void SetEventMode(bool state)
+    {
+        normalMode.gameObject.SetActive(!state);
+        eventMode.gameObject.SetActive(state);
+    }
 }

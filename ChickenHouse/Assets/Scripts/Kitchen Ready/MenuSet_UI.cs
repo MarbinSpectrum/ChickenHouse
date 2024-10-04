@@ -562,7 +562,6 @@ public class MenuSet_UI : Mgr
 
                         if (gameMgr.playData.tutoComplete3 == false )
                         {
-                            gameMgr.playData.tutoComplete3 = true;
                             tutoObj.PlayTuto();
                         }
                     }
