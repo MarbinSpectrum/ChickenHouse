@@ -15,8 +15,6 @@ public class SceneMgr : AwakeSingleton<SceneMgr>
     private bool dayEndCheckFlag = false;
     private bool saveDataFlag = false;
 
-    private bool rewardWaitFlag = false;
-
     public void SceneLoad(Scene scene, bool questCheck, bool dayEnd, SceneChangeAni changeAni = SceneChangeAni.NOT)
     {
         StartCoroutine(RunSceneLoad(scene, questCheck, dayEnd, changeAni));
@@ -41,11 +39,14 @@ public class SceneMgr : AwakeSingleton<SceneMgr>
             for(Quest quest = Quest.MainQuest_1; quest < Quest.MAX; quest++)
             {
                 //클리어한 퀘스트의 다음 퀘스트와, 보상을 정리한다.
-                if (playData.quest[(int)quest] != 1)
+                if ((QuestState)playData.quest[(int)quest] != QuestState.Run)
                     continue;
-                if(questMgr.ClearCheck(quest))
+                if (QuestMgr.TownRewardQuest(quest))
+                    continue;
+
+                if(QuestMgr.ClearCheck(quest))
                 {
-                    playData.quest[(int)quest] = 2;
+                    playData.quest[(int)quest] = (int)QuestState.Complete;
                     QuestData       questData   = questMgr.GetQuestData(quest);
                     List<ShopItem>  rewardItems = questData.rewards;
                     Quest           getNewQuest = questData.nextQuest;
@@ -62,31 +63,14 @@ public class SceneMgr : AwakeSingleton<SceneMgr>
             //보상 표시 및 보상 적용
             for (int i = 0; i < rewardList.Count; i++)
             {
-                rewardWaitFlag = false;
+                bool rewardWaitFlag = false;
                 rewardItem.gameObject.SetActive(true);
                 ShopData shopData = shopMgr.GetShopData(rewardList[i]);
-                rewardItem.SetUI(shopData,()=> RewardWaitCheck());
+                rewardItem.SetUI(shopData,() => rewardWaitFlag = true);
                 yield return new WaitUntil(() => rewardWaitFlag);
                 rewardItem.gameObject.SetActive(false);
-                playData.hasItem[(int)rewardList[i]] = true;
-                ChickenSpicy chickenSpicy = SpicyMgr.RecipeGetSpicy(rewardList[i]);
-                if(chickenSpicy != ChickenSpicy.None)
-                {
-                    //양념을 새로 얻음 도감에 등록
-                    BookMgr.ActSpicyData(chickenSpicy);
-                }
-                Drink drink = SubMenuMgr.ShopItemGetDrink(rewardList[i]);
-                if (drink != Drink.None)
-                {
-                    //음료를 새로 얻음 도감에 등록
-                    BookMgr.ActDrinkData(drink);
-                }
-                SideMenu sideMenu = SubMenuMgr.ShopItemGetSideMenu(rewardList[i]);
-                if (sideMenu != SideMenu.None)
-                {
-                    //사이드메뉴를 새로 얻음 도감에 등록
-                    BookMgr.ActSideMenuData(sideMenu);
-                }
+
+                playData.GetShopItem(rewardList[i]);
             }
         }
 
@@ -143,10 +127,5 @@ public class SceneMgr : AwakeSingleton<SceneMgr>
     public void SaveCheckNo()
     {
         dayEndCheckFlag = true;
-    }
-
-    private void RewardWaitCheck()
-    {
-        rewardWaitFlag = true;
     }
 }

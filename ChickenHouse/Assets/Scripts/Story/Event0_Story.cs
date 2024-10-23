@@ -23,7 +23,7 @@ public class Event0_Story : Mgr
 
     private void Start()
     {
-        if (gameMgr.playData.quest[(int)Quest.Event_0_Quest] == 0)
+        if ((QuestState)gameMgr.playData.quest[(int)Quest.Event_0_Quest] == QuestState.Not)
         {
             morning.SetActive(true);
             night.SetActive(false);
@@ -32,7 +32,7 @@ public class Event0_Story : Mgr
 
             Event1();
         }
-        else if (gameMgr.playData.quest[(int)Quest.Event_0_Quest] == 1)
+        else if ((QuestState)gameMgr.playData.quest[(int)Quest.Event_0_Quest] == QuestState.Run)
         {
             morning.SetActive(false);
             night.SetActive(true);
@@ -273,7 +273,7 @@ public class Event0_Story : Mgr
         selectMenu.gameObject.SetActive(false);
         if (goBattle)
         {
-            gameMgr.playData.quest[(int)Quest.Event_0_Quest] = 1;
+            gameMgr.playData.quest[(int)Quest.Event_0_Quest] = (int)QuestState.Run;
             IEnumerator RunCor()
             {
                 yield return new WaitForSeconds(1f);
@@ -371,7 +371,7 @@ public class Event0_Story : Mgr
 
     private void LoseEvent0()
     {
-        gameMgr.playData.quest[(int)Quest.Event_0_Quest] = 2;
+        gameMgr.playData.quest[(int)Quest.Event_0_Quest] = (int)QuestState.Complete;
         IEnumerator RunCor()
         {
             yield return new WaitForSeconds(1f);

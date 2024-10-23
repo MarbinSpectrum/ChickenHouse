@@ -597,16 +597,24 @@ public enum Quest
     Event_0_Quest      = 100,      //치킨집 배틀
 
     SpicyQuest_1      = 1000,     //치킨 5마리 팔기                (간장치킨 오픈)
-    SpicyQuest_2      = 1001,     //간장치킨 5마리 팔기            (닭치킨 오픈)
-    SpicyQuest_3      = 1002,     //불닭치킨 5마리 팔기            (프링클 치킨 오픈)
-    SpicyQuest_4      = 1003,     //프링클 치킨 10마리 팔기        (까르보나라 치킨 오픈)
-    SpicyQuest_5      = 1004,     //까르보나라치킨 10마리 팔기     (BBQ 치킨 오픈) 
-    SpicyQuest_6      = 1005,     //BBQ치킨 10마리 팔기    
+    SpicyQuest_2      = 1001,     //간장치킨 5마리 팔기            (불닭치킨 오픈)
+
+    SeaOtterQuest     = 1100,     //일일 매출 20,000$넘기기        (프링클 치킨 오픈)
+    //SpicyQuest_4      = 1003,     //프링클 치킨 10마리 팔기        (까르보나라 치킨 오픈)
+    //SpicyQuest_5      = 1004,     //까르보나라치킨 10마리 팔기     (BBQ 치킨 오픈) 
+    //SpicyQuest_6      = 1005,     //BBQ치킨 10마리 팔기    
 
     DrinkQuest_1      = 2000,     //콜라 20개 팔기                 (맥주 오픈)
     DrinkQuest_2      = 2001,     //맥주 20개 팔기          
 
     MAX,
+}
+
+public enum QuestState
+{
+    Not         = 0,    //진행안함 
+    Run         = 1,    //진행함
+    Complete    = 2,    //완료함
 }
 
 public enum TownMap

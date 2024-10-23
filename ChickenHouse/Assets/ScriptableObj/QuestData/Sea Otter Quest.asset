@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cd4319cc09f0593489e59b71adb9b3ec, type: 3}
-  m_Name: Spicy Quest 5
+  m_Name: Sea Otter Quest
   m_EditorClassIdentifier: 
-  quest: 1004
-  questNameKey: SPICY_QUEST_NAME_5
-  questInfoKey: SPICY_QUEST_INFO_5
-  questSummaryKey: SPICY_QUEST_SUMMARY_5
-  nextQuest: 1005
-  rewards: cd000000
+  quest: 1100
+  questNameKey: SEAOTTER_QUEST_NAME
+  questInfoKey: SEAOTTER_QUEST_INFO
+  questSummaryKey: SEAOTTER_QUEST_SUMMARY
+  nextQuest: -1
+  rewards: cb000000

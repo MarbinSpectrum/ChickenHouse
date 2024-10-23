@@ -54,9 +54,6 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 94ecb153de85e4249bf0e5641ef85cb4, type: 2}
     - {fileID: 11400000, guid: 12e3aa2f11d2ded418e63a66ab1966b6, type: 2}
     - {fileID: 11400000, guid: da204898c6534af41aef98dcad25473f, type: 2}
-    - {fileID: 11400000, guid: d390ea74b33c1a341964ff23528575c6, type: 2}
-    - {fileID: 11400000, guid: 619b518dda973b348a19e817e87c55d2, type: 2}
-    - {fileID: 11400000, guid: 53cf34fc8f57b8e4e8b34ede3b38c2d1, type: 2}
     - {fileID: 11400000, guid: 55a9020cdc232a84fb9ca2175f84a6f6, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
@@ -82,7 +79,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 10
+      Data: 7
     - Name: 
       Entry: 7
       Data: 
@@ -124,7 +121,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 3
-      Data: 1002
+      Data: 1100
     - Name: $v
       Entry: 10
       Data: 3
@@ -160,46 +157,10 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 3
-      Data: 1003
-    - Name: $v
-      Entry: 10
-      Data: 6
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 1004
-    - Name: $v
-      Entry: 10
-      Data: 7
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 1005
-    - Name: $v
-      Entry: 10
-      Data: 8
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
       Data: 100
     - Name: $v
       Entry: 10
-      Data: 9
+      Data: 6
     - Name: 
       Entry: 8
       Data: 

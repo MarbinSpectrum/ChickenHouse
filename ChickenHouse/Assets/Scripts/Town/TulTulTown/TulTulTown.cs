@@ -20,6 +20,7 @@ public class TulTulTown : Mgr
     [SerializeField] private Dictionary<Zone, RectTransform> housePos = new Dictionary<Zone, RectTransform>();
     [SerializeField] private RectTransform                  cameraPos;
     [SerializeField] private RectTransform[]                moveBtn;
+    [SerializeField] private RectTransform                  dontTouch;
 
     public struct MenuBtn
     {
@@ -103,6 +104,7 @@ public class TulTulTown : Mgr
         {
             moveBtn[0].gameObject.SetActive(false);
             moveBtn[1].gameObject.SetActive(false);
+            dontTouch.gameObject.SetActive(true);
             header.rect.gameObject.SetActive(false);
             menuBtn.rect.gameObject.SetActive(false);
             float dis = 0;
@@ -157,6 +159,7 @@ public class TulTulTown : Mgr
                     }
                     break;
             }
+            dontTouch.gameObject.SetActive(false);
             fun?.Invoke();
         }
         StartCoroutine(Run());

@@ -9,6 +9,7 @@ public class Town : Mgr
     [SerializeField] private RectTransform                      diaryBtn;
     [SerializeField] private WarningText                        warningText;
     [SerializeField] private WakeupMsg                          wakeUpMsg;
+    [SerializeField] private List<TownTalkObj>                  npcList;
     [SerializeField] private TutoObj                            tutoObj1;
     [SerializeField] private TutoObj                            tutoObj2;
     [SerializeField] private TutoObj                            tutoObj3;
@@ -32,20 +33,22 @@ public class Town : Mgr
             tutoObj1.PlayTuto();
         }
 
-        if(WakeupMsg.wakeUpFlag)
+        TownNpcInit();
+
+        if (WakeupMsg.wakeUpFlag)
         {
             wakeUpMsg.SetUI();
         }
         else if (warningFlag == false)
         {
             warningFlag = true;
-            if (gameMgr.playData.quest[(int)Quest.Event_0_Quest] == 1)
+            if ((QuestState)gameMgr.playData.quest[(int)Quest.Event_0_Quest] == QuestState.Run)
             {
                 //Event 0 진행중
                 string str = LanguageMgr.GetText("EVENT0_WARNING_2");
                 warningText.SetText(str);
             }
-            else if (gameMgr.playData.quest[(int)Quest.MainQuest_1] == 1)
+            else if ((QuestState)gameMgr.playData.quest[(int)Quest.MainQuest_1] == QuestState.Run)
             {
                 //메인퀘스트1 진행중
                 if (QuestMgr.MAIN_QUEST_1_LIMIT_DAY - gameMgr.playData.day <= 0)
@@ -61,6 +64,27 @@ public class Town : Mgr
                     warningText.SetWarningMsgText(str);
                 }
             }
+        }
+    }
+
+    private void TownNpcInit()
+    {
+        //해달 아줌마
+        if ((QuestState)gameMgr.playData.quest[(int)Quest.SeaOtterQuest] == QuestState.Complete)
+            npcList[0].gameObject.SetActive(false);
+        else if ((QuestState)gameMgr.playData.quest[(int)Quest.SeaOtterQuest] == QuestState.Run)
+        {
+            npcList[0].gameObject.SetActive(true);
+            npcList[0].Init();
+        }
+        else if(2 <= gameMgr.playData.day && gameMgr.playData.day <= 5)
+        {
+            npcList[0].gameObject.SetActive(true);
+            npcList[0].Init();
+        }
+        else
+        {
+            npcList[0].gameObject.SetActive(false);
         }
     }
 

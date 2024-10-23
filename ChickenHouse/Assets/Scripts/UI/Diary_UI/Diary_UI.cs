@@ -15,6 +15,7 @@ public class Diary_UI : Mgr
 
     public void Set_UI()
     {
+        nowMenu = (DiaryMenu)( -1);
         if (tutoMgr.NowRunTuto())
             return;
 
@@ -36,12 +37,16 @@ public class Diary_UI : Mgr
     public void Set_UI(int menuIdx)
     {
         //인스펙터로 끌어다 쓰는 함수임
+        if (nowMenu == (DiaryMenu)menuIdx)
+            return;
         Set_UI((DiaryMenu)menuIdx);
         soundMgr.PlaySE(Sound.Paper_SE);
     }
 
     public void Set_UI(DiaryMenu pMenu)
     {
+        if (nowMenu == pMenu)
+            return;
         nowMenu = pMenu;
         postIt.OnPostIt(nowMenu);
 

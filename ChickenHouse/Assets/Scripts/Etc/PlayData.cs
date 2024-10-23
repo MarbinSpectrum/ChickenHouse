@@ -336,4 +336,27 @@ public class PlayData
         int lvValue = cookLvMgr.GetLvSumValue(CookLvStat.Rent, cookLv);
         return Mathf.Max(0, DEFAULT_RENT_PRICE - lvValue);
     }
+
+    public void GetShopItem(ShopItem pShopItem)
+    {
+        hasItem[(int)pShopItem] = true;
+        ChickenSpicy chickenSpicy = SpicyMgr.RecipeGetSpicy(pShopItem);
+        if (chickenSpicy != ChickenSpicy.None)
+        {
+            //양념을 새로 얻음 도감에 등록
+            BookMgr.ActSpicyData(chickenSpicy);
+        }
+        Drink drink = SubMenuMgr.ShopItemGetDrink(pShopItem);
+        if (drink != Drink.None)
+        {
+            //음료를 새로 얻음 도감에 등록
+            BookMgr.ActDrinkData(drink);
+        }
+        SideMenu sideMenu = SubMenuMgr.ShopItemGetSideMenu(pShopItem);
+        if (sideMenu != SideMenu.None)
+        {
+            //사이드메뉴를 새로 얻음 도감에 등록
+            BookMgr.ActSideMenuData(sideMenu);
+        }
+    }
 }

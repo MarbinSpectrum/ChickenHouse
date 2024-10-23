@@ -163,7 +163,8 @@ public class GuestSystem : Mgr
 
             }
 
-            if (gameMgr.playData.quest[(int)Quest.Event_0_Quest] == 1 && ui.event0_UI.battleResult != Event_0_Battle_Result.None)
+            if ((QuestState)gameMgr.playData.quest[(int)Quest.Event_0_Quest] == QuestState.Run 
+                && ui.event0_UI.battleResult != Event_0_Battle_Result.None)
             {
                 //배틀종료
                 break;
@@ -179,7 +180,7 @@ public class GuestSystem : Mgr
 
     public IEnumerator EndCheck()
     {
-        if (gameMgr.playData.quest[(int)Quest.Event_0_Quest] == 1)
+        if ((QuestState)gameMgr.playData.quest[(int)Quest.Event_0_Quest] == QuestState.Run)
         {
             yield return new WaitUntil(() => ui.event0_UI.battleResult != Event_0_Battle_Result.None);
 
@@ -449,7 +450,7 @@ public class GuestSystem : Mgr
                         else
                             guestObj.HappyGuest(() => NextOrder());
 
-                        if (gameMgr.playData.quest[(int)Quest.Event_0_Quest] == 1)
+                        if ((QuestState)gameMgr.playData.quest[(int)Quest.Event_0_Quest] == QuestState.Run)
                             ui.event0_UI.AddPlayerCnt();
                     }
                     break;

@@ -531,18 +531,18 @@ SPICY_QUEST_SUMMARY_1	※ 치킨 5마리 팔기	※ Selling 5 chickens
 SPICY_QUEST_NAME_2	간장 소스의 달인	Master of soy sauce
 SPICY_QUEST_INFO_2	간장 치킨 5마리를 팔아보자.	Let's sell five soy chickens.
 SPICY_QUEST_SUMMARY_2	※ 간장치킨 5마리 팔기	※ Selling 5 soy chickens
-SPICY_QUEST_NAME_3	불닭 소스의 달인	Master of hell sauce
-SPICY_QUEST_INFO_3	불닭 치킨 5마리를 팔아보자.	Let's sell five hell chickens.
-SPICY_QUEST_SUMMARY_3	※ 불닭치킨 5마리 팔기	※ Selling 5 hell chickens
-SPICY_QUEST_NAME_4	프링클 양념의 달인	Master of prinkle sauce
-SPICY_QUEST_INFO_4	프링클 치킨 10마리를 팔아보자.	Let's sell ten prinkle chickens.
-SPICY_QUEST_SUMMARY_4	※ 프링클 치킨 10마리 팔기	※ Selling 10 prinkle chickens
-SPICY_QUEST_NAME_5	까르보나라 소스의 달인	Master of carbonara sauce
-SPICY_QUEST_INFO_5	까르보나라 치킨 10마리를 팔아보자.	Let's sell ten carbonara chickens.
-SPICY_QUEST_SUMMARY_5	※ 까르보나라 치킨 10마리 팔기	※ Selling 10 carbonara chickens
-SPICY_QUEST_NAME_6	BBQ 소스의 달인	Master of bbq sauce
-SPICY_QUEST_INFO_6	BBQ 치킨 10마리를 팔아보자.	Let's sell ten bbq chickens.
-SPICY_QUEST_SUMMARY_6	※ BBQ 치킨 10마리 팔기	※ Selling 10 bbq chickens
+SEAOTTER_QUEST_NAME	해달의 비밀 레시피	The Secret Recipe of the Sea Otter
+SEAOTTER_QUEST_INFO	해달 아주머니가 자신의 집안에서 전해내려오는 비법소스 레시피가 있다며 자신의 시험을 통과하면 레시피를 알려주겠다고 한다.	The sea otter aunt says she has a secret sauce recipe\nthat has been passed down in her family,\nand she will share it if you pass her test.
+SEAOTTER_QUEST_SUMMARY	※ 하루 매출 20,000$ 이상 기록하기	※ Record sales of more than 20,000 won per day.
+SEAOTTER_QUEST_REWARD	해달의 비밀 레시피	Secret Recipe
+SEAOTTER_QUEST_TALK_0	하이고 사장님! 잘 지내셨습니까?	Oh boss! How ya been doin'?
+SEAOTTER_QUEST_TALK_1	사실은 말이지예 우리 집에서 할무니의 할무니가 개발해서\n지금까지 계속 계속 만들어온 특별한 소스가 있는데예.	Well, ya see, we got this special sauce that my granny's granny came up with, and we've been makin' it ever since.
+SEAOTTER_QUEST_TALK_2	그거 혹시 사장님 치킨에다 해보면 어떠십니까? 	How 'bout tryin' that on your chicken, boss?
+SEAOTTER_QUEST_TALK_3	근데 이게 사장님이 소화하실지는 모르겠네예\n저희 엄니가 보통 까다로운게 아니라서요.	But I ain't sure if ya can handle it, boss. My mama’s real picky 'bout stuff like this, ya know.
+SEAOTTER_QUEST_TALK_4	한 가지 시험만 통과하믄 레시피를 알려드릴텐데, 어때요?	If ya pass one little test, I'll give ya the recipe. How 'bout it?
+SEAOTTER_QUEST_TALK_5	시험은 하루 매출 20,000$ 넘겨보는 거라요.	The test is to see if ya can make over 20,000$ in a day.
+SEAOTTER_QUEST_TALK_6	시험 조건 맞추고 나한테 다시 오면 레시피 줄게예.	nce ya meet the test conditions and come back to me, I’ll give ya the recipe, ya hear?
+SEAOTTER_QUEST_TALK_7	역시~ 사장님이십니다~ 이정도 실력이면 걱정없이 맡겨도 되겠네예~	Yessir, boss! With skills like that, I reckon I ain’t got nothin' to worry 'bout leavin' it to ya!"
 DRINK_QUEST_NAME_1	시원한 콜라	Cool cola
 DRINK_QUEST_INFO_1	콜라 20개를 팔아보자.	Let's sell 20 colas.
 DRINK_QUEST_SUMMARY_1	※ 콜라 20개 팔기	※ Selling 20 colas
@@ -556,6 +556,7 @@ QUEST_DETAIL_1	남은 기간 : {0}일	Remaining days : {0}
 QUEST_DETAIL_2	치킨 {0}/{1}	Chicken {0}/{1}
 QUEST_DETAIL_3	콜라 {0}/{1}	Cola {0}/{1}
 QUEST_DETAIL_4	맥주 {0}/{1}	Beer {0}/{1}
+QUEST_DETAIL_5	매출 {0}/{1}	Profit {0}/{1}
 BOOK_HOT_SPICY	프라이드 치킨에 바르는 \n매콤달콤한 소스, \n이 소스는 치킨 요리의\n대표적인 맛 중 하나이다.	The sweet and spicy sauce used on fried chicken is one of the signature flavors in chicken cuisine.
 BOOK_SOY_SPICY	간장치킨 양념은 중국에서 기원한 소스로,  달콤하고 짭짤한 맛을 냅니다. 치킨에 발라 구워내거나 튀긴 치킨에 버무려 즐기는 대표적인 치킨 양념입니다.	Soy sauce originates from China and offers a sweet and savory taste. It is a popular chicken seasoning, often used for glazing roasted chicken or tossing with fried chicken.
 BOOK_HELL_SPICY	매운 맛이 특징인 한국의 양념입니다.\n원래는 볶음라면소스로 \n사용되었습니다.	It's a Korean sauce known for its spiciness. Originally, it was used as a stir-fried ramen sauce.

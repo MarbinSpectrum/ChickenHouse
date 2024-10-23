@@ -110,19 +110,21 @@ public class DayEnd_UI : Mgr
         gameMgr.playData.day++;
         gameMgr.DayEndEvent();
 
-        if (gameMgr.playData.quest[(int)Quest.Event_0_Quest] == 0 && gameMgr.playData.day == QuestMgr.EVENT0_DAY)
+        if ((QuestState)gameMgr.playData.quest[(int)Quest.Event_0_Quest] == QuestState.Not && 
+            gameMgr.playData.day == QuestMgr.EVENT0_DAY)
         {
             sceneMgr.SceneLoad(Scene.EVENT_0, true, false, SceneChangeAni.CIRCLE);
             return;
         }
-        else if (gameMgr.playData.quest[(int)Quest.Event_0_Quest] == 1)
+        else if ((QuestState)gameMgr.playData.quest[(int)Quest.Event_0_Quest] == QuestState.Run)
         {
             sceneMgr.SceneLoad(Scene.EVENT_0, false, false, SceneChangeAni.CIRCLE);
             return;
         }
-        else if (gameMgr.playData.quest[(int)Quest.MainQuest_1] == 1 && gameMgr.playData.day == QuestMgr.MAIN_QUEST_1_LIMIT_DAY + 1)
+        else if ((QuestState)gameMgr.playData.quest[(int)Quest.MainQuest_1] == QuestState.Run &&
+            gameMgr.playData.day == QuestMgr.MAIN_QUEST_1_LIMIT_DAY + 1)
         {
-            if (questMgr.ClearCheck(Quest.MainQuest_1))
+            if (QuestMgr.ClearCheck(Quest.MainQuest_1))
             {
 #if DEMO
                 sceneMgr.SceneLoad(Scene.DEMO, false, false, SceneChangeAni.CIRCLE);

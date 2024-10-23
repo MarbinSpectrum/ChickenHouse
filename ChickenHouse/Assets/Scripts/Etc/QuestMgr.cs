@@ -12,10 +12,7 @@ public class QuestMgr : AwakeSingleton<QuestMgr>
     public static int EVENT0_DAY = 4;
     public static int SPICY_QUEST_1_CNT = 5;
     public static int SPICY_QUEST_2_CNT = 5;
-    public static int SPICY_QUEST_3_CNT = 5;
-    public static int SPICY_QUEST_4_CNT = 10;
-    public static int SPICY_QUEST_5_CNT = 10;
-    public static int SPICY_QUEST_6_CNT = 10;
+    public static int SEA_OTTER_QUEST_TARGET_MONEY = 20000;
     public static int DRINK_QUEST_1_CNT = 10;
     public static int DRINK_QUEST_2_CNT = 10;
 
@@ -35,14 +32,26 @@ public class QuestMgr : AwakeSingleton<QuestMgr>
 
         GameMgr gameMgr = GameMgr.Instance;
         PlayData playData = gameMgr.playData;
-        if(playData.quest[(int)pQuest] == 0)
+        if((QuestState)playData.quest[(int)pQuest] == QuestState.Not)
         {
-            playData.quest[(int)pQuest] = 1;
+            playData.quest[(int)pQuest] = (int)QuestState.Run;
             playData.questCnt[(int)pQuest] = 0;
         }
     }
 
-    public bool ClearCheck(Quest pQuest)
+    public static bool TownRewardQuest(Quest pQuest)
+    {
+        //타운에서 보상을 받는 퀘스트
+        switch (pQuest)
+        {
+            case Quest.SeaOtterQuest:
+                return true;
+        }
+
+        return false;
+    }
+
+    public static bool ClearCheck(Quest pQuest)
     {
         //해당 퀘스트 클리어여부
         GameMgr gameMgr = GameMgr.Instance;
@@ -57,14 +66,8 @@ public class QuestMgr : AwakeSingleton<QuestMgr>
                 return playData.questCnt[(int)pQuest] >= SPICY_QUEST_1_CNT;
             case Quest.SpicyQuest_2:
                 return playData.questCnt[(int)pQuest] >= SPICY_QUEST_2_CNT;
-            case Quest.SpicyQuest_3:
-                return playData.questCnt[(int)pQuest] >= SPICY_QUEST_3_CNT;
-            case Quest.SpicyQuest_4:
-                return playData.questCnt[(int)pQuest] >= SPICY_QUEST_4_CNT;
-            case Quest.SpicyQuest_5:
-                return playData.questCnt[(int)pQuest] >= SPICY_QUEST_5_CNT;
-            case Quest.SpicyQuest_6:
-                return playData.questCnt[(int)pQuest] >= SPICY_QUEST_6_CNT;
+            case Quest.SeaOtterQuest:
+                return playData.questCnt[(int)pQuest] >= SEA_OTTER_QUEST_TARGET_MONEY;
             case Quest.DrinkQuest_1:
                 return playData.questCnt[(int)pQuest] >= DRINK_QUEST_1_CNT;
             case Quest.DrinkQuest_2:
@@ -92,7 +95,7 @@ public class QuestMgr : AwakeSingleton<QuestMgr>
         PlayData playData   = gameMgr.playData;
         for (Quest quest = Quest.MainQuest_1; quest < Quest.MAX; quest++)
         {
-            if (playData.quest[(int)quest] != 1)
+            if ((QuestState)playData.quest[(int)quest] != QuestState.Run)
                 continue;
             switch (quest)
             {
@@ -112,44 +115,10 @@ public class QuestMgr : AwakeSingleton<QuestMgr>
                         playData.questCnt[(int)quest] += soyChicken;
                     }
                     break;
-                case Quest.SpicyQuest_3:
+                case Quest.SeaOtterQuest:
                     {
-                        //불닭치킨 5마리 팔기
-                        int hellChicken = 0;
-                        foreach (GuestMenu guestMenu in gameMgr.sellMenu)
-                            if (guestMenu.spicy0 == ChickenSpicy.Hell || guestMenu.spicy1 == ChickenSpicy.Hell)
-                                hellChicken++;
-                        playData.questCnt[(int)quest] += hellChicken;
-                    }
-                    break;
-                case Quest.SpicyQuest_4:
-                    {
-                        //프링클 치킨 10마리 팔기
-                        int prinkleChicken = 0;
-                        foreach (GuestMenu guestMenu in gameMgr.sellMenu)
-                            if (guestMenu.spicy0 == ChickenSpicy.Prinkle || guestMenu.spicy1 == ChickenSpicy.Prinkle)
-                                prinkleChicken++;
-                        playData.questCnt[(int)quest] += prinkleChicken;
-                    }
-                    break;
-                case Quest.SpicyQuest_5:
-                    {
-                        //까르보나라 치킨 10마리 팔기
-                        int carbonaraChicken = 0;
-                        foreach (GuestMenu guestMenu in gameMgr.sellMenu)
-                            if (guestMenu.spicy0 == ChickenSpicy.Carbonara || guestMenu.spicy1 == ChickenSpicy.Carbonara)
-                                carbonaraChicken++;
-                        playData.questCnt[(int)quest] += carbonaraChicken;
-                    }
-                    break;
-                case Quest.SpicyQuest_6:
-                    {
-                        //BBQ치킨 10 마리 팔기
-                        int bbqChicken = 0;
-                        foreach (GuestMenu guestMenu in gameMgr.sellMenu)
-                            if (guestMenu.spicy0 == ChickenSpicy.BBQ || guestMenu.spicy1 == ChickenSpicy.BBQ)
-                                bbqChicken++;
-                        playData.questCnt[(int)quest] += bbqChicken;
+                        //매출 20.000$ 달성
+                        playData.questCnt[(int)quest] = Mathf.Max(playData.questCnt[(int)quest],gameMgr.dayMoney);
                     }
                     break;
                 case Quest.DrinkQuest_1:
