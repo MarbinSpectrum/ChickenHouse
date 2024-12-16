@@ -103,7 +103,7 @@ KITCHEN_READY	주방 준비	Kitchen preparation
 NEXT	다음	Next
 BACK	뒤로	Back
 DRINK_SLOT	음료	Drink
-PICKLE_SLOT	피클	Pickle
+SIDE_SLOT	사이드	Side
 SELLING_PRICE	판매 수익	Selling Price
 TIP	팁	Tip
 REWARD	보상	Reward
@@ -114,7 +114,7 @@ DRINK_HEADER	음료	Drink
 PICKLE_HEADER	피클	Pickle
 WINDIW_MODE	창모드	Window Mode
 ALCOHOLIC	주류	Alcoholic
-DRINKABLE	술을 마쉼	Drinkable
+DRINKABLE	술을 마심	Drinkable
 WAKE_UP_MSG	안좋은 꿈을 꾸신거 같습니다. 아직 {0}일차입니다.\n열심히 일을 해서 빚을 갚도록합시다.	It seems like you had a bad dream.\nIt's only day {0}.\nLet's work hard and pay off that debt.
 REFUSAL	거절	Refusal
 ACCEPT	수락	Accept
@@ -184,17 +184,17 @@ PROLOGUE_1	어 여기 있었군. 우리가 찾느라\n얼마나 힘들었는지 
 PROLOGUE_2	우리한테 빚을 져서 차린 게 고작 이런 치킨집이라니\n이걸로 우리한테 빚진 걸 갚을 수 있겠어?	I can't believe it's only a chicken restaurant\nlike this that you owe us.\nCan you pay back what you owe us with this?
 PROLOGUE_3	잘 들어 네가 우리한테 빚진 금액 ‘5만’ 달러!\n단 1달러도 봐줄 생각은 없으니\n각오하고 벌어들여야 할 거다!	Listen, you owe us $50,000!\nI won't let you off with a dollar,\nso you have to be prepared and earn it!
 PROLOGUE_4	좋아 일단은 일주일의 시간을 주지\n그때 우리가 빌려준 금액을 반드시 갚아야 할 거다.	Alright, I'll give you a week. By then, you must repay the amount we lent you.
-PROLOGUE_5	만약 갚지 못하면 그때는 돈이 될 만한\n장기를 모조리 뽑아서\n빈 껍데기는 시멘트로 채워버릴 거다!	If you can't repay, we'll rip out every organ worth money and fill the empty shell with cement!
+PROLOGUE_5	만약 갚지 못하면 그때는 네놈을\n시급이 1센트 정도 밖에 안하는 곳으로 보내서\n거기서 평생 일하게 할거다!	If you fail to pay it back, I'll send you to a place where the hourly wage is barely 1 cent, and you'll work there for the rest of your life!
 PROLOGUE_6	좋아 잘 알아들은 거 같으니\n일주일후에 다시 오지, 그때 보자고? 사장님	Good, it seems like you understand well. We'll be back in a week, then. See you then, boss.
 BAD_END_1	하, 내가 친절하게 시간을 그렇게나\n주었는데 그정도 밖에 못 갚았어?	Oh, I gave you plenty of time\nto pay me back,and this is all you've got?
-BAD_END_2	나머지는 네놈 장기로 갚아야겠지?!	Guess you'll have to pay\nthe rest with your organs, huh?!
+BAD_END_2	미안하지만 넌 모든 기회를 소비했어! 넌 이제 남은 생을 평생 노예로 살아야 할거다!	I'm sorry, but you've used up all your chances! From now on, you'll have to live the rest of your life as a slave!
 EVENT0_1	쿠히힉! 쿠히힉! 어이 여기 사장님 계시는가?	Oink! Oink! Hey, is the boss here?
 EVENT0_2	이거 이거 반갑구먼~ 나 여기 건너편에\n새로 치킨집을 개업한사장이올시다!	Well, well, isn’t this a pleasure~\nI’m the owner of the new chicken restaurant\nacross the street!
 EVENT0_3	쿠히힉! 근데 이거 치킨집 시설이\n완전 돼지우리 구만! 쿠힉!	Oink! But this chicken shop\nlooks just like a pigsty! Oink!
 EVENT0_4	보아하니 ‘빚’ 때문에 장사를 하고 있다던데\n그러니까 가게가 이 모양이지~	I heard you're only running\nthis place because of debt.\nNo wonder it looks like this~
 EVENT0_5	으잉? 어떻게 알았냐고? 쿠히히힉!\n여기 치킨집 사장이 사채 때문에 장사하고 있다는\n거지인 건 이미 다 소문이 났다고! 쿠힉힉힉!	Huh? How do I know? Snort snort!\nEveryone’s already talking about\nhow the owner here is running this place \nbecause of loan sharks! Oink! Oink!
 EVENT0_6	뭐 그쪽이랑 담소나 나누자 온 건 아니고 쿠힉!	Well, I didn’t come here just to chat with you, Oink!
-EVENT0_7	나나 그쪽이나 서로 같은 동네에\n같은 치킨집이 있는 건 영 불편하잖아?\n그러니까 나랑 내기해보는 게 어때?”	You know, having both our chicken shops\nin the same neighborhood \nis quite uncomfortable, right?\nSo how about we make a bet?
+EVENT0_7	나나 그쪽이나 서로 같은 동네에\n같은 치킨집이 있는 건 영 불편하잖아?\n그러니까 나랑 내기해보는 게 어때?	You know, having both our chicken shops\nin the same neighborhood \nis quite uncomfortable, right?\nSo how about we make a bet?
 EVENT0_8	같은 치킨집이라 할지라도 쿠힉!\n결국엔 더 맛있는 집에 오겠지?	Even if we're both chicken shops,\nOink! In the end, customers will choose\nthe tastier one, right?
 EVENT0_9	어때? 서로 치킨집의 레시피를 걸고!\n경쟁을 하는거야! 나는 우리 가문의 전해 내려오는\n특급요리비법을 걸어주지!	What do you think?\nLet’s compete with the recipes\nof our chicken shops on the line!\nI’ll put our family’s secret recipe on the table!
 EVENT0_10_0	쿠히힉! 좋아! 두말하기 없기다?!	Oink! Great! No more talking?!
@@ -391,22 +391,22 @@ PANDA_SIDE_PICKLE	시원하고 아삭거리는 네모도!	Refreshing and crisp s
 PANDA_ANGRY	엄마가 이런 데서 사는 거 아니래요!	My mom says she doesn't\ncome to places like this.
 PANDA_THANK_YOU	다음에도 올게요	I'll come again next time.
 PANDA_HAPPY	엄마한테 여기 또 와도 되는지 물어볼게요!	I'll ask if it's okay for me to come\nhere again from my mom!
-REDPANDA_ORDER_1	고급 기름을 사용해 바싹하게 튀긴 음식을 주세요	Please give me food fried in\npremium oil until it's crispy.
-REDPANDA_ORDER_2	게임은 잘하는데 입은 더러운 민족이 개발한 치킨 주세요	Give me the chicken developed by\na nation that's good at gaming but\nhas a dirty mouth.
-REDPANDA_ORDER_3	인구수는 많은데 속이 좁아터진\n민족이 개발한 소스의 치킨을 주세요	lease give me the chicken with sauce\ndeveloped by a populous but\nnarrow-minded nation.
-REDPANDA_ORDER_4	스파게티 면을 부수면 발작하는\n민족의 치킨을 주세요	Please give me the chicken of\nthe nation where breaking spaghetti\nnoodles causes seizures.
-REDPANDA_ORDER_5	아동용 게임이 유일하게 19금인 나라의\n마법의 가루를 뿌린 치킨 주세요	Please give me the chicken sprinkled\nwith magic powder from the country\nwhere children's games are rated 19+
-REDPANDA_ORDER_6	원시시대부터 전해 내려오는 고대의\n전통 방식의 소스의 치킨 주세요	Please give me the chicken with sauce\nmade using ancient traditional methods\npassed down since primitive times.
-REDPANDA_ORDER_7	저출산 문제로 망할 것 같은 국가에서 만든\n세계적으로 유명한 소스 치킨을 주세요.	Please give me the globally famous sauce\nchicken made in a country facing the risk\nof decline due to low birth rates.
-REDPANDA_ORDER_8	기름을 이용해 바싹하게 튀긴 치킨이랑\n게임은 잘하는데 입이 더러운\n민족의 치킨 세트로 주세요	Give me a set of chicken fried to crispy\nperfection with oil and the chicken of\na nation where they excel in gaming\nbut have dirty mouths.
-REDPANDA_ORDER_9	아동용 게임이 유일하게 19금이면서 출산율이\n바닥을 찍는 나라에서 개발한 마법의 치킨과\n엄청 매운 치킨으로	Give me the magical chicken developed\nin a country where children's games are\nrated 19+ and the birth rate is at rock bottom,\nalong with some extremely spicy chicken
-REDPANDA_ORDER_10	스파게티면 부수면 발작하는 민족과\n인구수는 많은데 속이 좁은 민족의 콤보로 주세요	Give me a combo of the nation that\nhas a fit when spaghetti is broken\nand the nation that has a large population\nbut is narrow-minded.
-REDPANDA_ORDER_11	원시시대부터 전해 내려오는 고대전통 방식으로\n만든 치킨과 기본적인 방식으로 만든 치킨의\n콤보로 부탁해요.	Please give me a combo of chicken\nmade with an ancient traditional\nmethod and chicken made with\na basic method.
-REDPANDA_SIDE_COLA	이가 썩을 수도 있는 달달 한 음료도 주세요	Please give me a sweet drink\nthat could rot my teeth.
-REDPANDA_SIDE_PICKLE	아삭하고 시원한 무도 주세요	Please give me some crispy and\nrefreshing pickle.
-REDPANDA_ANGRY	와 망해라	Go to hell!!
-REDPANDA_THANK_YOU	좀 더 노력하면 대박 날지도?	Maybe it'll be a hit if you try a\nbit harder?
-REDPANDA_HAPPY	이 치킨집 뭔가 심상치 않네요	This restaurant is quite remarkable!
+REDPANDA_ORDER_1	반갑소! 사장 나으리!\n소녀는 후라이드가 먹고픈 레서판다라 하오!	Greetings, boss!\nI am but a humble red panda \ncraving some fried chicken!
+REDPANDA_ORDER_2	게임에서 질 때 화나는 매콤 양념!\n우리 팀이 엿 같은 치킨! 있소?	Spicy sauce that's as infuriating as losing a game!\nGot any chicken as bad as my lousy team?
+REDPANDA_ORDER_3	사장은 공산주의를 아시오?!\n난 모르오! 간장이나 주시오	Boss, do you know about communism?!\nI don’t! Just give me some soy sauce!
+REDPANDA_ORDER_4	사장! 스파게티 면을 부수면 ‘까무르치는’ 치킨을 원하오! 어떠하오? 소녀의 개그가?	Boss! I want chicken so good\nit’ll ‘break like spaghetti noodles’!\nWhat do you think? Isn’t my joke brilliant?
+REDPANDA_ORDER_5	한때 유행해서 아무나 다 따라 했던\n마법의 가루를 뿌린 치킨 주세요	Please give me the chicken sprinkled with\nthat magical powder that was once all\nthe rage and copied by everyone.
+REDPANDA_ORDER_6	자고로 고기는 불에 활활 구워야 하오!\n치킨도 고기니 구워야 하지 않겠소?!	Meat, as they say, must be grilled over\na blazing fire! And since chicken is meat,\nshouldn’t it be grilled too?!
+REDPANDA_ORDER_7	잘못하면 검열당하는 수위처럼\n위험한 매운맛의 치킨을 원하오!	I want chicken with a dangerously spicy flavor,\nlike the kind that could almost get censored!
+REDPANDA_ORDER_8	인생은 두 가지 갈림길이 나기 마련이오!\n바삭함이냐! 매콤함이냐! 이를 어찌!\n아 그냥 반반을 시키면 되오?	Life inevitably presents two paths!\nCrispiness or spiciness! What should I do?!\nOh, wait, I can just order half and half?
+REDPANDA_ORDER_9	사장 혹시 달콤짭짤 하면서 혀를 자극하며\n엄청나게 매워 위에 부담을 주는 그런 치킨은 없소?\n진짜 없소?!	Boss, do you happen to have any chicken\nthat’s sweet and salty, with a tantalizing kick\nand so spicy it leaves a burn on top?\nReally, none at all?!
+REDPANDA_ORDER_10	사장 나으리! 소녀는 너무나 배고프오!\n이탈리아 맛과! 도원결의가 마려운 대륙의\n오리지널 소스가 필요하오! 빨리!!! 	Boss! I’m hungry! I need the taste of Italy\nand the original flavor of the continent! Hurry!!!
+REDPANDA_ORDER_11	사장 나으리! 굽는 맛이랑 튀긴 맛 중 뭐로 먹어야 하오?!\n소녀는 결정하기 너무 힘드오! 제발 도와주시오!!!	Boss! Should I go with grilled or fried flavor?!\nI can’t decide, it’s so hard! Please help me!!!
+REDPANDA_SIDE_COLA	분명 목이 마를 것이오! 콜라! 콜라도 주시오! 어서!	You must be thirsty! Cola!\nPlease give me some cola! Hurry!
+REDPANDA_SIDE_PICKLE	사장 나으리! 무! 치킨 무도 있는가?!	Boss! Do you have radish? Chicken radish, I mean?!
+REDPANDA_ANGRY	소녀의 생각으론 이대로는 아니된다 생각하오	In the girl's opinion, this simply\ncannot continue like this.
+REDPANDA_THANK_YOU	나쁘지 않은 무난함이었소! 이대로 전진하시오!	It wasn't bad, just simple enough! Proceed as is!
+REDPANDA_HAPPY	사장 나으리!!! 나와 도원결의를 맺어주시오!!!	Boss!!! Please be my greatest partner!!!
 RABBIT_ORDER_1	가게 꼴이 말이 아니네~ 혹시 모르니까\n후라이드만 시켜봐야지	he appearance of the store is beyond\nwords Just in case, let's order only\nfried chicken.
 RABBIT_ORDER_2	혹시 어디 망하거나 빚져서 치킨집 차린 거예요?\n양념은 할 수는 있을지 몰라~	Did you happen to set up this chicken joint\nafter failing somewhere or accumulating debts?\nI'm not sure if you can make seasoned chicken.
 RABBIT_ORDER_3	이 가게에서 할 수 있을지 모르지만,\n이탈리아 고급식 까르보나라 가능하죠?	I'm not sure if they can do it here,\nbut is Italian gourmet carbonara possible?
@@ -544,11 +544,11 @@ SEAOTTER_QUEST_TALK_5	시험은 하루 매출 20,000$ 넘겨보는 거라요.	Th
 SEAOTTER_QUEST_TALK_6	시험 조건 맞추고 나한테 다시 오면 레시피 줄게예.	nce ya meet the test conditions and come back to me, I’ll give ya the recipe, ya hear?
 SEAOTTER_QUEST_TALK_7	역시~ 사장님이십니다~ 이정도 실력이면 걱정없이 맡겨도 되겠네예~	Yessir, boss! With skills like that, I reckon I ain’t got nothin' to worry 'bout leavin' it to ya!"
 DRINK_QUEST_NAME_1	시원한 콜라	Cool cola
-DRINK_QUEST_INFO_1	콜라 20개를 팔아보자.	Let's sell 20 colas.
-DRINK_QUEST_SUMMARY_1	※ 콜라 20개 팔기	※ Selling 20 colas
+DRINK_QUEST_INFO_1	콜라 10개를 팔아보자.	Let's sell 10 colas.
+DRINK_QUEST_SUMMARY_1	※ 콜라 10개 팔기	※ Selling 10 colas
 DRINK_QUEST_NAME_2	담백한 맥주	Plain beer
-DRINK_QUEST_INFO_2	맥주를 20개를 팔아보자.	Let's sell 20 beers.
-DRINK_QUEST_SUMMARY_2	※ 맥주 20개 팔기	※ Selling 20 beers
+DRINK_QUEST_INFO_2	맥주를 10개를 팔아보자.	Let's sell 10 beers.
+DRINK_QUEST_SUMMARY_2	※ 맥주 10개 팔기	※ Selling 10 beers
 EVENT_0_QUEST_NAME	레시피를 걸고 대결!	A duel for the recipe!
 EVENT_0_QUEST_INFO	건너편 가게가 치킨 레시피를 걸고\n대결을 걸어왔다.\n본때를 보여줘야 된다!	The shop across the street has challenged us to a duel with chicken recipes on the line.\nWe need to show them what we're made of!
 EVENT_0_QUEST_SUMMARY	※ 대결에서 승리하자.	※ Let's win the duel.
@@ -578,7 +578,7 @@ BOOK_TASMANIAN_INFO	주머니쥐와 친구이며 래퍼를 하고 있지만 실�
 BOOK_FLAMINGO_NAME	플라밍고	Flamingo
 BOOK_FLAMINGO_INFO	옆집의 플라멘코 카페에서 일하는 아르바이트생\n착하고 성실한 성격이지만 말이 좀 많은 수다쟁이다	Part-time worker at the Flamenco Café next door. She is kind and diligent, but she's also quite chatty and talkative.
 BOOK_REDPANDA_NAME	레서판다	Red Panda
-BOOK_REDPANDA_INFO	인터넷 중독 증세가 있는 그녀는 학교에서 졸기만 하며\n공부에는 관심이 없지만 인터넷에서 외국의 대한 이야기는 관심이 많습니다,\n입은 험하지만 착한 성격을 가졌으며 호기심이 많습니다	She suffers from internet addiction and only sleeps in class. Although she's not interested in studying, she is very curious about stories from foreign countries on the internet. She has a rough way of speaking but a kind nature and is very curious.
+BOOK_REDPANDA_INFO	도대체 뭘 보고 그러는지 의문이 드는 \n어설픈 하오체를 쓰는 레서판다 소녀입니다!	I am a red panda girl with a strange way of speaking, and it's a mystery what I'm reacting to.
 BOOK_LEMUR_NAME	알락꼬리여우원숭이	Lemur
 BOOK_LEMUR_INFO	유명한 바나나회사(Luna Bananna)의 CEO인 여사장\n상당히 냉철하고 딱딱하며 굉장히 까다롭다.	The CEO of the famous banana company (Luna Banana), she is quite aloof, strict, and very demanding.
 BOOK_RABBIT_NAME	토끼	Rabbit

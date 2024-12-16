@@ -43,7 +43,8 @@ public class SceneMgr : AwakeSingleton<SceneMgr>
                     continue;
                 if (QuestMgr.TownRewardQuest(quest))
                     continue;
-
+                if (QuestMgr.IsMainQuest(quest))
+                    continue;
                 if(QuestMgr.ClearCheck(quest))
                 {
                     playData.quest[(int)quest] = (int)QuestState.Complete;

@@ -10,10 +10,10 @@ public class DiaryUI_QuestListObj : Mgr
     [SerializeField] private Image              select;
     [SerializeField] private Image              diaryLine;
     [SerializeField] private TextMeshProUGUI    diaryName;
-    [SerializeField] private Button             eventTrigger;
     [SerializeField] private Color              notSelectColor;
     [SerializeField] private Color              notSelectMainQuest;
     [SerializeField] private Color              selectColor;
+    private NoParaDel questFun;
 
     public void SetData(QuestData pQuest, bool pSelect, bool pEndQuest)
     {
@@ -46,10 +46,11 @@ public class DiaryUI_QuestListObj : Mgr
     public void SetEventTrigger(NoParaDel fun)
     {
         //탭에 이벤트 등록
-        eventTrigger.onClick.RemoveAllListeners();
-        eventTrigger.onClick.AddListener(() =>
-        {
-            fun?.Invoke();
-        });
+        questFun = fun;
+    }
+
+    public void CheckEventTrigger()
+    {
+        questFun?.Invoke();
     }
 }

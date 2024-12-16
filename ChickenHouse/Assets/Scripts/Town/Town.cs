@@ -69,6 +69,8 @@ public class Town : Mgr
 
     private void TownNpcInit()
     {
+        npcList[0].gameObject.SetActive(false);
+        return;
         //«ÿ¥ﬁ æ∆¡‹∏∂
         if ((QuestState)gameMgr.playData.quest[(int)Quest.SeaOtterQuest] == QuestState.Complete)
             npcList[0].gameObject.SetActive(false);

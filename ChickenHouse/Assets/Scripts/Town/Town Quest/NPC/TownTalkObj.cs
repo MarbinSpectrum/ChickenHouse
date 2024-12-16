@@ -7,7 +7,8 @@ public class TownTalkObj : Mgr
     [SerializeField] protected TownTalk         townTalk;
     [SerializeField] protected TownQuestTalkBox questTalkBox;
     [SerializeField] protected RewardItem       rewardItem;
-    [SerializeField] protected GuestData        guestData;
+    [SerializeField] protected Sprite           npcSprites0;
+    [SerializeField] protected Sprite           npcSprites1;
 
     public virtual void Init()
     {

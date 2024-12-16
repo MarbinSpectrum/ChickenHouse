@@ -28,11 +28,13 @@ public class TownTalk : Mgr
         npcImg.sprite = spr;
     }
 
-    public void StartTalk(string nameKey, List<string> keyList, NoParaDel fun = null)
+    public void StartTalk(string nameKey, List<string> keyList,Sprite npcSprites0, Sprite npcSprites1,
+        Sound sound,NoParaDel fun = null)
     {
         gameObject.SetActive(true);
 
         LanguageMgr.SetString(talkName, nameKey);
+        SetNPCSprite(npcSprites0);
 
         waitFlag = false;
         nowTalkFlag = false;
@@ -40,6 +42,7 @@ public class TownTalk : Mgr
         {
             foreach (string key in keyList)
             {
+                soundMgr.PlayLoopSE(sound);
                 waitFlag = true;
                 nowTalkFlag = true;
                 string str = LanguageMgr.GetText(key);
@@ -47,7 +50,12 @@ public class TownTalk : Mgr
 
                 for(int i = 0; i < str.Length && nowTalkFlag; i++)
                 {
-                    if(i + 1 < str.Length && str[i] == '\\' && str[i+1] == 'n')
+                    if(i%2== 0)
+                        SetNPCSprite(npcSprites0);
+                    else
+                        SetNPCSprite(npcSprites1);
+
+                    if (i + 1 < str.Length && str[i] == '\\' && str[i+1] == 'n')
                     {
                         showStr += "\n";
                         LanguageMgr.SetText(talkText, showStr);
@@ -64,9 +72,12 @@ public class TownTalk : Mgr
                         waitTime += Time.deltaTime;
                         yield return null;
                     }
+
                 }
 
+                soundMgr.StopLoopSE(sound);
                 nowTalkFlag = false;
+                SetNPCSprite(npcSprites0);
                 LanguageMgr.SetText(talkText, str);
 
                 yield return new WaitWhile(() => (waitFlag));

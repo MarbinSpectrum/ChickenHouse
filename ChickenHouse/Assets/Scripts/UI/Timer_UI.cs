@@ -29,6 +29,12 @@ public class Timer_UI : Mgr
         if (run)
             time += Time.deltaTime;
 
+        if (Input.GetKeyDown(KeyCode.Q))
+            time = MAX_TIME;
+
+        if (Input.GetKeyDown(KeyCode.W))
+            gameMgr.playData.money += 10000;
+
         if (gameMgr.playData.tutoComplete1 == false)
         {
             //튜토리얼 완료를 아직 못해서 시간은 안간다.

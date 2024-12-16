@@ -32,8 +32,6 @@ public class TownSeaOtter : TownTalkObj
     {
         if ((QuestState)gameMgr.playData.quest[(int)Quest.SeaOtterQuest] == QuestState.Not)
         {
-            townTalk.SetNPCSprite(guestData.bookImg);
-
             List<string> talkKey = new List<string>();
             talkKey.Add("SEAOTTER_QUEST_TALK_0");
             talkKey.Add("SEAOTTER_QUEST_TALK_1");
@@ -42,7 +40,8 @@ public class TownSeaOtter : TownTalkObj
             talkKey.Add("SEAOTTER_QUEST_TALK_4");
             talkKey.Add("SEAOTTER_QUEST_TALK_5");
             talkKey.Add("SEAOTTER_QUEST_TALK_6");
-            townTalk.StartTalk(guestData.bookNameKey, talkKey, () =>
+            townTalk.StartTalk("BOOK_SEAOTTER_NAME", talkKey, npcSprites0, npcSprites1,
+                Sound.Voice23_SE, () =>
             {
                 gameMgr.playData.quest[(int)Quest.SeaOtterQuest] = (int)QuestState.Run;
                 townTalk.EndTalk();
@@ -52,8 +51,6 @@ public class TownSeaOtter : TownTalkObj
         else if ((QuestState)gameMgr.playData.quest[(int)Quest.SeaOtterQuest] == QuestState.Run 
             && QuestMgr.ClearCheck(Quest.SeaOtterQuest))
         {
-            townTalk.SetNPCSprite(guestData.bookImg);
-
             List<string> talkKey = new List<string>();
             talkKey.Add("SEAOTTER_QUEST_TALK_7");
 
@@ -76,7 +73,8 @@ public class TownSeaOtter : TownTalkObj
                 }
             }
 
-            townTalk.StartTalk(guestData.bookNameKey, talkKey, () =>
+            townTalk.StartTalk("BOOK_SEAOTTER_NAME", talkKey, npcSprites0, npcSprites1, 
+                Sound.Voice23_SE, () =>
             {
                 gameMgr.playData.quest[(int)Quest.SeaOtterQuest] = (int)QuestState.Complete;
                 townTalk.EndTalk();
