@@ -126,17 +126,17 @@ PIG_TALK_2	쿠힉힉힉 돼지 사료도 이것보단 고급스럽겠구먼~	Oin
 PIG_TALK_3	아니 혹시 쿠힉! 그거 사장 얼굴을\n본떠 만든 치킨인가? 완전 개판이구먼!	Wait, is that chicken made to look like the boss's face?\nIt’s a complete mess!
 PIG_TALK_4	쿠히힉! 손이 그렇게 느려터져서야!\n영 못 쓰겠구먼! 컨트롤이 중요한데 말이야!	Oink! With hands that slow, you’re completely useless!\nControl is everything, you know!
 PIG_TALK_5	쿠히힉힉힉 눈은 뜨고 치킨을 만드는 건가?! 장님이 따로 없으시구먼!	Oink! Oink! Are you making chicken with your eyes open?!\nYou’re blind as a bat!
-COOK_LV_REWARD_1	Lv {0} 달성시 치킨 가격 +{1}$	Lv {0} reached: Increase chicken price +{1}$
-COOK_LV_REWARD_2	Lv {0} 달성시 치킨 원가 감소 {1}$	Lv {0} reached: Chicken cost cut {1}$
-COOK_LV_REWARD_3	Lv {0} 달성시 음료 원가 감소 {1}$	Lv {0} reached: Drink cost cut {1}$
-COOK_LV_REWARD_4	Lv {0} 달성시 피클 원가 감소 {1}$	Lv {0} reached: Pickle cost cut {1}$
+COOK_LV_REWARD_1	Lv {0} 달성시 치킨 가격 +{1}<size=6><b>C</b></size>	Lv {0} reached: Increase chicken price +{1}<size=6><b>C</b></size>
+COOK_LV_REWARD_2	Lv {0} 달성시 치킨 원가 감소 {1}<size=6><b>C</b></size>	Lv {0} reached: Chicken cost cut {1}<size=6><b>C</b></size>
+COOK_LV_REWARD_3	Lv {0} 달성시 음료 원가 감소 {1}<size=6><b>C</b></size>	Lv {0} reached: Drink cost cut {1}<size=6><b>C</b></size>
+COOK_LV_REWARD_4	Lv {0} 달성시 피클 원가 감소 {1}<size=6><b>C</b></size>	Lv {0} reached: Pickle cost cut {1}<size=6><b>C</b></size>
 COOK_LV_REWARD_5	Lv {0} 달성시 직원 속도 +{1}%	Lv {0} reached: Worker speed +{1}%
 COOK_LV_REWARD_6	Lv {0} 달성시 수익 +{1}%	Lv {0} reached: Profit rate +{1}%
 COOK_LV_REWARD_7	Lv {0} 달성시 상점 할인율 +{1}%	Lv {0} reached: Shop sale +{1}%
 COOK_LV_REWARD_8	Lv {0} 달성시 손님 등장 속도 +{1}%	Lv {0} reached: Guest spawn Rate +{1}%
 COOK_LV_REWARD_9	Lv {0} 달성시 손님 인내심 상한 +{1}%	Lv {0} reached: Max guest patience +{1}%
 COOK_LV_REWARD_10	Lv {0} 달성시 팁 +{1}%	Lv {0} reached: Tip +{1}%
-COOK_LV_REWARD_11	Lv {0} 달성시 임대료 -{1}$	Lv {0} reached: Rent -{1}$
+COOK_LV_REWARD_11	Lv {0} 달성시 임대료 -{1}<size=6><b>C</b></size>	Lv {0} reached: Rent -{1}<size=6><b>C</b></size>
 TUTO_1	먼저 닭을 달걀물에 넣어봅시다.	First, I'll put chickens in the egg water.
 TUTO_2	달걀물이 골고루 묻도록 닭을 잘 저어주세요.	Stir the chicken well so that the egg water is evenly coated.
 TUTO_3	이제 달걀물을 묻힌 닭을 오른쪽으로 옮겨주세요. 	Now move the chicken dipped in egg water to the right.
@@ -182,12 +182,12 @@ EVENT_0_TUTO_5	제한된 시간은 없고, 어느쪽이든 10마리를 팔았다
 EVENT_0_TUTO_6	건투를 빕니다!	Good luck!
 PROLOGUE_1	어 여기 있었군. 우리가 찾느라\n얼마나 힘들었는지 알아?	Oh, here it is. We're looking for it\nDo you know how hard it was?
 PROLOGUE_2	우리한테 빚을 져서 차린 게 고작 이런 치킨집이라니\n이걸로 우리한테 빚진 걸 갚을 수 있겠어?	I can't believe it's only a chicken restaurant\nlike this that you owe us.\nCan you pay back what you owe us with this?
-PROLOGUE_3	잘 들어 네가 우리한테 빚진 금액 ‘5만’ 달러!\n단 1달러도 봐줄 생각은 없으니\n각오하고 벌어들여야 할 거다!	Listen, you owe us $50,000!\nI won't let you off with a dollar,\nso you have to be prepared and earn it!
+PROLOGUE_3	잘 들어 네가 우리한테 빚진 금액 ‘5만’ 크레딧!\n단 1크레딧도 봐줄 생각은 없으니\n각오하고 벌어들여야 할 거다!	Listen, you owe us 50,000credit!\nI won't let you off with a credit,\nso you have to be prepared and earn it!
 PROLOGUE_4	좋아 일단은 일주일의 시간을 주지\n그때 우리가 빌려준 금액을 반드시 갚아야 할 거다.	Alright, I'll give you a week. By then, you must repay the amount we lent you.
-PROLOGUE_5	만약 갚지 못하면 그때는 네놈을\n시급이 1센트 정도 밖에 안하는 곳으로 보내서\n거기서 평생 일하게 할거다!	If you fail to pay it back, I'll send you to a place where the hourly wage is barely 1 cent, and you'll work there for the rest of your life!
+PROLOGUE_5	만약 갚지 못하면 그때는 네놈을\n시급이 1크레딧 정도 밖에 안하는 곳으로 보내서\n거기서 평생 일하게 할거다!	If you fail to pay it back, I'll send you to a place where the hourly wage is barely 1 credit, and you'll work there for the rest of your life!
 PROLOGUE_6	좋아 잘 알아들은 거 같으니\n일주일후에 다시 오지, 그때 보자고? 사장님	Good, it seems like you understand well. We'll be back in a week, then. See you then, boss.
 BAD_END_1	하, 내가 친절하게 시간을 그렇게나\n주었는데 그정도 밖에 못 갚았어?	Oh, I gave you plenty of time\nto pay me back,and this is all you've got?
-BAD_END_2	미안하지만 넌 모든 기회를 소비했어! 넌 이제 남은 생을 평생 노예로 살아야 할거다!	I'm sorry, but you've used up all your chances! From now on, you'll have to live the rest of your life as a slave!
+BAD_END_2	미안하지만 넌 모든 기회를 소비했어!\n넌 이제 남은 생을 평생 노예로 살아야 할거다!	I'm sorry, but you've used up\nall your chances! From now on,\nyou'll have to live the rest of\nyour life as a slave!
 EVENT0_1	쿠히힉! 쿠히힉! 어이 여기 사장님 계시는가?	Oink! Oink! Hey, is the boss here?
 EVENT0_2	이거 이거 반갑구먼~ 나 여기 건너편에\n새로 치킨집을 개업한사장이올시다!	Well, well, isn’t this a pleasure~\nI’m the owner of the new chicken restaurant\nacross the street!
 EVENT0_3	쿠히힉! 근데 이거 치킨집 시설이\n완전 돼지우리 구만! 쿠힉!	Oink! But this chicken shop\nlooks just like a pigsty! Oink!
@@ -210,7 +210,7 @@ COLA	콜라	Cola
 COLA_INFO	치킨과 같이 먹으면 안성맞춤인 탄산음료.	Soda perfect with chicken.
 BEER	맥주	Beer
 BEER_INFO	시원한 목 넘김과 풍부한 맛으로\n치킨의 맛을 한층 더 살려주는 맥주.\n(술을 못 먹는 손님은 구입하지 않습니다.)	With a cool throat and a rich tasteBeer that makes the taste of chicken even more alive.\n<size=13>(We don't buy customers who can't drink alcohol.)</size>
-PICKLE	치킨무	Pickle
+PICKLE	치킨무	Pickled radish
 PICKLE_INFO	치킨의 느끼함을 잡아주고 입안을 상큼하게 만들어주는, 아삭아삭한 식감의 새콤달콤한 필수 반찬입니다!	It's a sweet and sour must-have side dish with a crunchy texture that catches the greasyness of chicken and makes the mouth fresh!
 CHICKEN	치킨	Chicken
 FRIED_CHICKEN	후라이드 치킨	Fried Chicken
@@ -377,7 +377,7 @@ DOVE_THANK_YOU	흠! 이 무난함! 나쁘지 않아	Hmm! This is easy! Not bad
 DOVE_HAPPY	엘레강트!!! 구구! 구구구구구구	Elegant! Gu! Gu! Gu! Gu
 PANDA_ORDER_1	아저씨 그 제가 너무너무 배고파서 그런데\n바삭한 치킨을 주세요! 근데 그냥 치킨말고\n아무 소스도 안 뿌린 거!	Mister! I'm really really hungry, so could\nyou please give me crispy chicken?\nBut just the chicken without any sauce, please!
 PANDA_ORDER_2	아저씨! 그 제가 매운걸 잘 못 먹어요!\n그래서 말이죠! 안 매운 치킨 주세요!\n달고 맵긴한데  안 매운 거로요!	Mister! I can't handle spicy food very well!\nSo, please, give me non-spicy chicken!\nSweet and a little spicy is okay,\nbut not too spicy!
-PANDA_ORDER_3	아저씨! 그 똥 냄새가 날 거 같은데\n똥 냄새가 안 나는 치킨 주세요!	Mister! Please give me chicken that\ndoesn't smell like poop even though\nit seems like it might!
+PANDA_ORDER_3	아저씨! 그 콜라 처럼 갈색인데! \n콜라 맛이 안 나는 치킨 주세요!	Mister! I want chicken that's brown like cola...\nbut doesn’t taste like cola!
 PANDA_ORDER_4	아저씨! 그 엄마가 빠스따를 만들어 줬는데\n너무 맛있는 거 있죠? 혹시 그거 치킨에도 묻힐수 있어요?	Mister! My mom made pasta!\nit was really delicious.\nIs there something like that for chicken?\nCan you put that on the chicken?
 PANDA_ORDER_5	아저씨! 그 치킨집에 마법의 가루를 뿌려서\n만든 치킨도 있다면서요?! 저도! 저도 주세요!	Mister! I heard there's chicken made\nwith magic dust at that chicken place!\nI want some too! Please!
 PANDA_ORDER_6	아저씨! 그 언제 한 번인가 불로 숯불로 구워서\n엄청 매울 줄 알았는데 안 매웠던 치킨 주세요! 	Mister! I thought it was going to be spicy\nbecause it was grilled over charcoal\nfire before, but surprisingly it wasn't.\nPlease give me that chicken!
@@ -392,10 +392,10 @@ PANDA_ANGRY	엄마가 이런 데서 사는 거 아니래요!	My mom says she doe
 PANDA_THANK_YOU	다음에도 올게요	I'll come again next time.
 PANDA_HAPPY	엄마한테 여기 또 와도 되는지 물어볼게요!	I'll ask if it's okay for me to come\nhere again from my mom!
 REDPANDA_ORDER_1	반갑소! 사장 나으리!\n소녀는 후라이드가 먹고픈 레서판다라 하오!	Greetings, boss!\nI am but a humble red panda \ncraving some fried chicken!
-REDPANDA_ORDER_2	게임에서 질 때 화나는 매콤 양념!\n우리 팀이 엿 같은 치킨! 있소?	Spicy sauce that's as infuriating as losing a game!\nGot any chicken as bad as my lousy team?
-REDPANDA_ORDER_3	사장은 공산주의를 아시오?!\n난 모르오! 간장이나 주시오	Boss, do you know about communism?!\nI don’t! Just give me some soy sauce!
+REDPANDA_ORDER_2	게임에서 질 때 화나는 매콤 양념!\n우리 팀이 물엿 같은 치킨! 있소?	I’m so mad because we lost because of the team!\nThis is when spicy sauce is the answer!
+REDPANDA_ORDER_3	사장은 양념파요? 후라이드파요?!\n난 간장이 좋소!	Boss, do you prefer sauced or plain chicken?!\nI’m a soy sauce fan myself!
 REDPANDA_ORDER_4	사장! 스파게티 면을 부수면 ‘까무르치는’ 치킨을 원하오! 어떠하오? 소녀의 개그가?	Boss! I want chicken so good\nit’ll ‘break like spaghetti noodles’!\nWhat do you think? Isn’t my joke brilliant?
-REDPANDA_ORDER_5	한때 유행해서 아무나 다 따라 했던\n마법의 가루를 뿌린 치킨 주세요	Please give me the chicken sprinkled with\nthat magical powder that was once all\nthe rage and copied by everyone.
+REDPANDA_ORDER_5	한때 유행해서 유사품 많던\n마법의 가루를 뿌린 치킨 주시오!	Give me the chicken sprinkled\nwith the magical powder that was\nonce so popular it had countless imitations!
 REDPANDA_ORDER_6	자고로 고기는 불에 활활 구워야 하오!\n치킨도 고기니 구워야 하지 않겠소?!	Meat, as they say, must be grilled over\na blazing fire! And since chicken is meat,\nshouldn’t it be grilled too?!
 REDPANDA_ORDER_7	잘못하면 검열당하는 수위처럼\n위험한 매운맛의 치킨을 원하오!	I want chicken with a dangerously spicy flavor,\nlike the kind that could almost get censored!
 REDPANDA_ORDER_8	인생은 두 가지 갈림길이 나기 마련이오!\n바삭함이냐! 매콤함이냐! 이를 어찌!\n아 그냥 반반을 시키면 되오?	Life inevitably presents two paths!\nCrispiness or spiciness! What should I do?!\nOh, wait, I can just order half and half?
@@ -456,6 +456,87 @@ DEER_SIDE_PICKLE	양념치킨 개발자가 같이 만든 무 초절임도 주세
 DEER_ANGRY	프랑스 혁명이 일어날 서비스네요!	It's revolutionary service!
 DEER_THANK_YOU	무난한 치킨업계 서비스네요!	It's a typical chicken industry service!
 DEER_HAPPY	이 가게 왠지 대박 날 거 같아요!	This shop seems like it's going to be a big hit!
+ARMADILLO_ORDER_1	아안녕하세요 바바반가워요 그 야 양념?\n양념으로 아 아니아니 후라이드로	Ah-ah, hello! B-b-bad to see you!\nThat y-y-y sauce?\nNo, no, I mean fried
+ARMADILLO_ORDER_2	저는 사실 매운걸 잘 못 먹어요!\n어릴때부터 그랬죠 하지만\n야양념바른 치킨은 괘괜찮을지도?	Actually, I’m not very good with spicy food!\nI’ve been like this since I was a kid, but...\nM-m-maybe spicy-sauced chicken might be okay?
+ARMADILLO_ORDER_3	그그뭐더라 그그 초밥집에서 와사비랑 같이 섞어\n먹기도 하는 그그거 뭐뭐였죠?	Wh-what was it again?\nThe th-the thing you mix with\nwasabi at sushi places... w-what was it?
+ARMADILLO_ORDER_4	저저는 그그 뭐더라 그 다달걀 노른자에\n치치즈랑 후후추를 섞는 그그거	I-I mean, wh-what’s it again?\nThe th-the thing you mix with egg yolk... \nand cheese and p-p-pepper?
+ARMADILLO_ORDER_5	전 매매운걸 엄청 못먹어요! 저저정말이에요!\n제제 제가 먹을건 아아닌데 그그 제일\n매운거이있나요?	I-I really can't handle spicy food! I-I mean it!\nThe th-the thing I'm gonna eat isn't...\nb-but do you have the spiciest one?
+ARMADILLO_ORDER_6	제제가 제일 조좋아하는 치치치킨이 있어요\n그그 뭐더라? ‘바’자로 시작하는 치킨이 있는데?	T-t-there's my f-favorite c-c-chicken!\nWh-what's it again?\nThe ch-chicken that starts with a 'B'?
+ARMADILLO_ORDER_7	제제가 그그 바비큐 치킨! 다음으로 좋아하는\n치킨이 있어요 그그건바로 뿌뿌뿌뿌 뭐더라?	My f-favorite is b-b-bbq chicken!\nAnd there's another one I like,\nwh-what was it again?\nIt's... p-p-p-p... what was it?
+ARMADILLO_ORDER_8	오 오늘은 배가 너 너무 고프고 두가지 맛을\n즈즐기기고 싶어서요 그그 후후라라이드랑\n야야양 같이 주세요!!!	Oh, I'm sooo hungry today,\nand I want to try two flavors,\nso please give me f-f-fried and\ns-s-spicy together!!!
+ARMADILLO_ORDER_9	뿌뿌뿌링! 그그 뿌링클이랑 그그 양양양\n양심없게 하나만 시킬 수 없으니 후후후라이드도	P-p-ppring! And the th-the pr-prinkle,\nand th-th-the... can't be selfish,\nso also f-f-fried!
+ARMADILLO_ORDER_10	저저 이인생 제제일 조조좋아하게된 치치킨이 있어요\n그그건 바바베베큐랑 후라이드에 양념을 치친 킨!	I-I have my f-favorite c-c-chicken in this life!\nIt's th-th-the bbq and fried with seasoning,\nc-chicken!
+ARMADILLO_ORDER_11	저저는 거겁이 많아요 소소심하고 그그러니까\n치치킨으로라도 도도전하고 싶어요\n매매콤야양념 부불다닭	I-I have a lot of g-great ideas, I'm s-s-shy,\nand th-th-that's why I want to challenge\nmyself with c-c-chicken!\nS-s-spicy, y-y-ye, n-n-no, I mean Hell Chicken!
+ARMADILLO_SIDE_COLA	워원래는 자잘 아안마시는데 트트특별히 코콜라도	W-well, I usually don't drink soft drinks,\nbut t-today, I'll make an exception for c-c-cola.
+ARMADILLO_SIDE_PICKLE	무무무무무 무를 주세요!	P-p-p-please give me pick-pick-pickled radish!
+ARMADILLO_ANGRY	서비스 진짜 별로입니다	The service is really terrible.
+ARMADILLO_THANK_YOU	헤헤헤 조조 좋은거 가같아요	Hehe, I-I think it's g-g-good!
+ARMADILLO_HAPPY	와 마말을 버벅 거거렸는데도!	Wow, even though I st-stuttered!
+POLARBEAR_ORDER_1	신속하게 기름에 정확한 시간에 튀겨서\n그 어떤 소스도 뿌리지 않은 치킨으로 주시죠	Quickly deep-fry it in oil for the exact amount of time,\nand serve it as chicken with no sauce added.
+POLARBEAR_ORDER_2	기름으로 확실한 시간으로 튀긴 다음에\n너무 맵지 않으면서 달콤한 소스를 바른 치킨으로 주시죠	Deep-fry it in oil for the exact amount of time,\nthen serve it as chicken coated with a sweet sauce\nthat isn't too spicy.
+POLARBEAR_ORDER_3	정확한 시간을 지켜 기름에 튀겨낸 치킨을\n진한 맛의 짭짤한 장에 푹 담가서 만든\n치킨으로 부탁드리죠	Deep-fry it in oil for the exact amount of time,\nthen serve it as chicken coated with a\nsweet sauce that isn't too spicy.
+POLARBEAR_ORDER_4	오늘은 특별한 치킨을 원합니다.\n유명한 셰프 '레나토 괄란디'가 개발한\n크리미한 양념이 어우러진 치킨을 주세요.	Today, I want a special chicken.\nPlease give me a chicken with a\ncreamy sauce developed by\nthe famous chef 'Renato Guarlandi.'
+POLARBEAR_ORDER_5	외국에서 친구들과 파티를 자주 즐겼습니다.\n소시지, 스테이크 등을 구워 먹었죠\n간만에 그 맛을 보고 싶군요	I used to enjoy parties with my friends\nabroad frequently. We would grill sausages,\nsteaks, and other dishes. It's been a while\nand I miss the taste
+POLARBEAR_ORDER_6	과거 조별 과제에서 조장을 자주 맡았죠,\n스트레스 풀기로 매우 매운 음식을\n먹곤 했습니다. 그러니 부탁하죠	I used to often be the group leader\nin group projects, and to relieve stress,\nI would eat very spicy food. So, please.
+POLARBEAR_ORDER_7	한때 엄청난 인기를 탄 치킨이 있다더군요\n한때는 법정 싸움이 일어날 정도로\n오늘 그 치킨을 먹고 싶군요!	There was a chicken that gained huge\npopularity once. It was so popular that\nlegal battles even broke out over it.\nToday, I want to try that chicken!
+POLARBEAR_ORDER_8	전 스트레스를 받으면 매우 매운 걸 먹기도 합니다.\n위에 부담이 덜 가게 까르보나 치킨도 부탁드립니다.	When I'm stressed, I sometimes eat very spicy food.\nPlease also bring me Carbonara chicken to lighten\nthe pressure on my stomach.
+POLARBEAR_ORDER_9	외국에 있을 때 친구가 항상 말하더군요\n자신들의 나라에서 국룰 치킨 조합 반반이\n있다고 그걸로 주시죠	When I was abroad, my friend always used\nto say that in their country, the popular chicken\ncombo is half and half. Please give me that.
+POLARBEAR_ORDER_10	한때 외국에 있을 때 먹을 것이 없어\n밥과 계란에 함께 비빈 소스가 있었죠\n짭짤한 게 좋았죠 그거랑 바비큐로 주세요.	There was a sauce I mixed with rice and eggs\nwhen I was abroad and had nothing to eat.\nIt was salty, and I liked it.\nPlease give me that with barbecue.
+POLARBEAR_ORDER_11	과자 맛이 난다는 평가도 있는 특이한 치킨이\n있다고 들었습니다. 그래도 혹시 모르니\n보험으로 그냥 일반 치킨도 부탁드립니다.	I’ve heard there’s a unique chicken\nthat tastes like snacks. But just in case,\ncould you also bring some regular chicken\nas a backup?
+POLARBEAR_SIDE_COLA	뭔가 저랑 잘 어울릴 거 같은 음료도	I feel like this drink would go well with me.
+POLARBEAR_SIDE_PICKLE	하얀 무를 보고 있으면 고향이 생각나곤 합니다	Looking at white radishes reminds me of my hometown.
+POLARBEAR_ANGRY	이 가게는 문제가 많지만 말을 아끼죠	This place has many issues,\nbut I'll keep my words to myself.
+POLARBEAR_THANK_YOU	평범하면서 특별한 것이 없군요.	There's nothing special about it, just ordinary.
+POLARBEAR_HAPPY	좋은 치킨에 좋은 서비스입니다. 번창하세요	Good chicken and great service.\nWishing you continued success!
+COBRA_ORDER_1	안녕하세요? 후.치 부탁드릴게요	Hello! I'll have the FryChk, please.
+COBRA_ORDER_2	후후후 오늘은 말이죠? 양.치 부탁드릴게요~	Hehe, today, you know?\nI'll have the HotChk, please~
+COBRA_ORDER_3	오늘따라 짭짤한 게 땡기네? 간.치 부탁르릴게요~	Feeling like something savory today?\nI'll have the SoyChk, please!
+COBRA_ORDER_4	아~ 고향 맛이 그리워~ 그러니까 까.치 부탁드릴게요~ 	Oh~ I’m craving the taste of home~\nSo, I’ll have the CarbChk, please!
+COBRA_ORDER_5	으음 오늘은 아메리카 스타일이 땡기네? 바.치 부탁드릴게요~	Hmm, I'm craving an American style today.\nI'll have the BBQChk, please!
+COBRA_ORDER_6	오늘은 혀를 자극할 자극적인 불.치 부탁드릴게요~	Today, I'm craving something spicy\nto tingle my taste buds.\nI'll have the HellChk, please!
+COBRA_ORDER_7	으음 오늘은 독특하게 즐기게 뿌.치 부탁드릴게요~	Hmm, today I’m in the mood for\nsomething unique.\nI’ll have the PrkChk, please!
+COBRA_ORDER_8	오늘은 뭘 먹지~ 아 그래! 오늘은 후.양 부탁드릴게요~	Hmm, what should I eat today?\nOh right! I'll have the FryHotChk, please!
+COBRA_ORDER_9	으음 오늘은 스폐셜로 즐기고 싶어! 양.불 부탁드릴게요~	Hmm, today I want to enjoy something special!\nI’ll have the HotHellChk, please!
+COBRA_ORDER_10	오늘은 뭘 먹을까? 뭘 먹을까? 으음 그래~ 뿌.바 부탁드릴게요~	Hmm, what should I eat today?\nWhat should I eat? Oh right!\nI’ll have the PrkBBQChk, please!
+COBRA_ORDER_11	오늘은 익숙한 맛을 즐기는 게 좋겠어~ 그러니 후.간 부탁드릴게요~	Today, I think I’ll enjoy a familiar taste~\nSo, I’ll have the FrySoyChk, please!
+COBRA_SIDE_COLA	아! 콜도 부탁드릴게요~	Oh! I'll have a Ck, please!
+COBRA_SIDE_BEER	맥이 빠짐 섭하지~	Missing a Br, huh?
+COBRA_SIDE_PICKLE	그래! 무도 부탁드릴게요~	Right! I'll have some ChkRad, please!
+COBRA_ANGRY	완.별	Com. awful
+COBRA_THANK_YOU	그.그	So-so
+COBRA_HAPPY	최.치.가	Best Chk
+CROCODILE_ORDER_1	헤이 주인장! 여기 프롸아아이이드 취퀸으로 플리즈!	헤이 주인장! 여기 프롸아아이이드 취퀸으로 플리즈!
+CROCODILE_ORDER_2	헤이 주인장! 여기 이야아앙녀어엄 취퀸으로 플리즈!	헤이 주인장! 여기 이야아앙녀어엄 취퀸으로 플리즈!
+CROCODILE_ORDER_3	헤이 주인장! 여기 갸아아앙쟈아앙 취퀸으로 플리즈!	헤이 주인장! 여기 갸아아앙쟈아앙 취퀸으로 플리즈!
+CROCODILE_ORDER_4	헤이 주인장! 여기 꺄르으보르놔라 취퀸으로 플리즈!	헤이 주인장! 여기 꺄르으보르놔라 취퀸으로 플리즈!
+CROCODILE_ORDER_5	헤이 주인장! 여기 바아베에큐우으 취퀸으로 플리즈!	헤이 주인장! 여기 바아베에큐우으 취퀸으로 플리즈!
+CROCODILE_ORDER_6	헤이 주인장! 여기 뷰우으을다아악 취퀸으로 플리즈!	헤이 주인장! 여기 뷰우으을다아악 취퀸으로 플리즈!
+CROCODILE_ORDER_7	헤이 주인장! 여기 쁘으으리잉크을 취퀸으로 플리즈!	헤이 주인장! 여기 쁘으으리잉크을 취퀸으로 플리즈!
+CROCODILE_ORDER_8	헤이 주인장! 여기 퓨젼!후롹&양뇸 취퀸으로 플리즈!	헤이 주인장! 여기 퓨젼!후롹&양뇸 취퀸으로 플리즈!
+CROCODILE_ORDER_9	헤이 주인장! 여기 퓨젼!뷸닭&바베 취퀸으로 플리즈!	헤이 주인장! 여기 퓨젼!뷸닭&바베 취퀸으로 플리즈!
+CROCODILE_ORDER_10	헤이 주인장! 여기 퓨젼!쀼링&갼쟝 취퀸으로 플리즈!	헤이 주인장! 여기 퓨젼!쀼링&갼쟝 취퀸으로 플리즈!
+CROCODILE_ORDER_11	헤이 주인장! 여기 퓨젼!꺄르&후롹 취퀸으로 플리즈!	헤이 주인장! 여기 퓨젼!꺄르&후롹 취퀸으로 플리즈!
+CROCODILE_SIDE_COLA	코크콜!라르으! 추가 해야겠지?	코크콜!라르으! 추가 해야겠지?
+CROCODILE_SIDE_PICKLE	취퀸을 시켰으니 뮤를 받아야궸지?	취퀸을 시켰으니 뮤를 받아야궸지?
+CROCODILE_ANGRY	오마이갓 당쉰의 쉔쓰가 샤먕했숩니댜	오마이갓 당쉰의 쉔쓰가 샤먕했숩니댜
+CROCODILE_THANK_YOU	놔뿌쥐 않았 썰!	놔뿌쥐 않았 썰!
+CROCODILE_HAPPY	어뭬이징! 퐌톼스틱!	어뭬이징! 퐌톼스틱!
+SQUIRREL_ORDER_1	영감이 떠오르지 않을땐 후라이드랑 양념 간장 셋중 뭐가 좋을까? 첫번째로 하죠	영감이 떠오르지 않을땐 후라이드랑 양념 간장 셋중 뭐가 좋을까? 첫번째로 하죠
+SQUIRREL_ORDER_2	영감이 떠오르지 않을땐 후라이드랑 양념  간장 셋중 뭐가 좋을까? 두번째로 하죠	영감이 떠오르지 않을땐 후라이드랑 양념  간장 셋중 뭐가 좋을까? 두번째로 하죠
+SQUIRREL_ORDER_3	영감이 떠오르지 않을땐 후라이드랑 양념  간장 셋중 뭐가 좋을까? 세번째로 하죠	영감이 떠오르지 않을땐 후라이드랑 양념  간장 셋중 뭐가 좋을까? 세번째로 하죠
+SQUIRREL_ORDER_4	까르보르나라 치킨? 아니 바베큐? 불닭? 아니면 뿌링클? 뭐로하지? 첫번째로 하죠	까르보르나라 치킨? 아니 바베큐? 불닭? 아니면 뿌링클? 뭐로하지? 첫번째로 하죠
+SQUIRREL_ORDER_5	까르보르나라 치킨? 아니 바베큐? 불닭? 아니면 뿌링클? 뭐로하지? 두번째로 하죠	까르보르나라 치킨? 아니 바베큐? 불닭? 아니면 뿌링클? 뭐로하지? 두번째로 하죠
+SQUIRREL_ORDER_6	까르보르나라 치킨? 아니 바베큐? 불닭? 아니면 뿌링클? 뭐로하지? 세번째로 하죠	까르보르나라 치킨? 아니 바베큐? 불닭? 아니면 뿌링클? 뭐로하지? 세번째로 하죠
+SQUIRREL_ORDER_7	까르보르나라 치킨? 아니 바베큐? 불닭? 아니면 뿌링클? 뭐로하지? 네번째로 하죠	까르보르나라 치킨? 아니 바베큐? 불닭? 아니면 뿌링클? 뭐로하지? 네번째로 하죠
+SQUIRREL_ORDER_8	뭐를 먹을까요? 후라이드? 양념? 간장?  바베큐? 불닭? 뿌링클? 첫번째랑 세번째로 하죠	뭐를 먹을까요? 후라이드? 양념? 간장?  바베큐? 불닭? 뿌링클? 첫번째랑 세번째로 하죠
+SQUIRREL_ORDER_9	뭐를 먹을까요? 후라이드? 양념? 간장?  바베큐? 불닭? 뿌링클? 두번째랑 여섯번째로 하죠	뭐를 먹을까요? 후라이드? 양념? 간장?  바베큐? 불닭? 뿌링클? 두번째랑 여섯번째로 하죠
+SQUIRREL_ORDER_10	뭐를 먹을까요? 후라이드? 양념? 간장?  바베큐? 불닭? 뿌링클? 세번째랑 네번째로 하죠	뭐를 먹을까요? 후라이드? 양념? 간장?  바베큐? 불닭? 뿌링클? 세번째랑 네번째로 하죠
+SQUIRREL_ORDER_11	뭐를 먹을까요? 후라이드? 양념? 간장?  바베큐? 불닭? 뿌링클? 다섯번째랑 첫번째로 하죠	뭐를 먹을까요? 후라이드? 양념? 간장?  바베큐? 불닭? 뿌링클? 다섯번째랑 첫번째로 하죠
+SQUIRREL_SIDE_COLA	만화를 그리다보면 당분이 필수죠 콜라도 부탁합니다	만화를 그리다보면 당분이 필수죠 콜라도 부탁합니다
+SQUIRREL_SIDE_PICKLE	느끼한 것만 먹음 속아 안 좋으니 무도 주세요	느끼한 것만 먹음 속아 안 좋으니 무도 주세요
+SQUIRREL_ANGRY	역시 만화도 요리도 재능이 있어야 하나?	역시 만화도 요리도 재능이 있어야 하나?
+SQUIRREL_THANK_YOU	그냥 흔한 양산형 웹툰같은 느낌이네요	그냥 흔한 양산형 웹툰같은 느낌이네요
+SQUIRREL_HAPPY	베스트셀러급 치킨이네요!	베스트셀러급 치킨이네요!
 RESUME_1_NAME	찰스	Charles
 RESUME_1_RESIDENCE	털털마을	TulTul Town
 RESUME_2_NAME	니치	Niche
@@ -523,8 +604,8 @@ WORKER_SKILL_INFO_6	종종 치킨 한 조각을 빼 먹음	Occasionally sneaks a
 WORKER_SKILL_INFO_7	손님이 원하는 치킨을 알려줌	Let the customers know the menu they want.
 WORKER_SKILL_INFO_8	카운터에 배치시 2% 확률로 손님의 주문이 제대로 전달되지 않음	When assigned to the counter, there is a 2% chance that a customer's order may not be communicated correctly
 QUEST_NAME_1	빚 갚기	Pay off debt
-QUEST_INFO_1	너구리에게 빌린 돈 50,000$를 갚아야한다. \n기간은 7일준다고 했다.\n빨리 준비해야 될거같다.	I need to repay the $50,000\nI borrowed from the raccoon.\nHe gave me 7 days.\nI need to prepare quickly.
-QUEST_SUMMARY_1	※ 기간안에 50,000$를 갚자!!	※ Let's repay the $50,000 within the deadline!!
+QUEST_INFO_1	너구리에게 빌린 돈 50,000 크레딧을 갚아야한다. \n기간은 7일준다고 했다.\n빨리 준비해야 될거같다.	I need to repay the 50,000 credit\nI borrowed from the raccoon.\nHe gave me 7 days.\nI need to prepare quickly.
+QUEST_SUMMARY_1	※ 기간안에 50,000 크래딧을 갚자!!	※ Let's repay the 50,000 credit within the deadline!!
 SPICY_QUEST_NAME_1	장사를 시작해보자.	Let's sell chicken
 SPICY_QUEST_INFO_1	우선 치킨 5마리를 팔아보자.	Let's sell five chickens first.
 SPICY_QUEST_SUMMARY_1	※ 치킨 5마리 팔기	※ Selling 5 chickens
@@ -533,14 +614,14 @@ SPICY_QUEST_INFO_2	간장 치킨 5마리를 팔아보자.	Let's sell five soy ch
 SPICY_QUEST_SUMMARY_2	※ 간장치킨 5마리 팔기	※ Selling 5 soy chickens
 SEAOTTER_QUEST_NAME	해달의 비밀 레시피	The Secret Recipe of the Sea Otter
 SEAOTTER_QUEST_INFO	해달 아주머니가 자신의 집안에서 전해내려오는 비법소스 레시피가 있다며 자신의 시험을 통과하면 레시피를 알려주겠다고 한다.	The sea otter aunt says she has a secret sauce recipe\nthat has been passed down in her family,\nand she will share it if you pass her test.
-SEAOTTER_QUEST_SUMMARY	※ 하루 매출 20,000$ 이상 기록하기	※ Record sales of more than 20,000 won per day.
+SEAOTTER_QUEST_SUMMARY	※ 하루 매출 20,000 크래딧 이상 기록하기	※ Record sales of more than 20,000 credit per day.
 SEAOTTER_QUEST_REWARD	해달의 비밀 레시피	Secret Recipe
 SEAOTTER_QUEST_TALK_0	하이고 사장님! 잘 지내셨습니까?	Oh boss! How ya been doin'?
 SEAOTTER_QUEST_TALK_1	사실은 말이지예 우리 집에서 할무니의 할무니가 개발해서\n지금까지 계속 계속 만들어온 특별한 소스가 있는데예.	Well, ya see, we got this special sauce that my granny's granny came up with, and we've been makin' it ever since.
 SEAOTTER_QUEST_TALK_2	그거 혹시 사장님 치킨에다 해보면 어떠십니까? 	How 'bout tryin' that on your chicken, boss?
 SEAOTTER_QUEST_TALK_3	근데 이게 사장님이 소화하실지는 모르겠네예\n저희 엄니가 보통 까다로운게 아니라서요.	But I ain't sure if ya can handle it, boss. My mama’s real picky 'bout stuff like this, ya know.
 SEAOTTER_QUEST_TALK_4	한 가지 시험만 통과하믄 레시피를 알려드릴텐데, 어때요?	If ya pass one little test, I'll give ya the recipe. How 'bout it?
-SEAOTTER_QUEST_TALK_5	시험은 하루 매출 20,000$ 넘겨보는 거라요.	The test is to see if ya can make over 20,000$ in a day.
+SEAOTTER_QUEST_TALK_5	시험은 하루 매출 20,000 크래딧 넘겨보는 거라요.	The test is to see if ya can make over 20,000 credit in a day.
 SEAOTTER_QUEST_TALK_6	시험 조건 맞추고 나한테 다시 오면 레시피 줄게예.	nce ya meet the test conditions and come back to me, I’ll give ya the recipe, ya hear?
 SEAOTTER_QUEST_TALK_7	역시~ 사장님이십니다~ 이정도 실력이면 걱정없이 맡겨도 되겠네예~	Yessir, boss! With skills like that, I reckon I ain’t got nothin' to worry 'bout leavin' it to ya!"
 DRINK_QUEST_NAME_1	시원한 콜라	Cool cola
@@ -591,6 +672,16 @@ BOOK_DEER_NAME	사슴	Deer
 BOOK_DEER_INFO	책을 매우 좋아하는 그녀는 하라는 근무는 안하고 책을 읽을 정도로 책을 매우 사랑합니다.\n굉장히 4차원적인 성격으로 인해 굉장히 난해한 질문을 자주합니다.	She loves books immensely and is so passionate about reading that she neglects her work responsibilities. Her very eccentric personality often leads her to ask perplexing questions.
 BOOK_SEAOTTER_NAME	해달	Sea Otter
 BOOK_SEAOTTER_INFO	먼 시골에서 살다 도시로 이사와 해산물을 파는 일을 하는 해달입니다.\n사투리로 인해 억양이 쌔 드쌘 성격 같지만 남을 배려할줄 아는 부드러운 성격의 소유자입니다.	A sea otter who moved from a distant countryside to the city to work in seafood sales. Despite having a strong accent that might come off as rough, they have a considerate and gentle personality.
+BOOK_ARMADILLO_NAME	아르마딜로	Armadillo
+BOOK_ARMADILLO_INFO	말을 심하게 버벅거리며 이상하게 말하는\n매우 답답한 아르마딜로다.\n아무래도 무슨 사정이 있는 듯 보인다.	An armadillo speaking in a very frustrated\nand awkward manner, stumbling over words.\nIt seems like there's something going on with it.
+BOOK_POLARBEAR_NAME	북극곰	Polar Bear
+BOOK_POLARBEAR_INFO	무뚝뚝해 보이는 표정과 달리 의외로 대화하는 걸\n좋아하는 북극곰입니다	Despite its stoic expression, it's a polar bear that surprisingly enjoys conversing.
+BOOK_COBRA_NAME	코브라	Cobra
+BOOK_COBRA_INFO	나른해 보이는 그녀는 늘리는 듯한 말투로 말하며\n줄여 말하는 것을 좋아하는 파충류입니다	She looks lethargic and speaks in a drawn-out tone, preferring to shorten her words.
+BOOK_CROCODILE_NAME	악어	Crocodile
+BOOK_CROCODILE_INFO	악어	Crocodile
+BOOK_SQUIRREL_NAME	다람쥐	Squirrel
+BOOK_SQUIRREL_INFO	다람쥐	Squirrel
 EMPLOYMENT_NPC_TALK_0	어서 오세요! 네코 직원 소개소에\n오신 걸 환영합니다.\n어떤 도움이 필요하신가요?	Hello! You've arrived at\nNeko Job Bank.\nHow can we assist you today?
 EMPLOYMENT_NPC_TALK_1	환영합니다! 오늘 어떤 직원이 필요하신지\n알려주시면 바로 도와드릴게요.	Welcome! Let us know what\nkind of staff you need today,\nand we'll assist you right away.
 EMPLOYMENT_NPC_TALK_2	어서 오세요! 필요한 직원이\n있으시면 말씀해 주세요.\n최선을 다해 찾아드리겠습니다.	Hello! If you need any worker,\nplease let us know.\nWe'll do our best to find\nthe better person for you.

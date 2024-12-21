@@ -9,7 +9,7 @@ public class Money_UI : Mgr
 
     public void SetMoney(long v)
     {
-        string strNum = string.Format("{0:N0} $", v);
-        LanguageMgr.SetText(textMesh, strNum);
+        string moneyStr = LanguageMgr.GetMoneyStr(textMesh.fontSize, v);
+        LanguageMgr.SetText(textMesh, moneyStr);
     }
 }

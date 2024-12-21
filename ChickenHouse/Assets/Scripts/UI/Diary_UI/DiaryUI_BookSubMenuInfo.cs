@@ -14,8 +14,6 @@ public class DiaryUI_BookSubMenuInfo : Mgr
     [SerializeField] private RectTransform  rect;
     [SerializeField] private Image          face;
     [SerializeField] private RectTransform alcoholic;
-    private const string MONEY_FORMAT = "{0}<size=10>$</size>";
-    private const string COST_MONEY_FORMAT = "-{0}<size=5>$</size>";
 
     public void SetUI(Drink pDrink)
     {
@@ -36,12 +34,12 @@ public class DiaryUI_BookSubMenuInfo : Mgr
         else
             alcoholic.gameObject.SetActive(false);
 
-        string moneyStr = string.Format(MONEY_FORMAT, drinkData.price);
+        string moneyStr = LanguageMgr.GetMoneyStr(itemMoney.fontSize, drinkData.price);
         itemMoney.text = moneyStr;
         if (drinkData.cost > 0)
         {
             itemCost.gameObject.SetActive(true);
-            string costStr = string.Format(COST_MONEY_FORMAT, drinkData.cost);
+            string costStr = string.Format("-{0}", LanguageMgr.GetMoneyStr(itemCost.fontSize, drinkData.cost));
             itemCost.text = costStr;
         }
         else
@@ -66,13 +64,13 @@ public class DiaryUI_BookSubMenuInfo : Mgr
 
         alcoholic.gameObject.SetActive(false);
 
-        string moneyStr = string.Format(MONEY_FORMAT, sideMenuData.price);
+        string moneyStr = LanguageMgr.GetMoneyStr(itemMoney.fontSize, sideMenuData.price);
         itemMoney.text = moneyStr;
 
         if (sideMenuData.cost > 0)
         {
             itemCost.gameObject.SetActive(true);
-            string costStr = string.Format(COST_MONEY_FORMAT, sideMenuData.cost);
+            string costStr = string.Format("-{0}", LanguageMgr.GetMoneyStr(itemCost.fontSize, sideMenuData.cost));
             itemCost.text = costStr;
         }
         else

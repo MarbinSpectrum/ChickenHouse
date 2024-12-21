@@ -173,7 +173,9 @@ public class NekoJobBank : Mgr
         });
         string depositText = LanguageMgr.GetText("DEPOSIT");
         int newDeposit = (int)(workerData.deposit * (100f - gameMgr.playData.ShopSaleValue()) / 100f);
-        string depositString = string.Format("{0} : {1:N0} $", depositText, newDeposit);
+        string newDepositStr = LanguageMgr.GetMoneyStr(resume.deposit.fontSize, newDeposit);
+        string depositString = string.Format("{0} : {1}", depositText, newDepositStr);
+
         LanguageMgr.SetText(resume.deposit, depositString);
     }
 

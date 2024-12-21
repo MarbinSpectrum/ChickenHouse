@@ -12,8 +12,6 @@ public class DiaryUI_BookSeasoningInfo : Mgr
     [SerializeField] private RectTransform      rect;
     [SerializeField] private SeasoningFace      seasoningFace;
 
-    private const string MONEY_FORMAT = "{0}<size=10>$</size>";
-
     public void SetUI(ChickenSpicy pChickenSpicy)
     {
         bool isAct = BookMgr.IsActSpicy(pChickenSpicy);
@@ -24,7 +22,7 @@ public class DiaryUI_BookSeasoningInfo : Mgr
             return;
         LanguageMgr.SetString(itemName, spicyData.nameKey);
         LanguageMgr.SetString(itemExplain, spicyData.bookInfoKey);
-        string moneyStr = string.Format(MONEY_FORMAT, spicyData.price);
+        string moneyStr = LanguageMgr.GetMoneyStr(itemMoney.fontSize, spicyData.price);
         itemMoney.text = moneyStr;
     }
 

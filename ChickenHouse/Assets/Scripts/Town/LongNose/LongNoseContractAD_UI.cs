@@ -14,8 +14,6 @@ public class LongNoseContractAD_UI : Mgr
     [SerializeField] LongNose longNose;
     private List<LongNoseContractSlot> contractMenu = new List<LongNoseContractSlot>();
 
-    private const string MONEY_FORMAT = "{0:N0}<size=15>$</size>";
-
     public void SetUI()
     {
         SetMenu();
@@ -29,7 +27,7 @@ public class LongNoseContractAD_UI : Mgr
             return;
         longNose.UpdateList();
 
-        string moneyStr = string.Format(MONEY_FORMAT, playData.money);
+        string moneyStr = LanguageMgr.GetMoneyStr(playerMoney.fontSize, playData.money);
         LanguageMgr.SetText(playerMoney, moneyStr);
 
         slotContents.anchoredPosition = Vector2.zero;

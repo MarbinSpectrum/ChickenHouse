@@ -5,20 +5,22 @@ using TMPro;
 
 public class GetMoney_UI : Mgr
 {
-    [SerializeField] private Animation ani;
+    [SerializeField] private Animator ani;
     [SerializeField] private TextMeshProUGUI textUI;
-    [SerializeField] private Animation tipAni;
+    [SerializeField] private Animator tipAni;
     [SerializeField] private TextMeshProUGUI tipTtextUI;
 
     public void RunAni(int num,int tip)
     {
-        textUI.text = string.Format("{0:N0} $", num);
-        ani.Play();
+        string moneyStr = LanguageMgr.GetMoneyStr(textUI.fontSize, num);
+        textUI.text = moneyStr;
+        ani.SetTrigger("Show");
 
         if(tip != 0)
         {
-            tipTtextUI.text = string.Format("{0} +{1:N0} $", LanguageMgr.GetText("TIP"), tip);
-            tipAni.Play();
+            string tipStr = LanguageMgr.GetMoneyStr(tipTtextUI.fontSize, tip);
+            tipTtextUI.text = string.Format("{0} +{1}", LanguageMgr.GetText("TIP"), tipStr);
+            tipAni.SetTrigger("Show");
         }
 
         soundMgr.PlaySE(Sound.GetMoney_SE);

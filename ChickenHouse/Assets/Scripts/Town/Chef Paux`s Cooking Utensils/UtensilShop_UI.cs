@@ -26,8 +26,6 @@ public class UtensilShop_UI : Mgr
     private UtensilShopMenu nowMenu;
     private List<UtensilShopMenuSlot> shopMenus = new List<UtensilShopMenuSlot>();
 
-    private const string MONEY_FORMAT = "{0:N0}<size=15>$</size>";
-
     public void SetUI()
     {
         nowMenu = UtensilShopMenu.Fryer_Buy;
@@ -47,7 +45,8 @@ public class UtensilShop_UI : Mgr
         PlayData playData = gameMgr.playData;
         if (playData == null)
             return;
-        string moneyStr = string.Format(MONEY_FORMAT, playData.money);
+
+        string moneyStr = LanguageMgr.GetMoneyStr(playerMoney.fontSize, playData.money);
         LanguageMgr.SetText(playerMoney, moneyStr);
         nowMenu = pMenu;
         slotContents.anchoredPosition = Vector2.zero;

@@ -30,13 +30,15 @@ public class DayEnd_UI : Mgr
 
         int storeRevenue = gameMgr.dayMoney;
         LanguageMgr.SetString(nameList[DayEndList.Store_Revenue], "STORE_REVENUE");
-        LanguageMgr.SetText(infoList[DayEndList.Store_Revenue], string.Format("{0:N0} $", storeRevenue));
+        string storeRevenueStr = LanguageMgr.GetMoneyStr(infoList[DayEndList.Store_Revenue].fontSize, storeRevenue);
+        LanguageMgr.SetText(infoList[DayEndList.Store_Revenue], storeRevenueStr);
         total += storeRevenue;
 
         //임대료 표시
         int rentValue = gameMgr.playData.RentValue();
         LanguageMgr.SetString(nameList[DayEndList.Rent], "RENT");
-        LanguageMgr.SetText(infoList[DayEndList.Rent], string.Format("-{0:N0} $", rentValue));
+        string rentValueStr = LanguageMgr.GetMoneyStr(infoList[DayEndList.Rent].fontSize, rentValue);
+        LanguageMgr.SetText(infoList[DayEndList.Rent], string.Format("-{0}", rentValueStr));
         total -= rentValue;
 
         //재료값
@@ -57,7 +59,8 @@ public class DayEnd_UI : Mgr
         }
 
         LanguageMgr.SetString(nameList[DayEndList.Supplies_Uesd], "SUPPLIES_UESD");
-        LanguageMgr.SetText(infoList[DayEndList.Supplies_Uesd], string.Format("-{0:N0} $", suppliesUsed));        
+        string suppliesUsedStr = LanguageMgr.GetMoneyStr(infoList[DayEndList.Supplies_Uesd].fontSize, suppliesUsed);
+        LanguageMgr.SetText(infoList[DayEndList.Supplies_Uesd], string.Format("-{0}", suppliesUsedStr));        
         total -= suppliesUsed;
 
         //아르바이트 고용비용
@@ -77,7 +80,8 @@ public class DayEnd_UI : Mgr
             nameList[DayEndList.Salary].gameObject.SetActive(true);
             infoList[DayEndList.Salary].gameObject.SetActive(true);
             LanguageMgr.SetString(nameList[DayEndList.Salary], "WORKER_SALARY");
-            LanguageMgr.SetText(infoList[DayEndList.Salary], string.Format("-{0:N0} $", workerSalary));
+            string workerSalaryStr = LanguageMgr.GetMoneyStr(infoList[DayEndList.Salary].fontSize, workerSalary);
+            LanguageMgr.SetText(infoList[DayEndList.Salary], string.Format("-{0}", workerSalaryStr));
             total -= workerSalary;
         }
         else
@@ -90,7 +94,8 @@ public class DayEnd_UI : Mgr
 
         //순 이익
         LanguageMgr.SetString(nameList[DayEndList.Total_Profit], "TOTAL_PROFIT");
-        LanguageMgr.SetText(infoList[DayEndList.Total_Profit], string.Format("{0:N0} $", total));
+        string totalStr = LanguageMgr.GetMoneyStr(infoList[DayEndList.Total_Profit].fontSize, total);
+        LanguageMgr.SetText(infoList[DayEndList.Total_Profit], totalStr);
 
         nextBtn.onClick.RemoveAllListeners();
         nextBtn.onClick.AddListener(() => GoNext());

@@ -170,13 +170,14 @@ public class MenuSet_UI : Mgr
         RefreshDrink();
         RefreshSideMenu();
 
+        float fontSize = priceText.fontSize;
         if (nowDragType == MenuSetDragType.Spicy)
         {
             infoRect.gameObject.SetActive(true);
             SpicyData spicyData = spicyMgr.GetSpicyData((ChickenSpicy)dragObj);
             LanguageMgr.SetString(nameText, spicyData.nameKey);
             LanguageMgr.SetString(infoText, spicyData.infoKey);
-            string priceStr = string.Format("{0:N0}$", spicyData.price);
+            string priceStr = LanguageMgr.GetMoneyStr(fontSize, spicyData.price);
             LanguageMgr.SetText(priceText, priceStr);
         }
         else if (nowDragType == MenuSetDragType.Drink)
@@ -185,7 +186,7 @@ public class MenuSet_UI : Mgr
             DrinkData drinkData = subMenuMgr.GetDrinkData((Drink)dragObj);
             LanguageMgr.SetString(nameText, drinkData.nameKey);
             LanguageMgr.SetString(infoText, drinkData.infoKey);
-            string priceStr = string.Format("{0:N0}$", drinkData.price);
+            string priceStr = LanguageMgr.GetMoneyStr(fontSize, drinkData.price);
             LanguageMgr.SetText(priceText, priceStr);
         }
         else if (nowDragType == MenuSetDragType.SideMenu)
@@ -194,7 +195,7 @@ public class MenuSet_UI : Mgr
             SideMenuData sideMenuData = subMenuMgr.GetSideMenuData((SideMenu)dragObj);
             LanguageMgr.SetString(nameText, sideMenuData.nameKey);
             LanguageMgr.SetString(infoText, sideMenuData.infoKey);
-            string priceStr = string.Format("{0:N0}$", sideMenuData.price);
+            string priceStr = LanguageMgr.GetMoneyStr(fontSize, sideMenuData.price);
             LanguageMgr.SetText(priceText, priceStr);
         }
     }

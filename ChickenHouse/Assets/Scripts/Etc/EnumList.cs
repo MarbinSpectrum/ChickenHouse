@@ -169,6 +169,16 @@ public enum Guest
     SeaOtter = 13,
     /** 사슴 **/
     Deer = 14,
+    /** 아르마딜로 **/
+    Armadillo = 15,
+    /** 북극곰 **/
+    PolarBear = 16,
+    /** 코브라 **/
+    Cobra = 17,
+    /** 악어 **/
+    Crocodile = 18,
+    /** 다람쥐 **/
+    Squirrel = 19,
 
     MAX
 }
@@ -542,14 +552,14 @@ public enum Scene
 public enum CookLvStat
 {
     None                    = 0,
-    /** 치킨 기본 가격 인상($) **/
-    IncreaseChickenPrice    = 1,
-    /** 치킨 재료비 감소($) **/
-    DecreaseChickenRes      = 2,
-    /** 음료 재료비 감소($) **/
-    DecreaseDrinkRes        = 3,
-    /** 피클 재료비 감소($) **/
-    DecreasePickleRes       = 4,
+    /** 치킨 기본 가격 인상(Ｃ) **/
+    IncreaseChickenPrice = 1,
+    /** 치킨 재료비 감소(Ｃ) **/
+    DecreaseChickenRes = 2,
+    /** 음료 재료비 감소(Ｃ) **/
+    DecreaseDrinkRes = 3,
+    /** 피클 재료비 감소(Ｃ) **/
+    DecreasePickleRes = 4,
     /** 직원 속도 증가(%)   **/
     WorkerSpeedUp           = 5,
     /** 수익 증가(%)        **/
@@ -562,7 +572,7 @@ public enum CookLvStat
     GuestPatience           = 9,
     /** 손님 팁(%)          **/
     Tip                     = 10,
-    /** 임대료($)           **/
+    /** 임대료(C)           **/
     Rent                    = 11,
 }
 
@@ -599,7 +609,7 @@ public enum Quest
     SpicyQuest_1      = 1000,     //치킨 5마리 팔기                (간장치킨 오픈)
     SpicyQuest_2      = 1001,     //간장치킨 5마리 팔기            (불닭치킨 오픈)
 
-    SeaOtterQuest     = 1100,     //일일 매출 20,000$넘기기        (프링클 치킨 오픈)
+    SeaOtterQuest     = 1100,     //일일 매출 20,000Ｃ넘기기        (프링클 치킨 오픈)
     //SpicyQuest_4      = 1003,     //프링클 치킨 10마리 팔기        (까르보나라 치킨 오픈)
     //SpicyQuest_5      = 1004,     //까르보나라치킨 10마리 팔기     (BBQ 치킨 오픈) 
     //SpicyQuest_6      = 1005,     //BBQ치킨 10마리 팔기    

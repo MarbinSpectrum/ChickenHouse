@@ -117,7 +117,7 @@ public class QuestMgr : AwakeSingleton<QuestMgr>
                     break;
                 case Quest.SeaOtterQuest:
                     {
-                        //古窒 20.000$ 含失
+                        //古窒 20.000C 含失
                         playData.questCnt[(int)quest] = Mathf.Max(playData.questCnt[(int)quest],gameMgr.dayMoney);
                     }
                     break;

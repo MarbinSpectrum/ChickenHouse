@@ -22,7 +22,6 @@ public class DiaryUI_FileSaveSlot : Mgr
     private const string EMPTY = "EMPTY";
     private const string DAY_FORMAT = "{0:D4}-{1:D2}-{2:D2}";
     private const string TIME_FORMAT = "{0} {1:D2}:{2:D2}";
-    private const string MONEY_FORMAT = "{0:N0}$";
 
     private PlayData playData;
 
@@ -49,7 +48,7 @@ public class DiaryUI_FileSaveSlot : Mgr
         string timeStr = string.Format(TIME_FORMAT, pPlayData.saveHour < 12 ? "AM" : "PM", pPlayData.saveHour, pPlayData.saveMin);
         LanguageMgr.SetText(timeText, timeStr);
 
-        string moneyStr = string.Format(MONEY_FORMAT,pPlayData.money);
+        string moneyStr = LanguageMgr.GetMoneyStr(moneyText.fontSize, pPlayData.money);
         LanguageMgr.SetText(moneyText, moneyStr);
 
         LanguageMgr.SetText(questName, "");

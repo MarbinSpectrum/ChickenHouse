@@ -20,8 +20,6 @@ public class LongNoseContractSlot : Mgr
     }
     [SerializeField] private TextColor costColor;
 
-    private const string MONEY_FORMAT = "{0:N0}<size=15>$</size>";
-
     //아이템 구입 확인
     private OneParaDel fun;
 
@@ -42,7 +40,7 @@ public class LongNoseContractSlot : Mgr
         itemIcon.sprite = shopData.icon;
 
         int newMoney = (int)(shopData.money * (100f - gameMgr.playData.ShopSaleValue()) / 100f);
-        string moneyStr = string.Format(MONEY_FORMAT, newMoney);
+        string moneyStr = LanguageMgr.GetMoneyStr(itemCost.fontSize, newMoney);
         LanguageMgr.SetText(itemCost, moneyStr);
         if (playData.money >= shopData.money)
             itemCost.color = costColor.goodColor;

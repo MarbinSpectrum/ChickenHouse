@@ -24,7 +24,6 @@ public class DiaryUI_FilePlayerInfo : Mgr
     [SerializeField] private TextMeshProUGUI rentValue;
     [SerializeField] private TextMeshProUGUI money;
 
-    private const string MONEY_FORMAT = "{0:N0}<size=15>$</size>";
     private const string PERCENT_FORMAT = "{0:#,###}<size=15>%</size>";
     private const string TIME_FORMAT = "{0:N2}<size=15>s</size>";
     private const string LV_FORMAT = "Lv {0}";
@@ -66,19 +65,19 @@ public class DiaryUI_FilePlayerInfo : Mgr
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         //기본 치킨 가격
-        string chickenPriceStr = string.Format(MONEY_FORMAT, pPlayData.ChickenPrice());
+        string chickenPriceStr = LanguageMgr.GetMoneyStr(chickenPrice.fontSize, pPlayData.ChickenPrice());
         LanguageMgr.SetText(chickenPrice, chickenPriceStr);
 
         //치킨 재료 값 감소 값
-        string chickenResStr = string.Format(MONEY_FORMAT, pPlayData.DecreaseChickenRes());
+        string chickenResStr = LanguageMgr.GetMoneyStr(chickenResPrice.fontSize, (long)pPlayData.DecreaseChickenRes());
         LanguageMgr.SetText(chickenResPrice, chickenResStr);
 
         //드링크 재료 값 감소 값
-        string drinkResStr = string.Format(MONEY_FORMAT, pPlayData.DecreaseDrinkRes());
+        string drinkResStr = LanguageMgr.GetMoneyStr(drinkResValue.fontSize, (long)pPlayData.DecreaseDrinkRes());
         LanguageMgr.SetText(drinkResValue, drinkResStr);
 
         //피클 재료 값 감소 률
-        string sideMenuResStr = string.Format(MONEY_FORMAT, pPlayData.DecreasePickleRes());
+        string sideMenuResStr = LanguageMgr.GetMoneyStr(sideMenuResValue.fontSize, (long)pPlayData.DecreasePickleRes());
         LanguageMgr.SetText(sideMenuResValue, sideMenuResStr);
 
         //직원 속도
@@ -142,12 +141,12 @@ public class DiaryUI_FilePlayerInfo : Mgr
         }
 
         //임대료
-        string rentValueStr = string.Format(MONEY_FORMAT, pPlayData.RentValue());
+        string rentValueStr = LanguageMgr.GetMoneyStr(rentValue.fontSize, pPlayData.RentValue());
         LanguageMgr.SetText(rentValue, rentValueStr);
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         //보유 자본
-        string moneyStr = string.Format(MONEY_FORMAT, pPlayData.money);
+        string moneyStr = LanguageMgr.GetMoneyStr(money.fontSize, pPlayData.money);
         LanguageMgr.SetText(money, moneyStr);
     }
 
