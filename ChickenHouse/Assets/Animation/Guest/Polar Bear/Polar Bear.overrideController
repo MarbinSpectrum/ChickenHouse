@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Polar Bear
+  m_Controller: {fileID: 9100000, guid: 32ea96f3091af02498fc94fb1b82f2f1, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: a9d33ea858a2bbc488f4f64fe09af4a5, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: a7fe8206b70b29f4caddfc8958083bbd, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 5b84ea5211e766d439dd048218c42a66, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 7d99f1977142adb48a63bfb75460b102, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: b8694ea8e0cf99c429ccdff4e2d2f9b0, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: afce8400162b20b40b00c754282a57ef, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 10b81c913e86ff54596fb4db198190cd, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: e60586f28c17fcd4ab7753af261c4cbe, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 524b827f92ac24a4d843c68912a9dc27, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 95ee4c7c9388ee44ba5c0c37643385f8, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 7664377ffd829ca4fb9c78e22961d4c3, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: de39c623895e6554abe2d8a95def24f9, type: 2}

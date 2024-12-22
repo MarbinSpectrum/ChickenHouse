@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6974179131417067148}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.71, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 125
-  m_Sprite: {fileID: 21300000, guid: 5dc2d11c5de64e0409f5286169d2b9a7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5f5ea25300366924d90175c58064fab9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -94,9 +94,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6974179132710861060}
   - component: {fileID: 6974179132710861061}
-  - component: {fileID: 4639051856550498243}
+  - component: {fileID: 2506839221794226580}
   m_Layer: 0
-  m_Name: Armadillo
+  m_Name: Cobra
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -129,7 +129,7 @@ Animator:
   m_GameObject: {fileID: 6974179132710861059}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 8f688664e8f97014f87d41cb7e29c54a, type: 2}
+  m_Controller: {fileID: 22100000, guid: c8dc255be762e1e4bb9a6dbe1b5b13c6, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -139,7 +139,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
---- !u!114 &4639051856550498243
+--- !u!114 &2506839221794226580
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -148,7 +148,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6974179132710861059}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef4be50d8a3d35a42a92f8c6e7f4ccae, type: 3}
+  m_Script: {fileID: 11500000, guid: 3cca4b901c4dea44bbfcec54aafb3eae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
@@ -160,11 +160,11 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  guestData: {fileID: 11400000, guid: 03c4c6b70fab1c6479d090a84129f3a3, type: 2}
+  guestData: {fileID: 11400000, guid: f6a316c2ea9d2824095e026ecf17615b, type: 2}
   animator: {fileID: 6974179132710861061}
   spriteRenderer: {fileID: 6974179131417067150}
   talkBox: {fileID: 401860223451272275}
-  guest: 15
+  guest: 17
 --- !u!1001 &1370649998621384105
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1006,11 +1006,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8344259788582316271, guid: 640f26cc555164f44b12362a32bc710e, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.2
+      value: 0.67
       objectReference: {fileID: 0}
     - target: {fileID: 8344259788582316271, guid: 640f26cc555164f44b12362a32bc710e, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.34
+      value: -0.17
       objectReference: {fileID: 0}
     - target: {fileID: 8344259788582316271, guid: 640f26cc555164f44b12362a32bc710e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
