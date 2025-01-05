@@ -37,7 +37,7 @@ public class DiaryUI_BookScroll_Init : LoopScrollInit
 
     public override void ProvideData(Transform transform, int idx)
     {
-        switch(slotMode)
+        switch (slotMode)
         {
             case BookMenu.Guest:
                 {
@@ -45,11 +45,7 @@ public class DiaryUI_BookScroll_Init : LoopScrollInit
                     if (diarySlot == null)
                         return;
 
-                    List<Guest> guests = new List<Guest>();
-                    guests.Add(Guest.None);
-                    guests.Add(Guest.None);
-                    guests.Add(Guest.None);
-                    guests.Add(Guest.None);
+                    Guest[] guests = new Guest[4] { Guest.None, Guest.None, Guest.None, Guest.None };
 
                     for(int i = 0; i < 4; i++)
                     {
@@ -63,22 +59,22 @@ public class DiaryUI_BookScroll_Init : LoopScrollInit
                         guests[0], () =>
                         {
                             diary.SetSelectGuest(guests[0]);
-                            loopScrollRect.RefillCells();
+                            UpdateCells(BookMenu.Guest);
                         },
                         guests[1], () =>
                         {
                             diary.SetSelectGuest(guests[1]);
-                            loopScrollRect.RefillCells();
+                            UpdateCells(BookMenu.Guest);
                         },
                         guests[2], () =>
                         {
                             diary.SetSelectGuest(guests[2]);
-                            loopScrollRect.RefillCells();
+                            UpdateCells(BookMenu.Guest);
                         },
                         guests[3], () =>
                         {
                             diary.SetSelectGuest(guests[3]);
-                            loopScrollRect.RefillCells();
+                            UpdateCells(BookMenu.Guest);
                         });
 
                 }
@@ -89,11 +85,7 @@ public class DiaryUI_BookScroll_Init : LoopScrollInit
                     if (diarySlot == null)
                         return;
 
-                    List<ChickenSpicy> spicys = new List<ChickenSpicy>();
-                    spicys.Add(ChickenSpicy.Not);
-                    spicys.Add(ChickenSpicy.Not);
-                    spicys.Add(ChickenSpicy.Not);
-                    spicys.Add(ChickenSpicy.Not);
+                    ChickenSpicy[] spicys = new ChickenSpicy[4] { ChickenSpicy.Not, ChickenSpicy.Not, ChickenSpicy.Not, ChickenSpicy.Not };
 
                     for (int i = 0; i < 4; i++)
                     {
@@ -107,22 +99,22 @@ public class DiaryUI_BookScroll_Init : LoopScrollInit
                         spicys[0], () =>
                         {
                             diary.SetSelectSeasoning(spicys[0]);
-                            loopScrollRect.RefillCells();
+                            UpdateCells(BookMenu.Seasoning);
                         },
                         spicys[1], () =>
                         {
                             diary.SetSelectSeasoning(spicys[1]);
-                            loopScrollRect.RefillCells();
+                            UpdateCells(BookMenu.Seasoning);
                         },
                         spicys[2], () =>
                         {
                             diary.SetSelectSeasoning(spicys[2]);
-                            loopScrollRect.RefillCells();
+                            UpdateCells(BookMenu.Seasoning);
                         },
                         spicys[3], () =>
                         {
                             diary.SetSelectSeasoning(spicys[3]);
-                            loopScrollRect.RefillCells();
+                            UpdateCells(BookMenu.Seasoning);
                         });
                 }
                 break;
@@ -133,6 +125,47 @@ public class DiaryUI_BookScroll_Init : LoopScrollInit
                         return;
 
                     diarySlot.SetData(diary.etcList[idx]);
+                }
+                break;
+        }
+
+    }
+
+    public void UpdateCells(BookMenu pBookMenu)
+    {
+        switch (pBookMenu)
+        {
+            case BookMenu.Guest:
+                {
+                    foreach (GameObject obj in objList)
+                    {
+                        DiaryUI_BookScrollObj diarySlot = obj.GetComponent<DiaryUI_BookScrollObj>();
+                        if (diarySlot == null)
+                            continue;
+                        diarySlot.UpdateGuestSlot();
+                    }
+                }
+                break;
+            case BookMenu.Seasoning:
+                {
+                    foreach (GameObject obj in objList)
+                    {
+                        DiaryUI_BookScrollObj diarySlot = obj.GetComponent<DiaryUI_BookScrollObj>();
+                        if (diarySlot == null)
+                            continue;
+                        diarySlot.UpdateSpicySlot();
+                    }
+                }
+                break;
+            case BookMenu.Etc:
+                {
+                    foreach (GameObject obj in objList)
+                    {
+                        DiaryUI_BookScrollObj diarySlot = obj.GetComponent<DiaryUI_BookScrollObj>();
+                        if (diarySlot == null)
+                            continue;
+                        diarySlot.UpdateEtcSlot();
+                    }
                 }
                 break;
         }

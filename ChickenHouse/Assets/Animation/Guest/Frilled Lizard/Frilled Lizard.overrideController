@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Frilled Lizard
+  m_Controller: {fileID: 9100000, guid: 32ea96f3091af02498fc94fb1b82f2f1, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: a9d33ea858a2bbc488f4f64fe09af4a5, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 64e32d3ef12395b4b9457c104c9a0074, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 5b84ea5211e766d439dd048218c42a66, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 982a0c096f5f9c047b6aadaceab662ae, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: b8694ea8e0cf99c429ccdff4e2d2f9b0, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: f6a6fad9d75b8ba40824db6dea469bb5, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 10b81c913e86ff54596fb4db198190cd, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 6c5c3e6e128dded45ba85009688e69fc, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 524b827f92ac24a4d843c68912a9dc27, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: c71f48fc300dccc4093f961c9fd4e93c, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 7664377ffd829ca4fb9c78e22961d4c3, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: cbf159add0df6b04e8392981af6f2840, type: 2}

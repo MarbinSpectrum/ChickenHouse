@@ -33,12 +33,12 @@ public class TalkBox_UI : Mgr
     private NoParaDel fun;
 
     public string talkStr { private set; get; }
+    private string resultStr = string.Empty;
 
     public void ShowText(string pStr, TalkBoxType pTalkBoxType, NoParaDel pFun)
     {
         talkStr = pStr;
         waitTalkBox.gameObject.SetActive(false);
-        obj.gameObject.SetActive(true);
 
         switch(pTalkBoxType)
         {
@@ -113,19 +113,156 @@ public class TalkBox_UI : Mgr
 
     private IEnumerator RunCor(float delayTime)
     {
-        List<string> tempList = new List<string>();
-        int idx = 0;
-        string  tagString   = string.Empty;
-        bool    tagMode     = false;
+        List<string>    tempList    = new List<string>();
+        List<bool>      isTagText   = new List<bool>();
+        SplitString(talkStr, ref tempList, ref isTagText);
 
-        while (idx < talkStr.Length)
+        string tempString = string.Empty;
+
+        textUI.text = string.Empty;
+        obj.gameObject.SetActive(true);
+
+        resultStr = string.Empty;
+
+        RectTransform textRect = textUI.GetComponent<RectTransform>();
+        yield return new WaitUntil(() => textRect.sizeDelta.x > 0);
+
+        const float remainWidth = 5f;
+
+        string newTextUIStr = string.Empty;
+        for (int i = 0; i < tempList.Count; i++)
         {
-            if(tagMode)
+            tempString += tempList[i];
+            if (isTagText[i])
+                continue;
+
+            textUI.text = tempString;
+            textUI.ForceMeshUpdate();
+
+            float nowTextWidth = 0;
+            string nowTextString = string.Empty;
+            List<string> arrayStr = new List<string>();
+            List<float> arrayWidth = new List<float>();
+            int charIdx = 0;
+            for(int j = 0; j <= i; j++)
             {
-                tagString += talkStr[idx];
-                if (talkStr[idx] == '>')
+                if(isTagText[j])
                 {
-                    tempList.Add(tagString);
+                    nowTextString += tempList[j];
+                    if(tempList[j] == "\n")
+                    {
+                        arrayStr.Add(nowTextString);
+                        arrayWidth.Add(nowTextWidth);
+                        nowTextWidth = 0;
+                        nowTextString = string.Empty;
+                    }
+                }
+                else
+                {
+                    TMP_CharacterInfo charInfo = textUI.textInfo.characterInfo[charIdx];
+
+                    float charWidth = Mathf.Abs(charInfo.topRight.x - charInfo.topLeft.x);
+                    if (nowTextWidth + charWidth > textRect.sizeDelta.x && tempList[j] == " ")
+                    {
+                        nowTextString += "\n";
+                        arrayStr.Add(nowTextString);
+                        arrayWidth.Add(nowTextWidth);
+                        nowTextWidth = 0;
+                        nowTextString = string.Empty;
+                    }
+                    else
+                    {
+                        nowTextWidth += charWidth;
+                        nowTextString += tempList[j];
+                    }
+
+                    charIdx++;
+                }
+            }
+
+            if (nowTextString != string.Empty)
+            {
+                nowTextString += "\n";
+                arrayStr.Add(nowTextString);
+                arrayWidth.Add(nowTextWidth);
+                nowTextWidth = 0;
+                nowTextString = string.Empty;
+            }
+
+            if (i == tempList.Count - 1)
+            {
+                for (int j = arrayWidth.Count - 1; j >= 1; j--)
+                {
+                    if (arrayWidth.Count >= 2 && arrayWidth[j] < remainWidth)
+                    {
+                        arrayWidth[j - 1] += arrayWidth[j];
+                        //substring을 넣는이유는 뒤에 붙어 있는 \n을 넣지않기 위해서임
+                        arrayStr[j - 1] = arrayStr[j - 1].Substring(0, arrayStr[j - 1].Length - 1);
+                        arrayStr[j - 1] += arrayStr[j];
+                        arrayWidth.RemoveAt(j);
+                        arrayStr.RemoveAt(j);
+                    }
+                }
+
+                float avgNewFontSize = 0;
+
+
+                for(int j = 0; j < arrayWidth.Count; j++)
+                {
+                    float newFontSize = Mathf.Min(textUI.fontSize, textUI.fontSize * textRect.sizeDelta.x / arrayWidth[j]);
+                    avgNewFontSize += newFontSize;
+                }
+                avgNewFontSize /= arrayWidth.Count;
+
+                for (int j = 0; j < arrayWidth.Count; j++)
+                {
+                    float newFontSize = Mathf.Min(avgNewFontSize, textUI.fontSize * textRect.sizeDelta.x / arrayWidth[j]);
+                    arrayStr[j] = string.Format("<size={0}>{1}</size>", newFontSize, arrayStr[j]);
+                }
+            }
+
+            newTextUIStr = string.Empty;
+            for (int j = 0; j < arrayStr.Count; j++)
+                newTextUIStr += arrayStr[j];
+        }
+
+        resultStr = newTextUIStr;
+        SplitString(resultStr, ref tempList, ref isTagText);
+
+        tempString = string.Empty;
+        for (int i = 0; i < tempList.Count; i++)
+        {
+            tempString += tempList[i];
+            if (isTagText[i])
+                continue;
+
+            textUI.text = tempString;
+            yield return new WaitForSeconds(delayTime);
+        }
+
+
+        fun?.Invoke();
+        fun = null;
+    }
+
+    private void SplitString(string str,ref List<string> strList, ref List<bool> isTagText)
+    {
+        strList.Clear();
+        isTagText.Clear();
+
+        int idx = 0;
+        string tagString = string.Empty;
+        bool tagMode = false;
+
+        while (idx < str.Length)
+        {
+            if (tagMode)
+            {
+                tagString += str[idx];
+                if (str[idx] == '>')
+                {
+                    strList.Add(tagString);
+                    isTagText.Add(true);
                     tagString = string.Empty;
                     tagMode = false;
                 }
@@ -133,31 +270,26 @@ public class TalkBox_UI : Mgr
             }
             else
             {
-                if (talkStr[idx] != '<')
+                if (str[idx] == '<')
                 {
-                    tempList.Add(talkStr[idx].ToString());
+                    tagMode = true;
+                }
+                else if (str[idx] == '\n')
+                {
+                    strList.Add(str[idx].ToString());
+                    isTagText.Add(true);
                     idx++;
                 }
                 else
                 {
-                    tagMode = true;
+                    strList.Add(str[idx].ToString());
+                    isTagText.Add(false);
+                    idx++;
                 }
             }
         }
-
-        string tempString = string.Empty;
-        for (int i = 0; i < tempList.Count; i++)
-        {
-            tempString += tempList[i];
-
-            textUI.text = tempString;
-
-            yield return new WaitForSeconds(delayTime);
-        }
-
-        fun?.Invoke();
-        fun = null;
     }
+
 
     public void SkipTalk()
     {
@@ -166,7 +298,12 @@ public class TalkBox_UI : Mgr
             StopCoroutine(cor);
             cor = null;
         }
-        textUI.text = talkStr;
+
+        if (resultStr != string.Empty)
+            textUI.text = resultStr;
+        else
+            textUI.text = talkStr;
+
         fun?.Invoke();
         fun = null;
     }

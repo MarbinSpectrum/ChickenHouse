@@ -148,51 +148,78 @@ public class DiaryUI_Book : Mgr
                     //기타 갱신
                     etcList.Clear();
                     etcList.Add(new EtcList(1));
-                    etcList.Add(
-                        new EtcList(
-                            Drink.Cola, () =>
+                    {
+                        int cnt = Mathf.CeilToInt(((int)Drink.MAX - 1) / (float)4);
+                        for (int i = 0; i < cnt; i++)
+                        {
+                            Drink[] drinks = new Drink[4];
+                            for(int j = 0; j < 4; j++)
                             {
-                                SetSelectEtc(Drink.Cola);
-                                bookScrollInit.loopScrollRect.RefillCells();
-                            }, 
-                            Drink.Beer, () =>
-                            {
-                                SetSelectEtc(Drink.Beer);
-                                bookScrollInit.loopScrollRect.RefillCells();
-                            }, 
-                            Drink.None, () =>
-                            {
+                                drinks[j] = Drink.Cola + i * 4 + j;
+                                drinks[j] = drinks[j] >= Drink.MAX ? Drink.None : drinks[j];
+                            }
 
-                                bookScrollInit.loopScrollRect.RefillCells();
-                            }, 
-                            Drink.None, () =>
-                            {
+                            EtcList etcObj = new EtcList(
+                                drinks[0], () =>
+                                {
+                                    SetSelectEtc(drinks[0]);
+                                    bookScrollInit.UpdateCells(BookMenu.Etc);
+                                },
+                                drinks[1], () =>
+                                {
+                                    SetSelectEtc(drinks[1]);
+                                    bookScrollInit.UpdateCells(BookMenu.Etc);
+                                },
+                                drinks[2], () =>
+                                {
+                                    SetSelectEtc(drinks[2]);
+                                    bookScrollInit.UpdateCells(BookMenu.Etc);
+                                },
+                                drinks[3], () =>
+                                {
+                                    SetSelectEtc(drinks[3]);
+                                    bookScrollInit.UpdateCells(BookMenu.Etc);
+                                });
+                            etcList.Add(etcObj);
+                        }
+                    }
 
-                                bookScrollInit.loopScrollRect.RefillCells();
-                            }));
                     etcList.Add(new EtcList(2));
-                    etcList.Add(
-                        new EtcList(
-                            SideMenu.Pickle, () =>
+                    {
+                        int cnt = Mathf.CeilToInt(((int)SideMenu.MAX - 1) / (float)4);
+                        for (int i = 0; i < cnt; i++)
+                        {
+                            SideMenu[] sideMenus = new SideMenu[4];
+                            for (int j = 0; j < 4; j++)
                             {
-                                SetSelectEtc(SideMenu.Pickle);
-                                bookScrollInit.loopScrollRect.RefillCells();
-                            },
-                            SideMenu.None, () =>
-                            {
+                                sideMenus[j] = SideMenu.Pickle + i * 4 + j;
+                                sideMenus[j] = sideMenus[j] >= SideMenu.MAX ? SideMenu.None : sideMenus[j];
+                            }
 
-                                bookScrollInit.loopScrollRect.RefillCells();
-                            },
-                            SideMenu.None, () =>
-                            {
-
-                                bookScrollInit.loopScrollRect.RefillCells();
-                            },
-                            SideMenu.None, () =>
-                            {
-
-                                bookScrollInit.loopScrollRect.RefillCells();
-                            }));
+                            EtcList etcObj = new EtcList(
+                                sideMenus[0], () =>
+                                {
+                                    SetSelectEtc(sideMenus[0]);
+                                    bookScrollInit.UpdateCells(BookMenu.Etc);
+                                },
+                                sideMenus[1], () =>
+                                {
+                                    SetSelectEtc(sideMenus[1]);
+                                    bookScrollInit.UpdateCells(BookMenu.Etc);
+                                },
+                                sideMenus[2], () =>
+                                {
+                                    SetSelectEtc(sideMenus[2]);
+                                    bookScrollInit.UpdateCells(BookMenu.Etc);
+                                },
+                                sideMenus[3], () =>
+                                {
+                                    SetSelectEtc(sideMenus[3]);
+                                    bookScrollInit.UpdateCells(BookMenu.Etc);
+                                });
+                            etcList.Add(etcObj);
+                        }
+                    }
 
                     bookScrollInit.SetMode(BookMenu.Etc);
                 }

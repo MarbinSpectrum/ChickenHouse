@@ -12,34 +12,39 @@ public class DiaryUI_BookScrollObj : Mgr
     [SerializeField] private RectTransform                      headerRect;
     [SerializeField] private TextMeshProUGUI                    headerText;
 
+    private List<Guest>             guestList   = new List<Guest>();
+    private List<ChickenSpicy>      spicyList   = new List<ChickenSpicy>();
+    private List<NoParaDel>         funList     = new List<NoParaDel>();
+    private DiaryUI_Book.EtcList    ectList     = null;
+
     public void SetData(Guest pGuest0, NoParaDel fun0, Guest pGuest1, NoParaDel fun1, Guest pGuest2, NoParaDel fun2, Guest pGuest3, NoParaDel fun3)
     {
         //손님객체 세팅
         Init();
 
-        if (pGuest0 != Guest.None)
+        guestList.Add(pGuest0);
+        guestList.Add(pGuest1);
+        guestList.Add(pGuest2);
+        guestList.Add(pGuest3);
+        funList.Add(fun0);
+        funList.Add(fun1);
+        funList.Add(fun2);
+        funList.Add(fun3);
+
+        UpdateGuestSlot();
+    }
+
+    public void UpdateGuestSlot()
+    {
+        //오브젝트를 손님데이터에 맞게 갱신
+        for(int i = 0; i < guestList.Count; i++)
         {
-            guestSlot[0].SetData(pGuest0);
-            guestSlot[0].gameObject.SetActive(true);
-            guestSlot[0].SetClickEvent(fun0);
-        }
-        if (pGuest1 != Guest.None)
-        {
-            guestSlot[1].SetData(pGuest1);
-            guestSlot[1].gameObject.SetActive(true);
-            guestSlot[1].SetClickEvent(fun1);
-        }
-        if (pGuest2 != Guest.None)
-        {
-            guestSlot[2].SetData(pGuest2);
-            guestSlot[2].gameObject.SetActive(true);
-            guestSlot[2].SetClickEvent(fun2);
-        }
-        if (pGuest3 != Guest.None)
-        {
-            guestSlot[3].SetData(pGuest3);
-            guestSlot[3].gameObject.SetActive(true);
-            guestSlot[3].SetClickEvent(fun3);
+            if (guestList[i] == Guest.None)
+                continue;
+
+            guestSlot[i].SetData(guestList[i]);
+            guestSlot[i].gameObject.SetActive(true);
+            guestSlot[i].SetClickEvent(funList[i]);
         }
 
         thisRect.sizeDelta = new(thisRect.sizeDelta.x, 80);
@@ -50,73 +55,82 @@ public class DiaryUI_BookScrollObj : Mgr
         //양념객체 세팅
         Init();
 
-        if (pSpicy0 != ChickenSpicy.Not)
-        {
-            seasoningSlot[0].SetData(pSpicy0);
-            seasoningSlot[0].gameObject.SetActive(true);
-            seasoningSlot[0].SetClickEvent(fun0);
-        }
-        if (pSpicy1 != ChickenSpicy.Not)
-        {
-            seasoningSlot[1].SetData(pSpicy1);
-            seasoningSlot[1].gameObject.SetActive(true);
-            seasoningSlot[1].SetClickEvent(fun1);
-        }
-        if (pSpicy2 != ChickenSpicy.Not)
-        {
-            seasoningSlot[2].SetData(pSpicy2);
-            seasoningSlot[2].gameObject.SetActive(true);
-            seasoningSlot[2].SetClickEvent(fun2);
-        }
-        if (pSpicy3 != ChickenSpicy.Not)
-        {
-            seasoningSlot[3].SetData(pSpicy3);
-            seasoningSlot[3].gameObject.SetActive(true);
-            seasoningSlot[3].SetClickEvent(fun3);
-        }
+        spicyList.Add(pSpicy0);
+        spicyList.Add(pSpicy1);
+        spicyList.Add(pSpicy2);
+        spicyList.Add(pSpicy3);
+        funList.Add(fun0);
+        funList.Add(fun1);
+        funList.Add(fun2);
+        funList.Add(fun3);
 
+        UpdateSpicySlot();
+    }
+
+    public void UpdateSpicySlot()
+    {
+        //오브젝트를 양념데이터에 맞게 갱신
+        for (int i = 0; i < spicyList.Count; i++)
+        {
+            if (spicyList[i] == ChickenSpicy.Not)
+                continue;
+
+            seasoningSlot[i].SetData(spicyList[i]);
+            seasoningSlot[i].gameObject.SetActive(true);
+            seasoningSlot[i].SetClickEvent(funList[i]);
+        }
         thisRect.sizeDelta = new(thisRect.sizeDelta.x, 80);
     }
 
-    public void SetData(DiaryUI_Book.EtcList etcList)
+    public void SetData(DiaryUI_Book.EtcList pEtcList)
     {
         //기타 세팅
         Init();
+        ectList = pEtcList;
 
-        if(etcList.isDrinkHeader)
+        UpdateEtcSlot();
+    }
+
+    public void UpdateEtcSlot()
+    {
+        //오브젝트를 기타데이터에 맞게 갱신
+        if (ectList == null)
+            return;
+
+        if (ectList.isDrinkHeader)
         {
             headerRect.gameObject.SetActive(true);
             LanguageMgr.SetString(headerText, "DRINK_HEADER");
             thisRect.sizeDelta = new(thisRect.sizeDelta.x, 45);
         }
-        else if (etcList.isSideMenuHeader)
+        else if (ectList.isSideMenuHeader)
         {
             headerRect.gameObject.SetActive(true);
             LanguageMgr.SetString(headerText, "PICKLE_HEADER");
             thisRect.sizeDelta = new(thisRect.sizeDelta.x, 45);
         }
-        else if(etcList.drinks.Count > 0)
+        else if (ectList.drinks.Count > 0)
         {
-            for(int i = 0; i < 4; i++)
+            for (int i = 0; i < 4; i++)
             {
-                if (etcList.drinks[i] != Drink.None)
+                if (ectList.drinks[i] != Drink.None)
                 {
-                    subMenuSlot[i].SetData(etcList.drinks[i]);
+                    subMenuSlot[i].SetData(ectList.drinks[i]);
                     subMenuSlot[i].gameObject.SetActive(true);
-                    subMenuSlot[i].SetClickEvent(etcList.funs[i]);
+                    subMenuSlot[i].SetClickEvent(ectList.funs[i]);
                 }
             }
             thisRect.sizeDelta = new(thisRect.sizeDelta.x, 80);
         }
-        else if (etcList.sideMenus.Count > 0)
+        else if (ectList.sideMenus.Count > 0)
         {
             for (int i = 0; i < 4; i++)
             {
-                if (etcList.sideMenus[i] != SideMenu.None)
+                if (ectList.sideMenus[i] != SideMenu.None)
                 {
-                    subMenuSlot[i].SetData(etcList.sideMenus[i]);
+                    subMenuSlot[i].SetData(ectList.sideMenus[i]);
                     subMenuSlot[i].gameObject.SetActive(true);
-                    subMenuSlot[i].SetClickEvent(etcList.funs[i]);
+                    subMenuSlot[i].SetClickEvent(ectList.funs[i]);
                 }
             }
             thisRect.sizeDelta = new(thisRect.sizeDelta.x, 80);
@@ -125,6 +139,11 @@ public class DiaryUI_BookScrollObj : Mgr
 
     private void Init()
     {
+        guestList.Clear();
+        spicyList.Clear();
+        ectList = null;
+        funList.Clear();
+
         foreach (DiaryUI_BookGuestSlot slot in guestSlot)
             slot.gameObject.SetActive(false);
         foreach (DiaryUI_BookSeasoningSlot slot in seasoningSlot)

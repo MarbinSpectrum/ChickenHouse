@@ -8,12 +8,17 @@ public class LoopScrollInit : MonoBehaviour, LoopScrollPrefabSource, LoopScrollD
     public GameObject item;
     public LoopScrollRect loopScrollRect;
 
-    Stack<Transform> pool = new Stack<Transform>();
+    private Stack<Transform> pool = new Stack<Transform>();
+    protected List<GameObject> objList = new List<GameObject>();
+
+
     public virtual GameObject GetObject(int index)
     {
         if (pool.Count == 0)
         {
-            return Instantiate(item);
+            GameObject newItem = Instantiate(item);
+            objList.Add(newItem);
+            return newItem;
         }
         Transform candidate = pool.Pop();
         candidate.gameObject.SetActive(true);
@@ -30,6 +35,8 @@ public class LoopScrollInit : MonoBehaviour, LoopScrollPrefabSource, LoopScrollD
     public virtual void ProvideData(Transform transform, int idx)
     {
     }
+
+
 
     public virtual void Init(int cnt)
     {

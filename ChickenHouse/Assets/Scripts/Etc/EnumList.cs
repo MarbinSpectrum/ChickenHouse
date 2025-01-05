@@ -179,6 +179,12 @@ public enum Guest
     Crocodile = 18,
     /** ´Ù¶÷Áã **/
     Squirrel = 19,
+    /** ¼­¹úÄ¹ **/
+    Serval = 20,
+    /** ±î¸¶±Í **/
+    Crow = 21,
+    /** ¸ñµµ¸® µµ¸¶¹ì **/
+    FrilledLizard = 22,
 
     MAX
 }
