@@ -879,6 +879,18 @@ PrefabInstance:
       propertyPath: serializationData.Prefab
       value: 
       objectReference: {fileID: 1627549162597485050, guid: 640f26cc555164f44b12362a32bc710e, type: 3}
+    - target: {fileID: 6585251844513016016, guid: 640f26cc555164f44b12362a32bc710e, type: 3}
+      propertyPath: m_MinWidth
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8344259787968172006, guid: 640f26cc555164f44b12362a32bc710e, type: 3}
+      propertyPath: m_fontSize
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8344259787968172006, guid: 640f26cc555164f44b12362a32bc710e, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8344259787968172007, guid: 640f26cc555164f44b12362a32bc710e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2130,6 +2142,110 @@ PrefabInstance:
       propertyPath: serializationData.Prefab
       value: 
       objectReference: {fileID: 1627549162597485050, guid: 640f26cc555164f44b12362a32bc710e, type: 3}
+    - target: {fileID: 1627549162597485050, guid: 640f26cc555164f44b12362a32bc710e, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.size
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1627549162597485050, guid: 640f26cc555164f44b12362a32bc710e, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[0]
+      value: '"path":"failText.[0]","value":{"$id":0,"$type":"TalkBox_UI+FailObj,
+        Assembly-CSharp","slot":$eref:0,"textUI":$eref:1}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1627549162597485050, guid: 640f26cc555164f44b12362a32bc710e, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[1]
+      value: '"path":"failText.[0].slot","value":$eref:0'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1627549162597485050, guid: 640f26cc555164f44b12362a32bc710e, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[2]
+      value: '"path":"failText.[0].textUI","value":$eref:1'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1627549162597485050, guid: 640f26cc555164f44b12362a32bc710e, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[3]
+      value: '"path":"failText.[1]","value":{"$id":0,"$type":"TalkBox_UI+FailObj,
+        Assembly-CSharp","slot":$eref:2,"textUI":$eref:3}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1627549162597485050, guid: 640f26cc555164f44b12362a32bc710e, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[4]
+      value: '"path":"failText.[1].slot","value":$eref:2'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1627549162597485050, guid: 640f26cc555164f44b12362a32bc710e, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[5]
+      value: '"path":"failText.[1].textUI","value":$eref:3'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1627549162597485050, guid: 640f26cc555164f44b12362a32bc710e, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[6]
+      value: '"path":"failText.[2]","value":{"$id":0,"$type":"TalkBox_UI+FailObj,
+        Assembly-CSharp","slot":$eref:4,"textUI":$eref:5}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1627549162597485050, guid: 640f26cc555164f44b12362a32bc710e, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[7]
+      value: '"path":"failText.[2].slot","value":$eref:4'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1627549162597485050, guid: 640f26cc555164f44b12362a32bc710e, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[8]
+      value: '"path":"failText.[2].textUI","value":$eref:5'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1627549162597485050, guid: 640f26cc555164f44b12362a32bc710e, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[9]
+      value: '"path":"failText.[3]","value":{"$id":0,"$type":"TalkBox_UI+FailObj,
+        Assembly-CSharp","slot":$eref:6,"textUI":$eref:7}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1627549162597485050, guid: 640f26cc555164f44b12362a32bc710e, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[10]
+      value: '"path":"failText.[3].slot","value":$eref:6'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1627549162597485050, guid: 640f26cc555164f44b12362a32bc710e, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[11]
+      value: '"path":"failText.[3].textUI","value":$eref:7'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1627549162597485050, guid: 640f26cc555164f44b12362a32bc710e, type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1627549162597485050, guid: 640f26cc555164f44b12362a32bc710e, type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[0]
+      value: 
+      objectReference: {fileID: 1076173988}
+    - target: {fileID: 1627549162597485050, guid: 640f26cc555164f44b12362a32bc710e, type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[1]
+      value: 
+      objectReference: {fileID: 1076173989}
+    - target: {fileID: 1627549162597485050, guid: 640f26cc555164f44b12362a32bc710e, type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[2]
+      value: 
+      objectReference: {fileID: 1076173986}
+    - target: {fileID: 1627549162597485050, guid: 640f26cc555164f44b12362a32bc710e, type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[3]
+      value: 
+      objectReference: {fileID: 1076173987}
+    - target: {fileID: 1627549162597485050, guid: 640f26cc555164f44b12362a32bc710e, type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[4]
+      value: 
+      objectReference: {fileID: 1076173984}
+    - target: {fileID: 1627549162597485050, guid: 640f26cc555164f44b12362a32bc710e, type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[5]
+      value: 
+      objectReference: {fileID: 1076173985}
+    - target: {fileID: 1627549162597485050, guid: 640f26cc555164f44b12362a32bc710e, type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[6]
+      value: 
+      objectReference: {fileID: 1076173982}
+    - target: {fileID: 1627549162597485050, guid: 640f26cc555164f44b12362a32bc710e, type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[7]
+      value: 
+      objectReference: {fileID: 1076173983}
+    - target: {fileID: 6585251844513016016, guid: 640f26cc555164f44b12362a32bc710e, type: 3}
+      propertyPath: m_MinWidth
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8344259787968172006, guid: 640f26cc555164f44b12362a32bc710e, type: 3}
+      propertyPath: m_fontSize
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8344259787968172006, guid: 640f26cc555164f44b12362a32bc710e, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8344259787968172007, guid: 640f26cc555164f44b12362a32bc710e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2266,6 +2382,70 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 32061128d6e2c4a49a75e109e1b86a4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!224 &1076173982 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4542217750643053861, guid: 640f26cc555164f44b12362a32bc710e, type: 3}
+  m_PrefabInstance: {fileID: 1076173979}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1076173983 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1528669865830808847, guid: 640f26cc555164f44b12362a32bc710e, type: 3}
+  m_PrefabInstance: {fileID: 1076173979}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!224 &1076173984 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6231121050867919152, guid: 640f26cc555164f44b12362a32bc710e, type: 3}
+  m_PrefabInstance: {fileID: 1076173979}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1076173985 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4725414334945530101, guid: 640f26cc555164f44b12362a32bc710e, type: 3}
+  m_PrefabInstance: {fileID: 1076173979}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!224 &1076173986 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1469574824050763823, guid: 640f26cc555164f44b12362a32bc710e, type: 3}
+  m_PrefabInstance: {fileID: 1076173979}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1076173987 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7128475768914917769, guid: 640f26cc555164f44b12362a32bc710e, type: 3}
+  m_PrefabInstance: {fileID: 1076173979}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!224 &1076173988 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5471808057068766180, guid: 640f26cc555164f44b12362a32bc710e, type: 3}
+  m_PrefabInstance: {fileID: 1076173979}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1076173989 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 978481992648853854, guid: 640f26cc555164f44b12362a32bc710e, type: 3}
+  m_PrefabInstance: {fileID: 1076173979}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1175594694

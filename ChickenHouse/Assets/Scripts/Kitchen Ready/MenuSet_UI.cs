@@ -80,7 +80,7 @@ public class MenuSet_UI : Mgr
         bool actBackBtn = false;
         for(EWorker worker = EWorker.Worker_1; worker < EWorker.MAX; worker++)
         {
-            if (gameMgr.playData.hasWorker[(int)worker])
+            if (gameMgr.playData != null && gameMgr.playData.hasWorker[(int)worker])
             {
                 actBackBtn = true;
                 break;
@@ -90,7 +90,7 @@ public class MenuSet_UI : Mgr
 
         int drinkCnt = 0;
         for (Drink drink = Drink.Cola; drink < Drink.MAX; drink++)
-            if (gameMgr.playData.hasItem[(int)drink])
+            if (gameMgr.playData != null && gameMgr.playData.hasItem[(int)drink])
                 drinkCnt++;
         if (drinkCnt == 1)
             maxDrink = 1;
@@ -99,12 +99,15 @@ public class MenuSet_UI : Mgr
 
         int spicyCnt = 0;
         for (ChickenSpicy spicy = ChickenSpicy.Hot; spicy < ChickenSpicy.MAX; spicy++)
-            if (gameMgr.playData.HasRecipe(spicy))
+            if (gameMgr.playData != null && gameMgr.playData.HasRecipe(spicy))
                 spicyCnt++;
         if (spicyCnt >= 5)
             maxSpicy = 5;
         else
             maxSpicy = spicyCnt;
+
+        if (gameMgr.playData == null)
+            return;
 
         setSpicyState[(int)MenuSetPos.Spicy0] = (ChickenSpicy)gameMgr.playData.spicyState[(int)MenuSetPos.Spicy0];
         setSpicyState[(int)MenuSetPos.Spicy1] = (ChickenSpicy)gameMgr.playData.spicyState[(int)MenuSetPos.Spicy1];

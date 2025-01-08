@@ -19,7 +19,7 @@ public class StartGame : Mgr
         if (kitchenMgr != null)
             kitchenMgr.Init();
 
-        if ((QuestState)gameMgr.playData.quest[(int)Quest.Event_0_Quest] == QuestState.Run)
+        if (gameMgr.playData != null && (QuestState)gameMgr.playData.quest[(int)Quest.Event_0_Quest] == QuestState.Run)
         {
             timerUI.SetEventMode(true);
             dontClick.gameObject.SetActive(true);

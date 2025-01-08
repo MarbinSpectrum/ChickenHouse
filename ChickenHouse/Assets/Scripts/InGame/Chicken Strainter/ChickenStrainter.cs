@@ -90,7 +90,7 @@ public class ChickenStrainter : Mgr
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
         if (state)
         {
-            if (gameMgr.playData.tutoComplete1 == false && tutoMgr.nowTuto != Tutorial.Tuto_7)
+            if (gameMgr.playData != null && gameMgr.playData.tutoComplete1 == false && tutoMgr.nowTuto != Tutorial.Tuto_7)
             {
                 //튜토리얼이 아직 완료안된듯
                 //혹시모르니 튜토리얼 타이밍때만 작동하도록 막아놓자
@@ -135,7 +135,7 @@ public class ChickenStrainter : Mgr
 
     public void PutDown(Oil_Zone pOilZone)
     {
-        if (gameMgr.playData.tutoComplete1 == false && tutoMgr.nowTuto != Tutorial.Tuto_7)
+        if (gameMgr.playData != null && gameMgr.playData.tutoComplete1 == false && tutoMgr.nowTuto != Tutorial.Tuto_7)
         {
             //튜토리얼이 아직 완료안된듯
             //혹시모르니 튜토리얼 타이밍때만 작동하도록 막아놓자
@@ -179,7 +179,7 @@ public class ChickenStrainter : Mgr
         if (CheckMode.IsDropMode())
             return;
 
-        if (gameMgr.playData.tutoComplete1 == false && tutoMgr.nowTuto != Tutorial.Tuto_7)
+        if (gameMgr.playData != null && gameMgr.playData.tutoComplete1 == false && tutoMgr.nowTuto != Tutorial.Tuto_7)
         {
             return;
         }
@@ -202,7 +202,7 @@ public class ChickenStrainter : Mgr
         if (CheckMode.IsDropMode())
             return;
 
-        if (gameMgr.playData.tutoComplete1 == false && tutoMgr.nowTuto != Tutorial.Tuto_7)
+        if (gameMgr.playData != null && gameMgr.playData.tutoComplete1 == false && tutoMgr.nowTuto != Tutorial.Tuto_7)
         {
             return;
         }
@@ -264,7 +264,7 @@ public class ChickenStrainter : Mgr
                 }
             }
 
-            if (gameMgr.playData.tutoComplete1 == false)
+            if (gameMgr.playData != null && gameMgr.playData.tutoComplete1 == false)
             {
                 //튜토리얼을 진행안한듯?
                 //튜토리얼로 진입

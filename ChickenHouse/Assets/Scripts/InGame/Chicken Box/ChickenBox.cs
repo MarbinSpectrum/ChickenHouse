@@ -7,7 +7,7 @@ public class ChickenBox : Mgr
 
     public void OnMouseDrag()
     {
-        if (gameMgr.playData.tutoComplete1 == false && (tutoMgr.nowTuto == Tutorial.Tuto_1 || tutoMgr.nowTuto == Tutorial.Tuto_5) == false)
+        if (gameMgr.playData != null && gameMgr.playData.tutoComplete1 == false && (tutoMgr.nowTuto == Tutorial.Tuto_1 || tutoMgr.nowTuto == Tutorial.Tuto_5) == false)
         {
             //튜토리얼이 아직 완료안된듯
             //혹시모르니 튜토리얼 타이밍때만 작동하도록 막아놓자

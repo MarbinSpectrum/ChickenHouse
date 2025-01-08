@@ -12,7 +12,7 @@ public class KitchenBell : Mgr
     public void CompleteBtn()
     {
 
-        if (gameMgr.playData.tutoComplete1 == false && tutoMgr.nowTuto != Tutorial.Tuto_12)
+        if (gameMgr.playData != null && gameMgr.playData.tutoComplete1 == false && tutoMgr.nowTuto != Tutorial.Tuto_12)
         {            
             //튜토리얼이 아직 완료안된듯
             //혹시모르니 튜토리얼 타이밍때만 작동하도록 막아놓자
@@ -50,7 +50,7 @@ public class KitchenBell : Mgr
             kitchenMgr.ui.memo.RemoveMemo(0);
         }
 
-        if ((EWorker)gameMgr.playData.workerPos[(int)KitchenSet_UI.KitchenSetWorkerPos.CounterWorker] != EWorker.None)
+        if (gameMgr.playData != null && (EWorker)gameMgr.playData.workerPos[(int)KitchenSet_UI.KitchenSetWorkerPos.CounterWorker] != EWorker.None)
         {
             //직원 사용해서 카운터로 이동안함
             GiveChicken(true);

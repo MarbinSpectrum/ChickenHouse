@@ -98,9 +98,9 @@ public class KitchenMgr : Mgr
         /////////////////////////////////////////////////////////////////////////////////
         //양념통 세팅
         spicys.ForEach((x) => x.gameObject.SetActive(false));
-        for(int i = 0; i < gameMgr.playData.spicyState.Length; i++)
+        for(int i = 0; i < (int)MenuSet_UI.MenuSetPos.SpicyMAX; i++)
         {
-            if((ChickenSpicy)gameMgr.playData.spicyState[i] == ChickenSpicy.None)
+            if(gameMgr.playData == null || (ChickenSpicy)gameMgr.playData.spicyState[i] == ChickenSpicy.None)
             {
                 spicys[i].gameObject.SetActive(false);
             }
@@ -114,9 +114,9 @@ public class KitchenMgr : Mgr
         /////////////////////////////////////////////////////////////////////////////////
         //음료 세팅
         drinks.ForEach((x) => x.gameObject.SetActive(false));
-        for (int i = 0; i < gameMgr.playData.drinkState.Length; i++)
+        for (int i = 0; i < (int)MenuSet_UI.MenuSetPos.DrinkMAX; i++)
         {
-            if ((Drink)gameMgr.playData.drinkState[i] == Drink.None)
+            if (gameMgr.playData == null || (Drink)gameMgr.playData.drinkState[i] == Drink.None)
             {
                 drinks[i].gameObject.SetActive(false);
             }
@@ -130,9 +130,9 @@ public class KitchenMgr : Mgr
         /////////////////////////////////////////////////////////////////////////////////
         //사이드메뉴 세팅
         sideMenus.ForEach((x) => x.gameObject.SetActive(false));
-        for (int i = 0; i < gameMgr.playData.sideMenuState.Length; i++)
+        for (int i = 0; i < (int)MenuSet_UI.MenuSetPos.SideMenuMAX; i++)
         {
-            if ((SideMenu)gameMgr.playData.sideMenuState[i] == SideMenu.None)
+            if (gameMgr.playData == null || (SideMenu)gameMgr.playData.sideMenuState[i] == SideMenu.None)
             {
                 sideMenus[i].gameObject.SetActive(false);
             }
@@ -150,7 +150,7 @@ public class KitchenMgr : Mgr
             oilZone.Init();
         }
 
-        if (gameMgr.playData.hasItem[(int)ShopItem.NEW_OIL_ZONE_1])
+        if (gameMgr.playData != null && gameMgr.playData.hasItem[(int)ShopItem.NEW_OIL_ZONE_1])
         {
             chickenPackslots[1].gameObject.SetActive(true);
             oilMachines[1].gameObject.SetActive(true);
@@ -161,7 +161,7 @@ public class KitchenMgr : Mgr
             chickenPackslots[1].gameObject.SetActive(false);
         }
 
-        if (gameMgr.playData.hasItem[(int)ShopItem.NEW_OIL_ZONE_2])
+        if (gameMgr.playData != null && gameMgr.playData.hasItem[(int)ShopItem.NEW_OIL_ZONE_2])
         {
             chickenPackslots[2].gameObject.SetActive(true);
             oilMachines[2].gameObject.SetActive(true);
@@ -172,7 +172,7 @@ public class KitchenMgr : Mgr
             chickenPackslots[2].gameObject.SetActive(false);
         }
 
-        if (gameMgr.playData.hasItem[(int)ShopItem.NEW_OIL_ZONE_3])
+        if (gameMgr.playData != null && gameMgr.playData.hasItem[(int)ShopItem.NEW_OIL_ZONE_3])
         {
             chickenPackslots[3].gameObject.SetActive(true);
             oilMachines[3].gameObject.SetActive(true);
@@ -189,7 +189,7 @@ public class KitchenMgr : Mgr
         WorkerAct();
         ui.workerUI.Init();
 
-        if ((EWorker)gameMgr.playData.workerPos[(int)KitchenSet_UI.KitchenSetWorkerPos.CounterWorker] == EWorker.None)
+        if (gameMgr.playData == null || (EWorker)gameMgr.playData.workerPos[(int)KitchenSet_UI.KitchenSetWorkerPos.CounterWorker] == EWorker.None)
         {
             cameraObj.ChangeLook(LookArea.Counter);
             ui.memo.CloseTriggerBox();

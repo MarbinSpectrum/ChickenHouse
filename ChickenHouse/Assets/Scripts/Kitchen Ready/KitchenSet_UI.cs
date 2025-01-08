@@ -34,6 +34,14 @@ public class KitchenSet_UI : Mgr
 
     public void Init()
     {
+        if(gameMgr.playData == null)
+        {
+            workerArea[(int)KitchenSetWorkerPos.CounterWorker] = EWorker.None;
+            workerArea[(int)KitchenSetWorkerPos.KitchenWorker0] = EWorker.None;
+            workerArea[(int)KitchenSetWorkerPos.KitchenWorker1] = EWorker.None;
+            return;
+        }
+
         workerArea[(int)KitchenSetWorkerPos.CounterWorker] = (EWorker)gameMgr.playData.workerPos[(int)KitchenSetWorkerPos.CounterWorker];
         workerArea[(int)KitchenSetWorkerPos.KitchenWorker0] = (EWorker)gameMgr.playData.workerPos[(int)KitchenSetWorkerPos.KitchenWorker0];
         workerArea[(int)KitchenSetWorkerPos.KitchenWorker1] = (EWorker)gameMgr.playData.workerPos[(int)KitchenSetWorkerPos.KitchenWorker1];
@@ -146,7 +154,7 @@ public class KitchenSet_UI : Mgr
     {
         if (dragWorker != EWorker.None)
             return;
-        if(gameMgr.playData.tutoComplete2 == false)
+        if(gameMgr.playData != null && gameMgr.playData.tutoComplete2 == false)
         {
             if (workerArea[(int)KitchenSetWorkerPos.CounterWorker] == pWorker)
                 return;
@@ -203,7 +211,7 @@ public class KitchenSet_UI : Mgr
             }
         }
 
-        if(gameMgr.playData.tutoComplete2 == false && tutoMgr.nowTuto == Tutorial.Worker_Tuto_1_1 && dropPos == KitchenSetWorkerPos.KitchenWorker0)
+        if(gameMgr.playData != null && gameMgr.playData.tutoComplete2 == false && tutoMgr.nowTuto == Tutorial.Worker_Tuto_1_1 && dropPos == KitchenSetWorkerPos.KitchenWorker0)
         {
             tutoObj.PlayTuto();
         }
@@ -217,9 +225,9 @@ public class KitchenSet_UI : Mgr
         //인스펙터에서 끌어서 사용하는 함수임
         if (dragWorker == EWorker.None)
             return;
-        if (gameMgr.playData.tutoComplete2 == false && tutoMgr.nowTuto != Tutorial.Worker_Tuto_1_1)
+        if (gameMgr.playData != null && gameMgr.playData.tutoComplete2 == false && tutoMgr.nowTuto != Tutorial.Worker_Tuto_1_1)
             return;
-        if (gameMgr.playData.tutoComplete2 == false && tutoMgr.nowTuto == Tutorial.Worker_Tuto_1_1 && pArea != 1)
+        if (gameMgr.playData != null && gameMgr.playData.tutoComplete2 == false && tutoMgr.nowTuto == Tutorial.Worker_Tuto_1_1 && pArea != 1)
             return;
 
         int useWorkerCnt = GetUseWorkerCnt();
@@ -248,9 +256,9 @@ public class KitchenSet_UI : Mgr
         //인스펙터에서 끌어서 사용하는 함수임
         if (dragWorker == EWorker.None)
             return;
-        if (gameMgr.playData.tutoComplete2 == false && tutoMgr.nowTuto != Tutorial.Worker_Tuto_1_1)
+        if (gameMgr.playData != null && gameMgr.playData.tutoComplete2 == false && tutoMgr.nowTuto != Tutorial.Worker_Tuto_1_1)
             return;
-        if (gameMgr.playData.tutoComplete2 == false && tutoMgr.nowTuto == Tutorial.Worker_Tuto_1_1 && pArea != 1)
+        if (gameMgr.playData != null && gameMgr.playData.tutoComplete2 == false && tutoMgr.nowTuto == Tutorial.Worker_Tuto_1_1 && pArea != 1)
             return;
 
         workerTokenPoint[pArea].SetUI(workerArea[pArea], 1f);
@@ -272,6 +280,8 @@ public class KitchenSet_UI : Mgr
 
     public void ApplyKitchenSet()
     {
+        if (gameMgr.playData == null)
+            return;
         gameMgr.playData.workerPos[(int)KitchenSetWorkerPos.CounterWorker] = (int)workerArea[(int)KitchenSetWorkerPos.CounterWorker];
         gameMgr.playData.workerPos[(int)KitchenSetWorkerPos.KitchenWorker0] = (int)workerArea[(int)KitchenSetWorkerPos.KitchenWorker0];
         gameMgr.playData.workerPos[(int)KitchenSetWorkerPos.KitchenWorker1] = (int)workerArea[(int)KitchenSetWorkerPos.KitchenWorker1];

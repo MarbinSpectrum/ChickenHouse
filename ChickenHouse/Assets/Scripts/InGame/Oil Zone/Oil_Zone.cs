@@ -59,7 +59,10 @@ public class Oil_Zone : Mgr
     {
         get
         {
-            EWorker eWorker = (EWorker)gameMgr.playData.workerPos[(int)KitchenSet_UI.KitchenSetWorkerPos.KitchenWorker1];
+
+            EWorker eWorker = EWorker.None;
+            if (gameMgr.playData != null)
+                eWorker = (EWorker)gameMgr.playData.workerPos[(int)KitchenSet_UI.KitchenSetWorkerPos.KitchenWorker1];
             return workerMgr.GetWorkerData(eWorker);
         }
     }
@@ -99,7 +102,7 @@ public class Oil_Zone : Mgr
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
         if (kitchenMgr.dragObj.holdGameObj == null)
         {
-            if (gameMgr.playData.tutoComplete1 == false && tutoMgr.nowTuto != Tutorial.Tuto_8_2)
+            if (gameMgr.playData != null && gameMgr.playData.tutoComplete1 == false && tutoMgr.nowTuto != Tutorial.Tuto_8_2)
             {
                 //튜토리얼이 아직 완료안된듯
                 //혹시모르니 튜토리얼 타이밍때만 작동하도록 막아놓자
@@ -119,7 +122,7 @@ public class Oil_Zone : Mgr
 
             if (chickenStrainter)
             {
-                if (gameMgr.playData.tutoComplete1 == false && tutoMgr.nowTuto != Tutorial.Tuto_7)
+                if (gameMgr.playData != null && gameMgr.playData.tutoComplete1 == false && tutoMgr.nowTuto != Tutorial.Tuto_7)
                 {
                     //튜토리얼이 아직 완료안된듯
                     //혹시모르니 튜토리얼 타이밍때만 작동하도록 막아놓자
@@ -179,7 +182,7 @@ public class Oil_Zone : Mgr
             kitchenMgr.dragObj.DragStrainter(chickenCnt, DragState.Fry_Chicken, oilShader.Mode, oilShader.LerpValue);
 
             //버리기 버튼도 표시해준다.
-            if (gameMgr.playData.tutoComplete1 == false && tutoMgr.nowTuto == Tutorial.Tuto_8_2)
+            if (gameMgr.playData != null && gameMgr.playData.tutoComplete1 == false && tutoMgr.nowTuto == Tutorial.Tuto_8_2)
             {
                 //튜토리얼중에는 버리기 버튼이 표시되지않음
             }
@@ -230,7 +233,7 @@ public class Oil_Zone : Mgr
             //요리 종료
             Cook_Stop();
 
-            if (gameMgr.playData.tutoComplete1 == false && tutoMgr.nowTuto == Tutorial.Tuto_8_2)
+            if (gameMgr.playData != null && gameMgr.playData.tutoComplete1 == false && tutoMgr.nowTuto == Tutorial.Tuto_8_2)
             {
                 //튜토리얼에서는 카운터 이동버튼이 안나옴
                 tutoObj2.PlayTuto();
@@ -277,7 +280,7 @@ public class Oil_Zone : Mgr
         if (CheckMode.IsDropMode())
             return;
 
-        if (gameMgr.playData.tutoComplete1 == false && tutoMgr.nowTuto != Tutorial.Tuto_8_2)
+        if (gameMgr.playData != null && gameMgr.playData.tutoComplete1 == false && tutoMgr.nowTuto != Tutorial.Tuto_8_2)
         {
             return;
         }
@@ -302,7 +305,7 @@ public class Oil_Zone : Mgr
         kitchenMgr.UpdateOilZoneLoopSE();
         kitchenMgr.dragObj.DragStrainter(chickenCnt, DragState.Fry_Chicken, oilShader.Mode, oilShader.LerpValue);
 
-        if (gameMgr.playData.tutoComplete1 == false && tutoMgr.nowTuto == Tutorial.Tuto_8_2)
+        if (gameMgr.playData != null && gameMgr.playData.tutoComplete1 == false && tutoMgr.nowTuto == Tutorial.Tuto_8_2)
         {
 
         }
@@ -319,7 +322,7 @@ public class Oil_Zone : Mgr
         if (CheckMode.IsDropMode())
             return;
 
-        if (gameMgr.playData.tutoComplete1 == false && tutoMgr.nowTuto != Tutorial.Tuto_8_2)
+        if (gameMgr.playData != null && gameMgr.playData.tutoComplete1 == false && tutoMgr.nowTuto != Tutorial.Tuto_8_2)
         {
             return;
         }
@@ -358,7 +361,7 @@ public class Oil_Zone : Mgr
 
                 Cook_Stop();
 
-                if (gameMgr.playData.tutoComplete1 == false && tutoMgr.nowTuto == Tutorial.Tuto_8_2)
+                if (gameMgr.playData != null && gameMgr.playData.tutoComplete1 == false && tutoMgr.nowTuto == Tutorial.Tuto_8_2)
                 {
                     tutoObj2.PlayTuto();
                 }
@@ -374,7 +377,7 @@ public class Oil_Zone : Mgr
             {
                 Cook_Stop();
 
-                if (gameMgr.playData.tutoComplete1 == false && tutoMgr.nowTuto == Tutorial.Tuto_8_2)
+                if (gameMgr.playData != null && gameMgr.playData.tutoComplete1 == false && tutoMgr.nowTuto == Tutorial.Tuto_8_2)
                 {
        
                     tutoObj2.PlayTuto();
@@ -491,7 +494,10 @@ public class Oil_Zone : Mgr
         bool    notFire     = false;
 
         //업그레이드 속도에 따라서 상태 설정
-        ShopItem nowOilZone = gameMgr.playData.NowOilZone();
+        ShopItem nowOilZone = ShopItem.OIL_Zone_1;
+        if (gameMgr.playData != null)
+            nowOilZone = gameMgr.playData.NowOilZone();
+
         if (nowOilZone == ShopItem.OIL_Zone_4)
         {
             //최대 레벨일 경우 타지않는다.
@@ -533,7 +539,7 @@ public class Oil_Zone : Mgr
         animator.Play("Oil_Zone_Good", 0, 1);
         chickenState = ChickenState.GoodChicken;
 
-        if (gameMgr.playData.tutoComplete1 == false && tutoMgr.nowTuto == Tutorial.Tuto_7)
+        if (gameMgr.playData != null && gameMgr.playData.tutoComplete1 == false && tutoMgr.nowTuto == Tutorial.Tuto_7)
         {
             //튜토리얼에서는 여기서 조리가 끝남
             tutoObj.PlayTuto();
@@ -679,7 +685,10 @@ public class Oil_Zone : Mgr
 
     private float GetOilZoneSpeedRate()
     {
-        float speedRate = gameMgr.playData.GetOilZoneSpeedRate();
+        float speedRate = 100f;
+        if (gameMgr.playData != null)
+            speedRate = gameMgr.playData.GetOilZoneSpeedRate();
+
         if (resumeData != null)
         {
             if (resumeData.skill.Contains(WorkerSkill.WorkerSkill_3))
@@ -696,7 +705,11 @@ public class Oil_Zone : Mgr
     {
         /////////////////////////////////////////////////////////////////////////////////
         //기름통 세팅
-        ShopItem nowOilZone = gameMgr.playData.NowOilZone();
+        ShopItem nowOilZone = ShopItem.OIL_Zone_1;
+
+        if(gameMgr.playData != null)
+            nowOilZone = gameMgr.playData.NowOilZone();
+
         if (nowOilZone == ShopItem.OIL_Zone_1)
         {
             oilMahcine.machine0.sprite = oilMahcine.machineImg0[0];

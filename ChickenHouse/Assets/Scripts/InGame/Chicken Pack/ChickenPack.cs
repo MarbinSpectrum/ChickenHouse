@@ -107,7 +107,7 @@ public class ChickenPack : Mgr
 
     public void OnMouseDrag()
     {
-        if (gameMgr.playData.tutoComplete1 == false && tutoMgr.nowTuto != Tutorial.Tuto_11)
+        if (gameMgr.playData != null && gameMgr.playData.tutoComplete1 == false && tutoMgr.nowTuto != Tutorial.Tuto_11)
         {
             //튜토리얼 중에는 드래그 불가능
             return;
@@ -131,13 +131,13 @@ public class ChickenPack : Mgr
         obj.gameObject.SetActive(false);
 
         //버리기 버튼도 표시해준다.
-        if (gameMgr.playData.tutoComplete1)
+        if (gameMgr.playData != null && gameMgr.playData.tutoComplete1)
             kitchenMgr.ui.takeOut.OpenBtn();
     }
 
     public void OnMouseUp()
     {
-        if (gameMgr.playData.tutoComplete1 == false && tutoMgr.nowTuto != Tutorial.Tuto_11)
+        if (gameMgr.playData != null && gameMgr.playData.tutoComplete1 == false && tutoMgr.nowTuto != Tutorial.Tuto_11)
         {
             //튜토리얼 중에는 드래그 불가능
             return;
@@ -159,7 +159,7 @@ public class ChickenPack : Mgr
         //손을때면 치킨 박스 떨어짐
         kitchenMgr.dragState = DragState.None;
 
-        if (kitchenMgr.mouseArea == DragArea.Trash_Btn && gameMgr.playData.tutoComplete1)
+        if (kitchenMgr.mouseArea == DragArea.Trash_Btn && gameMgr.playData != null && gameMgr.playData.tutoComplete1)
         {
             //버리기 버튼처리
             Init();
@@ -179,7 +179,7 @@ public class ChickenPack : Mgr
                 kitchenMgr.chickenSlot.Set_ChickenShader(chickenMode, chickenLerpValue);
                 kitchenMgr.chickenSlot.UpdatePack();
 
-                if (gameMgr.playData.tutoComplete1 == false && tutoMgr.nowTuto == Tutorial.Tuto_11)
+                if (gameMgr.playData != null && gameMgr.playData.tutoComplete1 == false && tutoMgr.nowTuto == Tutorial.Tuto_11)
                 {
                     tutoObj.PlayTuto();
                 }

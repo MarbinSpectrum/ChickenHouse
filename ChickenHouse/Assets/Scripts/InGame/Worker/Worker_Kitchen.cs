@@ -37,19 +37,14 @@ public class Worker_Kitchen : Mgr
 
     private Dictionary<int, IEnumerator>        moveHandCor;
 
-    private WorkerData resumeData
-    {
-        get
-        {
-            EWorker eWorker = (EWorker)gameMgr.playData.workerPos[(int)KitchenSet_UI.KitchenSetWorkerPos.KitchenWorker0];
-            return workerMgr.GetWorkerData(eWorker);
-        }
-    }
+    private WorkerData resumeData => workerMgr.GetWorkerData(eWorker);
     private EWorker eWorker
     {
         get
         {
-            EWorker eWorker = (EWorker)gameMgr.playData.workerPos[(int)KitchenSet_UI.KitchenSetWorkerPos.KitchenWorker0];
+            EWorker eWorker = EWorker.None;
+            if (gameMgr.playData != null)
+                eWorker = (EWorker)gameMgr.playData.workerPos[(int)KitchenSet_UI.KitchenSetWorkerPos.KitchenWorker0];
             return eWorker;
         }
     }
@@ -144,7 +139,7 @@ public class Worker_Kitchen : Mgr
                     if (trayFlour.IsMax() == false)
                     {
                         leftHand.SetState(WorkerHandState.EggChicken);
-                        bowlEgg.RemoveChicken();
+                        bowlEgg.WorkerRemoveChicken();
                     }
                     else
                     {
@@ -174,7 +169,7 @@ public class Worker_Kitchen : Mgr
                 else if (bowlEgg.CompleteEgg())
                 {
                     leftHand.SetState(WorkerHandState.EggChicken);
-                    bowlEgg.RemoveChicken();
+                    bowlEgg.WorkerRemoveChicken();
                 }
                 LeftHandAct();
             });

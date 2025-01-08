@@ -115,7 +115,7 @@ public class TalkBox_UI : Mgr
     {
         List<string>    tempList    = new List<string>();
         List<bool>      isTagText   = new List<bool>();
-        SplitString(talkStr, ref tempList, ref isTagText);
+        LanguageMgr.SplitString(talkStr, ref tempList, ref isTagText);
 
         string tempString = string.Empty;
 
@@ -227,7 +227,7 @@ public class TalkBox_UI : Mgr
         }
 
         resultStr = newTextUIStr;
-        SplitString(resultStr, ref tempList, ref isTagText);
+        LanguageMgr.SplitString(resultStr, ref tempList, ref isTagText);
 
         tempString = string.Empty;
         for (int i = 0; i < tempList.Count; i++)
@@ -244,52 +244,6 @@ public class TalkBox_UI : Mgr
         fun?.Invoke();
         fun = null;
     }
-
-    private void SplitString(string str,ref List<string> strList, ref List<bool> isTagText)
-    {
-        strList.Clear();
-        isTagText.Clear();
-
-        int idx = 0;
-        string tagString = string.Empty;
-        bool tagMode = false;
-
-        while (idx < str.Length)
-        {
-            if (tagMode)
-            {
-                tagString += str[idx];
-                if (str[idx] == '>')
-                {
-                    strList.Add(tagString);
-                    isTagText.Add(true);
-                    tagString = string.Empty;
-                    tagMode = false;
-                }
-                idx++;
-            }
-            else
-            {
-                if (str[idx] == '<')
-                {
-                    tagMode = true;
-                }
-                else if (str[idx] == '\n')
-                {
-                    strList.Add(str[idx].ToString());
-                    isTagText.Add(true);
-                    idx++;
-                }
-                else
-                {
-                    strList.Add(str[idx].ToString());
-                    isTagText.Add(false);
-                    idx++;
-                }
-            }
-        }
-    }
-
 
     public void SkipTalk()
     {

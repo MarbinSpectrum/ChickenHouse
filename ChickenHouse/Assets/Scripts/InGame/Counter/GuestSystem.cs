@@ -54,7 +54,9 @@ public class GuestSystem : Mgr
     {
         get
         {
-            EWorker eWorker = (EWorker)gameMgr.playData.workerPos[(int)KitchenSet_UI.KitchenSetWorkerPos.CounterWorker];
+            EWorker eWorker = EWorker.None;
+            if (gameMgr.playData != null)
+                eWorker = (EWorker)gameMgr.playData.workerPos[(int)KitchenSet_UI.KitchenSetWorkerPos.CounterWorker];
             return workerMgr.GetWorkerData(eWorker);
         }
     }
@@ -92,7 +94,8 @@ public class GuestSystem : Mgr
         });
         gotoKitchenBtn.gameObject.SetActive(false);
 
-        ui.nowMoney.SetMoney(gameMgr.playData.money);
+        long setMoney = gameMgr.playData == null ? 0 : gameMgr.playData.money;
+        ui.nowMoney.SetMoney(setMoney);
 
         guestMgr.RemoveAllGuest();
 
@@ -112,7 +115,7 @@ public class GuestSystem : Mgr
         //인게임 코루틴
         while (true)
         {
-            if (gameMgr.playData.tutoComplete1 == false)
+            if (gameMgr.playData != null && gameMgr.playData.tutoComplete1 == false)
             {
                 //손님이 이동중일대는 대기
                 yield return new WaitWhile(() => moveGuest);
@@ -139,7 +142,10 @@ public class GuestSystem : Mgr
                 }
 
                 //손님 딜레이
-                float delayValue = GUEST_DELAY_TIME / (gameMgr.playData.GuestTotalDelayRate()/100f);
+                float playDataDelayRate = 100f;
+                if(gameMgr.playData != null)
+                        playDataDelayRate = gameMgr.playData.GuestTotalDelayRate();
+                float delayValue = GUEST_DELAY_TIME / (playDataDelayRate / 100f);
                 if (counterWorker != null && counterWorker.skill.Contains(WorkerSkill.WorkerSkill_5))
                 {
                     //카운터 업무 경력자(카운터에 배치시 손님이 방문률 +50%)
@@ -163,7 +169,7 @@ public class GuestSystem : Mgr
 
             }
 
-            if ((QuestState)gameMgr.playData.quest[(int)Quest.Event_0_Quest] == QuestState.Run 
+            if (gameMgr.playData != null && (QuestState)gameMgr.playData.quest[(int)Quest.Event_0_Quest] == QuestState.Run 
                 && ui.event0_UI.battleResult != Event_0_Battle_Result.None)
             {
                 //배틀종료
@@ -180,7 +186,7 @@ public class GuestSystem : Mgr
 
     public IEnumerator EndCheck()
     {
-        if ((QuestState)gameMgr.playData.quest[(int)Quest.Event_0_Quest] == QuestState.Run)
+        if (gameMgr.playData != null && (QuestState)gameMgr.playData.quest[(int)Quest.Event_0_Quest] == QuestState.Run)
         {
             yield return new WaitUntil(() => ui.event0_UI.battleResult != Event_0_Battle_Result.None);
 
@@ -203,6 +209,9 @@ public class GuestSystem : Mgr
 
     private void CreateGuest()
     {
+        int gameDay = 1;
+        if (gameMgr.playData != null)
+            gameDay = gameMgr.playData.day;
         for (int i = 0; i < waitGuest.Length; i++)
         {
             if (waitGuest[i] == null)
@@ -213,7 +222,7 @@ public class GuestSystem : Mgr
                 for (Guest guest = Guest.Fox; guest < Guest.MAX; guest++)
                 {
                     GuestObj guestObj = guestMgr.GetGuest(guest);
-                    if (guestObj.GetShowDay() > gameMgr.playData.day)
+                    if (guestObj.GetShowDay() > gameDay)
                         continue;
                     if (guestWeight[guest] > 0)
                         continue;
@@ -238,7 +247,7 @@ public class GuestSystem : Mgr
                     for (Guest guest = Guest.Fox; guest < Guest.MAX; guest++)
                     {
                         GuestObj guestObj = guestMgr.GetGuest(guest);
-                        if (guestObj.GetShowDay() > gameMgr.playData.day)
+                        if (guestObj.GetShowDay() > gameDay)
                             continue;
                         if (guestWeight[guest] > 0)
                             continue;
@@ -258,7 +267,7 @@ public class GuestSystem : Mgr
                 //손님을 호출
                 int guestRandom = Random.Range(0, guestList.Count);
                 Guest nowGuest = guestList[guestRandom];
-                if(gameMgr.playData.tutoComplete1 == false)
+                if(gameMgr.playData != null && gameMgr.playData.tutoComplete1 == false)
                 {
                     //튜토리얼에서는 고정으로 여우가 나옴
                     nowGuest = Guest.Fox;
@@ -418,10 +427,19 @@ public class GuestSystem : Mgr
                 case GuestReviews.Normal:
                     {
                         //돈지불
-                        int getValue = gameMgr.playData.GetMenuValue(result, spicy0, spicy1, chickenState, pDrink, pSideMenu);
+                        int getValue = 100;
+                        if (gameMgr.playData != null)
+                        {
+                            getValue = gameMgr.playData.GetMenuValue(result, spicy0, spicy1, chickenState, pDrink, pSideMenu);
+                        }
+
                         ui.getMoney.RunAni(getValue, 0);
                         gameMgr.dayMoney += getValue;
-                        ui.nowMoney.SetMoney(gameMgr.playData.money + gameMgr.dayMoney);
+
+                        long playDataMoney = 0;
+                        if (gameMgr.playData != null)
+                            playDataMoney = gameMgr.playData.money;
+                        ui.nowMoney.SetMoney(playDataMoney + gameMgr.dayMoney);
 
                         if (useWorker)
                             kitchenMgr.RunWorkerTalkBox(WorkerCounterTalkBox.Normal);
@@ -432,8 +450,13 @@ public class GuestSystem : Mgr
                 case GuestReviews.Happy:
                     {
                         //돈지불
-                        int getValue = gameMgr.playData.GetMenuValue(result, spicy0, spicy1, chickenState, pDrink, pSideMenu);
-                        float tipRate = gameMgr.playData.TipRate()/100f;
+                        int getValue = 100;
+                        float tipRate = 1;
+                        if(gameMgr.playData != null)
+                        {
+                            getValue = gameMgr.playData.GetMenuValue(result, spicy0, spicy1, chickenState, pDrink, pSideMenu);
+                            tipRate = gameMgr.playData.TipRate() / 100f;
+                        }
                         if(counterWorker != null && counterWorker.skill.Contains(WorkerSkill.WorkerSkill_4))
                         {
                             //잘생긴외모(팁 증가 +100%)
@@ -443,14 +466,17 @@ public class GuestSystem : Mgr
                         int tipValue = (int)(getValue * tipRate);
                         ui.getMoney.RunAni(getValue, tipValue);
                         gameMgr.dayMoney += (getValue + tipValue);
-                        ui.nowMoney.SetMoney(gameMgr.playData.money + gameMgr.dayMoney);
+                        long playDataMoney = 0;
+                        if (gameMgr.playData != null)
+                            playDataMoney = gameMgr.playData.money;
+                        ui.nowMoney.SetMoney(playDataMoney + gameMgr.dayMoney);
 
                         if (useWorker)
                             kitchenMgr.RunWorkerTalkBox(WorkerCounterTalkBox.Good);
                         else
                             guestObj.HappyGuest(() => NextOrder());
 
-                        if ((QuestState)gameMgr.playData.quest[(int)Quest.Event_0_Quest] == QuestState.Run)
+                        if (gameMgr.playData != null && (QuestState)gameMgr.playData.quest[(int)Quest.Event_0_Quest] == QuestState.Run)
                             ui.event0_UI.AddPlayerCnt();
                     }
                     break;
@@ -505,7 +531,7 @@ public class GuestSystem : Mgr
             //대화창 닫기
             leaveGuest.CloseTalkBox();
 
-            if (gameMgr.playData.tutoComplete1 == false)
+            if (gameMgr.playData != null && gameMgr.playData.tutoComplete1 == false)
             {
                 //튜토리얼 완료
                 gameMgr.playData.tutoComplete1 = true;
@@ -533,7 +559,7 @@ public class GuestSystem : Mgr
 
         yield return new WaitForSeconds(2f);
 
-        visitedGuest.Remove(pGuestObj.guest);
+        //visitedGuest.Remove(pGuestObj.guest);
         guestMgr.RemoveGuest(pGuestObj);
     }
 

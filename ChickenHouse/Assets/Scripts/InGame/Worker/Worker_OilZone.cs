@@ -37,19 +37,14 @@ public class Worker_OilZone : Mgr
 
     private Dictionary<int, IEnumerator> moveHandCor;
 
-    private WorkerData resumeData
-    {
-        get
-        {
-            EWorker eWorker = (EWorker)gameMgr.playData.workerPos[(int)KitchenSet_UI.KitchenSetWorkerPos.KitchenWorker1];
-            return workerMgr.GetWorkerData(eWorker);
-        }
-    }
+    private WorkerData resumeData => workerMgr.GetWorkerData(eWorker);
     private EWorker eWorker
     {
         get
         {
-            EWorker eWorker = (EWorker)gameMgr.playData.workerPos[(int)KitchenSet_UI.KitchenSetWorkerPos.KitchenWorker1];
+            EWorker eWorker = EWorker.None;
+            if (gameMgr.playData != null)
+                eWorker = (EWorker)gameMgr.playData.workerPos[(int)KitchenSet_UI.KitchenSetWorkerPos.KitchenWorker1];
             return eWorker;
         }
     }

@@ -27,7 +27,7 @@ namespace UnityEngine.UI
                 nextItem = m_Content.GetChild(0) as RectTransform;
                 nextItem.SetSiblingIndex(itemIdx - itemTypeStart + deletedItemTypeStart);
             }
-            else if (deletedItemTypeEnd > 0)
+            else if (deletedItemTypeEnd > 0 && m_Content.childCount > 0)
             {
                 deletedItemTypeEnd--;
                 nextItem = m_Content.GetChild(m_Content.childCount - 1) as RectTransform;

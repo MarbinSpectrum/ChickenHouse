@@ -160,4 +160,49 @@ public class LanguageMgr : AwakeSingleton<LanguageMgr>
         string priceStr = string.Format(MONEY_FORMAT, money, fontSize * 0.6f);
         return priceStr;
     }
+
+    public static void SplitString(string str, ref List<string> strList, ref List<bool> isTagText)
+    {
+        strList.Clear();
+        isTagText.Clear();
+
+        int idx = 0;
+        string tagString = string.Empty;
+        bool tagMode = false;
+
+        while (idx < str.Length)
+        {
+            if (tagMode)
+            {
+                tagString += str[idx];
+                if (str[idx] == '>')
+                {
+                    strList.Add(tagString);
+                    isTagText.Add(true);
+                    tagString = string.Empty;
+                    tagMode = false;
+                }
+                idx++;
+            }
+            else
+            {
+                if (str[idx] == '<')
+                {
+                    tagMode = true;
+                }
+                else if (str[idx] == '\n')
+                {
+                    strList.Add(str[idx].ToString());
+                    isTagText.Add(true);
+                    idx++;
+                }
+                else
+                {
+                    strList.Add(str[idx].ToString());
+                    isTagText.Add(false);
+                    idx++;
+                }
+            }
+        }
+    }
 }

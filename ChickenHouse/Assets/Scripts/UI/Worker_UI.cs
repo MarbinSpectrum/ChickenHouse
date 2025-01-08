@@ -17,7 +17,9 @@ public class Worker_UI : Mgr
         for (KitchenSet_UI.KitchenSetWorkerPos pos = KitchenSet_UI.KitchenSetWorkerPos.CounterWorker; pos < KitchenSet_UI.KitchenSetWorkerPos.MAX; pos++)
         {
             int idx = (int)pos;
-            EWorker eWorker = (EWorker)gameMgr.playData.workerPos[idx];
+            EWorker eWorker = EWorker.None;
+            if (gameMgr.playData != null)
+                eWorker = (EWorker)gameMgr.playData.workerPos[idx];
             WorkerData resumeData = workerMgr.GetWorkerData(eWorker);
             if (resumeData == null)
                 continue;
