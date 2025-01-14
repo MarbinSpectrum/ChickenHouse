@@ -6,8 +6,8 @@ using TMPro;
 
 public class LanguageMgr : AwakeSingleton<LanguageMgr>
 {
-    [SerializeField] private TMP_FontAsset KoreaFont;
-    [SerializeField] private TMP_FontAsset EnglishFont;
+    [SerializeField] private Dictionary<Language, TMP_FontAsset> normalFont;
+    [SerializeField] private Dictionary<Language, TMP_FontAsset> outLineFont;
 
     private bool isLoad = false;
 
@@ -114,25 +114,25 @@ public class LanguageMgr : AwakeSingleton<LanguageMgr>
         nowLanguage = pLanguage;
     }
 
-    public static void SetString(TextMeshProUGUI textUI, string pKey)
+    public static void SetString(TextMeshProUGUI textUI, string pKey, bool isOutLine = false)
     {
-        SetString(textUI, pKey, Instance.nowLanguage);
+        SetString(textUI, pKey, Instance.nowLanguage, isOutLine);
     }
 
-    public static void SetString(TextMeshProUGUI textUI,string pKey, Language pLanguagee)
+    public static void SetString(TextMeshProUGUI textUI,string pKey, Language pLanguage, bool isOutLine = false)
     {
         //textUI에 해당하는 TextMeshUI의 글자를 정해준다.
         //pKey에 해당하는 문자를 넣어줌
         string str = GetText(pKey);
-        SetText(textUI, str, pLanguagee);
+        SetText(textUI, str, pLanguage, isOutLine);
     }
 
-    public static void SetText(TextMeshProUGUI textUI, string pStr)
+    public static void SetText(TextMeshProUGUI textUI, string pStr, bool isOutLine = false)
     {
-        SetText(textUI, pStr, Instance.nowLanguage);
+        SetText(textUI, pStr, Instance.nowLanguage, isOutLine);
     }
 
-    public static void SetText(TextMeshProUGUI textUI, string pStr, Language pLanguagee)
+    public static void SetText(TextMeshProUGUI textUI, string pStr, Language pLanguage, bool isOutLine = false)
     {
         //textUI에 해당하는 TextMeshUI의 글자를 정해준다.
         //pStr를 그대로 넣어줌
@@ -141,17 +141,13 @@ public class LanguageMgr : AwakeSingleton<LanguageMgr>
         //언어에 맞는 폰트를 설정해준다.
         LanguageMgr languageMgr = Instance;
         TMP_FontAsset fontAsset = null;
+        if (isOutLine && languageMgr.outLineFont.ContainsKey(pLanguage))
+            fontAsset = languageMgr.outLineFont[pLanguage];
+        else if (languageMgr.normalFont.ContainsKey(pLanguage))
+            fontAsset = languageMgr.normalFont[pLanguage];
 
-        switch (pLanguagee)
-        {
-            case Language.Korea:
-                fontAsset = languageMgr.KoreaFont;
-                break;
-            case Language.English:
-                fontAsset = languageMgr.EnglishFont;
-                break;
-        }
-
+        if (fontAsset == null)
+            return;
         textUI.font = fontAsset;
     }
 

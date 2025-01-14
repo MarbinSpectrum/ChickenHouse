@@ -16,6 +16,9 @@ public class TutoText : Mgr
     {
         switch(tutotype)
         {
+            case Tutorial.Tuto_0:
+                LanguageMgr.SetString(text, "TUTO_0");
+                break;
             case Tutorial.Tuto_1:
                 LanguageMgr.SetString(text, "TUTO_1");
                 break;

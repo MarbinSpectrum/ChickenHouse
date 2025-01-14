@@ -58,7 +58,7 @@ public class GoKitchen_UI : Mgr
         CloseBtn();
         kitchenMgr.cameraObj.ChangeLook(LookArea.Kitchen, () =>
         {
-            if(gameMgr.playData != null && gameMgr.playData.tutoComplete1 == false)
+            if(gameMgr.playData != null && gameMgr.playData.tutoComplete1 == false && tutoMgr.nowTuto == Tutorial.Tuto_0)
             {
                 //튜토리얼을 진행안한듯?
                 //튜토리얼로 진입

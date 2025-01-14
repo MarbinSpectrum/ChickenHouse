@@ -26,7 +26,10 @@ public class BowlEgg : Mgr
     [SerializeField] private Transform          ellipseCenterTrans;
 
     //Tuto_2
-    [SerializeField] private TutoObj            tutoObj;
+    [SerializeField] private TutoObj            tutoObj0;
+
+    //Tuto_3
+    [SerializeField] private TutoObj            tutoObj1;
     [SerializeField] private BowlChicken[]      bowlChicken;
     private BowlChicken dragBowlChicken;
     List<KeyValuePair<float, int>> sortArray = new List<KeyValuePair<float, int>>();
@@ -94,7 +97,8 @@ public class BowlEgg : Mgr
             if (gameMgr.playData != null && gameMgr.playData.tutoComplete1 == false && tutoMgr.nowTuto == Tutorial.Tuto_2)
             {
                 //다 저어줌 튜토리얼 진행
-                tutoObj.PlayTuto();
+                tutoObj1.PlayTuto();
+                return;
             }
 
             kitchenMgr.dragState = DragState.Egg;
@@ -301,9 +305,7 @@ public class BowlEgg : Mgr
                 KitchenMgr kitchenMgr = KitchenMgr.Instance;
                 if (gameMgr.playData != null && gameMgr.playData.tutoComplete1 == false && kitchenMgr.cameraObj.lookArea == LookArea.Kitchen)
                 {
-                    //튜토리얼을 진행안한듯?
-                    //튜토리얼로 진입
-                    tutoObj.PlayTuto();
+                    tutoObj0.PlayTuto();
                 }
             }
             break;

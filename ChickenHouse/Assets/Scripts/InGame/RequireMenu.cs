@@ -21,7 +21,7 @@ public class RequireMenu
 
     public int menuIdx { get; private set; }
 
-    public bool CreateMenu(GuestData pGuestData, float nowTime,bool isTuto)
+    public bool CreateMenu(GuestData pGuestData, float nowTime, bool isTuto)
     {
         chickenSpicy ??= new ChickenSpicy[2];
         if (isTuto)

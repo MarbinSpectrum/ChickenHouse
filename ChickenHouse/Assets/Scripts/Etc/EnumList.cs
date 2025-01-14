@@ -440,7 +440,10 @@ public enum WorkerHandState
 public enum Tutorial
 {
     /** 없음 **/
-    None,
+    None = -1,
+
+    /** 주방으로 이동버튼 강조 **/
+    Tuto_0  = 0,
 
     /** 닭을 치킨물로 넣기 **/
     Tuto_1,
@@ -486,7 +489,7 @@ public enum Tutorial
 
     ////////////////////////////////////////////////////////////////////////
     /** 직원 배치 **/
-    Worker_Tuto_1_0,
+    Worker_Tuto_1_0 = 100,
     Worker_Tuto_1_1,
     Worker_Tuto_2_0,
     Worker_Tuto_2_1,
@@ -494,14 +497,14 @@ public enum Tutorial
 
     ////////////////////////////////////////////////////////////////////////
     /** 메뉴 배치 **/
-    Menu_Tuto_1,
+    Menu_Tuto_1 = 200,
     Menu_Tuto_2_0,
     Menu_Tuto_2_1,
     Menu_Tuto_2_2,
 
     ////////////////////////////////////////////////////////////////////////
     /** 마을 및 일기장 **/
-    Town_Tuto_1,
+    Town_Tuto_1 = 300,
     Town_Tuto_2,
     Town_Tuto_3,
     Town_Tuto_4,
@@ -517,7 +520,7 @@ public enum Tutorial
 
     ////////////////////////////////////////////////////////////////////////
     /** 치킨 레시피 대결 **/
-    Event_0_Tuto_1,
+    Event_0_Tuto_1 = 400,
     Event_0_Tuto_2,
     Event_0_Tuto_3,
     Event_0_Tuto_4,

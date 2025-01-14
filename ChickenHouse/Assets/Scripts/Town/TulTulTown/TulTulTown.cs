@@ -20,6 +20,7 @@ public class TulTulTown : Mgr
     [SerializeField] private Dictionary<Zone, RectTransform> housePos = new Dictionary<Zone, RectTransform>();
     [SerializeField] private RectTransform                  cameraPos;
     [SerializeField] private RectTransform[]                moveBtn;
+    [SerializeField] private RectTransform                  townMapUI;
     [SerializeField] private RectTransform                  dontTouch;
 
     public struct MenuBtn
@@ -93,10 +94,15 @@ public class TulTulTown : Mgr
         }
     }
 
+    public void MoveZone(int pZone) => MoveZone((Zone)pZone);
+
     public void MoveZone(Zone pZone,NoParaDel fun = null)
     {
         if (nowMove)
             return;
+        if (nowZone == pZone)
+            return;
+
         nowMove = true;
         nowZone = pZone;
 
@@ -107,6 +113,8 @@ public class TulTulTown : Mgr
             dontTouch.gameObject.SetActive(true);
             header.rect.gameObject.SetActive(false);
             menuBtn.rect.gameObject.SetActive(false);
+            townMapUI.gameObject.SetActive(false);
+
             float dis = 0;
             do
             {
@@ -119,6 +127,7 @@ public class TulTulTown : Mgr
 
             menuBtn.rect.gameObject.SetActive(true);
             header.rect.gameObject.SetActive(true);
+            townMapUI.gameObject.SetActive(true);
 
             switch (pZone)
             {

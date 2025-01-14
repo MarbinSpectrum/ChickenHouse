@@ -137,6 +137,7 @@ COOK_LV_REWARD_8	Lv {0} 달성시 손님 등장 속도 +{1}%	Lv {0} reached: Gue
 COOK_LV_REWARD_9	Lv {0} 달성시 손님 인내심 상한 +{1}%	Lv {0} reached: Max guest patience +{1}%
 COOK_LV_REWARD_10	Lv {0} 달성시 팁 +{1}%	Lv {0} reached: Tip +{1}%
 COOK_LV_REWARD_11	Lv {0} 달성시 임대료 -{1}<size=6><b>C</b></size>	Lv {0} reached: Rent -{1}<size=6><b>C</b></size>
+TUTO_0	주방으로 이동합시다.	Let's move to the kitchen.
 TUTO_1	먼저 닭을 달걀물에 넣어봅시다.	First, I'll put chickens in the egg water.
 TUTO_2	달걀물이 골고루 묻도록 닭을 잘 저어주세요.	Stir the chicken well so that the egg water is evenly coated.
 TUTO_3	이제 달걀물을 묻힌 닭을 오른쪽으로 옮겨주세요. 	Now move the chicken dipped in egg water to the right.

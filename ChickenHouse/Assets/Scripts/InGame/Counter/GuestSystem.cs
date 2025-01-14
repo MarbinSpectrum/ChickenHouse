@@ -11,10 +11,11 @@ public class GuestSystem : Mgr
     public const float  GUEST_DELAY_TIME    = 30f;
     private const int   GUEST_MAX           = 6;
 
-    [SerializeField] private SpriteRenderer[] guestPos = new SpriteRenderer[GUEST_MAX];
-    [SerializeField] private Animator vinylAni;
-    [SerializeField] private Button skipTalkBtn;
-    [SerializeField] private Button gotoKitchenBtn;
+    [SerializeField] private SpriteRenderer[]   guestPos = new SpriteRenderer[GUEST_MAX];
+    [SerializeField] private Animator           vinylAni;
+    [SerializeField] private Button             skipTalkBtn;
+    [SerializeField] private Button             gotoKitchenBtn;
+    [SerializeField] private TutoObj            tutoObj;
 
     [System.Serializable]
     public struct UI
@@ -320,7 +321,11 @@ public class GuestSystem : Mgr
 
                     if (kitchenMgr.cameraObj.lookArea == LookArea.Counter)
                     {
-                        ui.goKitchen.OpenBtn();
+                        if (gameMgr.playData != null && gameMgr.playData.tutoComplete1 != false)
+                        {
+                            //Æ©Åä¸®¾óÀÌ ¾Æ´Ò¶§¸¸ ¹Ù·Î ³ª¿È
+                            ui.goKitchen.OpenBtn();
+                        }
                     }
 
                     StartCoroutine(GuestOrder());
@@ -645,8 +650,20 @@ public class GuestSystem : Mgr
                 }
                 else
                 {
-                    //gotoKitchenBtn.gameObject.SetActive(true);
-                    skipTalkBtn.gameObject.SetActive(false);
+                    if (gameMgr.playData != null && gameMgr.playData.tutoComplete1 == false)
+                    {
+                        IEnumerator Run()
+                        {
+                            yield return new WaitForSeconds(1.5f);
+                            tutoObj.PlayTuto();
+                            ui.goKitchen.OpenBtn();
+                        }
+                        StartCoroutine(Run());
+                    }
+                    else
+                    {
+                        skipTalkBtn.gameObject.SetActive(false);
+                    }
                 }
             });
 
