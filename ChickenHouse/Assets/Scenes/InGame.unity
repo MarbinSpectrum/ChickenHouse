@@ -1225,41 +1225,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 26962231}
   m_CullTransparentMesh: 1
---- !u!21 &27568294
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Lerp UI(Clone)
-  m_Shader: {fileID: 4800000, guid: 146d6628858cde048b0359eac77ff63a, type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 8ce73fc4aae3542438aa8f44c3f356dc, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SubTex:
-        m_Texture: {fileID: 2800000, guid: 2f9f11a5311595f4f9d78274d2241b10, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - PixelSnap: 0
-    - _LerpValue: 0
-    m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-  m_BuildTextureStacks: []
 --- !u!1 &28868122
 GameObject:
   m_ObjectHideFlags: 0
@@ -3318,7 +3283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 274382346}
+  m_Material: {fileID: 1320019721}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -4002,6 +3967,7 @@ MonoBehaviour:
     SerializationNodes: []
   textUI: {fileID: 94958261}
   stringKey: NEXT
+  isOutLine: 0
 --- !u!1 &98896884
 GameObject:
   m_ObjectHideFlags: 0
@@ -4213,7 +4179,7 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  tutoType: 41
+  tutoType: 403
   tutoPos: {fileID: 0}
   tutoObj: {fileID: 210823300}
   delay: 0
@@ -4636,6 +4602,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 121994468}
   m_CullTransparentMesh: 1
+--- !u!21 &122606351
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Lerp UI(Clone)
+  m_Shader: {fileID: 4800000, guid: 146d6628858cde048b0359eac77ff63a, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 8ce73fc4aae3542438aa8f44c3f356dc, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SubTex:
+        m_Texture: {fileID: 2800000, guid: 2f9f11a5311595f4f9d78274d2241b10, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - PixelSnap: 0
+    - _LerpValue: 0
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []
 --- !u!1 &123598350
 GameObject:
   m_ObjectHideFlags: 0
@@ -5571,6 +5572,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 130941271}
   m_CullTransparentMesh: 1
+--- !u!21 &133522689
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Lerp UI(Clone)
+  m_Shader: {fileID: 4800000, guid: 146d6628858cde048b0359eac77ff63a, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 8ce73fc4aae3542438aa8f44c3f356dc, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SubTex:
+        m_Texture: {fileID: 2800000, guid: 2f9f11a5311595f4f9d78274d2241b10, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - PixelSnap: 0
+    - _LerpValue: 0
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []
 --- !u!1 &134887728
 GameObject:
   m_ObjectHideFlags: 0
@@ -7051,6 +7087,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 166536078}
   m_CullTransparentMesh: 1
+--- !u!21 &169517813
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Lerp UI(Clone)
+  m_Shader: {fileID: 4800000, guid: 146d6628858cde048b0359eac77ff63a, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 8ce73fc4aae3542438aa8f44c3f356dc, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SubTex:
+        m_Texture: {fileID: 2800000, guid: 2f9f11a5311595f4f9d78274d2241b10, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - PixelSnap: 0
+    - _LerpValue: 0
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []
 --- !u!1 &170249139
 GameObject:
   m_ObjectHideFlags: 0
@@ -7543,41 +7614,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 179350393}
   m_CullTransparentMesh: 1
---- !u!21 &180440744
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Lerp UI(Clone)
-  m_Shader: {fileID: 4800000, guid: 146d6628858cde048b0359eac77ff63a, type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 11b831fd27497454a8ba64e08127212f, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SubTex:
-        m_Texture: {fileID: 2800000, guid: 310c1a12045eb7f41bfb8d86c0847daa, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - PixelSnap: 0
-    - _LerpValue: 0
-    m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-  m_BuildTextureStacks: []
 --- !u!1 &181458179
 GameObject:
   m_ObjectHideFlags: 0
@@ -9016,7 +9052,7 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  tutoType: 16
+  tutoType: 100
   tutoPos: {fileID: 0}
   tutoObj: {fileID: 1556069638}
   delay: 0
@@ -9925,7 +9961,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2082454078}
+  m_Material: {fileID: 169517813}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -11539,6 +11575,7 @@ MonoBehaviour:
     SerializationNodes: []
   textUI: {fileID: 256921679}
   stringKey: NEXT
+  isOutLine: 0
 --- !u!1 &258228163
 GameObject:
   m_ObjectHideFlags: 0
@@ -11985,6 +12022,41 @@ MonoBehaviour:
   - {fileID: 876240801}
   - {fileID: 718356804}
   - {fileID: 669077026}
+--- !u!21 &270745891
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Lerp UI(Clone)
+  m_Shader: {fileID: 4800000, guid: 146d6628858cde048b0359eac77ff63a, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 8ce73fc4aae3542438aa8f44c3f356dc, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SubTex:
+        m_Texture: {fileID: 2800000, guid: 2f9f11a5311595f4f9d78274d2241b10, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - PixelSnap: 0
+    - _LerpValue: 0
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []
 --- !u!1 &271429149
 GameObject:
   m_ObjectHideFlags: 0
@@ -12214,41 +12286,6 @@ RectTransform:
   m_AnchoredPosition: {x: 44.05975, y: -37.975}
   m_SizeDelta: {x: 330.5331, y: 218.3374}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!21 &274382346
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Lerp UI(Clone)
-  m_Shader: {fileID: 4800000, guid: 146d6628858cde048b0359eac77ff63a, type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 8ce73fc4aae3542438aa8f44c3f356dc, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SubTex:
-        m_Texture: {fileID: 2800000, guid: 2f9f11a5311595f4f9d78274d2241b10, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - PixelSnap: 0
-    - _LerpValue: 0
-    m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-  m_BuildTextureStacks: []
 --- !u!1 &277275934
 GameObject:
   m_ObjectHideFlags: 0
@@ -12385,6 +12422,7 @@ MonoBehaviour:
     SerializationNodes: []
   textUI: {fileID: 281462152}
   stringKey: YES
+  isOutLine: 0
 --- !u!114 &281462152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13024,41 +13062,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
---- !u!21 &292732579
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Lerp UI(Clone)
-  m_Shader: {fileID: 4800000, guid: 146d6628858cde048b0359eac77ff63a, type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 8ce73fc4aae3542438aa8f44c3f356dc, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SubTex:
-        m_Texture: {fileID: 2800000, guid: 2f9f11a5311595f4f9d78274d2241b10, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - PixelSnap: 0
-    - _LerpValue: 0
-    m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-  m_BuildTextureStacks: []
 --- !u!1 &294212038
 GameObject:
   m_ObjectHideFlags: 0
@@ -13976,7 +13979,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 1634927198}
+  m_Material: {fileID: 270745891}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -17399,7 +17402,7 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  tutoType: 42
+  tutoType: 404
   tutoPos: {fileID: 0}
   tutoObj: {fileID: 2125372848}
   delay: 0
@@ -18335,6 +18338,41 @@ RectTransform:
   m_AnchoredPosition: {x: -2.24, y: -0.01}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!21 &415598396
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Lerp UI(Clone)
+  m_Shader: {fileID: 4800000, guid: 146d6628858cde048b0359eac77ff63a, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 8ce73fc4aae3542438aa8f44c3f356dc, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SubTex:
+        m_Texture: {fileID: 2800000, guid: 2f9f11a5311595f4f9d78274d2241b10, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - PixelSnap: 0
+    - _LerpValue: 0
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []
 --- !u!1 &416345110
 GameObject:
   m_ObjectHideFlags: 0
@@ -18956,6 +18994,7 @@ MonoBehaviour:
     SerializationNodes: []
   textUI: {fileID: 424896501}
   stringKey: GO_KITCHEN
+  isOutLine: 0
 --- !u!1 &425535504
 GameObject:
   m_ObjectHideFlags: 0
@@ -19943,41 +19982,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 438655493}
   m_CullTransparentMesh: 1
---- !u!21 &440157830
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Lerp UI(Clone)
-  m_Shader: {fileID: 4800000, guid: 146d6628858cde048b0359eac77ff63a, type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 8ce73fc4aae3542438aa8f44c3f356dc, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SubTex:
-        m_Texture: {fileID: 2800000, guid: 2f9f11a5311595f4f9d78274d2241b10, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - PixelSnap: 0
-    - _LerpValue: 0
-    m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-  m_BuildTextureStacks: []
 --- !u!1 &444880023
 GameObject:
   m_ObjectHideFlags: 0
@@ -22484,6 +22488,7 @@ MonoBehaviour:
     SerializationNodes: []
   textUI: {fileID: 512756221}
   stringKey: TAKE_OUT
+  isOutLine: 0
 --- !u!114 &512756221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27566,7 +27571,7 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  tutoType: 21
+  tutoType: 200
   tutoPos: {fileID: 0}
   tutoObj: {fileID: 211888091}
   delay: 0
@@ -27989,7 +27994,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 1670583187}
+  m_Material: {fileID: 1129407209}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -29448,7 +29453,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 27568294}
+  m_Material: {fileID: 1341853757}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -30282,7 +30287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2119373509}
+  m_Material: {fileID: 1622853772}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -30731,6 +30736,7 @@ MonoBehaviour:
     SerializationNodes: []
   textUI: {fileID: 691480251}
   stringKey: GO_COUNTER
+  isOutLine: 0
 --- !u!114 &691480251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34244,6 +34250,7 @@ MonoBehaviour:
     SerializationNodes: []
   textUI: {fileID: 762396418}
   stringKey: DRINK_SLOT
+  isOutLine: 0
 --- !u!1 &762441705
 GameObject:
   m_ObjectHideFlags: 0
@@ -35698,41 +35705,6 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
---- !u!21 &786396778
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Lerp UI(Clone)
-  m_Shader: {fileID: 4800000, guid: 146d6628858cde048b0359eac77ff63a, type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 8ce73fc4aae3542438aa8f44c3f356dc, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SubTex:
-        m_Texture: {fileID: 2800000, guid: 2f9f11a5311595f4f9d78274d2241b10, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - PixelSnap: 0
-    - _LerpValue: 0
-    m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-  m_BuildTextureStacks: []
 --- !u!1 &787037339
 GameObject:
   m_ObjectHideFlags: 0
@@ -36271,6 +36243,7 @@ MonoBehaviour:
     SerializationNodes: []
   textUI: {fileID: 797365288}
   stringKey: SIDE_SLOT
+  isOutLine: 0
 --- !u!1 &798079886
 GameObject:
   m_ObjectHideFlags: 0
@@ -37284,7 +37257,7 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  tutoType: 39
+  tutoType: 401
   tutoPos: {fileID: 0}
   tutoObj: {fileID: 307268486}
   delay: 0
@@ -37930,6 +37903,7 @@ MonoBehaviour:
     SerializationNodes: []
   textUI: {fileID: 830934833}
   stringKey: OK
+  isOutLine: 0
 --- !u!114 &830934833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38377,6 +38351,7 @@ MonoBehaviour:
     SerializationNodes: []
   textUI: {fileID: 841031694}
   stringKey: BACK
+  isOutLine: 0
 --- !u!1 &842756337
 GameObject:
   m_ObjectHideFlags: 0
@@ -38575,7 +38550,7 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  tutoType: 43
+  tutoType: 405
   tutoPos: {fileID: 0}
   tutoObj: {fileID: 1128616078}
   delay: 0
@@ -41801,6 +41776,7 @@ MonoBehaviour:
     SerializationNodes: []
   textUI: {fileID: 903092161}
   stringKey: CHICKEN
+  isOutLine: 0
 --- !u!114 &903092161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42684,6 +42660,7 @@ MonoBehaviour:
     SerializationNodes: []
   textUI: {fileID: 941260738}
   stringKey: SKILL_ABILITY
+  isOutLine: 0
 --- !u!114 &941260738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49712,6 +49689,41 @@ RectTransform:
   m_AnchoredPosition: {x: -117.9, y: 37.975}
   m_SizeDelta: {x: 55.4255, y: 75.95}
   m_Pivot: {x: 0, y: 1}
+--- !u!21 &1020453707
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Lerp UI(Clone)
+  m_Shader: {fileID: 4800000, guid: 146d6628858cde048b0359eac77ff63a, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 8ce73fc4aae3542438aa8f44c3f356dc, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SubTex:
+        m_Texture: {fileID: 2800000, guid: 2f9f11a5311595f4f9d78274d2241b10, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - PixelSnap: 0
+    - _LerpValue: 0
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []
 --- !u!1 &1021467679
 GameObject:
   m_ObjectHideFlags: 0
@@ -51839,7 +51851,7 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  tutoType: 23
+  tutoType: 202
   tutoPos: {fileID: 0}
   tutoObj: {fileID: 1966779637}
   delay: 0
@@ -52108,7 +52120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 1411250281}
+  m_Material: {fileID: 2066977792}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -52433,7 +52445,7 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  tutoType: 22
+  tutoType: 102
   tutoPos: {fileID: 0}
   tutoObj: {fileID: 2145154217}
   delay: 0
@@ -53864,6 +53876,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1128616078}
   m_CullTransparentMesh: 1
+--- !u!21 &1129407209
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Lerp UI(Clone)
+  m_Shader: {fileID: 4800000, guid: 146d6628858cde048b0359eac77ff63a, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 8ce73fc4aae3542438aa8f44c3f356dc, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SubTex:
+        m_Texture: {fileID: 2800000, guid: 2f9f11a5311595f4f9d78274d2241b10, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - PixelSnap: 0
+    - _LerpValue: 0
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []
 --- !u!1 &1131075229
 GameObject:
   m_ObjectHideFlags: 0
@@ -54490,6 +54537,7 @@ MonoBehaviour:
     SerializationNodes: []
   textUI: {fileID: 1139102685}
   stringKey: DEPLOYABLE_STAFF
+  isOutLine: 0
 --- !u!1 &1141622362
 GameObject:
   m_ObjectHideFlags: 0
@@ -54760,7 +54808,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2052074634}
+  m_Material: {fileID: 133522689}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -55445,41 +55493,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1166699755}
   m_CullTransparentMesh: 1
---- !u!21 &1169585110
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Lerp UI(Clone)
-  m_Shader: {fileID: 4800000, guid: 146d6628858cde048b0359eac77ff63a, type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 8ce73fc4aae3542438aa8f44c3f356dc, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SubTex:
-        m_Texture: {fileID: 2800000, guid: 2f9f11a5311595f4f9d78274d2241b10, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - PixelSnap: 0
-    - _LerpValue: 0
-    m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-  m_BuildTextureStacks: []
 --- !u!1 &1174781639
 GameObject:
   m_ObjectHideFlags: 0
@@ -58651,7 +58664,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 1169585110}
+  m_Material: {fileID: 122606351}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -60778,6 +60791,7 @@ MonoBehaviour:
     SerializationNodes: []
   textUI: {fileID: 1300983837}
   stringKey: KITCHEN_READY
+  isOutLine: 0
 --- !u!114 &1300983837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61790,6 +61804,41 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scroll: {fileID: 2092061959}
   isRun: 1
+--- !u!21 &1320019721
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Lerp UI(Clone)
+  m_Shader: {fileID: 4800000, guid: 146d6628858cde048b0359eac77ff63a, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 8ce73fc4aae3542438aa8f44c3f356dc, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SubTex:
+        m_Texture: {fileID: 2800000, guid: 2f9f11a5311595f4f9d78274d2241b10, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - PixelSnap: 0
+    - _LerpValue: 0
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []
 --- !u!1 &1320037059
 GameObject:
   m_ObjectHideFlags: 0
@@ -62861,6 +62910,41 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
+--- !u!21 &1341853757
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Lerp UI(Clone)
+  m_Shader: {fileID: 4800000, guid: 146d6628858cde048b0359eac77ff63a, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 8ce73fc4aae3542438aa8f44c3f356dc, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SubTex:
+        m_Texture: {fileID: 2800000, guid: 2f9f11a5311595f4f9d78274d2241b10, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - PixelSnap: 0
+    - _LerpValue: 0
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []
 --- !u!1 &1342104085
 GameObject:
   m_ObjectHideFlags: 0
@@ -64770,7 +64854,7 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  tutoType: 17
+  tutoType: 101
   tutoPos: {fileID: 0}
   tutoObj: {fileID: 416991129}
   delay: 0
@@ -65968,6 +66052,7 @@ MonoBehaviour:
     SerializationNodes: []
   textUI: {fileID: 1408999662}
   stringKey: EMPLOYEE_ASSIGNMENT
+  isOutLine: 0
 --- !u!1 &1411023646
 GameObject:
   m_ObjectHideFlags: 0
@@ -66044,41 +66129,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1411023646}
   m_CullTransparentMesh: 1
---- !u!21 &1411250281
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Lerp UI(Clone)
-  m_Shader: {fileID: 4800000, guid: 146d6628858cde048b0359eac77ff63a, type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 8ce73fc4aae3542438aa8f44c3f356dc, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SubTex:
-        m_Texture: {fileID: 2800000, guid: 2f9f11a5311595f4f9d78274d2241b10, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - PixelSnap: 0
-    - _LerpValue: 0
-    m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-  m_BuildTextureStacks: []
 --- !u!1 &1412856252
 GameObject:
   m_ObjectHideFlags: 0
@@ -66220,7 +66270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 786396778}
+  m_Material: {fileID: 415598396}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -68010,7 +68060,7 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  tutoType: 40
+  tutoType: 402
   tutoPos: {fileID: 0}
   tutoObj: {fileID: 1550834674}
   delay: 0
@@ -68078,6 +68128,7 @@ MonoBehaviour:
     SerializationNodes: []
   textUI: {fileID: 1475033089}
   stringKey: DRINK_AND_PICKLE
+  isOutLine: 0
 --- !u!114 &1475033089
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69670,7 +69721,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 292732579}
+  m_Material: {fileID: 1510450662}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -70160,6 +70211,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1508685016}
   m_CullTransparentMesh: 1
+--- !u!21 &1510450662
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Lerp UI(Clone)
+  m_Shader: {fileID: 4800000, guid: 146d6628858cde048b0359eac77ff63a, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 8ce73fc4aae3542438aa8f44c3f356dc, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SubTex:
+        m_Texture: {fileID: 2800000, guid: 2f9f11a5311595f4f9d78274d2241b10, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - PixelSnap: 0
+    - _LerpValue: 0
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []
 --- !u!1 &1511863239
 GameObject:
   m_ObjectHideFlags: 0
@@ -71682,7 +71768,7 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  tutoType: 20
+  tutoType: 104
   tutoPos: {fileID: 0}
   tutoObj: {fileID: 1961143490}
   delay: 0
@@ -72447,6 +72533,7 @@ MonoBehaviour:
     SerializationNodes: []
   textUI: {fileID: 1566231959}
   stringKey: KITCHEN_SET_CHECK_MSG
+  isOutLine: 0
 --- !u!114 &1566231959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75175,6 +75262,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1622796596}
   m_CullTransparentMesh: 1
+--- !u!21 &1622853772
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Lerp UI(Clone)
+  m_Shader: {fileID: 4800000, guid: 146d6628858cde048b0359eac77ff63a, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 8ce73fc4aae3542438aa8f44c3f356dc, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SubTex:
+        m_Texture: {fileID: 2800000, guid: 2f9f11a5311595f4f9d78274d2241b10, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - PixelSnap: 0
+    - _LerpValue: 0
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []
 --- !u!1 &1624209303
 GameObject:
   m_ObjectHideFlags: 0
@@ -75855,41 +75977,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1634697689}
   m_CullTransparentMesh: 1
---- !u!21 &1634927198
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Lerp UI(Clone)
-  m_Shader: {fileID: 4800000, guid: 146d6628858cde048b0359eac77ff63a, type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 8ce73fc4aae3542438aa8f44c3f356dc, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SubTex:
-        m_Texture: {fileID: 2800000, guid: 2f9f11a5311595f4f9d78274d2241b10, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - PixelSnap: 0
-    - _LerpValue: 0
-    m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-  m_BuildTextureStacks: []
 --- !u!1 &1634935817
 GameObject:
   m_ObjectHideFlags: 0
@@ -77966,41 +78053,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1668623757}
   m_CullTransparentMesh: 1
---- !u!21 &1670583187
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Lerp UI(Clone)
-  m_Shader: {fileID: 4800000, guid: 146d6628858cde048b0359eac77ff63a, type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 8ce73fc4aae3542438aa8f44c3f356dc, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SubTex:
-        m_Texture: {fileID: 2800000, guid: 2f9f11a5311595f4f9d78274d2241b10, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - PixelSnap: 0
-    - _LerpValue: 0
-    m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-  m_BuildTextureStacks: []
 --- !u!1 &1670762095
 GameObject:
   m_ObjectHideFlags: 0
@@ -79693,6 +79745,7 @@ MonoBehaviour:
     SerializationNodes: []
   textUI: {fileID: 1692869800}
   stringKey: OK
+  isOutLine: 0
 --- !u!114 &1692869800
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80169,7 +80222,7 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  tutoType: 18
+  tutoType: 201
   tutoPos: {fileID: 0}
   tutoObj: {fileID: 604463027}
   delay: 0
@@ -82799,6 +82852,7 @@ MonoBehaviour:
     SerializationNodes: []
   textUI: {fileID: 1759409903}
   stringKey: SEASONING
+  isOutLine: 0
 --- !u!114 &1759409903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83498,6 +83552,7 @@ MonoBehaviour:
     SerializationNodes: []
   textUI: {fileID: 1773923030}
   stringKey: SKILL_ABILITY
+  isOutLine: 0
 --- !u!1 &1775572415
 GameObject:
   m_ObjectHideFlags: 0
@@ -84146,7 +84201,7 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  tutoType: 38
+  tutoType: 400
   tutoPos: {fileID: 0}
   tutoObj: {fileID: 867600515}
   delay: 0
@@ -85565,7 +85620,7 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  tutoType: 24
+  tutoType: 203
   tutoPos: {fileID: 0}
   tutoObj: {fileID: 1279064857}
   delay: 0
@@ -86116,6 +86171,7 @@ MonoBehaviour:
     SerializationNodes: []
   textUI: {fileID: 1850680485}
   stringKey: SKILL_ABILITY
+  isOutLine: 0
 --- !u!114 &1850680485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92498,7 +92554,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 180440744}
+  m_Material: {fileID: 2067648018}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -92844,6 +92900,7 @@ MonoBehaviour:
     SerializationNodes: []
   textUI: {fileID: 2004934259}
   stringKey: NO
+  isOutLine: 0
 --- !u!114 &2004934259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94551,6 +94608,7 @@ MonoBehaviour:
     SerializationNodes: []
   textUI: {fileID: 2043827531}
   stringKey: KITCHEN_SET_CHECK_MSG
+  isOutLine: 0
 --- !u!114 &2043827531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95149,41 +95207,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!21 &2052074634
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Lerp UI(Clone)
-  m_Shader: {fileID: 4800000, guid: 146d6628858cde048b0359eac77ff63a, type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 8ce73fc4aae3542438aa8f44c3f356dc, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SubTex:
-        m_Texture: {fileID: 2800000, guid: 2f9f11a5311595f4f9d78274d2241b10, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - PixelSnap: 0
-    - _LerpValue: 0
-    m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-  m_BuildTextureStacks: []
 --- !u!1 &2052491188
 GameObject:
   m_ObjectHideFlags: 0
@@ -95473,7 +95496,7 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  tutoType: 19
+  tutoType: 103
   tutoPos: {fileID: 0}
   tutoObj: {fileID: 1670762095}
   delay: 0
@@ -96018,6 +96041,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2064394629}
   m_CullTransparentMesh: 1
+--- !u!21 &2066977792
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Lerp UI(Clone)
+  m_Shader: {fileID: 4800000, guid: 146d6628858cde048b0359eac77ff63a, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 8ce73fc4aae3542438aa8f44c3f356dc, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SubTex:
+        m_Texture: {fileID: 2800000, guid: 2f9f11a5311595f4f9d78274d2241b10, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - PixelSnap: 0
+    - _LerpValue: 0
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []
 --- !u!1 &2067580627
 GameObject:
   m_ObjectHideFlags: 0
@@ -96119,6 +96177,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2067580627}
   m_CullTransparentMesh: 1
+--- !u!21 &2067648018
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Lerp UI(Clone)
+  m_Shader: {fileID: 4800000, guid: 146d6628858cde048b0359eac77ff63a, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 11b831fd27497454a8ba64e08127212f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SubTex:
+        m_Texture: {fileID: 2800000, guid: 310c1a12045eb7f41bfb8d86c0847daa, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - PixelSnap: 0
+    - _LerpValue: 0
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []
 --- !u!1 &2069224119
 GameObject:
   m_ObjectHideFlags: 0
@@ -96704,41 +96797,6 @@ PrefabInstance:
       objectReference: {fileID: 8876855933149875666, guid: 4b7096721e88e4d40954e3ef212e8b31, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b7096721e88e4d40954e3ef212e8b31, type: 3}
---- !u!21 &2082454078
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Lerp UI(Clone)
-  m_Shader: {fileID: 4800000, guid: 146d6628858cde048b0359eac77ff63a, type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 8ce73fc4aae3542438aa8f44c3f356dc, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SubTex:
-        m_Texture: {fileID: 2800000, guid: 2f9f11a5311595f4f9d78274d2241b10, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - PixelSnap: 0
-    - _LerpValue: 0
-    m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-  m_BuildTextureStacks: []
 --- !u!1 &2084210901
 GameObject:
   m_ObjectHideFlags: 0
@@ -98314,41 +98372,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!21 &2119373509
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Lerp UI(Clone)
-  m_Shader: {fileID: 4800000, guid: 146d6628858cde048b0359eac77ff63a, type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 8ce73fc4aae3542438aa8f44c3f356dc, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SubTex:
-        m_Texture: {fileID: 2800000, guid: 2f9f11a5311595f4f9d78274d2241b10, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - PixelSnap: 0
-    - _LerpValue: 0
-    m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-  m_BuildTextureStacks: []
 --- !u!1 &2122500942
 GameObject:
   m_ObjectHideFlags: 0
@@ -99254,7 +99277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 440157830}
+  m_Material: {fileID: 1020453707}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -99663,10 +99686,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 4
-    m_Right: 3
-    m_Top: 15
-    m_Bottom: 4
+    m_Left: 8
+    m_Right: 7
+    m_Top: 19
+    m_Bottom: 8
   m_ChildAlignment: 2
   m_Spacing: 0
   m_ChildForceExpandWidth: 0

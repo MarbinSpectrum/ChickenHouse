@@ -409,6 +409,8 @@ public enum Drink
     Beer            = 2,
 
     MAX,
+
+    Anything        = 1000000,
 }
 
 public enum SideMenu
@@ -446,86 +448,87 @@ public enum Tutorial
     Tuto_0  = 0,
 
     /** 닭을 치킨물로 넣기 **/
-    Tuto_1,
+    Tuto_1  = 1,
 
     /** 달걀물 묻히기 **/
-    Tuto_2,
+    Tuto_2  = 2,
 
     /** 닭을 밀가루쪽으로 옮기기 **/
-    Tuto_3,
+    Tuto_3  = 3,
 
     /** 밀가루 묻히기 **/
-    Tuto_4,
+    Tuto_4  = 4,
 
     /** 해당 작업 반복 **/
-    Tuto_5,
+    Tuto_5  = 5,
 
     /** 치킨 건지로 닭 옮기기 **/
-    Tuto_6,
+    Tuto_6  = 6,
 
     /** 튀김기로 치킨 옮기기 **/
-    Tuto_7,
+    Tuto_7  = 7,
 
     /** 치킨 튀기기 설명 **/
-    Tuto_8_0,
-    Tuto_8_1,
+    Tuto_8_0 = 8,
+    Tuto_8_1 = 9,
 
     /** 닭을 용기 안에 넣기 **/
-    Tuto_8_2,
+    Tuto_8_2 = 10,
 
     /** 주문 확인 및 목표 상기 **/
-    Tuto_9_0,
-    Tuto_9_1,
+    Tuto_9_0 = 11,
+    Tuto_9_1 = 12,
 
     /** 콜라 및 피클 넣기 **/
-    Tuto_10,
+    Tuto_10 = 13,
 
     /** 치킨 넣기 **/
-    Tuto_11,
+    Tuto_11 = 14,
 
     /** 카운터로 가져가기 **/
-    Tuto_12,
+    Tuto_12 = 15,
 
 
     ////////////////////////////////////////////////////////////////////////
     /** 직원 배치 **/
     Worker_Tuto_1_0 = 100,
-    Worker_Tuto_1_1,
-    Worker_Tuto_2_0,
-    Worker_Tuto_2_1,
-    Worker_Tuto_2_2,
+    Worker_Tuto_1_1 = 101,
+    Worker_Tuto_2_0 = 102,
+    Worker_Tuto_2_1 = 103,
+    Worker_Tuto_2_2 = 104,
 
     ////////////////////////////////////////////////////////////////////////
     /** 메뉴 배치 **/
     Menu_Tuto_1 = 200,
-    Menu_Tuto_2_0,
-    Menu_Tuto_2_1,
-    Menu_Tuto_2_2,
+    Menu_Tuto_2_0 = 201,
+    Menu_Tuto_2_1 = 202,
+    Menu_Tuto_2_2 = 203,
 
     ////////////////////////////////////////////////////////////////////////
     /** 마을 및 일기장 **/
     Town_Tuto_1 = 300,
-    Town_Tuto_2,
-    Town_Tuto_3,
-    Town_Tuto_4,
-    Town_Tuto_5,
-    Town_Tuto_6,
-    Town_Tuto_7,
-    Town_Tuto_8,
-    Town_Tuto_9,
-    Town_Tuto_10,
-    Town_Tuto_11,
-    Town_Tuto_12,
-    Town_Tuto_13,
+    Town_Tuto_2 = 301,
+    Town_Tuto_3 = 302,
+    Town_Tuto_4 = 303,
+    Town_Tuto_5 = 304,
+    Town_Tuto_6 = 305,
+    Town_Tuto_7 = 306,
+    Town_Tuto_8 = 307,
+    Town_Tuto_9 = 308,
+    Town_Tuto_10 = 309,
+    Town_Tuto_11 = 310,
+    Town_Tuto_12 = 311,
+    Town_Tuto_13 = 312,
+    Town_Tuto_14 = 313,
 
     ////////////////////////////////////////////////////////////////////////
     /** 치킨 레시피 대결 **/
     Event_0_Tuto_1 = 400,
-    Event_0_Tuto_2,
-    Event_0_Tuto_3,
-    Event_0_Tuto_4,
-    Event_0_Tuto_5,
-    Event_0_Tuto_6,
+    Event_0_Tuto_2 = 401,
+    Event_0_Tuto_3 = 402,
+    Event_0_Tuto_4 = 403,
+    Event_0_Tuto_5 = 404,
+    Event_0_Tuto_6 = 405,
 }
 
 public enum Scene

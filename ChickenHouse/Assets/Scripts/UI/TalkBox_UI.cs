@@ -113,123 +113,20 @@ public class TalkBox_UI : Mgr
 
     private IEnumerator RunCor(float delayTime)
     {
-        List<string>    tempList    = new List<string>();
-        List<bool>      isTagText   = new List<bool>();
-        LanguageMgr.SplitString(talkStr, ref tempList, ref isTagText);
-
-        string tempString = string.Empty;
-
         textUI.text = string.Empty;
-        obj.gameObject.SetActive(true);
-
         resultStr = string.Empty;
+        obj.gameObject.SetActive(true);
 
         RectTransform textRect = textUI.GetComponent<RectTransform>();
         yield return new WaitUntil(() => textRect.sizeDelta.x > 0);
 
-        const float remainWidth = 5f;
+        resultStr = LanguageMgr.GetSmartText(talkStr, 5f, textUI);
 
-        string newTextUIStr = string.Empty;
-        for (int i = 0; i < tempList.Count; i++)
-        {
-            tempString += tempList[i];
-            if (isTagText[i])
-                continue;
+        List<string>    tempList    = new List<string>();
+        List<bool>      isTagText   = new List<bool>();
+        LanguageMgr.SplitStringbyTag(resultStr, ref tempList, ref isTagText);
 
-            textUI.text = tempString;
-            textUI.ForceMeshUpdate();
-
-            float nowTextWidth = 0;
-            string nowTextString = string.Empty;
-            List<string> arrayStr = new List<string>();
-            List<float> arrayWidth = new List<float>();
-            int charIdx = 0;
-            for(int j = 0; j <= i; j++)
-            {
-                if(isTagText[j])
-                {
-                    nowTextString += tempList[j];
-                    if(tempList[j] == "\n")
-                    {
-                        arrayStr.Add(nowTextString);
-                        arrayWidth.Add(nowTextWidth);
-                        nowTextWidth = 0;
-                        nowTextString = string.Empty;
-                    }
-                }
-                else
-                {
-                    TMP_CharacterInfo charInfo = textUI.textInfo.characterInfo[charIdx];
-
-                    float charWidth = Mathf.Abs(charInfo.topRight.x - charInfo.topLeft.x);
-                    if (nowTextWidth + charWidth > textRect.sizeDelta.x && tempList[j] == " ")
-                    {
-                        nowTextString += "\n";
-                        arrayStr.Add(nowTextString);
-                        arrayWidth.Add(nowTextWidth);
-                        nowTextWidth = 0;
-                        nowTextString = string.Empty;
-                    }
-                    else
-                    {
-                        nowTextWidth += charWidth;
-                        nowTextString += tempList[j];
-                    }
-
-                    charIdx++;
-                }
-            }
-
-            if (nowTextString != string.Empty)
-            {
-                nowTextString += "\n";
-                arrayStr.Add(nowTextString);
-                arrayWidth.Add(nowTextWidth);
-                nowTextWidth = 0;
-                nowTextString = string.Empty;
-            }
-
-            if (i == tempList.Count - 1)
-            {
-                for (int j = arrayWidth.Count - 1; j >= 1; j--)
-                {
-                    if (arrayWidth.Count >= 2 && arrayWidth[j] < remainWidth)
-                    {
-                        arrayWidth[j - 1] += arrayWidth[j];
-                        //substring을 넣는이유는 뒤에 붙어 있는 \n을 넣지않기 위해서임
-                        arrayStr[j - 1] = arrayStr[j - 1].Substring(0, arrayStr[j - 1].Length - 1);
-                        arrayStr[j - 1] += arrayStr[j];
-                        arrayWidth.RemoveAt(j);
-                        arrayStr.RemoveAt(j);
-                    }
-                }
-
-                float avgNewFontSize = 0;
-
-
-                for(int j = 0; j < arrayWidth.Count; j++)
-                {
-                    float newFontSize = Mathf.Min(textUI.fontSize, textUI.fontSize * textRect.sizeDelta.x / arrayWidth[j]);
-                    avgNewFontSize += newFontSize;
-                }
-                avgNewFontSize /= arrayWidth.Count;
-
-                for (int j = 0; j < arrayWidth.Count; j++)
-                {
-                    float newFontSize = Mathf.Min(avgNewFontSize, textUI.fontSize * textRect.sizeDelta.x / arrayWidth[j]);
-                    arrayStr[j] = string.Format("<size={0}>{1}</size>", newFontSize, arrayStr[j]);
-                }
-            }
-
-            newTextUIStr = string.Empty;
-            for (int j = 0; j < arrayStr.Count; j++)
-                newTextUIStr += arrayStr[j];
-        }
-
-        resultStr = newTextUIStr;
-        LanguageMgr.SplitString(resultStr, ref tempList, ref isTagText);
-
-        tempString = string.Empty;
+        string tempString = string.Empty;
         for (int i = 0; i < tempList.Count; i++)
         {
             tempString += tempList[i];

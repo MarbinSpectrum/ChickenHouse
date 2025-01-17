@@ -130,6 +130,9 @@ public class TutoText : Mgr
             case Tutorial.Town_Tuto_13:
                 LanguageMgr.SetString(text, "TOWN_TUTO_13");
                 break;
+            case Tutorial.Town_Tuto_14:
+                LanguageMgr.SetString(text, "TOWN_TUTO_14");
+                break;
             case Tutorial.Event_0_Tuto_1:
                 LanguageMgr.SetString(text, "EVENT_0_TUTO_1");
                 break;

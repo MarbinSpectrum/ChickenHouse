@@ -283,6 +283,8 @@ public class GuestSystem : Mgr
                 //손님생성
                 GuestObj newGuest = guestMgr.GetGuestObj(nowGuest);
                 float orderTime = ui.timer.time;
+
+                //여기서 메뉴도 선정됨
                 if (newGuest.CreateMenu(orderTime) == false)
                 {
                     //레시피 못만듬 다른 손님 생성

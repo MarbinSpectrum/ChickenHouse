@@ -64,7 +64,7 @@ public class RequireMenu
             {
                 int randomValue = Random.Range(0, 100);
                 if (randomValue < DRINK_PER)
-                    drink = guestMenu.GetRandomDrink(pGuestData.canDrinkAlcohol);
+                    drink = guestMenu.GetRandomDrink(pGuestData.canDrinkAlcohol,pGuestData.anythingDrink);
             }
 
             //고정 사이드 메뉴가 없으면 랜덤하게 정한다.
@@ -103,9 +103,9 @@ public class RequireMenu
 
         //--------------------------------------------------------------------------------
         //사이드나 드링크 검사
-        if (drink == pDrink && drink != Drink.None)
+        if (CheckDrink(drink))
             point += 1;
-        if (sideMenu == pSideMenu && sideMenu != SideMenu.None)
+        if (CheckSide(sideMenu))
             point += 1;
 
         //치킨상태검사
@@ -171,6 +171,8 @@ public class RequireMenu
         if (drink == pDrink && drink != Drink.None)
             return true;
         if (drink == Drink.None)
+            return true;
+        if (drink == Drink.Anything)
             return true;
         return false;
     }

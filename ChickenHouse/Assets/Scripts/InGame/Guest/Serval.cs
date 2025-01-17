@@ -32,10 +32,10 @@ public class Serval : GuestObj
         else if (menuIdx == 10)
             talkStr = LanguageMgr.GetText("SERVAL_ORDER_11");
 
-        if (requireMenu.drink == Drink.Cola)
+        if (requireMenu.drink == Drink.Anything)
         {
             talkStr += "\n";
-            talkStr += LanguageMgr.GetText("SERVAL_SIDE_COLA");
+            talkStr += LanguageMgr.GetText("SERVAL_SIDE_ANY");
         }
         if (requireMenu.sideMenu == SideMenu.Pickle)
         {

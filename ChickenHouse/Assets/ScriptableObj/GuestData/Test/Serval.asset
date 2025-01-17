@@ -18,6 +18,7 @@ MonoBehaviour:
   bookInfoKey: BOOK_SERVAL_INFO
   day: 0
   canDrinkAlcohol: 0
+  anythingDrink: 1
   goodChicken:
   - openDay: 0
     spicy0: 0

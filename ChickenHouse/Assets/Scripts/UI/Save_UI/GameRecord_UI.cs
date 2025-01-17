@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameRecord_UI : Mgr
 {
@@ -9,6 +10,9 @@ public class GameRecord_UI : Mgr
     [SerializeField] private RectTransform saveMenu;
     [SerializeField] private RectTransform saveBtn;
     [SerializeField] private RectTransform loadBtn;
+    [SerializeField] private ScrollRect srollRect;
+    private const int MAX_SLOT = 18;
+    private const int LINE_CNT = MAX_SLOT / 2 - 3;
 
     private int slotNum;
     private PlayData playData;
@@ -33,15 +37,35 @@ public class GameRecord_UI : Mgr
         saveBtn.gameObject.SetActive(canSave);
         loadBtn.gameObject.SetActive(canLoad);
 
-        PlayData[] playDatas = new PlayData[6];
-        for (int i = 0; i < 6; i++)
+        PlayData[] playDatas = new PlayData[saveSlots.Count];
+        for (int i = 0; i < saveSlots.Count; i++)
         {
             PlayData data = gameMgr.LoadData(i);
             playDatas[i] = data;
         }
+        int lineCnt = saveSlots.Count / 2 - 3;
 
         for (int i = 0; i < playDatas.Length; i++)
-            saveSlots[i].SetUI(canSave, canLoad, playDatas[i]);
+            saveSlots[i].SetUI(i,canSave, canLoad, playDatas[i]);
+
+        srollRect.onValueChanged.RemoveAllListeners();
+        srollRect.onValueChanged.AddListener((x) =>
+        {
+            for (int i = 0; i <= lineCnt; i++)
+            {
+                float s = Mathf.Max(((lineCnt - i) * 2 - 1) / (float)lineCnt / 2f, 0);
+                float e = Mathf.Min(((lineCnt - i) * 2 + 1) / (float)lineCnt / 2f, 1);
+                if (s < x.y && x.y <= e)
+                {
+                    float newYPos = 160 * i;
+                    srollRect.verticalScrollbar.value = (lineCnt - i) / (float)lineCnt;
+                    srollRect.content.anchoredPosition = new Vector2(srollRect.content.anchoredPosition.x, newYPos);
+                    break;
+                }
+            }
+        });
+
+        srollRect.verticalScrollbar.value = 1;
     }
 
     public void SetUI(int pSlotNum, PlayData pPlayData, SaveSlot_UI pSaveSlot)
@@ -82,7 +106,7 @@ public class GameRecord_UI : Mgr
             //저장
             gameMgr.selectSaveSlot = slotNum;
             gameMgr.SaveData();
-            saveSlot.SetUI(canSave, canLoad, gameMgr.playData);
+            saveSlot.SetUI(slotNum,canSave, canLoad, gameMgr.playData);
 
             fun?.Invoke(slotNum);
             return;
@@ -120,7 +144,7 @@ public class GameRecord_UI : Mgr
 
         //저장
         gameMgr.SaveData();
-        saveSlot.SetUI(canSave, canLoad, gameMgr.playData);
+        saveSlot.SetUI(slotNum,canSave, canLoad, gameMgr.playData);
 
         fun?.Invoke(slotNum);
     }

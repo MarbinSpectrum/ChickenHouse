@@ -121,11 +121,11 @@ ACCEPT	수락	Accept
 EVENT0_WARNING_1	패배시 치킨양념 한개를 잃습니다.	Upon defeat, lose one chicken seasoning.
 EVENT0_WARNING_2	오후에 상대 치킨집이랑 대결이 예정되어있습니다. 준비를 해주세요!	A match against the rival chicken restaurant is scheduled for the afternoon. Please get ready!
 STEAL_RECIPE	{0}을 뺏겻습니다!	I had {0} stolen!
-PIG_TALK_1	이거 이거 그런 서비스로 손님이 만족하겠나~ 쿠히힉!	Well, well, do you really think customers will be satisfied\nwith that kind of service? Oink!
-PIG_TALK_2	쿠힉힉힉 돼지 사료도 이것보단 고급스럽겠구먼~	Oink! Oink! Oink! Even pig feed would be\nmore high-end than this~
-PIG_TALK_3	아니 혹시 쿠힉! 그거 사장 얼굴을\n본떠 만든 치킨인가? 완전 개판이구먼!	Wait, is that chicken made to look like the boss's face?\nIt’s a complete mess!
-PIG_TALK_4	쿠히힉! 손이 그렇게 느려터져서야!\n영 못 쓰겠구먼! 컨트롤이 중요한데 말이야!	Oink! With hands that slow, you’re completely useless!\nControl is everything, you know!
-PIG_TALK_5	쿠히힉힉힉 눈은 뜨고 치킨을 만드는 건가?! 장님이 따로 없으시구먼!	Oink! Oink! Are you making chicken with your eyes open?!\nYou’re blind as a bat!
+PIG_TALK_1	이거 이거 그런 서비스로 손님이 만족하겠나~ 쿠히힉!	Well, well, do you really think customers will be satisfied with that kind of service? Oink!
+PIG_TALK_2	쿠힉힉힉 돼지 사료도 이것보단 고급스럽겠구먼~	Oink! Oink! Oink! Even pig feed would be more high-end than this~
+PIG_TALK_3	아니 혹시 쿠힉! 그거 사장 얼굴을 본떠 만든 치킨인가? 완전 개판이구먼!	Wait, is that chicken made to look like the boss's face? It’s a complete mess!
+PIG_TALK_4	쿠히힉! 손이 그렇게 느려터져서야! 영 못 쓰겠구먼! 컨트롤이 중요한데 말이야!	Oink! With hands that slow, you’re completely useless! Control is everything, you know!
+PIG_TALK_5	쿠히힉힉힉 눈은 뜨고 치킨을 만드는 건가?! 장님이 따로 없으시구먼!	Oink! Oink! Are you making chicken with your eyes open?! You’re blind as a bat!
 COOK_LV_REWARD_1	Lv {0} 달성시 치킨 가격 +{1}<size=6><b>C</b></size>	Lv {0} reached: Increase chicken price +{1}<size=6><b>C</b></size>
 COOK_LV_REWARD_2	Lv {0} 달성시 치킨 원가 감소 {1}<size=6><b>C</b></size>	Lv {0} reached: Chicken cost cut {1}<size=6><b>C</b></size>
 COOK_LV_REWARD_3	Lv {0} 달성시 음료 원가 감소 {1}<size=6><b>C</b></size>	Lv {0} reached: Drink cost cut {1}<size=6><b>C</b></size>
@@ -167,14 +167,15 @@ TOWN_TUTO_2	직원고용소입니다. 가게에서 함께 일할 직원을 고�
 TOWN_TUTO_3	주방도구상점입니다. 주방에서 사용할 조리도구를 구입할 수 있는 곳입니다.	This is a kitchenware shop.\nIt's a place where you can buy cooking utensils for use in the kitchen.
 TOWN_TUTO_4	광고 회사입니다. 가게 광고를 통해 더 많은 손님을 유치할 수 있습니다.	It's an advertising company.\nYou can attract more customers through store advertising.
 TOWN_TUTO_5	모든 준비가 끝났으면 가게로 돌아와서 장사를 시작하면됩니다. 	Once all the preparations are complete\nreturn to the store and start the business.
-TOWN_TUTO_6	일기장을 통해서도 여러가지를 할 수 있습니다.	You can do various things using the diary as well.
-TOWN_TUTO_7	진행 사항을 저장하거나 불러올 수 있고	You can save or load your progress.
-TOWN_TUTO_8	현재 장사숙련도를 파악할 수 있습니다.	You can assess your current business proficiency.
-TOWN_TUTO_9	장사 숙련도는 장사를 할수록 높아지며\n숙련도가 높을수록 더 효과적으로 장사를 할 수 있습니다.	Business proficiency increases with experience,\nhigher proficiency allows you to run the business more effectively.
-TOWN_TUTO_10	현재 해야 할 일도 확인할 수 있습니다.	You can also see the tasks that need to be completed.
-TOWN_TUTO_11	빨간 글씨로 표시된 항목은 기간 내에 반드시 완료해야 하는 일입니다.	Items marked in red are tasks that must be completed within the timeframe.
-TOWN_TUTO_12	해당 기간안에 꼭 해결해야합니다!	It must be resolved without fail within the given timeframe!
-TOWN_TUTO_13	주기적으로 확인하여 기한 내에 해결하도록 합시다.	Let's regularly check to ensure it's resolved within the deadline.
+TOWN_TUTO_6	빠른 이동 메뉴를 이용하면 원하는 장소로 쉽게 이동할 수 있습니다.	You can easily move to your desired location using the fast travel menu.
+TOWN_TUTO_7	일기장을 통해서도 여러가지를 할 수 있습니다.	You can do various things using the diary as well.
+TOWN_TUTO_8	진행 사항을 저장하거나 불러올 수 있고	You can save or load your progress.
+TOWN_TUTO_9	현재 장사숙련도를 파악할 수 있습니다.	You can assess your current business proficiency.
+TOWN_TUTO_10	장사 숙련도는 장사를 할수록 높아지며\n숙련도가 높을수록 더 효과적으로 장사를 할 수 있습니다.	Business proficiency increases with experience,\nhigher proficiency allows you to run the business more effectively.
+TOWN_TUTO_11	현재 해야 할 일도 확인할 수 있습니다.	You can also see the tasks that need to be completed.
+TOWN_TUTO_12	빨간 글씨로 표시된 항목은 기간 내에 반드시 완료해야 하는 일입니다.	Items marked in red are tasks that must be completed within the timeframe.
+TOWN_TUTO_13	해당 기간안에 꼭 해결해야합니다!	It must be resolved without fail within the given timeframe!
+TOWN_TUTO_14	주기적으로 확인하여 기한 내에 해결하도록 합시다.	Let's regularly check to ensure it's resolved within the deadline.
 EVENT_0_TUTO_1	대결의 규칙에 대해서 설명해드리겠습니다.	I will explain the rules of the duel.
 EVENT_0_TUTO_2	규칙은 간단합니다. 치킨 10마리를 먼저 파는 쪽이 승리합니다.	The rules are simple: the first side to sell 10 chickens wins.
 EVENT_0_TUTO_3	빨간색은 당신이 치킨을 판매한 갯수이고 파란색은 상대편이 판매한 갯수입니다.	The red represents the number of chickens you've sold,\nwhile the blue represents the number sold by your opponent.
@@ -549,7 +550,7 @@ SERVAL_ORDER_8	후라이드랑 양념… 둘 중 뭐 먹지? 귀찮으니까 둘
 SERVAL_ORDER_9	하 친구란 게 랩 중독자랑 오타쿠라니 참, 바비큐랑 뿌링클로	Man, to think my friend is a rap addict and an otaku. Barbecue and Prinkle it is.
 SERVAL_ORDER_10	제일 매운 거랑 매콤한 걸로	The spiciest one and something mildly spicy.
 SERVAL_ORDER_11	그 느끼한 하얀 거랑 짜고 검은 거… 왜 생각이 안 나지?	That greasy white one and the salty black one... why can't I remember?
-SERVAL_SIDE_COLA	음료 아무거나 하나 주세요	Just give me any drink
+SERVAL_SIDE_ANY	음료 아무거나 하나 주세요	Just give me any drink
 SERVAL_SIDE_PICKLE	무 많이	a lot of radish
 SERVAL_ANGRY	하 노답이네	Ugh, this is hopeless.
 SERVAL_THANK_YOU	그러려니 하네요	I guess that's just how it is.

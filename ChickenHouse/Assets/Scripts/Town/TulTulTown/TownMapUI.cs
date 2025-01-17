@@ -16,4 +16,12 @@ public class TownMapUI : Mgr
         else if (stateInfo.IsName("TownMapOn"))
             animator.SetTrigger("Off");
     }
+
+    public void TownMenuButton(bool pState)
+    {
+        if (pState)
+            animator.SetTrigger("On");
+        else
+            animator.SetTrigger("Off");
+    }
 }

@@ -70,26 +70,38 @@ public class Event0_UI : Mgr
             talkList.Add(talkNum);
             talkBox.gameObject.SetActive(true);
             soundMgr.PlayLoopSE(Sound.Voice28_SE);
+            string talkStr = string.Empty;
+            string newTextUIStr = string.Empty;
             switch (talkNum)
             {
                 case 0:
-                    LanguageMgr.SetString(talkText, "PIG_TALK_1");
+                    talkStr = LanguageMgr.GetText("PIG_TALK_1");
+                    newTextUIStr = LanguageMgr.GetSmartText(talkStr, 4, talkText);
+                    talkText.text = newTextUIStr;
                     yield return new WaitForSeconds(5f);
                     break;
                 case 1:
-                    LanguageMgr.SetString(talkText, "PIG_TALK_2");
+                    talkStr = LanguageMgr.GetText("PIG_TALK_2");
+                    newTextUIStr = LanguageMgr.GetSmartText(talkStr, 4, talkText);
+                    talkText.text = newTextUIStr;
                     yield return new WaitForSeconds(5f);
                     break;
                 case 2:
-                    LanguageMgr.SetString(talkText, "PIG_TALK_3");
+                    talkStr = LanguageMgr.GetText("PIG_TALK_3");
+                    newTextUIStr = LanguageMgr.GetSmartText(talkStr, 4, talkText);
+                    talkText.text = newTextUIStr;
                     yield return new WaitForSeconds(7f);
                     break;
                 case 3:
-                    LanguageMgr.SetString(talkText, "PIG_TALK_4");
+                    talkStr = LanguageMgr.GetText("PIG_TALK_4");
+                    newTextUIStr = LanguageMgr.GetSmartText(talkStr, 4, talkText);
+                    talkText.text = newTextUIStr;
                     yield return new WaitForSeconds(8.5f);
                     break;
                 case 4:
-                    LanguageMgr.SetString(talkText, "PIG_TALK_5");
+                    talkStr = LanguageMgr.GetText("PIG_TALK_5");
+                    newTextUIStr = LanguageMgr.GetSmartText(talkStr, 4, talkText);
+                    talkText.text = newTextUIStr;
                     yield return new WaitForSeconds(7f);
                     break;
             }

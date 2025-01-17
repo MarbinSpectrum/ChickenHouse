@@ -21,7 +21,7 @@ public class TulTulTown : Mgr
     [SerializeField] private RectTransform                  cameraPos;
     [SerializeField] private RectTransform[]                moveBtn;
     [SerializeField] private RectTransform                  townMapUI;
-    [SerializeField] private RectTransform                  dontTouch;
+    [SerializeField] private RectTransform                  moveDontTouch;
 
     public struct MenuBtn
     {
@@ -110,7 +110,7 @@ public class TulTulTown : Mgr
         {
             moveBtn[0].gameObject.SetActive(false);
             moveBtn[1].gameObject.SetActive(false);
-            dontTouch.gameObject.SetActive(true);
+            moveDontTouch.gameObject.SetActive(true);
             header.rect.gameObject.SetActive(false);
             menuBtn.rect.gameObject.SetActive(false);
             townMapUI.gameObject.SetActive(false);
@@ -168,7 +168,7 @@ public class TulTulTown : Mgr
                     }
                     break;
             }
-            dontTouch.gameObject.SetActive(false);
+            moveDontTouch.gameObject.SetActive(false);
             fun?.Invoke();
         }
         StartCoroutine(Run());

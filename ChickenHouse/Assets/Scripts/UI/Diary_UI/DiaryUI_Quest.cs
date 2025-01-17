@@ -89,13 +89,23 @@ public class DiaryUI_Quest : Mgr
             bool isEnd = ((i + 1) == quest.Count);
             bool isSelect = (selectQuest == quest[i]);
             QuestData questData = quest[i];
+
+            int idx = i;
             questListObj[i].gameObject.SetActive(true);
             questListObj[i].SetData(quest[i], isSelect, isEnd);
             questListObj[i].SetEventTrigger(() =>
             {
                 SetUI(questData);
                 ShowQuestInfo(questData);
+                gameMgr.playData.questCheck[(int)questData.quest] = true;
+                questListObj[idx].UpdateRedDot();
             });
+
+            if(questData == pQuest)
+            {
+                gameMgr.playData.questCheck[(int)questData.quest] = true;
+                questListObj[idx].UpdateRedDot();
+            }
         }
     }
 

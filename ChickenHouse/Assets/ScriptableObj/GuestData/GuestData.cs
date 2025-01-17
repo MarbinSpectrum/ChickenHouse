@@ -16,6 +16,8 @@ public class GuestData : ScriptableObject
     public int day;
     [Header("술을 마쉬는 캐릭터 여부")]
     public bool canDrinkAlcohol;
+    [Header("아무거나 마쉬는 캐릭터 여부")]
+    public bool anythingDrink;
     [Header("주문 메뉴")]
     public List<GuestMenu> goodChicken;
 }
@@ -92,8 +94,11 @@ public class GuestMenu
         return sideMenus[r];
     }
 
-    public Drink GetRandomDrink(bool canDrinkAlcohol)
+    public Drink GetRandomDrink(bool canDrinkAlcohol, bool canAnything)
     {
+        if (canAnything)
+            return Drink.Anything;
+
         PlayData playData = GameMgr.Instance.playData;
 
         //랜덤하게 아무 음료나 반환

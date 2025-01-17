@@ -17,7 +17,7 @@ public class DiaryUI_FileSaveSlot : Mgr
 
     [SerializeField] private DiaryUI_FileSaveMenu   fileSaveMenu;
 
-    [SerializeField] private int slotNum;
+    private int slotNum;
 
     private const string EMPTY = "EMPTY";
     private const string DAY_FORMAT = "{0:D4}-{1:D2}-{2:D2}";
@@ -25,10 +25,10 @@ public class DiaryUI_FileSaveSlot : Mgr
 
     private PlayData playData;
 
-    public void SetUI(PlayData pPlayData)
+    public void SetUI(PlayData pPlayData,int pSlotNum)
     {
         playData = pPlayData;
-
+        slotNum = pSlotNum;
         fileSaveMenu.gameObject.SetActive(false);
 
         if (pPlayData == null)

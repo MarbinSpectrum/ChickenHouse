@@ -17,7 +17,7 @@ public class SaveSlot_UI : Mgr
 
     [SerializeField] private GameRecord_UI        saveUI;
 
-    [SerializeField] private int slotNum;
+    private int slotNum;
 
     private const string EMPTY = "EMPTY";
     private const string DAY_FORMAT = "{0:D4}-{1:D2}-{2:D2}";
@@ -27,8 +27,9 @@ public class SaveSlot_UI : Mgr
     private bool canSave;
     private bool canLoad;
 
-    public void SetUI(bool pCanSave, bool pCanLoad, PlayData pPlayData)
+    public void SetUI(int pSlotNum, bool pCanSave, bool pCanLoad, PlayData pPlayData)
     {
+        slotNum = pSlotNum;
         canSave = pCanSave;
         canLoad = pCanLoad;
         playData = pPlayData;

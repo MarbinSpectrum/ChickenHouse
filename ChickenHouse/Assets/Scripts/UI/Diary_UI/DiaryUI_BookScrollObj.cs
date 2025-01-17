@@ -8,7 +8,7 @@ public class DiaryUI_BookScrollObj : Mgr
     [SerializeField] private List<DiaryUI_BookGuestSlot>        guestSlot       = new List<DiaryUI_BookGuestSlot>();
     [SerializeField] private List<DiaryUI_BookSeasoningSlot>    seasoningSlot   = new List<DiaryUI_BookSeasoningSlot>();
     [SerializeField] private List<DiaryUI_BookSubMenuSlot>      subMenuSlot     = new List<DiaryUI_BookSubMenuSlot>();
-    [SerializeField] private RectTransform                      thisRect;
+    [SerializeField] private RectTransform                      slotRect;
     [SerializeField] private RectTransform                      headerRect;
     [SerializeField] private TextMeshProUGUI                    headerText;
 
@@ -36,8 +36,11 @@ public class DiaryUI_BookScrollObj : Mgr
 
     public void UpdateGuestSlot()
     {
+        headerRect.gameObject.SetActive(false);
+        slotRect.gameObject.SetActive(true);
+
         //오브젝트를 손님데이터에 맞게 갱신
-        for(int i = 0; i < guestList.Count; i++)
+        for (int i = 0; i < guestList.Count; i++)
         {
             if (guestList[i] == Guest.None)
                 continue;
@@ -46,8 +49,6 @@ public class DiaryUI_BookScrollObj : Mgr
             guestSlot[i].gameObject.SetActive(true);
             guestSlot[i].SetClickEvent(funList[i]);
         }
-
-        thisRect.sizeDelta = new(thisRect.sizeDelta.x, 80);
     }
 
     public void SetData(ChickenSpicy pSpicy0, NoParaDel fun0, ChickenSpicy pSpicy1, NoParaDel fun1, ChickenSpicy pSpicy2, NoParaDel fun2, ChickenSpicy pSpicy3, NoParaDel fun3)
@@ -69,6 +70,9 @@ public class DiaryUI_BookScrollObj : Mgr
 
     public void UpdateSpicySlot()
     {
+        headerRect.gameObject.SetActive(false);
+        slotRect.gameObject.SetActive(true);
+
         //오브젝트를 양념데이터에 맞게 갱신
         for (int i = 0; i < spicyList.Count; i++)
         {
@@ -79,7 +83,6 @@ public class DiaryUI_BookScrollObj : Mgr
             seasoningSlot[i].gameObject.SetActive(true);
             seasoningSlot[i].SetClickEvent(funList[i]);
         }
-        thisRect.sizeDelta = new(thisRect.sizeDelta.x, 80);
     }
 
     public void SetData(DiaryUI_Book.EtcList pEtcList)
@@ -100,17 +103,19 @@ public class DiaryUI_BookScrollObj : Mgr
         if (ectList.isDrinkHeader)
         {
             headerRect.gameObject.SetActive(true);
+            slotRect.gameObject.SetActive(false);
             LanguageMgr.SetString(headerText, "DRINK_HEADER");
-            thisRect.sizeDelta = new(thisRect.sizeDelta.x, 45);
         }
         else if (ectList.isSideMenuHeader)
         {
             headerRect.gameObject.SetActive(true);
+            slotRect.gameObject.SetActive(false);
             LanguageMgr.SetString(headerText, "PICKLE_HEADER");
-            thisRect.sizeDelta = new(thisRect.sizeDelta.x, 45);
         }
         else if (ectList.drinks.Count > 0)
         {
+            headerRect.gameObject.SetActive(false);
+            slotRect.gameObject.SetActive(true);
             for (int i = 0; i < 4; i++)
             {
                 if (ectList.drinks[i] != Drink.None)
@@ -120,10 +125,11 @@ public class DiaryUI_BookScrollObj : Mgr
                     subMenuSlot[i].SetClickEvent(ectList.funs[i]);
                 }
             }
-            thisRect.sizeDelta = new(thisRect.sizeDelta.x, 80);
         }
         else if (ectList.sideMenus.Count > 0)
         {
+            headerRect.gameObject.SetActive(false);
+            slotRect.gameObject.SetActive(true);
             for (int i = 0; i < 4; i++)
             {
                 if (ectList.sideMenus[i] != SideMenu.None)
@@ -133,7 +139,6 @@ public class DiaryUI_BookScrollObj : Mgr
                     subMenuSlot[i].SetClickEvent(ectList.funs[i]);
                 }
             }
-            thisRect.sizeDelta = new(thisRect.sizeDelta.x, 80);
         }
     }
 

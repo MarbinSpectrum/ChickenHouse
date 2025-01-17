@@ -14,7 +14,7 @@ public class Squirrel : GuestObj
         else if (menuIdx == 1)
             talkStr = LanguageMgr.GetText("SQUIRREL_ORDER_2");
         else if (menuIdx == 2)
-            talkStr = LanguageMgr.GetText("SQUIRRELE_ORDER_3");
+            talkStr = LanguageMgr.GetText("SQUIRREL_ORDER_3");
         else if (menuIdx == 3)
             talkStr = LanguageMgr.GetText("SQUIRREL_ORDER_4");
         else if (menuIdx == 4)

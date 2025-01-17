@@ -48,7 +48,7 @@ public class DiaryUI_FileSaveMenu : Mgr
             //저장
             gameMgr.selectSaveSlot = slotNum;
             gameMgr.SaveData();
-            saveSlot.SetUI(gameMgr.playData);
+            saveSlot.SetUI(gameMgr.playData, slotNum);
             return;
         }
 
@@ -86,7 +86,7 @@ public class DiaryUI_FileSaveMenu : Mgr
 
         //저장
         gameMgr.SaveData();
-        saveSlot.SetUI(gameMgr.playData);
+        saveSlot.SetUI(gameMgr.playData, slotNum);
     }
 
     public void SaveCheckNo()

@@ -10,6 +10,7 @@ public class Town : Mgr
     [SerializeField] private WarningText                        warningText;
     [SerializeField] private WakeupMsg                          wakeUpMsg;
     [SerializeField] private List<TownTalkObj>                  npcList;
+    [SerializeField] private RectTransform                      tutoDontTouch;
     [SerializeField] private TutoObj                            tutoObj1;
     [SerializeField] private TutoObj                            tutoObj2;
     [SerializeField] private TutoObj                            tutoObj3;
@@ -28,9 +29,14 @@ public class Town : Mgr
         ActTownMove(TownMap.None,nowArea);
         isMove = false;
 
-        if(gameMgr.playData.tutoComplete4 == false)
+        if(gameMgr.playData != null && gameMgr.playData.tutoComplete4 == false)
         {
+            tutoDontTouch.gameObject.SetActive(true);
             tutoObj1.PlayTuto();
+        }
+        else
+        {
+            tutoDontTouch.gameObject.SetActive(false);
         }
 
         TownNpcInit();

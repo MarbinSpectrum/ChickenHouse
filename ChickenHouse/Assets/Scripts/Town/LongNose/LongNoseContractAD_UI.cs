@@ -28,7 +28,7 @@ public class LongNoseContractAD_UI : Mgr
         longNose.UpdateList();
 
         string moneyStr = LanguageMgr.GetMoneyStr(playerMoney.fontSize, playData.money);
-        LanguageMgr.SetText(playerMoney, moneyStr);
+        LanguageMgr.SetText(playerMoney, moneyStr,true);
 
         slotContents.anchoredPosition = Vector2.zero;
 

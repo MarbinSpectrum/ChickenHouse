@@ -157,7 +157,7 @@ public class LanguageMgr : AwakeSingleton<LanguageMgr>
         return priceStr;
     }
 
-    public static void SplitString(string str, ref List<string> strList, ref List<bool> isTagText)
+    public static void SplitStringbyTag(string str, ref List<string> strList, ref List<bool> isTagText)
     {
         strList.Clear();
         isTagText.Clear();
@@ -200,5 +200,115 @@ public class LanguageMgr : AwakeSingleton<LanguageMgr>
                 }
             }
         }
+    }
+
+    public static string GetSmartText(string str, float remainWidth, TextMeshProUGUI textUI)
+    {
+        //마지막줄이 remainWidth이하만큼 남으면 윗줄이랑 Merge함
+
+        List<string>    tempList    = new List<string>();
+        List<bool>      isTagText   = new List<bool>();
+        SplitStringbyTag(str, ref tempList, ref isTagText);
+        string  tempString      = string.Empty;
+        float   textRectWidth   = Mathf.Abs(textUI.GetComponent<RectTransform>().sizeDelta.x);
+
+        string newTextUIStr = string.Empty;
+        for (int i = 0; i < tempList.Count; i++)
+        {
+            tempString += tempList[i];
+            if (isTagText[i])
+                continue;
+
+            textUI.text = tempString;
+            textUI.ForceMeshUpdate();
+
+            float nowTextWidth = 0;
+            string nowTextString = string.Empty;
+            List<string> arrayStr = new List<string>();
+            List<float> arrayWidth = new List<float>();
+            int charIdx = 0;
+            for (int j = 0; j <= i; j++)
+            {
+                if (isTagText[j])
+                {
+                    nowTextString += tempList[j];
+                    if (tempList[j] == "\n")
+                    {
+                        arrayStr.Add(nowTextString);
+                        arrayWidth.Add(nowTextWidth);
+                        nowTextWidth = 0;
+                        nowTextString = string.Empty;
+                    }
+                }
+                else
+                {
+                    TMP_CharacterInfo charInfo = textUI.textInfo.characterInfo[charIdx];
+
+                    float charWidth = Mathf.Abs(charInfo.topRight.x - charInfo.topLeft.x);
+                    if (nowTextWidth + charWidth > textRectWidth && tempList[j] == " ")
+                    {
+                        nowTextString += "\n";
+                        arrayStr.Add(nowTextString);
+                        arrayWidth.Add(nowTextWidth);
+                        nowTextWidth = 0;
+                        nowTextString = string.Empty;
+                    }
+                    else
+                    {
+                        nowTextWidth += charWidth;
+                        nowTextString += tempList[j];
+                    }
+
+                    charIdx++;
+                }
+            }
+
+            if (nowTextString != string.Empty)
+            {
+                nowTextString += "\n";
+                arrayStr.Add(nowTextString);
+                arrayWidth.Add(nowTextWidth);
+                nowTextWidth = 0;
+                nowTextString = string.Empty;
+            }
+
+            if (i == tempList.Count - 1)
+            {
+                for (int j = arrayWidth.Count - 1; j >= 1; j--)
+                {
+                    if (arrayWidth.Count >= 2 && arrayWidth[j] < remainWidth)
+                    {
+                        arrayWidth[j - 1] += arrayWidth[j];
+                        //substring을 넣는이유는 뒤에 붙어 있는 \n을 넣지않기 위해서임
+                        arrayStr[j - 1] = arrayStr[j - 1].Substring(0, arrayStr[j - 1].Length - 1);
+                        arrayStr[j - 1] += arrayStr[j];
+                        arrayWidth.RemoveAt(j);
+                        arrayStr.RemoveAt(j);
+                    }
+                }
+
+                float avgNewFontSize = 0;
+
+
+                for (int j = 0; j < arrayWidth.Count; j++)
+                {
+                    float newFontSize = Mathf.Min(textUI.fontSize, textUI.fontSize * textRectWidth / arrayWidth[j]);
+                    avgNewFontSize += newFontSize;
+                }
+                avgNewFontSize /= arrayWidth.Count;
+
+                for (int j = 0; j < arrayWidth.Count; j++)
+                {
+                    float newFontSize = Mathf.Min(avgNewFontSize, textUI.fontSize * textRectWidth / arrayWidth[j]);
+                    arrayStr[j] = string.Format("<size={0}>{1}</size>", newFontSize, arrayStr[j]);
+                }
+            }
+
+            newTextUIStr = string.Empty;
+            for (int j = 0; j < arrayStr.Count; j++)
+                newTextUIStr += arrayStr[j];
+        }
+
+        return newTextUIStr;
     }
 }
