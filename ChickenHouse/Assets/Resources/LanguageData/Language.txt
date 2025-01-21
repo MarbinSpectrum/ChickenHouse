@@ -64,7 +64,7 @@ CHICKEN_PRICE	기본 치킨 가격	Base Chicken Price
 CHICKEN_RES_DECREASE	치킨 재료비 감소	Chicken Cost Savings
 DRINK_PRICE_DECREASE	음료 재료비 감소	Drink Cost Savings
 SIDEMENU_PRICE_DECREASE	피클 재료비 감소	Pickle Cost Savings
-WORKER_SPEED	직원 속도	Worker Speed
+WORKER_SPEED	직원 속도	Staff Speed
 PROFIT_RATE	수익률	Profit Rate
 SALE_VALUE	상점 할인율	Merchant Rate
 GUEST_RATE	손님 등장 속도	Guest Spawn Rate
@@ -78,7 +78,7 @@ NEKO_JOB_BANK	네코 직원 소개소	Neko Job Bank
 CHEF_PAUXS_COOKING_UTENSILS	파우 쉐프의 주방도구	Chef Paux`s Cooking Utensils
 OPEN_RESTAURANT	영업 시작	Open Restaurant
 USE_SHOP	상점 이용	Use Shop
-EMPLOY_WORKER	직원 고용	Employ Worker
+EMPLOY_WORKER	직원 고용	Employ Staff
 OPEN_RESTAURANT_CHECK_MSG	영업을 시작합니까?	Are you opening the restaurant?
 EMPLOY	고용	Employ
 DEPOSIT	계약금	Deposit
@@ -121,6 +121,7 @@ ACCEPT	수락	Accept
 EVENT0_WARNING_1	패배시 치킨양념 한개를 잃습니다.	Upon defeat, lose one chicken seasoning.
 EVENT0_WARNING_2	오후에 상대 치킨집이랑 대결이 예정되어있습니다. 준비를 해주세요!	A match against the rival chicken restaurant is scheduled for the afternoon. Please get ready!
 STEAL_RECIPE	{0}을 뺏겻습니다!	I had {0} stolen!
+WORKER_LIST_HEADER	직원 목록	Staff List
 PIG_TALK_1	이거 이거 그런 서비스로 손님이 만족하겠나~ 쿠히힉!	Well, well, do you really think customers will be satisfied with that kind of service? Oink!
 PIG_TALK_2	쿠힉힉힉 돼지 사료도 이것보단 고급스럽겠구먼~	Oink! Oink! Oink! Even pig feed would be more high-end than this~
 PIG_TALK_3	아니 혹시 쿠힉! 그거 사장 얼굴을 본떠 만든 치킨인가? 완전 개판이구먼!	Wait, is that chicken made to look like the boss's face? It’s a complete mess!
@@ -130,7 +131,7 @@ COOK_LV_REWARD_1	Lv {0} 달성시 치킨 가격 +{1}<size=6><b>C</b></size>	Lv {
 COOK_LV_REWARD_2	Lv {0} 달성시 치킨 원가 감소 {1}<size=6><b>C</b></size>	Lv {0} reached: Chicken cost cut {1}<size=6><b>C</b></size>
 COOK_LV_REWARD_3	Lv {0} 달성시 음료 원가 감소 {1}<size=6><b>C</b></size>	Lv {0} reached: Drink cost cut {1}<size=6><b>C</b></size>
 COOK_LV_REWARD_4	Lv {0} 달성시 피클 원가 감소 {1}<size=6><b>C</b></size>	Lv {0} reached: Pickle cost cut {1}<size=6><b>C</b></size>
-COOK_LV_REWARD_5	Lv {0} 달성시 직원 속도 +{1}%	Lv {0} reached: Worker speed +{1}%
+COOK_LV_REWARD_5	Lv {0} 달성시 직원 속도 +{1}%	Lv {0} reached: Staff speed +{1}%
 COOK_LV_REWARD_6	Lv {0} 달성시 수익 +{1}%	Lv {0} reached: Profit rate +{1}%
 COOK_LV_REWARD_7	Lv {0} 달성시 상점 할인율 +{1}%	Lv {0} reached: Shop sale +{1}%
 COOK_LV_REWARD_8	Lv {0} 달성시 손님 등장 속도 +{1}%	Lv {0} reached: Guest spawn Rate +{1}%
@@ -645,8 +646,8 @@ WORKER_SKILL_5	카운터 업무 경력자	Counter work Experience
 WORKER_SKILL_6	먹보	Glutton
 WORKER_SKILL_7	독심술	Mind Scan
 WORKER_SKILL_8	건망증	Forgetfulness
-WORKER_SKILL_INFO_1	직원 속도 +50%	Worker Speed +50%
-WORKER_SKILL_INFO_2	직원 속도 +100%	Worker Speed +100%
+WORKER_SKILL_INFO_1	직원 속도 +50%	Staff Speed +50%
+WORKER_SKILL_INFO_2	직원 속도 +100%	Staff Speed +100%
 WORKER_SKILL_INFO_3	튀기는 속도+100%, 치킨이 타지 않음	Frying Speed +100%, The chicken won't burn.
 WORKER_SKILL_INFO_4	팁 증가 +100%	Tip +100%
 WORKER_SKILL_INFO_5	카운터에 배치시 손님 방문 딜레이 -25%	Visit delay -25% when placed at the counter
@@ -740,7 +741,7 @@ BOOK_FRILLEDLIZARD_NAME	목도리 도마뱀	Frilled Lizard
 BOOK_FRILLEDLIZARD_INFO	젊은 나이에 발명가인 그는 최고의 파트너인 달팽이 밍밍이와 언제나 함께입니다	At a young age, the inventor is always with his best partner, the snail Mingming.
 EMPLOYMENT_NPC_TALK_0	어서 오세요! 네코 직원 소개소에\n오신 걸 환영합니다.\n어떤 도움이 필요하신가요?	Hello! You've arrived at\nNeko Job Bank.\nHow can we assist you today?
 EMPLOYMENT_NPC_TALK_1	환영합니다! 오늘 어떤 직원이 필요하신지\n알려주시면 바로 도와드릴게요.	Welcome! Let us know what\nkind of staff you need today,\nand we'll assist you right away.
-EMPLOYMENT_NPC_TALK_2	어서 오세요! 필요한 직원이\n있으시면 말씀해 주세요.\n최선을 다해 찾아드리겠습니다.	Hello! If you need any worker,\nplease let us know.\nWe'll do our best to find\nthe better person for you.
+EMPLOYMENT_NPC_TALK_2	어서 오세요! 필요한 직원이\n있으시면 말씀해 주세요.\n최선을 다해 찾아드리겠습니다.	Hello! If you need any staff,\nplease let us know.\nWe'll do our best to find\nthe better person for you.
 EMPLOYMENT_NPC_TALK_3	환영합니다! 어떤 직원이 필요하신가요?\n함께 완벽한 인재를 찾아드리겠습니다.	Welcome! What kind of worker\nare you looking for?\nWe’ll help you find the perfect\ncandidate together.
 UTENSILS_NPC_TALK_0	뭐 필요한 거 있어? 빨리 말해.\n안 그러면 바빠서 못 도와줄지도 몰라.	Need anything?\nSpeak up quickly.\nOtherwise, I might be\ntoo busy to help.
 UTENSILS_NPC_TALK_1	어이, 여기 왔으면 필요한 게\n있을 텐데. 도와줄까?	Hey, now that you're here,\nyou must need something.\nCan I help you?
