@@ -122,6 +122,11 @@ EVENT0_WARNING_1	패배시 치킨양념 한개를 잃습니다.	Upon defeat, los
 EVENT0_WARNING_2	오후에 상대 치킨집이랑 대결이 예정되어있습니다. 준비를 해주세요!	A match against the rival chicken restaurant is scheduled for the afternoon. Please get ready!
 STEAL_RECIPE	{0}을 뺏겻습니다!	I had {0} stolen!
 WORKER_LIST_HEADER	직원 목록	Staff List
+KITCHEN_DUTIES_HEADER	주방 업무	Kitchen Duties
+KITCHEN_DUTIES_EMPTY	비어있음	Empty
+KITCHEN_DUTIES_KITCHEN_1	재료손질 담당	Prep
+KITCHEN_DUTIES_KITCHEN_2	튀김 담당	Frying
+KITCHEN_DUTIES_COUNTER	카운터 담당	Counter
 PIG_TALK_1	이거 이거 그런 서비스로 손님이 만족하겠나~ 쿠히힉!	Well, well, do you really think customers will be satisfied with that kind of service? Oink!
 PIG_TALK_2	쿠힉힉힉 돼지 사료도 이것보단 고급스럽겠구먼~	Oink! Oink! Oink! Even pig feed would be more high-end than this~
 PIG_TALK_3	아니 혹시 쿠힉! 그거 사장 얼굴을 본떠 만든 치킨인가? 완전 개판이구먼!	Wait, is that chicken made to look like the boss's face? It’s a complete mess!
@@ -650,10 +655,23 @@ WORKER_SKILL_INFO_1	직원 속도 +50%	Staff Speed +50%
 WORKER_SKILL_INFO_2	직원 속도 +100%	Staff Speed +100%
 WORKER_SKILL_INFO_3	튀기는 속도+100%, 치킨이 타지 않음	Frying Speed +100%, The chicken won't burn.
 WORKER_SKILL_INFO_4	팁 증가 +100%	Tip +100%
-WORKER_SKILL_INFO_5	카운터에 배치시 손님 방문 딜레이 -25%	Visit delay -25% when placed at the counter
+WORKER_SKILL_INFO_5	카운터에 배치시 손님 방문 속도 +25%	When placed at the counter, customer visit speed +25%
 WORKER_SKILL_INFO_6	종종 치킨 한 조각을 빼 먹음	Occasionally sneaks a piece of chicken.
 WORKER_SKILL_INFO_7	손님이 원하는 치킨을 알려줌	Let the customers know the menu they want.
 WORKER_SKILL_INFO_8	카운터에 배치시 2% 확률로 손님의 주문이 제대로 전달되지 않음	When assigned to the counter, there is a 2% chance that a customer's order may not be communicated correctly
+WORKER_SKILL_FORMAT_1	일 수익의 <color=#FF0000>{0}</color>%를 가져갑니다.	Takes <color=#FF0000>{0}</color>% of your daily profit
+WORKER_SKILL_FORMAT_2	팁이 <color=#FF0000>{0}</color>% 증가합니다.	Tips increase by <color=#FF0000>{0}</color>%
+WORKER_SKILL_FORMAT_3	주방에 배치시 업무 속도가 <color=#FF0000>{0}</color>% 증가합니다.	When assigned to the kitchen, work speed increases by <color=#FF0000>{0}</color>%
+WORKER_SKILL_FORMAT_4	카운터에 배치시 손님등장 속도가 <color=#FF0000>{0}</color>% 증가합니다.	When assigned to the counter, customer arrival speed increases by <color=#FF0000>{0}</color>%
+WORKER_SKILL_FORMAT_5	튀김기의 속도가 <color=#FF0000>{0}</color>% 증가합니다.	The speed of the fryer increases by <color=#FF0000>{0}</color>%.
+WORKER_SKILL_FORMAT_6	치킨이 타지 않습니다.	Chicken does not burn.
+WORKER_SKILL_FORMAT_7	종종 치킨 한 조각을 빼 먹습니다.	Sometimes steals a piece of chicken.
+WORKER_SKILL_FORMAT_8	손님이 원하는 치킨을 알려줍니다.	Shows the chicken the customer wants.
+WORKER_SKILL_FORMAT_9	카운터에 배치시 <color=#FF0000>{0}</color>% 확률로 손님의 주문이 제대로 전달되지 않습니다.	When assigned to the counter, there is a <color=#FF0000>{0}</color>% chance that a customer's order may not be communicated correctly
+WORKER_INFO_1	찰스 설정	This is a cat resident from TulTul Town.\nSince childhood, their dream has been to work at a chicken restaurant.
+WORKER_INFO_2	니치 설정	This is a cat resident from TulTul Town.\nSince childhood, their dream has been to work at a chicken restaurant.
+WORKER_INFO_3	미스플라워 설정	This is a cat resident from TulTul Town.\nSince childhood, their dream has been to work at a chicken restaurant.
+WORKER_INFO_4	그레이 설정	This is a cat resident from TulTul Town.\nSince childhood, their dream has been to work at a chicken restaurant.
 QUEST_NAME_1	빚 갚기	Pay off debt
 QUEST_INFO_1	너구리에게 빌린 돈 50,000 크레딧을 갚아야한다. \n기간은 7일준다고 했다.\n빨리 준비해야 될거같다.	I need to repay the 50,000 credit\nI borrowed from the raccoon.\nHe gave me 7 days.\nI need to prepare quickly.
 QUEST_SUMMARY_1	※ 기간안에 50,000 크래딧을 갚자!!	※ Let's repay the 50,000 credit within the deadline!!

@@ -50,7 +50,7 @@ public class KitchenBell : Mgr
             kitchenMgr.ui.memo.RemoveMemo(0);
         }
 
-        if (gameMgr.playData != null && (EWorker)gameMgr.playData.workerPos[(int)KitchenSet_UI.KitchenSetWorkerPos.CounterWorker] != EWorker.None)
+        if (gameMgr.playData != null && (EWorker)gameMgr.playData.workerPos[(int)KitchenSetWorkerPos.CounterWorker] != EWorker.None)
         {
             //직원 사용해서 카운터로 이동안함
             GiveChicken(true);

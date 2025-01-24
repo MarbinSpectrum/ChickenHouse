@@ -64,9 +64,9 @@ public class DayEnd_UI : Mgr
         total -= suppliesUsed;
 
         //아르바이트 고용비용
-        WorkerData resumeData0 = workerMgr.GetWorkerData((EWorker)gameMgr.playData.workerPos[(int)KitchenSet_UI.KitchenSetWorkerPos.KitchenWorker0]);
-        WorkerData resumeData1 = workerMgr.GetWorkerData((EWorker)gameMgr.playData.workerPos[(int)KitchenSet_UI.KitchenSetWorkerPos.KitchenWorker1]);
-        WorkerData resumeData2 = workerMgr.GetWorkerData((EWorker)gameMgr.playData.workerPos[(int)KitchenSet_UI.KitchenSetWorkerPos.CounterWorker]);
+        WorkerData resumeData0 = workerMgr.GetWorkerData((EWorker)gameMgr.playData.workerPos[(int)KitchenSetWorkerPos.PrepWorker]);
+        WorkerData resumeData1 = workerMgr.GetWorkerData((EWorker)gameMgr.playData.workerPos[(int)KitchenSetWorkerPos.FryingWorker]);
+        WorkerData resumeData2 = workerMgr.GetWorkerData((EWorker)gameMgr.playData.workerPos[(int)KitchenSetWorkerPos.CounterWorker]);
         int salary = 0;
         if(resumeData0 != null)
             salary += resumeData0.salary;

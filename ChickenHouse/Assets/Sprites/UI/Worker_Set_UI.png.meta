@@ -137,7 +137,7 @@ TextureImporter:
         width: 323
         height: 325
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 30, y: 30, z: 30, w: 30}
       outline: []
       physicsShape: []
@@ -158,7 +158,7 @@ TextureImporter:
         width: 323
         height: 325
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 30, y: 30, z: 30, w: 30}
       outline: []
       physicsShape: []
@@ -179,7 +179,7 @@ TextureImporter:
         width: 111
         height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -187,6 +187,27 @@ TextureImporter:
       bones: []
       spriteID: 23b7d91216714d7419365462571e152d
       internalID: -664244077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_Set_UI_3
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 391
+        width: 191
+        height: 302
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 936fe221ae4a8c44fb69d084383edd07
+      internalID: -1558683953
       vertices: []
       indices: 
       edges: []
@@ -203,6 +224,7 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       Worker_Set_UI_2: -664244077
+      Worker_Set_UI_3: -1558683953
       Worker_Set_UI_0: 237519713
       Worker_Set_UI_1: 889956471
   spritePackingTag: 

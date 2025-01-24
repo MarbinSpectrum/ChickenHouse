@@ -376,6 +376,35 @@ public enum WorkerSkill
     WorkerSkill_8    = 800,      //건망증(카운터에 배치시 2% 확률로 손님의 주문이 제대로 전달되지 않음)
 }
 
+public enum KitchenSetWorkerPos
+{
+    CounterWorker   = 0,    //카운터 업무
+    PrepWorker      = 1,    //치킨 계란물/밀가루 묻히기 업무
+    FryingWorker    = 2,    //치킨 튀기기 업무
+
+    MAX,
+    None
+}
+
+public enum MenuSetPos
+{
+    Spicy0 = 0,
+    Spicy1 = 1,
+    Spicy2 = 2,
+    Spicy3 = 3,
+    Spicy4 = 4,
+    SpicyMAX,
+
+    Drink0 = 0,
+    Drink1 = 1,
+    DrinkMAX,
+
+    SideMenu0 = 0,
+    SideMenuMAX,
+
+    None = -1,
+}
+
 public enum WorkerCounterTalkBox
 {
     Bad,
@@ -579,7 +608,7 @@ public enum CookLvStat
     /** 상점 할인(%)        **/
     ShopSale                = 7,
     /** 손님 방문률(%)      **/
-    GuestSpawnRate          = 8,
+    GuestSpawnSpeed          = 8,
     /** 손님 인내심 상한(%) **/
     GuestPatience           = 9,
     /** 손님 팁(%)          **/

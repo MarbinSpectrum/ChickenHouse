@@ -37,14 +37,14 @@ public class PlayData
     /** 직원 보유 상태 **/
     public bool[] hasWorker = new bool[(int)EWorker.MAX];
     /** 직원 배치 상태 **/
-    public int[] workerPos = new int[(int)KitchenSet_UI.KitchenSetWorkerPos.MAX];
+    public int[] workerPos = new int[(int)KitchenSetWorkerPos.MAX];
 
     /** 양념 배치 상태 **/
-    public int[] spicyState = new int[(int)MenuSet_UI.MenuSetPos.SpicyMAX];
+    public int[] spicyState = new int[(int)MenuSetPos.SpicyMAX];
     /** 드링크 배치 상태 **/
-    public int[] drinkState = new int[(int)MenuSet_UI.MenuSetPos.DrinkMAX];
+    public int[] drinkState = new int[(int)MenuSetPos.DrinkMAX];
     /** 사이드 메뉴 배치 상태 **/
-    public int[] sideMenuState = new int[(int)MenuSet_UI.MenuSetPos.SideMenuMAX];
+    public int[] sideMenuState = new int[(int)MenuSetPos.SideMenuMAX];
 
 
     /** 퀘스트 상태(0: 진행안함 ,1: 진행중 ,2: 완료) **/
@@ -64,13 +64,13 @@ public class PlayData
         cookLv = 1;
 
         hasItem[(int)ShopItem.Recipe_0] = true;
-        spicyState[(int)MenuSet_UI.MenuSetPos.Spicy0] = (int)ChickenSpicy.Hot;
+        spicyState[(int)MenuSetPos.Spicy0] = (int)ChickenSpicy.Hot;
 
         hasItem[(int)ShopItem.Cola] = true;
-        drinkState[(int)MenuSet_UI.MenuSetPos.Drink0] = (int)Drink.Cola;
+        drinkState[(int)MenuSetPos.Drink0] = (int)Drink.Cola;
 
         hasItem[(int)ShopItem.Pickle] = true;
-        sideMenuState[(int)MenuSet_UI.MenuSetPos.SideMenu0] = (int)SideMenu.Pickle;
+        sideMenuState[(int)MenuSetPos.SideMenu0] = (int)SideMenu.Pickle;
 
         hasItem[(int)ShopItem.OIL_Zone_1] = true;
 
@@ -207,17 +207,17 @@ public class PlayData
         return 100f + lvValue;
     }
 
-    public float GuestDelayRate()
+    public float GuestSpawnSpeed()
     {
         CookLvMgr cookLvMgr = CookLvMgr.Instance;
-        int lvValue = cookLvMgr.GetLvSumValue(CookLvStat.GuestPatience, cookLv);
+        int lvValue = cookLvMgr.GetLvSumValue(CookLvStat.GuestSpawnSpeed, cookLv);
         return 100f + lvValue;
     }
 
     public float GuestTotalDelayRate()
     {
         //게스트 딜레이 배율
-        float rate = GuestDelayRate();
+        float rate = GuestSpawnSpeed();
 
         if (hasItem[(int)ShopItem.Advertisement_5])
             rate += 5;

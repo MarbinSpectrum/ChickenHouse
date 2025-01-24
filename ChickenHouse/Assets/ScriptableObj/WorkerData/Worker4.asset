@@ -15,6 +15,7 @@ MonoBehaviour:
   face: {fileID: 21300000, guid: 7b6e9beac5a5b9f4ca96e082d9b70326, type: 3}
   nameKey: RESUME_3_NAME
   age: 35
+  infoKey: WORKER_INFO_3
   deposit: 30000
   residenceKey: RESUME_3_RESIDENCE
   salary: 5

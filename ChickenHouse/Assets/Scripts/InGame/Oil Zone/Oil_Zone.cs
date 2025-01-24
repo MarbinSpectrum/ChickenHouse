@@ -62,7 +62,7 @@ public class Oil_Zone : Mgr
 
             EWorker eWorker = EWorker.None;
             if (gameMgr.playData != null)
-                eWorker = (EWorker)gameMgr.playData.workerPos[(int)KitchenSet_UI.KitchenSetWorkerPos.KitchenWorker1];
+                eWorker = (EWorker)gameMgr.playData.workerPos[(int)KitchenSetWorkerPos.FryingWorker];
             return workerMgr.GetWorkerData(eWorker);
         }
     }
@@ -694,7 +694,7 @@ public class Oil_Zone : Mgr
             if (resumeData.skill.Contains(WorkerSkill.WorkerSkill_3))
             {
                 //튀김 전문가 튀기는 속도+100%
-                speedRate = speedRate + 100f;
+                speedRate = speedRate + WorkerMgr.WORKER_SKILL_3_VALUE;
             }
         }
 

@@ -13,13 +13,16 @@ public class WorkerData : ScriptableObject
     [Header("나이")]
     public int age;
 
+    [Header("설정")]
+    public string infoKey;
+
     [Header("계약금")]
     public int deposit;
 
     [Header("거주지")]
     public string residenceKey;
 
-    [Header("급여")]
+    [Header("급여(%)")]
     public int salary;
 
     [Header("기술/능력")]

@@ -44,7 +44,7 @@ public class Worker_OilZone : Mgr
         {
             EWorker eWorker = EWorker.None;
             if (gameMgr.playData != null)
-                eWorker = (EWorker)gameMgr.playData.workerPos[(int)KitchenSet_UI.KitchenSetWorkerPos.KitchenWorker1];
+                eWorker = (EWorker)gameMgr.playData.workerPos[(int)KitchenSetWorkerPos.FryingWorker];
             return eWorker;
         }
     }
@@ -274,12 +274,12 @@ public class Worker_OilZone : Mgr
         if (resumeData.skill.Contains(WorkerSkill.WorkerSkill_1))
         {
             //주방보조 경력자(직원 속도 +50%)
-            speedValue += 50;
+            speedValue += WorkerMgr.WORKER_SKILL_1_VALUE;
         }
         if (resumeData.skill.Contains(WorkerSkill.WorkerSkill_2))
         {
             //치킨가게 경력자(직원 속도 +100%)
-            speedValue += 100;
+            speedValue += WorkerMgr.WORKER_SKILL_2_VALUE;
         }
         speedValue /= 100f;
 

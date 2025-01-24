@@ -98,7 +98,7 @@ public class KitchenMgr : Mgr
         /////////////////////////////////////////////////////////////////////////////////
         //양념통 세팅
         spicys.ForEach((x) => x.gameObject.SetActive(false));
-        for(int i = 0; i < (int)MenuSet_UI.MenuSetPos.SpicyMAX; i++)
+        for(int i = 0; i < (int)MenuSetPos.SpicyMAX; i++)
         {
             if(gameMgr.playData == null || (ChickenSpicy)gameMgr.playData.spicyState[i] == ChickenSpicy.None)
             {
@@ -114,7 +114,7 @@ public class KitchenMgr : Mgr
         /////////////////////////////////////////////////////////////////////////////////
         //음료 세팅
         drinks.ForEach((x) => x.gameObject.SetActive(false));
-        for (int i = 0; i < (int)MenuSet_UI.MenuSetPos.DrinkMAX; i++)
+        for (int i = 0; i < (int)MenuSetPos.DrinkMAX; i++)
         {
             if (gameMgr.playData == null || (Drink)gameMgr.playData.drinkState[i] == Drink.None)
             {
@@ -130,7 +130,7 @@ public class KitchenMgr : Mgr
         /////////////////////////////////////////////////////////////////////////////////
         //사이드메뉴 세팅
         sideMenus.ForEach((x) => x.gameObject.SetActive(false));
-        for (int i = 0; i < (int)MenuSet_UI.MenuSetPos.SideMenuMAX; i++)
+        for (int i = 0; i < (int)MenuSetPos.SideMenuMAX; i++)
         {
             if (gameMgr.playData == null || (SideMenu)gameMgr.playData.sideMenuState[i] == SideMenu.None)
             {
@@ -189,7 +189,7 @@ public class KitchenMgr : Mgr
         WorkerAct();
         ui.workerUI.Init();
 
-        if (gameMgr.playData == null || (EWorker)gameMgr.playData.workerPos[(int)KitchenSet_UI.KitchenSetWorkerPos.CounterWorker] == EWorker.None)
+        if (gameMgr.playData == null || (EWorker)gameMgr.playData.workerPos[(int)KitchenSetWorkerPos.CounterWorker] == EWorker.None)
         {
             cameraObj.ChangeLook(LookArea.Counter);
             ui.memo.CloseTriggerBox();

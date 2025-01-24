@@ -111,7 +111,7 @@ public class DiaryUI_FilePlayerInfo : Mgr
         }
 
         //손님 방문 속도
-        float guestSpawnRateValue = gameMgr.playData.GuestDelayRate();
+        float guestSpawnRateValue = gameMgr.playData.GuestSpawnSpeed();
         if (guestSpawnRateValue == 0)
             LanguageMgr.SetText(guestSpawnRate, "0%");
         else
@@ -197,7 +197,7 @@ public class DiaryUI_FilePlayerInfo : Mgr
                     string str = string.Format(strFormat, pLv, lvData.value);
                     return str;
                 }
-            case CookLvStat.GuestSpawnRate:
+            case CookLvStat.GuestSpawnSpeed:
                 {
                     string strFormat = LanguageMgr.GetText("COOK_LV_REWARD_8");
                     string str = string.Format(strFormat, pLv, lvData.value);

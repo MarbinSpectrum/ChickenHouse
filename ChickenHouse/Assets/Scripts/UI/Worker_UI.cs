@@ -14,7 +14,7 @@ public class Worker_UI : Mgr
         foreach (RectTransform rect in workerObjs)
             rect.gameObject.SetActive(false);
 
-        for (KitchenSet_UI.KitchenSetWorkerPos pos = KitchenSet_UI.KitchenSetWorkerPos.CounterWorker; pos < KitchenSet_UI.KitchenSetWorkerPos.MAX; pos++)
+        for (KitchenSetWorkerPos pos = KitchenSetWorkerPos.CounterWorker; pos < KitchenSetWorkerPos.MAX; pos++)
         {
             int idx = (int)pos;
             EWorker eWorker = EWorker.None;

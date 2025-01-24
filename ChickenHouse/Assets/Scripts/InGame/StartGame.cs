@@ -7,7 +7,6 @@ using TMPro;
 public class StartGame : Mgr
 {
     [SerializeField] private RectTransform  dayStartAni;
-    [SerializeField] private Timer_UI       timerUI;
     [SerializeField] private RectTransform  dontClick;
 
     [SerializeField] private TutoObj        event0_Tuto;
@@ -19,9 +18,14 @@ public class StartGame : Mgr
         if (kitchenMgr != null)
             kitchenMgr.Init();
 
+        GuestSystem guestSystem = GuestSystem.Instance;
+        guestSystem.ui.timer.gameObject.SetActive(true);
+        guestSystem.ui.nowMoney.gameObject.SetActive(true);
+        guestSystem.ui.pauseBtn.gameObject.SetActive(true);
+
         if (gameMgr.playData != null && (QuestState)gameMgr.playData.quest[(int)Quest.Event_0_Quest] == QuestState.Run)
         {
-            timerUI.SetEventMode(true);
+            guestSystem.ui.timer.SetEventMode(true);
             dontClick.gameObject.SetActive(true);
             //이벤트0 튜토리얼
             event0_UI.gameObject.SetActive(true);
@@ -30,11 +34,10 @@ public class StartGame : Mgr
         }
         else
         {
-            GuestSystem guestSystem = GuestSystem.Instance;
             if (guestSystem != null)
                 guestSystem.Init();
-            timerUI.RunTimer();
-            timerUI.SetEventMode(false);
+            guestSystem.ui.timer.RunTimer();
+            guestSystem.ui.timer.SetEventMode(false);
 
             if (kitchenMgr != null)
                 kitchenMgr.RunWorker(true);
@@ -53,6 +56,10 @@ public class StartGame : Mgr
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
         if (kitchenMgr != null)
             kitchenMgr.RunWorker(true);
+
+        guestSystem.ui.timer.gameObject.SetActive(true);
+        guestSystem.ui.nowMoney.gameObject.SetActive(true);
+        guestSystem.ui.pauseBtn.gameObject.SetActive(true);
 
         event0_UI.SetUI();
         dontClick.gameObject.SetActive(false);

@@ -10,8 +10,8 @@ public class ResumeInfoList : Mgr
 
     public void SetUI(WorkerSkill pWorkerSkill)
     {
-        string skillNameStr = workerMgr.GetWorkSkillNameString(pWorkerSkill);
-        string skillInfoStr = workerMgr.GetWorkSkillInfoString(pWorkerSkill);
+        string skillNameStr = WorkerMgr.GetWorkSkillNameString(pWorkerSkill);
+        string skillInfoStr = WorkerMgr.GetWorkSkillInfoString(pWorkerSkill);
         LanguageMgr.SetText(skillName, skillNameStr);
         LanguageMgr.SetText(skillInfo, skillInfoStr);
     }

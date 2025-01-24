@@ -34,6 +34,8 @@ public class GuestSystem : Mgr
         public DayEnd_UI    dayEnd;
         /** 이벤트0 UI **/
         public Event0_UI    event0_UI;
+        /** 정지버튼 **/
+        public RectTransform pauseBtn;
     }
     public UI ui;
 
@@ -57,7 +59,7 @@ public class GuestSystem : Mgr
         {
             EWorker eWorker = EWorker.None;
             if (gameMgr.playData != null)
-                eWorker = (EWorker)gameMgr.playData.workerPos[(int)KitchenSet_UI.KitchenSetWorkerPos.CounterWorker];
+                eWorker = (EWorker)gameMgr.playData.workerPos[(int)KitchenSetWorkerPos.CounterWorker];
             return workerMgr.GetWorkerData(eWorker);
         }
     }
@@ -144,14 +146,14 @@ public class GuestSystem : Mgr
 
                 //손님 딜레이
                 float playDataDelayRate = 100f;
-                if(gameMgr.playData != null)
-                        playDataDelayRate = gameMgr.playData.GuestTotalDelayRate();
-                float delayValue = GUEST_DELAY_TIME / (playDataDelayRate / 100f);
+                if (gameMgr.playData != null)
+                    playDataDelayRate = gameMgr.playData.GuestTotalDelayRate();
                 if (counterWorker != null && counterWorker.skill.Contains(WorkerSkill.WorkerSkill_5))
                 {
-                    //카운터 업무 경력자(카운터에 배치시 손님이 방문률 +50%)
-                    delayValue *= 0.5f;
+                    //카운터 업무 경력자(카운터에 배치시 손님이 방문률 +25%)
+                    playDataDelayRate += WorkerMgr.WORKER_SKILL_5_VALUE;
                 }
+                float delayValue = GUEST_DELAY_TIME / (playDataDelayRate / 100f);
 
                 while (delayValue > 0)
                 {
@@ -467,7 +469,7 @@ public class GuestSystem : Mgr
                         if(counterWorker != null && counterWorker.skill.Contains(WorkerSkill.WorkerSkill_4))
                         {
                             //잘생긴외모(팁 증가 +100%)
-                            tipRate = tipRate * (100f + 100f) / 100f;
+                            tipRate = tipRate * (100f + WorkerMgr.WORKER_SKILL_4_VALUE) / 100f;
                         }
 
                         int tipValue = (int)(getValue * tipRate);

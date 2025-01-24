@@ -18,7 +18,7 @@ public class Worker_Counter : Mgr
     {
         get
         {
-            EWorker eWorker = (EWorker)gameMgr.playData.workerPos[(int)KitchenSet_UI.KitchenSetWorkerPos.CounterWorker];
+            EWorker eWorker = (EWorker)gameMgr.playData.workerPos[(int)KitchenSetWorkerPos.CounterWorker];
             return workerMgr.GetWorkerData(eWorker);
         }
     }
