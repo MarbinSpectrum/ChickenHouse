@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class KitchenReady : Mgr
 {
     public struct StaffList
     {
-        public RectTransform staffListContents;
+        public RectTransform    staffListLock;
+        public RectTransform    staffListContents;
         public KitchenStaffSlot staffSlot;
         [System.NonSerialized] public List<KitchenStaffSlot> slotList;
     }    
@@ -18,6 +20,7 @@ public class KitchenReady : Mgr
     }
     [SerializeField] private StaffDuties staffDuties;
 
+    [SerializeField] private TextMeshProUGUI  staffCnt;
     [SerializeField] private KitchenStaffInfo staffInfo;
 
     [SerializeField] private StartGame startGame;
@@ -59,7 +62,9 @@ public class KitchenReady : Mgr
         if (playData == null)
             return;
 
+        int setWorkerCnt = 0;
         List<EWorker> staffs = new List<EWorker>();
+        HashSet<EWorker> workStaff = new HashSet<EWorker>();
         for (EWorker eWorker = EWorker.Worker_1; eWorker < EWorker.MAX; eWorker++)
         {
             if (playData.hasWorker[(int)eWorker] == false)
@@ -67,7 +72,7 @@ public class KitchenReady : Mgr
                 //보유하지 않은 직원
                 continue;
             }
-            bool setWorkerFlag = false;
+
             for (KitchenSetWorkerPos workerPos = KitchenSetWorkerPos.CounterWorker;
                 workerPos < KitchenSetWorkerPos.MAX; workerPos++)
             {
@@ -75,16 +80,16 @@ public class KitchenReady : Mgr
                 if (eWorker == worker)
                 {
                     //해당 직원은 이미 배치되어 있다.
-                    setWorkerFlag = true;
+                    workStaff.Add(eWorker);
+                    setWorkerCnt++;
                     break;
                 }
             }
 
-            if (setWorkerFlag)
-                continue;
-
             staffs.Add(eWorker);
         }
+
+        staffList.staffListLock.gameObject.SetActive(setWorkerCnt == PlayData.MAX_WORKER);
 
         staffList.slotList ??= new List<KitchenStaffSlot>();
         foreach (KitchenStaffSlot slot in staffList.slotList)
@@ -99,7 +104,8 @@ public class KitchenReady : Mgr
             }
             EWorker eWorker = staffs[i];
             bool isSelect = (eWorker == selectWorker);
-            staffList.slotList[i].SetUI(eWorker, isSelect, () =>
+            bool isParty = workStaff.Contains(eWorker);
+            staffList.slotList[i].SetUI(eWorker, isSelect, isParty,() =>
             {
                 if (eWorker == EWorker.None)
                     return;
@@ -119,6 +125,7 @@ public class KitchenReady : Mgr
         if (playData == null)
             return;
 
+        int setWorkerCnt = 0;
         for (KitchenSetWorkerPos workerPos = KitchenSetWorkerPos.CounterWorker;
                 workerPos < KitchenSetWorkerPos.MAX; workerPos++)
         {
@@ -145,7 +152,11 @@ public class KitchenReady : Mgr
                 }
                 staffInfo.SetUI(selectWorker);
             });
+            if (eWorker != EWorker.None)
+                setWorkerCnt++;
+
         }
+        staffCnt.text = string.Format("({0}/{1})", setWorkerCnt, PlayData.MAX_WORKER);
     }
 
     public void SelectWorkerCancelBtn()

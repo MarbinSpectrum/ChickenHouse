@@ -58,6 +58,7 @@ public class PlayData
     public const int CHICKEN_RES_VAIUE = 100;
     public const int DEFAULT_RENT_PRICE = 1000;
     public const int TUP_RATE_VALUE = 50;
+    public const int MAX_WORKER = 2;
 
     public PlayData()
     {

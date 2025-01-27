@@ -11,9 +11,11 @@ public class KitchenStaffSlot : Mgr
 
     [SerializeField] private CanvasGroup        canvasGroup;
     [SerializeField] private RectTransform      selectRect;
+    [SerializeField] private RectTransform      partyRect;
+
     private NoParaDel selectStaffFun;
 
-    public void SetUI(EWorker pWorker,bool pSelect, NoParaDel pSelectFun)
+    public void SetUI(EWorker pWorker,bool pSelect,bool pIsParty, NoParaDel pSelectFun)
     {
         WorkerData workerData = workerMgr.GetWorkerData(pWorker);
         if(workerData == null)
@@ -27,6 +29,7 @@ public class KitchenStaffSlot : Mgr
             staffName.color = color;
 
         gameObject.SetActive(true);
+        partyRect.gameObject.SetActive(pIsParty);
         selectRect.gameObject.SetActive(pSelect);
         VisibleUI(true);
         face.sprite = workerData.face;

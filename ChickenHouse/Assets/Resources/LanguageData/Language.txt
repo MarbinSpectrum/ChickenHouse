@@ -668,10 +668,10 @@ WORKER_SKILL_FORMAT_6	치킨이 타지 않습니다.	Chicken does not burn.
 WORKER_SKILL_FORMAT_7	종종 치킨 한 조각을 빼 먹습니다.	Sometimes steals a piece of chicken.
 WORKER_SKILL_FORMAT_8	손님이 원하는 치킨을 알려줍니다.	Shows the chicken the customer wants.
 WORKER_SKILL_FORMAT_9	카운터에 배치시 <color=#FF0000>{0}</color>% 확률로 손님의 주문이 제대로 전달되지 않습니다.	When assigned to the counter, there is a <color=#FF0000>{0}</color>% chance that a customer's order may not be communicated correctly
-WORKER_INFO_1	찰스 설정	This is a cat resident from TulTul Town.\nSince childhood, their dream has been to work at a chicken restaurant.
-WORKER_INFO_2	니치 설정	This is a cat resident from TulTul Town.\nSince childhood, their dream has been to work at a chicken restaurant.
-WORKER_INFO_3	미스플라워 설정	This is a cat resident from TulTul Town.\nSince childhood, their dream has been to work at a chicken restaurant.
-WORKER_INFO_4	그레이 설정	This is a cat resident from TulTul Town.\nSince childhood, their dream has been to work at a chicken restaurant.
+WORKER_INFO_1	이제 막 성인이 된 고양이 찰스는 오늘도 가족을 위해 아르바이트를 합니다	Charles, a cat who has just become an adult, works a part-time job today as well to support his family.
+WORKER_INFO_2	잔머리를 굴리며 게으른 면이 있는 여우지만 잔머리에서 나오는 말솜씨 하나는 확실합니다	A fox with a lazy streak who loves to scheme, but there's no doubt about their sharp wit and smooth-talking skills.
+WORKER_INFO_3	한 비둘기가 짝사랑하는 만큼 아름다운 미모를 가진 조류입니다	A bird with stunning beauty, admired as much as a dove's unrequited love.
+WORKER_INFO_4	초등학생 조카를 데리고있는 책임감 있는 어른스러운 백호 호랑이입니다	A responsible and mature white tiger who is taking care of their elementary school-aged niece.
 QUEST_NAME_1	빚 갚기	Pay off debt
 QUEST_INFO_1	너구리에게 빌린 돈 50,000 크레딧을 갚아야한다. \n기간은 7일준다고 했다.\n빨리 준비해야 될거같다.	I need to repay the 50,000 credit\nI borrowed from the raccoon.\nHe gave me 7 days.\nI need to prepare quickly.
 QUEST_SUMMARY_1	※ 기간안에 50,000 크래딧을 갚자!!	※ Let's repay the 50,000 credit within the deadline!!
