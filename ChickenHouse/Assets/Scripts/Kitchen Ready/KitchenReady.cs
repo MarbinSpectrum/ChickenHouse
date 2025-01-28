@@ -1,169 +1,237 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
 public class KitchenReady : Mgr
 {
-    public struct StaffList
-    {
-        public RectTransform    staffListLock;
-        public RectTransform    staffListContents;
-        public KitchenStaffSlot staffSlot;
-        [System.NonSerialized] public List<KitchenStaffSlot> slotList;
-    }    
-    [SerializeField] private StaffList staffList;
+    [SerializeField] private StaffReady staffReady;
+    [SerializeField] private MenuReady  menuReady;
+    [SerializeField] private StartGame  startGame;
+    [SerializeField] private RectTransform dontClick;
 
-    public struct StaffDuties
+    public struct MovePosList
     {
-        public Dictionary<KitchenSetWorkerPos, KitchenStaffDuties> staffDuties;
+        public RectTransform leftPos;
+        public RectTransform rightPos;
+        public RectTransform centerPos;
     }
-    [SerializeField] private StaffDuties staffDuties;
+    [SerializeField] private MovePosList movePosList;
 
-    [SerializeField] private TextMeshProUGUI  staffCnt;
-    [SerializeField] private KitchenStaffInfo staffInfo;
+    public struct MoveUI
+    {
+        public RectTransform goMenuUIBtn;
+        public RectTransform goStaffUIBtn;
+        public RectTransform startGameBtn;
+        public RectTransform uiRect;
+    }
+    [SerializeField] private MoveUI moveUI;
 
-    [SerializeField] private StartGame startGame;
-
-    private EWorker selectWorker = EWorker.None;
-
-
+    private bool actStaffUI = false;
+    private bool actMenuUI = false;
 
     private void Start()
     {
         gameMgr.InitData();
-
-        PlayData playData = gameMgr.playData;
-        if (playData == null)
+        if(gameMgr.playData == null)
         {
             gameObject.SetActive(false);
             startGame.Run();
             return;
         }
 
+        staffReady.SetUI();
+        menuReady.SetUI();
+
+        bool hasWorker = false;
         for (EWorker eWorker = EWorker.Worker_1; eWorker < EWorker.MAX; eWorker++)
         {
-            if (playData.hasWorker[(int)eWorker])
+            if (gameMgr.playData.hasWorker[(int)eWorker])
             {
                 //직원보유중이면 리스트 생성
-                staffInfo.SetUI(selectWorker);
-                UpdateStaffList();
-                UpdateStaffDuties();
-                return;
-            }    
+                hasWorker = true;
+                break;
+            }
         }
+       
+
+        int hasSpicyCnt = 0;
+        for (ChickenSpicy eSpicy = ChickenSpicy.Hot; eSpicy < ChickenSpicy.MAX; eSpicy++)
+        {
+            if (gameMgr.playData.HasRecipe(eSpicy))
+            {
+                //양념 보유갯수 카운트
+                hasSpicyCnt++;
+            }
+        }
+
+        int hasDrinkCnt = 0;
+        for (Drink eDrink = Drink.Cola; eDrink < Drink.MAX; eDrink++)
+        {
+            if (gameMgr.playData.HasDrink(eDrink))
+            {
+                //음료 보유갯수 카운트
+                hasDrinkCnt++;
+            }
+        }
+
+        int hasSideMenuCnt = 0;
+        for (SideMenu eSideMenu = SideMenu.Pickle; eSideMenu < SideMenu.MAX; eSideMenu++)
+        {
+            if (gameMgr.playData.HasSideMenu(eSideMenu))
+            {
+                //사이드메뉴 보유갯수 카운트
+                hasSideMenuCnt++;
+            }
+        }
+        actStaffUI = hasWorker;
+        actMenuUI = (hasDrinkCnt > 1 || hasSideMenuCnt > 1 || hasDrinkCnt > 1);
+
+        if (actStaffUI)
+        {
+            MoveStaffUI(0);
+            moveUI.uiRect.gameObject.SetActive(true);
+            moveUI.goMenuUIBtn.gameObject.SetActive(actMenuUI);
+            moveUI.goStaffUIBtn.gameObject.SetActive(false);
+            moveUI.startGameBtn.gameObject.SetActive(actMenuUI == false);
+            return;
+        }
+
+        if (actMenuUI)
+        {
+            MoveMenuUI(0);
+            moveUI.uiRect.gameObject.SetActive(true);
+            moveUI.goMenuUIBtn.gameObject.SetActive(false);
+            moveUI.goStaffUIBtn.gameObject.SetActive(actStaffUI);
+            moveUI.startGameBtn.gameObject.SetActive(true);
+            return;
+        }
+
         gameObject.SetActive(false);
         startGame.Run();
     }
 
-    private void UpdateStaffList()
+    public void MoveStaffUI(float pDelay)
     {
-        PlayData playData = gameMgr.playData;
-        if (playData == null)
+        //직원 UI 이동
+        if(pDelay == 0)
+        {
+            dontClick.gameObject.SetActive(false);
+            staffReady.transform.position = movePosList.centerPos.position;
+            staffReady.gameObject.SetActive(true);
+            menuReady.gameObject.SetActive(false);
+
+            moveUI.uiRect.gameObject.SetActive(true);
+            moveUI.goMenuUIBtn.gameObject.SetActive(actMenuUI);
+            moveUI.goStaffUIBtn.gameObject.SetActive(false);
+            moveUI.startGameBtn.gameObject.SetActive(actMenuUI == false);
+
             return;
-
-        int setWorkerCnt = 0;
-        List<EWorker> staffs = new List<EWorker>();
-        HashSet<EWorker> workStaff = new HashSet<EWorker>();
-        for (EWorker eWorker = EWorker.Worker_1; eWorker < EWorker.MAX; eWorker++)
-        {
-            if (playData.hasWorker[(int)eWorker] == false)
-            {
-                //보유하지 않은 직원
-                continue;
-            }
-
-            for (KitchenSetWorkerPos workerPos = KitchenSetWorkerPos.CounterWorker;
-                workerPos < KitchenSetWorkerPos.MAX; workerPos++)
-            {
-                EWorker worker = (EWorker)playData.workerPos[(int)workerPos];
-                if (eWorker == worker)
-                {
-                    //해당 직원은 이미 배치되어 있다.
-                    workStaff.Add(eWorker);
-                    setWorkerCnt++;
-                    break;
-                }
-            }
-
-            staffs.Add(eWorker);
         }
 
-        staffList.staffListLock.gameObject.SetActive(setWorkerCnt == PlayData.MAX_WORKER);
+        dontClick.gameObject.SetActive(true);
+        moveUI.uiRect.gameObject.SetActive(false);
+        staffReady.transform.position   = movePosList.leftPos.position;
+        menuReady.transform.position    = movePosList.centerPos.position;
+        staffReady.gameObject.SetActive(true);
+        menuReady.gameObject.SetActive(true);
 
-        staffList.slotList ??= new List<KitchenStaffSlot>();
-        foreach (KitchenStaffSlot slot in staffList.slotList)
-            slot.gameObject.SetActive(false);
-        for (int i = 0; i < staffs.Count; i++)
+        IEnumerator Run()
         {
-            while (staffList.slotList.Count <= i)
+            float timeDelay = pDelay;
+            float lerpValue = 0;
+            while (timeDelay > 0)
             {
-                KitchenStaffSlot staffSlot =
-                    Instantiate(staffList.staffSlot, staffList.staffListContents);
-                staffList.slotList.Add(staffSlot);
+                lerpValue += Time.deltaTime;
+                staffReady.transform.position = 
+                    Vector3.Lerp(movePosList.leftPos.position, movePosList.centerPos.position,
+                    lerpValue/pDelay);
+                menuReady.transform.position =
+                    Vector3.Lerp(movePosList.centerPos.position, movePosList.rightPos.position,
+                    lerpValue / pDelay);
+
+                timeDelay -= Time.deltaTime;
+                yield return null;
             }
-            EWorker eWorker = staffs[i];
-            bool isSelect = (eWorker == selectWorker);
-            bool isParty = workStaff.Contains(eWorker);
-            staffList.slotList[i].SetUI(eWorker, isSelect, isParty,() =>
-            {
-                if (eWorker == EWorker.None)
-                    return;
-                if (eWorker == selectWorker)
-                    selectWorker = EWorker.None;
-                else
-                    selectWorker = eWorker;
-                staffInfo.SetUI(selectWorker);
-                UpdateStaffList();
-            });
+
+            staffReady.transform.position = movePosList.centerPos.position;
+            menuReady.transform.position = movePosList.rightPos.position;
+            staffReady.gameObject.SetActive(true);
+            menuReady.gameObject.SetActive(false);
+ 
+            yield return new WaitForSeconds(0.5f);
+
+            dontClick.gameObject.SetActive(false);
+            moveUI.uiRect.gameObject.SetActive(true);
+            moveUI.goMenuUIBtn.gameObject.SetActive(actMenuUI);
+            moveUI.goStaffUIBtn.gameObject.SetActive(false);
+            moveUI.startGameBtn.gameObject.SetActive(actMenuUI == false);
         }
+        StartCoroutine(Run());
     }
 
-    private void UpdateStaffDuties()
+    public void MoveMenuUI(float pDelay)
     {
-        PlayData playData = gameMgr.playData;
-        if (playData == null)
-            return;
-
-        int setWorkerCnt = 0;
-        for (KitchenSetWorkerPos workerPos = KitchenSetWorkerPos.CounterWorker;
-                workerPos < KitchenSetWorkerPos.MAX; workerPos++)
+        //메뉴 UI 이동
+        if (pDelay == 0)
         {
-            KitchenSetWorkerPos tempWorkerPos = workerPos;
-            EWorker eWorker = (EWorker)playData.workerPos[(int)workerPos];
-            staffDuties.staffDuties[workerPos].SetUI(eWorker, () =>
-            {
-                if (eWorker == EWorker.None)
-                {
-                    if (selectWorker == EWorker.None)
-                        return;
+            dontClick.gameObject.SetActive(false);
+            menuReady.transform.position = movePosList.centerPos.position;
+            menuReady.gameObject.SetActive(true);
+            staffReady.gameObject.SetActive(false);
 
-                    playData.workerPos[(int)tempWorkerPos] = (int)selectWorker;
-                    selectWorker = EWorker.None;
-                    UpdateStaffList();
-                    UpdateStaffDuties();
-                }
-                else
-                {
-                    playData.workerPos[(int)tempWorkerPos] = (int)EWorker.None;
-                    selectWorker = EWorker.None;
-                    UpdateStaffList();
-                    UpdateStaffDuties();
-                }
-                staffInfo.SetUI(selectWorker);
-            });
-            if (eWorker != EWorker.None)
-                setWorkerCnt++;
+            moveUI.uiRect.gameObject.SetActive(true);
+            moveUI.goMenuUIBtn.gameObject.SetActive(false);
+            moveUI.goStaffUIBtn.gameObject.SetActive(actStaffUI);
+            moveUI.startGameBtn.gameObject.SetActive(true);
 
+            return;
         }
-        staffCnt.text = string.Format("({0}/{1})", setWorkerCnt, PlayData.MAX_WORKER);
+
+        dontClick.gameObject.SetActive(true);
+        moveUI.uiRect.gameObject.SetActive(false);
+        staffReady.transform.position = movePosList.centerPos.position;
+        menuReady.transform.position = movePosList.rightPos.position;
+        staffReady.gameObject.SetActive(true);
+        menuReady.gameObject.SetActive(true);
+
+        IEnumerator Run()
+        {
+
+            float timeDelay = pDelay;
+            float lerpValue = 0;
+            while (timeDelay > 0)
+            {
+                lerpValue += Time.deltaTime;
+                staffReady.transform.position =
+                    Vector3.Lerp(movePosList.centerPos.position, movePosList.leftPos.position,
+                    lerpValue / pDelay);
+                menuReady.transform.position =
+                    Vector3.Lerp(movePosList.rightPos.position, movePosList.centerPos.position,
+                    lerpValue / pDelay);
+
+                timeDelay -= Time.deltaTime;
+                yield return null;
+            }
+
+            staffReady.transform.position = movePosList.leftPos.position;
+            menuReady.transform.position = movePosList.centerPos.position;
+            staffReady.gameObject.SetActive(false);
+            menuReady.gameObject.SetActive(true);
+
+            yield return new WaitForSeconds(0.5f);
+
+            dontClick.gameObject.SetActive(false);
+            moveUI.uiRect.gameObject.SetActive(true);
+            moveUI.goMenuUIBtn.gameObject.SetActive(false);
+            moveUI.goStaffUIBtn.gameObject.SetActive(actStaffUI);
+            moveUI.startGameBtn.gameObject.SetActive(true);
+        }
+        StartCoroutine(Run());
     }
 
-    public void SelectWorkerCancelBtn()
+    public void StartGame()
     {
-        selectWorker = EWorker.None;
-        UpdateStaffList();
-        UpdateStaffDuties();
-        staffInfo.SetUI(selectWorker);
+        gameObject.SetActive(false);
+        startGame.Run();
     }
 }

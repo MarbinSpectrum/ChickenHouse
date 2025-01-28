@@ -435,8 +435,8 @@ public class Event0_Story : Mgr
             ChickenSpicy chickenSpicy = SpicyMgr.RecipeGetSpicy(randomList[r]);
             for (int i = 0; i < (int)MenuSetPos.SpicyMAX; i++)
             {
-                if (gameMgr.playData.spicyState[i] == (int)chickenSpicy)
-                    gameMgr.playData.spicyState[i] = (int)ChickenSpicy.None;
+                if (gameMgr.playData.spicy[i] == (int)chickenSpicy)
+                    gameMgr.playData.spicy[i] = (int)ChickenSpicy.None;
             }
 
             SpicyData spicyData = spicyMgr.GetSpicyData(chickenSpicy);

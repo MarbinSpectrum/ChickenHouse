@@ -100,13 +100,13 @@ public class KitchenMgr : Mgr
         spicys.ForEach((x) => x.gameObject.SetActive(false));
         for(int i = 0; i < (int)MenuSetPos.SpicyMAX; i++)
         {
-            if(gameMgr.playData == null || (ChickenSpicy)gameMgr.playData.spicyState[i] == ChickenSpicy.None)
+            if(gameMgr.playData == null || (ChickenSpicy)gameMgr.playData.spicy[i] == ChickenSpicy.None)
             {
                 spicys[i].gameObject.SetActive(false);
             }
             else
             {
-                spicys[i].SetObj((ChickenSpicy)gameMgr.playData.spicyState[i]);
+                spicys[i].SetObj((ChickenSpicy)gameMgr.playData.spicy[i]);
                 spicys[i].gameObject.SetActive(true);
             }
         }
@@ -116,13 +116,13 @@ public class KitchenMgr : Mgr
         drinks.ForEach((x) => x.gameObject.SetActive(false));
         for (int i = 0; i < (int)MenuSetPos.DrinkMAX; i++)
         {
-            if (gameMgr.playData == null || (Drink)gameMgr.playData.drinkState[i] == Drink.None)
+            if (gameMgr.playData == null || (Drink)gameMgr.playData.drink[i] == Drink.None)
             {
                 drinks[i].gameObject.SetActive(false);
             }
             else
             {
-                drinks[i].SetObj((Drink)gameMgr.playData.drinkState[i]);
+                drinks[i].SetObj((Drink)gameMgr.playData.drink[i]);
                 drinks[i].gameObject.SetActive(true);
             }
         }
@@ -132,13 +132,13 @@ public class KitchenMgr : Mgr
         sideMenus.ForEach((x) => x.gameObject.SetActive(false));
         for (int i = 0; i < (int)MenuSetPos.SideMenuMAX; i++)
         {
-            if (gameMgr.playData == null || (SideMenu)gameMgr.playData.sideMenuState[i] == SideMenu.None)
+            if (gameMgr.playData == null || (SideMenu)gameMgr.playData.sideMenu[i] == SideMenu.None)
             {
                 sideMenus[i].gameObject.SetActive(false);
             }
             else
             {
-                sideMenus[i].SetObj((SideMenu)gameMgr.playData.sideMenuState[i]);
+                sideMenus[i].SetObj((SideMenu)gameMgr.playData.sideMenu[i]);
                 sideMenus[i].gameObject.SetActive(true);
             }
         }

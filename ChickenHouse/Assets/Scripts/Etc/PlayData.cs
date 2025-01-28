@@ -40,11 +40,11 @@ public class PlayData
     public int[] workerPos = new int[(int)KitchenSetWorkerPos.MAX];
 
     /** 양념 배치 상태 **/
-    public int[] spicyState = new int[(int)MenuSetPos.SpicyMAX];
+    public int[] spicy = new int[(int)MenuSetPos.SpicyMAX];
     /** 드링크 배치 상태 **/
-    public int[] drinkState = new int[(int)MenuSetPos.DrinkMAX];
+    public int[] drink = new int[(int)MenuSetPos.DrinkMAX];
     /** 사이드 메뉴 배치 상태 **/
-    public int[] sideMenuState = new int[(int)MenuSetPos.SideMenuMAX];
+    public int[] sideMenu = new int[(int)MenuSetPos.SideMenuMAX];
 
 
     /** 퀘스트 상태(0: 진행안함 ,1: 진행중 ,2: 완료) **/
@@ -65,13 +65,13 @@ public class PlayData
         cookLv = 1;
 
         hasItem[(int)ShopItem.Recipe_0] = true;
-        spicyState[(int)MenuSetPos.Spicy0] = (int)ChickenSpicy.Hot;
+        spicy[(int)MenuSetPos.Spicy0] = (int)ChickenSpicy.Hot;
 
         hasItem[(int)ShopItem.Cola] = true;
-        drinkState[(int)MenuSetPos.Drink0] = (int)Drink.Cola;
+        drink[(int)MenuSetPos.Drink0] = (int)Drink.Cola;
 
         hasItem[(int)ShopItem.Pickle] = true;
-        sideMenuState[(int)MenuSetPos.SideMenu0] = (int)SideMenu.Pickle;
+        sideMenu[(int)MenuSetPos.SideMenu0] = (int)SideMenu.Pickle;
 
         hasItem[(int)ShopItem.OIL_Zone_1] = true;
 
@@ -277,10 +277,10 @@ public class PlayData
         if (pSpicy == ChickenSpicy.None)
             return true;
 
-        for (int i = 0; i < spicyState.Length; i++)
+        for (int i = 0; i < spicy.Length; i++)
         {
-            ChickenSpicy spicy = (ChickenSpicy)spicyState[i];
-            if (spicy == pSpicy)
+            ChickenSpicy tempSpicy = (ChickenSpicy)spicy[i];
+            if (tempSpicy == pSpicy)
                 return true;
         }
         return false;
@@ -289,10 +289,10 @@ public class PlayData
     public bool KitchenSetDrink(Drink pDrink)
     {
         //해당 종류의 음료를 배치한 상태
-        for (int i = 0; i < drinkState.Length; i++)
+        for (int i = 0; i < drink.Length; i++)
         {
-            Drink drink = (Drink)drinkState[i];
-            if (drink == pDrink)
+            Drink tempDrink = (Drink)drink[i];
+            if (tempDrink == pDrink)
                 return true;
         }
         return false;
@@ -301,10 +301,10 @@ public class PlayData
     public bool KitchenSetSideMenu(SideMenu pSideMenu)
     {
         //해당 종류의 사이드메뉴를 배치한 상태
-        for (int i = 0; i < sideMenuState.Length; i++)
+        for (int i = 0; i < sideMenu.Length; i++)
         {
-            SideMenu sideMenu = (SideMenu)sideMenuState[i];
-            if (sideMenu == pSideMenu)
+            SideMenu tempSideMenu = (SideMenu)sideMenu[i];
+            if (tempSideMenu == pSideMenu)
                 return true;
         }
         return false;
