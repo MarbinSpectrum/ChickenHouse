@@ -128,6 +128,12 @@ KITCHEN_DUTIES_KITCHEN_1	재료손질 담당	Prep
 KITCHEN_DUTIES_KITCHEN_2	튀김 담당	Frying
 KITCHEN_DUTIES_COUNTER	카운터 담당	Counter
 KITCHEN_DUTIES_COMPLETE	인원 배치 완료!	Placement Complete!
+KITCHEN_SPICY_HEADER	양념	Spicy
+KITCHEN_SPICYLIST_HEADER	양념 목록	Spicy List
+KITCHEN_SIDEMENU_HEADER	사이드 메뉴	SideMenu
+KITCHEN_SIDEMENULIST_HEADER	사이드 목록	SideMenu List
+KITCHEN_DRINK_HEADER	음료	Drink
+KITCHEN_DRINKLIST_HEADER	음료 목록	Drink List
 PIG_TALK_1	이거 이거 그런 서비스로 손님이 만족하겠나~ 쿠히힉!	Well, well, do you really think customers will be satisfied with that kind of service? Oink!
 PIG_TALK_2	쿠힉힉힉 돼지 사료도 이것보단 고급스럽겠구먼~	Oink! Oink! Oink! Even pig feed would be more high-end than this~
 PIG_TALK_3	아니 혹시 쿠힉! 그거 사장 얼굴을 본떠 만든 치킨인가? 완전 개판이구먼!	Wait, is that chicken made to look like the boss's face? It’s a complete mess!

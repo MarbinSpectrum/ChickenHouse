@@ -242,7 +242,7 @@ TextureImporter:
         width: 210
         height: 225
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -250,6 +250,69 @@ TextureImporter:
       bones: []
       spriteID: 3be7acb630ffdfb4593a26b500aa818b
       internalID: -236411299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_Set_UI_6
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 256
+        width: 201
+        height: 225
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74057d98b1c8a1f48a0d6188658e9afb
+      internalID: 441728734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_Set_UI_7
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 257
+        width: 210
+        height: 225
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 25, y: 25, z: 25, w: 25}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9b0f82d32a099645bf574b387983106
+      internalID: -2101407395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_Set_UI_8
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 199
+        width: 180
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41c4d1fc4201dda4692664d53e7369d1
+      internalID: 1840781917
       vertices: []
       indices: 
       edges: []
@@ -268,8 +331,11 @@ TextureImporter:
       Worker_Set_UI_2: -664244077
       Worker_Set_UI_3: -1558683953
       Worker_Set_UI_0: 237519713
+      Worker_Set_UI_8: 1840781917
       Worker_Set_UI_1: 889956471
+      Worker_Set_UI_7: -2101407395
       Worker_Set_UI_5: -236411299
+      Worker_Set_UI_6: 441728734
       Worker_Set_UI_4: 375446088
   spritePackingTag: 
   pSDRemoveMatte: 0

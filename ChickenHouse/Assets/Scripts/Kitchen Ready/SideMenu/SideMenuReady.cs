@@ -52,7 +52,7 @@ public class SideMenuReady : Mgr
                 SideMenu sideMenu = (SideMenu)playData.sideMenu[(int)sideMenuPos];
                 if (eSideMenu == sideMenu)
                 {
-                    //해당 직원은 이미 배치되어 있다.
+                    //해당 메뉴는 이미 배치되어 있다.
                     setSideMenu.Add(sideMenu);
                     setSideMenuCnt++;
                     break;
@@ -113,6 +113,19 @@ public class SideMenuReady : Mgr
                     menuReady.AllCancel();
                     sideMenuInfo.SetUI(selectSideMenu);
                     return;
+                }
+
+                for (MenuSetPos setCheck = MenuSetPos.SideMenu0;
+                    setCheck < MenuSetPos.SideMenuMAX; setCheck++)
+                {
+                    SideMenu sideMenu = (SideMenu)playData.sideMenu[(int)setCheck];
+                    if (selectSideMenu == sideMenu)
+                    {
+                        //해당 메뉴는 이미 배치되어 있다.
+                        selectSideMenu = SideMenu.None;
+                        menuReady.AllCancel();
+                        return;
+                    }
                 }
 
                 if (selectSideMenu == SideMenu.None)

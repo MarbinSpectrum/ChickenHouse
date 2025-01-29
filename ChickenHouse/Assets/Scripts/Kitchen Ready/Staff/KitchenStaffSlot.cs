@@ -24,14 +24,12 @@ public class KitchenStaffSlot : Mgr
         }
 
         selectStaffFun = pSelectFun;
-        if (ColorUtility.TryParseHtmlString(pSelect ? "#FFFFFF" : "#B27256", out Color color))
-            staffName.color = color;
 
         gameObject.SetActive(true);
         partyRect.gameObject.SetActive(pIsParty);
         selectRect.gameObject.SetActive(pSelect);
         face.sprite = workerData.face;
-        LanguageMgr.SetString(staffName, workerData.nameKey);
+        LanguageMgr.SetString(staffName, workerData.nameKey, true);
     }
 
     public void SelectStaff() => selectStaffFun?.Invoke();

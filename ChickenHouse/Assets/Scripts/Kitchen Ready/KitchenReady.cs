@@ -19,10 +19,12 @@ public class KitchenReady : Mgr
 
     public struct MoveUI
     {
-        public RectTransform goMenuUIBtn;
-        public RectTransform goStaffUIBtn;
-        public RectTransform startGameBtn;
-        public RectTransform uiRect;
+        public RectTransform    goMenuUIBtn;
+        public RectTransform    goStaffUIBtn;
+        public RectTransform    startGameBtn;
+        public RectTransform    uiRect;
+        public float            moveDelay;
+        public AnimationCurve   curve;
     }
     [SerializeField] private MoveUI moveUI;
 
@@ -142,12 +144,11 @@ public class KitchenReady : Mgr
             while (timeDelay > 0)
             {
                 lerpValue += Time.deltaTime;
+                float v = moveUI.curve.Evaluate(lerpValue / pDelay);
                 staffReady.transform.position = 
-                    Vector3.Lerp(movePosList.leftPos.position, movePosList.centerPos.position,
-                    lerpValue/pDelay);
+                    Vector3.Lerp(movePosList.leftPos.position, movePosList.centerPos.position,v);
                 menuReady.transform.position =
-                    Vector3.Lerp(movePosList.centerPos.position, movePosList.rightPos.position,
-                    lerpValue / pDelay);
+                    Vector3.Lerp(movePosList.centerPos.position, movePosList.rightPos.position,v);
 
                 timeDelay -= Time.deltaTime;
                 yield return null;
@@ -158,7 +159,7 @@ public class KitchenReady : Mgr
             staffReady.gameObject.SetActive(true);
             menuReady.gameObject.SetActive(false);
  
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(moveUI.moveDelay);
 
             dontClick.gameObject.SetActive(false);
             moveUI.uiRect.gameObject.SetActive(true);
@@ -202,12 +203,11 @@ public class KitchenReady : Mgr
             while (timeDelay > 0)
             {
                 lerpValue += Time.deltaTime;
+                float v = moveUI.curve.Evaluate(lerpValue / pDelay);
                 staffReady.transform.position =
-                    Vector3.Lerp(movePosList.centerPos.position, movePosList.leftPos.position,
-                    lerpValue / pDelay);
+                    Vector3.Lerp(movePosList.centerPos.position, movePosList.leftPos.position,v);
                 menuReady.transform.position =
-                    Vector3.Lerp(movePosList.rightPos.position, movePosList.centerPos.position,
-                    lerpValue / pDelay);
+                    Vector3.Lerp(movePosList.rightPos.position, movePosList.centerPos.position,v);
 
                 timeDelay -= Time.deltaTime;
                 yield return null;
@@ -218,7 +218,7 @@ public class KitchenReady : Mgr
             staffReady.gameObject.SetActive(false);
             menuReady.gameObject.SetActive(true);
 
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(moveUI.moveDelay);
 
             dontClick.gameObject.SetActive(false);
             moveUI.uiRect.gameObject.SetActive(true);

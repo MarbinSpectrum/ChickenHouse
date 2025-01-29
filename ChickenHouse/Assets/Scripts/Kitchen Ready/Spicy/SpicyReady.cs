@@ -52,7 +52,7 @@ public class SpicyReady : Mgr
                 ChickenSpicy spicy = (ChickenSpicy)playData.spicy[(int)spicyPos];
                 if (eSpicy == spicy)
                 {
-                    //해당 직원은 이미 배치되어 있다.
+                    //해당 양념은 이미 배치되어 있다.
                     setSpicy.Add(spicy);
                     setSpicyCnt++;
                     break;
@@ -113,6 +113,19 @@ public class SpicyReady : Mgr
                     menuReady.AllCancel();
                     spicyInfo.SetUI(selectSpicy);
                     return;
+                }
+
+                for (MenuSetPos setCheck = MenuSetPos.Spicy0;
+                    setCheck < MenuSetPos.SpicyMAX; setCheck++)
+                {
+                    ChickenSpicy spicy = (ChickenSpicy)playData.spicy[(int)setCheck];
+                    if (selectSpicy == spicy)
+                    {
+                        //해당 양념은 이미 배치되어 있다.
+                        selectSpicy = ChickenSpicy.None;
+                        menuReady.AllCancel();
+                        return;
+                    }
                 }
 
                 if (selectSpicy == ChickenSpicy.None)

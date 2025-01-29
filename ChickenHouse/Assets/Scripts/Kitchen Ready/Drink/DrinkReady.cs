@@ -114,6 +114,18 @@ public class DrinkReady : Mgr
                     return;
                 }
 
+                for (MenuSetPos setCheck = MenuSetPos.Drink0;
+                    setCheck < MenuSetPos.DrinkMAX; setCheck++)
+                {
+                    Drink drink = (Drink)playData.drink[(int)setCheck];
+                    if (selectDrink == drink)
+                    {
+                        selectDrink = Drink.None;
+                        menuReady.AllCancel();
+                        return;
+                    }
+                }
+
                 if (selectDrink == Drink.None)
                     return;
 

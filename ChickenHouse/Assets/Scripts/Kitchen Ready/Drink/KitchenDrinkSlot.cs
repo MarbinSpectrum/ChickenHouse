@@ -29,7 +29,7 @@ public class KitchenDrinkSlot : Mgr
         partyRect.gameObject.SetActive(pIsParty);
         selectRect.gameObject.SetActive(pSelect);
         drinkFace.sprite = drinkData.img;
-        LanguageMgr.SetString(drinkName, drinkData.nameKey);
+        LanguageMgr.SetString(drinkName, drinkData.nameKey, true);
     }
 
     public void SelectDrinkMenu() => selectDrinkFun?.Invoke();

@@ -131,6 +131,20 @@ public class StaffReady : Mgr
                     return;
                 }
 
+                for (KitchenSetWorkerPos setCheck = KitchenSetWorkerPos.CounterWorker;
+                    setCheck < KitchenSetWorkerPos.MAX; setCheck++)
+                {
+                    EWorker worker = (EWorker)playData.workerPos[(int)setCheck];
+                    if (selectWorker == worker)
+                    {
+                        //해당 직원은 이미 배치되어 있다.
+                        selectWorker = EWorker.None;
+                        UpdateStaffList();
+                        UpdateStaffDuties();
+                        return;
+                    }
+                }
+
                 if (selectWorker == EWorker.None)
                     return;
 

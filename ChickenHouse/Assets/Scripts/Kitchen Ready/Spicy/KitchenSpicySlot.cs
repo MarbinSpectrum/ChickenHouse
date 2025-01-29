@@ -29,7 +29,7 @@ public class KitchenSpicySlot : Mgr
         partyRect.gameObject.SetActive(pIsParty);
         selectRect.gameObject.SetActive(pSelect);
         seasoningFace.SetUI(pSpicy);
-        LanguageMgr.SetString(spicyName, spicyData.nameKey);
+        LanguageMgr.SetString(spicyName, spicyData.nameKey, true);
     }
 
     public void SelectSpicy() => selectSpicyFun?.Invoke();

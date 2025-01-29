@@ -29,7 +29,7 @@ public class KitchenSideMenuSlot : Mgr
         partyRect.gameObject.SetActive(pIsParty);
         selectRect.gameObject.SetActive(pSelect);
         sideMenuFace.sprite = sideMenuData.img;
-        LanguageMgr.SetString(sideMenuName, sideMenuData.nameKey);
+        LanguageMgr.SetString(sideMenuName, sideMenuData.nameKey, true);
     }
 
     public void SelectSideMenu() => selectSideMenuFun?.Invoke();
