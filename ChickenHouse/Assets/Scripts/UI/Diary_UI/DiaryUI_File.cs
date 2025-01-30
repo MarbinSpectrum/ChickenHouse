@@ -7,10 +7,11 @@ using UnityEngine.EventSystems;
 public class DiaryUI_File : Mgr
 {
     [SerializeField] private RectTransform[]            fileRect;
-
+    [SerializeField] private DiaryUI_FileSaveMenu       fileSaveMenu;
     [SerializeField] private List<DiaryUI_FileSaveSlot> saveSlot = new List<DiaryUI_FileSaveSlot>();
     [SerializeField] private DiaryUI_FilePlayerInfo     filePlayerInfo;
     [SerializeField] private ScrollRect                 srollRect;
+    public bool saveMenuAct => fileSaveMenu.gameObject.activeSelf;
 
     public void SetUI()
     {
@@ -23,7 +24,7 @@ public class DiaryUI_File : Mgr
         int lineCnt = saveSlot.Count / 2 - 3;
 
         for (int i = 0; i < playDatas.Length; i++)
-            saveSlot[i].SetUI(playDatas[i], i);
+            saveSlot[i].SetUI(playDatas[i], i, fileSaveMenu);
 
         filePlayerInfo.SetUI(gameMgr.playData);
 
@@ -51,5 +52,10 @@ public class DiaryUI_File : Mgr
     {
         for (int i = 0; i < fileRect.Length; i++)
             fileRect[i].gameObject.SetActive(state);
+    }
+
+    public void CloseUI()
+    {
+        fileSaveMenu.CloseUI();
     }
 }

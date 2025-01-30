@@ -110,17 +110,17 @@ public class RequireMenu
 
         //치킨상태검사
         if (pChickenState == ChickenState.BadChicken_0)
-            point -= 2;
+            point -= 10;
         else if (pChickenState == ChickenState.BadChicken_1)
             point -= 1;
         else if (pChickenState == ChickenState.BadChicken_2)
-            point -= 2;
+            point -= 10;
         else if (pChickenState == ChickenState.NotCook)
-            point -= 2;
+            point -= 10;
 
         if (maxPoint == 4)
         {
-            if(point == 4)
+            if(point >= 4)
                 return GuestReviews.Happy;
             else if (point == 3 || point == 2)
                 return GuestReviews.Normal;
@@ -129,7 +129,7 @@ public class RequireMenu
         }
         else if (maxPoint == 3)
         {
-            if (point == 3)
+            if (point >= 3)
                 return GuestReviews.Happy;
             else if (point == 2 || point == 1)
                 return GuestReviews.Normal;
@@ -138,7 +138,7 @@ public class RequireMenu
         }
         else
         {
-            if (point == 2)
+            if (point >= 2)
                 return GuestReviews.Happy;
             else if (point == 1)
                 return GuestReviews.Normal;

@@ -86,7 +86,7 @@ public class KitchenReady : Mgr
             }
         }
         actStaffUI = hasWorker;
-        actMenuUI = (hasDrinkCnt > 1 || hasSideMenuCnt > 1 || hasDrinkCnt > 1);
+        actMenuUI = (hasSpicyCnt > 1 || hasSideMenuCnt > 1 || hasDrinkCnt > 1);
 
         if (actStaffUI)
         {

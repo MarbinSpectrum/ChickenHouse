@@ -4165,7 +4165,6 @@ MonoBehaviour:
   moneyText: {fileID: 6653545142006269624}
   dataRect: {fileID: 1817263712188925053}
   empty: {fileID: 2517310667296731797}
-  fileSaveMenu: {fileID: 4650705971129165685}
 --- !u!1 &891091896516755125
 GameObject:
   m_ObjectHideFlags: 0
@@ -7702,7 +7701,6 @@ MonoBehaviour:
   moneyText: {fileID: 583651872105972481}
   dataRect: {fileID: 561796594854153545}
   empty: {fileID: 5062985541998891094}
-  fileSaveMenu: {fileID: 4650705971129165685}
 --- !u!1 &1578323987012255021
 GameObject:
   m_ObjectHideFlags: 0
@@ -7987,7 +7985,6 @@ MonoBehaviour:
   moneyText: {fileID: 4927343442475190201}
   dataRect: {fileID: 6451101937058298193}
   empty: {fileID: 5563767410397780467}
-  fileSaveMenu: {fileID: 4650705971129165685}
 --- !u!1 &1609363334509954068
 GameObject:
   m_ObjectHideFlags: 0
@@ -8490,7 +8487,6 @@ MonoBehaviour:
   moneyText: {fileID: 5657917038899889440}
   dataRect: {fileID: 5314404621333976818}
   empty: {fileID: 1646401274696800922}
-  fileSaveMenu: {fileID: 4650705971129165685}
 --- !u!1 &1700143504306245838
 GameObject:
   m_ObjectHideFlags: 0
@@ -9441,7 +9437,6 @@ MonoBehaviour:
   moneyText: {fileID: 4406343691477515256}
   dataRect: {fileID: 3387540206896354449}
   empty: {fileID: 5211099388811887634}
-  fileSaveMenu: {fileID: 4650705971129165685}
 --- !u!1 &1878295540499286960
 GameObject:
   m_ObjectHideFlags: 0
@@ -12434,7 +12429,6 @@ MonoBehaviour:
   moneyText: {fileID: 4618960883879727256}
   dataRect: {fileID: 5070904605867442453}
   empty: {fileID: 7753467006952510601}
-  fileSaveMenu: {fileID: 4650705971129165685}
 --- !u!1 &2641185819383278339
 GameObject:
   m_ObjectHideFlags: 0
@@ -12542,7 +12536,6 @@ MonoBehaviour:
   moneyText: {fileID: 3726838938870166448}
   dataRect: {fileID: 8499086035841634244}
   empty: {fileID: 9213601752734523373}
-  fileSaveMenu: {fileID: 4650705971129165685}
 --- !u!1 &2647788994492610122
 GameObject:
   m_ObjectHideFlags: 0
@@ -15488,7 +15481,6 @@ MonoBehaviour:
   moneyText: {fileID: 413714676118127004}
   dataRect: {fileID: 4868109034230994959}
   empty: {fileID: 5551641113741144435}
-  fileSaveMenu: {fileID: 4650705971129165685}
 --- !u!1 &3336105767865988929
 GameObject:
   m_ObjectHideFlags: 0
@@ -18310,7 +18302,6 @@ MonoBehaviour:
   moneyText: {fileID: 4363719548468324295}
   dataRect: {fileID: 3955362195870424471}
   empty: {fileID: 1071468816804599290}
-  fileSaveMenu: {fileID: 4650705971129165685}
 --- !u!1 &4165292714664190788
 GameObject:
   m_ObjectHideFlags: 0
@@ -20924,7 +20915,6 @@ MonoBehaviour:
   moneyText: {fileID: 4233203617292652249}
   dataRect: {fileID: 5459267083884122643}
   empty: {fileID: 8174133789824439772}
-  fileSaveMenu: {fileID: 4650705971129165685}
 --- !u!1 &5073311267198764550
 GameObject:
   m_ObjectHideFlags: 0
@@ -21644,7 +21634,6 @@ MonoBehaviour:
   moneyText: {fileID: 8765641403905685836}
   dataRect: {fileID: 3229154167906984833}
   empty: {fileID: 6160811478790367376}
-  fileSaveMenu: {fileID: 4650705971129165685}
 --- !u!1 &5218779646947621725
 GameObject:
   m_ObjectHideFlags: 0
@@ -24076,7 +24065,6 @@ MonoBehaviour:
   moneyText: {fileID: 8382740286288326931}
   dataRect: {fileID: 2422486173344563447}
   empty: {fileID: 7427442229619673425}
-  fileSaveMenu: {fileID: 4650705971129165685}
 --- !u!1 &5634687097068156926
 GameObject:
   m_ObjectHideFlags: 0
@@ -27538,7 +27526,6 @@ MonoBehaviour:
   moneyText: {fileID: 3527289507233473237}
   dataRect: {fileID: 6108366494125121914}
   empty: {fileID: 8925341939864478373}
-  fileSaveMenu: {fileID: 4650705971129165685}
 --- !u!1 &6567258048046572735
 GameObject:
   m_ObjectHideFlags: 0
@@ -29037,7 +29024,6 @@ MonoBehaviour:
   moneyText: {fileID: 3401015568444586898}
   dataRect: {fileID: 4461553946757108404}
   empty: {fileID: 6732336823639726943}
-  fileSaveMenu: {fileID: 4650705971129165685}
 --- !u!1 &6831900851838600834
 GameObject:
   m_ObjectHideFlags: 0
@@ -31186,7 +31172,6 @@ MonoBehaviour:
   moneyText: {fileID: 497788697661098060}
   dataRect: {fileID: 3086308000319160640}
   empty: {fileID: 2122355964269847250}
-  fileSaveMenu: {fileID: 4650705971129165685}
 --- !u!1 &7257644100410555255
 GameObject:
   m_ObjectHideFlags: 0
@@ -35981,6 +35966,7 @@ MonoBehaviour:
   fileRect:
   - {fileID: 595183779679502427}
   - {fileID: 764076509219295065}
+  fileSaveMenu: {fileID: 4650705971129165685}
   saveSlot:
   - {fileID: 7810381840562623468}
   - {fileID: 274247377188013155}
@@ -36957,7 +36943,6 @@ MonoBehaviour:
   moneyText: {fileID: 7342149092932348466}
   dataRect: {fileID: 7097148933772344262}
   empty: {fileID: 70506690025911219}
-  fileSaveMenu: {fileID: 4650705971129165685}
 --- !u!1 &7991644073796074537
 GameObject:
   m_ObjectHideFlags: 0
@@ -39221,7 +39206,6 @@ MonoBehaviour:
   moneyText: {fileID: 52613500777087879}
   dataRect: {fileID: 578526699429332951}
   empty: {fileID: 2479064836535387931}
-  fileSaveMenu: {fileID: 4650705971129165685}
 --- !u!1 &8413105435234500283
 GameObject:
   m_ObjectHideFlags: 0
@@ -42719,7 +42703,6 @@ MonoBehaviour:
   moneyText: {fileID: 283078733882519616}
   dataRect: {fileID: 8902967190367932083}
   empty: {fileID: 5537861481947414764}
-  fileSaveMenu: {fileID: 4650705971129165685}
 --- !u!1 &9182458024466912172
 GameObject:
   m_ObjectHideFlags: 0

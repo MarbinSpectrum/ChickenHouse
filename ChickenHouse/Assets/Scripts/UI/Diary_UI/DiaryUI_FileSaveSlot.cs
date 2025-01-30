@@ -15,7 +15,7 @@ public class DiaryUI_FileSaveSlot : Mgr
     [SerializeField] private RectTransform          dataRect;
     [SerializeField] private TextMeshProUGUI        empty;
 
-    [SerializeField] private DiaryUI_FileSaveMenu   fileSaveMenu;
+    private DiaryUI_FileSaveMenu   fileSaveMenu;
 
     private int slotNum;
 
@@ -25,11 +25,11 @@ public class DiaryUI_FileSaveSlot : Mgr
 
     private PlayData playData;
 
-    public void SetUI(PlayData pPlayData,int pSlotNum)
+    public void SetUI(PlayData pPlayData,int pSlotNum, DiaryUI_FileSaveMenu pFileSaveMenu)
     {
         playData = pPlayData;
         slotNum = pSlotNum;
-        fileSaveMenu.gameObject.SetActive(false);
+        fileSaveMenu = pFileSaveMenu;
 
         if (pPlayData == null)
         {

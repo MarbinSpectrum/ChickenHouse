@@ -75,18 +75,20 @@ public class Option_UI : Mgr
     private OptionMenu  nowMenu;
     private Language    selectLan;
     private bool run = true;
+    public bool isOpen { get; private set; }
 
     public void Set_UI()
     {
         if (run == false)
             return;
 
-        if (tutoMgr.NowRunTuto())
-            return;
+        //if (tutoMgr.NowRunTuto())
+        //    return;
 
         soundMgr.PlaySE(Sound.Btn_SE);
         gameMgr.OptionStopGame(true);
         gameObject.SetActive(true);
+        isOpen = true;
         SetEvent();
         OpenMenu(OptionMenu.Main);
     }
@@ -100,6 +102,7 @@ public class Option_UI : Mgr
         {
             gameMgr.OptionStopGame(false);
             gameObject.SetActive(false);
+            isOpen = false;
         }
         else
             OpenMenu(OptionMenu.Main);

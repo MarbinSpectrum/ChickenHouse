@@ -10,6 +10,7 @@ public class DiaryUI_Book : Mgr
     [SerializeField] private DiaryUI_BookSeasoningInfo  seasoningInfo;
     [SerializeField] private DiaryUI_BookGuestInfo      guestInfo;
     [SerializeField] private DiaryUI_BookSubMenuInfo    subMenuInfo;
+
     public List<Guest>          guestList { private set; get; } = new List<Guest>();
     public List<ChickenSpicy>   spicyList { private set; get; } = new List<ChickenSpicy>();
     public List<EtcList>        etcList   { private set; get; } = new List<EtcList>();
@@ -226,5 +227,6 @@ public class DiaryUI_Book : Mgr
                 break;
         }
     }
+
 
 }

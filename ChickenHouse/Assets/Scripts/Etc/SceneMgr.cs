@@ -14,9 +14,11 @@ public class SceneMgr : AwakeSingleton<SceneMgr>
 
     private bool dayEndCheckFlag = false;
     private bool saveDataFlag = false;
+    public bool nowSceneChange { get; private set; }
 
     public void SceneLoad(Scene scene, bool questCheck, bool dayEnd, SceneChangeAni changeAni = SceneChangeAni.NOT)
     {
+        nowSceneChange = true;
         StartCoroutine(RunSceneLoad(scene, questCheck, dayEnd, changeAni));
     }
 
@@ -81,8 +83,8 @@ public class SceneMgr : AwakeSingleton<SceneMgr>
             dayEndCheckFlag = false;
 
             saveCheckUI.gameObject.SetActive(true);
-
             yield return new WaitUntil(() => dayEndCheckFlag);
+            nowSceneChange = true;
 
             saveCheckUI.gameObject.SetActive(false);
 
@@ -104,6 +106,10 @@ public class SceneMgr : AwakeSingleton<SceneMgr>
 
         if (changeList.ContainsKey(changeAni))
             changeList[changeAni].Play("Off");
+
+        yield return new WaitForSeconds(1f);
+
+        nowSceneChange = false;
     }
 
     public void ShowAnimation(SceneChangeAni changeAni,bool show)
@@ -121,7 +127,7 @@ public class SceneMgr : AwakeSingleton<SceneMgr>
             gameMgr.selectSaveSlot = slotNum;
             dayEndCheckFlag = true;
             saveDataFlag = true;
-            gameMgr.CloseRecordUI();
+            gameMgr.CloseRecordUI(true);
         });
     }
 

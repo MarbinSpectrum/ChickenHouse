@@ -16,7 +16,7 @@ public class Town : Mgr
     [SerializeField] private TutoObj                            tutoObj3;
     [SerializeField] private TutoObj                            tutoObj4;
     [SerializeField] private TutoObj                            tutoObj5;
-
+    public bool nowSceneChange { get; private set; }
     /** 현재 지역 **/
     private TownMap nowArea = TownMap.TulTulTown;
     /** 중복 이동 방지용 **/
@@ -28,8 +28,8 @@ public class Town : Mgr
     {
         ActTownMove(TownMap.None,nowArea);
         isMove = false;
-
-        if(gameMgr.playData != null && gameMgr.playData.tutoComplete4 == false)
+        nowSceneChange = false;
+        if (gameMgr.playData != null && gameMgr.playData.tutoComplete4 == false)
         {
             tutoDontTouch.gameObject.SetActive(true);
             tutoObj1.PlayTuto();
@@ -148,7 +148,7 @@ public class Town : Mgr
         if (isMove)
             return;
         isMove = true;
-
+        nowSceneChange = true;
 
 
         IEnumerator Run()
@@ -183,6 +183,8 @@ public class Town : Mgr
             ActTownMove(nowArea, pTownMap);
             nowArea = pTownMap;
             isMove = false;
+            yield return new WaitForSeconds(1f);
+            nowSceneChange = false;
         }
         StartCoroutine(Run());
     }

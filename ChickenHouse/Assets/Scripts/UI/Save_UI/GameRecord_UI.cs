@@ -19,7 +19,7 @@ public class GameRecord_UI : Mgr
     private bool canSave;
     private bool canLoad;
     private SaveSlot_UI saveSlot;
-
+    public bool gameRecordOpen { private set; get; }
     //세이브나 로드 완료시 작동되는 함수
     private OneParaDel fun;
 
@@ -66,6 +66,8 @@ public class GameRecord_UI : Mgr
         });
 
         srollRect.verticalScrollbar.value = 1;
+
+        gameRecordOpen = true;
     }
 
     public void SetUI(int pSlotNum, PlayData pPlayData, SaveSlot_UI pSaveSlot)
@@ -77,6 +79,25 @@ public class GameRecord_UI : Mgr
         saveRect.gameObject.SetActive(true);
         saveCoverCheck.gameObject.SetActive(false);
         saveMenu.transform.position = pSaveSlot.transform.position;
+    }
+
+    public void CloseUI(bool pAll)
+    {
+        if(pAll)
+        {
+            saveRect.gameObject.SetActive(false);
+            gameObject.SetActive(false);
+            gameRecordOpen = false;
+            return;
+        }
+
+        if (saveRect.gameObject.activeSelf)
+            CloseSaveRect();
+        else
+        {
+            gameObject.SetActive(false);
+            gameRecordOpen = false;
+        }
     }
 
     public void CloseSaveRect()

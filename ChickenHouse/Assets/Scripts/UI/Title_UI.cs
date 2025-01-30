@@ -57,7 +57,7 @@ public class Title_UI : Mgr
             int slotNum = (int)saveSlot;
             gameMgr.selectSaveSlot = slotNum;
             sceneMgr.SceneLoad(Scene.PROLOGUE, false, false, SceneChangeAni.FADE);
-            gameMgr.CloseRecordUI();
+            gameMgr.CloseRecordUI(true);
         });
     }
 
@@ -78,7 +78,7 @@ public class Title_UI : Mgr
                 //나머지 경우는 타운에서 시작
                 sceneMgr.SceneLoad(Scene.TOWN, false, false, SceneChangeAni.FADE);
             }
-            gameMgr.CloseRecordUI();
+            gameMgr.CloseRecordUI(true);
         });
     }
 }

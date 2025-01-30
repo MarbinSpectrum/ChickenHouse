@@ -49,6 +49,7 @@ public class TutoMgr : AwakeSingleton<TutoMgr>
     {
         switch(tutoType)
         {
+            case Tutorial.Tuto_0:
             case Tutorial.Tuto_1:
             case Tutorial.Tuto_2:
             case Tutorial.Tuto_3:
@@ -90,6 +91,13 @@ public class TutoMgr : AwakeSingleton<TutoMgr>
             case Tutorial.Town_Tuto_12:
             case Tutorial.Town_Tuto_13:
                 return 4;
+            case Tutorial.Event_0_Tuto_1:
+            case Tutorial.Event_0_Tuto_2:
+            case Tutorial.Event_0_Tuto_3:
+            case Tutorial.Event_0_Tuto_4:
+            case Tutorial.Event_0_Tuto_5:
+            case Tutorial.Event_0_Tuto_6:
+                return 5;
         }
 
         return 0;

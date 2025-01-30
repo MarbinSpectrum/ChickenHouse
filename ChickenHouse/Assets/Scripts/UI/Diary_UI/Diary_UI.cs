@@ -13,6 +13,7 @@ public class Diary_UI : Mgr
     [SerializeField] private RectTransform dontClick;
     private DiaryMenu nowMenu;
 
+    public bool isOpen { private set; get; }
     public void Set_UI()
     {
         nowMenu = (DiaryMenu)( -1);
@@ -27,11 +28,33 @@ public class Diary_UI : Mgr
         closeBtn.onClick.RemoveAllListeners();
         closeBtn.onClick.AddListener(() =>
         {
-            gameMgr.OptionStopGame(false);
-            gameObject.SetActive(false);
+            CloseUI(true);
         });
 
+        isOpen = true;
+
         Set_UI(DiaryMenu.Quest);
+    }
+
+    public void CloseUI(bool pAll)
+    {
+        if (pAll)
+        {
+            file.CloseUI();
+            gameMgr.OptionStopGame(false);
+            gameObject.SetActive(false);
+            isOpen = false;
+            return;
+        }
+
+        if (file.saveMenuAct)
+            file.CloseUI();
+        else
+        {
+            gameMgr.OptionStopGame(false);
+            gameObject.SetActive(false);
+            isOpen = false;
+        }
     }
 
     public void Set_UI(int menuIdx)

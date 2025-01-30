@@ -19,6 +19,7 @@ public class GameMgr : AwakeSingleton<GameMgr>
 
     private const int DEFAULT_CHICKEN_EXP = 300;
     public const string WINDOW_MODE_KEY = "WINDOW_MODE";
+    public bool gameRecordOpen => gameRecord.gameRecordOpen;
 
     //-------------------------------------------------------------------------------------------------------
     protected override void Awake()
@@ -125,9 +126,9 @@ public class GameMgr : AwakeSingleton<GameMgr>
         gameRecord.gameObject.SetActive(true);
     }
 
-    public void CloseRecordUI()
+    public void CloseRecordUI(bool pAll)
     {
-        gameRecord.gameObject.SetActive(false);
+        gameRecord.CloseUI(pAll);
     }
 
     public void OpenGetExpUI(int pGetExp,NoParaDel pFun)

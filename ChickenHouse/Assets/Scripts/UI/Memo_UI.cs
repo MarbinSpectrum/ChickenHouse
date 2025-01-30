@@ -25,6 +25,7 @@ public class Memo_UI : Mgr
     [SerializeField] private List<Image> gauge;
     [SerializeField] private Color badColor;
     [SerializeField] private Color goodColor;
+    public bool isOpen { private set; get; }
 
     private void Start()
     {
@@ -45,6 +46,8 @@ public class Memo_UI : Mgr
             memoObjs.alpha = 1;
             deep.gameObject.SetActive(false);
         }
+
+        isOpen = false;
     }
 
     private void Update()
@@ -167,6 +170,8 @@ public class Memo_UI : Mgr
 
         gameMgr.StopGame(true);
         deep.gameObject.SetActive(true);
+
+        isOpen = true;
     }
 
     public void CloseMemo()
@@ -176,5 +181,7 @@ public class Memo_UI : Mgr
         animator.Play("Close");
         gameMgr.StopGame(false);
         deep.gameObject.SetActive(false);
+
+        isOpen = false;
     }
 }
