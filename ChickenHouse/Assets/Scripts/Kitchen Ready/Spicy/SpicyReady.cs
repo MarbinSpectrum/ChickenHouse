@@ -16,7 +16,8 @@ public class SpicyReady : Mgr
     [SerializeField] private List<KitchenSpicySetSlot>  spicySetSlots;
     [SerializeField] private TextMeshProUGUI            spicyCnt;
     [SerializeField] private KitchenSpicyInfo           spicyInfo;
-    [SerializeField] private MenuReady menuReady;
+    [SerializeField] private MenuReady                  menuReady;
+    [SerializeField] private KitchenSpicyDrag           dragObj;
     private ChickenSpicy selectSpicy;
 
     public void SetUI()
@@ -89,6 +90,18 @@ public class SpicyReady : Mgr
                     selectSpicy = eSpicy;
                 spicyInfo.SetUI(selectSpicy);
                 UpdateSpicyList();
+            },
+            () =>
+            {
+                Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                dragObj.transform.position = new Vector3(pos.x, pos.y, 0);
+                dragObj.SetUI(eSpicy);
+                dragObj.gameObject.SetActive(true);
+            },
+            () =>
+            {
+                dragObj.gameObject.SetActive(false);
+                dragObj.SetUI(ChickenSpicy.None);
             });
         }
     }

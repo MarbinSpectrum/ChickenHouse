@@ -22,6 +22,7 @@ public class StaffReady : Mgr
 
     [SerializeField] private TextMeshProUGUI  staffCnt;
     [SerializeField] private KitchenStaffInfo staffInfo;
+    [SerializeField] private KichenStaffDrag dragObj;
 
     private EWorker selectWorker = EWorker.None;
 
@@ -104,6 +105,18 @@ public class StaffReady : Mgr
                     selectWorker = eWorker;
                 staffInfo.SetUI(selectWorker);
                 UpdateStaffList();
+            },
+            ()=>
+            {
+                Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                dragObj.transform.position = new Vector3(pos.x, pos.y, 0);
+                dragObj.SetUI(eWorker);
+                dragObj.gameObject.SetActive(true);
+            },
+            ()=>
+            {
+                dragObj.gameObject.SetActive(false);
+                dragObj.SetUI(EWorker.None);
             });
         }
     }

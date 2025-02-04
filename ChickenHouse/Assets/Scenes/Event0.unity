@@ -801,7 +801,7 @@ MonoBehaviour:
   m_enableAutoSizing: 1
   m_fontSizeMin: 1
   m_fontSizeMax: 18
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -868,6 +868,7 @@ MonoBehaviour:
     SerializationNodes: []
   textUI: {fileID: 398331815}
   stringKey: EVENT0_WARNING_1
+  isOutLine: 0
 --- !u!1001 &437115640
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1272,6 +1273,7 @@ MonoBehaviour:
     SerializationNodes: []
   textUI: {fileID: 514227797}
   stringKey: REFUSAL
+  isOutLine: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2074,7 +2076,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &987128950
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2919,6 +2921,7 @@ MonoBehaviour:
     SerializationNodes: []
   textUI: {fileID: 1312070459}
   stringKey: ACCEPT
+  isOutLine: 0
 --- !u!1 &1373140564
 GameObject:
   m_ObjectHideFlags: 0
@@ -4249,6 +4252,7 @@ MonoBehaviour:
     SerializationNodes: []
   textUI: {fileID: 2134996547}
   stringKey: OK
+  isOutLine: 0
 --- !u!114 &2134996547
 MonoBehaviour:
   m_ObjectHideFlags: 0

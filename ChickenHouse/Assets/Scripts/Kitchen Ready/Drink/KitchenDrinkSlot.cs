@@ -13,8 +13,11 @@ public class KitchenDrinkSlot : Mgr
     [SerializeField] private RectTransform partyRect;
 
     private NoParaDel selectDrinkFun;
+    private NoParaDel dragStart;
+    private NoParaDel dragEnd;
 
-    public void SetUI(Drink pDrink, bool pSelect, bool pIsParty, NoParaDel pSelectFun)
+    public void SetUI(Drink pDrink, bool pSelect, bool pIsParty, NoParaDel pSelectFun
+        , NoParaDel pDragStartFun, NoParaDel pDragEndFun)
     {
         DrinkData drinkData = subMenuMgr.GetDrinkData(pDrink);
         if (drinkData == null)
@@ -24,6 +27,8 @@ public class KitchenDrinkSlot : Mgr
         }
 
         selectDrinkFun = pSelectFun;
+        dragStart = pDragStartFun;
+        dragEnd = pDragEndFun;
 
         gameObject.SetActive(true);
         partyRect.gameObject.SetActive(pIsParty);
@@ -33,4 +38,8 @@ public class KitchenDrinkSlot : Mgr
     }
 
     public void SelectDrinkMenu() => selectDrinkFun?.Invoke();
+
+    public void DragStart() => dragStart?.Invoke();
+
+    public void DragEnd() => dragEnd?.Invoke();
 }

@@ -16,6 +16,7 @@ public class DrinkReady : Mgr
     [SerializeField] private TextMeshProUGUI             drinkCnt;
     [SerializeField] private KitchenDrinkInfo            drinkInfo;
     [SerializeField] private MenuReady menuReady;
+    [SerializeField] private KitchenDrinkDrag dragObj;
     private Drink selectDrink;
 
     public void SetUI()
@@ -88,6 +89,18 @@ public class DrinkReady : Mgr
                     selectDrink = eDrink;
                 drinkInfo.SetUI(selectDrink);
                 UpdateDrinkList();
+            },
+            () =>
+            {
+                Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                dragObj.transform.position = new Vector3(pos.x, pos.y, 0);
+                dragObj.SetUI(eDrink);
+                dragObj.gameObject.SetActive(true);
+            },
+            () =>
+            {
+                dragObj.gameObject.SetActive(false);
+                dragObj.SetUI(Drink.None);
             });
         }
     }

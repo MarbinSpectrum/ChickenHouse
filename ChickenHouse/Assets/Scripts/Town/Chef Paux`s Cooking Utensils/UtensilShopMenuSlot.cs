@@ -40,7 +40,7 @@ public class UtensilShopMenuSlot : Mgr
 
         int newMoney = (int)(shopData.money * (100f - gameMgr.playData.ShopSaleValue()) / 100f);
         string moneyStr = LanguageMgr.GetMoneyStr(itemCost.fontSize, newMoney);
-        LanguageMgr.SetText(itemCost, moneyStr);
+        LanguageMgr.SetText(itemCost, moneyStr,true);
         if (playData.money >= newMoney)
             itemCost.color = costColor.goodColor;
         else

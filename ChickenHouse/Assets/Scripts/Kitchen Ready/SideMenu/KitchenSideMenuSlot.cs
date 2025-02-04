@@ -13,8 +13,11 @@ public class KitchenSideMenuSlot : Mgr
     [SerializeField] private RectTransform      partyRect;
 
     private NoParaDel selectSideMenuFun;
+    private NoParaDel dragStart;
+    private NoParaDel dragEnd;
 
-    public void SetUI(SideMenu pSideMenu, bool pSelect, bool pIsParty, NoParaDel pSelectFun)
+    public void SetUI(SideMenu pSideMenu, bool pSelect, bool pIsParty, NoParaDel pSelectFun
+          , NoParaDel pDragStartFun, NoParaDel pDragEndFun)
     {
         SideMenuData sideMenuData = subMenuMgr.GetSideMenuData(pSideMenu);
         if (sideMenuData == null)
@@ -24,6 +27,8 @@ public class KitchenSideMenuSlot : Mgr
         }
 
         selectSideMenuFun = pSelectFun;
+        dragStart = pDragStartFun;
+        dragEnd = pDragEndFun;
 
         gameObject.SetActive(true);
         partyRect.gameObject.SetActive(pIsParty);
@@ -33,4 +38,8 @@ public class KitchenSideMenuSlot : Mgr
     }
 
     public void SelectSideMenu() => selectSideMenuFun?.Invoke();
+
+    public void DragStart() => dragStart?.Invoke();
+
+    public void DragEnd() => dragEnd?.Invoke();
 }

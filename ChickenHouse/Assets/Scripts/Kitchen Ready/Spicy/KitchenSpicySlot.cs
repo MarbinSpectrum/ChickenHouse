@@ -13,8 +13,11 @@ public class KitchenSpicySlot : Mgr
     [SerializeField] private RectTransform      partyRect;
 
     private NoParaDel selectSpicyFun;
+    private NoParaDel dragStart;
+    private NoParaDel dragEnd;
 
-    public void SetUI(ChickenSpicy pSpicy, bool pSelect, bool pIsParty, NoParaDel pSelectFun)
+    public void SetUI(ChickenSpicy pSpicy, bool pSelect, bool pIsParty, NoParaDel pSelectFun
+        , NoParaDel pDragStartFun, NoParaDel pDragEndFun)
     {
         SpicyData spicyData = spicyMgr.GetSpicyData(pSpicy);
         if (spicyData == null)
@@ -24,6 +27,8 @@ public class KitchenSpicySlot : Mgr
         }
 
         selectSpicyFun = pSelectFun;
+        dragStart = pDragStartFun;
+        dragEnd = pDragEndFun;
 
         gameObject.SetActive(true);
         partyRect.gameObject.SetActive(pIsParty);
@@ -33,4 +38,8 @@ public class KitchenSpicySlot : Mgr
     }
 
     public void SelectSpicy() => selectSpicyFun?.Invoke();
+
+    public void DragStart() => dragStart?.Invoke();
+
+    public void DragEnd() => dragEnd?.Invoke();
 }

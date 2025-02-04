@@ -95,6 +95,7 @@ public class KitchenReady : Mgr
             moveUI.goMenuUIBtn.gameObject.SetActive(actMenuUI);
             moveUI.goStaffUIBtn.gameObject.SetActive(false);
             moveUI.startGameBtn.gameObject.SetActive(actMenuUI == false);
+            soundMgr.PlayBGM(Sound.Ready_BG);
             return;
         }
 
@@ -105,6 +106,7 @@ public class KitchenReady : Mgr
             moveUI.goMenuUIBtn.gameObject.SetActive(false);
             moveUI.goStaffUIBtn.gameObject.SetActive(actStaffUI);
             moveUI.startGameBtn.gameObject.SetActive(true);
+            soundMgr.PlayBGM(Sound.Ready_BG);
             return;
         }
 

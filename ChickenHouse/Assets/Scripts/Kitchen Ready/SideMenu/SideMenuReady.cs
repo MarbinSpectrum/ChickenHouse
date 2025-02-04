@@ -17,6 +17,8 @@ public class SideMenuReady : Mgr
     [SerializeField] private TextMeshProUGUI                sideMenuCnt;
     [SerializeField] private KitchenSideMenuInfo            sideMenuInfo;
     [SerializeField] private MenuReady menuReady;
+    [SerializeField] private KitchenSideMenuDrag dragObj;
+
     private SideMenu selectSideMenu;
 
     public void SetUI()
@@ -89,6 +91,18 @@ public class SideMenuReady : Mgr
                     selectSideMenu = eSideMenu;
                 sideMenuInfo.SetUI(selectSideMenu);
                 UpdateSideMenuList();
+            },
+            () =>
+            {
+                Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                dragObj.transform.position = new Vector3(pos.x, pos.y, 0);
+                dragObj.SetUI(eSideMenu);
+                dragObj.gameObject.SetActive(true);
+            },
+            () =>
+            {
+                dragObj.gameObject.SetActive(false);
+                dragObj.SetUI(SideMenu.None);
             });
         }
     }
