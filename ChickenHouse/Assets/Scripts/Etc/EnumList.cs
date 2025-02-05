@@ -185,6 +185,19 @@ public enum Guest
     Crow = 21,
     /** ∏Òµµ∏Æ µµ∏∂πÏ **/
     FrilledLizard = 22,
+    /** ±‚∏∞ **/
+    Graffe = 23,
+    /** ∞≈∫œ¿Ã **/
+    Turtle = 24,
+    /** µµ∏∂πÏ **/
+    Lizard = 25,
+    /** ∏ª∑π¿Ã∏∆ **/
+    MalayanTapir = 26,
+    /** Ω¥∞°±€∂Û¿Ã¥ı **/
+    SugarGlider = 27,
+    /** ø’∞¸æﬁπ´ **/
+    Cockatiel = 28,
+
 
     MAX
 }

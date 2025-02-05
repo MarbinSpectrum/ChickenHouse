@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Sugar Glider
+  m_Controller: {fileID: 9100000, guid: 32ea96f3091af02498fc94fb1b82f2f1, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: a9d33ea858a2bbc488f4f64fe09af4a5, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: a5b35d5ef4d9f7e48930310fb519bd23, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 5b84ea5211e766d439dd048218c42a66, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 2f26ed820040b2b4183a4a3af77e8c4e, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: b8694ea8e0cf99c429ccdff4e2d2f9b0, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 8d8e2966f4dbd7c4dbe6adb6b39266d5, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 10b81c913e86ff54596fb4db198190cd, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 5ecdcc8af4136d1418fcdbcdad1251a0, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 524b827f92ac24a4d843c68912a9dc27, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: bf594dee8932bf843b3124d8bd5360f3, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 7664377ffd829ca4fb9c78e22961d4c3, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: c1080a608fc7ed64ab57a4df9e9d619c, type: 2}

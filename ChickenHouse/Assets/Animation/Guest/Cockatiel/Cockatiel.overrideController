@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Cockatiel
+  m_Controller: {fileID: 9100000, guid: 32ea96f3091af02498fc94fb1b82f2f1, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: a9d33ea858a2bbc488f4f64fe09af4a5, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: a56a38338676d5d43a44f3cf50d30cba, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 5b84ea5211e766d439dd048218c42a66, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: ad8e5a8d82740474bb50de27f4fc4643, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: b8694ea8e0cf99c429ccdff4e2d2f9b0, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 1b09d425974106741949169d8b147329, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 10b81c913e86ff54596fb4db198190cd, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: c679bb29b44ef5c48908513a8f0647d5, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 524b827f92ac24a4d843c68912a9dc27, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 24906abd76077384da7fa395b83001e3, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 7664377ffd829ca4fb9c78e22961d4c3, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 59c4a8cf699f2a245bd6563033936226, type: 2}
