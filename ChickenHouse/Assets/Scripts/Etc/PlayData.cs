@@ -71,7 +71,7 @@ public class PlayData
         drink[(int)MenuSetPos.Drink0] = (int)Drink.Cola;
 
         hasItem[(int)ShopItem.Pickle] = true;
-        sideMenu[(int)MenuSetPos.SideMenu0] = (int)SideMenu.Pickle;
+        sideMenu[(int)MenuSetPos.SideMenu0] = (int)SideMenu.ChickenRadish;
 
         hasItem[(int)ShopItem.OIL_Zone_1] = true;
 
@@ -265,7 +265,7 @@ public class PlayData
         //해당 종류의 사이드메뉴를 가지고 있는지 여부
         switch (pSideMenu)
         {
-            case SideMenu.Pickle:
+            case SideMenu.ChickenRadish:
                 return hasItem[(int)ShopItem.Pickle];
         }
         return false;

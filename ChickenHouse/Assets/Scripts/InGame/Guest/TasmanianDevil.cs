@@ -43,7 +43,7 @@ public class TasmanianDevil: GuestObj
             talkStr += LanguageMgr.GetText("TASMANIAN_SIDE_BEER");
         }
 
-        if (requireMenu.sideMenu == SideMenu.Pickle)
+        if (requireMenu.sideMenu == SideMenu.ChickenRadish)
         {
             talkStr += "\n";
             talkStr += LanguageMgr.GetText("TASMANIAN_SIDE_PICKLE");

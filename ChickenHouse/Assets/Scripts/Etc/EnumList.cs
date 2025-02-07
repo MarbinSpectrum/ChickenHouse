@@ -79,7 +79,7 @@ public enum DragState
     /** 치킨 소스 **/
     Hot_Spicy       = 7,
     /** 치킨 무 **/
-    Chicken_Pickle   = 8,
+    Chicken_Radish   = 8,
     /** 치킨 박스(포장) **/
     Chicken_Pack    = 9,
     /** 콜라 **/
@@ -458,7 +458,18 @@ public enum Drink
 public enum SideMenu
 {
     None            = 0,
-    Pickle          = 1,
+    /** 치킨 무 **/
+    ChickenRadish  = 1,
+    /** 피클 **/
+    Pickle = 2,
+    /** 코울슬로 **/
+    Coleslaw = 3,
+    /** 콘샐러드 **/
+    CornSalad = 4,
+    /** 감자 튀김 **/
+    FrenchFries     = 5,
+    /** 너겟 **/
+    ChickenNugget = 6,
 
     MAX,
 }

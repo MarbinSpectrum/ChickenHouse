@@ -38,7 +38,7 @@ public class SugarGlider : GuestObj
             talkStr += LanguageMgr.GetText("SUGARGLIDER_SIDE_COLA");
         }
 
-        if (requireMenu.sideMenu == SideMenu.Pickle)
+        if (requireMenu.sideMenu == SideMenu.ChickenRadish)
         {
             talkStr += "\n";
             talkStr += LanguageMgr.GetText("SUGARGLIDER_SIDE_PICKLE");

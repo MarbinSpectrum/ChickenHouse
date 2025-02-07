@@ -81,8 +81,8 @@ public class SubMenuMgr : AwakeSingleton<SubMenuMgr>
     {
         switch(pDragState)
         {
-            case DragState.Chicken_Pickle:
-                return SideMenu.Pickle;
+            case DragState.Chicken_Radish:
+                return SideMenu.ChickenRadish;
         }
         return SideMenu.None;
     }
@@ -93,7 +93,7 @@ public class SubMenuMgr : AwakeSingleton<SubMenuMgr>
         switch (shopItem)
         {
             case ShopItem.Pickle:
-                return SideMenu.Pickle;
+                return SideMenu.ChickenRadish;
         }
         return SideMenu.None;
     }

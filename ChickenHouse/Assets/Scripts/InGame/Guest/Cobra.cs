@@ -43,7 +43,7 @@ public class Cobra : GuestObj
             talkStr += LanguageMgr.GetText("COBRA_SIDE_BEER");
         }
 
-        if (requireMenu.sideMenu == SideMenu.Pickle)
+        if (requireMenu.sideMenu == SideMenu.ChickenRadish)
         {
             talkStr += "\n";
             talkStr += LanguageMgr.GetText("COBRA_SIDE_PICKLE");

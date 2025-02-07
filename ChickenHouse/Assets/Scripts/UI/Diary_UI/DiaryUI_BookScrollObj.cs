@@ -110,7 +110,7 @@ public class DiaryUI_BookScrollObj : Mgr
         {
             headerRect.gameObject.SetActive(true);
             slotRect.gameObject.SetActive(false);
-            LanguageMgr.SetString(headerText, "PICKLE_HEADER");
+            LanguageMgr.SetString(headerText, "SIDEMENU_HEADER");
         }
         else if (ectList.drinks.Count > 0)
         {

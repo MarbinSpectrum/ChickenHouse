@@ -148,7 +148,7 @@ public class DragObj : Mgr
                     MoveMousePos();
                 }
                 return;
-            case DragState.Chicken_Pickle:
+            case DragState.Chicken_Radish:
                 {
                     SideMenu        eSideMenu       = subMenuMgr.GetDragStateSideMenu(kitchenMgr.dragState);
                     SideMenuData    sideMenuData    = subMenuMgr.GetSideMenuData(eSideMenu);

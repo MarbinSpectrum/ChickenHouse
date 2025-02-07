@@ -38,7 +38,7 @@ public class MalayanTapir : GuestObj
             talkStr += LanguageMgr.GetText("MALAYANTAPIR_SIDE_COLA");
         }
 
-        if (requireMenu.sideMenu == SideMenu.Pickle)
+        if (requireMenu.sideMenu == SideMenu.ChickenRadish)
         {
             talkStr += "\n";
             talkStr += LanguageMgr.GetText("MALAYANTAPIR_SIDE_PICKLE");

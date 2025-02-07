@@ -178,7 +178,7 @@ public class DragCamera : Mgr
             case DragState.Chicken_Pack_Holl:
             case DragState.Chicken_Pack:
             case DragState.Cola:
-            case DragState.Chicken_Pickle:
+            case DragState.Chicken_Radish:
                 return dragOutline[DragZone.SpicyTable];
             default:
                 return dragOutline[DragZone.None];

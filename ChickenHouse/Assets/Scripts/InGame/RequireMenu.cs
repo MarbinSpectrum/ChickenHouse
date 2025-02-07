@@ -36,7 +36,7 @@ public class RequireMenu
             chickenSpicy[1] = spicy1;
 
             drink = Drink.Cola;
-            sideMenu = SideMenu.Pickle;
+            sideMenu = SideMenu.ChickenRadish;
             return true;
         }
         else

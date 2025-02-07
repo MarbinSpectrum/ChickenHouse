@@ -43,7 +43,7 @@ public class Cat : GuestObj
             talkStr += LanguageMgr.GetText("CAT_SIDE_BEER");
         }
 
-        if (requireMenu.sideMenu == SideMenu.Pickle)
+        if (requireMenu.sideMenu == SideMenu.ChickenRadish)
         {
             talkStr += "\n";
             talkStr += LanguageMgr.GetText("CAT_SIDE_PICKLE");

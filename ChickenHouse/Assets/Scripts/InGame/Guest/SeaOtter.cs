@@ -43,7 +43,7 @@ public class SeaOtter : GuestObj
             talkStr += LanguageMgr.GetText("SEAOTTER_SIDE_BEER");
         }
 
-        if (requireMenu.sideMenu == SideMenu.Pickle)
+        if (requireMenu.sideMenu == SideMenu.ChickenRadish)
         {
             talkStr += "\n";
             talkStr += LanguageMgr.GetText("SEAOTTER_SIDE_PICKLE");

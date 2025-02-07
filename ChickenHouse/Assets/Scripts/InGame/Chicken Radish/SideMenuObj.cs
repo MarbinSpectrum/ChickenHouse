@@ -35,8 +35,8 @@ public class SideMenuObj : Mgr
 
         switch(eSideMenu)
         {
-            case SideMenu.Pickle:
-                kitchenMgr.dragState = DragState.Chicken_Pickle;
+            case SideMenu.ChickenRadish:
+                kitchenMgr.dragState = DragState.Chicken_Radish;
                 break;
         }
 

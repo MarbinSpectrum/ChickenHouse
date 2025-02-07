@@ -37,7 +37,7 @@ public class FrilledLizard : GuestObj
             talkStr += "\n";
             talkStr += LanguageMgr.GetText("FRILLEDLIZARD_SIDE_COLA");
         }
-        if (requireMenu.sideMenu == SideMenu.Pickle)
+        if (requireMenu.sideMenu == SideMenu.ChickenRadish)
         {
             talkStr += "\n";
             talkStr += LanguageMgr.GetText("FRILLEDLIZARD_SIDE_PICKLE");

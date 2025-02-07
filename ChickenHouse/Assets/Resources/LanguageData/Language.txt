@@ -111,7 +111,7 @@ QUEST_WARNING	오늘 내로 달성되어야 하는 매우 중요한 퀘스트가
 QUEST_WARNING_MSG	빚 상환일까지 이틀밖에 남지 않았습니다.\n이틀동안은 돈을 아끼는것을 추천드립니다.	You only have two days until your debt repayment date.\nI recommend saving money for two days.
 ETC	기타	Etc
 DRINK_HEADER	음료	Drink
-PICKLE_HEADER	피클	Pickle
+SIDEMENU_HEADER	사이드메뉴	SideMenu
 WINDIW_MODE	창모드	Window Mode
 ALCOHOLIC	주류	Alcoholic
 DRINKABLE	술을 마심	Drinkable
@@ -142,7 +142,7 @@ PIG_TALK_5	쿠히힉힉힉 눈은 뜨고 치킨을 만드는 건가?! 장님이 
 COOK_LV_REWARD_1	Lv {0} 달성시 치킨 가격 +{1}<size=6><b>C</b></size>	Lv {0} reached: Increase chicken price +{1}<size=6><b>C</b></size>
 COOK_LV_REWARD_2	Lv {0} 달성시 치킨 원가 감소 {1}<size=6><b>C</b></size>	Lv {0} reached: Chicken cost cut {1}<size=6><b>C</b></size>
 COOK_LV_REWARD_3	Lv {0} 달성시 음료 원가 감소 {1}<size=6><b>C</b></size>	Lv {0} reached: Drink cost cut {1}<size=6><b>C</b></size>
-COOK_LV_REWARD_4	Lv {0} 달성시 피클 원가 감소 {1}<size=6><b>C</b></size>	Lv {0} reached: Pickle cost cut {1}<size=6><b>C</b></size>
+COOK_LV_REWARD_4	Lv {0} 달성시 사이드메뉴 원가 감소 {1}<size=6><b>C</b></size>	Lv {0} reached: SideMenu cost cut {1}<size=6><b>C</b></size>
 COOK_LV_REWARD_5	Lv {0} 달성시 직원 속도 +{1}%	Lv {0} reached: Staff speed +{1}%
 COOK_LV_REWARD_6	Lv {0} 달성시 수익 +{1}%	Lv {0} reached: Profit rate +{1}%
 COOK_LV_REWARD_7	Lv {0} 달성시 상점 할인율 +{1}%	Lv {0} reached: Shop sale +{1}%
@@ -163,7 +163,7 @@ TUTO_8_1	해당 상태로 치킨을 너무 오래 방치하면\n치킨이 타므
 TUTO_8_2	이제 치킨을 치킨용기안에 넣어주세요.	Now put the chicken in the wrapper.
 TUTO_9_0	왼쪽상단의 쪽지를 클릭하면\n손님의 주문을 확인할 수 있습니다.	Click on the note at the top left.\nWe can confirm your order.
 TUTO_9_1	손님의 주문에 알맞는 메뉴를 준비해주면됩니다.	You can prepare a menu suitable for your order.
-TUTO_10	콜라와 치킨무도 넣어주세요.	Add coke and pickles, too.
+TUTO_10	콜라와 치킨무도 넣어주세요.	Add coke and radish, too.
 TUTO_11	치킨도 올려주세요.	Please put some chicken on top, too.
 TUTO_12	치킨이 준비 되었습니다.\n종을 울려서 카운터로 이동합니다.	Chicken is done. Press the top button\nto move to the counter.
 WORKER_TUTO_1_0	가게를 효율적으로 운영하기 위해서는 직원은 필수적입니다.	Employees are essential to run the store efficiently.
@@ -172,7 +172,7 @@ WORKER_TUTO_2_0	왼쪽하단을 확인해보면 직원의 상세정보도 확인
 WORKER_TUTO_2_1	이를 참고하여 적합한 업무에 배치하는 것이 중요합니다. 	It is important to refer to this and place it in a suitable job.
 WORKER_TUTO_2_2	적절한 배치로 가게를 성공적으로 운영해봅시다!	Let's run the store successfully with the right arrangement!
 MENU_TUTO_1	새로운 양념이 추가되었습니다. 주방에 배치해봅시다.	A new seasoning has been added. Let's put it in the kitchen.
-MENU_TUTO_2_0	주방에 양념,피클,음료를 배치하면 손님들이 해당 메뉴를 주문하게 됩니다.	Place seasoning, pickles, and drinks in the kitchen and customers will order them.
+MENU_TUTO_2_0	주방에 양념,사이드메뉴,음료를 배치하면 손님들이 해당 메뉴를 주문하게 됩니다.	Place seasoning, sidemenu, and drinks in the kitchen and customers will order them.
 MENU_TUTO_2_1	왼쪽하단을 확인해보면 배치한 메뉴의 상세정보도 확인할 수 있습니다.	If you check the bottom left, you can also check the details of the menu you placed.
 MENU_TUTO_2_2	메뉴를 적절하게 배치해서 가게를 성공적으로 운영해봅시다!	Let's successfully run the store by properly arranging the menu!
 TOWN_TUTO_1	마을에서는 다양한 활동을 할 수 있습니다.	You can engage in a variety of activities in the village.
@@ -225,8 +225,18 @@ COLA	콜라	Cola
 COLA_INFO	치킨과 같이 먹으면 안성맞춤인 탄산음료.	Soda perfect with chicken.
 BEER	맥주	Beer
 BEER_INFO	시원한 목 넘김과 풍부한 맛으로\n치킨의 맛을 한층 더 살려주는 맥주.\n(술을 못 먹는 손님은 구입하지 않습니다.)	With a cool throat and a rich tasteBeer that makes the taste of chicken even more alive.\n<size=13>(We don't buy customers who can't drink alcohol.)</size>
-PICKLE	치킨무	Pickled radish
-PICKLE_INFO	치킨의 느끼함을 잡아주고 입안을 상큼하게 만들어주는, 아삭아삭한 식감의 새콤달콤한 필수 반찬입니다!	It's a sweet and sour must-have side dish with a crunchy texture that catches the greasyness of chicken and makes the mouth fresh!
+CHICKENRADISH	치킨무	Pickled radish
+CHICKENRADISH_INFO	치킨의 느끼함을 잡아주고 입안을 상큼하게 만들어주는, 아삭아삭한 식감의 새콤달콤한 필수 반찬입니다!	It's a sweet and sour must-have side dish with a crunchy texture that catches the greasyness of chicken and makes the mouth fresh!
+PICKLE	피클	Pickle
+PICKLE_INFO	오이를 소금물에 절여 발효시킨 음식으로, 새콤하고 아삭한 맛이 특징이다.	It is a food made by pickling cucumbers in brine and fermenting them, characterized by a sour and crunchy taste.
+COLESLAW	코울슬로	Coleslaw
+COLESLAW_INFO	양배추를 주재료로 마요네즈, 식초, 설탕 등을 섞어 만든 샐러드로, 상큼하고 고소한 맛이 특징이다.	It is a salad made with cabbage as the main ingredient, mixed with mayonnaise, vinegar, and sugar, characterized by a tangy and creamy taste.
+CORNSALAD	콘샐러드	CornSalad
+CORNSALAD_INFO	옥수수를 주재료로 마요네즈, 설탕 등을 섞어 만든 달콤하고 고소한 샐러드	A sweet and creamy salad made with corn as the main ingredient, mixed with mayonnaise and sugar.
+FRENCHFRIES	감자튀김	French Fries
+FRENCHFRIES_INFO	감자를 길게 썰어 기름에 바삭하게 튀긴 음식으로, 짭짤한 맛이 특징이다.	It is a dish made by cutting potatoes into long strips and frying them until crispy, characterized by a salty taste.
+CHICKENNUGGET	치킨너겟	Chicken Nugget
+CHICKENNUGGET_INFO	잘게 간 닭고기를 한입 크기로 만들어 튀긴 음식으로, 바삭하고 고소한 맛이 특징이다.	Chicken nuggets are made by grinding chicken into small pieces, shaping them into bite-sized portions, and frying them, characterized by a crispy and savory taste.
 CHICKEN	치킨	Chicken
 FRIED_CHICKEN	후라이드 치킨	Fried Chicken
 SOY_SPICY	간장양념	Soy Spicy
@@ -243,25 +253,25 @@ BBQ_SPICY	바베큐양념	BBQ Spicy
 BBQ_SPICY_INFO	달콤하고 매콤하며 풍부한 맛을 지닌 양념입니다. 특유의 깊고 그을린 맛이 특징입니다.	It is a seasoning with a sweet, spicy, and rich taste. It is characterized by its unique deep, scorched taste.
 FOX_ORDER_1	안녕하세요! 저는 후라이드한 치킨과 콜라를 좋아하는 여우예요!	Hello! I'm a fox who loves fried chicken and coke!
 FOX_ORDER_2	오늘은 뭔가 살짝 매콤한 양념치킨을 먹어야 할 거 같은 기분이에요!	I feel like I'm going to have some spicy seasoned chicken today!
-FOX_ORDER_3	역시 치킨은 시원한 치킨 무와 함께 소스 없이 바삭하게 즐겨야 국룰이죠!	As expected, it would be better to enjoy chicken simply without sauce with cool pickles!
+FOX_ORDER_3	역시 치킨은 시원한 치킨 무와 함께 소스 없이 바삭하게 즐겨야 국룰이죠!	As expected, it would be better to enjoy chicken simply without sauce with cool radish!
 FOX_ORDER_4	최근에 저는 새로운 맛의 치킨을 즐기고 싶어요! 예를 들어 뿌링클? 	Recently, I want to eat a new flavor of chicken! For example, Prinkle?
 FOX_ORDER_5	오늘은 양념을 찍어 먹는 치킨과 가루를 뿌려 먹는 치킨을 주세요!	Today, please give me chicken dipped in sauce and chicken sprinkled with powder!
 FOX_ORDER_6	후라이드 치킨이랑 뿌링클 치킨을 같이 먹으면 너무 느끼할까요?	Would it be too greasy to eat fried chicken and Prinkle chicken together?
 FOX_ORDER_7	새로운 변화가 필요할 거 같아요! 바비큐 치킨을 한번 시켜 봐야겠어요!	I think we need a new change! I should order BBQ chicken!
 FOX_ORDER_8	양념으로 가득한 치킨을 먹다보면 옷에 다 묻을 거 같아요!	I think I'll spill it all on my clothes if I eat chicken full of seasoning!
-FOX_ORDER_9	양념 치킨만 먹으면 제 혀가 부담을 느낄지 모르니 달달함도 필요할 거 같아요!	If you just eat seasoned chicken your tongue might be too muchso I think you need sweetness, too!
+FOX_ORDER_9	양념 치킨만 먹으면 제 혀가 부담을 느낄지 모르니 달달함도 필요할 거 같아요!	If you just eat hot chicken your tongue might be too muchso I think you need sweetness, too!
 FOX_ORDER_10	오늘은 특별하게 달달 한 눈 같은 치킨과 바비큐 파티를 즐기고 싶어요!	I want to have a special snow chicken and BBQ today!
 FOX_ORDER_11	오늘의 식사는 아주 심플하게 즐기고 싶어요!	I want to enjoy my meal very simply today!
 FOX_SIDE_COLA	으아 못 참겠다! 시원한 콜라도 주세요!	Oh, I can't stand it! I'd like a cold coke, too!
-FOX_SIDE_PICKLE	아삭아삭 시원한 치킨 무도 주세요!	Please give me some cool pickles, too!
+FOX_SIDE_PICKLE	아삭아삭 시원한 치킨 무도 주세요!	Please give me some cool radish, too!
 FOX_ANGRY	이게 뭐에요 너무해	What is this? It's too much
 FOX_THANK_YOU	살짝 아쉽지만... 그래도 좋아요!	It's a bit unfortunate, but it's still good!
 FOX_HAPPY	드디어 단골집을 찾은거 같아요!	I think I've finally found a regular place!
 DOG_ORDER_1	안녕하세요! 사장님! 간편하게 먹을 수 있는 바삭하고 맛 좋은 기본적인 후라이드로 부탁드립니다!	Hello! Boss! I'd like a crispy and delicious basic fried dish that's good to eat!
-DOG_ORDER_2	오늘은 양념이랑 후라이드 둘 중 뭘먹지?! 아 안되겠다! 그냥 양념 주세요!	What should I eat today? Seasoning? Fried food? Oh, no! Just seasonings, please!
-DOG_ORDER_3	매콤하면서 바삭한 양념치킨이 땡기니까 오늘은 반반으로 시킬게요!	I'm craving spicy and crispy seasoned chicken, so I'll order half and half today!
+DOG_ORDER_2	오늘은 양념이랑 후라이드 둘 중 뭘먹지?! 아 안되겠다! 그냥 양념 주세요!	What should I eat today? Hot? Fried food? Oh, no! Just hot, please!
+DOG_ORDER_3	매콤하면서 바삭한 양념치킨이 땡기니까 오늘은 반반으로 시킬게요!	I'm craving spicy and crispy hot chicken, so I'll order half and half today!
 DOG_ORDER_4	안녕하세요. 사장님 오늘은 넉넉하게 즐길 수 있도록 후라이드와 뿌링클 둘 다 주세요!	Hello boss please give me both fried and Prinkle so I can have plenty of fun today!
-DOG_ORDER_5	직장 동료 중에 ‘찰스’라는 고양이가 있는데 그 친구가 평소에는 뿌링클 치킨을 좋아했죠 저는 양념이 좋구요! 	Charles used to love Prinkle chicken. But I love seasoning!
+DOG_ORDER_5	직장 동료 중에 ‘찰스’라는 고양이가 있는데 그 친구가 평소에는 뿌링클 치킨을 좋아했죠 저는 양념이 좋구요! 	Charles used to love Prinkle chicken. But I love hot!
 DOG_ORDER_6	아무래도 오늘은 ‘찰스’가 추천해줬던 뿌링클 이라는 치킨을 도전해 보는 것도 나쁘지 않을 거 같네요!	I think it'd be good to try the chicken called Prinkle that Charles recommended today!
 DOG_ORDER_7	가끔 고향 집에서 먹던 요리가 그리울 때가 많아요, 밥에다 비벼 먹기도 했는데 그 고향에서 느꼈던 짭짤한 감각을 다시 느껴보고 싶어요!	Sometimes I miss the foods I used to eat in my hometown, and I mixed them with rice, but I want to relive the salty taste I felt in my hometown!
 DOG_ORDER_8	오늘은 그리움과 기본적인 맛의 조합을 즐겨봐야겠군요!	Today, let's enjoy the harmony of longing and basic taste!
@@ -270,24 +280,24 @@ DOG_ORDER_10	오늘은 제 친구 ‘니치’ 녀석이 저한테 종종 미국
 DOG_ORDER_11	아는 여우 친구가 추천했던 미국의 맛의 치킨이 먹고 싶군요! 덤으로 평범한 치킨도 포함하죠	I really want to eat American-flavored chicken that my fox friend recommended! And please add regular chicken, too
 DOG_SIDE_COLA	일하느라 더우니 콜라도 부탁드릴게요	It's hot at work, so please give me a coke
 DOG_SIDE_BEER	일하느라 더우니 시원한 맥주도 부탁드릴게요	It's hot at work, so please give me a cold beer.
-DOG_SIDE_PICKLE	치킨만 먹으면 느끼하니까 치킨 무도 주세요	It's greasy if you eat chicken, so please give me Pickle
+DOG_SIDE_PICKLE	치킨만 먹으면 느끼하니까 치킨 무도 주세요	It's greasy if you eat chicken, so please give me radish
 DOG_ANGRY	하하... 정 말 맛 있 겠 네 요	Haha... It must be really delicious
 DOG_THANK_YOU	배만 채우면 OK죠	As long as I'm full, it's okay
 DOG_HAPPY	다른 동료 직원들한테도 추천해야겠어요!	I should also recommend it to my other fellow employees!
 CAT_ORDER_1	안녕하세요! 사장님 간장을 곁들인 맛 좋은 치킨을 주세요!	Hello! Boss, please give me some delicious chicken with soy sauce!
 CAT_ORDER_2	오늘은 뿌링클처럼 달고 부드러운 치킨으로 스트레스를 풀어야 하겠어요!	Today, I'm going to eat sweet and soft chicken like Prinkle. I need to relieve my stress
-CAT_ORDER_3	흠... 오늘은 고민이 좀 되네요. 양념을 먹을까?후라이드를 먹을까? 둘 다 가능하겠죠?	Um... I'm thinking about it today, so should I season it or eat fried food? Both are possible, right?
+CAT_ORDER_3	흠... 오늘은 고민이 좀 되네요. 양념을 먹을까?후라이드를 먹을까? 둘 다 가능하겠죠?	Um... I'm thinking about it today, so should I hot it or eat fried food? Both are possible, right?
 CAT_ORDER_4	팀장한테 받은 스트레스를 화끈한 더블 콤보로 풀어봐야겠어요!	I'll relieve the stress from the team leader with a hot double combo!
 CAT_ORDER_5	엄청나게 매운맛을 한번 도전해야겠어요! 전 아주 진지해요!	I'll have to give it a go! I'm very serious!
 CAT_ORDER_6	이렇게 먹으면 배탈 날지도 모르지만 짭짤함과 매콤함을 같이 즐겨보고 싶어요!	I might have an upset stomach if I eat like this, but I want to enjoy the salty and spicy taste together!
 CAT_ORDER_7	오늘은 친한 친구가 추천해준 이탈리안의 고급스러운 맛을 즐겨보고 싶네요	Today, I want to enjoy the luxurious taste of Italy that my close friend recommended
 CAT_ORDER_8	오늘 저녁을 매운 불닭으로만 달리면 탈 날 수 있으니 브레이크로 부드러움이 필요할거 같아요!	If you eat spicy hell chicken, you can get upset stomach, so I think you need a soft taste!
 CAT_ORDER_9	오늘 야근을 해야 할지도 몰라요 너무 슬프니까 불닭에 간장을 먹여야겠어요	I might have to work overtime today.. I'm so sad.. I'm going to put Hell spicy and Soy spicy on my chicken ribs
-CAT_ORDER_10	제가 양념을 먹을까.. 뿌링클을 먹을까.. 둘다 주세요!	Shall we have seasoned chicken or Prinkle? Both, please!
+CAT_ORDER_10	제가 양념을 먹을까.. 뿌링클을 먹을까.. 둘다 주세요!	Shall we have hot chicken or Prinkle? Both, please!
 CAT_ORDER_11	오늘은 제가 아는 동생이 좋아하는 가루 치킨을 시켜봐야겠어요!	Today, I'm going to order some powdered chicken that my acquaintance likes!
 CAT_SIDE_COLA	단게 땡기니 콜라도 있는게 좋을거 같아요!	I think we'd better have a glass of coke, too!
 CAT_SIDE_BEER	시원한게 땡기니 맥주도 있는게 좋을거 같아요!	I think we'd better have a glass of beer, too!
-CAT_SIDE_PICKLE	시원한 치킨 무도 부탁드릴게요!	I'd like some cool pickles, too!
+CAT_SIDE_PICKLE	시원한 치킨 무도 부탁드릴게요!	I'd like some cool radish, too!
 CAT_ANGRY	앞으로는 이 집에는 안와야겠네요!	I shouldn't come to this house from now on!
 CAT_THANK_YOU	이거면 피곤함을 달랠 수 있겠죠	This will relieve your tiredness
 CAT_HAPPY	이제 여기 말고는 다른 치킨은 성에 차지도 않겠어요!	I don't think I'll be satisfied with any chicken other than here anymore!
@@ -303,12 +313,12 @@ OPOSSUM_ORDER_9	나와 마린 짱이 만약 결혼해서 해외로 신혼여행�
 OPOSSUM_ORDER_10	오늘의 난 평소와 달라! 그녀를 위해서라면 어떠한 고통도 감내하는 남자가 되겠어! 그 앞이 설령 혀의 지옥이 될지라도! 	I am different today! For her sake, I will be a person who can endure any pain! Even if it becomes hell in front of him!
 OPOSSUM_ORDER_11	그녀를 위해 엄청난 혀의 고통도 견디는 강한 남자가 되겠어! 하지만 혹시 모르니까 그 뿌 뿌링클도...	I will be a strong man who can stand the pain of her tongue for her! But just in case, Prinkle...
 OPOSSUM_SIDE_COLA	콜라? 당연히 주문하지! 눈치 없어?	Cola? Of course! You don't know what I mean?
-OPOSSUM_SIDE_PICKLE	치킨 무? 흠 특별히 넣어줘	Pickle? Hmm, please add it
+OPOSSUM_SIDE_PICKLE	치킨 무? 흠 특별히 넣어줘	Radish? Hmm, please add it
 OPOSSUM_ANGRY	진짜 서비스 꽝이네! 다신 안 와!	It's really bad! It won't come again!
 OPOSSUM_THANK_YOU	뭐 나쁘진 않네! 다음에도 와주지	It's not bad! I'll come next time
 OPOSSUM_HAPPY	마린 짱도 마음에 들어? 나도!	Do you like Marine-chan? Me too!
 TASMANIAN_ORDER_1	YO! 지리산을 오른 듯한 지리는 기분! 중요한 내 프라이드! 치킨!	Hey! It feels like climbing Jirisan Mountain! My important fried chicken!
-TASMANIAN_ORDER_2	매콤! 달달! 달짝! 찌근! 매달! 나의 입맛을 돋구는 양념치킨~	Spicy! Sweet! Sweet! Sick! Every month! Seasoned chicken that makes my taste better
+TASMANIAN_ORDER_2	매콤! 달달! 달짝! 찌근! 매달! 나의 입맛을 돋구는 양념치킨~	Spicy! Sweet! Sweet! Sick! Every month! Hot chicken that makes my taste better
 TASMANIAN_ORDER_3	오늘은 나의 Heart!를 Hot!하게 만드는 파이어! 치킨!	Today, fire that makes my heart! Hot! Chicken!
 TASMANIAN_ORDER_4	YO! 내 안의 Beat! Vivace! Vest! barbecue!	Yo! Inside me Beat! Vivace! Vest! barbecue!
 TASMANIAN_ORDER_5	나의 혀를 자극하는 HOT! 진정하기 위해선 필요하지 후레쉬! 프라이드!	My tongue-in-cheeking HOT! I need it to calm down!Fresh! Fried!
@@ -320,15 +330,15 @@ TASMANIAN_ORDER_10	사장님 준비됐나? 양손 번쩍 들어 올려! 붐! 붐
 TASMANIAN_ORDER_11	나의 혀 위에 펼쳐지는 매서운 매콤보! 하지만 난 막을 수 있지 아주 빠르게 Vivace! 화끈한 불맛의 바비!	I can stop it! Hell fire!
 TASMANIAN_SIDE_COLA	나의 입안을 톡 쏘는 콜라도 Please!	Even the cola that pokes my mouth, please!
 TASMANIAN_SIDE_BEER	나의 목을 자극하는 맥주도 Please!	The beer that irritates my throat, please!
-TASMANIAN_SIDE_PICKLE	나의 영감을 돋구는 치킨 무 무 무빙!	Pickle moving that inspires me!
+TASMANIAN_SIDE_PICKLE	나의 영감을 돋구는 치킨 무 무 무빙!	Pickled radish moving that inspires me!
 TASMANIAN_ANGRY	진짜 이 치킨 Damn it!	What the hell is this chicken!
 TASMANIAN_THANK_YOU	나쁘지 않은 무난함! 앞으로도 Move!	It's not bad. It's not bad. Let's move!
 TASMANIAN_HAPPY	Fantastic!	Fantastic!
-TIGER_ORDER_1	안녕하세요! 아저씨! 저는 치킨이 양념을 원해요!	Hello, mister! I want the chicken to be seasoned!
+TIGER_ORDER_1	안녕하세요! 아저씨! 저는 치킨이 양념을 원해요!	Hello, mister! I want the chicken to be hot!
 TIGER_ORDER_2	그 그 그 뭐더라? 아! 가루 뿌린 치킨 주세요! 맛있어서 좋아요!	What was it? Oh! Give me powdered chicken! I like it because it's delicious!
-TIGER_ORDER_3	옛날에 가루나라 치킨이랑 양념나라 치킨이 싸웠데요! 왜 그랬을까요?	Once upon a time, there was a fight between powdered and seasoned chicken! Why did I do that?
+TIGER_ORDER_3	옛날에 가루나라 치킨이랑 양념나라 치킨이 싸웠데요! 왜 그랬을까요?	Once upon a time, there was a fight between powdered and hot chicken! Why did I do that?
 TIGER_ORDER_4	그레이삼촌을 아세요? 삼촌은 까르보나라 치킨이 좋데요! 저는 바비큐 좋고요! 전 까르보나라는 별로예요! 	Do you know Uncle Gray? He loves carbonara chicken! I love BBQ! I don't like carbonara!
-TIGER_ORDER_5	끔찍한 양념 용암을 지나가려면 용감한 전설의 마법의 가루를 뿌린 치킨 영웅이 필요해!	Need a brave legend magic powder-sprayed chicken hero to get through the terrible seasoned lava!
+TIGER_ORDER_5	끔찍한 양념 용암을 지나가려면 용감한 전설의 마법의 가루를 뿌린 치킨 영웅이 필요해!	Need a brave legend magic powder-sprayed chicken hero to get through the terrible hot lava!
 TIGER_ORDER_6	오늘은 우리 집에 그레이삼촌이 와서 바비큐 파티에요! 황금색으로 칠해진 고급 요리도! 물론 치킨으로! 	Uncle Gray is coming to my house and having a  BBQ today! Great dish painted golden! Of course it's chicken!
 TIGER_ORDER_7	어제 꿈에서 양념을 쏘는 용이 미국의 소스 부자를 납치하는 꿈을 꾸었어요!	I had a dream yesterday that a dragon shooting a marinade hijacked an American sauce rich man!
 TIGER_ORDER_8	오늘은 엄마랑 아빠가 좋아하는 짠 갈색 치킨을 사가야 한대요! 반은 제가 좋아하는 가루를 뿌려도 된대요! 	Today, I have to buy my mom and dad's favorite salty brown chicken! I can sprinkle half the chicken with my favorite powder!
@@ -336,7 +346,7 @@ TIGER_ORDER_9	그레이삼촌이 그랬어요! 인생은 단맛이랑 쓴맛이 
 TIGER_ORDER_10	주인장 양반! 여기 짭짤한 갈색 같은 인생의 치킨과 매콤달콤한 붉은 인생의 치킨 부탁해요!	Master! Here are some salty brown and sweet red chickens!
 TIGER_ORDER_11	오늘은 대전쟁 날이에요! 동쪽 간장 군단과 서쪽의 바비큐 군단의 전쟁! 둘 다 먹어 버릴 거라서 저의 승!	Today is the day of the great war! It's a war between the soy sauce army in the east and the barbecue army in the west! I'm going to eat both, so it's my victory!
 TIGER_SIDE_COLA	그리고 꼴라!	and Cola
-TIGER_SIDE_PICKLE	그리고 무!	and Pickle
+TIGER_SIDE_PICKLE	그리고 무!	and Pickle radish
 TIGER_ANGRY	우웩! 다신 안 와야지!	Wow! I won't come again!
 TIGER_THANK_YOU	히히 이 정도면 합격이에요!	Hehe. This is good enough!
 TIGER_HAPPY	치킨 나라에 평화를 가져다줄 맛이에요!	It's a taste that will bring peace to the chicken country!
@@ -386,7 +396,7 @@ DOVE_ORDER_10	그거 아시오? 마스터 나는 외면은 이탈리안처럼 �
 DOVE_ORDER_11	오늘 나는 ‘미스 플라워’양에게 대쉬 할 생각이라네 달콤하고 황금과 같은 그녀에게 나 불사조와 같은 비둘기인 내가! 	Today, I'm going to confess my love to Miss Flower! Sweet and golden to her... I'm going to express a fire-like heart...
 DOVE_SIDE_COLA	고급 콜라를 주문해 볼까 하오	I'm thinking about ordering a high-quality coke
 DOVE_SIDE_BEER	고급 맥주를 주문해 볼까 하오	I'm thinking about ordering a high-quality beer
-DOVE_SIDE_PICKLE	원하오! 시원한 워터가 곁들어진 무!	I want it! Pickled in cool water!
+DOVE_SIDE_PICKLE	원하오! 시원한 워터가 곁들어진 무!	I want it! Pickled radish in cool water!
 DOVE_ANGRY	이게 진짜일 리가 없어!	This can't be real!
 DOVE_THANK_YOU	흠! 이 무난함! 나쁘지 않아	Hmm! This is easy! Not bad
 DOVE_HAPPY	엘레강트!!! 구구! 구구구구구구	Elegant! Gu! Gu! Gu! Gu
@@ -423,18 +433,18 @@ REDPANDA_ANGRY	소녀의 생각으론 이대로는 아니된다 생각하오	In 
 REDPANDA_THANK_YOU	나쁘지 않은 무난함이었소! 이대로 전진하시오!	It wasn't bad, just simple enough! Proceed as is!
 REDPANDA_HAPPY	사장 나으리!!! 나와 도원결의를 맺어주시오!!!	Boss!!! Please be my greatest partner!!!
 RABBIT_ORDER_1	가게 꼴이 말이 아니네~ 혹시 모르니까 후라이드만 시켜봐야지	he appearance of the store is beyond words Just in case, let's order only fried chicken.
-RABBIT_ORDER_2	혹시 어디 망하거나 빚져서 치킨집 차린 거예요? 양념은 할 수는 있을지 몰라~	Did you happen to set up this chicken joint after failing somewhere or accumulating debts? I'm not sure if you can make seasoned chicken.
+RABBIT_ORDER_2	혹시 어디 망하거나 빚져서 치킨집 차린 거예요? 양념은 할 수는 있을지 몰라~	Did you happen to set up this chicken joint after failing somewhere or accumulating debts? I'm not sure if you can make hot chicken.
 RABBIT_ORDER_3	이 가게에서 할 수 있을지 모르지만, 이탈리아 고급식 까르보나라 가능하죠?	I'm not sure if they can do it here, but is Italian gourmet carbonara possible?
 RABBIT_ORDER_4	흠~ 이 가게 언제 망할지도 모르는데 뿌링클은 먹어봐야지~	Hmm~ Since we don't even know when this place might go under, let's give the 'Prinkle' a try~
 RABBIT_ORDER_5	사장님~ 간장도 당연히 있죠? 요즘 치킨 가게는 웬만하면 다 있던데~	Boss~ Of course, you have soy sauce too, right? these days, most chicken places have it.
 RABBIT_ORDER_6	사장님 혹시 바비큐 치킨 가능한가요? 안되면 완전 허접 치킨집인데~	Boss, is barbecue chicken available? If not, it's a really terrible chicken joint~
 RABBIT_ORDER_7	오늘 완전 매운 거 땅기는데 무슨 말인지 알죠? 모르면 완전 연애 센스 허접일듯!	Today, I really feel like eating something super spicy. You know what I mean, right? If you don't, it's like having absolutely no dating sense!
-RABBIT_ORDER_8	사장님 연애는 해보셨어요? 뭐 했어도 헤어졌을 테지만~ 아 맞다! 양념이랑 뿌링클이요	Boss, have you ever been in a relationship? No matter what you did, you probably would have broken up anyway~ Oh, right! Seasoned and 'Prinkle', please.
+RABBIT_ORDER_8	사장님 연애는 해보셨어요? 뭐 했어도 헤어졌을 테지만~ 아 맞다! 양념이랑 뿌링클이요	Boss, have you ever been in a relationship? No matter what you did, you probably would have broken up anyway~ Oh, right! Hot and 'Prinkle', please.
 RABBIT_ORDER_9	사장님은 저한테 고마워해야 할 걸요? 장사가 잘 안되는 가게인데도 주문해주니까요.간장이랑 후라이드나 주세요!	Shouldn't you be grateful to me, boss? Despite the business not doing well, I'm still ordering. Please give me some soy sauce and fried chicken!
 RABBIT_ORDER_10	사장님~ 가장 기본적인 콤보로~ 뭔지 알지? 모르면 완전 허접 사장~	Boss~ Do you know what the most basic combo is? If you don't know, you're a complete incompetent boss~
 RABBIT_ORDER_11	남친이랑 자주 데이트하면서 먹던 까르보나라랑 바비큐로 같이 주세요! 뭐 사장님은 모르려나~	Give me the carbonara and barbecue combo, the ones my boyfriend and I often enjoyed on our dates! I wonder if the boss even knows about it~
 RABBIT_SIDE_COLA	콜라는 당연히 줘야 하는 거 아님?	Isn't giving cola obvious?
-RABBIT_SIDE_PICKLE	아니 치킨 무를 안주는 치킨집이 있다?	Wait, there are chicken joints that don't serve pickle?
+RABBIT_SIDE_PICKLE	아니 치킨 무를 안주는 치킨집이 있다?	Wait, there are chicken joints that don't serve radish?
 RABBIT_ANGRY	하! 이 가게 금방 망할 듯 허접!	Ha! This place seems like it's going to fail soon, so tacky!
 RABBIT_THANK_YOU	뭐 봐줄 만하네! 열심히 해봐요	Not bad! Give it your best shot.
 RABBIT_HAPPY	앞으로도 올 거니까 얼굴이나 외우라고!	I'll be back in the next time, you better remember my face!
@@ -445,13 +455,13 @@ SEAOTTER_ORDER_4	사장님~ 닭고기 한 마리 기품있게 깔보나라 묻�
 SEAOTTER_ORDER_5	사장님~ 여기 입천장 떨어질 정도로 매운 불같은 닭 한 마리 주이소~	Boss, please give me a chicken as spicy as if it could blow the roof off my mouth.
 SEAOTTER_ORDER_6	사장님~ 노란 가루 묻혀서 달짝 찌끈한 맛 나는 닭 하나 주이소~	Boss, please give me a chicken coated in yellow powder with a salty-sweet
 SEAOTTER_ORDER_7	사장님~ 여기 닭 한 마리 화끈하게 숯불 맛 나게 함 만들어 주이소~	Boss, please make me a chicken here, fiery and smoky, just like a charcoal grill.
-SEAOTTER_ORDER_8	사장님~ 닭고기 기름에다 푹 튀겨서 반은 양념 칠 좀 해주이소~	Boss, please fry the chicken thoroughly in oil, and for half of it, could you season it a bit?
+SEAOTTER_ORDER_8	사장님~ 닭고기 기름에다 푹 튀겨서 반은 양념 칠 좀 해주이소~	Boss, please fry the chicken thoroughly in oil, and for half of it, could you hot it a bit?
 SEAOTTER_ORDER_9	사장님~ 나 좀 입천장 떨어질 정도로 매운 닭이랑 달고 짠 닭 좀 주이소~	Boss, could you please give me a chicken that's spicy enough to blow my roof off, and also a sweet-salty chicken?
-SEAOTTER_ORDER_10	사장님~ 오늘 닭 하나 잡아서 반은 간장에 반은 양념에 담가 주이소~	Boss, today, could you please marinate one chicken, half in soy sauce and the other half in seasoning?
+SEAOTTER_ORDER_10	사장님~ 오늘 닭 하나 잡아서 반은 간장에 반은 양념에 담가 주이소~	Boss, today, could you please marinate one chicken, half in soy sauce and the other half in hot?
 SEAOTTER_ORDER_11	사장님~ 닭 하나 기름으로 튀겨서 반만 깔보나라 소스로 좀 발라 주이소~	Boss, please fry one chicken in oil and then coat half of it with carbonara sauce.
 SEAOTTER_SIDE_COLA	내 닭만 먹으면 목이 메서 콜라도 좀 주이소~	When I eat only chicken, my throat gets blocked, so could I have some cola too, please?
 SEAOTTER_SIDE_BEER	내 닭만 먹으면 목이 메서 맥주도 좀 주이소~	When I eat only chicken, my throat gets blocked, so could I have some beer too, please?
-SEAOTTER_SIDE_PICKLE	닭을 먹는데 무가 빠짐 안되지!	Can't miss out on pickles when eating chicken!
+SEAOTTER_SIDE_PICKLE	닭을 먹는데 무가 빠짐 안되지!	Can't miss out on pickled radish when eating chicken!
 SEAOTTER_ANGRY	서비스가 너무 허술하네~ 허술해~	The service here is quite sloppy indeed.
 SEAOTTER_THANK_YOU	사장님 장사 잘하이소~	Boss, you're doing well in business!
 SEAOTTER_HAPPY	오매! 내 여기서만 먹어야 하겠네!	Oh! I must only eat here!
@@ -467,7 +477,7 @@ DEER_ORDER_9	치킨 맛을 살리기 위해 물엿과 고추장을 쓴 소스와
 DEER_ORDER_10	한국에서 유명세 치른 치킨이 두 가지 있는데 그게 뭘까요? 힌트는 엄청 매운 거랑 단짠 한 거예요!	Two types of chicken are famous in Korea. Can you guess what they are? Here’s a hint: one is very spicy, and the other is sweet and salty!
 DEER_ORDER_11	메주를 콩물에 오랫동안 담가 발효시킨 소스와 치킨 메뉴 중 가장 보편적인 것을 반반 주세요!	Please give me the chicken with a sauce made by fermenting meju in soybean water for a long time, along with the most popular chicken.
 DEER_SIDE_COLA	1886년 미국에서 만든 음료도 주세요	Please also give me the beverage created in the United States in 1886.
-DEER_SIDE_PICKLE	양념치킨 개발자가 같이 만든 무 초절임도 주세요!	Please also give me the pickled radish, developed by the seasoning chicken developer!
+DEER_SIDE_PICKLE	양념치킨 개발자가 같이 만든 무 초절임도 주세요!	Please also give me the pickled radish, developed by the hot chicken developer!
 DEER_ANGRY	프랑스 혁명이 일어날 서비스네요!	It's revolutionary service!
 DEER_THANK_YOU	무난한 치킨업계 서비스네요!	It's a typical chicken industry service!
 DEER_HAPPY	이 가게 왠지 대박 날 거 같아요!	This shop seems like it's going to be a big hit!
@@ -480,7 +490,7 @@ ARMADILLO_ORDER_6	제제가 제일 조좋아하는 치치치킨이 있어요 그
 ARMADILLO_ORDER_7	제제가 그그 바비큐 치킨! 다음으로 좋아하는 치킨이 있어요 그그건바로 뿌뿌뿌뿌 뭐더라?	My f-favorite is b-b-bbq chicken! And there's another one I like, wh-what was it again? It's... p-p-p-p... what was it?
 ARMADILLO_ORDER_8	오 오늘은 배가 너 너무 고프고 두가지 맛을 즈즐기기고 싶어서요 그그 후후라라이드랑 야야양 같이 주세요!!!	Oh, I'm sooo hungry today, and I want to try two flavors, so please give me f-f-fried and s-s-spicy together!!!
 ARMADILLO_ORDER_9	뿌뿌뿌링! 그그 뿌링클이랑 그그 양양양 양심없게 하나만 시킬 수 없으니 후후후라이드도	P-p-ppring! And the th-the pr-prinkle, and th-th-the... can't be selfish, so also f-f-fried!
-ARMADILLO_ORDER_10	저저 이인생 제제일 조조좋아하게된 치치킨이 있어요 그그건 바바베베큐랑 후라이드에 양념을 치친 킨!	I-I have my f-favorite c-c-chicken in this life! It's th-th-the bbq and fried with seasoning, c-chicken!
+ARMADILLO_ORDER_10	저저 이인생 제제일 조조좋아하게된 치치킨이 있어요 그그건 바바베베큐랑 후라이드에 양념을 치친 킨!	I-I have my f-favorite c-c-chicken in this life! It's th-th-the bbq and fried with hot, c-chicken!
 ARMADILLO_ORDER_11	저저는 거겁이 많아요 소소심하고 그그러니까 치치킨으로라도 도도전하고 싶어요 매매콤야양념 부불다닭	I-I have a lot of g-great ideas, I'm s-s-shy, and th-th-that's why I want to challenge myself with c-c-chicken! S-s-spicy, y-y-ye, n-n-no, I mean Hell Chicken!
 ARMADILLO_SIDE_COLA	워원래는 자잘 아안마시는데 트트특별히 코콜라도	W-well, I usually don't drink soft drinks, but t-today, I'll make an exception for c-c-cola.
 ARMADILLO_SIDE_PICKLE	무무무무무 무를 주세요!	P-p-p-please give me pick-pick-pickled radish!
@@ -600,102 +610,102 @@ FRILLEDLIZARD_SIDE_PICKLE	듣기로는 양념치킨의 개발자가 치킨 무�
 FRILLEDLIZARD_ANGRY	이런 서비스로는 장사가 힘들지도 몰라	With a service like this, business might be tough.
 FRILLEDLIZARD_THANK_YOU	좀더 개선을 하면 최고의 서비스가 될거야!	With a little more improvement, it'll become the best service!
 FRILLEDLIZARD_HAPPY	정말 한치의 오류도 없는 완벽한 서비스야!	It's truly a flawless service with not a single mistake!
-GRAFFE_ORDER_1	기린(주문1)	기린(주문1)
-GRAFFE_ORDER_2	기린(주문2)	기린(주문2)
-GRAFFE_ORDER_3	기린(주문3)	기린(주문3)
-GRAFFE_ORDER_4	기린(주문4)	기린(주문4)
-GRAFFE_ORDER_5	기린(주문5)	기린(주문5)
-GRAFFE_ORDER_6	기린(주문6)	기린(주문6)
-GRAFFE_ORDER_7	기린(주문7)	기린(주문7)
-GRAFFE_ORDER_8	기린(주문8)	기린(주문8)
-GRAFFE_ORDER_9	기린(주문9)	기린(주문9)
-GRAFFE_ORDER_10	기린(주문10)	기린(주문10)
-GRAFFE_ORDER_11	기린(주문11)	기린(주문11)
-GRAFFE_SIDE_COLA	기린(콜라 주문)	기린(콜라 주문)
-GRAFFE_SIDE_PICKLE	기린(피클 주문)	기린(피클 주문)
-GRAFFE_ANGRY	기린(불만)	기린(불만)
-GRAFFE_THANK_YOU	기린(보통)	기린(보통)
-GRAFFE_HAPPY	기린(만족)	기린(만족)
-TURTLE_ORDER_1	거북이(주문1)	거북이(주문1)
-TURTLE_ORDER_2	거북이(주문2)	거북이(주문2)
-TURTLE_ORDER_3	거북이(주문3)	거북이(주문3)
-TURTLE_ORDER_4	거북이(주문4)	거북이(주문4)
-TURTLE_ORDER_5	거북이(주문5)	거북이(주문5)
-TURTLE_ORDER_6	거북이(주문6)	거북이(주문6)
-TURTLE_ORDER_7	거북이(주문7)	거북이(주문7)
-TURTLE_ORDER_8	거북이(주문8)	거북이(주문8)
-TURTLE_ORDER_9	거북이(주문9)	거북이(주문9)
-TURTLE_ORDER_10	거북이(주문10)	거북이(주문10)
-TURTLE_ORDER_11	거북이(주문11)	거북이(주문11)
-TURTLE_SIDE_COLA	거북이(콜라 주문)	거북이(콜라 주문)
-TURTLE_SIDE_PICKLE	거북이(피클 주문)	거북이(피클 주문)
-TURTLE_ANGRY	거북이(불만)	거북이(불만)
-TURTLE_THANK_YOU	거북이(보통)	거북이(보통)
-TURTLE_HAPPY	거북이(만족)	거북이(만족)
-LIZARD_ORDER_1	도마뱀(주문1)	도마뱀(주문1)
-LIZARD_ORDER_2	도마뱀(주문2)	도마뱀(주문2)
-LIZARD_ORDER_3	도마뱀(주문3)	도마뱀(주문3)
-LIZARD_ORDER_4	도마뱀(주문4)	도마뱀(주문4)
-LIZARD_ORDER_5	도마뱀(주문5)	도마뱀(주문5)
-LIZARD_ORDER_6	도마뱀(주문6)	도마뱀(주문6)
-LIZARD_ORDER_7	도마뱀(주문7)	도마뱀(주문7)
-LIZARD_ORDER_8	도마뱀(주문8)	도마뱀(주문8)
-LIZARD_ORDER_9	도마뱀(주문9)	도마뱀(주문9)
-LIZARD_ORDER_10	도마뱀(주문10)	도마뱀(주문10)
-LIZARD_ORDER_11	도마뱀(주문11)	도마뱀(주문11)
-LIZARD_SIDE_COLA	도마뱀(콜라 주문)	도마뱀(콜라 주문)
-LIZARD_SIDE_PICKLE	도마뱀(피클 주문)	도마뱀(피클 주문)
-LIZARD_ANGRY	도마뱀(불만)	도마뱀(불만)
-LIZARD_THANK_YOU	도마뱀(보통)	도마뱀(보통)
-LIZARD_HAPPY	도마뱀(만족)	도마뱀(만족)
-MALAYANTAPIR_ORDER_1	말레이맥(주문1)	말레이맥(주문1)
-MALAYANTAPIR_ORDER_2	말레이맥(주문2)	말레이맥(주문2)
-MALAYANTAPIR_ORDER_3	말레이맥(주문3)	말레이맥(주문3)
-MALAYANTAPIR_ORDER_4	말레이맥(주문4)	말레이맥(주문4)
-MALAYANTAPIR_ORDER_5	말레이맥(주문5)	말레이맥(주문5)
-MALAYANTAPIR_ORDER_6	말레이맥(주문6)	말레이맥(주문6)
-MALAYANTAPIR_ORDER_7	말레이맥(주문7)	말레이맥(주문7)
-MALAYANTAPIR_ORDER_8	말레이맥(주문8)	말레이맥(주문8)
-MALAYANTAPIR_ORDER_9	말레이맥(주문9)	말레이맥(주문9)
-MALAYANTAPIR_ORDER_10	말레이맥(주문10)	말레이맥(주문10)
-MALAYANTAPIR_ORDER_11	말레이맥(주문11)	말레이맥(주문11)
-MALAYANTAPIR_SIDE_COLA	말레이맥(콜라 주문)	말레이맥(콜라 주문)
-MALAYANTAPIR_SIDE_PICKLE	말레이맥(피클 주문)	말레이맥(피클 주문)
-MALAYANTAPIR_ANGRY	말레이맥(불만)	말레이맥(불만)
-MALAYANTAPIR_THANK_YOU	말레이맥(보통)	말레이맥(보통)
-MALAYANTAPIR_HAPPY	말레이맥(만족)	말레이맥(만족)
-SUGARGLIDER_ORDER_1	슈가글라이더(주문1)	슈가글라이더(주문1)
-SUGARGLIDER_ORDER_2	슈가글라이더(주문2)	슈가글라이더(주문2)
-SUGARGLIDER_ORDER_3	슈가글라이더(주문3)	슈가글라이더(주문3)
-SUGARGLIDER_ORDER_4	슈가글라이더(주문4)	슈가글라이더(주문4)
-SUGARGLIDER_ORDER_5	슈가글라이더(주문5)	슈가글라이더(주문5)
-SUGARGLIDER_ORDER_6	슈가글라이더(주문6)	슈가글라이더(주문6)
-SUGARGLIDER_ORDER_7	슈가글라이더(주문7)	슈가글라이더(주문7)
-SUGARGLIDER_ORDER_8	슈가글라이더(주문8)	슈가글라이더(주문8)
-SUGARGLIDER_ORDER_9	슈가글라이더(주문9)	슈가글라이더(주문9)
-SUGARGLIDER_ORDER_10	슈가글라이더(주문10)	슈가글라이더(주문10)
-SUGARGLIDER_ORDER_11	슈가글라이더(주문11)	슈가글라이더(주문11)
-SUGARGLIDER_SIDE_COLA	슈가글라이더(콜라 주문)	슈가글라이더(콜라 주문)
-SUGARGLIDER_SIDE_PICKLE	슈가글라이더(피클 주문)	슈가글라이더(피클 주문)
-SUGARGLIDER_ANGRY	슈가글라이더(불만)	슈가글라이더(불만)
-SUGARGLIDER_THANK_YOU	슈가글라이더(보통)	슈가글라이더(보통)
-SUGARGLIDER_HAPPY	슈가글라이더(만족)	슈가글라이더(만족)
-COCKATIEL_ORDER_1	왕관앵무(주문1)	왕관앵무(주문1)
-COCKATIEL_ORDER_2	왕관앵무(주문2)	왕관앵무(주문2)
-COCKATIEL_ORDER_3	왕관앵무(주문3)	왕관앵무(주문3)
-COCKATIEL_ORDER_4	왕관앵무(주문4)	왕관앵무(주문4)
-COCKATIEL_ORDER_5	왕관앵무(주문5)	왕관앵무(주문5)
-COCKATIEL_ORDER_6	왕관앵무(주문6)	왕관앵무(주문6)
-COCKATIEL_ORDER_7	왕관앵무(주문7)	왕관앵무(주문7)
-COCKATIEL_ORDER_8	왕관앵무(주문8)	왕관앵무(주문8)
-COCKATIEL_ORDER_9	왕관앵무(주문9)	왕관앵무(주문9)
-COCKATIEL_ORDER_10	왕관앵무(주문10)	왕관앵무(주문10)
-COCKATIEL_ORDER_11	왕관앵무(주문11)	왕관앵무(주문11)
-COCKATIEL_SIDE_COLA	왕관앵무(콜라 주문)	왕관앵무(콜라 주문)
-COCKATIEL_SIDE_PICKLE	왕관앵무(피클 주문)	왕관앵무(피클 주문)
-COCKATIEL_ANGRY	왕관앵무(불만)	왕관앵무(불만)
-COCKATIEL_THANK_YOU	왕관앵무(보통)	왕관앵무(보통)
-COCKATIEL_HAPPY	왕관앵무(만족)	왕관앵무(만족)
+GRAFFE_ORDER_1	후라이드 치킨을 먹으면 목에서 몸으로 가는데 긴 시간이 걸리죠	If you eat fried chicken, it takes a long time to go from your throat to your body.
+GRAFFE_ORDER_2	양념치킨을 먹으면 저의 긴 목 전체에 양념에 매콤하고 달달함이 오래 남죠	When I eat hot chicken, the spicy and sweet flavor of the sauce lingers on my long neck for a long time.
+GRAFFE_ORDER_3	간장 치킨을 먹으면 저의 목에 간장의 맛이 얼마나 머무를까요?	If I eat soy sauce chicken, how long will the soy sauce flavor stay on my neck?
+GRAFFE_ORDER_4	까르보나라를 먹으면 목이 이탈리아에 온 기분을 느낄까요?	If I eat carbonara, will my neck feel like it's in Italy?
+GRAFFE_ORDER_5	바베큐 소스를 통해 저의 목은 아메리칸 스타일을 즐기는 거죠	With barbecue sauce, my neck enjoys the American style.
+GRAFFE_ORDER_6	불닭을 먹음으로서 저의 목은 뜨겁고 매운 고통을 길쭉하게 느끼겠죠	By eating hell chicken, my neck will feel the hot and spicy pain stretched out.
+GRAFFE_ORDER_7	뿌링클의 가루 때문에 제가 기침을 하면 아주 강력한 기침이 나올거 같아요	Because of Prinkle's powder, if I cough, it feels like a really powerful cough will come out.
+GRAFFE_ORDER_8	후라이드와 양념을 함께 먹으면 둘중 어떤 맛이 더 빨리 몸에 도달할까요?	If I eat fried and hot chicken together, which flavor will reach my body faster?
+GRAFFE_ORDER_9	부드러운 까르보나라를 먹은 후 불닭을 먹으면 그나마 목이 덜 아프겠죠?	After eating creamy carbonara, if I eat hell chicken, my neck will probably hurt less, right?
+GRAFFE_ORDER_10	간장과 바비큐 맛 중 어떤 것이 더 오래 목에 향이 남을까요?	Which flavor, soy sauce or barbecue, lingers longer on the neck?
+GRAFFE_ORDER_11	뿌링클의 가루가 걱정이 되면 후라이드로 기름칠을 하면 되지않을까요?	The Prinkle powder makes me cough. Wouldn't switching to fried chicken with some oil fix it?
+GRAFFE_SIDE_COLA	콜라를 마시면 저의 긴 목이 감당이 가능할지 궁금하네요	I'm curious if my long neck can handle drinking cola.
+GRAFFE_SIDE_PICKLE	치킨 무를 통해 저의 긴목이 시원해졌음 좋겠어요	I hope my long neck feels refreshed through the pickled radish.
+GRAFFE_ANGRY	이 서비스를 만족하기에는 저의 목은 너무 길어요	My neck is too long to be satisfied with this service.
+GRAFFE_THANK_YOU	저의 목이 무난한게 즐길거 같네요	I think my neck would enjoy something more simple.
+GRAFFE_HAPPY	저의 이 기다란 목이 즐거울 서비스에요	This service is something my long neck would enjoy.
+TURTLE_ORDER_1	내가 치킨을 처음 먹었을 때가 떠오르는군. 그땐 소금으로만 찍어 먹었지.	It brings back memories of when I first ate chicken. Back then, I only dipped it in salt.
+TURTLE_ORDER_2	한국에서 처음 그 치킨을 먹을때 매콤달콤한 맛이 일품이었어	When I first ate that chicken in Korea, the sweet and spicy flavor was amazing.
+TURTLE_ORDER_3	어릴 적 집이 너무 가난해 먹을 게 없어서, 밥에 간장을 비벼 먹곤 했지.	When I was young, my family was so poor that we didn't have much to eat, so I would mix soy sauce with rice.
+TURTLE_ORDER_4	친구가 사는 이탈리아로 놀러 갔을 때, 그 친구가 대접한 파스타가 기억나는군	When I visited Italy where my friend lives, I remember the pasta they treated me to.
+TURTLE_ORDER_5	나와 함께 군복무를 마쳤던 친구 놈은 가정을 꾸려 바베큐 파티를 자주 하곤 했지.	My friend, who completed military service with me, settled down and used to have barbecue parties often.
+TURTLE_ORDER_6	손자 녀석이 즐겨 먹던 라면을 나도 한 번 먹어봤는데 너무 매워서 혼났지!	I tried the ramen that my grandson loved to eat, but it was so spicy that I was in trouble!
+TURTLE_ORDER_7	그 가루를 뿌린 치킨은 참 요상한 맛이나 달달한게 꼭 과자 같았지	The chicken with that powder had a strange taste, sweet like a snack.
+TURTLE_ORDER_8	친구들과 함께 치킨을 시킬땐 반반 후라이드가 국룰이었지! 허허허	When ordering chicken with my friends, half-and-half fried was a given! Hehehe.
+TURTLE_ORDER_9	손자와 먹을건데 하나는 간장에 하나는 손자가 좋아하는 뿌링클을 시켜야 겠어	I’m going to order for my grandson and me—one with soy sauce and the other with Prinkle, which my grandson loves.
+TURTLE_ORDER_10	까르보나라만 먹음 너무 느끼하니 양념칠도 해야겠구만	Just eating carbonara would be too rich, so I guess I’ll need to add some seasoning.
+TURTLE_ORDER_11	간만에 외국의 친구들과 까르보나라와 바베큐를 먹어야겠어!	I think it's time to have carbonara and barbecue with my foreign friends for the first time in a while!
+TURTLE_SIDE_COLA	내가 군복무를 할때 콜라를 보급 받았지	When I was in the military, I was supplied with cola.
+TURTLE_SIDE_PICKLE	무가 아삭거리고 시원한게 딱 내 취향이야	The radish is crunchy and refreshing—it's exactly my taste!
+TURTLE_ANGRY	요즘 치킨 서비스는 별로구만 그래	Chicken service these days isn't that great, huh?
+TURTLE_THANK_YOU	사장님 잘 먹겠습니다	Thank you for the meal, boss!
+TURTLE_HAPPY	좋은 서비스엔 좋은 치킨이 나오기 머련이지	Good service always comes with good chicken, of course.
+LIZARD_ORDER_1	후달리면 후라이드 치킨?	Why did the fried chicken go to the party? Because it knew how to crispy up the mood!
+LIZARD_ORDER_2	양념 치킨 먹다 묻으면 치킨보단 키친타올이지! 하하하하	Why did the hoy chicken go to therapy? Because it had too many spicy issues!
+LIZARD_ORDER_3	간이 안 좋을땐 간장치킨을 먹음 되겠네? 푸하하하	Why did the soy bring a ladder to the party? Because it wanted to soy high!
+LIZARD_ORDER_4	까무러칠땐 까르보나라 치킨!	Why did the carbonara go to school? Because it wanted to be pasta the test!
+LIZARD_ORDER_5	여자들이 바비인형을 좋아하면 나는 바비큐치킨이 좋지!	Why did the barbecue bring a band to the cookout? Because it wanted to meat some good tunes!
+LIZARD_ORDER_6	불닭? 그냥 불닭 볶음면 준비하고 후라이드랑 섞으면 되지 않나?	Why did the Hell Chicken get kicked out of the fridge? Because it was too hot to stay cool!
+LIZARD_ORDER_7	뿌링클을 먹으면 기뿌다고! 푸하하하	Why did the Prinkle chicken bring a sweater? Because it was afraid of getting chilled!
+LIZARD_ORDER_8	양이 부족하면 양이 양양한 양념치킨이랑 후라이드도 먹음 되지!	What did the Hot Chicken say to the Fried Chicken? "You may be crispy, but I’ve got the real spice in life!"
+LIZARD_ORDER_9	간장으로 간의 기별도 안가니 까무러치게 까르보나라도 먹으면 된다 이거야!	What did the Soy Sauce Chicken say to the Carbonara Chicken? "You may be creamy, but I’ve got the real seasoned wisdom!"
+LIZARD_ORDER_10	가루를 뿌려 뿌링클을 먹는다면! 바라던 바다 바베큐!	Why did the Prinkle Chicken and BBQ Chicken open a restaurant together? Because they knew how to season the menu and smoke the competition!
+LIZARD_ORDER_11	혀가 부르부르 떨리는 불닭에 가루를 뿌르뿌르 뿌리는 뿌링클!	Why did the Hell Chicken and Prinkle Chicken start a band? Because they knew how to spice up the music and crunch the charts!
+LIZARD_SIDE_COLA	콜라 콜?	Cola? Call!
+LIZARD_SIDE_PICKLE	치킨 무까진 무리려나?	radish is always cool and crispy, making it radically tasty!
+LIZARD_ANGRY	진짜 재미없는 개그같은 서비스야!	Such a boring service, like a really unfunny joke!
+LIZARD_THANK_YOU	내 개그만큼은 아니지만 나쁘지않은 서비스야!	It’s not as good as my jokes, but it's not a bad service!
+LIZARD_HAPPY	호오 내 개그에 박빙인 최고의 서비스다!	Whoa, this is the best service, almost on par with my jokes!
+MALAYANTAPIR_ORDER_1	에헤헤 저는 오느 흐라이드 칙킨을 먹을거에요오	Ehhehe, I’m gonna eat some ooooh fried chiiiickin!
+MALAYANTAPIR_ORDER_2	에헤헤 오느은 득벌히 얌년 칙킨으로 시킬거에요	Ehhehe, I’m gonna order some yummy hot chickin!
+MALAYANTAPIR_ORDER_3	에헤헤 간당 칙킨을 시커서 머글거에요 흐흐	Ehhehe, I’m gonna have Soy Chickin, hehe.
+MALAYANTAPIR_ORDER_4	에헤헤 샤쟝님 오느은 가르보으나 칙킨으로 주떼여	Ehhehe, I’m gonna have Carbonara Chickin, Your Majesty!
+MALAYANTAPIR_ORDER_5	에헤헤 오느은 다데큐 칙킨! 마시게따!	Ehhehe, I’m gonna have Dadeqyu Chickin! I’ll drink it!
+MALAYANTAPIR_ORDER_6	에헤헤 혀가 을을해지느 뷰울닥 칙킨으로 주떼여	Ehhehe, my tongue's gonna go wild with some Hel chickin!
+MALAYANTAPIR_ORDER_7	에헤헤 오느 제이 조아흐는 쀼링크 칙킨으로 시키거에요	Ehhehe, I'm gonna order some Ppringkle Chickin cause I loooove it!
+MALAYANTAPIR_ORDER_8	에헤헤 오뉴은! 졔가 특벼히 양년 칙킨에댜 뷰울닥을 머그거에여	Ehhehe, I’m gonna have Hot Chickin an' Hel Chickin'cause I really like it!
+MALAYANTAPIR_ORDER_9	에헤헤 다데큐 칙킨에다 가르보으나 칙킨을 머금으로서 하루르 마칠거에여	Ehhehe, imma finish da day with BBQ chikin an' Garboona chikin!
+MALAYANTAPIR_ORDER_10	에헤헤 흐라이드 칙킨이란 쀼링크 칙킨을 머는데 듈다 졔가 쪼아하느거에여	Ehhehe, fryed chikin an' Prinkle chikin imma eat 'cause I love it!
+MALAYANTAPIR_ORDER_11	에헤헤 간댱 킥킨이랑 흐라이드 칙킨이랑 가치 머그야지	Ehhehe, fryed chikin an' Prinkul chikin amma eat!
+MALAYANTAPIR_SIDE_COLA	기리고 코라도 마시그에여	and, I’m gonna drink some cola too!
+MALAYANTAPIR_SIDE_PICKLE	칙킨을 머글뗀 무도 머그야 한데요	When eatin' chickin, mu gotta eat too, ya know?
+MALAYANTAPIR_ANGRY	흐으으 내그 왜 여기끄지 왔지?	Heuung, why me be here?
+MALAYANTAPIR_THANK_YOU	이거슨 조은 서비스임댱	This is a gooood servicee!
+MALAYANTAPIR_HAPPY	흐와아아 서비스가 느므 조아여	Ahhh, the service is sooo good!
+SUGARGLIDER_ORDER_1	오늘은 맛있는 후라이드 치킨처럼 날아야겠어요!	Today, I feel like I should fly just like a delicious fried chicken!
+SUGARGLIDER_ORDER_2	후후 오늘은 양념 치킨식 비행을 하기에 딱 좋은 날씨인데요?	Hehe, today is the perfect weather for a hot chicken flight, don't you think?
+SUGARGLIDER_ORDER_3	간장을 마시면 우웩! 이지만 간장 치킨은 최고에요!	Drinking soy sauce? Ugh! But soy sauce chicken is the best!
+SUGARGLIDER_ORDER_4	꺄~ 오늘은 웬지 까르보나라를 맛보고 이탈리아까지 날고싶어요!	Kya~ For some reason, today I feel like tasting carbonara and flying all the way to Italy!
+SUGARGLIDER_ORDER_5	사장님! 오늘 바베큐 치킨을 먹고 저와 미국으로 날겠어요?	Boss! How about having some BBQ chicken today and flying with me to the USA?
+SUGARGLIDER_ORDER_6	엄청 매운 불닭을 먹으면 저의 날개에도 불이 붙을거 같아요!	If I eat this super spicy hell chicken, I feel like my wings will catch on fire!
+SUGARGLIDER_ORDER_7	꺄~ 맛있는 뿌링클을 보면 뿌링클을 향해 날아가고 싶어요!	Yay~ When I see delicious Prinkle, I just want to fly straight toward it!
+SUGARGLIDER_ORDER_8	오늘은 환상의 콜라보인 후라이드와 양념의 합동 비행시간!	Today is the collaborative flight time of the fried chicken and hot chicken combo!
+SUGARGLIDER_ORDER_9	불닭을 먹고 바베큐를 먹으면 미사일처럼 불을 뿜으며 미국까지 쌉가능이겠죠?!	If I eat hell chicken and then barbecue, I’ll probably blast off like a missile, shooting flames all the way to the U.S., right?!
+SUGARGLIDER_ORDER_10	뿌링클을 먹고 까르보나라 치킨을 같이 먹으면 느긋한 비행을 할거같아요	If I eat a Prinkle chicken and then have some carbonara chicken, I feel like I'll have a smooth, relaxed flight!
+SUGARGLIDER_ORDER_11	우리 카페에 자주오시는 해달부인이 그러는데, 간장이랑 후라이드가 맛있다지요?	Our regular customer, Mrs. Sea Otter, says that soy and fried chicken are delicious!
+SUGARGLIDER_SIDE_COLA	꺄! 혀가 자극적인 콜라도 주세요~	Yay! Please give me a refreshing cola that's as exciting as my taste buds!
+SUGARGLIDER_SIDE_PICKLE	치킨에 치킨 무가 빠지면 섭하겠죠?	If there's no pickled radish with the chicken, it just wouldn't be right, right
+SUGARGLIDER_ANGRY	에? 이게 맞는거에요?	Eh? Is this correct?
+SUGARGLIDER_THANK_YOU	흠흠 이것은 나쁘지 않은 써비스!	Hmm, this is not a bad service!
+SUGARGLIDER_HAPPY	안아줘요!	Hug me
+COCKATIEL_ORDER_1	후라이드 치킨을 먹으려고 하는데... 나도 새인데 그래도 되나?	I'm about to eat some fried chicken... but I'm a bird too. Is that okay?
+COCKATIEL_ORDER_2	후라이드 치킨으로 주세요! 아! 아니! 양념으로 주세요! 그래! 양념으로!	Fried chicken, please! Ah! No! Make it hot! Yeah! Hot please!
+COCKATIEL_ORDER_3	항상 궁금하던 건데 그냥 간장이랑 간장 치킨에 찍는 간장이랑 맛이 다를까요?	I've always wondered, is there a difference in taste between regular soy sauce and the soy sauce used for dipping chicken?
+COCKATIEL_ORDER_4	파스타 소스를 치킨에다 뿌려억을 생각은 도대체 누가 한걸까요? 궁금하네요	Who on earth thought of pouring pasta sauce on chicken? I'm curious.
+COCKATIEL_ORDER_5	지인 중에 좀 이상한 까마귀가 있는데 바베큐 치킨이 맛있다나?	I have an acquaintance who's a bit of an odd crow, and they say barbecue chicken is delicious?
+COCKATIEL_ORDER_6	카페에서 알바하는 친구가 여기 불닭이 맛있다고 하더라고요!	My friend who works part-time at a café told me that the hell chicken here is really good!
+COCKATIEL_ORDER_7	제가 어릴적부터 뿌링클 치킨을 진짜 좋아했어요 당시엔 맨날 먹었다니까요!	I've really loved Prinkle chicken since I was a kid. I used to eat it all the time back then!
+COCKATIEL_ORDER_8	제가 치킨을 두가지 먹을 때마다 뿌링클과 후라이드를 같이 시키곤 했죠!	I used to order both Prinkle and fried chicken every time I had two kinds!
+COCKATIEL_ORDER_9	간장 치킨이랑 양념 치킨을 먹으면 괜찮을까요? 맛있을까요? 궁금하네요!	Would it be okay to eat soy chicken and hot chicken together? I wonder if it would taste good!
+COCKATIEL_ORDER_10	사장님은 어떤 치킨을 좋아하세요? 저는 바베큐 치킨이랑 뿌링클이요!	Boss, what kind of chicken do you like? I like barbecue chicken and prinkle !
+COCKATIEL_ORDER_11	항상 플라밍고랑 까마귀 씨가 만나면 싸우는거 있죠? 불닭이랑 시커먼 간장 같다니까요!	Whenever the flamingo and the crow meet, they always fight, you know? It's like the hell chicken and the dark soy sauce!
+COCKATIEL_SIDE_COLA	어릴때 간장이랑 콜라를 착각한적도 있는데!	When I was young, I once mistook soy sauce for cola!
+COCKATIEL_SIDE_PICKLE	치킨 무는 왜 하필 네모난걸까요? 궁금하네요	Why is chicken radish square? I wonder!
+COCKATIEL_ANGRY	궁금한게 이렇게 장사하면 돈이 벌려요?	Is it possible to make money by running a business like this?
+COCKATIEL_THANK_YOU	응! 다른 치킨집이랑 비슷하게 하는거 같아요!	Yeah! It seems like they're doing it just like other chicken places!
+COCKATIEL_HAPPY	와우! 다음에 플라밍고랑 같이 와야겠어요!	Wow! I should come next time with the flamingo!
 RESUME_1_NAME	찰스	Charles
 RESUME_1_RESIDENCE	털털마을	TulTul Town
 RESUME_2_NAME	니치	Niche
@@ -860,18 +870,18 @@ BOOK_CROW_NAME	까마귀	Crow
 BOOK_CROW_INFO	이 까마귀는 도대체 왜 이러는 걸까요?	Why on earth is this crow acting like this?
 BOOK_FRILLEDLIZARD_NAME	목도리 도마뱀	Frilled Lizard
 BOOK_FRILLEDLIZARD_INFO	젊은 나이에 발명가인 그는 최고의 파트너인 달팽이 밍밍이와 언제나 함께입니다	At a young age, the inventor is always with his best partner, the snail Mingming.
-BOOK_GRAFFE_NAME	기린	기린
-BOOK_GRAFFE_INFO	(기린-설명)	(기린-설명)
-BOOK_TURTLE_NAME	거북이	거북이
-BOOK_TURTLE_INFO	(거북이-설명)	(거북이-설명)
-BOOK_LIZARD_NAME	도마뱀	도마뱀
-BOOK_LIZARD_INFO	(도마뱀-설명)	(도마뱀-설명)
-BOOK_MALAYANTAPIR_NAME	말레이맥	말레이맥
-BOOK_MALAYANTAPIR_INFO	(말레이맥-설명)	(말레이맥-설명)
-BOOK_SUGARGLIDER_NAME	슈가글라이더	슈가글라이더
-BOOK_SUGARGLIDER_INFO	(슈가글라이더-설명)	(슈가글라이더-설명)
-BOOK_COCKATIEL_NAME	왕관앵무	왕관앵무
-BOOK_COCKATIEL_INFO	(왕관앵무-설명)	(왕관앵무-설명)
+BOOK_GRAFFE_NAME	기린	Graffe
+BOOK_GRAFFE_INFO	자신의 긴목을 매우 신경쓰는 기린이지만 나쁜 기린은 아닙니다	He’s a giraffe who cares a lot about his long neck, but he’s not a bad giraffe.
+BOOK_TURTLE_NAME	거북이	Turtle
+BOOK_TURTLE_INFO	아주 오랫동안 살아와 연륜이 느껴지는 거북이 할아버지, 몇살인지 아는 이는 가족밖에 없다고 합니다	The turtle grandfather, who has lived for a very long time and carries the wisdom of age, is said to have an age only known to his family.
+BOOK_LIZARD_NAME	도마뱀	Lizard
+BOOK_LIZARD_INFO	진짜 정색을 할 정도로 재미없는 개그를 치는 도마뱀이며 본인은 정말 재밌다고 믿는거 같습니다	A gecko who tells jokes so unfunny that he even gets serious about it, but he truly believes they're hilarious.
+BOOK_MALAYANTAPIR_NAME	말레이맥	Malayan Tapir
+BOOK_MALAYANTAPIR_INFO	항상 웃으며 반겨주는 착한 말리이맥! 하지만 맞춤법을 계속 틀리는 단점이 있습니다	Always welcoming with a smile, the kind Malayan Tapir! However, it has the flaw of constantly making spelling mistakes.
+BOOK_SUGARGLIDER_NAME	슈가글라이더	Sugar Glider
+BOOK_SUGARGLIDER_INFO	비행을 좋아하는 슈가들라이더 양은 모든걸 비행과 엮기도 합니다	The Sugar Glider, who loves flying, connects everything with flight.
+BOOK_COCKATIEL_NAME	왕관앵무	Cockatiel
+BOOK_COCKATIEL_INFO	말이 많은 수다쟁이 왕관앵무는 친구가 많은 인싸친구입니다	The talkative and chatty crown parrot is an outgoing socialite with many friends.
 EMPLOYMENT_NPC_TALK_0	어서 오세요! 네코 직원 소개소에\n오신 걸 환영합니다.\n어떤 도움이 필요하신가요?	Hello! You've arrived at\nNeko Job Bank.\nHow can we assist you today?
 EMPLOYMENT_NPC_TALK_1	환영합니다! 오늘 어떤 직원이 필요하신지\n알려주시면 바로 도와드릴게요.	Welcome! Let us know what\nkind of staff you need today,\nand we'll assist you right away.
 EMPLOYMENT_NPC_TALK_2	어서 오세요! 필요한 직원이\n있으시면 말씀해 주세요.\n최선을 다해 찾아드리겠습니다.	Hello! If you need any staff,\nplease let us know.\nWe'll do our best to find\nthe better person for you.

@@ -38,7 +38,7 @@ public class Crocodile : GuestObj
             talkStr += LanguageMgr.GetText("CROCODILE_SIDE_COLA");
         }
 
-        if (requireMenu.sideMenu == SideMenu.Pickle)
+        if (requireMenu.sideMenu == SideMenu.ChickenRadish)
         {
             talkStr += "\n";
             talkStr += LanguageMgr.GetText("CROCODILE_SIDE_PICKLE");

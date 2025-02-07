@@ -38,7 +38,7 @@ public class Armadillo : GuestObj
             talkStr += LanguageMgr.GetText("ARMADILLO_SIDE_COLA");
         }
 
-        if (requireMenu.sideMenu == SideMenu.Pickle)
+        if (requireMenu.sideMenu == SideMenu.ChickenRadish)
         {
             talkStr += "\n";
             talkStr += LanguageMgr.GetText("ARMADILLO_SIDE_PICKLE");

@@ -55,7 +55,7 @@ public class LanguageMgr : AwakeSingleton<LanguageMgr>
             }
             string row = rows[i].Replace("\r", string.Empty);
             row = row.Trim();
-            rowList.Add(rows[i]);
+            rowList.Add(row);
         }
 
         //¡¶∏Ò¡Ÿ

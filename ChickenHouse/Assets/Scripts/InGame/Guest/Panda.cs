@@ -37,7 +37,7 @@ public class Panda : GuestObj
             talkStr += "\n";
             talkStr += LanguageMgr.GetText("PANDA_SIDE_COLA");
         }
-        if (requireMenu.sideMenu == SideMenu.Pickle)
+        if (requireMenu.sideMenu == SideMenu.ChickenRadish)
         {
             talkStr += "\n";
             talkStr += LanguageMgr.GetText("PANDA_SIDE_PICKLE");

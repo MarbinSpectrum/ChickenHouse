@@ -37,7 +37,7 @@ public class Serval : GuestObj
             talkStr += "\n";
             talkStr += LanguageMgr.GetText("SERVAL_SIDE_ANY");
         }
-        if (requireMenu.sideMenu == SideMenu.Pickle)
+        if (requireMenu.sideMenu == SideMenu.ChickenRadish)
         {
             talkStr += "\n";
             talkStr += LanguageMgr.GetText("SERVAL_SIDE_PICKLE");

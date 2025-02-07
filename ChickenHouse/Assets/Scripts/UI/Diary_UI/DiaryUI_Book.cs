@@ -193,7 +193,7 @@ public class DiaryUI_Book : Mgr
                             SideMenu[] sideMenus = new SideMenu[4];
                             for (int j = 0; j < 4; j++)
                             {
-                                sideMenus[j] = SideMenu.Pickle + i * 4 + j;
+                                sideMenus[j] = SideMenu.ChickenRadish + i * 4 + j;
                                 sideMenus[j] = sideMenus[j] >= SideMenu.MAX ? SideMenu.None : sideMenus[j];
                             }
 

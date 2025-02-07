@@ -44,7 +44,7 @@ public class Fox : GuestObj
                 talkStr += LanguageMgr.GetText("FOX_SIDE_COLA");
             }
         }
-        if (requireMenu.sideMenu == SideMenu.Pickle)
+        if (requireMenu.sideMenu == SideMenu.ChickenRadish)
         {
             if (menuIdx == 2)
             {

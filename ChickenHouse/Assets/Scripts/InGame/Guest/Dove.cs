@@ -43,7 +43,7 @@ public class Dove : GuestObj
             talkStr += LanguageMgr.GetText("DOVE_SIDE_BEER");
         }
 
-        if (requireMenu.sideMenu == SideMenu.Pickle)
+        if (requireMenu.sideMenu == SideMenu.ChickenRadish)
         {
             talkStr += "\n";
             talkStr += LanguageMgr.GetText("DOVE_SIDE_PICKLE");

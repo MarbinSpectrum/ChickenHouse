@@ -40,7 +40,7 @@ public class SideMenuReady : Mgr
         int setSideMenuCnt = 0;
         List<SideMenu>      sideMenus = new List<SideMenu>();
         HashSet<SideMenu>   setSideMenu = new HashSet<SideMenu>();
-        for (SideMenu eSideMenu = SideMenu.Pickle; eSideMenu < SideMenu.MAX; eSideMenu++)
+        for (SideMenu eSideMenu = SideMenu.ChickenRadish; eSideMenu < SideMenu.MAX; eSideMenu++)
         {
             if (playData.HasSideMenu(eSideMenu) == false)
             {

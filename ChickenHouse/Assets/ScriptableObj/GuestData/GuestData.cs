@@ -82,7 +82,7 @@ public class GuestMenu
 
         //랜덤하게 아무 사이드 메뉴나 반환
         List<SideMenu> sideMenus = new List<SideMenu>();
-        for (SideMenu sideMenu = SideMenu.Pickle; sideMenu < SideMenu.MAX; sideMenu++)
+        for (SideMenu sideMenu = SideMenu.ChickenRadish; sideMenu < SideMenu.MAX; sideMenu++)
         {
             if (playData == null || playData.KitchenSetSideMenu(sideMenu) == false)
                 continue;

@@ -77,7 +77,7 @@ public class KitchenReady : Mgr
         }
 
         int hasSideMenuCnt = 0;
-        for (SideMenu eSideMenu = SideMenu.Pickle; eSideMenu < SideMenu.MAX; eSideMenu++)
+        for (SideMenu eSideMenu = SideMenu.ChickenRadish; eSideMenu < SideMenu.MAX; eSideMenu++)
         {
             if (gameMgr.playData.HasSideMenu(eSideMenu))
             {

@@ -38,7 +38,7 @@ public class PolarBear : GuestObj
             talkStr += LanguageMgr.GetText("POLARBEAR_SIDE_COLA");
         }
 
-        if (requireMenu.sideMenu == SideMenu.Pickle)
+        if (requireMenu.sideMenu == SideMenu.ChickenRadish)
         {
             talkStr += "\n";
             talkStr += LanguageMgr.GetText("POLARBEAR_SIDE_PICKLE");

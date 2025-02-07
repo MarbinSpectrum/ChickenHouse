@@ -37,7 +37,7 @@ public class RedPanda : GuestObj
             talkStr += "\n";
             talkStr += LanguageMgr.GetText("REDPANDA_SIDE_COLA");
         }
-        if (requireMenu.sideMenu == SideMenu.Pickle)
+        if (requireMenu.sideMenu == SideMenu.ChickenRadish)
         {
             talkStr += "\n";
             talkStr += LanguageMgr.GetText("REDPANDA_SIDE_PICKLE");

@@ -15,7 +15,7 @@ public class BookMgr : AwakeSingleton<BookMgr>
 
         ActSpicyData(ChickenSpicy.Hot);
         ActDrinkData(Drink.Cola);
-        ActSideMenuData(SideMenu.Pickle);
+        ActSideMenuData(SideMenu.ChickenRadish);
     }
 
     public static bool IsActGuest(Guest pGuest)

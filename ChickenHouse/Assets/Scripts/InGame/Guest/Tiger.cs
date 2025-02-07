@@ -37,7 +37,7 @@ public class Tiger : GuestObj
             talkStr += "\n";
             talkStr += LanguageMgr.GetText("TIGER_SIDE_COLA");
         }
-        if (requireMenu.sideMenu == SideMenu.Pickle)
+        if (requireMenu.sideMenu == SideMenu.ChickenRadish)
         {
             talkStr += "\n";
             talkStr += LanguageMgr.GetText("TIGER_SIDE_PICKLE");
