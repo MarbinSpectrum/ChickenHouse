@@ -13,6 +13,7 @@ public class BookMgr : AwakeSingleton<BookMgr>
     {
         SetSingleton();
 
+        //기본으로 열려있는 도감 내용
         ActSpicyData(ChickenSpicy.Hot);
         ActDrinkData(Drink.Cola);
         ActSideMenuData(SideMenu.ChickenRadish);

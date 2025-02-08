@@ -9,7 +9,7 @@ public class GoCounter_UI : Mgr
     [SerializeField] private Button     btn;
     [SerializeField] private ChickenPack        tableChicken;
     [SerializeField] private TableDrinkSlot     tableDrinkSlot;
-    [SerializeField] private TablePickleSlot    tablePickleSlot;
+    [SerializeField] private TableSideMenuSlot    tablePickleSlot;
     [SerializeField] private Transform followTrans;
 
     private RectTransform   rect        = null;

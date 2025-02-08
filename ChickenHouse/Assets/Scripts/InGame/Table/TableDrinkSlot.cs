@@ -8,7 +8,7 @@ public class TableDrinkSlot : Mgr
     /** 음료가 올려졌는지 여부 **/
     public Drink drink { get; private set; }
 
-    [SerializeField] private TablePickleSlot    pickleSlot;
+    [SerializeField] private TableSideMenuSlot    pickleSlot;
     [SerializeField] private Image              drinkImg;
     [SerializeField] private GameObject         slotUI;
     [SerializeField] private TutoObj            tutoObj;

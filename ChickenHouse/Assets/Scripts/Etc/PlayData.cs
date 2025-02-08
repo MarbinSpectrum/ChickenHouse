@@ -70,8 +70,16 @@ public class PlayData
         hasItem[(int)ShopItem.Cola] = true;
         drink[(int)MenuSetPos.Drink0] = (int)Drink.Cola;
 
-        hasItem[(int)ShopItem.Pickle] = true;
+        hasItem[(int)ShopItem.ChickenRadish] = true;
         sideMenu[(int)MenuSetPos.SideMenu0] = (int)SideMenu.ChickenRadish;
+
+        {
+            hasItem[(int)ShopItem.Pickle] = true;
+            hasItem[(int)ShopItem.Coleslaw] = true;
+            hasItem[(int)ShopItem.CornSalad] = true;
+            hasItem[(int)ShopItem.FrenchFries] = true;
+            hasItem[(int)ShopItem.ChickenNugget] = true;
+        }
 
         hasItem[(int)ShopItem.OIL_Zone_1] = true;
 
@@ -263,12 +271,7 @@ public class PlayData
     public bool HasSideMenu(SideMenu pSideMenu)
     {
         //해당 종류의 사이드메뉴를 가지고 있는지 여부
-        switch (pSideMenu)
-        {
-            case SideMenu.ChickenRadish:
-                return hasItem[(int)ShopItem.Pickle];
-        }
-        return false;
+        return hasItem[(int)SubMenuMgr.SideMenuGetShopItem(pSideMenu)];
     }
 
     public bool KitchenSetSpicy(ChickenSpicy pSpicy)

@@ -10,6 +10,9 @@ public class TutoObj : Mgr
     [SerializeField] private GameObject tutoObj;
     [SerializeField] private float      delay;
     [SerializeField] private Image      nextBtn;
+    
+    //튜토 연타해서 스킵하는 사람을 위한 딜레이
+    [SerializeField] private float      skipDelay = 1f;
 
     private bool tutoFlag = false;
 
@@ -18,6 +21,7 @@ public class TutoObj : Mgr
         if (tutoFlag)
             return;
         tutoFlag = true;
+        nextBtn.raycastTarget = true;
         StartCoroutine(RunToto());
     }
 
@@ -56,7 +60,7 @@ public class TutoObj : Mgr
         tutoObj.SetActive(true);
         tutoMgr.ShowText(tutoType);
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(skipDelay);
 
         nextBtn.raycastTarget = true;
     }

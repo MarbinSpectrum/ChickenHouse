@@ -7,7 +7,7 @@ public class KitchenBell : Mgr
     [SerializeField] private TutoObj tutoObj;
     [SerializeField] private TableChickenSlot tableChicken;
     [SerializeField] private TableDrinkSlot tableDrinkSlot;
-    [SerializeField] private TablePickleSlot tablePickleSlot;
+    [SerializeField] private TableSideMenuSlot tablePickleSlot;
 
     public void CompleteBtn()
     {

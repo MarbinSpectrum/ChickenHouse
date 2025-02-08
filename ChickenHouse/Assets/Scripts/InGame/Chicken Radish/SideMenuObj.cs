@@ -5,17 +5,8 @@ using UnityEngine.UI;
 
 public class SideMenuObj : Mgr
 {
-    private SideMenu eSideMenu;
-    [SerializeField] private List<Image> sideMenuImg = new List<Image>();
-
-    public void SetObj(SideMenu pSideMenu)
-    {
-        eSideMenu = pSideMenu;
-
-        SideMenuData sideMenuData = subMenuMgr.GetSideMenuData(eSideMenu);
-        foreach (Image img in sideMenuImg)
-            img.sprite = sideMenuData.img;
-    }
+    [SerializeField] private SideMenu sideMenu;
+    public SideMenu SideMenu => sideMenu;
 
     public void OnMouseDrag()
     {
@@ -33,13 +24,7 @@ public class SideMenuObj : Mgr
             return;
         }
 
-        switch(eSideMenu)
-        {
-            case SideMenu.ChickenRadish:
-                kitchenMgr.dragState = DragState.Chicken_Radish;
-                break;
-        }
-
+        kitchenMgr.dragState = SubMenuMgr.GetSideMenuDragState(sideMenu);
     }
 
     public void OnMouseUp()
@@ -59,7 +44,7 @@ public class SideMenuObj : Mgr
         if (kitchenMgr.mouseArea == DragArea.SideMenu_Slot)
         {
             //치킨 무를 올려놓는다.
-            if (kitchenMgr.pickleSlot.Put_Pickle(eSideMenu))
+            if (kitchenMgr.pickleSlot.Put_Pickle(sideMenu))
             {
                 return;
             }

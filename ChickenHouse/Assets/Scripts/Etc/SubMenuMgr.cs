@@ -77,24 +77,88 @@ public class SubMenuMgr : AwakeSingleton<SubMenuMgr>
         return sideMenuData.price;
     }
 
-    public SideMenu GetDragStateSideMenu(DragState pDragState)
+    public static DragState GetSideMenuDragState(SideMenu pSideMenu)
     {
-        switch(pDragState)
+        //SideMenu -> DragState
+        switch (pSideMenu)
+        {
+            case SideMenu.ChickenRadish:
+                return DragState.Chicken_Radish;
+            case SideMenu.Pickle:
+                return DragState.Pickle;
+            case SideMenu.Coleslaw:
+                return DragState.Coleslaw;
+            case SideMenu.CornSalad:
+                return DragState.CornSalad;
+            case SideMenu.FrenchFries:
+                return DragState.FrenchFries;
+            case SideMenu.ChickenNugget:
+                return DragState.ChickenNugget;
+
+        }
+        return DragState.None;
+    }
+
+    public static SideMenu GetDragStateSideMenu(DragState pDragState)
+    {
+        //DragState -> SideMenu
+        switch (pDragState)
         {
             case DragState.Chicken_Radish:
                 return SideMenu.ChickenRadish;
+            case DragState.Pickle:
+                return SideMenu.Pickle;
+            case DragState.Coleslaw:
+                return SideMenu.Coleslaw;
+            case DragState.CornSalad:
+                return SideMenu.CornSalad;
+            case DragState.FrenchFries:
+                return SideMenu.FrenchFries;
+            case DragState.ChickenNugget:
+                return SideMenu.ChickenNugget;
         }
         return SideMenu.None;
     }
 
     public static SideMenu ShopItemGetSideMenu(ShopItem shopItem)
     {
-        //아이템에 해당하는 사이드메뉴반환
+        //ShopItem -> SideMenu
         switch (shopItem)
         {
-            case ShopItem.Pickle:
+            case ShopItem.ChickenRadish:
                 return SideMenu.ChickenRadish;
+            case ShopItem.Pickle:
+                return SideMenu.Pickle;
+            case ShopItem.Coleslaw:
+                return SideMenu.Coleslaw;
+            case ShopItem.CornSalad:
+                return SideMenu.CornSalad;
+            case ShopItem.FrenchFries:
+                return SideMenu.FrenchFries;
+            case ShopItem.ChickenNugget:
+                return SideMenu.ChickenNugget;
         }
         return SideMenu.None;
+    }
+
+    public static ShopItem SideMenuGetShopItem(SideMenu pSideMenu)
+    {
+        //SideMenu -> ShopItem
+        switch (pSideMenu)
+        {
+            case SideMenu.ChickenRadish:
+                return ShopItem.ChickenRadish;
+            case SideMenu.Pickle:
+                return ShopItem.Pickle;
+            case SideMenu.Coleslaw:
+                return ShopItem.Coleslaw;
+            case SideMenu.CornSalad:
+                return ShopItem.CornSalad;
+            case SideMenu.FrenchFries:
+                return ShopItem.FrenchFries;
+            case SideMenu.ChickenNugget:
+                return ShopItem.ChickenNugget;
+        }
+        return ShopItem.None;
     }
 }

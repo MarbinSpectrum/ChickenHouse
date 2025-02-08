@@ -149,11 +149,16 @@ public class DragObj : Mgr
                 }
                 return;
             case DragState.Chicken_Radish:
+            case DragState.Pickle:
+            case DragState.Coleslaw:
+            case DragState.CornSalad:
+            case DragState.FrenchFries:
+            case DragState.ChickenNugget:
                 {
-                    SideMenu        eSideMenu       = subMenuMgr.GetDragStateSideMenu(kitchenMgr.dragState);
+                    SideMenu        eSideMenu       = SubMenuMgr.GetDragStateSideMenu(kitchenMgr.dragState);
                     SideMenuData    sideMenuData    = subMenuMgr.GetSideMenuData(eSideMenu);
 
-                    //치킨 무를 드래그한 상태
+                    //사이드 오브젝트를 드래그한 상태
                     sideMenuObj.sideMenuImg.sprite = sideMenuData.img;
                     sideMenuObj.sideMenuRect.gameObject.SetActive(true);
                     LanguageMgr.SetString(sideMenuObj.sideMenuText, sideMenuData.nameKey);

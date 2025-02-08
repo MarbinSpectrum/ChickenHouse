@@ -30,7 +30,7 @@ public class KitchenMgr : Mgr
     /** 치킨 슬롯 **/
     [System.NonSerialized] public TableChickenSlot chickenSlot;
     /** 치킨 무 슬롯 **/
-    [System.NonSerialized] public TablePickleSlot  pickleSlot;
+    [System.NonSerialized] public TableSideMenuSlot  pickleSlot;
     /** 음료 슬롯 **/
     [System.NonSerialized] public TableDrinkSlot   drinkSlot;
 
@@ -130,16 +130,18 @@ public class KitchenMgr : Mgr
         /////////////////////////////////////////////////////////////////////////////////
         //사이드메뉴 세팅
         sideMenus.ForEach((x) => x.gameObject.SetActive(false));
-        for (int i = 0; i < (int)MenuSetPos.SideMenuMAX; i++)
+        for (int i = 0; i < sideMenus.Count; i++)
         {
-            if (gameMgr.playData == null || (SideMenu)gameMgr.playData.sideMenu[i] == SideMenu.None)
+            if (gameMgr.playData == null)
+                continue;
+
+            for (int j = 0; j < gameMgr.playData.sideMenu.Length; j++)
             {
-                sideMenus[i].gameObject.SetActive(false);
-            }
-            else
-            {
-                sideMenus[i].SetObj((SideMenu)gameMgr.playData.sideMenu[i]);
+                SideMenu sideMenu = (SideMenu)gameMgr.playData.sideMenu[j];
+                if (sideMenu == SideMenu.None || sideMenus[i].SideMenu != sideMenu)
+                    continue;
                 sideMenus[i].gameObject.SetActive(true);
+                break;
             }
         }
 

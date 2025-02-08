@@ -325,7 +325,7 @@ public class GuestSystem : Mgr
 
                     if (kitchenMgr.cameraObj.lookArea == LookArea.Counter)
                     {
-                        if (gameMgr.playData != null && gameMgr.playData.tutoComplete1 != false)
+                        if (gameMgr.playData == null || (gameMgr.playData != null && gameMgr.playData.tutoComplete1 != false))
                         {
                             //Æ©Åä¸®¾óÀÌ ¾Æ´Ò¶§¸¸ ¹Ù·Î ³ª¿È
                             ui.goKitchen.OpenBtn();

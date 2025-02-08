@@ -76,14 +76,14 @@ public enum DragState
     Chicken_Strainter = 5,
     /** 튀긴 치킨 **/
     Fry_Chicken       = 6,
-    /** 치킨 소스 **/
-    Hot_Spicy       = 7,
-    /** 치킨 무 **/
-    Chicken_Radish   = 8,
+
     /** 치킨 박스(포장) **/
     Chicken_Pack    = 9,
-    /** 콜라 **/
-    Cola            = 10,
+    /** 치킨 박스(구멍) **/
+    Chicken_Pack_Holl = 16,
+
+    /** 치킨 소스 **/
+    Hot_Spicy       = 7,
     /** 간장 양념 **/
     Soy_Spicy       = 11,
     /** 불닭 양념 **/
@@ -94,10 +94,27 @@ public enum DragState
     Carbonara_Spicy = 14,
     /** 바베큐 양념 **/
     BBQ_Spicy       = 15,
-    /** 치킨 박스(구멍) **/
-    Chicken_Pack_Holl = 16,
+
+    /** 치킨 무 **/
+    Chicken_Radish = 8,
+    /** 피클 **/
+    Pickle = 18,
+    /** 코울슬로 **/
+    Coleslaw = 19,
+    /** 콘샐러드 **/
+    CornSalad = 20,
+    /** 감자 튀김 **/
+    FrenchFries = 21,
+    /** 너겟 **/
+    ChickenNugget = 22,
+
+    /** 콜라 **/
+    Cola            = 10,
     /** 맥주 **/
     Beer            = 17,
+
+    MAX
+
 }
 
 public enum ChickenState
@@ -353,7 +370,12 @@ public enum ShopItem
     Beer                = 232,      //맥주
 
     /** 사이드 메뉴 **/
-    Pickle              = 261,      //치킨무
+    ChickenRadish       = 261,      //치킨무
+    Pickle              = 262,      //피클
+    Coleslaw            = 263,      //코우슬로
+    CornSalad           = 264,      //콘샐러드
+    FrenchFries         = 265,      //프랜치 프라이
+    ChickenNugget       = 266,      //치킨너겟
 
     /** 광고 업그레이드 **/
     Advertisement_1     = 301,      //광고 업그레이드(손님 딜레이 -5%);
@@ -410,9 +432,14 @@ public enum MenuSetPos
 
     Drink0 = 0,
     Drink1 = 1,
+    Drink2 = 1,
+    Drink3 = 1,
     DrinkMAX,
 
     SideMenu0 = 0,
+    SideMenu1 = 1,
+    SideMenu2 = 2,
+    SideMenu3 = 3,
     SideMenuMAX,
 
     None = -1,

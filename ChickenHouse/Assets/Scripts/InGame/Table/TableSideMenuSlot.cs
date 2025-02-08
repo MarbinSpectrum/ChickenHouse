@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TablePickleSlot : Mgr
+public class TableSideMenuSlot : Mgr
 {
-    /** 피클이 올려졌는지 여부 **/
+    /** 사이드메뉴가 올려졌는지 여부 **/
     public SideMenu pickle { get; private set; }
 
     [SerializeField] private TableDrinkSlot drinkSlot;
@@ -22,14 +22,17 @@ public class TablePickleSlot : Mgr
 
         if (pickle != SideMenu.None)
         {
-            //음료가 이미 놓여있음
+            //사이드가 이미 놓여있음
             return;
         }
 
-        if (kitchenMgr.dragState == DragState.Chicken_Radish)
+        if (kitchenMgr.dragState != DragState.None)
         {
-            //음료를 놓을수있는 상태이긴하다.
-            SideMenuData sideMenuData = subMenuMgr.GetSideMenuData(SideMenu.ChickenRadish);
+            //사이드를 놓을수있는 상태이긴하다.
+            SideMenu sideMenu = SubMenuMgr.GetDragStateSideMenu(kitchenMgr.dragState);
+            SideMenuData sideMenuData = subMenuMgr.GetSideMenuData(sideMenu);
+            if (sideMenuData == null)
+                return;
             pickleImg.sprite = sideMenuData.img;
             pickleImg.color = new Color(1, 1, 1, 0.5f);
             slotUI.gameObject.SetActive(true);
@@ -75,7 +78,7 @@ public class TablePickleSlot : Mgr
     {
         if (pickle != SideMenu.None)
         {
-            //이미 치킨무가 놓임
+            //이미 사이드가 놓임
             return false;
         }
 
