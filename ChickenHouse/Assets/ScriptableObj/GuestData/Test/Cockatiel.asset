@@ -41,13 +41,13 @@ MonoBehaviour:
     drink: 0
     sideMenu: 0
   - openDay: 5
-    spicy0: 3
-    spicy1: 3
+    spicy0: 5
+    spicy1: 5
     drink: 0
     sideMenu: 0
   - openDay: 5
-    spicy0: 5
-    spicy1: 5
+    spicy0: 3
+    spicy1: 3
     drink: 0
     sideMenu: 0
   - openDay: 5
@@ -57,21 +57,21 @@ MonoBehaviour:
     sideMenu: 0
   - openDay: 3
     spicy0: 0
-    spicy1: 1
+    spicy1: 4
     drink: 0
     sideMenu: 0
   - openDay: 6
     spicy0: 2
-    spicy1: 6
-    drink: 0
-    sideMenu: 0
-  - openDay: 6
-    spicy0: 5
     spicy1: 1
     drink: 0
     sideMenu: 0
   - openDay: 6
-    spicy0: 4
-    spicy1: 0
+    spicy0: 5
+    spicy1: 4
+    drink: 0
+    sideMenu: 0
+  - openDay: 6
+    spicy0: 2
+    spicy1: 3
     drink: 0
     sideMenu: 0

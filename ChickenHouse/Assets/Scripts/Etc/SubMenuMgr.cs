@@ -24,7 +24,25 @@ public class SubMenuMgr : AwakeSingleton<SubMenuMgr>
         return drinkData.price;
     }
 
-    public Drink GetDragStateDrink(DragState pDragState)
+    public DragState GetDrinkToDragState(Drink pDrink)
+    {
+        switch (pDrink)
+        {
+            case Drink.Cola:
+                return DragState.Cola;
+            case Drink.Beer:
+                return DragState.Beer;
+            case Drink.SuperPower:
+                return DragState.SuperPower;
+            case Drink.LoveMelon:
+                return DragState.LoveMelon;
+            case Drink.SodaSoda:
+                return DragState.SodaSoda;
+        }
+        return DragState.None;
+    }
+
+    public Drink GetDragStateToDrink(DragState pDragState)
     {
         switch (pDragState)
         {
@@ -32,6 +50,12 @@ public class SubMenuMgr : AwakeSingleton<SubMenuMgr>
                 return Drink.Cola;
             case DragState.Beer:
                 return Drink.Beer;
+            case DragState.SuperPower:
+                return Drink.SuperPower;
+            case DragState.LoveMelon:
+                return Drink.LoveMelon;
+            case DragState.SodaSoda:
+                return Drink.SodaSoda;
         }
         return Drink.None;
     }
@@ -47,17 +71,44 @@ public class SubMenuMgr : AwakeSingleton<SubMenuMgr>
         return false;
     }
 
-    public static Drink ShopItemGetDrink(ShopItem shopItem)
+    public static Drink GetShopItemToDrink(ShopItem shopItem)
     {
-        //아이템에 해당하는 음료반환
+        //ShopItem->Drink
         switch (shopItem)
         {
             case ShopItem.Cola:
                 return Drink.Cola;
             case ShopItem.Beer:
                 return Drink.Beer;
+            case ShopItem.SuperPower:
+                return Drink.SuperPower;
+            case ShopItem.LoveMelon:
+                return Drink.LoveMelon;
+            case ShopItem.SodaSoda:
+                return Drink.SodaSoda;
+
         }
         return Drink.None;
+    }
+
+    public static ShopItem GetDrinkToShopItem(Drink pDrink)
+    {
+        //Drink->ShopItem
+        switch (pDrink)
+        {
+            case Drink.Cola:
+                return ShopItem.Cola;
+            case Drink.Beer:
+                return ShopItem.Beer;
+            case Drink.SuperPower:
+                return ShopItem.SuperPower;
+            case Drink.LoveMelon:
+                return ShopItem.LoveMelon;
+            case Drink.SodaSoda:
+                return ShopItem.SodaSoda;
+
+        }
+        return ShopItem.None;
     }
 
     public SideMenuData GetSideMenuData(SideMenu pSideMenu)
@@ -77,7 +128,7 @@ public class SubMenuMgr : AwakeSingleton<SubMenuMgr>
         return sideMenuData.price;
     }
 
-    public static DragState GetSideMenuDragState(SideMenu pSideMenu)
+    public static DragState GetSideMenuToDragState(SideMenu pSideMenu)
     {
         //SideMenu -> DragState
         switch (pSideMenu)
@@ -99,7 +150,7 @@ public class SubMenuMgr : AwakeSingleton<SubMenuMgr>
         return DragState.None;
     }
 
-    public static SideMenu GetDragStateSideMenu(DragState pDragState)
+    public static SideMenu GetDragStateToSideMenu(DragState pDragState)
     {
         //DragState -> SideMenu
         switch (pDragState)
@@ -120,7 +171,7 @@ public class SubMenuMgr : AwakeSingleton<SubMenuMgr>
         return SideMenu.None;
     }
 
-    public static SideMenu ShopItemGetSideMenu(ShopItem shopItem)
+    public static SideMenu GetShopItemToSideMenu(ShopItem shopItem)
     {
         //ShopItem -> SideMenu
         switch (shopItem)
@@ -141,7 +192,7 @@ public class SubMenuMgr : AwakeSingleton<SubMenuMgr>
         return SideMenu.None;
     }
 
-    public static ShopItem SideMenuGetShopItem(SideMenu pSideMenu)
+    public static ShopItem GetSideMenuToShopItem(SideMenu pSideMenu)
     {
         //SideMenu -> ShopItem
         switch (pSideMenu)

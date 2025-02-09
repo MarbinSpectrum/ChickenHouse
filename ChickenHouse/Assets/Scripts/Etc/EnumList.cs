@@ -112,8 +112,15 @@ public enum DragState
     Cola            = 10,
     /** ¸ÆÁÖ **/
     Beer            = 17,
+    /** µþ±â¸À Åº»ê **/
+    SuperPower      = 23,
+    /** ¸Þ·Ð¸À Åº»ê **/
+    LoveMelon       = 24,
+    /** ¼Ò´Ù¸À Åº»ê **/
+    SodaSoda        = 25,
 
-    MAX
+
+
 
 }
 
@@ -368,6 +375,9 @@ public enum ShopItem
     /** À½·á **/
     Cola                = 231,      //ÄÝ¶ó
     Beer                = 232,      //¸ÆÁÖ
+    SuperPower          = 234,      //µþ±â¸À Åº»ê À½·á 
+    LoveMelon           = 235,      //¸Þ·Ð¸À Åº»ê À½·á
+    SodaSoda            = 236,      //¼Ò´Ù¸À Åº»ê À½·á
 
     /** »çÀÌµå ¸Þ´º **/
     ChickenRadish       = 261,      //Ä¡Å²¹«
@@ -432,8 +442,8 @@ public enum MenuSetPos
 
     Drink0 = 0,
     Drink1 = 1,
-    Drink2 = 1,
-    Drink3 = 1,
+    Drink2 = 2,
+    Drink3 = 3,
     DrinkMAX,
 
     SideMenu0 = 0,
@@ -476,6 +486,9 @@ public enum Drink
     None            = 0,
     Cola            = 1,
     Beer            = 2,
+    SuperPower      = 3,
+    LoveMelon       = 4,
+    SodaSoda        = 5,
 
     MAX,
 

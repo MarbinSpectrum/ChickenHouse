@@ -24,7 +24,7 @@ public class SideMenuObj : Mgr
             return;
         }
 
-        kitchenMgr.dragState = SubMenuMgr.GetSideMenuDragState(sideMenu);
+        kitchenMgr.dragState = SubMenuMgr.GetSideMenuToDragState(sideMenu);
     }
 
     public void OnMouseUp()

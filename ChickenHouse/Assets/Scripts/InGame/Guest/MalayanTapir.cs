@@ -9,39 +9,89 @@ public class MalayanTapir : GuestObj
         int menuIdx = requireMenu.menuIdx;
 
         talkStr = string.Empty;
-        if (menuIdx == 0)
-            talkStr = LanguageMgr.GetText("MALAYANTAPIR_ORDER_1");
-        else if (menuIdx == 1)
-            talkStr = LanguageMgr.GetText("MALAYANTAPIR_ORDER_2");
-        else if (menuIdx == 2)
-            talkStr = LanguageMgr.GetText("MALAYANTAPIR_ORDER_3");
-        else if (menuIdx == 3)
-            talkStr = LanguageMgr.GetText("MALAYANTAPIR_ORDER_4");
-        else if (menuIdx == 4)
-            talkStr = LanguageMgr.GetText("MALAYANTAPIR_ORDER_5");
-        else if (menuIdx == 5)
-            talkStr = LanguageMgr.GetText("MALAYANTAPIR_ORDER_6");
-        else if (menuIdx == 6)
-            talkStr = LanguageMgr.GetText("MALAYANTAPIR_ORDER_7");
-        else if (menuIdx == 7)
-            talkStr = LanguageMgr.GetText("MALAYANTAPIR_ORDER_8");
-        else if (menuIdx == 8)
-            talkStr = LanguageMgr.GetText("MALAYANTAPIR_ORDER_9");
-        else if (menuIdx == 9)
-            talkStr = LanguageMgr.GetText("MALAYANTAPIR_ORDER_10");
-        else if (menuIdx == 10)
-            talkStr = LanguageMgr.GetText("MALAYANTAPIR_ORDER_11");
-
-        if (requireMenu.drink == Drink.Cola)
+        switch (menuIdx)
         {
-            talkStr += "\n";
-            talkStr += LanguageMgr.GetText("MALAYANTAPIR_SIDE_COLA");
+            case 0:
+                talkStr = LanguageMgr.GetText("MALAYANTAPIR_ORDER_1");
+                break;
+            case 1:
+                talkStr = LanguageMgr.GetText("MALAYANTAPIR_ORDER_2");
+                break;
+            case 2:
+                talkStr = LanguageMgr.GetText("MALAYANTAPIR_ORDER_3");
+                break;
+            case 3:
+                talkStr = LanguageMgr.GetText("MALAYANTAPIR_ORDER_4");
+                break;
+            case 4:
+                talkStr = LanguageMgr.GetText("MALAYANTAPIR_ORDER_5");
+                break;
+            case 5:
+                talkStr = LanguageMgr.GetText("MALAYANTAPIR_ORDER_6");
+                break;
+            case 6:
+                talkStr = LanguageMgr.GetText("MALAYANTAPIR_ORDER_7");
+                break;
+            case 7:
+                talkStr = LanguageMgr.GetText("MALAYANTAPIR_ORDER_8");
+                break;
+            case 8:
+                talkStr = LanguageMgr.GetText("MALAYANTAPIR_ORDER_9");
+                break;
+            case 9:
+                talkStr = LanguageMgr.GetText("MALAYANTAPIR_ORDER_10");
+                break;
+            case 10:
+                talkStr = LanguageMgr.GetText("MALAYANTAPIR_ORDER_11");
+                break;
         }
 
-        if (requireMenu.sideMenu == SideMenu.ChickenRadish)
+        switch (requireMenu.drink)
         {
-            talkStr += "\n";
-            talkStr += LanguageMgr.GetText("MALAYANTAPIR_SIDE_PICKLE");
+            case Drink.Cola:
+                talkStr += "\n";
+                talkStr += LanguageMgr.GetText("MALAYANTAPIR_SIDE_COLA");
+                break;
+            case Drink.SuperPower:
+                talkStr += "\n";
+                talkStr += LanguageMgr.GetText("MALAYANTAPIR_SIDE_SUPERPOWER");
+                break;
+            case Drink.LoveMelon:
+                talkStr += "\n";
+                talkStr += LanguageMgr.GetText("MALAYANTAPIR_SIDE_LOVEMELON");
+                break;
+            case Drink.SodaSoda:
+                talkStr += "\n";
+                talkStr += LanguageMgr.GetText("MALAYANTAPIR_SIDE_SODASODA");
+                break;
+        }
+
+        switch (requireMenu.sideMenu)
+        {
+            case SideMenu.ChickenRadish:
+                talkStr += "\n";
+                talkStr += LanguageMgr.GetText("MALAYANTAPIR_SIDE_RADISH");
+                break;
+            case SideMenu.Pickle:
+                talkStr += "\n";
+                talkStr += LanguageMgr.GetText("MALAYANTAPIR_SIDE_PICKLE");
+                break;
+            case SideMenu.Coleslaw:
+                talkStr += "\n";
+                talkStr += LanguageMgr.GetText("MALAYANTAPIR_SIDE_COLESLAW");
+                break;
+            case SideMenu.CornSalad:
+                talkStr += "\n";
+                talkStr += LanguageMgr.GetText("MALAYANTAPIR_SIDE_CORNSALAD");
+                break;
+            case SideMenu.FrenchFries:
+                talkStr += "\n";
+                talkStr += LanguageMgr.GetText("MALAYANTAPIR_SIDE_FRENCHFRIES");
+                break;
+            case SideMenu.ChickenNugget:
+                talkStr += "\n";
+                talkStr += LanguageMgr.GetText("MALAYANTAPIR_SIDE_CKICKENNUGGET");
+                break;
         }
     }
 

@@ -136,8 +136,11 @@ public class DragObj : Mgr
                 return;
             case DragState.Beer:
             case DragState.Cola:
+            case DragState.SuperPower:
+            case DragState.LoveMelon:
+            case DragState.SodaSoda:
                 {
-                    Drink       eDrink      = subMenuMgr.GetDragStateDrink(kitchenMgr.dragState);
+                    Drink       eDrink      = subMenuMgr.GetDragStateToDrink(kitchenMgr.dragState);
                     DrinkData   drinkData   = subMenuMgr.GetDrinkData(eDrink);
 
                     //음료를 드래그한 상태
@@ -155,7 +158,7 @@ public class DragObj : Mgr
             case DragState.FrenchFries:
             case DragState.ChickenNugget:
                 {
-                    SideMenu        eSideMenu       = SubMenuMgr.GetDragStateSideMenu(kitchenMgr.dragState);
+                    SideMenu        eSideMenu       = SubMenuMgr.GetDragStateToSideMenu(kitchenMgr.dragState);
                     SideMenuData    sideMenuData    = subMenuMgr.GetSideMenuData(eSideMenu);
 
                     //사이드 오브젝트를 드래그한 상태

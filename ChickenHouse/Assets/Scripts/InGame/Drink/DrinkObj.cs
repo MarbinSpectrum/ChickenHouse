@@ -33,16 +33,7 @@ public class DrinkObj : Mgr
             return;
         }
 
-        switch(eDrink)
-        {
-            case Drink.Cola:
-                kitchenMgr.dragState = DragState.Cola;
-                break;
-            case Drink.Beer:
-                kitchenMgr.dragState = DragState.Beer;
-                break;
-        }
-
+        kitchenMgr.dragState = subMenuMgr.GetDrinkToDragState(eDrink);
     }
 
     public void OnMouseUp()

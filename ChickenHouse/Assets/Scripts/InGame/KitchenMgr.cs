@@ -111,24 +111,23 @@ public class KitchenMgr : Mgr
             }
         }
 
-        /////////////////////////////////////////////////////////////////////////////////
-        //음료 세팅
-        drinks.ForEach((x) => x.gameObject.SetActive(false));
-        for (int i = 0; i < (int)MenuSetPos.DrinkMAX; i++)
-        {
-            if (gameMgr.playData == null || (Drink)gameMgr.playData.drink[i] == Drink.None)
-            {
-                drinks[i].gameObject.SetActive(false);
-            }
-            else
-            {
-                drinks[i].SetObj((Drink)gameMgr.playData.drink[i]);
-                drinks[i].gameObject.SetActive(true);
-            }
-        }
+        int subMenuActCnt = 0;
 
         /////////////////////////////////////////////////////////////////////////////////
-        //사이드메뉴 세팅
+        //음료 & 사이드메뉴 세팅
+        drinks.ForEach((x) => x.gameObject.SetActive(false));
+        List<Drink> actDrink = new List<Drink>();
+        for (int i = 0; i < (int)MenuSetPos.DrinkMAX; i++)
+        {
+            if (gameMgr.playData == null)
+                continue;
+            Drink isDrink = (Drink)gameMgr.playData.drink[i];
+            if (isDrink == Drink.None)
+                continue;
+            actDrink.Add(isDrink);
+        }
+
+        int sideMenuCnt = 0;
         sideMenus.ForEach((x) => x.gameObject.SetActive(false));
         for (int i = 0; i < sideMenus.Count; i++)
         {
@@ -141,9 +140,30 @@ public class KitchenMgr : Mgr
                 if (sideMenu == SideMenu.None || sideMenus[i].SideMenu != sideMenu)
                     continue;
                 sideMenus[i].gameObject.SetActive(true);
+                sideMenuCnt++;
                 break;
             }
         }
+
+        if(sideMenuCnt >= 3 || actDrink.Count >= 3)
+        {
+            for (int i = 0; i < actDrink.Count; i++)
+            {
+                drinks[i].SetObj(actDrink[i]);
+                drinks[i].gameObject.SetActive(true);
+            }
+        }
+        else if(actDrink.Count > 0)
+        {
+            drinks[0].SetObj(actDrink[0]);
+            drinks[0].gameObject.SetActive(true);
+            if (actDrink.Count > 1)
+            {
+                drinks[2].SetObj(actDrink[1]);
+                drinks[2].gameObject.SetActive(true);
+            }
+        }
+
 
         /////////////////////////////////////////////////////////////////////////////////
         //튀김기&치킨상자 준비

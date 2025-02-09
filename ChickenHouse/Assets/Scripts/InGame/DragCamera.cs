@@ -158,7 +158,8 @@ public class DragCamera : Mgr
     }
 
     private DRAG_OUTLINE GetOutline()
-    {
+    { 
+        //드대그 범위 처리(해당범위 넘어서는 드래그 안되는 처리임)
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
         switch (kitchenMgr.dragState)
         {
@@ -169,16 +170,29 @@ public class DragCamera : Mgr
             case DragState.Chicken_Strainter:
             case DragState.Fry_Chicken:
                 return dragOutline[DragZone.OilZone];
+                //양념
             case DragState.Hot_Spicy:
             case DragState.Soy_Spicy:
             case DragState.Hell_Spicy:
             case DragState.Prinkle_Spicy:
             case DragState.Carbonara_Spicy:
             case DragState.BBQ_Spicy:
+                //음료
+            case DragState.Cola:
+            case DragState.Beer:
+            case DragState.SuperPower:
+            case DragState.LoveMelon:
+            case DragState.SodaSoda:
+                //사이드메뉴
+            case DragState.Chicken_Radish:
+            case DragState.Pickle:
+            case DragState.Coleslaw:
+            case DragState.CornSalad:
+            case DragState.FrenchFries:
+            case DragState.ChickenNugget:
+                //기타
             case DragState.Chicken_Pack_Holl:
             case DragState.Chicken_Pack:
-            case DragState.Cola:
-            case DragState.Chicken_Radish:
                 return dragOutline[DragZone.SpicyTable];
             default:
                 return dragOutline[DragZone.None];

@@ -73,13 +73,17 @@ public class PlayData
         hasItem[(int)ShopItem.ChickenRadish] = true;
         sideMenu[(int)MenuSetPos.SideMenu0] = (int)SideMenu.ChickenRadish;
 
-        {
-            hasItem[(int)ShopItem.Pickle] = true;
-            hasItem[(int)ShopItem.Coleslaw] = true;
-            hasItem[(int)ShopItem.CornSalad] = true;
-            hasItem[(int)ShopItem.FrenchFries] = true;
-            hasItem[(int)ShopItem.ChickenNugget] = true;
-        }
+        //{
+        //    hasItem[(int)ShopItem.Pickle] = true;
+        //    hasItem[(int)ShopItem.Coleslaw] = true;
+        //    hasItem[(int)ShopItem.CornSalad] = true;
+        //    hasItem[(int)ShopItem.FrenchFries] = true;
+        //    hasItem[(int)ShopItem.ChickenNugget] = true;
+
+        //    hasItem[(int)ShopItem.SuperPower] = true;
+        //    hasItem[(int)ShopItem.LoveMelon] = true;
+        //    hasItem[(int)ShopItem.SodaSoda] = true;
+        //}
 
         hasItem[(int)ShopItem.OIL_Zone_1] = true;
 
@@ -258,20 +262,15 @@ public class PlayData
     public bool HasDrink(Drink pDrink)
     {
         //해당 종류의 음료를 가지고 있는지 여부
-        switch (pDrink)
-        {
-            case Drink.Cola:
-                return hasItem[(int)ShopItem.Cola];
-            case Drink.Beer:
-                return hasItem[(int)ShopItem.Beer];
-        }
-        return false;
+        ShopItem shopItem = SubMenuMgr.GetDrinkToShopItem(pDrink);
+        return hasItem[(int)shopItem];
     }
 
     public bool HasSideMenu(SideMenu pSideMenu)
     {
         //해당 종류의 사이드메뉴를 가지고 있는지 여부
-        return hasItem[(int)SubMenuMgr.SideMenuGetShopItem(pSideMenu)];
+        ShopItem shopItem = SubMenuMgr.GetSideMenuToShopItem(pSideMenu);
+        return hasItem[(int)shopItem];
     }
 
     public bool KitchenSetSpicy(ChickenSpicy pSpicy)
@@ -352,13 +351,13 @@ public class PlayData
             //양념을 새로 얻음 도감에 등록
             BookMgr.ActSpicyData(chickenSpicy);
         }
-        Drink drink = SubMenuMgr.ShopItemGetDrink(pShopItem);
+        Drink drink = SubMenuMgr.GetShopItemToDrink(pShopItem);
         if (drink != Drink.None)
         {
             //음료를 새로 얻음 도감에 등록
             BookMgr.ActDrinkData(drink);
         }
-        SideMenu sideMenu = SubMenuMgr.ShopItemGetSideMenu(pShopItem);
+        SideMenu sideMenu = SubMenuMgr.GetShopItemToSideMenu(pShopItem);
         if (sideMenu != SideMenu.None)
         {
             //사이드메뉴를 새로 얻음 도감에 등록

@@ -16,7 +16,7 @@ public class KitchenTableMenuRect : Mgr
     private void Update()
     {
         int sideActCnt = 0;
-        for(int i = 0; i < sideMenus.Count; i++)
+        for (int i = 0; i < sideMenus.Count; i++)
             if (sideMenus[i].gameObject.activeSelf)
                 sideActCnt++;
         foreach (GameObject obj in sideEmpty)
@@ -30,16 +30,20 @@ public class KitchenTableMenuRect : Mgr
         int actCnt = Mathf.Max(sideActCnt, drinkActCnt);
         if (actCnt >= 3)
         {
+            layoutGroup.constraintCount = 2;
             menuRect.sizeDelta = new Vector2(
-                layoutGroup.spacing.x + layoutGroup.cellSize.x * 2 + 1.2f, menuRect.sizeDelta.y);
+                layoutGroup.spacing.x + layoutGroup.cellSize.x * 2, menuRect.sizeDelta.y);
             if (sideActCnt == 1)
                 sideEmpty[0].gameObject.SetActive(true);
             else if (sideActCnt == 3)
                 sideEmpty[1].gameObject.SetActive(true);
         }
         else
+        {
+            layoutGroup.constraintCount = 1;
             menuRect.sizeDelta = new Vector2(
                 layoutGroup.spacing.x + layoutGroup.cellSize.x, menuRect.sizeDelta.y);
+        }
 
         thisRect.sizeDelta = new Vector2(
                tableRect.sizeDelta.x + 3.5f, thisRect.sizeDelta.y);

@@ -29,7 +29,7 @@ public class TableSideMenuSlot : Mgr
         if (kitchenMgr.dragState != DragState.None)
         {
             //사이드를 놓을수있는 상태이긴하다.
-            SideMenu sideMenu = SubMenuMgr.GetDragStateSideMenu(kitchenMgr.dragState);
+            SideMenu sideMenu = SubMenuMgr.GetDragStateToSideMenu(kitchenMgr.dragState);
             SideMenuData sideMenuData = subMenuMgr.GetSideMenuData(sideMenu);
             if (sideMenuData == null)
                 return;
