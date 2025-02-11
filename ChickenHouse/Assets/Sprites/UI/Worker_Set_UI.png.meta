@@ -305,7 +305,7 @@ TextureImporter:
         width: 180
         height: 149
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -313,6 +313,27 @@ TextureImporter:
       bones: []
       spriteID: 41c4d1fc4201dda4692664d53e7369d1
       internalID: 1840781917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worker_Set_UI_9
+      rect:
+        serializedVersion: 2
+        x: 1182
+        y: 0
+        width: 738
+        height: 658
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf81737fd0b4a5249bb1deef303d2dae
+      internalID: -1047820697
       vertices: []
       indices: 
       edges: []
@@ -333,6 +354,7 @@ TextureImporter:
       Worker_Set_UI_0: 237519713
       Worker_Set_UI_8: 1840781917
       Worker_Set_UI_1: 889956471
+      Worker_Set_UI_9: -1047820697
       Worker_Set_UI_7: -2101407395
       Worker_Set_UI_5: -236411299
       Worker_Set_UI_6: 441728734

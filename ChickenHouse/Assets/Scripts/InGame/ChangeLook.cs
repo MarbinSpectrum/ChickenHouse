@@ -17,6 +17,7 @@ public class ChangeLook : Mgr
     [SerializeField] private POS        pos;
 
     private IEnumerator lookCor;
+    public bool runAni { get; private set; } = false;
 
     public void ChangeCamera(LookArea pLookArea, NoParaDel fun = null) => ChangeCamera(pLookArea, duration, fun);
     public void ChangeCamera(LookArea pLookArea,float pDuration, NoParaDel fun = null)
@@ -30,7 +31,7 @@ public class ChangeLook : Mgr
             lookCor = null;
         }
         lookCor = Run_LookAni(pLookArea, pDuration, fun);
-
+        runAni = true;
         StartCoroutine(lookCor);
     }
 
@@ -61,6 +62,7 @@ public class ChangeLook : Mgr
         {
             //이동시간이 0초이므로 바로이동
             Camera.main.transform.position = endPos;
+            runAni = false;
             yield break;
         }
 
@@ -75,7 +77,7 @@ public class ChangeLook : Mgr
             yield return null;
         }
         Camera.main.transform.position = endPos;
-
+        runAni = false;
         fun?.Invoke();
     }
 }

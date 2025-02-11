@@ -134,6 +134,9 @@ KITCHEN_SIDEMENU_HEADER	사이드 메뉴	SideMenu
 KITCHEN_SIDEMENULIST_HEADER	사이드 목록	SideMenu List
 KITCHEN_DRINK_HEADER	음료	Drink
 KITCHEN_DRINKLIST_HEADER	음료 목록	Drink List
+KITCHEN_SIDE_UI_DRINK_HEADER	음료	Drink
+KITCHEN_SIDE_UI_SIDEMENU_HEADER	사이드 메뉴	SideMenu
+KITCHEN_SIDE_UI_EMPTY	준비안됨	Empty
 PIG_TALK_1	이거 이거 그런 서비스로 손님이 만족하겠나~ 쿠히힉!	Well, well, do you really think customers will be satisfied with that kind of service? Oink!
 PIG_TALK_2	쿠힉힉힉 돼지 사료도 이것보단 고급스럽겠구먼~	Oink! Oink! Oink! Even pig feed would be more high-end than this~
 PIG_TALK_3	아니 혹시 쿠힉! 그거 사장 얼굴을 본떠 만든 치킨인가? 완전 개판이구먼!	Wait, is that chicken made to look like the boss's face? It’s a complete mess!

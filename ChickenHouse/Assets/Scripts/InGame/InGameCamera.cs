@@ -11,6 +11,8 @@ public class InGameCamera : Mgr
     /** 보고있는 지역 **/
     public LookArea lookArea { private set; get; }
 
+    public bool runAni => changeLook.runAni;
+
     private void Awake()
     {
         lookArea = startArea;
