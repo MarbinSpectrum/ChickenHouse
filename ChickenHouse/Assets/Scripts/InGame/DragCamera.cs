@@ -7,6 +7,15 @@ public class DragCamera : Mgr
 {
     //카메라 드래그
 
+    private enum CameraPos
+    {
+        ChickenZone,
+        OilZone,
+        TableZone,
+    }
+
+    private CameraPos cameraPos = CameraPos.ChickenZone;
+
     [SerializeField] private float speed = 0.25f;
     [SerializeField] private float autoMoveSpeed = 0.25f;
     [SerializeField] private float dragDis = 150f;
@@ -20,6 +29,7 @@ public class DragCamera : Mgr
         public RectTransform head;
         public RectTransform tail;
     }
+
 
     private Vector2 prevPos;
 
@@ -40,20 +50,31 @@ public class DragCamera : Mgr
 
         public Transform sideSlot;
     }
-    [SerializeField] private DRAG_TARGET dragTarget;
-    private bool autoDragMode = false;
+    [SerializeField] private DRAG_TARGET    dragTarget;
+
+    private bool autoDragMode   = false;
+    private bool moveCamera     = false;
 
     private void Update()
     {
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
+
+        if (CheckMode.IsWindow() && kitchenMgr.cameraObj.lookArea == LookArea.Kitchen 
+            && kitchenMgr.cameraObj.runAni == false)
+        {
+            CameraKeyBoardControl();
+            return;
+        }
+
         bool dragMove = false;
+
         if (kitchenMgr.dragState == DragState.None)
         {
             prevPos = Input.mousePosition;  
         }
         else if(kitchenMgr.cameraObj.lookArea == LookArea.Kitchen)
         {
-            if(runAutoMove)
+            if (runAutoMove)
             {
                 if (AutoMoveCamera() == false && autoDragMode == false)
                     dragMove = DragMoveCamera();
@@ -71,32 +92,148 @@ public class DragCamera : Mgr
             return;
     }
 
+    private void CameraKeyBoardControl()
+    {
+        if (gameMgr.stopGame)
+            return;
+
+        if (tutoMgr.runTutoFlag)
+            return;
+
+        if (moveCamera)
+            return;
+
+
+
+        KitchenMgr kitchenMgr = KitchenMgr.Instance;
+        RectTransform kitchenRect = kitchenMgr.KitchenContent();
+        int actOilCnt = kitchenMgr.GetActiveOilZoneCnt();
+
+        if (actOilCnt <= 1)
+        {
+            if(kitchenRect.anchoredPosition.x > -kitchenRect.sizeDelta.x)
+                cameraPos = CameraPos.ChickenZone;
+            else
+                cameraPos = CameraPos.TableZone;
+        }
+        if (actOilCnt == 2)
+        {
+            if (kitchenRect.anchoredPosition.x > -50)
+                cameraPos = CameraPos.ChickenZone;
+            else
+                cameraPos = CameraPos.TableZone;
+        }
+        else
+        {
+            if (kitchenRect.anchoredPosition.x > -50)
+                cameraPos = CameraPos.ChickenZone;
+            else if (kitchenRect.anchoredPosition.x > -kitchenRect.sizeDelta.x)
+                cameraPos = CameraPos.OilZone;
+            else
+                cameraPos = CameraPos.TableZone;
+        }
+
+        if (Input.GetKeyDown(KeyMgr.GetKeyCode(KeyBoardValue.RIGHT)))
+        {
+            switch(cameraPos)
+            {
+                case CameraPos.ChickenZone:
+                    if(actOilCnt <= 1)
+                    {
+                        moveCamera = true;
+                        StartCoroutine(CameraMoveCor(-kitchenRect.sizeDelta.x));
+                    }
+                    else if (actOilCnt == 2)
+                    {
+                        moveCamera = true;
+                        StartCoroutine(CameraMoveCor(-50));
+                    }
+                    else 
+                    {
+                        moveCamera = true;
+                        StartCoroutine(CameraMoveCor(-50));
+                    }
+                    break;
+                case CameraPos.OilZone:
+                    moveCamera = true;
+                    StartCoroutine(CameraMoveCor(-kitchenRect.sizeDelta.x));
+                    break;
+            }
+        }
+        else if (Input.GetKeyDown(KeyMgr.GetKeyCode(KeyBoardValue.LEFT)))
+        {
+            switch (cameraPos)
+            {
+                case CameraPos.OilZone:
+                    moveCamera = true;
+                    StartCoroutine(CameraMoveCor(0));
+                    break;
+                case CameraPos.TableZone:
+                    if (actOilCnt <= 2)
+                    {
+                        moveCamera = true;
+                        StartCoroutine(CameraMoveCor(0));
+                    }
+                    else
+                    {
+                        moveCamera = true;
+                        StartCoroutine(CameraMoveCor(-50));
+                    }
+                    break;
+            }
+        }
+    }
+
+    IEnumerator CameraMoveCor(float pPosX)
+    {
+        DRAG_OUTLINE outline = GetOutline();
+        KitchenMgr kitchenMgr = KitchenMgr.Instance;
+        RectTransform kitchenRect = kitchenMgr.KitchenContent();
+
+        float dic = (kitchenRect.anchoredPosition.x < pPosX) ? 1 : -1;
+        float dis = Mathf.Abs(kitchenRect.anchoredPosition.x - pPosX);
+        while (dis > 0)
+        {
+            float moveValue = dic * Time.deltaTime * autoMoveSpeed;
+            dis -= Mathf.Abs(moveValue);
+            if(dis > 0)
+                kitchenMgr.SetkitchenSetPos(new Vector2(kitchenRect.offsetMin.x + moveValue, 0));
+            else
+                kitchenMgr.SetkitchenSetPos(new Vector2(pPosX, 0));
+            yield return null;
+        }
+
+        moveCamera = false;
+    }
+
+
     private bool AutoMoveCamera()
     {
         //카메라가 임의의 위치에 있어야하는 경우가있어서 여기서 처리하도록 시킴
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
         DRAG_OUTLINE outline = GetOutline();
+        RectTransform kitchenRect = kitchenMgr.KitchenContent();
 
         if (kitchenMgr.dragState == DragState.None)
             autoDragMode = false;
 
-        if (kitchenMgr.kitchenRect.content.offsetMin.x < outline.head.offsetMin.x)
+        if (kitchenRect.offsetMin.x < outline.head.offsetMin.x)
         {
             float moveValue = 1 * Time.deltaTime * autoMoveSpeed;
-            if(kitchenMgr.kitchenRect.content.offsetMin.x + moveValue >= outline.head.offsetMin.x)
-                kitchenMgr.SetkitchenSetPos(new Vector2(outline.head.offsetMin.x, kitchenMgr.kitchenRect.content.offsetMin.y));
+            if(kitchenRect.offsetMin.x + moveValue >= outline.head.offsetMin.x)
+                kitchenMgr.SetkitchenSetPos(new Vector2(outline.head.offsetMin.x, kitchenRect.offsetMin.y));
             else
                 kitchenMgr.AddkitchenSetPos(moveValue, outline);
 
             autoDragMode = true;
             return true;
         }
-        else if(kitchenMgr.kitchenRect.content.offsetMin.x > outline.tail.offsetMin.x)
+        else if(kitchenRect.offsetMin.x > outline.tail.offsetMin.x)
         {
             float moveValue = -1 * Time.deltaTime * autoMoveSpeed;
 
-            if (kitchenMgr.kitchenRect.content.offsetMin.x <= outline.tail.offsetMin.x)
-                kitchenMgr.SetkitchenSetPos(new Vector2(outline.tail.offsetMin.x, kitchenMgr.kitchenRect.content.offsetMin.y));
+            if (kitchenRect.offsetMin.x <= outline.tail.offsetMin.x)
+                kitchenMgr.SetkitchenSetPos(new Vector2(outline.tail.offsetMin.x, kitchenRect.offsetMin.y));
             else
                 kitchenMgr.AddkitchenSetPos(moveValue, outline);
             autoDragMode = true;

@@ -753,6 +753,14 @@ public enum SceneChangeAni
     CIRCLE  = 2,
 }
 
+public enum KeyBoardValue
+{
+    NONE    = 0,
+    RIGHT   = 1,
+    LEFT    = 2,
+
+
+}
 
 public enum Language
 {

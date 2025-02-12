@@ -664,10 +664,8 @@ public class GuestSystem : Mgr
                         }
                         StartCoroutine(Run());
                     }
-                    else
-                    {
+                    else if (skipTalkBtn != null)
                         skipTalkBtn.gameObject.SetActive(false);
-                    }
                 }
             });
 

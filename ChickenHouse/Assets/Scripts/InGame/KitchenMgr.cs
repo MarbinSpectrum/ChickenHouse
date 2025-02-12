@@ -42,7 +42,7 @@ public class KitchenMgr : Mgr
     /** 오브젝트 드래그 **/
     public DragObj          dragObj;
     /** 주방 Rect **/
-    public ScrollRect       kitchenRect;
+    [SerializeField] private ScrollRect       kitchenRect;
 
     /** 주방 알바생 **/
     [SerializeField] private Worker_Kitchen     workerKitchen;
@@ -55,7 +55,6 @@ public class KitchenMgr : Mgr
     [SerializeField] private List<ChickenSpicyObj>  spicys      = new List<ChickenSpicyObj>();
 
     [SerializeField] private List<Oil_Zone>         oilMachines         = new List<Oil_Zone>();
-    [SerializeField] private List<GameObject>       chickenPackslots    = new List<GameObject>();
 
     public bool runWorker { get; private set; }
 
@@ -74,6 +73,8 @@ public class KitchenMgr : Mgr
         public Worker_UI    workerUI;
         /** 사이드 메뉴 UI **/
         public KitchenSideMenuUI sideMenuUI;
+        /** 테이블 UI **/
+        public KitchenTableMenuRect tableUI;
     }
     public UI ui;
 
@@ -119,37 +120,21 @@ public class KitchenMgr : Mgr
         }
 
         if (gameMgr.playData != null && gameMgr.playData.hasItem[(int)ShopItem.NEW_OIL_ZONE_1])
-        {
-            chickenPackslots[1].gameObject.SetActive(true);
             oilMachines[1].gameObject.SetActive(true);
-        }
         else
-        {
             oilMachines[1].gameObject.SetActive(false);
-            chickenPackslots[1].gameObject.SetActive(false);
-        }
 
         if (gameMgr.playData != null && gameMgr.playData.hasItem[(int)ShopItem.NEW_OIL_ZONE_2])
-        {
-            chickenPackslots[2].gameObject.SetActive(true);
             oilMachines[2].gameObject.SetActive(true);
-        }
         else
-        {
             oilMachines[2].gameObject.SetActive(false);
-            chickenPackslots[2].gameObject.SetActive(false);
-        }
 
         if (gameMgr.playData != null && gameMgr.playData.hasItem[(int)ShopItem.NEW_OIL_ZONE_3])
-        {
-            chickenPackslots[3].gameObject.SetActive(true);
             oilMachines[3].gameObject.SetActive(true);
-        }
         else
-        {
             oilMachines[3].gameObject.SetActive(false);
-            chickenPackslots[3].gameObject.SetActive(false);
-        }
+
+        ui.tableUI.UpdateTable();
 
 
         /////////////////////////////////////////////////////////////////////////////////
@@ -183,9 +168,9 @@ public class KitchenMgr : Mgr
         runWorker = state;
     }
 
-    private float KitchenWidth()
+    public RectTransform KitchenContent()
     {
-        return kitchenRect.content.sizeDelta.x;
+        return kitchenRect.content;
     }
 
     public void UpdateOilZoneLoopSE()
@@ -209,11 +194,26 @@ public class KitchenMgr : Mgr
             soundMgr.StopLoopSE(Sound.Oil_SE);
     }
 
+    public int GetActiveOilZoneCnt()
+    {
+        //활성화중인 튀김기 갯수
+        int res = 0;
+        foreach (Oil_Zone oilZone in oilMachines)
+        {
+            if (oilZone.gameObject.activeSelf == false)
+                continue;
+            res++;
+        }
+
+        return res;
+    }
+
     public void SetkitchenSetPos(Vector2 movePos)
     {
-        float width = KitchenWidth();
+        float width = KitchenContent().sizeDelta.x;
         kitchenRect.content.offsetMin = new Vector2(Mathf.Clamp(movePos.x, -width, 0), kitchenRect.content.offsetMin.y);
         kitchenRect.content.offsetMax = new Vector2(kitchenRect.content.offsetMin.x + width, kitchenRect.content.offsetMax.y);
+        kitchenRect.velocity = Vector2.zero;
     }
 
     public void AddkitchenSetPos(float v, DragCamera.DRAG_OUTLINE outline)
@@ -233,4 +233,6 @@ public class KitchenMgr : Mgr
     }
 
     public void RunWorkerTalkBox(WorkerCounterTalkBox pWorkerCounterTalkBox) => workerCounter.RunTalkBox(pWorkerCounterTalkBox);
+
+    public void ActKitchenRect(bool pState) => kitchenRect.enabled = pState;
 }

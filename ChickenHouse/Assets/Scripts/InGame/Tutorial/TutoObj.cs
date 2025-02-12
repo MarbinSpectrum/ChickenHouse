@@ -28,12 +28,17 @@ public class TutoObj : Mgr
     private IEnumerator RunToto()
     {
         KitchenMgr      kitchenMgr  = KitchenMgr.Instance;
+        tutoMgr.SetTutoFlag(true);
+        
         if (kitchenMgr != null)
-            kitchenMgr.kitchenRect.enabled = false;
+        {
+            //주방튜토리얼용
+            kitchenMgr.ActKitchenRect(false);
+        }
 
         if (tutoPos != null && kitchenMgr != null)
         {
-            RectTransform   kitchenRect = kitchenMgr.kitchenRect.content;
+            RectTransform kitchenRect = kitchenMgr.KitchenContent();
             float distance = Mathf.Abs(kitchenRect.transform.position.x - tutoPos.position.x);
 
             yield return new WaitForSeconds(delay);
@@ -69,10 +74,13 @@ public class TutoObj : Mgr
     {
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
         if (kitchenMgr != null)
-            kitchenMgr.kitchenRect.enabled = true;
+        {
+            kitchenMgr.ActKitchenRect(true);
+        }
 
         tutoMgr.CloseText();
         tutoObj.SetActive(false);
         tutoMgr.SetTuto(tutoType);
+        tutoMgr.SetTutoFlag(false);
     }
 }

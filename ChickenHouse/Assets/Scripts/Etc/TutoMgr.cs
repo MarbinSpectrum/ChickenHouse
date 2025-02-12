@@ -8,6 +8,7 @@ public class TutoMgr : AwakeSingleton<TutoMgr>
     public Tutorial nowTuto     { private set; get; }
 
     private TutoText tutoText;
+    public bool runTutoFlag { private set; get; } = false;
 
     protected override void Awake()
     {
@@ -122,4 +123,6 @@ public class TutoMgr : AwakeSingleton<TutoMgr>
 
         return false;
     }
+
+    public void SetTutoFlag(bool pState) => runTutoFlag = pState;
 }
