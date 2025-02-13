@@ -653,7 +653,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1425113239}
         m_TargetAssemblyTypeName: LongNoseContractCheck, Assembly-CSharp
-        m_MethodName: OepnNo
+        m_MethodName: OpenNo
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5044,6 +5044,7 @@ MonoBehaviour:
   tutoObj: {fileID: 1678138900}
   delay: 0
   nextBtn: {fileID: 1678138903}
+  skipDelay: 1
 --- !u!1 &247106447
 GameObject:
   m_ObjectHideFlags: 0
@@ -5618,6 +5619,7 @@ MonoBehaviour:
   tutoObj: {fileID: 1961285292}
   delay: 0
   nextBtn: {fileID: 1961285295}
+  skipDelay: 1
 --- !u!224 &294423176 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4954609507322428899, guid: fbe3bdf4ffd7ce5449f9b3a76b7029fb, type: 3}
@@ -9161,6 +9163,7 @@ MonoBehaviour:
   tutoObj: {fileID: 955249520}
   delay: 0
   nextBtn: {fileID: 955249523}
+  skipDelay: 1
 --- !u!1 &505142337
 GameObject:
   m_ObjectHideFlags: 0
@@ -11258,10 +11261,19 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  diaryUI: {fileID: 7826725376901544205}
   memoUI: {fileID: 0}
-  town: {fileID: 539850844}
   option: {fileID: 294423178}
+  diaryUI: {fileID: 7826725376901544205}
+  town: {fileID: 539850844}
+  restaurantOpenCheck: {fileID: 6070849041002227008}
+  workerContractCheck: {fileID: 488545179}
+  utensilPurchaseCheck: {fileID: 521384678}
+  longNoseContractCheck: {fileID: 1425113239}
+  wakeupMsg: {fileID: 479060766}
+  warningMsgBox: {fileID: 1072828454}
+  nekoJobBank: {fileID: 934794478}
+  utensils: {fileID: 1660930157}
+  longNose: {fileID: 941845326}
 --- !u!1 &547641791
 GameObject:
   m_ObjectHideFlags: 0
@@ -11915,6 +11927,7 @@ MonoBehaviour:
   tutoObj: {fileID: 105811512}
   delay: 0
   nextBtn: {fileID: 105811515}
+  skipDelay: 1
 --- !u!1 &573820447
 GameObject:
   m_ObjectHideFlags: 0
@@ -12284,7 +12297,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 488545179}
         m_TargetAssemblyTypeName: WorkerContractCheck, Assembly-CSharp
-        m_MethodName: OepnNo
+        m_MethodName: OpenNo
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13317,21 +13330,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 612589722}
-        m_TargetAssemblyTypeName: TownMove, Assembly-CSharp
-        m_MethodName: MoveTown
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 934794478}
         m_TargetAssemblyTypeName: NekoJobBank, Assembly-CSharp
-        m_MethodName: StopTalk
+        m_MethodName: ExitNekoJobBank
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13838,21 +13839,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 630485331}
-        m_TargetAssemblyTypeName: TownMove, Assembly-CSharp
-        m_MethodName: MoveTown
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1660930157}
         m_TargetAssemblyTypeName: ChefPauxsCookingUtensils, Assembly-CSharp
-        m_MethodName: StopTalk
+        m_MethodName: ExitUtensil
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -17873,6 +17862,7 @@ MonoBehaviour:
   tutoObj: {fileID: 1860747375}
   delay: 0
   nextBtn: {fileID: 1860747378}
+  skipDelay: 1
 --- !u!1 &887505212
 GameObject:
   m_ObjectHideFlags: 0
@@ -19438,6 +19428,7 @@ MonoBehaviour:
   header: {fileID: 1925852764}
   employMsgBox: {fileID: 488545179}
   moneyUI: {fileID: 953856348}
+  exitNekoJobBank: {fileID: 612589722}
 --- !u!1 &936957859
 GameObject:
   m_ObjectHideFlags: 0
@@ -19615,6 +19606,7 @@ MonoBehaviour:
   header: {fileID: 1295296618}
   adUIBtn: {fileID: 1802180368}
   longNoseContractUI: {fileID: 2918280}
+  exitLongNose: {fileID: 1462255264}
 --- !u!1 &945513390
 GameObject:
   m_ObjectHideFlags: 0
@@ -20701,6 +20693,7 @@ MonoBehaviour:
   tutoObj: {fileID: 2115100015}
   delay: 1
   nextBtn: {fileID: 2115100019}
+  skipDelay: 1
 --- !u!1 &973017867
 GameObject:
   m_ObjectHideFlags: 0
@@ -24495,6 +24488,7 @@ MonoBehaviour:
   tutoObj: {fileID: 932244696}
   delay: 0
   nextBtn: {fileID: 932244697}
+  skipDelay: 1
 --- !u!224 &1126641085
 RectTransform:
   m_ObjectHideFlags: 0
@@ -28279,6 +28273,7 @@ MonoBehaviour:
   tutoObj: {fileID: 2055306279}
   delay: 0
   nextBtn: {fileID: 2055306282}
+  skipDelay: 1
 --- !u!1 &1333786051
 GameObject:
   m_ObjectHideFlags: 0
@@ -30530,21 +30525,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1462255264}
-        m_TargetAssemblyTypeName: TownMove, Assembly-CSharp
-        m_MethodName: MoveTown
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 941845326}
         m_TargetAssemblyTypeName: LongNose, Assembly-CSharp
-        m_MethodName: StopTalk
+        m_MethodName: ExitLongNose
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -31413,7 +31396,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -31725,6 +31708,7 @@ MonoBehaviour:
   tutoObj: {fileID: 1709136979}
   delay: 0
   nextBtn: {fileID: 1709136982}
+  skipDelay: 1
 --- !u!1 &1528630853
 GameObject:
   m_ObjectHideFlags: 0
@@ -31789,6 +31773,7 @@ MonoBehaviour:
   tutoObj: {fileID: 976350710}
   delay: 0
   nextBtn: {fileID: 976350713}
+  skipDelay: 1
 --- !u!1 &1536820506
 GameObject:
   m_ObjectHideFlags: 0
@@ -32006,6 +31991,7 @@ MonoBehaviour:
   tutoObj: {fileID: 1511768385}
   delay: 0
   nextBtn: {fileID: 1511768388}
+  skipDelay: 1
 --- !u!1 &1559092608
 GameObject:
   m_ObjectHideFlags: 0
@@ -35088,6 +35074,7 @@ MonoBehaviour:
   tutoObj: {fileID: 68046430}
   delay: 0
   nextBtn: {fileID: 68046431}
+  skipDelay: 1
 --- !u!224 &1653058699
 RectTransform:
   m_ObjectHideFlags: 0
@@ -35210,6 +35197,7 @@ MonoBehaviour:
   header: {fileID: 1297648173}
   buyBtn: {fileID: 754950395}
   utensilshopUI: {fileID: 1165087932}
+  exitUtensil: {fileID: 630485331}
 --- !u!1 &1666498214
 GameObject:
   m_ObjectHideFlags: 0
@@ -37216,7 +37204,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 521384678}
         m_TargetAssemblyTypeName: UtensilPurchaseCheck, Assembly-CSharp
-        m_MethodName: OepnNo
+        m_MethodName: OpenNo
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -38010,6 +37998,7 @@ MonoBehaviour:
   tutoObj: {fileID: 418889533}
   delay: 0
   nextBtn: {fileID: 418889536}
+  skipDelay: 1
 --- !u!1 &1772562058
 GameObject:
   m_ObjectHideFlags: 0
@@ -38846,7 +38835,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6070849041002227008}
         m_TargetAssemblyTypeName: RestaurantOpenCheck, Assembly-CSharp
-        m_MethodName: OepnNo
+        m_MethodName: OpenNo
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -42214,6 +42203,7 @@ MonoBehaviour:
   tutoObj: {fileID: 216085613}
   delay: 0
   nextBtn: {fileID: 216085616}
+  skipDelay: 1
 --- !u!1 &2003507437
 GameObject:
   m_ObjectHideFlags: 0
@@ -45781,6 +45771,10 @@ PrefabInstance:
       propertyPath: serializationData.Prefab
       value: 
       objectReference: {fileID: 803141888410120764, guid: 0b791470fdb9da04f9f1d806d122e120, type: 3}
+    - target: {fileID: 894821742167431268, guid: 0b791470fdb9da04f9f1d806d122e120, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 894821742167431268, guid: 0b791470fdb9da04f9f1d806d122e120, type: 3}
     - target: {fileID: 1047953700268448226, guid: 0b791470fdb9da04f9f1d806d122e120, type: 3}
       propertyPath: serializationData.Prefab
       value: 
@@ -45833,6 +45827,10 @@ PrefabInstance:
       propertyPath: serializationData.Prefab
       value: 
       objectReference: {fileID: 1735124375502180876, guid: 0b791470fdb9da04f9f1d806d122e120, type: 3}
+    - target: {fileID: 1740880058144817473, guid: 0b791470fdb9da04f9f1d806d122e120, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 1740880058144817473, guid: 0b791470fdb9da04f9f1d806d122e120, type: 3}
     - target: {fileID: 1755804438536938794, guid: 0b791470fdb9da04f9f1d806d122e120, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -45897,6 +45895,14 @@ PrefabInstance:
       propertyPath: serializationData.Prefab
       value: 
       objectReference: {fileID: 2454830879910215279, guid: 0b791470fdb9da04f9f1d806d122e120, type: 3}
+    - target: {fileID: 2579746359756581433, guid: 0b791470fdb9da04f9f1d806d122e120, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 2579746359756581433, guid: 0b791470fdb9da04f9f1d806d122e120, type: 3}
+    - target: {fileID: 2626632838854096208, guid: 0b791470fdb9da04f9f1d806d122e120, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 2626632838854096208, guid: 0b791470fdb9da04f9f1d806d122e120, type: 3}
     - target: {fileID: 2646034452255690028, guid: 0b791470fdb9da04f9f1d806d122e120, type: 3}
       propertyPath: serializationData.Prefab
       value: 
@@ -45929,10 +45935,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 1.4622002
       objectReference: {fileID: 0}
+    - target: {fileID: 3317400466284409261, guid: 0b791470fdb9da04f9f1d806d122e120, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 3317400466284409261, guid: 0b791470fdb9da04f9f1d806d122e120, type: 3}
     - target: {fileID: 3359635644399479559, guid: 0b791470fdb9da04f9f1d806d122e120, type: 3}
       propertyPath: serializationData.Prefab
       value: 
       objectReference: {fileID: 3359635644399479559, guid: 0b791470fdb9da04f9f1d806d122e120, type: 3}
+    - target: {fileID: 3547733225176284171, guid: 0b791470fdb9da04f9f1d806d122e120, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 3547733225176284171, guid: 0b791470fdb9da04f9f1d806d122e120, type: 3}
     - target: {fileID: 3572079123090058352, guid: 0b791470fdb9da04f9f1d806d122e120, type: 3}
       propertyPath: serializationData.Prefab
       value: 
@@ -45961,6 +45975,14 @@ PrefabInstance:
       propertyPath: serializationData.Prefab
       value: 
       objectReference: {fileID: 3909964807073112559, guid: 0b791470fdb9da04f9f1d806d122e120, type: 3}
+    - target: {fileID: 3921705340122093485, guid: 0b791470fdb9da04f9f1d806d122e120, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 3921705340122093485, guid: 0b791470fdb9da04f9f1d806d122e120, type: 3}
+    - target: {fileID: 4186317319452795074, guid: 0b791470fdb9da04f9f1d806d122e120, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 4186317319452795074, guid: 0b791470fdb9da04f9f1d806d122e120, type: 3}
     - target: {fileID: 4280730966511798952, guid: 0b791470fdb9da04f9f1d806d122e120, type: 3}
       propertyPath: serializationData.Prefab
       value: 
@@ -46017,6 +46039,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4697458653889277361, guid: 0b791470fdb9da04f9f1d806d122e120, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 4697458653889277361, guid: 0b791470fdb9da04f9f1d806d122e120, type: 3}
     - target: {fileID: 4740178378139302245, guid: 0b791470fdb9da04f9f1d806d122e120, type: 3}
       propertyPath: serializationData.Prefab
       value: 
@@ -46037,6 +46063,10 @@ PrefabInstance:
       propertyPath: serializationData.Prefab
       value: 
       objectReference: {fileID: 5081691703424966334, guid: 0b791470fdb9da04f9f1d806d122e120, type: 3}
+    - target: {fileID: 5130033739400492070, guid: 0b791470fdb9da04f9f1d806d122e120, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 5130033739400492070, guid: 0b791470fdb9da04f9f1d806d122e120, type: 3}
     - target: {fileID: 5160357616012553944, guid: 0b791470fdb9da04f9f1d806d122e120, type: 3}
       propertyPath: serializationData.Prefab
       value: 
@@ -46053,14 +46083,14 @@ PrefabInstance:
       propertyPath: serializationData.Prefab
       value: 
       objectReference: {fileID: 5441982107149677750, guid: 0b791470fdb9da04f9f1d806d122e120, type: 3}
+    - target: {fileID: 5473538416430777912, guid: 0b791470fdb9da04f9f1d806d122e120, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 5473538416430777912, guid: 0b791470fdb9da04f9f1d806d122e120, type: 3}
     - target: {fileID: 5538518976306762164, guid: 0b791470fdb9da04f9f1d806d122e120, type: 3}
       propertyPath: serializationData.Prefab
       value: 
       objectReference: {fileID: 5538518976306762164, guid: 0b791470fdb9da04f9f1d806d122e120, type: 3}
-    - target: {fileID: 5577215456594721591, guid: 0b791470fdb9da04f9f1d806d122e120, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -20.400002
-      objectReference: {fileID: 0}
     - target: {fileID: 5585309526445632509, guid: 0b791470fdb9da04f9f1d806d122e120, type: 3}
       propertyPath: serializationData.Prefab
       value: 
@@ -46117,6 +46147,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6252186439911694341, guid: 0b791470fdb9da04f9f1d806d122e120, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 6252186439911694341, guid: 0b791470fdb9da04f9f1d806d122e120, type: 3}
     - target: {fileID: 6371712792656538111, guid: 0b791470fdb9da04f9f1d806d122e120, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -46185,6 +46219,10 @@ PrefabInstance:
       propertyPath: serializationData.Prefab
       value: 
       objectReference: {fileID: 6706279356353988569, guid: 0b791470fdb9da04f9f1d806d122e120, type: 3}
+    - target: {fileID: 6754990280073495613, guid: 0b791470fdb9da04f9f1d806d122e120, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 6754990280073495613, guid: 0b791470fdb9da04f9f1d806d122e120, type: 3}
     - target: {fileID: 6815933388377230302, guid: 0b791470fdb9da04f9f1d806d122e120, type: 3}
       propertyPath: serializationData.Prefab
       value: 
@@ -46289,6 +46327,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7728100901536684292, guid: 0b791470fdb9da04f9f1d806d122e120, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 7728100901536684292, guid: 0b791470fdb9da04f9f1d806d122e120, type: 3}
     - target: {fileID: 7756256584506135590, guid: 0b791470fdb9da04f9f1d806d122e120, type: 3}
       propertyPath: serializationData.Prefab
       value: 
@@ -46433,10 +46475,18 @@ PrefabInstance:
       propertyPath: serializationData.Prefab
       value: 
       objectReference: {fileID: 8098661413713517475, guid: 0b791470fdb9da04f9f1d806d122e120, type: 3}
+    - target: {fileID: 8141080356533740574, guid: 0b791470fdb9da04f9f1d806d122e120, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 8141080356533740574, guid: 0b791470fdb9da04f9f1d806d122e120, type: 3}
     - target: {fileID: 8227703730749170954, guid: 0b791470fdb9da04f9f1d806d122e120, type: 3}
       propertyPath: serializationData.Prefab
       value: 
       objectReference: {fileID: 8227703730749170954, guid: 0b791470fdb9da04f9f1d806d122e120, type: 3}
+    - target: {fileID: 8261427780675424968, guid: 0b791470fdb9da04f9f1d806d122e120, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 8261427780675424968, guid: 0b791470fdb9da04f9f1d806d122e120, type: 3}
     - target: {fileID: 8272007437477615862, guid: 0b791470fdb9da04f9f1d806d122e120, type: 3}
       propertyPath: serializationData.Prefab
       value: 
@@ -46493,6 +46543,10 @@ PrefabInstance:
       propertyPath: serializationData.Prefab
       value: 
       objectReference: {fileID: 9048477343931656477, guid: 0b791470fdb9da04f9f1d806d122e120, type: 3}
+    - target: {fileID: 9072980167181707893, guid: 0b791470fdb9da04f9f1d806d122e120, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 9072980167181707893, guid: 0b791470fdb9da04f9f1d806d122e120, type: 3}
     - target: {fileID: 9202413235282277107, guid: 0b791470fdb9da04f9f1d806d122e120, type: 3}
       propertyPath: serializationData.Prefab
       value: 

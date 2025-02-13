@@ -118,9 +118,9 @@ DRINKABLE	술을 마심	Drinkable
 WAKE_UP_MSG	안좋은 꿈을 꾸신거 같습니다. 아직 {0}일차입니다.\n열심히 일을 해서 빚을 갚도록합시다.	It seems like you had a bad dream.\nIt's only day {0}.\nLet's work hard and pay off that debt.
 REFUSAL	거절	Refusal
 ACCEPT	수락	Accept
-EVENT0_WARNING_1	패배시 치킨양념 한개를 잃습니다.	Upon defeat, lose one chicken seasoning.
+EVENT0_WARNING_1	패배시 하루가 스킵됩니다.	One day is skipped upon defeat.
 EVENT0_WARNING_2	오후에 상대 치킨집이랑 대결이 예정되어있습니다. 준비를 해주세요!	A match against the rival chicken restaurant is scheduled for the afternoon. Please get ready!
-STEAL_RECIPE	{0}을 뺏겻습니다!	I had {0} stolen!
+EVENT0_LOSE	<size=22>패배했습니다!</size>\n하루가 스킵됩니다.	<size=22>Defeat!</size>\nA day will be skipped.
 WORKER_LIST_HEADER	직원 목록	Staff List
 KITCHEN_DUTIES_HEADER	주방 업무	Kitchen Duties
 KITCHEN_DUTIES_EMPTY	비어있음	Empty

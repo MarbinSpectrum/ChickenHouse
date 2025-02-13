@@ -69,16 +69,35 @@ public class DiaryUI_FilePlayerInfo : Mgr
         LanguageMgr.SetText(chickenPrice, chickenPriceStr);
 
         //치킨 재료 값 감소 값
-        string chickenResStr = LanguageMgr.GetMoneyStr(chickenResPrice.fontSize, (long)pPlayData.DecreaseChickenRes());
-        LanguageMgr.SetText(chickenResPrice, chickenResStr);
+        float decreaseChickenValue = pPlayData.DecreaseChickenRate();
+        if (decreaseChickenValue == 0)
+            LanguageMgr.SetText(chickenResPrice, "0%");
+        else
+        {
+            string decreaseChickenStr = string.Format(PERCENT_FORMAT, decreaseChickenValue);
+            LanguageMgr.SetText(chickenResPrice, decreaseChickenStr);
+        }
 
         //드링크 재료 값 감소 값
-        string drinkResStr = LanguageMgr.GetMoneyStr(drinkResValue.fontSize, (long)pPlayData.DecreaseDrinkRes());
-        LanguageMgr.SetText(drinkResValue, drinkResStr);
+        float decreaseDrinkValue = pPlayData.DecreaseDrinkRate();
+        if (decreaseDrinkValue == 0)
+            LanguageMgr.SetText(drinkResValue, "0%");
+        else
+        {
+            string decreaseDrinkStr = string.Format(PERCENT_FORMAT, decreaseDrinkValue);
+            LanguageMgr.SetText(drinkResValue, decreaseDrinkStr);
+        }
 
-        //피클 재료 값 감소 률
-        string sideMenuResStr = LanguageMgr.GetMoneyStr(sideMenuResValue.fontSize, (long)pPlayData.DecreasePickleRes());
-        LanguageMgr.SetText(sideMenuResValue, sideMenuResStr);
+        //사이드메뉴 값 감소 률
+        float decreaseSideMenuValue = pPlayData.DecreaseSideMenuRate();
+        if (decreaseSideMenuValue == 0)
+            LanguageMgr.SetText(sideMenuResValue, "0%");
+        else
+        {
+            string decreaseSideMenuStr = string.Format(PERCENT_FORMAT, decreaseSideMenuValue);
+            LanguageMgr.SetText(sideMenuResValue, decreaseSideMenuStr);
+        }
+
 
         //직원 속도
         float workerSpeedValue = 100f + pPlayData.GetWorkerSpeedUpRate();

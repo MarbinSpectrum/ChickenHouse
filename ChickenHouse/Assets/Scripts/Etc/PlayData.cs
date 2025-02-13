@@ -142,21 +142,21 @@ public class PlayData
         return value;
     }
 
-    public float DecreaseChickenRes()
+    public float DecreaseChickenRate()
     {
         CookLvMgr cookLvMgr = CookLvMgr.Instance;
         int lvValue = cookLvMgr.GetLvSumValue(CookLvStat.DecreaseChickenRes, cookLv);
         return lvValue;
     }
 
-    public float DecreaseDrinkRes()
+    public float DecreaseDrinkRate()
     {
         CookLvMgr cookLvMgr = CookLvMgr.Instance;
         int lvValue = cookLvMgr.GetLvSumValue(CookLvStat.DecreaseDrinkRes, cookLv);
         return lvValue;
     }
 
-    public float DecreasePickleRes()
+    public float DecreaseSideMenuRate()
     {
         CookLvMgr cookLvMgr = CookLvMgr.Instance;
         int lvValue = cookLvMgr.GetLvSumValue(CookLvStat.DecreasePickleRes, cookLv);

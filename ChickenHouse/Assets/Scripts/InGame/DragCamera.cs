@@ -5,17 +5,6 @@ using UnityEngine.UI;
 
 public class DragCamera : Mgr
 {
-    //카메라 드래그
-
-    private enum CameraPos
-    {
-        ChickenZone,
-        OilZone,
-        TableZone,
-    }
-
-    private CameraPos cameraPos = CameraPos.ChickenZone;
-
     [SerializeField] private float speed = 0.25f;
     [SerializeField] private float autoMoveSpeed = 0.25f;
     [SerializeField] private float dragDis = 150f;
@@ -109,77 +98,60 @@ public class DragCamera : Mgr
         RectTransform kitchenRect = kitchenMgr.KitchenContent();
         int actOilCnt = kitchenMgr.GetActiveOilZoneCnt();
 
-        if (actOilCnt <= 1)
-        {
-            if(kitchenRect.anchoredPosition.x > -kitchenRect.sizeDelta.x)
-                cameraPos = CameraPos.ChickenZone;
-            else
-                cameraPos = CameraPos.TableZone;
-        }
-        if (actOilCnt == 2)
-        {
-            if (kitchenRect.anchoredPosition.x > -50)
-                cameraPos = CameraPos.ChickenZone;
-            else
-                cameraPos = CameraPos.TableZone;
-        }
-        else
-        {
-            if (kitchenRect.anchoredPosition.x > -50)
-                cameraPos = CameraPos.ChickenZone;
-            else if (kitchenRect.anchoredPosition.x > -kitchenRect.sizeDelta.x)
-                cameraPos = CameraPos.OilZone;
-            else
-                cameraPos = CameraPos.TableZone;
-        }
 
         if (Input.GetKeyDown(KeyMgr.GetKeyCode(KeyBoardValue.RIGHT)))
         {
-            switch(cameraPos)
+            if (actOilCnt <= 1)
             {
-                case CameraPos.ChickenZone:
-                    if(actOilCnt <= 1)
-                    {
-                        moveCamera = true;
-                        StartCoroutine(CameraMoveCor(-kitchenRect.sizeDelta.x));
-                    }
-                    else if (actOilCnt == 2)
-                    {
-                        moveCamera = true;
-                        StartCoroutine(CameraMoveCor(-50));
-                    }
-                    else 
-                    {
-                        moveCamera = true;
-                        StartCoroutine(CameraMoveCor(-50));
-                    }
-                    break;
-                case CameraPos.OilZone:
+                moveCamera = true;
+                StartCoroutine(CameraMoveCor(-kitchenRect.sizeDelta.x));
+            }
+            else if (actOilCnt == 2)
+            {
+                if(kitchenRect.anchoredPosition.x > -50)
+                {
+                    moveCamera = true;
+                    StartCoroutine(CameraMoveCor(-50));
+                }
+            }
+            else
+            {
+                if (kitchenRect.anchoredPosition.x > -50)
+                {
+                    moveCamera = true;
+                    StartCoroutine(CameraMoveCor(-50));
+                }
+                else if (kitchenRect.anchoredPosition.x > -kitchenRect.sizeDelta.x)
+                {
                     moveCamera = true;
                     StartCoroutine(CameraMoveCor(-kitchenRect.sizeDelta.x));
-                    break;
+                }
             }
         }
         else if (Input.GetKeyDown(KeyMgr.GetKeyCode(KeyBoardValue.LEFT)))
         {
-            switch (cameraPos)
+            if (actOilCnt <= 1)
             {
-                case CameraPos.OilZone:
+                moveCamera = true;
+                StartCoroutine(CameraMoveCor(0));
+            }
+            else if (actOilCnt == 2)
+            {
+                moveCamera = true;
+                StartCoroutine(CameraMoveCor(0));
+            }
+            else
+            {
+                if (kitchenRect.anchoredPosition.x < -50)
+                {
+                    moveCamera = true;
+                    StartCoroutine(CameraMoveCor(-50));
+                }
+                else if (kitchenRect.anchoredPosition.x < 0)
+                {
                     moveCamera = true;
                     StartCoroutine(CameraMoveCor(0));
-                    break;
-                case CameraPos.TableZone:
-                    if (actOilCnt <= 2)
-                    {
-                        moveCamera = true;
-                        StartCoroutine(CameraMoveCor(0));
-                    }
-                    else
-                    {
-                        moveCamera = true;
-                        StartCoroutine(CameraMoveCor(-50));
-                    }
-                    break;
+                }
             }
         }
     }

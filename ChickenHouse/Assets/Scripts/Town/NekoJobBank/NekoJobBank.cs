@@ -30,13 +30,18 @@ public class NekoJobBank : Mgr
     [SerializeField] private Resume resume;
     [SerializeField] private WorkerContractCheck employMsgBox;
     [SerializeField] private Money_UI moneyUI;
+    [SerializeField] private TownMove exitNekoJobBank;
 
     private List<EWorker> workerList = new List<EWorker>();
     private int resumeSelectIdx = 0;
     private bool actResumeUI;
 
+    public bool isOpen { private set; get; } = false;
+    public bool run { private set; get; } = false;
+
     public void SetInit()
     {
+        isOpen = true;
         resume.stampAni.gameObject.SetActive(false);
 
         UpdateWorkerList();
@@ -73,6 +78,7 @@ public class NekoJobBank : Mgr
 
             showMenu.gameObject.SetActive(true);
             showMenu.Play();
+            run = true;
         }
         StartCoroutine(Run());
     }
@@ -131,6 +137,26 @@ public class NekoJobBank : Mgr
         if (actResumeUI == false)
             return;
         resume.rect.gameObject.SetActive(false);
+    }
+
+    public void ExitNekoJobBank()
+    {
+        if (isOpen == false)
+            return;
+        if (run == false)
+            return;
+        isOpen = false;
+        run = false;
+        exitNekoJobBank.MoveTown();
+        StopTalk();
+    }
+
+    public void EscapeNekoJobBank()
+    {
+        if (resume.rect.gameObject.activeSelf)
+            CloseResumeUI();
+        else if (isOpen)
+            ExitNekoJobBank();
     }
 
     public void ResumeArrowBtn(int dic)

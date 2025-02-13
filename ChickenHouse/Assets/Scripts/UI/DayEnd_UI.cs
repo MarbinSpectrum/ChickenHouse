@@ -48,14 +48,14 @@ public class DayEnd_UI : Mgr
             if (guestMenu.sideMenu != SideMenu.None)
             {
                 SideMenuData sideMenuData = subMenuMgr.GetSideMenuData(guestMenu.sideMenu);
-                suppliesUsed += Mathf.Max(0,sideMenuData.cost - (int)gameMgr.playData.DecreasePickleRes());
+                suppliesUsed += (int)(sideMenuData.cost * 100f / (100f + gameMgr.playData.DecreaseSideMenuRate()));
             }
             if (guestMenu.drink != Drink.None)
             {
                 DrinkData drinkData = subMenuMgr.GetDrinkData(guestMenu.drink);
-                suppliesUsed += Mathf.Max(0, drinkData.cost - (int)gameMgr.playData.DecreaseDrinkRes());
+                suppliesUsed += (int)(drinkData.cost * 100f / (100f + gameMgr.playData.DecreaseDrinkRate()));
             }
-            suppliesUsed += Mathf.Max(0, PlayData.CHICKEN_RES_VAIUE - (int)gameMgr.playData.DecreaseChickenRes());
+            suppliesUsed += (int)(PlayData.CHICKEN_RES_VAIUE * 100f / (100f + gameMgr.playData.DecreaseChickenRate()));
         }
 
         LanguageMgr.SetString(nameList[DayEndList.Supplies_Uesd], "SUPPLIES_UESD");

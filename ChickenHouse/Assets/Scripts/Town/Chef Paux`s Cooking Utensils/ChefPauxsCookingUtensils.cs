@@ -17,10 +17,15 @@ public class ChefPauxsCookingUtensils : Mgr
     [SerializeField] private RectTransform  header;
     [SerializeField] private RectTransform  buyBtn;
     [SerializeField] private UtensilShop_UI utensilshopUI;
+    [SerializeField] private TownMove       exitUtensil;
+
     public List<ShopItem> itemList { get; private set; } = new List<ShopItem>();
+    public bool isOpen { private set; get; } = false;
+    public bool run { private set; get; } = false;
 
     public void SetInit()
     {
+        isOpen = true;
         oner.talkBox.CloseTalkBox();
         showMenu.gameObject.SetActive(false);
         header.gameObject.SetActive(false);
@@ -57,6 +62,7 @@ public class ChefPauxsCookingUtensils : Mgr
 
             showMenu.gameObject.SetActive(true);
             showMenu.Play();
+            run = true;
         }
         StartCoroutine(Run());
     }
@@ -101,9 +107,12 @@ public class ChefPauxsCookingUtensils : Mgr
                 break;
             case UtensilShopMenu.Fryer_Add:
                 {
-                    AddItemList(ShopItem.NEW_OIL_ZONE_1);
-                    AddItemList(ShopItem.NEW_OIL_ZONE_2);
-                    AddItemList(ShopItem.NEW_OIL_ZONE_3);
+                    if(gameMgr.playData.hasItem[(int)ShopItem.NEW_OIL_ZONE_1] == false)
+                        AddItemList(ShopItem.NEW_OIL_ZONE_1);
+                    else if (gameMgr.playData.hasItem[(int)ShopItem.NEW_OIL_ZONE_2] == false)
+                        AddItemList(ShopItem.NEW_OIL_ZONE_2);
+                    else if (gameMgr.playData.hasItem[(int)ShopItem.NEW_OIL_ZONE_3] == false)
+                        AddItemList(ShopItem.NEW_OIL_ZONE_3);
                 }
                 break;
         }
@@ -125,6 +134,26 @@ public class ChefPauxsCookingUtensils : Mgr
         soundMgr.StopLoopSE(Sound.Voice25_SE);
         soundMgr.PlaySE(Sound.Btn_SE);
         utensilshopUI.gameObject.SetActive(false);
+    }
+
+    public void ExitUtensil()
+    {
+        if (isOpen == false)
+            return;
+        if (run == false)
+            return;
+        isOpen = false;
+        run = false;
+        exitUtensil.MoveTown();
+        StopTalk();
+    }
+
+    public void EscapeUtensils()
+    {
+        if (utensilshopUI.gameObject.activeSelf)
+            CloseUtensilsUI();
+        else if (isOpen)
+            ExitUtensil();
     }
 
     public void StopTalk()

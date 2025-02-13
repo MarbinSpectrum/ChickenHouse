@@ -24,6 +24,8 @@ public class Town : Mgr
 
     private bool warningFlag = false;
 
+    private IEnumerator townMapLoadCor;
+
     private void Start()
     {
         ActTownMove(TownMap.None,nowArea);
@@ -165,7 +167,6 @@ public class Town : Mgr
 
             }
 
-
             yield return new WaitForSeconds(1f);
 
             switch (pTownMap)
@@ -181,11 +182,19 @@ public class Town : Mgr
             }
 
             ActTownMove(nowArea, pTownMap);
+
+            nowSceneChange = true;
             nowArea = pTownMap;
             isMove = false;
             yield return new WaitForSeconds(1f);
             nowSceneChange = false;
         }
+        if(townMapLoadCor != null)
+        {
+            StopCoroutine(townMapLoadCor);
+            townMapLoadCor = null;
+        }
+        townMapLoadCor = Run();
         StartCoroutine(Run());
     }
 

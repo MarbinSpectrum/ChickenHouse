@@ -18,10 +18,14 @@ public class LongNose : Mgr
     [SerializeField] private RectTransform header;
     [SerializeField] private RectTransform adUIBtn;
     [SerializeField] private LongNoseContractAD_UI longNoseContractUI;
+    [SerializeField] private TownMove exitLongNose;
     public List<ShopItem> itemList { get; private set; } = new List<ShopItem>();
+    public bool isOpen { private set; get; } = false;
+    public bool run { private set; get; } = false;
 
     public void SetInit()
     {
+        isOpen = true;
         oner.talkBox.CloseTalkBox();
         showMenu.gameObject.SetActive(false);
         header.gameObject.SetActive(false);
@@ -54,6 +58,7 @@ public class LongNose : Mgr
 
             showMenu.gameObject.SetActive(true);
             showMenu.Play();
+            run = true;
         }
         StartCoroutine(Run());
     }
@@ -69,11 +74,16 @@ public class LongNose : Mgr
         }
 
         itemList.Clear();
-        AddItemList(ShopItem.Advertisement_1);
-        AddItemList(ShopItem.Advertisement_2);
-        AddItemList(ShopItem.Advertisement_3);
-        AddItemList(ShopItem.Advertisement_4);
-        AddItemList(ShopItem.Advertisement_5);
+        if (gameMgr.playData.hasItem[(int)ShopItem.Advertisement_1] == false)
+            AddItemList(ShopItem.Advertisement_1);
+        else if (gameMgr.playData.hasItem[(int)ShopItem.Advertisement_2] == false)
+            AddItemList(ShopItem.Advertisement_2);
+        else if (gameMgr.playData.hasItem[(int)ShopItem.Advertisement_3] == false)
+            AddItemList(ShopItem.Advertisement_3);
+        else if (gameMgr.playData.hasItem[(int)ShopItem.Advertisement_4] == false)
+            AddItemList(ShopItem.Advertisement_4);
+        else if (gameMgr.playData.hasItem[(int)ShopItem.Advertisement_5] == false)
+            AddItemList(ShopItem.Advertisement_5);
     }
 
     private string GetNPC_Talk_Text()
@@ -111,6 +121,26 @@ public class LongNose : Mgr
         soundMgr.StopLoopSE(Sound.Voice27_SE);
         soundMgr.PlaySE(Sound.Btn_SE);
         longNoseContractUI.gameObject.SetActive(false);
+    }
+
+    public void ExitLongNose()
+    {
+        if (isOpen == false)
+            return;
+        if (run == false)
+            return;
+        isOpen = false;
+        run = false;
+        exitLongNose.MoveTown();
+        StopTalk();
+    }
+
+    public void EscapeLongNose()
+    {
+        if (longNoseContractUI.gameObject.activeSelf)
+            CloseContractUI();
+        else if (isOpen)
+            ExitLongNose();
     }
 
     public void StopTalk()

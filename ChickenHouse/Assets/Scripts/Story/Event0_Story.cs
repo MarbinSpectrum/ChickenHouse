@@ -5,16 +5,17 @@ using TMPro;
 
 public class Event0_Story : Mgr
 {
-    [SerializeField] private Animator morningCompetitorsAni;
+    [SerializeField] private Animator   morningCompetitorsAni;
     [SerializeField] private TalkBox_UI morningTalkBox;
-    [SerializeField] private Animator nightCompetitorsAni;
+    [SerializeField] private Animator   nightCompetitorsAni;
     [SerializeField] private TalkBox_UI nightTalkBox;
-    [SerializeField] private RectTransform selectMenu;
     [SerializeField] private GameObject morning;
     [SerializeField] private GameObject night;
 
-    [SerializeField] private RectTransform      stealMsgBox;
-    [SerializeField] private TextMeshProUGUI    stealText;
+    [SerializeField] private RectTransform selectMenu;
+
+    [SerializeField] private RectTransform      loseMsgBox;
+    [SerializeField] private TextMeshProUGUI    loseText;
 
     private bool skipTuto = false;
     private bool goInGame = false;
@@ -23,6 +24,9 @@ public class Event0_Story : Mgr
 
     private void Start()
     {
+        selectMenu.gameObject.SetActive(false);
+        loseMsgBox.gameObject.SetActive(false);
+
         if ((QuestState)gameMgr.playData.quest[(int)Quest.Event_0_Quest] == QuestState.Not)
         {
             morning.SetActive(true);
@@ -412,50 +416,24 @@ public class Event0_Story : Mgr
                     return;
 
                 soundMgr.StopLoopSE(Sound.Voice28_SE);
-                RemoveChickenRecipe();
+                RemoveDay();
             });
         }
         talkCor = RunCor();
         StartCoroutine(talkCor);
     }
 
-    private void RemoveChickenRecipe()
+    private void RemoveDay()
     {
-        List<ShopItem> randomList = new List<ShopItem>();
-        for (ChickenSpicy spicy = ChickenSpicy.Hot; spicy <= ChickenSpicy.MAX; spicy++)
-        {
-            ShopItem shopItem = SpicyMgr.SpicyGetRecipe(spicy);
-            if (gameMgr.playData.hasItem[(int)shopItem])
-                randomList.Add(shopItem);
-        }
-        if (randomList.Count > 0)
-        {
-            int r = Random.Range(0, randomList.Count);
-            gameMgr.playData.hasItem[(int)randomList[r]] = false;
-            ChickenSpicy chickenSpicy = SpicyMgr.RecipeGetSpicy(randomList[r]);
-            for (int i = 0; i < (int)MenuSetPos.SpicyMAX; i++)
-            {
-                if (gameMgr.playData.spicy[i] == (int)chickenSpicy)
-                    gameMgr.playData.spicy[i] = (int)ChickenSpicy.None;
-            }
-
-            SpicyData spicyData = spicyMgr.GetSpicyData(chickenSpicy);
-            string spicyName = LanguageMgr.GetText(spicyData.nameKey);
-            string strFormat = LanguageMgr.GetText("STEAL_RECIPE");
-            string str = string.Format(strFormat, spicyName);
-            LanguageMgr.SetText(stealText, str);
-            stealMsgBox.gameObject.SetActive(true);
-        }
-        else
-        {
-            GoTown(false);
-        }
-
+        gameMgr.playData.day += 1;
+        string loseTextStr = LanguageMgr.GetText("EVENT0_LOSE");
+        LanguageMgr.SetText(loseText, loseTextStr);
+        loseMsgBox.gameObject.SetActive(true);
     }
 
     public void StealMsgBoxOK()
     {
-        stealMsgBox.gameObject.SetActive(false);
+        loseMsgBox.gameObject.SetActive(false);
         GoTown(false);
     }
 

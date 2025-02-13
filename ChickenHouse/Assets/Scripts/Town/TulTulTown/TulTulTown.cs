@@ -53,42 +53,77 @@ public class TulTulTown : Mgr
         MoveZone(pZone);
     }
 
+    private void Update()
+    {
+        if (CheckMode.IsWindow() == false)
+            return;
+        if (Input.GetKeyDown(KeyMgr.GetKeyCode(KeyBoardValue.RIGHT)))
+        {
+            MoveDic(1);
+        }
+        else if (Input.GetKeyDown(KeyMgr.GetKeyCode(KeyBoardValue.LEFT)))
+        {
+            MoveDic(0);
+        }
+    }
+
+
+
     public void MoveDic(int dic)
     {
         //인스펙터로 끌어서 사용할 함수임
         //특정Zone에서 특정 dic으로 이동시 이동될Zone을 임의로 정해줌
         if (gameMgr.playData.tutoComplete4 == false)
             return;
+        if (nowMove)
+            return;
 
-        soundMgr.PlaySE(Sound.Walk_SE);
-        switch(nowZone)
+        switch (nowZone)
         {
             case Zone.ChickenHeaven:
                 {
                     if (dic == 1)
+                    {
                         MoveZone(Zone.JobBank);
+                        soundMgr.PlaySE(Sound.Walk_SE);
+                    }
                 }
                 break;
             case Zone.JobBank:
                 {
                     if (dic == 0)
+                    {
                         MoveZone(Zone.ChickenHeaven);
+                        soundMgr.PlaySE(Sound.Walk_SE);
+                    }
                     else if (dic == 1)
+                    {
                         MoveZone(Zone.CookingUtensils);
+                        soundMgr.PlaySE(Sound.Walk_SE);
+                    }
                 }
                 break;
             case Zone.CookingUtensils:
                 {
                     if (dic == 0)
+                    {
                         MoveZone(Zone.JobBank);
+                        soundMgr.PlaySE(Sound.Walk_SE);
+                    }
                     else if (dic == 1)
+                    {
                         MoveZone(Zone.LongNose);
+                        soundMgr.PlaySE(Sound.Walk_SE);
+                    }
                 }
                 break;
             case Zone.LongNose:
                 {
                     if (dic == 0)
+                    {
                         MoveZone(Zone.CookingUtensils);
+                        soundMgr.PlaySE(Sound.Walk_SE);
+                    }
                 }
                 break;
         }

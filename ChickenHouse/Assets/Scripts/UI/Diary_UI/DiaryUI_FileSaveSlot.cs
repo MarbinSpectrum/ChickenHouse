@@ -8,9 +8,11 @@ using TMPro;
 public class DiaryUI_FileSaveSlot : Mgr
 {
     [SerializeField] private TextMeshProUGUI    questName;
+    [SerializeField] private TextMeshProUGUI    ingameDay;
     [SerializeField] private TextMeshProUGUI    dayText;
     [SerializeField] private TextMeshProUGUI    timeText;
     [SerializeField] private TextMeshProUGUI    moneyText;
+
 
     [SerializeField] private RectTransform          dataRect;
     [SerializeField] private TextMeshProUGUI        empty;
@@ -41,6 +43,9 @@ public class DiaryUI_FileSaveSlot : Mgr
 
         dataRect.gameObject.SetActive(true);
         empty.gameObject.SetActive(false);
+
+        string inGameDay = string.Format(LanguageMgr.GetText("DAY"), pPlayData.day);
+        LanguageMgr.SetText(ingameDay, inGameDay);
 
         string dayStr = string.Format(DAY_FORMAT, pPlayData.saveYear, pPlayData.saveMonth, pPlayData.saveDay);
         LanguageMgr.SetText(dayText, dayStr);

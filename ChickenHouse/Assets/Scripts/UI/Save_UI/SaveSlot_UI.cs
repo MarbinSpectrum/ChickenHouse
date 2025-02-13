@@ -9,6 +9,7 @@ public class SaveSlot_UI : Mgr
 {
     [SerializeField] private TextMeshProUGUI    questName;
     [SerializeField] private TextMeshProUGUI    dayText;
+    [SerializeField] private TextMeshProUGUI    ingameDay;
     [SerializeField] private TextMeshProUGUI    timeText;
     [SerializeField] private TextMeshProUGUI    moneyText;
 
@@ -46,6 +47,9 @@ public class SaveSlot_UI : Mgr
 
         dataRect.gameObject.SetActive(true);
         empty.gameObject.SetActive(false);
+
+        string inGameDay = string.Format(LanguageMgr.GetText("DAY"), pPlayData.day);
+        LanguageMgr.SetText(ingameDay, inGameDay);
 
         string dayStr = string.Format(DAY_FORMAT, pPlayData.saveYear, pPlayData.saveMonth, pPlayData.saveDay);
         LanguageMgr.SetText(dayText, dayStr);

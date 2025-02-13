@@ -20,7 +20,7 @@ public class LongNoseContractCheck : Mgr
         fun?.Invoke();
     }
 
-    public void OepnNo()
+    public void OpenNo()
     {
         //인스펙터로 끌어서 사용하는 함수
         soundMgr.PlaySE(Sound.Btn_SE);
