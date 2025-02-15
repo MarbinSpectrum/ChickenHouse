@@ -1,12 +1,14 @@
 name: UnityBuildTest
 
 on:
+  push:
+    branches:
+      - main  # main 브랜치에 커밋이 있을 때마다 빌드 실행
   workflow_dispatch:
 
 permissions: write-all
   
 jobs:
-  # Job 설정
   buildForAndroid: 
     name: Build Android (Debug with Script Debugging) 🛸🛸🛸
     runs-on: ubuntu-latest
@@ -39,7 +41,7 @@ jobs:
           projectPath: ChickenHouse
           targetPlatform: Android
           buildOptions: Development   # 디버그 빌드 활성화
-          extraArgs: -development -waitformanageddebugger  # ✅ 올바른 디버깅 옵션 추가
+          extraArgs: -debug -waitformanageddebugger  # Script Debugging & Wait for Managed Debugger 추가
 
       # Step4 - Upload Build File
       - name: Upload Build File
