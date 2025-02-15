@@ -85,25 +85,23 @@ public class TalkBox_UI : Mgr
     public void ShowResult(bool spicyResult, bool chickenStateResult,
         bool drinkResult, bool sideMenuResult)
     {
-        return;
+        //resultRect.gameObject.SetActive(true);
 
-        resultRect.gameObject.SetActive(true);
+        ////치킨 상태
+        //failText[0].slot.gameObject.SetActive(chickenStateResult == false);
+        //LanguageMgr.SetString(failText[0].textUI, "FAIL_CHICKEN");
 
-        //치킨 상태
-        failText[0].slot.gameObject.SetActive(chickenStateResult == false);
-        LanguageMgr.SetString(failText[0].textUI, "FAIL_CHICKEN");
+        ////양념 결과
+        //failText[1].slot.gameObject.SetActive(spicyResult == false);
+        //LanguageMgr.SetString(failText[1].textUI,"FAIL_SPICY");
 
-        //양념 결과
-        failText[1].slot.gameObject.SetActive(spicyResult == false);
-        LanguageMgr.SetString(failText[1].textUI,"FAIL_SPICY");
+        ////음료 결과
+        //failText[2].slot.gameObject.SetActive(drinkResult == false);
+        //LanguageMgr.SetString(failText[2].textUI, "FAIL_DRINK");
 
-        //음료 결과
-        failText[2].slot.gameObject.SetActive(drinkResult == false);
-        LanguageMgr.SetString(failText[2].textUI, "FAIL_DRINK");
-
-        //사이드 결과
-        failText[3].slot.gameObject.SetActive(sideMenuResult == false);
-        LanguageMgr.SetString(failText[3].textUI, "FAIL_PICKLE");
+        ////사이드 결과
+        //failText[3].slot.gameObject.SetActive(sideMenuResult == false);
+        //LanguageMgr.SetString(failText[3].textUI, "FAIL_PICKLE");
     }
 
     public void CloseResult()

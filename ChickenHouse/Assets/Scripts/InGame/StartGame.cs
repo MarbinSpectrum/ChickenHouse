@@ -25,6 +25,8 @@ public class StartGame : Mgr
 
         if (gameMgr.playData != null && (QuestState)gameMgr.playData.quest[(int)Quest.Event_0_Quest] == QuestState.Run)
         {
+            Debug.Log("[StartGame] Run Tuto");
+
             guestSystem.ui.timer.SetEventMode(true);
             dontClick.gameObject.SetActive(true);
             //이벤트0 튜토리얼
@@ -34,6 +36,8 @@ public class StartGame : Mgr
         }
         else
         {
+            Debug.Log("[StartGame] Run BaseGame");
+
             if (guestSystem != null)
                 guestSystem.Init();
             guestSystem.ui.timer.RunTimer();

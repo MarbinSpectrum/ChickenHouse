@@ -80,22 +80,22 @@ public class Town : Mgr
         npcList[0].gameObject.SetActive(false);
         return;
         //«ÿ¥ﬁ æ∆¡‹∏∂
-        if ((QuestState)gameMgr.playData.quest[(int)Quest.SeaOtterQuest] == QuestState.Complete)
-            npcList[0].gameObject.SetActive(false);
-        else if ((QuestState)gameMgr.playData.quest[(int)Quest.SeaOtterQuest] == QuestState.Run)
-        {
-            npcList[0].gameObject.SetActive(true);
-            npcList[0].Init();
-        }
-        else if(2 <= gameMgr.playData.day && gameMgr.playData.day <= 5)
-        {
-            npcList[0].gameObject.SetActive(true);
-            npcList[0].Init();
-        }
-        else
-        {
-            npcList[0].gameObject.SetActive(false);
-        }
+        //if ((QuestState)gameMgr.playData.quest[(int)Quest.SeaOtterQuest] == QuestState.Complete)
+        //    npcList[0].gameObject.SetActive(false);
+        //else if ((QuestState)gameMgr.playData.quest[(int)Quest.SeaOtterQuest] == QuestState.Run)
+        //{
+        //    npcList[0].gameObject.SetActive(true);
+        //    npcList[0].Init();
+        //}
+        //else if(2 <= gameMgr.playData.day && gameMgr.playData.day <= 5)
+        //{
+        //    npcList[0].gameObject.SetActive(true);
+        //    npcList[0].Init();
+        //}
+        //else
+        //{
+        //    npcList[0].gameObject.SetActive(false);
+        //}
     }
 
     public void ActTownMove(TownMap pPrevMap, TownMap pTownMap)

@@ -8,7 +8,6 @@ public class DragCamera : Mgr
     [SerializeField] private float speed = 0.25f;
     [SerializeField] private float autoMoveSpeed = 0.25f;
     [SerializeField] private float dragDis = 150f;
-    [SerializeField] private float lerpMoveValue = 0.25f;
     [SerializeField] private Dictionary<DragZone, DRAG_OUTLINE> dragOutline;
     [SerializeField] private bool runAutoMove;
 
