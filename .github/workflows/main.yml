@@ -8,7 +8,7 @@ permissions: write-all
 jobs:
   # Job 설정
   buildForAndroid: 
-    name: Build Android🛸🛸🛸
+    name: Build Android (Debug) 🛸🛸🛸
     runs-on: ubuntu-latest
     steps:
 
@@ -28,8 +28,8 @@ jobs:
           restore-keys: |
             Library-
 
-      # Step3 - Unity Build
-      - name: Unity Build
+      # Step3 - Unity Build (Debug)
+      - name: Unity Build (Debug)
         uses: game-ci/unity-builder@v4
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
@@ -38,10 +38,11 @@ jobs:
         with:
           projectPath: ChickenHouse
           targetPlatform: Android
-      
+          buildOptions: Development  # ✅ 디버그 빌드 옵션 추가
+          
       # Step4 - Upload Build File
       - name: Upload Build File
         uses: actions/upload-artifact@v4
         with:
-          name: Build-Android
+          name: Build-Android-Debug
           path: build
