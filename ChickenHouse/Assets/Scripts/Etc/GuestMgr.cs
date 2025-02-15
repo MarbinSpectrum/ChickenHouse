@@ -4,13 +4,32 @@ using UnityEngine;
 
 public class GuestMgr : AwakeSingleton<GuestMgr>
 {
-    [SerializeField] private Dictionary<Guest, GuestData>   guestData   = new Dictionary<Guest, GuestData>();
-    [SerializeField] private Dictionary<Guest, GuestObj>    guests      = new Dictionary<Guest, GuestObj>();
+    private Dictionary<Guest, GuestData>   guestData   = new();
+    private Dictionary<Guest, GuestObj>    guests      = new();
 
     /** ¼Õ´Ô °´Ã¼ °ü¸®¿ë Ç®¸µ **/
     private Dictionary<Guest, Queue<GuestObj>> guestPool = new Dictionary<Guest, Queue<GuestObj>>();
 
     private List<GuestObj> guestList = new List<GuestObj>();
+
+    private static bool init = false;
+
+    protected override void Awake()
+    {
+        base.Awake();
+
+        if (init)
+            return;
+        init = true;
+        for (Guest guest = Guest.Fox; guest < Guest.MAX; guest++)
+        {
+            GuestData gData = Resources.Load<GuestData>($"GuestData/ScriptableObj/{guest.ToString()}");
+            guestData.Add(guest, gData);
+
+            GuestObj gObj = Resources.Load<GuestObj>($"GuestData/Prefab/{guest.ToString()}");
+            guests.Add(guest, gObj);
+        }
+    }
 
     public GuestData GetGuestData(Guest pGuest)
     {

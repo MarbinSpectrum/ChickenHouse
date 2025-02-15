@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SoundMgr : AwakeSingleton<SoundMgr>
 {
-    [SerializeField] private Dictionary<Sound, AudioClip> sounds;
+    private Dictionary<Sound, AudioClip> sounds = new();
     [SerializeField] private AudioSource bgm;
     [SerializeField] private AudioSource se;
 
@@ -28,9 +28,23 @@ public class SoundMgr : AwakeSingleton<SoundMgr>
     private const string BGM_KEY = "BGM";
     private const string SE_KEY = "SE";
 
+    private static bool init = false;
+
     protected override void Awake()
     {
         base.Awake();
+
+        if (init)
+            return;
+        init = true;
+        for (Sound sound = Sound.InGame_BG; sound < Sound.MAX; sound++)
+        {
+            AudioClip clip = Resources.Load<AudioClip>($"Sound/{sound.ToString()}");
+            if (clip == null)
+                continue;
+            sounds.Add(sound, clip);
+        }
+
         seValue     = PlayerPrefs.GetFloat(SE_KEY, 0.5f);
         bgmValue    = PlayerPrefs.GetFloat(BGM_KEY, 0.5f);
         SetSE_Volume(seValue);

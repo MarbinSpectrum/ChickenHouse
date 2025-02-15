@@ -332,6 +332,8 @@ public enum Sound
     /** 格家府 格废 **/
     //呈备府 眶绰家府
     Laugh0_SE = 400,
+
+    MAX
 }
 
 public enum TalkBoxType

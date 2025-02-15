@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4039136072648146207}
   - component: {fileID: 4039136072648146272}
-  - component: {fileID: 4591624183869962181}
+  - component: {fileID: 7449712660924082894}
   m_Layer: 0
-  m_Name: Malayan Tapir
+  m_Name: TasmanianDevil
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,7 +45,7 @@ Animator:
   m_GameObject: {fileID: 4039136072648146206}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 86efcbf753e069a4e87a06ca822f7565, type: 2}
+  m_Controller: {fileID: 22100000, guid: dd5ca14c2e5c6c1468c4244527100f70, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -55,7 +55,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
---- !u!114 &4591624183869962181
+--- !u!114 &7449712660924082894
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -64,7 +64,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4039136072648146206}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab530d7a91f126e4e862d12436e0bb18, type: 3}
+  m_Script: {fileID: 11500000, guid: 00c95185a56029b45bf3a1d0701a3463, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
@@ -76,11 +76,11 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  guestData: {fileID: 11400000, guid: 5d73418bba21b3f4fae3a4dba22e9c44, type: 2}
+  guestData: {fileID: 11400000, guid: 5c53363d3f2f97f4ebcaf15278a0abe0, type: 2}
   animator: {fileID: 4039136072648146272}
   spriteRenderer: {fileID: 4039136074223223083}
   talkBox: {fileID: 3358510548047928586}
-  guest: 26
+  guest: 6
 --- !u!1 &4039136074223223081
 GameObject:
   m_ObjectHideFlags: 0
@@ -154,7 +154,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 125
-  m_Sprite: {fileID: 21300000, guid: fafd1967433e87749afdfe03979b2229, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c8e1ada6bc164774baff84942922f051, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -176,10 +176,6 @@ PrefabInstance:
       propertyPath: serializationData.Prefab
       value: 
       objectReference: {fileID: 1627549162597485050, guid: 640f26cc555164f44b12362a32bc710e, type: 3}
-    - target: {fileID: 1627549162597485050, guid: 640f26cc555164f44b12362a32bc710e, type: 3}
-      propertyPath: serializationData.SerializedFormat
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 8344259787968172007, guid: 640f26cc555164f44b12362a32bc710e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -282,11 +278,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8344259788582316271, guid: 640f26cc555164f44b12362a32bc710e, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.23
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8344259788582316271, guid: 640f26cc555164f44b12362a32bc710e, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.12
+      value: 0.33999997
       objectReference: {fileID: 0}
     - target: {fileID: 8344259788582316271, guid: 640f26cc555164f44b12362a32bc710e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 04698e8fab843ca4f97de157c35a91e2, type: 3}
-  m_Name: Frilled Lizard
+  m_Name: FrilledLizard
   m_EditorClassIdentifier: 
   face: {fileID: 21300000, guid: 6b638342a09438643957b45b649e309b, type: 3}
   bookImg: {fileID: 21300000, guid: 51870fbda542b0b45920a1cac294fb72, type: 3}
