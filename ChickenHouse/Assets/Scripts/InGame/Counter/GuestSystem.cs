@@ -82,6 +82,7 @@ public class GuestSystem : Mgr
 
     public void Init()
     {
+        Debug.Log("[GuestSystem] Run");
         skipTalkBtn.onClick.RemoveAllListeners();
         skipTalkBtn.onClick.AddListener(() =>
         {
@@ -118,6 +119,7 @@ public class GuestSystem : Mgr
         //인게임 코루틴
         while (true)
         {
+            Debug.Log("[RunGuestCycle] Run");
             if (gameMgr.playData != null && gameMgr.playData.tutoComplete1 == false)
             {
                 //손님이 이동중일대는 대기
