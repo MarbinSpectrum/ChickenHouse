@@ -225,8 +225,9 @@ public class GuestSystem : Mgr
                 for (Guest guest = Guest.Fox; guest < Guest.MAX; guest++)
                 {
                     GuestObj guestObj = guestMgr.GetGuest(guest);
+                    if (guestObj == null)
+                        continue;
 
-                    Debug.Log($"[CreateGuest] {guestObj == null}");
                     if (guestObj.GetShowDay() > gameDay)
                         continue;
                     if (guestWeight[guest] > 0)

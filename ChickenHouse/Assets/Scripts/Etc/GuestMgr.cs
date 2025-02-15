@@ -28,7 +28,6 @@ public class GuestMgr : AwakeSingleton<GuestMgr>
             Debug.Log($"[CreateGuest] {pGuest} is Null {guests[pGuest] == null}");
             return guests[pGuest];
         }
-        Debug.Log($"[CreateGuest] {pGuest} is Null true");
         return null;
     }
 
