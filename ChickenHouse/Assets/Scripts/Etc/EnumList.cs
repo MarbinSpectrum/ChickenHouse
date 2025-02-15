@@ -638,17 +638,14 @@ public enum Scene
     /** 인게임 **/
     INGAME  = 3,
 
-    /** 상점 **/
-    SHOP    = 4,
-
     /** 마을 **/
-    TOWN    = 5,
+    TOWN    = 4,
 
     /** 이벤트 0 **/
-    EVENT_0 = 6,
+    EVENT_0 = 5,
 
     /** 배드 엔드 **/
-    BAD_END = 7,
+    BAD_END = 6,
 
     /** 데모 **/
     DEMO,

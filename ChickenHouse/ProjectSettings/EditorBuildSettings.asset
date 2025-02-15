@@ -21,9 +21,6 @@ EditorBuildSettings:
     path: Assets/Scenes/InGame.unity
     guid: 54613e39a22519d40a043947010fbba2
   - enabled: 1
-    path: Assets/Scenes/Shop.unity
-    guid: 8ea5c35686a85b549807bf30e5268644
-  - enabled: 1
     path: Assets/Scenes/Town.unity
     guid: ef0ed7940d7d252499bd0ffeb22bacd8
   - enabled: 1
