@@ -4,8 +4,35 @@ using UnityEngine;
 
 public class SubMenuMgr : AwakeSingleton<SubMenuMgr>
 {
-    [SerializeField] private Dictionary<Drink, DrinkData>       drinkData       = new Dictionary<Drink, DrinkData>();
-    [SerializeField] private Dictionary<SideMenu, SideMenuData> sideMenuData    = new Dictionary<SideMenu, SideMenuData>();
+    private Dictionary<Drink, DrinkData>       drinkData       = new();
+    private Dictionary<SideMenu, SideMenuData> sideMenuData    = new();
+
+    private static bool init = false;
+
+    protected override void Awake()
+    {
+        base.Awake();
+
+        if (init)
+            return;
+
+        init = true;
+        for (Drink drink = Drink.Cola; drink < Drink.MAX; drink++)
+        {
+            DrinkData dData = Resources.Load<DrinkData>($"DrinkData/{drink.ToString()}");
+            if (dData == null)
+                continue;
+            drinkData.Add(drink, dData);
+        }
+
+        for (SideMenu sidemenu = SideMenu.ChickenRadish; sidemenu < SideMenu.MAX; sidemenu++)
+        {
+            SideMenuData sData = Resources.Load<SideMenuData>($"SideMenuData/{sidemenu.ToString()}");
+            if (sData == null)
+                continue;
+            sideMenuData.Add(sidemenu, sData);
+        }
+    }
 
     public DrinkData GetDrinkData(Drink pDrink)
     {

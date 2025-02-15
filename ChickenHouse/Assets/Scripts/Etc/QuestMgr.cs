@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class QuestMgr : AwakeSingleton<QuestMgr>
 {
-    [SerializeField] private Dictionary<Quest, QuestData> questData = new Dictionary<Quest, QuestData>();
+    private Dictionary<Quest, QuestData> questData = new();
 
     public static int TARGET_MONEY_1 = 50000;
     public static int MAIN_QUEST_1_LIMIT_DAY = 7;
@@ -15,6 +15,25 @@ public class QuestMgr : AwakeSingleton<QuestMgr>
     public static int SEA_OTTER_QUEST_TARGET_MONEY = 20000;
     public static int DRINK_QUEST_1_CNT = 10;
     public static int DRINK_QUEST_2_CNT = 10;
+
+    private static bool init = false;
+
+    protected override void Awake()
+    {
+        base.Awake();
+
+        if (init)
+            return;
+        init = true;
+        for (Quest quest = Quest.MainQuest_1; quest < Quest.MAX; quest++)
+        {
+            QuestData qData = Resources.Load<QuestData>($"QuestData/{quest.ToString()}");
+            if (qData == null)
+                continue;
+            questData.Add(quest, qData);
+        }
+    }
+
 
     public QuestData GetQuestData(Quest pQuest)
     {

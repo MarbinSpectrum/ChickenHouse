@@ -4,12 +4,30 @@ using UnityEngine;
 
 public class WorkerMgr : AwakeSingleton<WorkerMgr>
 {
-    [SerializeField] private Dictionary<EWorker, WorkerData> workerData = new Dictionary<EWorker, WorkerData>();
+    private Dictionary<EWorker, WorkerData> workerData = new();
     public const float WORKER_SKILL_1_VALUE = 50;
     public const float WORKER_SKILL_2_VALUE = 100;
     public const float WORKER_SKILL_3_VALUE = 100;
     public const float WORKER_SKILL_4_VALUE = 100;
     public const float WORKER_SKILL_5_VALUE = 25;
+
+    private static bool init = false;
+
+    protected override void Awake()
+    {
+        base.Awake();
+
+        if (init)
+            return;
+        init = true;
+        for (EWorker worker = EWorker.Worker_1; worker < EWorker.MAX; worker++)
+        {
+            WorkerData wData = Resources.Load<WorkerData>($"WorkerData/{worker.ToString()}");
+            if (wData == null)
+                continue;
+            workerData.Add(worker, wData);
+        }
+    }
 
     public WorkerData GetWorkerData(EWorker pWorker)
     {

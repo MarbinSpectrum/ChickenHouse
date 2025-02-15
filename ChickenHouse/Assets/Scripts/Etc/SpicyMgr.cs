@@ -4,7 +4,26 @@ using UnityEngine;
 
 public class SpicyMgr : AwakeSingleton<SpicyMgr>
 {
-    [SerializeField] private Dictionary<ChickenSpicy, SpicyData> spicyData = new Dictionary<ChickenSpicy, SpicyData>();
+    private Dictionary<ChickenSpicy, SpicyData> spicyData = new();
+
+    private static bool init = false;
+
+    protected override void Awake()
+    {
+        base.Awake();
+
+        if (init)
+            return;
+
+        init = true;
+        for (ChickenSpicy spicy = ChickenSpicy.Hot; spicy < ChickenSpicy.MAX; spicy++)
+        {
+            SpicyData sData = Resources.Load<SpicyData>($"SpicyData/{spicy.ToString()}");
+            if (sData == null)
+                continue;
+            spicyData.Add(spicy, sData);
+        }
+    }
 
     public SpicyData GetSpicyData(ChickenSpicy pSpicy)
     {

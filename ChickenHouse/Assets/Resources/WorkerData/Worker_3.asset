@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3a15479d7c42e04a916914b2e67f6a3, type: 3}
+  m_Name: Worker_3
+  m_EditorClassIdentifier: 
+  face: {fileID: 21300000, guid: 3907f98ecc525df4189717bf415cf3e4, type: 3}
+  nameKey: RESUME_4_NAME
+  age: 45
+  infoKey: WORKER_INFO_4
+  deposit: 30000
+  residenceKey: RESUME_4_RESIDENCE
+  salary: 10
+  skill: c8000000
+  handSprite:
+    hand0: {fileID: 21300000, guid: e5d31724f3de0224a8158653d998922b, type: 3}
+    hand1: {fileID: 21300000, guid: 30fccc9dccf785c42b7e5cca77a9dea1, type: 3}
+    hand2: {fileID: 21300000, guid: 9b2b7cb2923e90b49aeccdb94cbda2b2, type: 3}
