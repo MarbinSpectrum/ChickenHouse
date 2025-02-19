@@ -15,8 +15,6 @@ public class WorkerContractCheck : Mgr
     public void OpenYes()
     {
         //인스펙터로 끌어서 사용하는 함수
-        if (gameMgr.playData.tutoComplete4 == false)
-            return;
 
         soundMgr.PlaySE(Sound.Btn_SE);
         gameObject.SetActive(false);
@@ -25,6 +23,8 @@ public class WorkerContractCheck : Mgr
 
     public void OpenNo()
     {
+        if (gameMgr.playData.tutoComplete4 == false)
+            return;
         //인스펙터로 끌어서 사용하는 함수
         soundMgr.PlaySE(Sound.Btn_SE);
         gameObject.SetActive(false);
