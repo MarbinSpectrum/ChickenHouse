@@ -27,12 +27,13 @@ public class KitchenReady : Mgr
         public AnimationCurve   curve;
     }
     [SerializeField] private MoveUI moveUI;
-
+    [SerializeField] private CanvasGroup canvasGroup;
     private bool actStaffUI = false;
     private bool actMenuUI = false;
 
     private void Start()
     {
+        guestMgr.RemoveAllGuest();
         gameMgr.InitData();
         if(gameMgr.playData == null)
         {
@@ -40,6 +41,7 @@ public class KitchenReady : Mgr
             startGame.Run();
             return;
         }
+        canvasGroup.alpha = 1;
 
         staffReady.SetUI();
         menuReady.SetUI();
@@ -233,7 +235,26 @@ public class KitchenReady : Mgr
 
     public void StartGame()
     {
-        gameObject.SetActive(false);
-        startGame.Run();
+        dontClick.gameObject.SetActive(true);
+        moveUI.startGameBtn.gameObject.SetActive(false);
+
+        IEnumerator Run()
+        {
+            float timeDelay = 1;
+            float lerpValue = 0;
+            while (timeDelay > 0)
+            {
+                lerpValue += Time.deltaTime;
+                float v = moveUI.curve.Evaluate(lerpValue / 1);
+                canvasGroup.alpha = 1f - v;
+
+                timeDelay -= Time.deltaTime;
+                yield return null;
+            }
+            canvasGroup.alpha = 0;
+            startGame.Run();
+            gameObject.SetActive(false);
+        }
+        StartCoroutine(Run());
     }
 }

@@ -77,7 +77,8 @@ public class EscapeKeyCheck : Mgr
 
         if (town != null && town.nowSceneChange)
             return;
-        if (nekoJobBank != null && nekoJobBank.isOpen)
+        if (nekoJobBank != null && nekoJobBank.isOpen && 
+            gameMgr?.playData != null && gameMgr.playData.tutoComplete4)
         {
             nekoJobBank.EscapeNekoJobBank();
             return;

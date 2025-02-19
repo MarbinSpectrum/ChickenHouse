@@ -25,13 +25,21 @@ public class NekoJobBank : Mgr
         public RectTransform    rightArrow;
         public RectTransform    employMenu;
         public TextMeshProUGUI  deposit;
-        public RectTransform    stampAni;
+        public Animator         stampAni;
+        public Animator         resumeUIAni;
     }
-    [SerializeField] private Resume resume;
-    [SerializeField] private WorkerContractCheck employMsgBox;
-    [SerializeField] private Money_UI moneyUI;
-    [SerializeField] private TownMove exitNekoJobBank;
+    [SerializeField] private Resume                 resume;
+    [SerializeField] private WorkerContractCheck    employMsgBox;
+    [SerializeField] private Money_UI               moneyUI;
+    [SerializeField] private TownMove               exitNekoJobBank;
 
+    [SerializeField] private CanvasGroup            tutoDontTouch;
+    [SerializeField] private TutoObj                tutoObj3;
+    [SerializeField] private TutoObj                tutoObj3_1;
+    [SerializeField] private TutoObj                tutoObj3_2;
+    [SerializeField] private TutoObj                tutoObj3_3;
+    [SerializeField] private TutoObj                tutoObj3_4;
+    [SerializeField] private TutoObj                tutoObj3_5;
     private List<EWorker> workerList = new List<EWorker>();
     private int resumeSelectIdx = 0;
     private bool actResumeUI;
@@ -54,6 +62,7 @@ public class NekoJobBank : Mgr
         showMenu.gameObject.SetActive(false);
         header.gameObject.SetActive(false);
 
+        tutoDontTouch.blocksRaycasts = gameMgr.playData.tutoComplete4;
 
         IEnumerator Run()
         {
@@ -74,6 +83,12 @@ public class NekoJobBank : Mgr
             {
                 soundMgr.StopLoopSE(Sound.Voice26_SE);
                 oner.animator.Play("Idle");
+
+                if (gameMgr.playData.tutoComplete4 == false)
+                {
+                    tutoDontTouch.blocksRaycasts = true;
+                    tutoObj3.PlayTuto();
+                }
             });
 
             showMenu.gameObject.SetActive(true);
@@ -127,15 +142,44 @@ public class NekoJobBank : Mgr
         resume.rect.gameObject.SetActive(true);
         resumeSelectIdx = 0;
         ShowResumeUI(resumeSelectIdx);
+
+        tutoDontTouch.blocksRaycasts = gameMgr.playData.tutoComplete4;
+        if (gameMgr.playData.tutoComplete4 == false)
+        {
+            IEnumerator Run()
+            {
+                tutoObj3.CloseTuto();
+
+                yield return new WaitUntil(
+                      () => resume.resumeUIAni.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1);
+                yield return new WaitForSeconds(1f);
+                tutoObj3_1.PlayTuto();
+                tutoDontTouch.blocksRaycasts = true;
+
+            }
+            StartCoroutine(Run());
+        }
     }
 
     public void CloseResumeUI()
     {
         //인스펙터에 끌어서 사용하는 함수
-        soundMgr.StopLoopSE(Sound.Voice26_SE);
-        soundMgr.PlaySE(Sound.Btn_SE);
+
         if (actResumeUI == false)
             return;
+        if (gameMgr.playData.tutoComplete4 == false)
+        {
+            if (tutoMgr.nowTuto == Tutorial.Town_Tuto_3_3)
+            {
+                tutoObj3_4.CloseTuto();
+                tutoObj3_5.PlayTuto();
+            }
+            else
+                return;
+        }
+
+        soundMgr.StopLoopSE(Sound.Voice26_SE);
+        soundMgr.PlaySE(Sound.Btn_SE);
         resume.rect.gameObject.SetActive(false);
     }
 
@@ -149,6 +193,11 @@ public class NekoJobBank : Mgr
         run = false;
         exitNekoJobBank.MoveTown();
         StopTalk();
+
+        if (gameMgr.playData.tutoComplete4 == false && tutoMgr.nowTuto == Tutorial.Town_Tuto_3_4)
+        {
+            tutoObj3_5.CloseTuto();
+        }
     }
 
     public void EscapeNekoJobBank()
@@ -231,7 +280,28 @@ public class NekoJobBank : Mgr
             playData.money -= newDeposit;
             moneyUI.SetMoney(playData.money);
             resume.stampAni.gameObject.SetActive(true);
+
+            tutoDontTouch.blocksRaycasts = gameMgr.playData.tutoComplete4;
+            if (gameMgr.playData.tutoComplete4 == false)
+            {
+                IEnumerator Run()
+                {
+                    tutoObj3_2.CloseTuto();
+                    yield return new WaitUntil(
+                        () => resume.stampAni.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1);
+
+                    tutoDontTouch.blocksRaycasts = true;
+                    tutoObj3_3.PlayTuto();
+                }
+                StartCoroutine(Run());
+            }
         });
+
+        if (gameMgr.playData.tutoComplete4 == false)
+        {
+            tutoObj3_1.CloseTuto();
+            tutoObj3_2.PlayTuto();
+        }
     }
 
     public void StopTalk()

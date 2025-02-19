@@ -61,9 +61,9 @@ EMPTY	빈 공간	Empty
 LOAD	불러오기	Load
 SAVE	저장하기	Save
 CHICKEN_PRICE	기본 치킨 가격	Base Chicken Price
-CHICKEN_RES_DECREASE	치킨 재료비 감소	Chicken Cost Savings
-DRINK_PRICE_DECREASE	음료 재료비 감소	Drink Cost Savings
-SIDEMENU_PRICE_DECREASE	피클 재료비 감소	Pickle Cost Savings
+CHICKEN_RES_DECREASE	치킨 원가 감소	Chicken Cost Reduction
+DRINK_PRICE_DECREASE	음료 원가 감소	Drink Cost Reduction
+SIDEMENU_PRICE_DECREASE	사이드메뉴 원가 감소	SideMenu Cost Reduction
 WORKER_SPEED	직원 속도	Staff Speed
 PROFIT_RATE	수익률	Profit Rate
 SALE_VALUE	상점 할인율	Merchant Rate
@@ -179,18 +179,19 @@ MENU_TUTO_2_0	주방에 양념,사이드메뉴,음료를 배치하면 손님들�
 MENU_TUTO_2_1	왼쪽하단을 확인해보면 배치한 메뉴의 상세정보도 확인할 수 있습니다.	If you check the bottom left, you can also check the details of the menu you placed.
 MENU_TUTO_2_2	메뉴를 적절하게 배치해서 가게를 성공적으로 운영해봅시다!	Let's successfully run the store by properly arranging the menu!
 TOWN_TUTO_1	마을에서는 다양한 활동을 할 수 있습니다.	You can engage in a variety of activities in the village.
-TOWN_TUTO_2	직원고용소입니다. 가게에서 함께 일할 직원을 고용할 수 있습니다.	This is a Job Bank. You can hire staff to work with you at your store.
-TOWN_TUTO_3	주방도구상점입니다. 주방에서 사용할 조리도구를 구입할 수 있는 곳입니다.	This is a kitchenware shop.\nIt's a place where you can buy cooking utensils for use in the kitchen.
-TOWN_TUTO_4	광고 회사입니다. 가게 광고를 통해 더 많은 손님을 유치할 수 있습니다.	It's an advertising company.\nYou can attract more customers through store advertising.
-TOWN_TUTO_5	모든 준비가 끝났으면 가게로 돌아와서 장사를 시작하면됩니다. 	Once all the preparations are complete\nreturn to the store and start the business.
-TOWN_TUTO_6	빠른 이동 메뉴를 이용하면 원하는 장소로 쉽게 이동할 수 있습니다.	You can easily move to your desired location using the fast travel menu.
-TOWN_TUTO_7	일기장을 통해서도 여러가지를 할 수 있습니다.	You can do various things using the diary as well.
-TOWN_TUTO_8	진행 사항을 저장하거나 불러올 수 있고	You can save or load your progress.
-TOWN_TUTO_9	현재 장사숙련도를 파악할 수 있습니다.	You can assess your current business proficiency.
-TOWN_TUTO_10	장사 숙련도는 장사를 할수록 높아지며\n숙련도가 높을수록 더 효과적으로 장사를 할 수 있습니다.	Business proficiency increases with experience,\nhigher proficiency allows you to run the business more effectively.
-TOWN_TUTO_11	현재 해야 할 일도 확인할 수 있습니다.	You can also see the tasks that need to be completed.
-TOWN_TUTO_12	빨간 글씨로 표시된 항목은 기간 내에 반드시 완료해야 하는 일입니다.	Items marked in red are tasks that must be completed within the timeframe.
-TOWN_TUTO_13	해당 기간안에 꼭 해결해야합니다!	It must be resolved without fail within the given timeframe!
+TOWN_TUTO_2	직원고용소입니다. 한번 들어가 봅시다.	This is a Job Bank. You can hire staff to work with you at your store.
+TOWN_TUTO_3	직원을 고용해봅시다.	직원을 고용해봅시다.
+TOWN_TUTO_3_3	직원을 고용했습니다.\n직원은 가게에 배치해서 원하는 업무를 시킬 수 있습니다.	직원을 고용했습니다.\n직원은 가게에 배치해서 원하는 업무를 시킬 수 있습니다.
+TOWN_TUTO_4	주방도구상점입니다. 주방에서 사용할 조리도구를 구입할 수 있는 곳입니다.	This is a kitchenware shop.\nIt's a place where you can buy cooking utensils for use in the kitchen.
+TOWN_TUTO_5	광고 회사입니다. 가게 광고를 통해 더 많은 손님을 유치할 수 있습니다.	It's an advertising company.\nYou can attract more customers through store advertising.
+TOWN_TUTO_6	모든 준비가 끝났으면 가게로 돌아와서 장사를 시작하면됩니다. 	Once all the preparations are complete\nreturn to the store and start the business.
+TOWN_TUTO_7	빠른 이동 메뉴를 이용하면 원하는 장소로 쉽게 이동할 수 있습니다.	You can easily move to your desired location using the fast travel menu.
+TOWN_TUTO_8	일기장을 통해서도 여러가지를 할 수 있습니다.	You can do various things using the diary as well.
+TOWN_TUTO_9	진행 사항을 저장하거나 불러올 수 있고	You can save or load your progress.
+TOWN_TUTO_10	현재 장사숙련도를 파악할 수 있습니다.	You can assess your current business proficiency.
+TOWN_TUTO_11	장사 숙련도는 장사를 할수록 높아지며\n숙련도가 높을수록 더 효과적으로 장사를 할 수 있습니다.	Business proficiency increases with experience,\nhigher proficiency allows you to run the business more effectively.
+TOWN_TUTO_12	현재 해야 할 일도 확인할 수 있습니다.	You can also see the tasks that need to be completed.
+TOWN_TUTO_13	빨간 글씨로 표시된 항목은 기간 내에 반드시 완료해야 하는 일입니다.	Items marked in red are tasks that must be completed within the timeframe.
 TOWN_TUTO_14	주기적으로 확인하여 기한 내에 해결하도록 합시다.	Let's regularly check to ensure it's resolved within the deadline.
 EVENT_0_TUTO_1	대결의 규칙에 대해서 설명해드리겠습니다.	I will explain the rules of the duel.
 EVENT_0_TUTO_2	규칙은 간단합니다. 치킨 10마리를 먼저 파는 쪽이 승리합니다.	The rules are simple: the first side to sell 10 chickens wins.
@@ -214,7 +215,7 @@ EVENT0_5	으잉? 어떻게 알았냐고? 쿠히히힉! 여기 치킨집 사장�
 EVENT0_6	뭐 그쪽이랑 담소나 나누자 온 건 아니고 쿠힉!	Well, I didn’t come here just to chat with you, Oink!
 EVENT0_7	나나 그쪽이나 서로 같은 동네에 같은 치킨집이 있는 건 영 불편하잖아? 그러니까 나랑 내기해보는 게 어때?	You know, having both our chicken shops\nin the same neighborhood \nis quite uncomfortable, right?\nSo how about we make a bet?
 EVENT0_8	같은 치킨집이라 할지라도 쿠힉! 결국엔 더 맛있는 집에 오겠지?	Even if we're both chicken shops,\nOink! In the end, customers will choose\nthe tastier one, right?
-EVENT0_9	어때? 서로 치킨집의 레시피를 걸고! 경쟁을 하는거야! 나는 우리 가문의 전해 내려오는 특급요리비법을 걸어주지!	What do you think?\nLet’s compete with the recipes\nof our chicken shops on the line!\nI’ll put our family’s secret recipe on the table!
+EVENT0_9	어때? 같은 치킨집 끼리 경쟁하는게? 지는 쪽은 하루동안 장사를 접는거야!	What do you think?\nLet’s compete with the recipes\nof our chicken shops on the line!\nI’ll put our family’s secret recipe on the table!
 EVENT0_10_0	쿠히힉! 좋아! 두말하기 없기다?!	Oink! Great! No more talking?!
 EVENT0_10_1	쿠힉힉힉 이거 사장이 찌질한 겁쟁이였구먼?! 쿠힉힉힉힉힉!	Oink! So the boss is just a\npathetic coward, huh?! Oink!
 EVENT0_11_0	쿠히이이익! 이 이건 말도 안 돼! 이건 속임수야!	Ooink! This is ridiculous! This is cheating!
@@ -272,15 +273,15 @@ FOX_ORDER_9	양념 치킨만 먹으면 제 혀가 부담을 느낄지 모르니 
 FOX_ORDER_10	오늘은 특별하게 달달 한 눈 같은 치킨과 바비큐 파티를 즐기고 싶어요!	I want to have a special snow chicken and BBQ today!
 FOX_ORDER_11	오늘의 식사는 아주 심플하게 즐기고 싶어요!	I want to enjoy my meal very simply today!
 FOX_SIDE_COLA	으아 못 참겠다! 시원한 콜라도 주세요!	Oh, I can't stand it! I'd like a cold coke, too!
-FOX_SIDE_SUPERPOWER	(딸기맛 탄산 음료)	(딸기맛 탄산 음료)
-FOX_SIDE_LOVEMELON	(멜론맛 탄산 음료)	(멜론맛 탄산 음료)
-FOX_SIDE_SODASODA	(소다맛 탄산 음료)	(소다맛 탄산 음료)
+FOX_SIDE_SUPERPOWER	맛있는 딸기맛 음료수도 부탁해요!	(딸기맛 탄산 음료)
+FOX_SIDE_LOVEMELON	오늘은 색다른 맛의 멜론 음료를 마셔야 겠어요!	(멜론맛 탄산 음료)
+FOX_SIDE_SODASODA	혹시 소다맛 음료수도 있나요?	(소다맛 탄산 음료)
 FOX_SIDE_RADISH	아삭아삭 시원한 치킨 무도 주세요!	Please give me some cool radish, too!
-FOX_SIDE_PICKLE	(피클)	(피클)
-FOX_SIDE_COLESLAW	(코우슬로)	(코우슬로)
-FOX_SIDE_CORNSALAD	(콘샐러드)	(콘샐러드)
-FOX_SIDE_FRENCHFRIES	(감자튀김)	(감자튀김)
-FOX_SIDE_CHICKENNUGGET	(치킨너겟)	(치킨너겟)
+FOX_SIDE_PICKLE	아삭아삭 씹히는 피클도 주세요!	(피클)
+FOX_SIDE_COLESLAW	치킨만 먹으면 좀 그러니까 코우슬로도 부탁드려요!	(코우슬로)
+FOX_SIDE_CORNSALAD	고소한 콘 샐러드도 하나 주세요!	(콘샐러드)
+FOX_SIDE_FRENCHFRIES	오늘 배가 좀 많이 고프니 감자튀김도 주세요!	(감자튀김)
+FOX_SIDE_CHICKENNUGGET	일반 치킨과 색다른 맛의 너겟도 부탁드려요!	(치킨너겟)
 FOX_ANGRY	이게 뭐에요 너무해	What is this? It's too much
 FOX_THANK_YOU	살짝 아쉽지만... 그래도 좋아요!	It's a bit unfortunate, but it's still good!
 FOX_HAPPY	드디어 단골집을 찾은거 같아요!	I think I've finally found a regular place!
@@ -296,16 +297,16 @@ DOG_ORDER_9	오늘은 달짝지근한 매콤함을 즐기면서 그리운 짭짤
 DOG_ORDER_10	오늘은 제 친구 ‘니치’ 녀석이 저한테 종종 미국의 아메리칸 스타일의 치킨을 추천해주곤 했는데 그게 혹시 맛있나요?	Niche often recommended American chicken, is it delicious?
 DOG_ORDER_11	아는 여우 친구가 추천했던 미국의 맛의 치킨이 먹고 싶군요! 덤으로 평범한 치킨도 포함하죠	I really want to eat American-flavored chicken that my fox friend recommended! And please add regular chicken, too
 DOG_SIDE_COLA	일하느라 더우니 콜라도 부탁드릴게요	It's hot at work, so please give me a coke
-DOG_SIDE_SUPERPOWER	(딸기맛 탄산 음료)	(딸기맛 탄산 음료)
-DOG_SIDE_LOVEMELON	(멜론맛 탄산 음료)	(멜론맛 탄산 음료)
-DOG_SIDE_SODASODA	(소다맛 탄산 음료)	(소다맛 탄산 음료)
+DOG_SIDE_SUPERPOWER	흠 여기 딸기맛 음료도 있네요? 무슨 맛일까?	(딸기맛 탄산 음료)
+DOG_SIDE_LOVEMELON	멜론맛 음료수라 한번 도전해 보는것도 나쁘지 않죠	(멜론맛 탄산 음료)
+DOG_SIDE_SODASODA	달달하고 시원한 소다맛 음료도 부탁드려요	(소다맛 탄산 음료)
 DOG_SIDE_BEER	일하느라 더우니 시원한 맥주도 부탁드릴게요	It's hot at work, so please give me a cold beer.
 DOG_SIDE_RADISH	치킨만 먹으면 느끼하니까 치킨 무도 주세요	It's greasy if you eat chicken, so please give me radish
-DOG_SIDE_PICKLE	(피클)	(피클)
-DOG_SIDE_COLESLAW	(코우슬로)	(코우슬로)
-DOG_SIDE_CORNSALAD	(콘샐러드)	(콘샐러드)
-DOG_SIDE_FRENCHFRIES	(감자튀김)	(감자튀김)
-DOG_SIDE_CHICKENNUGGET	(치킨너겟)	(치킨너겟)
+DOG_SIDE_PICKLE	치킨에 피클이라 한번쯤 도전하는것도 나쁘지 않죠	(피클)
+DOG_SIDE_COLESLAW	코우슬로 하나도 부탁드립니다	(코우슬로)
+DOG_SIDE_CORNSALAD	콘 샐러드도 부탁드릴게요 사장님	(콘샐러드)
+DOG_SIDE_FRENCHFRIES	바삭한 감자튀김도 빼놓으면 섭하죠!	(감자튀김)
+DOG_SIDE_CHICKENNUGGET	치킨에 치킨너겟이라 뭐 좋은게 좋은거죠!	(치킨너겟)
 DOG_ANGRY	하하... 정 말 맛 있 겠 네 요	Haha... It must be really delicious
 DOG_THANK_YOU	배만 채우면 OK죠	As long as I'm full, it's okay
 DOG_HAPPY	다른 동료 직원들한테도 추천해야겠어요!	I should also recommend it to my other fellow employees!
@@ -321,16 +322,16 @@ CAT_ORDER_9	오늘 야근을 해야 할지도 몰라요 너무 슬프니까 불�
 CAT_ORDER_10	제가 양념을 먹을까.. 뿌링클을 먹을까.. 둘다 주세요!	Shall we have hot chicken or Prinkle? Both, please!
 CAT_ORDER_11	오늘은 제가 아는 동생이 좋아하는 가루 치킨을 시켜봐야겠어요!	Today, I'm going to order some powdered chicken that my acquaintance likes!
 CAT_SIDE_COLA	단게 땡기니 콜라도 있는게 좋을거 같아요!	I think we'd better have a glass of coke, too!
-CAT_SIDE_SUPERPOWER	(딸기맛 탄산 음료)	(딸기맛 탄산 음료)
-CAT_SIDE_LOVEMELON	(멜론맛 탄산 음료)	(멜론맛 탄산 음료)
-CAT_SIDE_SODASODA	(소다맛 탄산 음료)	(소다맛 탄산 음료)
+CAT_SIDE_SUPERPOWER	피곤함을 달랠 딸기맛 음료수도 부탁드려요	(딸기맛 탄산 음료)
+CAT_SIDE_LOVEMELON	멜론은 비싸서 못 먹지만 음료수는 가능하죠	(멜론맛 탄산 음료)
+CAT_SIDE_SODASODA	시원한 소다로 오늘 하루를 씻어내야 겠어요!	(소다맛 탄산 음료)
 CAT_SIDE_BEER	시원한게 땡기니 맥주도 있는게 좋을거 같아요!	I think we'd better have a glass of beer, too!
 CAT_SIDE_RADISH	시원한 치킨 무도 부탁드릴게요!	I'd like some cool radish, too!
-CAT_SIDE_PICKLE	(피클)	(피클)
-CAT_SIDE_COLESLAW	(코우슬로)	(코우슬로)
-CAT_SIDE_CORNSALAD	(콘샐러드)	(콘샐러드)
-CAT_SIDE_FRENCHFRIES	(감자튀김)	(감자튀김)
-CAT_SIDE_CHICKENNUGGET	(치킨너겟)	(치킨너겟)
+CAT_SIDE_PICKLE	맛있는 피클을 빼놓으면 안돼죠!	(피클)
+CAT_SIDE_COLESLAW	요즘 좀 찐거 같으니 코우슬로도 시키는게 나을려나?	(코우슬로)
+CAT_SIDE_CORNSALAD	콘 샐러드도 같이 먹으면 별미죠!	(콘샐러드)
+CAT_SIDE_FRENCHFRIES	감자튀김으로 나의 스테미너를 충전해야 겠어요	(감자튀김)
+CAT_SIDE_CHICKENNUGGET	치킨에 치킨 너겟이라니 오늘 다이어트는 포기다!	(치킨너겟)
 CAT_ANGRY	앞으로는 이 집에는 안와야겠네요!	I shouldn't come to this house from now on!
 CAT_THANK_YOU	이거면 피곤함을 달랠 수 있겠죠	This will relieve your tiredness
 CAT_HAPPY	이제 여기 말고는 다른 치킨은 성에 차지도 않겠어요!	I don't think I'll be satisfied with any chicken other than here anymore!
@@ -346,15 +347,15 @@ OPOSSUM_ORDER_9	나와 마린 짱이 만약 결혼해서 해외로 신혼여행�
 OPOSSUM_ORDER_10	오늘의 난 평소와 달라! 그녀를 위해서라면 어떠한 고통도 감내하는 남자가 되겠어! 그 앞이 설령 혀의 지옥이 될지라도! 	I am different today! For her sake, I will be a person who can endure any pain! Even if it becomes hell in front of him!
 OPOSSUM_ORDER_11	그녀를 위해 엄청난 혀의 고통도 견디는 강한 남자가 되겠어! 하지만 혹시 모르니까 그 뿌 뿌링클도...	I will be a strong man who can stand the pain of her tongue for her! But just in case, Prinkle...
 OPOSSUM_SIDE_COLA	콜라? 당연히 주문하지! 눈치 없어?	Cola? Of course! You don't know what I mean?
-OPOSSUM_SIDE_SUPERPOWER	(딸기맛 탄산 음료)	(딸기맛 탄산 음료)
-OPOSSUM_SIDE_LOVEMELON	(멜론맛 탄산 음료)	(멜론맛 탄산 음료)
-OPOSSUM_SIDE_SODASODA	(소다맛 탄산 음료)	(소다맛 탄산 음료)
+OPOSSUM_SIDE_SUPERPOWER	우리 마린짱의 입술같은 딸기맛 음료도 내놔!	(딸기맛 탄산 음료)
+OPOSSUM_SIDE_LOVEMELON	우리 마린짱의... 큼큼 멜론맛 음료도 주도록!	(멜론맛 탄산 음료)
+OPOSSUM_SIDE_SODASODA	난 까다로운 남자지만 마린짱 앞에선 소다처럼 쿨한 남자지!	(소다맛 탄산 음료)
 OPOSSUM_SIDE_RADISH	치킨 무? 흠 특별히 넣어줘	Radish? Hmm, please add it
-OPOSSUM_SIDE_PICKLE	(피클)	(피클)
-OPOSSUM_SIDE_COLESLAW	(코우슬로)	(코우슬로)
-OPOSSUM_SIDE_CORNSALAD	(콘샐러드)	(콘샐러드)
-OPOSSUM_SIDE_FRENCHFRIES	(감자튀김)	(감자튀김)
-OPOSSUM_SIDE_CHICKENNUGGET	(치킨너겟)	(치킨너겟)
+OPOSSUM_SIDE_PICKLE	피클? 흠 우리 마린짱이 원하니 넣어줘	(피클)
+OPOSSUM_SIDE_COLESLAW	몸매 관리도 중요하지 코우슬로도 하나!	(코우슬로)
+OPOSSUM_SIDE_CORNSALAD	흠 오늘따라 옥수수가 땡기는걸? 비슷한거 있어?	(콘샐러드)
+OPOSSUM_SIDE_FRENCHFRIES	감자튀김을 빠트리지 말고 꼭 넣도록!	(감자튀김)
+OPOSSUM_SIDE_CHICKENNUGGET	치킨너겟? 당연히 넣어야 하는거 아냐?!	(치킨너겟)
 OPOSSUM_ANGRY	진짜 서비스 꽝이네! 다신 안 와!	It's really bad! It won't come again!
 OPOSSUM_THANK_YOU	뭐 나쁘진 않네! 다음에도 와주지	It's not bad! I'll come next time
 OPOSSUM_HAPPY	마린 짱도 마음에 들어? 나도!	Do you like Marine-chan? Me too!
@@ -370,16 +371,16 @@ TASMANIAN_ORDER_9	예압 나는 준비 됐어! 화려한 아메리칸 스타일�
 TASMANIAN_ORDER_10	사장님 준비됐나? 양손 번쩍 들어 올려! 붐! 붐! 한국에는 없는 아메리칸 콤비!	Are you ready? Raise your hands! Bang! Bang! Bang! It's an American taste that Korea doesn't have in it!
 TASMANIAN_ORDER_11	나의 혀 위에 펼쳐지는 매서운 매콤보! 하지만 난 막을 수 있지 아주 빠르게 Vivace! 화끈한 불맛의 바비!	I can stop it! Hell fire!
 TASMANIAN_SIDE_COLA	나의 입안을 톡 쏘는 콜라도 Please!	Even the cola that pokes my mouth, please!
-TASMANIAN_SIDE_SUPERPOWER	(딸기맛 탄산 음료)	(딸기맛 탄산 음료)
-TASMANIAN_SIDE_LOVEMELON	(멜론맛 탄산 음료)	(멜론맛 탄산 음료)
-TASMANIAN_SIDE_SODASODA	(소다맛 탄산 음료)	(소다맛 탄산 음료)
+TASMANIAN_SIDE_SUPERPOWER	berry berry strawberry!	(딸기맛 탄산 음료)
+TASMANIAN_SIDE_LOVEMELON	나의 독특한 랩같은 melon melon 컴온!	(멜론맛 탄산 음료)
+TASMANIAN_SIDE_SODASODA	쏘! 쏘! 거침없이 시원한 소다는 나의 영혼의 콤비!	(소다맛 탄산 음료)
 TASMANIAN_SIDE_BEER	나의 목을 자극하는 맥주도 Please!	The beer that irritates my throat, please!
 TASMANIAN_SIDE_RADISH	나의 영감을 돋구는 치킨 무 무 무빙!	Pickled radish moving that inspires me!
-TASMANIAN_SIDE_PICKLE	(피클)	(피클)
-TASMANIAN_SIDE_COLESLAW	(코우슬로)	(코우슬로)
-TASMANIAN_SIDE_CORNSALAD	(콘샐러드)	(콘샐러드)
-TASMANIAN_SIDE_FRENCHFRIES	(감자튀김)	(감자튀김)
-TASMANIAN_SIDE_CHICKENNUGGET	(치킨너겟)	(치킨너겟)
+TASMANIAN_SIDE_PICKLE	요! 요! 아삭아삭 씹히는 피클 클리어!	(피클)
+TASMANIAN_SIDE_COLESLAW	예압 나의 위장이 슬로우 소화 시키는 코우 슬로우!	(코우슬로)
+TASMANIAN_SIDE_CORNSALAD	예압! 이곳은 콘서트! 나의 손엔 콘 샐러드!	(콘샐러드)
+TASMANIAN_SIDE_FRENCHFRIES	감자튀김이 빠지면 그것이 과연 스웩이라 하나?!	(감자튀김)
+TASMANIAN_SIDE_CHICKENNUGGET	요! 요! 치킨 너겟을 나의 주머니에 너겟!	(치킨너겟)
 TASMANIAN_ANGRY	진짜 이 치킨 Damn it!	What the hell is this chicken!
 TASMANIAN_THANK_YOU	나쁘지 않은 무난함! 앞으로도 Move!	It's not bad. It's not bad. Let's move!
 TASMANIAN_HAPPY	Fantastic!	Fantastic!
@@ -395,15 +396,15 @@ TIGER_ORDER_9	그레이삼촌이 그랬어요! 인생은 단맛이랑 쓴맛이 
 TIGER_ORDER_10	주인장 양반! 여기 짭짤한 갈색 같은 인생의 치킨과 매콤달콤한 붉은 인생의 치킨 부탁해요!	Master! Here are some salty brown and sweet red chickens!
 TIGER_ORDER_11	오늘은 대전쟁 날이에요! 동쪽 간장 군단과 서쪽의 바비큐 군단의 전쟁! 둘 다 먹어 버릴 거라서 저의 승!	Today is the day of the great war! It's a war between the soy sauce army in the east and the barbecue army in the west! I'm going to eat both, so it's my victory!
 TIGER_SIDE_COLA	그리고 꼴라!	and Cola
-TIGER_SIDE_SUPERPOWER	(딸기맛 탄산 음료)	(딸기맛 탄산 음료)
-TIGER_SIDE_LOVEMELON	(멜론맛 탄산 음료)	(멜론맛 탄산 음료)
-TIGER_SIDE_SODASODA	(소다맛 탄산 음료)	(소다맛 탄산 음료)
+TIGER_SIDE_SUPERPOWER	전 딸기가 좋아요!	(딸기맛 탄산 음료)
+TIGER_SIDE_LOVEMELON	그레이 삼촌은 멜론을 좋아해요!	(멜론맛 탄산 음료)
+TIGER_SIDE_SODASODA	그냥 달달하고 시원한 음료도 있어요?	(소다맛 탄산 음료)
 TIGER_SIDE_RADISH	그리고 무!	and Pickle radish
-TIGER_SIDE_PICKLE	(피클)	(피클)
-TIGER_SIDE_COLESLAW	(코우슬로)	(코우슬로)
-TIGER_SIDE_CORNSALAD	(콘샐러드)	(콘샐러드)
-TIGER_SIDE_FRENCHFRIES	(감자튀김)	(감자튀김)
-TIGER_SIDE_CHICKENNUGGET	(치킨너겟)	(치킨너겟)
+TIGER_SIDE_PICKLE	삐클! 피클이라고요? 삐클이 더 귀여워요!	(피클)
+TIGER_SIDE_COLESLAW	코우슬로가 뭐에요? 맛있어요?	(코우슬로)
+TIGER_SIDE_CORNSALAD	엄마가 항상 콘 샐러드를 해줬는데!	(콘샐러드)
+TIGER_SIDE_FRENCHFRIES	전 채소는 안 좋아하는데 감자는 안 그래요!	(감자튀김)
+TIGER_SIDE_CHICKENNUGGET	으엥? 치킨집에 치킨 너겟을 팔아요?	(치킨너겟)
 TIGER_ANGRY	우웩! 다신 안 와야지!	Wow! I won't come again!
 TIGER_THANK_YOU	히히 이 정도면 합격이에요!	Hehe. This is good enough!
 TIGER_HAPPY	치킨 나라에 평화를 가져다줄 맛이에요!	It's a taste that will bring peace to the chicken country!
@@ -419,16 +420,16 @@ LEMUR_ORDER_9	치킨에는 다양한 맛이 있죠 하지만 손님을 만족시
 LEMUR_ORDER_10	한국에서 처음으로 만들어진 특별한 소스의 치킨이 있다죠? 저도 그 치킨을 한번 맛보고 싶군요.	There's a special sauce chicken that was first made in Korea, right? I want to try that chicken, too.
 LEMUR_ORDER_11	치킨집에서 반반 서비스를 통해 가장 유명한 반반 조합을 시켜봐야겠군요.	I'll have to order the most famous half-and-half combination through the half-and-half chicken restaurant service.
 LEMUR_SIDE_COLA	시원한 탄산음료도 필요하겠군요	I'll also need a cool soda
-LEMUR_SIDE_SUPERPOWER	(딸기맛 탄산 음료)	(딸기맛 탄산 음료)
-LEMUR_SIDE_LOVEMELON	(멜론맛 탄산 음료)	(멜론맛 탄산 음료)
-LEMUR_SIDE_SODASODA	(소다맛 탄산 음료)	(소다맛 탄산 음료)
+LEMUR_SIDE_SUPERPOWER	흠 딸기 색소가 담긴 음료수라 마셔보고 싶군요	(딸기맛 탄산 음료)
+LEMUR_SIDE_LOVEMELON	멜론 색소를 담은 음료수도 부탁드리죠	(멜론맛 탄산 음료)
+LEMUR_SIDE_SODASODA	달콤한 소다향이 첨가된 음료수를 요청합니다	(소다맛 탄산 음료)
 LEMUR_SIDE_BEER	시원한 맥주도 필요하겠군요	I'll also need a cool beer
 LEMUR_SIDE_RADISH	영양 밸런스를 위해 무도 추가하죠	I'll add radishes for nutritional balance
-LEMUR_SIDE_PICKLE	(피클)	(피클)
-LEMUR_SIDE_COLESLAW	(코우슬로)	(코우슬로)
-LEMUR_SIDE_CORNSALAD	(콘샐러드)	(콘샐러드)
-LEMUR_SIDE_FRENCHFRIES	(감자튀김)	(감자튀김)
-LEMUR_SIDE_CHICKENNUGGET	(치킨너겟)	(치킨너겟)
+LEMUR_SIDE_PICKLE	피클은 피자를 먹을때나 먹었는데	(피클)
+LEMUR_SIDE_COLESLAW	호 여기서 코우슬로를 팔줄은 몰랐군요	(코우슬로)
+LEMUR_SIDE_CORNSALAD	콘 샐러드도 첨가시켜 고소함을 더해야 겠군요	(콘샐러드)
+LEMUR_SIDE_FRENCHFRIES	감자튀김은 너무 바삭거려도 별로에요	(감자튀김)
+LEMUR_SIDE_CHICKENNUGGET	흠 치킨가게에 치킨 너겟이라 특이한 조합이군요	(치킨너겟)
 LEMUR_ANGRY	신체 능력이 저하될거 같은 최악의 치킨이군요	It's the worst chicken that makes me lose my stamina
 LEMUR_THANK_YOU	나쁘지 않네요. 다음을 기대하죠	That's not bad. Let's look forward to the next one
 LEMUR_HAPPY	서비스가 정말 나쁘지 않군요. 훌륭합니다.	The service is really not bad, and that's great.
@@ -444,15 +445,15 @@ FLAMINGO_ORDER_9	카페에 고급스러운 손님이 있는데 처음 맡는 냄
 FLAMINGO_ORDER_10	사장님! 오늘은 짭조름한 아시아풍 치킨과! 매콤 매콤한 치킨 주세요! 	Sir! I'll have salty Asian chicken and spicy chicken!
 FLAMINGO_ORDER_11	오늘! 제가 사장님한테 혼난 거 있죠? 오늘은 숯불 치킨에 스트레스 날릴 엄청 매운 치킨으로 가야겠어요!	Today! I got in trouble from my boss! I'm going to eat charcoal grilling and super spicy chicken to relieve my stress!
 FLAMINGO_SIDE_COLA	서비스로 콜라 아시죠?	You know cola for free, right?
-FLAMINGO_SIDE_SUPERPOWER	(딸기맛 탄산 음료)	(딸기맛 탄산 음료)
-FLAMINGO_SIDE_LOVEMELON	(멜론맛 탄산 음료)	(멜론맛 탄산 음료)
-FLAMINGO_SIDE_SODASODA	(소다맛 탄산 음료)	(소다맛 탄산 음료)
+FLAMINGO_SIDE_SUPERPOWER	와우! 딸기맛 음료수라니! 사장님 센스가?	(딸기맛 탄산 음료)
+FLAMINGO_SIDE_LOVEMELON	우리 카페에도 메론맛 음료가 있는데 여긴 어떠려나?	(멜론맛 탄산 음료)
+FLAMINGO_SIDE_SODASODA	시원하게 소다를 곁들이면 그야말로 퍼펙트!	(소다맛 탄산 음료)
 FLAMINGO_SIDE_RADISH	딱 센스 있게 치킨 무!	Pickled radish with a good sense!
-FLAMINGO_SIDE_PICKLE	(피클)	(피클)
-FLAMINGO_SIDE_COLESLAW	(코우슬로)	(코우슬로)
-FLAMINGO_SIDE_CORNSALAD	(콘샐러드)	(콘샐러드)
-FLAMINGO_SIDE_FRENCHFRIES	(감자튀김)	(감자튀김)
-FLAMINGO_SIDE_CHICKENNUGGET	(치킨너겟)	(치킨너겟)
+FLAMINGO_SIDE_PICKLE	피클은 처음 먹으면 별론데 계속 먹게 된다니까요	(피클)
+FLAMINGO_SIDE_COLESLAW	간만에 코우슬로도 곁들어 먹을까요? 사장니 생각은 어떠세요?	(코우슬로)
+FLAMINGO_SIDE_CORNSALAD	제가 어떤 음식을 먹든 꼭 콘 샐러드도 같이 먹는거 있죠?!	(콘샐러드)
+FLAMINGO_SIDE_FRENCHFRIES	크으 바삭바삭한 감자튀김을 먹으면 제 혀가 즐거워요!	(감자튀김)
+FLAMINGO_SIDE_CHICKENNUGGET	흐음 치킨을 먹는데 치킨 너겟을 먹어도 될까요?	(치킨너겟)
 FLAMINGO_ANGRY	와 사장님 완전 센스 없으시네!	Wow, the owner has no sense at all!
 FLAMINGO_THANK_YOU	혹시 리뷰 이벤트 같은거 안하나요?	Do you happen to have a review event?
 FLAMINGO_HAPPY	완전 대박! 서비스 실화예요?!	Awesome! Is this service for real?
@@ -468,16 +469,16 @@ DOVE_ORDER_9	나의 열렬한 심장을 표현한 듯한 치킨을 주문해야 
 DOVE_ORDER_10	그거 아시오? 마스터 나는 외면은 이탈리안처럼 고급스러우면서 내면은 아주 뜨거운 불 비둘기라네	You Know What? Master, I'm a bulldog, but I'm as luxurious as an Italian on the outside and very hot inside
 DOVE_ORDER_11	오늘 나는 ‘미스 플라워’양에게 대쉬 할 생각이라네 달콤하고 황금과 같은 그녀에게 나 불사조와 같은 비둘기인 내가! 	Today, I'm going to confess my love to Miss Flower! Sweet and golden to her... I'm going to express a fire-like heart...
 DOVE_SIDE_COLA	고급 콜라를 주문해 볼까 하오	I'm thinking about ordering a high-quality coke
-DOVE_SIDE_SUPERPOWER	(딸기맛 탄산 음료)	(딸기맛 탄산 음료)
-DOVE_SIDE_LOVEMELON	(멜론맛 탄산 음료)	(멜론맛 탄산 음료)
-DOVE_SIDE_SODASODA	(소다맛 탄산 음료)	(소다맛 탄산 음료)
+DOVE_SIDE_SUPERPOWER	아아 산뜻한 첫사랑 같은 스트로베리 음료수!	(딸기맛 탄산 음료)
+DOVE_SIDE_LOVEMELON	멜론은 처음엔 낫설지만 부드럽고 달달한 인연같소	(멜론맛 탄산 음료)
+DOVE_SIDE_SODASODA	거침없이 그녀를 향해 나아가는 시원스러운 소다!	(소다맛 탄산 음료)
 DOVE_SIDE_BEER	고급 맥주를 주문해 볼까 하오	I'm thinking about ordering a high-quality beer
 DOVE_SIDE_RADISH	원하오! 시원한 워터가 곁들어진 무!	I want it! Pickled radish in cool water!
-DOVE_SIDE_PICKLE	(피클)	(피클)
-DOVE_SIDE_COLESLAW	(코우슬로)	(코우슬로)
-DOVE_SIDE_CORNSALAD	(콘샐러드)	(콘샐러드)
-DOVE_SIDE_FRENCHFRIES	(감자튀김)	(감자튀김)
-DOVE_SIDE_CHICKENNUGGET	(치킨너겟)	(치킨너겟)
+DOVE_SIDE_PICKLE	아아 시원한 워터가 곁들어진 피클이여!	(피클)
+DOVE_SIDE_COLESLAW	사장 코우슬로우를 주문할까 하오	(코우슬로)
+DOVE_SIDE_CORNSALAD	사랑하는 그대와 떠나는 파티같은 콘 샐러드!	(콘샐러드)
+DOVE_SIDE_FRENCHFRIES	아메리칸 향기가 물씬 느껴지는 감자튀김!	(감자튀김)
+DOVE_SIDE_CHICKENNUGGET	난 비록 새지만 치킨 너겟의 유혹은 참을 수 없소!	(치킨너겟)
 DOVE_ANGRY	이게 진짜일 리가 없어!	This can't be real!
 DOVE_THANK_YOU	흠! 이 무난함! 나쁘지 않아	Hmm! This is easy! Not bad
 DOVE_HAPPY	엘레강트!!! 구구! 구구구구구구	Elegant! Gu! Gu! Gu! Gu
@@ -493,15 +494,15 @@ PANDA_ORDER_9	아저씨! 그 안 매운 빨간 치킨이랑 갈색 치킨이랑 
 PANDA_ORDER_10	아저씨! 그 뭐더라 달면서 짭짤한 거랑 엄마가 저한테 파스타 만들어 줄 때 넣은 거랑 같이 주세요!	Mister! Please give me the one that's sweet and salty, like what my mom puts in pasta when she makes it for me!
 PANDA_ORDER_11	아저씨! 그 똥 냄새랑 숯불 냄새가 나는 걸로 주세요! 아!근데 똥 냄새는 실제로 안 나요!	Mister! Please give me the one that smells like poopand charcoal! Oh! But actually, it doesn't smell like poop!
 PANDA_SIDE_COLA	목이 따끔거리는 물도 주세요!	Please give me some water that stings my throat as well!
-PANDA_SIDE_SUPERPOWER	(딸기맛 탄산 음료)	(딸기맛 탄산 음료)
-PANDA_SIDE_LOVEMELON	(멜론맛 탄산 음료)	(멜론맛 탄산 음료)
-PANDA_SIDE_SODASODA	(소다맛 탄산 음료)	(소다맛 탄산 음료)
+PANDA_SIDE_SUPERPOWER	핑크색 음료수도 주세요!	(딸기맛 탄산 음료)
+PANDA_SIDE_LOVEMELON	초록색 음료수도 주세요!	(멜론맛 탄산 음료)
+PANDA_SIDE_SODASODA	소다색 음료수고 주세요!	(소다맛 탄산 음료)
 PANDA_SIDE_RADISH	시원하고 아삭거리는 네모도!	Refreshing and crisp squares!
-PANDA_SIDE_PICKLE	(피클)	(피클)
-PANDA_SIDE_COLESLAW	(코우슬로)	(코우슬로)
-PANDA_SIDE_CORNSALAD	(콘샐러드)	(콘샐러드)
-PANDA_SIDE_FRENCHFRIES	(감자튀김)	(감자튀김)
-PANDA_SIDE_CHICKENNUGGET	(치킨너겟)	(치킨너겟)
+PANDA_SIDE_PICKLE	시원하고 아삭거리는 오이도!	(피클)
+PANDA_SIDE_COLESLAW	그그 코 코우 뭐더라 암튼 주세요!	(코우슬로)
+PANDA_SIDE_CORNSALAD	옥수수도 주세요!	(콘샐러드)
+PANDA_SIDE_FRENCHFRIES	감자도 주세요!	(감자튀김)
+PANDA_SIDE_CHICKENNUGGET	작은 치킨도 주세요!	(치킨너겟)
 PANDA_ANGRY	엄마가 이런 데서 사는 거 아니래요!	My mom says she doesn't come to places like this.
 PANDA_THANK_YOU	다음에도 올게요	I'll come again next time.
 PANDA_HAPPY	엄마한테 여기 또 와도 되는지 물어볼게요!	I'll ask if it's okay for me to come here again from my mom!
@@ -517,15 +518,15 @@ REDPANDA_ORDER_9	사장 혹시 달콤짭짤 하면서 혀를 자극하며 엄청
 REDPANDA_ORDER_10	사장 나으리! 소녀는 너무나 배고프오! 이탈리아 맛과! 도원결의가 마려운 대륙의 오리지널 소스가 필요하오! 빨리!!! 	Boss! I’m hungry! I need the taste of Italy and the original flavor of the continent! Hurry!!!
 REDPANDA_ORDER_11	사장 나으리! 굽는 맛이랑 튀긴 맛 중 뭐로 먹어야 하오?! 소녀는 결정하기 너무 힘드오! 제발 도와주시오!!!	Boss! Should I go with grilled or fried flavor?! I can’t decide, it’s so hard! Please help me!!!
 REDPANDA_SIDE_COLA	분명 목이 마를 것이오! 콜라! 콜라도 주시오! 어서!	You must be thirsty! Cola! Please give me some cola! Hurry!
-REDPANDA_SIDE_SUPERPOWER	(딸기맛 탄산 음료)	(딸기맛 탄산 음료)
-REDPANDA_SIDE_LOVEMELON	(멜론맛 탄산 음료)	(멜론맛 탄산 음료)
-REDPANDA_SIDE_SODASODA	(소다맛 탄산 음료)	(소다맛 탄산 음료)
+REDPANDA_SIDE_SUPERPOWER	아 오늘따라 체력이 딸리오! 딸기를 마셔야 겠소!	(딸기맛 탄산 음료)
+REDPANDA_SIDE_LOVEMELON	제가 항상가는 카페에서도 멜론맛 음료를 판다오!	(멜론맛 탄산 음료)
+REDPANDA_SIDE_SODASODA	역시 음료수의 대선배는 소다 아니겠소!	(소다맛 탄산 음료)
 REDPANDA_SIDE_RADISH	사장 나으리! 무! 치킨 무도 있는가?!	Boss! Do you have radish? Chicken radish, I mean?!
-REDPANDA_SIDE_PICKLE	(피클)	(피클)
-REDPANDA_SIDE_COLESLAW	(코우슬로)	(코우슬로)
-REDPANDA_SIDE_CORNSALAD	(콘샐러드)	(콘샐러드)
-REDPANDA_SIDE_FRENCHFRIES	(감자튀김)	(감자튀김)
-REDPANDA_SIDE_CHICKENNUGGET	(치킨너겟)	(치킨너겟)
+REDPANDA_SIDE_PICKLE	사장 나으리! 오이! 오이가 필요하오!	(피클)
+REDPANDA_SIDE_COLESLAW	코우슬로라 먹어본적은 없지만 먹으면 되지 않소?!	(코우슬로)
+REDPANDA_SIDE_CORNSALAD	사장은 어떤 샐러드를 좋아하오? 나는 콘! 샐러드를 좋아하오!	(콘샐러드)
+REDPANDA_SIDE_FRENCHFRIES	소인은 감자는 별로 안 땡기지만 튀긴다면 말이 달라지지!	(감자튀김)
+REDPANDA_SIDE_CHICKENNUGGET	사장 나으리!!! 치킨! 치킨 너겟!!! 치킨 너게에에에엣!!	(치킨너겟)
 REDPANDA_ANGRY	소녀의 생각으론 이대로는 아니된다 생각하오	In the girl's opinion, this simply cannot continue like this.
 REDPANDA_THANK_YOU	나쁘지 않은 무난함이었소! 이대로 전진하시오!	It wasn't bad, just simple enough! Proceed as is!
 REDPANDA_HAPPY	사장 나으리!!! 나와 도원결의를 맺어주시오!!!	Boss!!! Please be my greatest partner!!!
@@ -541,15 +542,15 @@ RABBIT_ORDER_9	사장님은 저한테 고마워해야 할 걸요? 장사가 잘 
 RABBIT_ORDER_10	사장님~ 가장 기본적인 콤보로~ 뭔지 알지? 모르면 완전 허접 사장~	Boss~ Do you know what the most basic combo is? If you don't know, you're a complete incompetent boss~
 RABBIT_ORDER_11	남친이랑 자주 데이트하면서 먹던 까르보나라랑 바비큐로 같이 주세요! 뭐 사장님은 모르려나~	Give me the carbonara and barbecue combo, the ones my boyfriend and I often enjoyed on our dates! I wonder if the boss even knows about it~
 RABBIT_SIDE_COLA	콜라는 당연히 줘야 하는 거 아님?	Isn't giving cola obvious?
-RABBIT_SIDE_SUPERPOWER	(딸기맛 탄산 음료)	(딸기맛 탄산 음료)
-RABBIT_SIDE_LOVEMELON	(멜론맛 탄산 음료)	(멜론맛 탄산 음료)
-RABBIT_SIDE_SODASODA	(소다맛 탄산 음료)	(소다맛 탄산 음료)
+RABBIT_SIDE_SUPERPOWER	내가 좋아하는 딸기맛 음료도 있잖아? 제법인데?	(딸기맛 탄산 음료)
+RABBIT_SIDE_LOVEMELON	메론맛도 나름 나쁘지 않아 하나 줘	(멜론맛 탄산 음료)
+RABBIT_SIDE_SODASODA	소다맛 음료수 하나 부탁해 사장	(소다맛 탄산 음료)
 RABBIT_SIDE_RADISH	아니 치킨 무를 안주는 치킨집이 있다?	Wait, there are chicken joints that don't serve radish?
-RABBIT_SIDE_PICKLE	(피클)	(피클)
-RABBIT_SIDE_COLESLAW	(코우슬로)	(코우슬로)
-RABBIT_SIDE_CORNSALAD	(콘샐러드)	(콘샐러드)
-RABBIT_SIDE_FRENCHFRIES	(감자튀김)	(감자튀김)
-RABBIT_SIDE_CHICKENNUGGET	(치킨너겟)	(치킨너겟)
+RABBIT_SIDE_PICKLE	피클? 그거 피자집에서나 주는거 아녔어?	(피클)
+RABBIT_SIDE_COLESLAW	혹시 이런 집에 코우슬로도 있으려나?	(코우슬로)
+RABBIT_SIDE_CORNSALAD	설마 콘 샐러드도 없는 허접 치킨 집인줄 알고 걱정했잖아!	(콘샐러드)
+RABBIT_SIDE_FRENCHFRIES	감자 튀김이 빠트리는 허접은 아니겠지?	(감자튀김)
+RABBIT_SIDE_CHICKENNUGGET	치킨에 치킨 너겟이라니! 날 살찌울셈이야?!	(치킨너겟)
 RABBIT_ANGRY	하! 이 가게 금방 망할 듯 허접!	Ha! This place seems like it's going to fail soon, so tacky!
 RABBIT_THANK_YOU	뭐 봐줄 만하네! 열심히 해봐요	Not bad! Give it your best shot.
 RABBIT_HAPPY	앞으로도 올 거니까 얼굴이나 외우라고!	I'll be back in the next time, you better remember my face!
@@ -565,16 +566,16 @@ SEAOTTER_ORDER_9	사장님~ 나 좀 입천장 떨어질 정도로 매운 닭이�
 SEAOTTER_ORDER_10	사장님~ 오늘 닭 하나 잡아서 반은 간장에 반은 양념에 담가 주이소~	Boss, today, could you please marinate one chicken, half in soy sauce and the other half in hot?
 SEAOTTER_ORDER_11	사장님~ 닭 하나 기름으로 튀겨서 반만 깔보나라 소스로 좀 발라 주이소~	Boss, please fry one chicken in oil and then coat half of it with carbonara sauce.
 SEAOTTER_SIDE_COLA	내 닭만 먹으면 목이 메서 콜라도 좀 주이소~	When I eat only chicken, my throat gets blocked, so could I have some cola too, please?
-SEAOTTER_SIDE_SUPERPOWER	(딸기맛 탄산 음료)	(딸기맛 탄산 음료)
-SEAOTTER_SIDE_LOVEMELON	(멜론맛 탄산 음료)	(멜론맛 탄산 음료)
-SEAOTTER_SIDE_SODASODA	(소다맛 탄산 음료)	(소다맛 탄산 음료)
+SEAOTTER_SIDE_SUPERPOWER	오메 과일이 비싸드라 딸기 음료로 만족해야겠소~	(딸기맛 탄산 음료)
+SEAOTTER_SIDE_LOVEMELON	그 멜론이 어마어마하게 비싸다 카드라고!	(멜론맛 탄산 음료)
+SEAOTTER_SIDE_SODASODA	그 시원스런 소다?란것도 좀 주이소~	(소다맛 탄산 음료)
 SEAOTTER_SIDE_BEER	내 닭만 먹으면 목이 메서 맥주도 좀 주이소~	When I eat only chicken, my throat gets blocked, so could I have some beer too, please?
 SEAOTTER_SIDE_RADISH	닭을 먹는데 무가 빠짐 안되지!	Can't miss out on pickled radish when eating chicken!
-SEAOTTER_SIDE_PICKLE	(피클)	(피클)
-SEAOTTER_SIDE_COLESLAW	(코우슬로)	(코우슬로)
-SEAOTTER_SIDE_CORNSALAD	(콘샐러드)	(콘샐러드)
-SEAOTTER_SIDE_FRENCHFRIES	(감자튀김)	(감자튀김)
-SEAOTTER_SIDE_CHICKENNUGGET	(치킨너겟)	(치킨너겟)
+SEAOTTER_SIDE_PICKLE	그 피크르? 암튼 하나 줘 보이소~	(피클)
+SEAOTTER_SIDE_COLESLAW	그 뭐시당가 코우슬로우? 그거 맛나나?	(코우슬로)
+SEAOTTER_SIDE_CORNSALAD	어릴때 옥수수를 그리 많이도 먹었는데!	(콘샐러드)
+SEAOTTER_SIDE_FRENCHFRIES	감자는 튀겨도 많있지만 그냥 먹는게 제일이여!	(감자튀김)
+SEAOTTER_SIDE_CHICKENNUGGET	간식으로 묵게 너겟도 좀 시켜야 겠소~	(치킨너겟)
 SEAOTTER_ANGRY	서비스가 너무 허술하네~ 허술해~	The service here is quite sloppy indeed.
 SEAOTTER_THANK_YOU	사장님 장사 잘하이소~	Boss, you're doing well in business!
 SEAOTTER_HAPPY	오매! 내 여기서만 먹어야 하겠네!	Oh! I must only eat here!
@@ -590,15 +591,15 @@ DEER_ORDER_9	치킨 맛을 살리기 위해 물엿과 고추장을 쓴 소스와
 DEER_ORDER_10	한국에서 유명세 치른 치킨이 두 가지 있는데 그게 뭘까요? 힌트는 엄청 매운 거랑 단짠 한 거예요!	Two types of chicken are famous in Korea. Can you guess what they are? Here’s a hint: one is very spicy, and the other is sweet and salty!
 DEER_ORDER_11	메주를 콩물에 오랫동안 담가 발효시킨 소스와 치킨 메뉴 중 가장 보편적인 것을 반반 주세요!	Please give me the chicken with a sauce made by fermenting meju in soybean water for a long time, along with the most popular chicken.
 DEER_SIDE_COLA	1886년 미국에서 만든 음료도 주세요	Please also give me the beverage created in the United States in 1886.
-DEER_SIDE_SUPERPOWER	(딸기맛 탄산 음료)	(딸기맛 탄산 음료)
-DEER_SIDE_LOVEMELON	(멜론맛 탄산 음료)	(멜론맛 탄산 음료)
-DEER_SIDE_SODASODA	(소다맛 탄산 음료)	(소다맛 탄산 음료)
+DEER_SIDE_SUPERPOWER	장미과 여러해살이풀로 줄기가 땅으로 뻗어나오며 봄에 꽃이 피는 과일이 뭘까요?	(딸기맛 탄산 음료)
+DEER_SIDE_LOVEMELON	 기원전 2000년대부터 키우던 오래된 작물이라 원산지가 분명하지 않은 과일이 뭘까요?	(멜론맛 탄산 음료)
+DEER_SIDE_SODASODA	미국에서 일본으로 레몬에이드가 건너가서 일본식 라무네로 발전하던 맛이 뭘까요?	(소다맛 탄산 음료)
 DEER_SIDE_RADISH	양념치킨 개발자가 같이 만든 무 초절임도 주세요!	Please also give me the pickled radish, developed by the hot chicken developer!
-DEER_SIDE_PICKLE	(피클)	(피클)
-DEER_SIDE_COLESLAW	(코우슬로)	(코우슬로)
-DEER_SIDE_CORNSALAD	(콘샐러드)	(콘샐러드)
-DEER_SIDE_FRENCHFRIES	(감자튀김)	(감자튀김)
-DEER_SIDE_CHICKENNUGGET	(치킨너겟)	(치킨너겟)
+DEER_SIDE_PICKLE	소금, 식초 및 설탕물에 담가 절인, 국물이 있는 보존 식품을 뭐라고 할까요?	(피클)
+DEER_SIDE_COLESLAW	잘게 채썬 양배추에 비네그레트 드레싱 또는 마요네즈로 버무려 만든 샐러드를 주세요!	(코우슬로)
+DEER_SIDE_CORNSALAD	옥수수와 생야채를 주재료로 하여 마요네즈나 프렌치드레싱 소스를 버무린 음식을 주세요!	(콘샐러드)
+DEER_SIDE_FRENCHFRIES	자본주의의 상징인 햄버거를 필두로 한 패스트푸드가 전세계로 확산되면서 같이 성장한 음식이 뭘까요?	(감자튀김)
+DEER_SIDE_CHICKENNUGGET	1960년대 미국 코넬 대학교의 식품영양학 교수인 로버트 C. 베이커와 연구생들이 개발한 음식은?	(치킨너겟)
 DEER_ANGRY	프랑스 혁명이 일어날 서비스네요!	It's revolutionary service!
 DEER_THANK_YOU	무난한 치킨업계 서비스네요!	It's a typical chicken industry service!
 DEER_HAPPY	이 가게 왠지 대박 날 거 같아요!	This shop seems like it's going to be a big hit!
@@ -614,15 +615,15 @@ ARMADILLO_ORDER_9	뿌뿌뿌링! 그그 뿌링클이랑 그그 양양양 양심�
 ARMADILLO_ORDER_10	저저 이인생 제제일 조조좋아하게된 치치킨이 있어요 그그건 바바베베큐랑 후라이드에 양념을 치친 킨!	I-I have my f-favorite c-c-chicken in this life! It's th-th-the bbq and fried with hot, c-chicken!
 ARMADILLO_ORDER_11	저저는 거겁이 많아요 소소심하고 그그러니까 치치킨으로라도 도도전하고 싶어요 매매콤야양념 부불다닭	I-I have a lot of g-great ideas, I'm s-s-shy, and th-th-that's why I want to challenge myself with c-c-chicken! S-s-spicy, y-y-ye, n-n-no, I mean Hell Chicken!
 ARMADILLO_SIDE_COLA	워원래는 자잘 아안마시는데 트트특별히 코콜라도	W-well, I usually don't drink soft drinks, but t-today, I'll make an exception for c-c-cola.
-ARMADILLO_SIDE_SUPERPOWER	(딸기맛 탄산 음료)	(딸기맛 탄산 음료)
-ARMADILLO_SIDE_LOVEMELON	(멜론맛 탄산 음료)	(멜론맛 탄산 음료)
-ARMADILLO_SIDE_SODASODA	(소다맛 탄산 음료)	(소다맛 탄산 음료)
+ARMADILLO_SIDE_SUPERPOWER	따따따따 딸기기 맛 음료료수도!	(딸기맛 탄산 음료)
+ARMADILLO_SIDE_LOVEMELON	메메 멜론마맛 으음료도 부부 부탁!	(멜론맛 탄산 음료)
+ARMADILLO_SIDE_SODASODA	소소 소다다 소다맛 음료도!	(소다맛 탄산 음료)
 ARMADILLO_SIDE_RADISH	무무무무무 무를 주세요!	P-p-p-please give me pick-pick-pickled radish!
-ARMADILLO_SIDE_PICKLE	(피클)	(피클)
-ARMADILLO_SIDE_COLESLAW	(코우슬로)	(코우슬로)
-ARMADILLO_SIDE_CORNSALAD	(콘샐러드)	(콘샐러드)
-ARMADILLO_SIDE_FRENCHFRIES	(감자튀김)	(감자튀김)
-ARMADILLO_SIDE_CHICKENNUGGET	(치킨너겟)	(치킨너겟)
+ARMADILLO_SIDE_PICKLE	피피피피피피 크으을	(피클)
+ARMADILLO_SIDE_COLESLAW	코우우 스을로드드드	(코우슬로)
+ARMADILLO_SIDE_CORNSALAD	코코 콘! 콘 샐러드도!	(콘샐러드)
+ARMADILLO_SIDE_FRENCHFRIES	감감 감자 티! 튀김도!	(감자튀김)
+ARMADILLO_SIDE_CHICKENNUGGET	치치치치 키키킨 너 겟도 주주세요	(치킨너겟)
 ARMADILLO_ANGRY	서비스 진짜 별로입니다	The service is really terrible.
 ARMADILLO_THANK_YOU	헤헤헤 조조 좋은거 가같아요	Hehe, I-I think it's g-g-good!
 ARMADILLO_HAPPY	와 마말을 버벅 거거렸는데도!	Wow, even though I st-stuttered!
@@ -638,15 +639,15 @@ POLARBEAR_ORDER_9	외국에 있을 때 친구가 항상 말하더군요 자신�
 POLARBEAR_ORDER_10	한때 외국에 있을 때 먹을 것이 없어 밥과 계란에 함께 비빈 소스가 있었죠 짭짤한 게 좋았죠 그거랑 바비큐로 주세요.	There was a sauce I mixed with rice and eggs when I was abroad and had nothing to eat. It was salty, and I liked it. Please give me that with barbecue.
 POLARBEAR_ORDER_11	과자 맛이 난다는 평가도 있는 특이한 치킨이 있다고 들었습니다. 그래도 혹시 모르니 보험으로 그냥 일반 치킨도 부탁드립니다.	I’ve heard there’s a unique chicken that tastes like snacks. But just in case, could you also bring some regular chicken as a backup?
 POLARBEAR_SIDE_COLA	뭔가 저랑 잘 어울릴 거 같은 음료도	I feel like this drink would go well with me.
-POLARBEAR_SIDE_SUPERPOWER	(딸기맛 탄산 음료)	(딸기맛 탄산 음료)
-POLARBEAR_SIDE_LOVEMELON	(멜론맛 탄산 음료)	(멜론맛 탄산 음료)
-POLARBEAR_SIDE_SODASODA	(소다맛 탄산 음료)	(소다맛 탄산 음료)
+POLARBEAR_SIDE_SUPERPOWER	딸기맛 음료수라 색다른 도전이겠군요	(딸기맛 탄산 음료)
+POLARBEAR_SIDE_LOVEMELON	뭐 콜라만 마실수는 없으니 멜론도 마셔보고 그러는거죠	(멜론맛 탄산 음료)
+POLARBEAR_SIDE_SODASODA	고향에서 친구들이랑 소다를 자주 마시기도 했죠	(소다맛 탄산 음료)
 POLARBEAR_SIDE_RADISH	하얀 무를 보고 있으면 고향이 생각나곤 합니다	Looking at white radishes reminds me of my hometown.
-POLARBEAR_SIDE_PICKLE	(피클)	(피클)
-POLARBEAR_SIDE_COLESLAW	(코우슬로)	(코우슬로)
-POLARBEAR_SIDE_CORNSALAD	(콘샐러드)	(콘샐러드)
-POLARBEAR_SIDE_FRENCHFRIES	(감자튀김)	(감자튀김)
-POLARBEAR_SIDE_CHICKENNUGGET	(치킨너겟)	(치킨너겟)
+POLARBEAR_SIDE_PICKLE	피자를 먹을때 자주 먹긴 했는데 치킨집에도 있군요?	(피클)
+POLARBEAR_SIDE_COLESLAW	코우슬로, 처음 먹어보는 샐러드네요	(코우슬로)
+POLARBEAR_SIDE_CORNSALAD	집에서 먹을게 없음 옥수수로 간단하게 자주 만들었죠	(콘샐러드)
+POLARBEAR_SIDE_FRENCHFRIES	감자튀김이라 햄버거랑 자주 먹던게 떠오르네요	(감자튀김)
+POLARBEAR_SIDE_CHICKENNUGGET	치킨 너겟? 여기 패스트 푸드점이었나요?	(치킨너겟)
 POLARBEAR_ANGRY	이 가게는 문제가 많지만 말을 아끼죠	This place has many issues, but I'll keep my words to myself.
 POLARBEAR_THANK_YOU	평범하면서 특별한 것이 없군요.	There's nothing special about it, just ordinary.
 POLARBEAR_HAPPY	좋은 치킨에 좋은 서비스입니다. 번창하세요	Good chicken and great service. Wishing you continued success!
@@ -662,16 +663,16 @@ COBRA_ORDER_9	으음 오늘은 스폐셜로 즐기고 싶어! 양.불 부탁드�
 COBRA_ORDER_10	오늘은 뭘 먹을까? 뭘 먹을까? 으음 그래~ 뿌.바 부탁드릴게요~	Hmm, what should I eat today? What should I eat? Oh right! I’ll have the PrkBBQChk, please!
 COBRA_ORDER_11	오늘은 익숙한 맛을 즐기는 게 좋겠어~ 그러니 후.간 부탁드릴게요~	Today, I think I’ll enjoy a familiar taste~ So, I’ll have the FrySoyChk, please!
 COBRA_SIDE_COLA	아! 콜도 부탁드릴게요~	Oh! I'll have a Ck, please!
-COBRA_SIDE_SUPERPOWER	(딸기맛 탄산 음료)	(딸기맛 탄산 음료)
-COBRA_SIDE_LOVEMELON	(멜론맛 탄산 음료)	(멜론맛 탄산 음료)
-COBRA_SIDE_SODASODA	(소다맛 탄산 음료)	(소다맛 탄산 음료)
+COBRA_SIDE_SUPERPOWER	으음 딸을 마셔보는것도 색다르겠는데?	(딸기맛 탄산 음료)
+COBRA_SIDE_LOVEMELON	으음 멜 음료수라 궁금한걸~	(멜론맛 탄산 음료)
+COBRA_SIDE_SODASODA	오늘은 왠지 소를 마시고 싶을걸~	(소다맛 탄산 음료)
 COBRA_SIDE_BEER	맥이 빠짐 섭하지~	Missing a Br, huh?
 COBRA_SIDE_RADISH	그래! 무도 부탁드릴게요~	Right! I'll have some ChkRad, please!
-COBRA_SIDE_PICKLE	(피클)	(피클)
-COBRA_SIDE_COLESLAW	(코우슬로)	(코우슬로)
-COBRA_SIDE_CORNSALAD	(콘샐러드)	(콘샐러드)
-COBRA_SIDE_FRENCHFRIES	(감자튀김)	(감자튀김)
-COBRA_SIDE_CHICKENNUGGET	(치킨너겟)	(치킨너겟)
+COBRA_SIDE_PICKLE	피도 부탁할게~	(피클)
+COBRA_SIDE_COLESLAW	코도 곁들어 먹어야 겠어~	(코우슬로)
+COBRA_SIDE_CORNSALAD	콘도 곁들어 먹어야지~	(콘샐러드)
+COBRA_SIDE_FRENCHFRIES	흐음 감도 넣어줘야지~	(감자튀김)
+COBRA_SIDE_CHICKENNUGGET	치,너도 넣어줘~	(치킨너겟)
 COBRA_ANGRY	완.별	Com. awful
 COBRA_THANK_YOU	그.그	So-so
 COBRA_HAPPY	최.치.가	Best Chk
@@ -687,15 +688,15 @@ CROCODILE_ORDER_9	헤이 주인장! 여기 퓨젼!뷸닭&바베 취퀸으로 플
 CROCODILE_ORDER_10	헤이 주인장! 여기 퓨젼!쀼링&갼쟝 취퀸으로 플리즈!	Hey, boss! I'll have the prrriiinkle&soooy chick-en, please!
 CROCODILE_ORDER_11	헤이 주인장! 여기 퓨젼!꺄르&후롹 취퀸으로 플리즈!	Hey, boss! I'll have the caaarbonara&friiieed chick-en, please!
 CROCODILE_SIDE_COLA	코크콜!라르으! 추가 해야겠지?	Got to add a Cooooke! Cola, right?
-CROCODILE_SIDE_SUPERPOWER	(딸기맛 탄산 음료)	(딸기맛 탄산 음료)
-CROCODILE_SIDE_LOVEMELON	(멜론맛 탄산 음료)	(멜론맛 탄산 음료)
-CROCODILE_SIDE_SODASODA	(소다맛 탄산 음료)	(소다맛 탄산 음료)
+CROCODILE_SIDE_SUPERPOWER	따르기이 마앗 으음료오도 마셔봐야 겠지?	(딸기맛 탄산 음료)
+CROCODILE_SIDE_LOVEMELON	메에엘로오온 으음료수우 플리즈!	(멜론맛 탄산 음료)
+CROCODILE_SIDE_SODASODA	소오오오오 다아아아아아아	(소다맛 탄산 음료)
 CROCODILE_SIDE_RADISH	취퀸을 시켰으니 뮤를 받아야궸지?	Ordered chicken, so I gotta get some raaadish, right?
-CROCODILE_SIDE_PICKLE	(피클)	(피클)
-CROCODILE_SIDE_COLESLAW	(코우슬로)	(코우슬로)
-CROCODILE_SIDE_CORNSALAD	(콘샐러드)	(콘샐러드)
-CROCODILE_SIDE_FRENCHFRIES	(감자튀김)	(감자튀김)
-CROCODILE_SIDE_CHICKENNUGGET	(치킨너겟)	(치킨너겟)
+CROCODILE_SIDE_PICKLE	피이이자아아아랑 어울리는 피이이크으을!	(피클)
+CROCODILE_SIDE_COLESLAW	코우우스으으을로오오오	(코우슬로)
+CROCODILE_SIDE_CORNSALAD	콘! 새에에에엘러어어어드!	(콘샐러드)
+CROCODILE_SIDE_FRENCHFRIES	포테에에이토오오오 튀귐도 머거야 겠지?!	(감자튀김)
+CROCODILE_SIDE_CHICKENNUGGET	취퀸에다 너겟토도 머겅!	(치킨너겟)
 CROCODILE_ANGRY	오마이갓 당쉰의 쉔쓰가 샤먕했숩니댜	OMG, your seeeense is coooompletely gone!
 CROCODILE_THANK_YOU	놔뿌쥐 않았 썰!	Noooot that baaad!
 CROCODILE_HAPPY	어뭬이징! 퐌톼스틱!	Amaaaazing! Fantaaaastic!
@@ -711,15 +712,15 @@ SQUIRREL_ORDER_9	뭐를 먹을까요? 후라이드? 양념? 간장?  바베큐? 
 SQUIRREL_ORDER_10	뭐를 먹을까요? 후라이드? 양념? 간장?  바베큐? 불닭? 뿌링클? 세번째랑 네번째로 하죠	What should we eat? Fried? Soy? Barbecue? Hell? Prinkle? Let’s go with the third and fourth options!
 SQUIRREL_ORDER_11	뭐를 먹을까요? 후라이드? 양념? 간장? 바베큐? 불닭? 뿌링클? 다섯번째랑 첫번째로 하죠	What should we eat? Fried? Soy? Barbecue? Hell? Prinkle? Let’s go with the fifth and first options!
 SQUIRREL_SIDE_COLA	만화를 그리다보면 당분이 필수죠 콜라도 부탁합니다	When you're drawing comics, sugar is a must. Please bring me a Coke too!
-SQUIRREL_SIDE_SUPERPOWER	(딸기맛 탄산 음료)	(딸기맛 탄산 음료)
-SQUIRREL_SIDE_LOVEMELON	(멜론맛 탄산 음료)	(멜론맛 탄산 음료)
-SQUIRREL_SIDE_SODASODA	(소다맛 탄산 음료)	(소다맛 탄산 음료)
+SQUIRREL_SIDE_SUPERPOWER	제가 그리던 만화에선 여주가 딸기 팬디를 자주 입었죠	(딸기맛 탄산 음료)
+SQUIRREL_SIDE_LOVEMELON	작업하다 잘 안풀리면 멜론 소다를 자주 마셨죠	(멜론맛 탄산 음료)
+SQUIRREL_SIDE_SODASODA	소다라 어릴때 라무네를 많이 마셨는데	(소다맛 탄산 음료)
 SQUIRREL_SIDE_RADISH	느끼한 것만 먹음 속아 안 좋으니 무도 주세요	If I only eat greasy food, my stomach feels off, so please bring me some radish too.
-SQUIRREL_SIDE_PICKLE	(피클)	(피클)
-SQUIRREL_SIDE_COLESLAW	(코우슬로)	(코우슬로)
-SQUIRREL_SIDE_CORNSALAD	(콘샐러드)	(콘샐러드)
-SQUIRREL_SIDE_FRENCHFRIES	(감자튀김)	(감자튀김)
-SQUIRREL_SIDE_CHICKENNUGGET	(치킨너겟)	(치킨너겟)
+SQUIRREL_SIDE_PICKLE	피클도 곁들여서 먹으면 좋겠네요	(피클)
+SQUIRREL_SIDE_COLESLAW	코우슬로라 먹어본적은 없지만 먹어도 나쁠게 없을거 같네요	(코우슬로)
+SQUIRREL_SIDE_CORNSALAD	콘 샐러드라 캔으로 자주 먹었는데	(콘샐러드)
+SQUIRREL_SIDE_FRENCHFRIES	햄버거를 먹을때 항상 시켰는데 여기서 볼줄이야	(감자튀김)
+SQUIRREL_SIDE_CHICKENNUGGET	치킨 너겟을 먹으면 영감이 좀 생기려나?	(치킨너겟)
 SQUIRREL_ANGRY	역시 만화도 요리도 재능이 있어야 하나?	Indeed, both comics and cooking require talent?
 SQUIRREL_THANK_YOU	그냥 흔한 양산형 웹툰같은 느낌이네요	It just feels like a cookie-cutter webtoon.
 SQUIRREL_HAPPY	베스트셀러급 치킨이네요!	It's a best-selling chicken!
@@ -736,11 +737,11 @@ SERVAL_ORDER_10	제일 매운 거랑 매콤한 걸로	The spiciest one and somet
 SERVAL_ORDER_11	그 느끼한 하얀 거랑 짜고 검은 거… 왜 생각이 안 나지?	That greasy white one and the salty black one... why can't I remember?
 SERVAL_SIDE_ANY	음료 아무거나 하나 주세요	Just give me any drink
 SERVAL_SIDE_RADISH	무 많이	a lot of radish
-SERVAL_SIDE_PICKLE	(피클)	(피클)
-SERVAL_SIDE_COLESLAW	(코우슬로)	(코우슬로)
-SERVAL_SIDE_CORNSALAD	(콘샐러드)	(콘샐러드)
-SERVAL_SIDE_FRENCHFRIES	(감자튀김)	(감자튀김)
-SERVAL_SIDE_CHICKENNUGGET	(치킨너겟)	(치킨너겟)
+SERVAL_SIDE_PICKLE	피클 많이	(피클)
+SERVAL_SIDE_COLESLAW	치킨만 먹음 속이 더부룩 하겠네 코우슬로도 주세요	(코우슬로)
+SERVAL_SIDE_CORNSALAD	콘 샐러드 하나	(콘샐러드)
+SERVAL_SIDE_FRENCHFRIES	감자튀김은 가게마다 다 다르던데 여긴 어떠려나	(감자튀김)
+SERVAL_SIDE_CHICKENNUGGET	뭐야? 치킨집에 치킨 너겟을 팔아요? 좀 안 어울리는데	(치킨너겟)
 SERVAL_ANGRY	하 노답이네	Ugh, this is hopeless.
 SERVAL_THANK_YOU	그러려니 하네요	I guess that's just how it is.
 SERVAL_HAPPY	좋네요	That's nice.
@@ -756,15 +757,15 @@ CROW_ORDER_9	불의 향기를 맡으며 나는 죄를 씻는 하얀 기적을 �
 CROW_ORDER_10	달콤한 붉은 피를 흘리며 태양을 집어삼킨 새가 미소를 짓는다!	Dripping sweet crimson blood, the bird that devoured the sun smiles!
 CROW_ORDER_11	자! 죽은 육신의 새와 검은 죄로 뒤덮인 새가 결전을 치룬다!	Behold! The bird of the lifeless corpse clashes against the bird shrouded in black sin!
 CROW_SIDE_COLA	생명의 검은 탄산수를 부탁하지	I shall have the black sparkling water of life.
-CROW_SIDE_SUPERPOWER	(딸기맛 탄산 음료)	(딸기맛 탄산 음료)
-CROW_SIDE_LOVEMELON	(멜론맛 탄산 음료)	(멜론맛 탄산 음료)
-CROW_SIDE_SODASODA	(소다맛 탄산 음료)	(소다맛 탄산 음료)
+CROW_SIDE_SUPERPOWER	피가 모자르니 포션하나 주게	(딸기맛 탄산 음료)
+CROW_SIDE_LOVEMELON	그린 포션이 필요하네	(멜론맛 탄산 음료)
+CROW_SIDE_SODASODA	마나가 떨어졌으니 마나 포션을 주게!	(소다맛 탄산 음료)
 CROW_SIDE_RADISH	냉기의 화이트 무도 필요하군	I'll also need the white blade of frost.
-CROW_SIDE_PICKLE	(피클)	(피클)
-CROW_SIDE_COLESLAW	(코우슬로)	(코우슬로)
-CROW_SIDE_CORNSALAD	(콘샐러드)	(콘샐러드)
-CROW_SIDE_FRENCHFRIES	(감자튀김)	(감자튀김)
-CROW_SIDE_CHICKENNUGGET	(치킨너겟)	(치킨너겟)
+CROW_SIDE_PICKLE	오이! 이 사악한 악마!	(피클)
+CROW_SIDE_COLESLAW	코우슬로? 흠 기술명으로 나쁘지 않아!	(코우슬로)
+CROW_SIDE_CORNSALAD	약속된 승리의 옥수수를 주시게	(콘샐러드)
+CROW_SIDE_FRENCHFRIES	뜨거운 지옥수에서 살아 돌아온 식물이여!	(감자튀김)
+CROW_SIDE_CHICKENNUGGET	육체가 완전히 뭉개져 갈아진 지옥의 덩어리!	(치킨너겟)
 CROW_ANGRY	크아악! 지옥이다!	Graaaah! This is hell!
 CROW_THANK_YOU	흠 나쁘지 않은 성전이다	Hmm, not a bad holy war.
 CROW_HAPPY	나의 검이 말하는군 또 오겠다고!	My sword speaks—it says they'll come again!
@@ -780,15 +781,15 @@ FRILLEDLIZARD_ORDER_9	너무 맵지도 않으면서 달콤한 양념과 일반 �
 FRILLEDLIZARD_ORDER_10	불맛이 느껴지는 바비큐과 짭짤한 간장의 조합은 어떤 맛일까?	I wonder what the combination of smoky barbecue flavor and savory soy sauce would taste like?
 FRILLEDLIZARD_ORDER_11	달콤한 시즈닝을 뿌린 치킨과 일반 프라이드는 밍밍이가 가장 좋아하는 조합이야!	Chicken with sweet seasoning and plain fried chicken is Mingming's favorite combination!
 FRILLEDLIZARD_SIDE_COLA	콜라는 정말 대단한 음료수야!	Coke is truly an amazing drink!
-FRILLEDLIZARD_SIDE_SUPERPOWER	(딸기맛 탄산 음료)	(딸기맛 탄산 음료)
-FRILLEDLIZARD_SIDE_LOVEMELON	(멜론맛 탄산 음료)	(멜론맛 탄산 음료)
-FRILLEDLIZARD_SIDE_SODASODA	(소다맛 탄산 음료)	(소다맛 탄산 음료)
+FRILLEDLIZARD_SIDE_SUPERPOWER	사실 딸기 곁면에 있는 깨는 씨앗이 아니야!	(딸기맛 탄산 음료)
+FRILLEDLIZARD_SIDE_LOVEMELON	멜론은 속 색깔이 녹색인거랑 주황색인게 있어!	(멜론맛 탄산 음료)
+FRILLEDLIZARD_SIDE_SODASODA	사실 소다맛이란게 맛이라 부르기 애매한 맛이야	(소다맛 탄산 음료)
 FRILLEDLIZARD_SIDE_RADISH	듣기로는 양념치킨의 개발자가 치킨 무도 발명했다고해!	I've heard that the creator of spicy chicken invented the chicken dance!
-FRILLEDLIZARD_SIDE_PICKLE	(피클)	(피클)
-FRILLEDLIZARD_SIDE_COLESLAW	(코우슬로)	(코우슬로)
-FRILLEDLIZARD_SIDE_CORNSALAD	(콘샐러드)	(콘샐러드)
-FRILLEDLIZARD_SIDE_FRENCHFRIES	(감자튀김)	(감자튀김)
-FRILLEDLIZARD_SIDE_CHICKENNUGGET	(치킨너겟)	(치킨너겟)
+FRILLEDLIZARD_SIDE_PICKLE	하하 피클하면 왜 노란 스펀지 애니가 생각날까?	(피클)
+FRILLEDLIZARD_SIDE_COLESLAW	코우슬로는 발음에 따라 코울슬로, 콜슬로우라고 부르기도 해!	(코우슬로)
+FRILLEDLIZARD_SIDE_CORNSALAD	콘 샐러드는 정말 만들기 간단해서 많은 가정집에서 만들기도 해!	(콘샐러드)
+FRILLEDLIZARD_SIDE_FRENCHFRIES	감자 튀김은 자본주의의 상징인 햄버거와 함께 성장했지!	(감자튀김)
+FRILLEDLIZARD_SIDE_CHICKENNUGGET	치킨 너겟은 어린아이들의 영양간식으로 만들어진거 알아?	(치킨너겟)
 FRILLEDLIZARD_ANGRY	이런 서비스로는 장사가 힘들지도 몰라	With a service like this, business might be tough.
 FRILLEDLIZARD_THANK_YOU	좀더 개선을 하면 최고의 서비스가 될거야!	With a little more improvement, it'll become the best service!
 FRILLEDLIZARD_HAPPY	정말 한치의 오류도 없는 완벽한 서비스야!	It's truly a flawless service with not a single mistake!
@@ -804,15 +805,15 @@ GRAFFE_ORDER_9	부드러운 까르보나라를 먹은 후 불닭을 먹으면 �
 GRAFFE_ORDER_10	간장과 바비큐 맛 중 어떤 것이 더 오래 목에 향이 남을까요?	Which flavor, soy sauce or barbecue, lingers longer on the neck?
 GRAFFE_ORDER_11	뿌링클의 가루가 걱정이 되면 후라이드로 기름칠을 하면 되지않을까요?	The Prinkle powder makes me cough. Wouldn't switching to fried chicken with some oil fix it?
 GRAFFE_SIDE_COLA	콜라를 마시면 저의 긴 목이 감당이 가능할지 궁금하네요	I'm curious if my long neck can handle drinking cola.
-GRAFFE_SIDE_SUPERPOWER	(딸기맛 탄산 음료)	(딸기맛 탄산 음료)
-GRAFFE_SIDE_LOVEMELON	(멜론맛 탄산 음료)	(멜론맛 탄산 음료)
-GRAFFE_SIDE_SODASODA	(소다맛 탄산 음료)	(소다맛 탄산 음료)
+GRAFFE_SIDE_SUPERPOWER	흠 딸기 음료수라 그냥 딸기는 많이 먹어봤는데	(딸기맛 탄산 음료)
+GRAFFE_SIDE_LOVEMELON	내가 사는곳은 멜론이 자라지 않아서 먹어 본적이 없어요	(멜론맛 탄산 음료)
+GRAFFE_SIDE_SODASODA	소다를 마시면 목 전체에 시원함이 느껴질까?	(소다맛 탄산 음료)
 GRAFFE_SIDE_RADISH	치킨 무를 통해 저의 긴목이 시원해졌음 좋겠어요	I hope my long neck feels refreshed through the pickled radish.
-GRAFFE_SIDE_PICKLE	(피클)	(피클)
-GRAFFE_SIDE_COLESLAW	(코우슬로)	(코우슬로)
-GRAFFE_SIDE_CORNSALAD	(콘샐러드)	(콘샐러드)
-GRAFFE_SIDE_FRENCHFRIES	(감자튀김)	(감자튀김)
-GRAFFE_SIDE_CHICKENNUGGET	(치킨너겟)	(치킨너겟)
+GRAFFE_SIDE_PICKLE	피클이라 목으로 넘어가는데 얼마나 걸릴까?	(피클)
+GRAFFE_SIDE_COLESLAW	코우슬로라 목으로 잘 넘어갈까?	(코우슬로)
+GRAFFE_SIDE_CORNSALAD	콘 샐러드를 먹을때 목에 달라붙진 않겠죠?	(콘샐러드)
+GRAFFE_SIDE_FRENCHFRIES	흐음 감자 튀김이라 씹을수록 입도 목도 즐겁죠	(감자튀김)
+GRAFFE_SIDE_CHICKENNUGGET	치킨 너겟은 부드러워서 목에 걸릴 일은 없겠네요	(치킨너겟)
 GRAFFE_ANGRY	이 서비스를 만족하기에는 저의 목은 너무 길어요	My neck is too long to be satisfied with this service.
 GRAFFE_THANK_YOU	저의 목이 무난한게 즐길거 같네요	I think my neck would enjoy something more simple.
 GRAFFE_HAPPY	저의 이 기다란 목이 즐거울 서비스에요	This service is something my long neck would enjoy.
@@ -828,15 +829,15 @@ TURTLE_ORDER_9	손자와 먹을건데 하나는 간장에 하나는 손자가 �
 TURTLE_ORDER_10	까르보나라만 먹음 너무 느끼하니 양념칠도 해야겠구만	Just eating carbonara would be too rich, so I guess I’ll need to add some seasoning.
 TURTLE_ORDER_11	간만에 외국의 친구들과 까르보나라와 바베큐를 먹어야겠어!	I think it's time to have carbonara and barbecue with my foreign friends for the first time in a while!
 TURTLE_SIDE_COLA	내가 군복무를 할때 콜라를 보급 받았지	When I was in the military, I was supplied with cola.
-TURTLE_SIDE_SUPERPOWER	(딸기맛 탄산 음료)	(딸기맛 탄산 음료)
-TURTLE_SIDE_LOVEMELON	(멜론맛 탄산 음료)	(멜론맛 탄산 음료)
-TURTLE_SIDE_SODASODA	(소다맛 탄산 음료)	(소다맛 탄산 음료)
+TURTLE_SIDE_SUPERPOWER	어릴적 전쟁이 났을때 산에서 딸기를 자주 따먹곤 했지	(딸기맛 탄산 음료)
+TURTLE_SIDE_LOVEMELON	멜론이라 어릴때 항상 먹어보고 싶었지만 비싸서 금방 포기했지	(멜론맛 탄산 음료)
+TURTLE_SIDE_SODASODA	소다는 항상 집사람이랑 식당에가서 자주 마셨지	(소다맛 탄산 음료)
 TURTLE_SIDE_RADISH	무가 아삭거리고 시원한게 딱 내 취향이야	The radish is crunchy and refreshing—it's exactly my taste!
-TURTLE_SIDE_PICKLE	(피클)	(피클)
-TURTLE_SIDE_COLESLAW	(코우슬로)	(코우슬로)
-TURTLE_SIDE_CORNSALAD	(콘샐러드)	(콘샐러드)
-TURTLE_SIDE_FRENCHFRIES	(감자튀김)	(감자튀김)
-TURTLE_SIDE_CHICKENNUGGET	(치킨너겟)	(치킨너겟)
+TURTLE_SIDE_PICKLE	피자집에 가면 항상 피클을 챙겨 먹었지	(피클)
+TURTLE_SIDE_COLESLAW	치킨이 너무 느끼하면 코우슬로를 곁들여 먹었지	(코우슬로)
+TURTLE_SIDE_CORNSALAD	콘샐러드라 어머니가 항상 만들어주시곤 했었지	(콘샐러드)
+TURTLE_SIDE_FRENCHFRIES	감자 튀김은 예나 지금이나 언제 먹어도 질리지가 않아	(감자튀김)
+TURTLE_SIDE_CHICKENNUGGET	어릴때 반창 투정을 하면 어머니가 자주 치킨 너겟을 튀겨주셨지	(치킨너겟)
 TURTLE_ANGRY	요즘 치킨 서비스는 별로구만 그래	Chicken service these days isn't that great, huh?
 TURTLE_THANK_YOU	사장님 잘 먹겠습니다	Thank you for the meal, boss!
 TURTLE_HAPPY	좋은 서비스엔 좋은 치킨이 나오기 머련이지	Good service always comes with good chicken, of course.
@@ -852,15 +853,15 @@ LIZARD_ORDER_9	간장으로 간의 기별도 안가니 까무러치게 까르보
 LIZARD_ORDER_10	가루를 뿌려 뿌링클을 먹는다면! 바라던 바다 바베큐!	Why did the Prinkle Chicken and BBQ Chicken open a restaurant together? Because they knew how to season the menu and smoke the competition!
 LIZARD_ORDER_11	혀가 부르부르 떨리는 불닭에 가루를 뿌르뿌르 뿌리는 뿌링클!	Why did the Hell Chicken and Prinkle Chicken start a band? Because they knew how to spice up the music and crunch the charts!
 LIZARD_SIDE_COLA	콜라 콜?	Cola? Call!
-LIZARD_SIDE_SUPERPOWER	(딸기맛 탄산 음료)	(딸기맛 탄산 음료)
-LIZARD_SIDE_LOVEMELON	(멜론맛 탄산 음료)	(멜론맛 탄산 음료)
-LIZARD_SIDE_SODASODA	(소다맛 탄산 음료)	(소다맛 탄산 음료)
+LIZARD_SIDE_SUPERPOWER	기분이 알딸딸 할땐 딸기?	(딸기맛 탄산 음료)
+LIZARD_SIDE_LOVEMELON	음악을 들을땐 역시 멜론이지!	(멜론맛 탄산 음료)
+LIZARD_SIDE_SODASODA	소다... 소난다	(소다맛 탄산 음료)
 LIZARD_SIDE_RADISH	치킨 무까진 무리려나?	radish is always cool and crispy, making it radically tasty!
-LIZARD_SIDE_PICKLE	(피클)	(피클)
-LIZARD_SIDE_COLESLAW	(코우슬로)	(코우슬로)
-LIZARD_SIDE_CORNSALAD	(콘샐러드)	(콘샐러드)
-LIZARD_SIDE_FRENCHFRIES	(감자튀김)	(감자튀김)
-LIZARD_SIDE_CHICKENNUGGET	(치킨너겟)	(치킨너겟)
+LIZARD_SIDE_PICKLE	피클을 먹음 키가 클려나?	(피클)
+LIZARD_SIDE_COLESLAW	코우슬로를 먹음 내 코가 슬로우	(코우슬로)
+LIZARD_SIDE_CORNSALAD	콘서트장에서 먹기 좋은 음식은?	(콘샐러드)
+LIZARD_SIDE_FRENCHFRIES	감이 좋을땐 감자 튀김이지!	(감자튀김)
+LIZARD_SIDE_CHICKENNUGGET	치킨 너겟을 내 주머니에 너겟?	(치킨너겟)
 LIZARD_ANGRY	진짜 재미없는 개그같은 서비스야!	Such a boring service, like a really unfunny joke!
 LIZARD_THANK_YOU	내 개그만큼은 아니지만 나쁘지않은 서비스야!	It’s not as good as my jokes, but it's not a bad service!
 LIZARD_HAPPY	호오 내 개그에 박빙인 최고의 서비스다!	Whoa, this is the best service, almost on par with my jokes!
@@ -876,15 +877,15 @@ MALAYANTAPIR_ORDER_9	에헤헤 다데큐 칙킨에다 가르보으나 칙킨을 
 MALAYANTAPIR_ORDER_10	에헤헤 흐라이드 칙킨이란 쀼링크 칙킨을 머는데 듈다 졔가 쪼아하느거에여	Ehhehe, fryed chikin an' Prinkle chikin imma eat 'cause I love it!
 MALAYANTAPIR_ORDER_11	에헤헤 간댱 킥킨이랑 흐라이드 칙킨이랑 가치 머그야지	Ehhehe, fryed chikin an' Prinkul chikin amma eat!
 MALAYANTAPIR_SIDE_COLA	기리고 코라도 마시그에여	and, I’m gonna drink some cola too!
-MALAYANTAPIR_SIDE_SUPERPOWER	(딸기맛 탄산 음료)	(딸기맛 탄산 음료)
-MALAYANTAPIR_SIDE_LOVEMELON	(멜론맛 탄산 음료)	(멜론맛 탄산 음료)
-MALAYANTAPIR_SIDE_SODASODA	(소다맛 탄산 음료)	(소다맛 탄산 음료)
+MALAYANTAPIR_SIDE_SUPERPOWER	따으기이 맛 으료오도 주세에여	(딸기맛 탄산 음료)
+MALAYANTAPIR_SIDE_LOVEMELON	메로으은 으료오도 마스야지	(멜론맛 탄산 음료)
+MALAYANTAPIR_SIDE_SODASODA	소다마으 으료오도 포으장 해주세여	(소다맛 탄산 음료)
 MALAYANTAPIR_SIDE_RADISH	칙킨을 머글뗀 무도 머그야 한데요	When eatin' chickin, mu gotta eat too, ya know?
-MALAYANTAPIR_SIDE_PICKLE	(피클)	(피클)
-MALAYANTAPIR_SIDE_COLESLAW	(코우슬로)	(코우슬로)
-MALAYANTAPIR_SIDE_CORNSALAD	(콘샐러드)	(콘샐러드)
-MALAYANTAPIR_SIDE_FRENCHFRIES	(감자튀김)	(감자튀김)
-MALAYANTAPIR_SIDE_CHICKENNUGGET	(치킨너겟)	(치킨너겟)
+MALAYANTAPIR_SIDE_PICKLE	피크르 츠그해 즈세여	(피클)
+MALAYANTAPIR_SIDE_COLESLAW	코으스로으 다녀니 머그야지	(코우슬로)
+MALAYANTAPIR_SIDE_CORNSALAD	코으 새르드 주떼여	(콘샐러드)
+MALAYANTAPIR_SIDE_FRENCHFRIES	가므자아 티긴 주세여으으	(감자튀김)
+MALAYANTAPIR_SIDE_CHICKENNUGGET	칙킨 너으게읏도 츠그여	(치킨너겟)
 MALAYANTAPIR_ANGRY	흐으으 내그 왜 여기끄지 왔지?	Heuung, why me be here?
 MALAYANTAPIR_THANK_YOU	이거슨 조은 서비스임댱	This is a gooood servicee!
 MALAYANTAPIR_HAPPY	흐와아아 서비스가 느므 조아여	Ahhh, the service is sooo good!
@@ -900,15 +901,15 @@ SUGARGLIDER_ORDER_9	불닭을 먹고 바베큐를 먹으면 미사일처럼 불�
 SUGARGLIDER_ORDER_10	뿌링클을 먹고 까르보나라 치킨을 같이 먹으면 느긋한 비행을 할거같아요	If I eat a Prinkle chicken and then have some carbonara chicken, I feel like I'll have a smooth, relaxed flight!
 SUGARGLIDER_ORDER_11	우리 카페에 자주오시는 해달부인이 그러는데, 간장이랑 후라이드가 맛있다지요?	Our regular customer, Mrs. Sea Otter, says that soy and fried chicken are delicious!
 SUGARGLIDER_SIDE_COLA	꺄! 혀가 자극적인 콜라도 주세요~	Yay! Please give me a refreshing cola that's as exciting as my taste buds!
-SUGARGLIDER_SIDE_SUPERPOWER	(딸기맛 탄산 음료)	(딸기맛 탄산 음료)
-SUGARGLIDER_SIDE_LOVEMELON	(멜론맛 탄산 음료)	(멜론맛 탄산 음료)
-SUGARGLIDER_SIDE_SODASODA	(소다맛 탄산 음료)	(소다맛 탄산 음료)
+SUGARGLIDER_SIDE_SUPERPOWER	상큼한 딸기처럼 날수는 없을까요?	(딸기맛 탄산 음료)
+SUGARGLIDER_SIDE_LOVEMELON	멜론 처럼 날고싶어요! 근데 어떻게 날죠?	(멜론맛 탄산 음료)
+SUGARGLIDER_SIDE_SODASODA	저도 소다처럼 시원하게 날고싶어요!	(소다맛 탄산 음료)
 SUGARGLIDER_SIDE_RADISH	치킨에 치킨 무가 빠지면 섭하겠죠?	If there's no pickled radish with the chicken, it just wouldn't be right, right
-SUGARGLIDER_SIDE_PICKLE	(피클)	(피클)
-SUGARGLIDER_SIDE_COLESLAW	(코우슬로)	(코우슬로)
-SUGARGLIDER_SIDE_CORNSALAD	(콘샐러드)	(콘샐러드)
-SUGARGLIDER_SIDE_FRENCHFRIES	(감자튀김)	(감자튀김)
-SUGARGLIDER_SIDE_CHICKENNUGGET	(치킨너겟)	(치킨너겟)
+SUGARGLIDER_SIDE_PICKLE	피클을 먹으면 오이는 안 먹어도 되겠죠?	(피클)
+SUGARGLIDER_SIDE_COLESLAW	코우슬로는 치킨 패스트푸드점에만 파는줄 알았는데?	(코우슬로)
+SUGARGLIDER_SIDE_CORNSALAD	콘 샐러드를 먹음으로서 에너지가 충전되요!	(콘샐러드)
+SUGARGLIDER_SIDE_FRENCHFRIES	감자튀김으로 프라이드 비행을 준비!	(감자튀김)
+SUGARGLIDER_SIDE_CHICKENNUGGET	치킨 너겟도 별미중에 별미죠!	(치킨너겟)
 SUGARGLIDER_ANGRY	에? 이게 맞는거에요?	Eh? Is this correct?
 SUGARGLIDER_THANK_YOU	흠흠 이것은 나쁘지 않은 써비스!	Hmm, this is not a bad service!
 SUGARGLIDER_HAPPY	안아줘요!	Hug me
@@ -924,15 +925,15 @@ COCKATIEL_ORDER_9	간장 치킨이랑 양념 치킨을 먹으면 괜찮을까요
 COCKATIEL_ORDER_10	사장님은 어떤 치킨을 좋아하세요? 저는 바베큐 치킨이랑 뿌링클이요!	Boss, what kind of chicken do you like? I like barbecue chicken and prinkle !
 COCKATIEL_ORDER_11	항상 플라밍고랑 까마귀 씨가 만나면 싸우는거 있죠? 불닭이랑 시커먼 간장 같다니까요!	Whenever the flamingo and the crow meet, they always fight, you know? It's like the hell chicken and the dark soy sauce!
 COCKATIEL_SIDE_COLA	어릴때 간장이랑 콜라를 착각한적도 있는데!	When I was young, I once mistook soy sauce for cola!
-COCKATIEL_SIDE_SUPERPOWER	(딸기맛 탄산 음료)	(딸기맛 탄산 음료)
-COCKATIEL_SIDE_LOVEMELON	(멜론맛 탄산 음료)	(멜론맛 탄산 음료)
-COCKATIEL_SIDE_SODASODA	(소다맛 탄산 음료)	(소다맛 탄산 음료)
+COCKATIEL_SIDE_SUPERPOWER	딸기맛 탄산 음료라 궁금한데요!	(딸기맛 탄산 음료)
+COCKATIEL_SIDE_LOVEMELON	친구가 일하는 카페에도 멜론 소다가 있는데!	(멜론맛 탄산 음료)
+COCKATIEL_SIDE_SODASODA	외국에 사는 친구가 준 라무네 한번 더 마셔보고 싶네요!	(소다맛 탄산 음료)
 COCKATIEL_SIDE_RADISH	치킨 무는 왜 하필 네모난걸까요? 궁금하네요	Why is chicken radish square? I wonder!
-COCKATIEL_SIDE_PICKLE	(피클)	(피클)
-COCKATIEL_SIDE_COLESLAW	(코우슬로)	(코우슬로)
-COCKATIEL_SIDE_CORNSALAD	(콘샐러드)	(콘샐러드)
-COCKATIEL_SIDE_FRENCHFRIES	(감자튀김)	(감자튀김)
-COCKATIEL_SIDE_CHICKENNUGGET	(치킨너겟)	(치킨너겟)
+COCKATIEL_SIDE_PICKLE	오이는 싫지만 피클은 좋아요!	(피클)
+COCKATIEL_SIDE_COLESLAW	이런! 치킨만 먹음 안되니까 코우슬로도 추가요!	(코우슬로)
+COCKATIEL_SIDE_CORNSALAD	콘 샐러드도 추가해서 같이 먹어야 겠어요	(콘샐러드)
+COCKATIEL_SIDE_FRENCHFRIES	바삭한 감자튀김은 여러 음식들과의 친구죠!	(감자튀김)
+COCKATIEL_SIDE_CHICKENNUGGET	치킨 너겟이라 흠 먹어도 될려나?	(치킨너겟)
 COCKATIEL_ANGRY	궁금한게 이렇게 장사하면 돈이 벌려요?	Is it possible to make money by running a business like this?
 COCKATIEL_THANK_YOU	응! 다른 치킨집이랑 비슷하게 하는거 같아요!	Yeah! It seems like they're doing it just like other chicken places!
 COCKATIEL_HAPPY	와우! 다음에 플라밍고랑 같이 와야겠어요!	Wow! I should come next time with the flamingo!
@@ -955,9 +956,9 @@ OIL_ZONE_LV2_NAME	고급 튀김기	a high-end fryer
 OIL_ZONE_LV3_NAME	특급 튀김기	a special fryer
 OIL_ZONE_LV4_NAME	궁극의 튀김기	the ultimate fryer
 OIL_ZONE_LV1_INFO	일반 튀김기 입니다.	It's a regular fryer.
-OIL_ZONE_LV2_INFO	치킨이 빨리 튀겨집니다.\n(속도 +40%)	will be fried quickly.\n(Speed +40%)
-OIL_ZONE_LV3_INFO	치킨이 더 빨리 튀겨지고\n 더 맛있어집니다.\n(속도 +80%, 수입+20%)	will be fried quickly.\nIt becomes more delicious.\n(Speed +80%, Sales +20%)
-OIL_ZONE_LV4_INFO	치킨이 완벽하게 튀겨집니다.\n(속도 +160%, 수입+40%)\n(치킨이 타지 않습니다.)	The chicken is perfectly fried.\n(Speed +160%, Sales +40%)\n(The chicken won't burn.)
+OIL_ZONE_LV2_INFO	튀김기를 고급 튀김기로 업그레이드합니다.\n치킨이 빨리 튀겨집니다.\n(속도 +40%)	Upgrade the fryer to a high-end fryer.\nwill be fried quickly.\n(Speed +40%)
+OIL_ZONE_LV3_INFO	튀김기를 특급 튀김기로 업그레이드합니다.\n치킨이 더 빨리 튀겨지고\n 더 맛있어집니다.\n(속도 +80%, 수입+20%)	Upgrade the fryer to a special fryer.\nwill be fried quickly.\nIt becomes more delicious.\n(Speed +80%, Sales +20%)
+OIL_ZONE_LV4_INFO	튀김기를 궁극의 튀김기로 업그레이드합니다.\n치킨이 완벽하게 튀겨집니다.\n(속도 +160%, 수입+40%)\n(치킨이 타지 않습니다.)	Upgrade the fryer to a regular fryer.\nThe chicken is perfectly fried.\n(Speed +160%, Sales +40%)\n(The chicken won't burn.)
 RECIPE_LV1_NAME	간장양념	간장양념
 RECIPE_LV2_NAME	불닭양념	불닭양념
 RECIPE_LV3_NAME	프링클양념	프링클양념

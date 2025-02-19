@@ -43,10 +43,7 @@ public class GuestMgr : AwakeSingleton<GuestMgr>
     {
         //¼Õ´Ô °´Ã¼(¿øº») ¾ò±â
         if (guests.ContainsKey(pGuest))
-        {
-            Debug.Log($"[CreateGuest] {pGuest} is Null {guests[pGuest] == null}");
             return guests[pGuest];
-        }
         return null;
     }
 

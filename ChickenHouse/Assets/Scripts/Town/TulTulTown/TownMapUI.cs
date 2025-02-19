@@ -8,6 +8,11 @@ public class TownMapUI : Mgr
 
     public void TownMenuButton()
     {
+        if (gameMgr?.playData == null)
+            return;
+        if (gameMgr.playData.tutoComplete4 == false)
+            return;
+
         AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
         if (stateInfo.IsName("TownMapStart"))
             animator.SetTrigger("On");

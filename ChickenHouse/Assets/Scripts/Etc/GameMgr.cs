@@ -1,7 +1,7 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AdaptivePerformance;
 
 public class GameMgr : AwakeSingleton<GameMgr>
 {
@@ -39,6 +39,10 @@ public class GameMgr : AwakeSingleton<GameMgr>
                 Screen.SetResolution(1280, 720, false);
             else if (windowMode == 1)
                 Screen.SetResolution(1920, 1080, true);
+
+            var holder = Holder.Instance;
+            if (holder != null && holder.Active)
+                holder.StopAdaptivePerformance();
         }
     }
 

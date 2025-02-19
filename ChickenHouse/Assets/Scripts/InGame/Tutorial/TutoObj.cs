@@ -21,7 +21,8 @@ public class TutoObj : Mgr
         if (tutoFlag)
             return;
         tutoFlag = true;
-        nextBtn.raycastTarget = true;
+        if(nextBtn)
+            nextBtn.raycastTarget = true;
         StartCoroutine(RunToto());
     }
 
@@ -67,7 +68,8 @@ public class TutoObj : Mgr
 
         yield return new WaitForSeconds(skipDelay);
 
-        nextBtn.raycastTarget = true;
+        if (nextBtn)
+            nextBtn.raycastTarget = true;
     }
 
     public void CloseTuto()

@@ -11,11 +11,13 @@ public class Town : Mgr
     [SerializeField] private WakeupMsg                          wakeUpMsg;
     [SerializeField] private List<TownTalkObj>                  npcList;
     [SerializeField] private RectTransform                      tutoDontTouch;
+
     [SerializeField] private TutoObj                            tutoObj1;
     [SerializeField] private TutoObj                            tutoObj2;
-    [SerializeField] private TutoObj                            tutoObj3;
     [SerializeField] private TutoObj                            tutoObj4;
     [SerializeField] private TutoObj                            tutoObj5;
+    [SerializeField] private TutoObj                            tutoObj6;
+
     public bool nowSceneChange { get; private set; }
     /** 현재 지역 **/
     private TownMap nowArea = TownMap.TulTulTown;
@@ -50,6 +52,9 @@ public class Town : Mgr
         else if (warningFlag == false)
         {
             warningFlag = true;
+            if (gameMgr?.playData == null)
+                return;
+
             if ((QuestState)gameMgr.playData.quest[(int)Quest.Event_0_Quest] == QuestState.Run)
             {
                 //Event 0 진행중
@@ -188,6 +193,13 @@ public class Town : Mgr
             isMove = false;
             yield return new WaitForSeconds(1f);
             nowSceneChange = false;
+
+            if (gameMgr.playData.tutoComplete4 == false && tutoMgr.nowTuto == Tutorial.Town_Tuto_3_5)
+            {
+                tutoDontTouch.gameObject.SetActive(true);
+                yield return new WaitForSeconds(1f);
+                TutoEvent();
+            }
         }
         if(townMapLoadCor != null)
         {
@@ -212,20 +224,25 @@ public class Town : Mgr
                 break;
             case Tutorial.Town_Tuto_2:
                 {
-                    TulTulTown tultulTown = townMap[TownMap.TulTulTown].GetComponent<TulTulTown>();
-                    tultulTown.MoveZone(TulTulTown.Zone.CookingUtensils, () => tutoObj3.PlayTuto());
+                    tutoDontTouch.gameObject.SetActive(false);
                 }
                 break;
-            case Tutorial.Town_Tuto_3:
+            case Tutorial.Town_Tuto_3_5:
                 {
                     TulTulTown tultulTown = townMap[TownMap.TulTulTown].GetComponent<TulTulTown>();
-                    tultulTown.MoveZone(TulTulTown.Zone.LongNose, () => tutoObj4.PlayTuto());
+                    tultulTown.MoveZone(TulTulTown.Zone.CookingUtensils, () => tutoObj4.PlayTuto());
                 }
                 break;
             case Tutorial.Town_Tuto_4:
                 {
                     TulTulTown tultulTown = townMap[TownMap.TulTulTown].GetComponent<TulTulTown>();
-                    tultulTown.MoveZone(TulTulTown.Zone.ChickenHeaven, () => tutoObj5.PlayTuto());
+                    tultulTown.MoveZone(TulTulTown.Zone.LongNose, () => tutoObj5.PlayTuto());
+                }
+                break;
+            case Tutorial.Town_Tuto_5:
+                {
+                    TulTulTown tultulTown = townMap[TownMap.TulTulTown].GetComponent<TulTulTown>();
+                    tultulTown.MoveZone(TulTulTown.Zone.ChickenHeaven, () => tutoObj6.PlayTuto());
                 }
                 break;
         }

@@ -91,6 +91,7 @@ public class TutoMgr : AwakeSingleton<TutoMgr>
             case Tutorial.Town_Tuto_11:
             case Tutorial.Town_Tuto_12:
             case Tutorial.Town_Tuto_13:
+            case Tutorial.Town_Tuto_14:
                 return 4;
             case Tutorial.Event_0_Tuto_1:
             case Tutorial.Event_0_Tuto_2:

@@ -16,7 +16,12 @@ public class AwakeSingleton<T> : SerializedMonoBehaviour where T : SerializedMon
         if (Instance == null)
         {
             Instance = gameObject.GetComponent<T>();
-            DontDestroyOnLoad(gameObject);
+            //if (gameObject.scene.name == "DontDestroyOnLoad")
+            //{
+            //    //이미 DontDestroyOnLoad 오브젝트
+            //    return;
+            //}
+            //DontDestroyOnLoad(gameObject);
         }
         else
         {

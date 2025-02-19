@@ -213,7 +213,11 @@ public class TulTulTown : Mgr
     {
         //인스펙터로 끌어서 사용하는 함수
         if (gameMgr.playData.tutoComplete4 == false)
-            return;
+        {
+            if (tutoMgr.nowTuto != Tutorial.Town_Tuto_2)
+                return;
+
+        }
 
         soundMgr.PlaySE(Sound.Btn_SE);
         switch (nowZone)

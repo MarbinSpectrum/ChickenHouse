@@ -16,7 +16,7 @@ MonoBehaviour:
   nameKey: RESUME_1_NAME
   age: 28
   infoKey: WORKER_INFO_1
-  deposit: 10000
+  deposit: 0
   residenceKey: RESUME_1_RESIDENCE
   salary: 5
   skill: 64000000

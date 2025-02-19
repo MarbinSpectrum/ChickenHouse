@@ -49,10 +49,10 @@ public class DragCamera : Mgr
 
         if (CheckMode.IsWindow() && kitchenMgr.cameraObj.lookArea == LookArea.Kitchen 
             && kitchenMgr.cameraObj.runAni == false)
-        {
             CameraKeyBoardControl();
+
+        if (moveCamera)
             return;
-        }
 
         bool dragMove = false;
 
