@@ -7,7 +7,8 @@ public class GoKitchen_UI : Mgr
 {
     [SerializeField] private Animator   animator;
     [SerializeField] private Button     btn;
-    [SerializeField] private TutoObj    tutoObj;
+    [SerializeField] private TutoObj    tutoObj0;
+    [SerializeField] private TutoObj    tutoObj1;
 
     private bool canUse = false;
 
@@ -19,7 +20,14 @@ public class GoKitchen_UI : Mgr
 
     private void Update()
     {
-        if(CheckMode.IsWindow() && gameMgr.stopGame == false)
+        GuestSystem guestSystem = GuestSystem.Instance;
+        if (guestSystem == null)
+        {
+            Debug.LogError("[Unity Error - GoKitchen_UI.Update()]: guestSystem is Null");
+            return;
+        }
+
+        if(CheckMode.IsWindow() && gameMgr.stopGame == false && guestSystem.closeShop == false)
         {
             //PC버전에서는 스페이스바로 주방으로 이동 가능
             if(Input.GetKeyUp(KeyCode.Space))
@@ -56,13 +64,17 @@ public class GoKitchen_UI : Mgr
             return;
 
         CloseBtn();
+        if (gameMgr.playData != null && gameMgr.playData.tutoComplete1 == false)
+            tutoObj0.CloseTuto();
+
+        kitchenMgr.ui.showKeyBoardKey.ActKeyBoard(0);
         kitchenMgr.cameraObj.ChangeLook(LookArea.Kitchen, () =>
         {
-            if(gameMgr.playData != null && gameMgr.playData.tutoComplete1 == false && tutoMgr.nowTuto == Tutorial.Tuto_0)
+            kitchenMgr.ui.showKeyBoardKey.ActKeyBoard(1);
+            if (gameMgr.playData != null && gameMgr.playData.tutoComplete1 == false && tutoMgr.nowTuto == Tutorial.Tuto_0)
             {
-                //튜토리얼을 진행안한듯?
-                //튜토리얼로 진입
-                tutoObj.PlayTuto();
+                //튜토리얼로 실행
+                tutoObj1.PlayTuto();
             }
             else
             {

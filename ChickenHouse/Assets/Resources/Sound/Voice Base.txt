@@ -27,3 +27,5 @@ Voice25_SE	불독
 Voice26_SE	상점고양이
 Voice27_SE	코끼리
 Voice28_SE	돼지
+Voice29_SE	chara_01_middle_019
+Voice30_SE	chara_01_middle_020

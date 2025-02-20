@@ -55,9 +55,10 @@ public class GoCounter_UI : Mgr
 
         CloseBtn();
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
-
+        kitchenMgr.ui.showKeyBoardKey.ActKeyBoard(0);
         kitchenMgr.cameraObj.ChangeLook(LookArea.Counter, () =>
         {
+            kitchenMgr.ui.showKeyBoardKey.ActKeyBoard(2);
             //guestMgr.ui.goKitchen.OpenBtn();
         });
 

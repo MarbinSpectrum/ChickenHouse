@@ -61,9 +61,9 @@ public class BowlChicken : Mgr
         lerpShader.SetValue(1);
     }
 
-    public void WorkerDragChicken(float v)
+    public void AddEggToChicken(float v)
     {
-        //직원이 계란물을 묻힐때
+        //계란물을 묻히기처리
         eggTime += v;
         lerpShader.SetValue(eggTime/ EGG_DELAY);
     }

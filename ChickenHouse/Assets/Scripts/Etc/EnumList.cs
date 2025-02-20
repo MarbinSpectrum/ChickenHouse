@@ -264,28 +264,35 @@ public enum Sound
     Page_SE = 209,
     /** 도장 소리 **/
     Stamp_SE = 210,
+    /** 밀가루 소리 **/
+    Flour_0_SE = 211,
+    Flour_1_SE = 212,
+    Flour_2_SE = 213,
+    /** 계란 소리 **/
+    Egg_Stir_SE = 214,
+    Chicken_Strainter_SE = 215,
 
     /** 목소리 목록 **/
-    //개
+    //개 & 북극곰
     Voice0_SE   = 250,
 
-    //여우 & 고양이
+    //여우 & 고양이 & 코브라 & 하늘다람쥐
     Voice1_SE   = 251,
     Voice2_SE   = 252,
 
-    //줄무늬 원숭이
-    Voice3_SE   = 253,
+    //흰주머니쥐
+    Voice3_SE = 253,
     Voice4_SE   = 254,
 
     //태지베니아 데빌
     Voice5_SE   = 255,
     Voice6_SE   = 256,
 
-    //흰주머니쥐 & 빚쟁이
+    //빚쟁이
     Voice7_SE   = 257,
     Voice8_SE   = 258,
 
-    //플라밍고
+    //플라밍고 & 다람쥐
     Voice9_SE   = 259,
     Voice10_SE  = 260,
 
@@ -293,41 +300,47 @@ public enum Sound
     Voice11_SE  = 261,
     Voice12_SE  = 262,
 
-    //호랑이
-    Voice13_SE  = 263,
+    //호랑이 & 판다 & 말레이맥
+    Voice13_SE = 263,
     Voice14_SE  = 264,
 
-    //판다
+    //까마귀
     Voice15_SE  = 265,
     Voice16_SE  = 266,
 
-    //래서판다
+    //래서판다 & 서벌
     Voice17_SE = 267,
     Voice18_SE = 268,
 
-    //토끼
+    //토끼 & 목도리도마뱀
     Voice19_SE = 269,
     Voice20_SE = 270,
 
-    //사슴
+    //사슴 & 왕관앵무
     Voice21_SE = 271,
     Voice22_SE = 272,
 
-    //해달
+    //해달 & 줄무늬 원숭이
     Voice23_SE = 273,
     Voice24_SE = 274,
 
-    //불독
+    //불독 & 악어
     Voice25_SE = 275,
 
     //나이든 고양이
     Voice26_SE = 276,
 
-    //코끼리
+    //코끼리 & 기린
     Voice27_SE = 277,
 
     //돼지
     Voice28_SE = 278,
+
+    //아르마딜로
+    Voice29_SE = 279,
+    Voice30_SE = 280,
+
+
 
     /** 목소리 목록 **/
     //너구리 웃는소리

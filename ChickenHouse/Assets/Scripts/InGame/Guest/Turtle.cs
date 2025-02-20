@@ -101,11 +101,11 @@ public class Turtle : GuestObj
 
     public override void TalkOrder(NoParaDel fun = null)
     {
-        soundMgr.PlayLoopSE(Sound.Voice1_SE);
+        soundMgr.PlayLoopSE(Sound.Voice26_SE, 0.7f);
         animator.SetTrigger("Talk");
         talkBox.ShowText(talkStr, TalkBoxType.Normal, () =>
         {
-            soundMgr.StopLoopSE(Sound.Voice1_SE);
+            soundMgr.StopLoopSE(Sound.Voice26_SE);
             animator.SetTrigger("TalkEnd");
             fun?.Invoke();
         });

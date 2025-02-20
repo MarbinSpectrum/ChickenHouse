@@ -84,6 +84,7 @@ public class GuestMgr : AwakeSingleton<GuestMgr>
         {
             guestPool[obj.guest] = new Queue<GuestObj>();
         }
+        obj.CloseTalkBox();
         obj.transform.parent = transform;
         obj.gameObject.SetActive(false);
         guestPool[obj.guest].Enqueue(obj);

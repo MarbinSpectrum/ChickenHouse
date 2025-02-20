@@ -58,8 +58,10 @@ public class KitchenBell : Mgr
         else
         {
             //직원을 사용하지 않았기에 카운터로 이동해서 계산
+            kitchenMgr.ui.showKeyBoardKey.ActKeyBoard(0);
             kitchenMgr.cameraObj.ChangeLook(LookArea.Counter, () =>
             {
+                kitchenMgr.ui.showKeyBoardKey.ActKeyBoard(2);
                 GiveChicken(false);
                 kitchenMgr.ui.memo.CloseTriggerBox();
                 kitchenMgr.ui.workerUI.OffBox();

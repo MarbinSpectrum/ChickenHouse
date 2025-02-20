@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Lemur : GuestObj
 {
+
     public override void OrderGuest(NoParaDel fun = null)
     {
         int menuIdx = requireMenu.menuIdx;
@@ -101,11 +102,11 @@ public class Lemur : GuestObj
 
     public override void TalkOrder(NoParaDel fun = null)
     {
-        soundMgr.PlayLoopSE(Sound.Voice3_SE);
+        soundMgr.PlayLoopSE(Sound.Voice23_SE, 0.85f);
         animator.SetTrigger("Talk");
         talkBox.ShowText(talkStr, TalkBoxType.Normal, () =>
         {
-            soundMgr.StopLoopSE(Sound.Voice3_SE);
+            soundMgr.StopLoopSE(Sound.Voice23_SE);
             animator.SetTrigger("TalkEnd");
             fun?.Invoke();
         });
@@ -113,8 +114,8 @@ public class Lemur : GuestObj
 
     public override void CloseTalkBox()
     {
-        soundMgr.StopLoopSE(Sound.Voice3_SE);
-        soundMgr.StopLoopSE(Sound.Voice4_SE);
+        soundMgr.StopLoopSE(Sound.Voice23_SE);
+        soundMgr.StopLoopSE(Sound.Voice24_SE);
         talkBox.CloseTalkBox();
     }
 
@@ -122,11 +123,11 @@ public class Lemur : GuestObj
     {
         talkStr = LanguageMgr.GetText("LEMUR_HAPPY");
 
-        soundMgr.PlayLoopSE(Sound.Voice4_SE);
+        soundMgr.PlayLoopSE(Sound.Voice24_SE, 0.85f);
         animator.SetTrigger("Happy");
         talkBox.ShowText(talkStr, TalkBoxType.Happy, () =>
         {
-            soundMgr.StopLoopSE(Sound.Voice4_SE);
+            soundMgr.StopLoopSE(Sound.Voice24_SE);
             animator.SetTrigger("TalkEnd");
             fun?.Invoke();
         });
@@ -136,11 +137,11 @@ public class Lemur : GuestObj
     {
         talkStr = LanguageMgr.GetText("LEMUR_THANK_YOU");
 
-        soundMgr.PlayLoopSE(Sound.Voice4_SE);
+        soundMgr.PlayLoopSE(Sound.Voice24_SE, 0.85f);
         animator.SetTrigger("Talk");
         talkBox.ShowText(talkStr, TalkBoxType.Thank, () =>
         {
-            soundMgr.StopLoopSE(Sound.Voice4_SE);
+            soundMgr.StopLoopSE(Sound.Voice24_SE);
             animator.SetTrigger("TalkEnd");
             fun?.Invoke();
         });
@@ -150,11 +151,11 @@ public class Lemur : GuestObj
     {
         talkStr = LanguageMgr.GetText("LEMUR_ANGRY");
 
-        soundMgr.PlayLoopSE(Sound.Voice4_SE);
+        soundMgr.PlayLoopSE(Sound.Voice23_SE, 0.85f);
         animator.SetTrigger("Angry");
         talkBox.ShowText(talkStr, TalkBoxType.Angry, () =>
         {
-            soundMgr.StopLoopSE(Sound.Voice4_SE);
+            soundMgr.StopLoopSE(Sound.Voice23_SE);
             fun?.Invoke();
         });
     }

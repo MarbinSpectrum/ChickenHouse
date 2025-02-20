@@ -53,6 +53,8 @@ public class GuestSystem : Mgr
     public int guestcnt { private set; get; }
     private bool moveGuest = false;
 
+    public bool closeShop { private set; get; } = false;
+
     private WorkerData counterWorker
     {
         get
@@ -89,7 +91,7 @@ public class GuestSystem : Mgr
                 return;
             SkipTalk();
         });
-
+        closeShop = false;
         gotoKitchenBtn.onClick.RemoveAllListeners();
         gotoKitchenBtn.onClick.AddListener(() =>
         {
@@ -192,9 +194,6 @@ public class GuestSystem : Mgr
         if (gameMgr.playData != null && (QuestState)gameMgr.playData.quest[(int)Quest.Event_0_Quest] == QuestState.Run)
         {
             yield return new WaitUntil(() => ui.event0_UI.battleResult != Event_0_Battle_Result.None);
-
-            //종료
-            ui.dayEnd.ShowResult();
         }
         else
         {
@@ -203,10 +202,10 @@ public class GuestSystem : Mgr
 
             //손님이 0명일때까지 대기
             yield return new WaitUntil(() => (guestcnt == 0));
-
-            //종료
-            ui.dayEnd.ShowResult();
         }
+        //종료
+        ui.dayEnd.ShowResult();
+        closeShop = true;
     }
 
 

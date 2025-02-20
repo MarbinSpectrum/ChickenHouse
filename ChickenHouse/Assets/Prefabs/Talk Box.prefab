@@ -1698,7 +1698,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IgnoreLayout: 0
-  m_MinWidth: 18
+  m_MinWidth: 20
   m_MinHeight: -1
   m_PreferredWidth: -1
   m_PreferredHeight: -1
@@ -1791,7 +1791,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &8344259788582316270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1822,8 +1822,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
+    SerializedFormat: 0
+    SerializedBytes: 0101080000006600610069006c0054006500780074002f000000000125000000540061006c006b0042006f0078005f00550049002b004600610069006c004f0062006a005b005d002c00200041007300730065006d0062006c0079002d0043005300680061007200700000000000060400000000000000042f010000000123000000540061006c006b0042006f0078005f00550049002b004600610069006c004f0062006a002c00200041007300730065006d0062006c0079002d004300530068006100720070000b010400000073006c006f007400000000000b010600000074006500780074005500490001000000050430010000000b010400000073006c006f007400020000000b010600000074006500780074005500490003000000050430010000000b010400000073006c006f007400040000000b010600000074006500780074005500490005000000050430010000000b010400000073006c006f007400060000000b010600000074006500780074005500490007000000050705
     ReferencedUnityObjects:
     - {fileID: 5471808057068766180}
     - {fileID: 978481992648853854}
@@ -1837,67 +1837,7 @@ MonoBehaviour:
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes:
-    - Name: failText
-      Entry: 7
-      Data: 0|TalkBox_UI+FailObj[], Assembly-CSharp
-    - Name: 
-      Entry: 12
-      Data: 4
-    - Name: 
-      Entry: 7
-      Data: TalkBox_UI+FailObj, Assembly-CSharp
-    - Name: slot
-      Entry: 10
-      Data: 0
-    - Name: textUI
-      Entry: 10
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: TalkBox_UI+FailObj, Assembly-CSharp
-    - Name: slot
-      Entry: 10
-      Data: 2
-    - Name: textUI
-      Entry: 10
-      Data: 3
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: TalkBox_UI+FailObj, Assembly-CSharp
-    - Name: slot
-      Entry: 10
-      Data: 4
-    - Name: textUI
-      Entry: 10
-      Data: 5
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: TalkBox_UI+FailObj, Assembly-CSharp
-    - Name: slot
-      Entry: 10
-      Data: 6
-    - Name: textUI
-      Entry: 10
-      Data: 7
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
+    SerializationNodes: []
   normalBox: {fileID: 21300000, guid: bdbd9ff68f6467741968d03e8f3f097a, type: 3}
   normalColor: {r: 0.16078432, g: 0.027450982, b: 0.04705883, a: 1}
   angryBox: {fileID: 21300000, guid: dbbe160f66d90eb47997405fc4e8278d, type: 3}
@@ -1932,7 +1872,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8344259788852980953
 RectTransform:
   m_ObjectHideFlags: 0

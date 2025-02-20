@@ -239,6 +239,7 @@ public class ChickenStrainter : Mgr
         //기름 건지에 올려져있는 닭 증가
         chickenCnt++;
         image.sprite = sprite.normalSprite;
+        soundMgr.PlaySE(Sound.Chicken_Strainter_SE);
 
         for (int i = 0; i < chickenAni.Length; i++)
         {

@@ -101,11 +101,11 @@ public class Squirrel : GuestObj
 
     public override void TalkOrder(NoParaDel fun = null)
     {
-        soundMgr.PlayLoopSE(Sound.Voice1_SE);
+        soundMgr.PlayLoopSE(Sound.Voice9_SE, 0.75f);
         animator.SetTrigger("Talk");
         talkBox.ShowText(talkStr, TalkBoxType.Normal, () =>
         {
-            soundMgr.StopLoopSE(Sound.Voice1_SE);
+            soundMgr.StopLoopSE(Sound.Voice9_SE);
             animator.SetTrigger("TalkEnd");
             fun?.Invoke();
         });
@@ -113,8 +113,8 @@ public class Squirrel : GuestObj
 
     public override void CloseTalkBox()
     {
-        soundMgr.StopLoopSE(Sound.Voice1_SE);
-        soundMgr.StopLoopSE(Sound.Voice2_SE);
+        soundMgr.StopLoopSE(Sound.Voice9_SE);
+        soundMgr.StopLoopSE(Sound.Voice10_SE);
         talkBox.CloseTalkBox();
     }
 
@@ -122,11 +122,11 @@ public class Squirrel : GuestObj
     {
         talkStr = LanguageMgr.GetText("SQUIRREL_HAPPY");
 
-        soundMgr.PlayLoopSE(Sound.Voice2_SE);
+        soundMgr.PlayLoopSE(Sound.Voice10_SE, 0.75f);
         animator.SetTrigger("Happy");
         talkBox.ShowText(talkStr, TalkBoxType.Happy, () =>
         {
-            soundMgr.StopLoopSE(Sound.Voice2_SE);
+            soundMgr.StopLoopSE(Sound.Voice10_SE);
             animator.SetTrigger("TalkEnd");
             fun?.Invoke();
         });
@@ -136,11 +136,11 @@ public class Squirrel : GuestObj
     {
         talkStr = LanguageMgr.GetText("SQUIRREL_THANK_YOU");
 
-        soundMgr.PlayLoopSE(Sound.Voice2_SE);
+        soundMgr.PlayLoopSE(Sound.Voice10_SE, 0.75f);
         animator.SetTrigger("Talk");
         talkBox.ShowText(talkStr, TalkBoxType.Thank, () =>
         {
-            soundMgr.StopLoopSE(Sound.Voice2_SE);
+            soundMgr.StopLoopSE(Sound.Voice10_SE);
             animator.SetTrigger("TalkEnd");
             fun?.Invoke();
         });
@@ -150,11 +150,11 @@ public class Squirrel : GuestObj
     {
         talkStr = LanguageMgr.GetText("SQUIRREL_ANGRY");
 
-        soundMgr.PlayLoopSE(Sound.Voice1_SE);
+        soundMgr.PlayLoopSE(Sound.Voice9_SE, 0.75f);
         animator.SetTrigger("Angry");
         talkBox.ShowText(talkStr, TalkBoxType.Angry, () =>
         {
-            soundMgr.StopLoopSE(Sound.Voice1_SE);
+            soundMgr.StopLoopSE(Sound.Voice9_SE);
             fun?.Invoke();
         });
     }

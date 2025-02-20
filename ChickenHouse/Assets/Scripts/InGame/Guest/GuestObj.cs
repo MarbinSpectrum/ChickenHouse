@@ -150,6 +150,4 @@ public abstract class GuestObj : Mgr
     {
         talkBox.SkipTalk();
     }
-
-
 }

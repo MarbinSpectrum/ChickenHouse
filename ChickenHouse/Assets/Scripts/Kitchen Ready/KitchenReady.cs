@@ -242,10 +242,11 @@ public class KitchenReady : Mgr
         {
             float timeDelay = 1;
             float lerpValue = 0;
+            float rate = 2;
             while (timeDelay > 0)
             {
                 lerpValue += Time.deltaTime;
-                float v = moveUI.curve.Evaluate(lerpValue / 1);
+                float v = moveUI.curve.Evaluate(lerpValue / 1)* rate;
                 canvasGroup.alpha = 1f - v;
 
                 timeDelay -= Time.deltaTime;

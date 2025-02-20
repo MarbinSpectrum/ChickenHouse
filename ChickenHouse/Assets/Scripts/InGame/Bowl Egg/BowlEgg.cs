@@ -38,6 +38,9 @@ public class BowlEgg : Mgr
 
     public bool isDrag { private set; get; }
 
+    private const float EGG_SOUND_FLAG_VALUE = 0.2f;
+    private float eggSoundValue = EGG_SOUND_FLAG_VALUE;
+
     public void OnMouseDrag()
     {
         if (gameMgr.playData != null && gameMgr.playData.tutoComplete1 == false && (tutoMgr.nowTuto == Tutorial.Tuto_2 || tutoMgr.nowTuto == Tutorial.Tuto_3 || tutoMgr.nowTuto == Tutorial.Tuto_5) == false)
@@ -86,11 +89,14 @@ public class BowlEgg : Mgr
                     }
                 }
             }
+
+            float eggValue = Time.deltaTime * eggPow;
             for (int i = 0; i < bowlChicken.Length; i++)
                 if (bowlChicken[i].isUse)
-                    bowlChicken[i].WorkerDragChicken(Time.deltaTime * eggPow);
+                    bowlChicken[i].AddEggToChicken(eggValue);
 
             dragBowlChicken = null;
+            PlayEggSound(eggValue);
         }
         else
         {
@@ -364,6 +370,17 @@ public class BowlEgg : Mgr
     public void WorkerDragChicken(float v)
     {
         for (int i = 0; i < bowlChicken.Length; i++)
-            bowlChicken[i].WorkerDragChicken(v);
+            bowlChicken[i].AddEggToChicken(v);
+        PlayEggSound(v);
+    }
+
+    private void PlayEggSound(float v)
+    {
+        eggSoundValue += v;
+        if(eggSoundValue > EGG_SOUND_FLAG_VALUE)
+        {
+            eggSoundValue = 0f;
+            soundMgr.PlaySE(Sound.Egg_Stir_SE);
+        }
     }
 }

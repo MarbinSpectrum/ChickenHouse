@@ -75,6 +75,8 @@ public class KitchenMgr : Mgr
         public KitchenSideMenuUI sideMenuUI;
         /** 테이블 UI **/
         public KitchenTableMenuRect tableUI;
+        /** KeyBorad표시용 **/
+        public ShowKeyBoardKey showKeyBoardKey;
     }
     public UI ui;
 
@@ -145,12 +147,14 @@ public class KitchenMgr : Mgr
         if (gameMgr.playData == null || (EWorker)gameMgr.playData.workerPos[(int)KitchenSetWorkerPos.CounterWorker] == EWorker.None)
         {
             cameraObj.ChangeLook(LookArea.Counter);
+            ui.showKeyBoardKey.ActKeyBoard(2);
             ui.memo.CloseTriggerBox();
             ui.workerUI.OffBox();
         }
         else
         {
             cameraObj.ChangeLook(LookArea.Kitchen);
+            ui.showKeyBoardKey.ActKeyBoard(1);
             ui.memo.OpenTriggerBox();
             ui.workerUI.OnBox();
 

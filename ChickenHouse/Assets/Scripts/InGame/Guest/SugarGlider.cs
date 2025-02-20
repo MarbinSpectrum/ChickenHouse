@@ -101,7 +101,7 @@ public class SugarGlider : GuestObj
 
     public override void TalkOrder(NoParaDel fun = null)
     {
-        soundMgr.PlayLoopSE(Sound.Voice1_SE);
+        soundMgr.PlayLoopSE(Sound.Voice1_SE, 0.7f);
         animator.SetTrigger("Talk");
         talkBox.ShowText(talkStr, TalkBoxType.Normal, () =>
         {
@@ -122,7 +122,7 @@ public class SugarGlider : GuestObj
     {
         talkStr = LanguageMgr.GetText("SUGARGLIDER_HAPPY");
 
-        soundMgr.PlayLoopSE(Sound.Voice2_SE);
+        soundMgr.PlayLoopSE(Sound.Voice2_SE, 0.7f);
         animator.SetTrigger("Happy");
         talkBox.ShowText(talkStr, TalkBoxType.Happy, () =>
         {
@@ -136,7 +136,7 @@ public class SugarGlider : GuestObj
     {
         talkStr = LanguageMgr.GetText("SUGARGLIDER_THANK_YOU");
 
-        soundMgr.PlayLoopSE(Sound.Voice2_SE);
+        soundMgr.PlayLoopSE(Sound.Voice2_SE, 0.7f);
         animator.SetTrigger("Talk");
         talkBox.ShowText(talkStr, TalkBoxType.Thank, () =>
         {
@@ -150,7 +150,7 @@ public class SugarGlider : GuestObj
     {
         talkStr = LanguageMgr.GetText("SUGARGLIDER_ANGRY");
 
-        soundMgr.PlayLoopSE(Sound.Voice1_SE);
+        soundMgr.PlayLoopSE(Sound.Voice1_SE, 0.7f);
         animator.SetTrigger("Angry");
         talkBox.ShowText(talkStr, TalkBoxType.Angry, () =>
         {

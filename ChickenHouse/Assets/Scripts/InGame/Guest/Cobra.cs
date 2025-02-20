@@ -101,7 +101,7 @@ public class Cobra : GuestObj
 
     public override void TalkOrder(NoParaDel fun = null)
     {
-        soundMgr.PlayLoopSE(Sound.Voice1_SE);
+        soundMgr.PlayLoopSE(Sound.Voice1_SE, 0.85f);
         animator.SetTrigger("Talk");
         talkBox.ShowText(talkStr, TalkBoxType.Normal, () =>
         {
@@ -122,7 +122,7 @@ public class Cobra : GuestObj
     {
         talkStr = LanguageMgr.GetText("COBRA_HAPPY");
 
-        soundMgr.PlayLoopSE(Sound.Voice2_SE);
+        soundMgr.PlayLoopSE(Sound.Voice2_SE, 0.85f);
         animator.SetTrigger("Happy");
         talkBox.ShowText(talkStr, TalkBoxType.Happy, () =>
         {
@@ -136,7 +136,7 @@ public class Cobra : GuestObj
     {
         talkStr = LanguageMgr.GetText("COBRA_THANK_YOU");
 
-        soundMgr.PlayLoopSE(Sound.Voice2_SE);
+        soundMgr.PlayLoopSE(Sound.Voice2_SE, 0.85f);
         animator.SetTrigger("Talk");
         talkBox.ShowText(talkStr, TalkBoxType.Thank, () =>
         {
@@ -150,7 +150,7 @@ public class Cobra : GuestObj
     {
         talkStr = LanguageMgr.GetText("COBRA_ANGRY");
 
-        soundMgr.PlayLoopSE(Sound.Voice1_SE);
+        soundMgr.PlayLoopSE(Sound.Voice1_SE, 0.85f);
         animator.SetTrigger("Angry");
         talkBox.ShowText(talkStr, TalkBoxType.Angry, () =>
         {

@@ -108,7 +108,7 @@ public class Fox : GuestObj
 
     public override void TalkOrder(NoParaDel fun = null)
     {
-        soundMgr.PlayLoopSE(Sound.Voice2_SE);
+        soundMgr.PlayLoopSE(Sound.Voice2_SE, 1f);
         animator.SetTrigger("Talk");
         talkBox.ShowText(talkStr, TalkBoxType.Normal, () =>
         {
@@ -129,7 +129,7 @@ public class Fox : GuestObj
     {
         talkStr = LanguageMgr.GetText("FOX_HAPPY");
 
-        soundMgr.PlayLoopSE(Sound.Voice1_SE);
+        soundMgr.PlayLoopSE(Sound.Voice1_SE, 1f);
         animator.SetTrigger("Happy");
         talkBox.ShowText(talkStr, TalkBoxType.Happy, () =>
         {
@@ -143,7 +143,7 @@ public class Fox : GuestObj
     {
         talkStr = LanguageMgr.GetText("FOX_THANK_YOU");
 
-        soundMgr.PlayLoopSE(Sound.Voice1_SE);
+        soundMgr.PlayLoopSE(Sound.Voice1_SE, 1f);
         animator.SetTrigger("Talk");
         talkBox.ShowText(talkStr, TalkBoxType.Thank, () =>
         {

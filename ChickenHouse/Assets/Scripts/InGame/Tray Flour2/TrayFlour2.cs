@@ -246,6 +246,22 @@ public class TrayFlour2 : Mgr
             return;
         particleSystem.Play();
 
+        {
+            int randomSE = Random.Range(0, 3);
+            switch(randomSE)
+            {
+                case 0:
+                    soundMgr.PlaySE(Sound.Flour_0_SE);
+                    break;
+                case 1:
+                    soundMgr.PlaySE(Sound.Flour_1_SE);
+                    break;
+                case 2:
+                    soundMgr.PlaySE(Sound.Flour_2_SE);
+                    break;
+            }
+        }
+
         if(gameMgr.playData != null && gameMgr.playData.tutoComplete1 == false && tutoMgr.nowTuto == Tutorial.Tuto_4 && IsComplete())
         {
             tutoObj2.PlayTuto();

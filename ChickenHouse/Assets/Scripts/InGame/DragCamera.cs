@@ -47,8 +47,7 @@ public class DragCamera : Mgr
     {
         KitchenMgr kitchenMgr = KitchenMgr.Instance;
 
-        if (CheckMode.IsWindow() && kitchenMgr.cameraObj.lookArea == LookArea.Kitchen 
-            && kitchenMgr.cameraObj.runAni == false)
+        if (CheckMode.IsWindow())
             CameraKeyBoardControl();
 
         if (moveCamera)
@@ -82,6 +81,20 @@ public class DragCamera : Mgr
 
     private void CameraKeyBoardControl()
     {
+        GuestSystem guestSystem = GuestSystem.Instance;
+        if (guestSystem == null)
+        {
+            Debug.LogError("[Unity Error - DragCamera.CameraKeyBoardControl()]: guestSystem is Null");
+            return;
+        }
+
+        KitchenMgr kitchenMgr = KitchenMgr.Instance;
+        if (kitchenMgr == null)
+        {
+            Debug.LogError("[Unity Error - DragCamera.CameraKeyBoardControl()]: kitchenMgr is Null");
+            return;
+        }
+
         if (gameMgr.stopGame)
             return;
 
@@ -91,9 +104,15 @@ public class DragCamera : Mgr
         if (moveCamera)
             return;
 
+        if (kitchenMgr.cameraObj.lookArea != LookArea.Kitchen)
+            return;
 
+        if (kitchenMgr.cameraObj.runAni)
+            return;
 
-        KitchenMgr kitchenMgr = KitchenMgr.Instance;
+        if (guestSystem.closeShop)
+            return;
+
         RectTransform kitchenRect = kitchenMgr.KitchenContent();
         int actOilCnt = kitchenMgr.GetActiveOilZoneCnt();
 

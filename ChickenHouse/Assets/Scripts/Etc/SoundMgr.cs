@@ -30,6 +30,7 @@ public class SoundMgr : AwakeSingleton<SoundMgr>
 
     private static bool init = false;
 
+
     protected override void Awake()
     {
         base.Awake();
@@ -61,6 +62,7 @@ public class SoundMgr : AwakeSingleton<SoundMgr>
                 AudioClip clip = sounds[list.sound];
                 se.volume = list.seValue;
                 se.PlayOneShot(clip);
+
             }
         }
         seList.Clear();
@@ -92,7 +94,7 @@ public class SoundMgr : AwakeSingleton<SoundMgr>
         seList.Add(new SE_List(sound, v));
     }
 
-    public void PlayLoopSE(Sound sound)
+    public void PlayLoopSE(Sound sound, float pPitch = 1)
     {
         //반복되어야하는 효과음처리
         if (sounds.ContainsKey(sound) == false)
@@ -122,6 +124,7 @@ public class SoundMgr : AwakeSingleton<SoundMgr>
 
         audio.volume = seValue;
         audio.clip = clip;
+        audio.pitch = pPitch;
         if (audio.isPlaying == false)
             audio.Play();
         audio.loop = true;
