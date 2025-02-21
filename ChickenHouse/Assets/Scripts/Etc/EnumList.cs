@@ -324,7 +324,7 @@ public enum Sound
     Voice23_SE = 273,
     Voice24_SE = 274,
 
-    //불독 & 악어
+    //악어
     Voice25_SE = 275,
 
     //나이든 고양이
@@ -340,7 +340,14 @@ public enum Sound
     Voice29_SE = 279,
     Voice30_SE = 280,
 
+    //거북이
+    Voice31_SE = 281,
 
+    //도마뱀
+    Voice32_SE = 282,
+
+    //불독
+    Voice33_SE = 282,
 
     /** 목소리 목록 **/
     //너구리 웃는소리

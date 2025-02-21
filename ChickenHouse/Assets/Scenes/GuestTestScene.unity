@@ -1208,7 +1208,7 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  guest: 1
+  guest: 25
   guestPos: {fileID: 1591986655}
 --- !u!1 &1053500008
 GameObject:

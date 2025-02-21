@@ -97,11 +97,11 @@ public class Lizard : GuestObj
 
     public override void TalkOrder(NoParaDel fun = null)
     {
-        soundMgr.PlayLoopSE(Sound.Voice1_SE);
+        soundMgr.PlayLoopSE(Sound.Voice32_SE);
         animator.SetTrigger("Talk");
         talkBox.ShowText(talkStr, TalkBoxType.Normal, () =>
         {
-            soundMgr.StopLoopSE(Sound.Voice1_SE);
+            soundMgr.StopLoopSE(Sound.Voice32_SE);
             animator.SetTrigger("TalkEnd");
             fun?.Invoke();
         });
@@ -109,8 +109,7 @@ public class Lizard : GuestObj
 
     public override void CloseTalkBox()
     {
-        soundMgr.StopLoopSE(Sound.Voice1_SE);
-        soundMgr.StopLoopSE(Sound.Voice2_SE);
+        soundMgr.StopLoopSE(Sound.Voice32_SE);
         talkBox.CloseTalkBox();
     }
 
@@ -118,11 +117,11 @@ public class Lizard : GuestObj
     {
         talkStr = LanguageMgr.GetText("LIZARD_HAPPY");
 
-        soundMgr.PlayLoopSE(Sound.Voice2_SE);
+        soundMgr.PlayLoopSE(Sound.Voice32_SE);
         animator.SetTrigger("Happy");
         talkBox.ShowText(talkStr, TalkBoxType.Happy, () =>
         {
-            soundMgr.StopLoopSE(Sound.Voice2_SE);
+            soundMgr.StopLoopSE(Sound.Voice32_SE);
             animator.SetTrigger("TalkEnd");
             fun?.Invoke();
         });
@@ -132,11 +131,11 @@ public class Lizard : GuestObj
     {
         talkStr = LanguageMgr.GetText("LIZARD_THANK_YOU");
 
-        soundMgr.PlayLoopSE(Sound.Voice2_SE);
+        soundMgr.PlayLoopSE(Sound.Voice32_SE);
         animator.SetTrigger("Talk");
         talkBox.ShowText(talkStr, TalkBoxType.Thank, () =>
         {
-            soundMgr.StopLoopSE(Sound.Voice2_SE);
+            soundMgr.StopLoopSE(Sound.Voice32_SE);
             animator.SetTrigger("TalkEnd");
             fun?.Invoke();
         });
@@ -146,11 +145,11 @@ public class Lizard : GuestObj
     {
         talkStr = LanguageMgr.GetText("LIZARD_ANGRY");
 
-        soundMgr.PlayLoopSE(Sound.Voice1_SE);
+        soundMgr.PlayLoopSE(Sound.Voice32_SE);
         animator.SetTrigger("Angry");
         talkBox.ShowText(talkStr, TalkBoxType.Angry, () =>
         {
-            soundMgr.StopLoopSE(Sound.Voice1_SE);
+            soundMgr.StopLoopSE(Sound.Voice32_SE);
             fun?.Invoke();
         });
     }

@@ -29,3 +29,6 @@ Voice27_SE	코끼리
 Voice28_SE	돼지
 Voice29_SE	chara_01_middle_019
 Voice30_SE	chara_01_middle_020
+Voice31_SE	530226__elcharrua__man-mumble
+Voice32_SE	262233__wjoojoo__earth03
+Voice33_SE	639788__alba_mac__
