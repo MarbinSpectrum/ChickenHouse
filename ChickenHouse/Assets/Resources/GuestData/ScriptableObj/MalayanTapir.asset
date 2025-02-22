@@ -16,7 +16,7 @@ MonoBehaviour:
   bookImg: {fileID: 21300000, guid: fafd1967433e87749afdfe03979b2229, type: 3}
   bookNameKey: BOOK_MALAYANTAPIR_NAME
   bookInfoKey: BOOK_MALAYANTAPIR_INFO
-  day: 0
+  day: 5
   canDrinkAlcohol: 0
   anythingDrink: 0
   goodChicken:

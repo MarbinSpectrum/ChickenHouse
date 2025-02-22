@@ -16,8 +16,9 @@ MonoBehaviour:
   bookImg: {fileID: 21300000, guid: 6a9815a11341c364c89dc3031338011f, type: 3}
   bookNameKey: BOOK_CROCODILE_NAME
   bookInfoKey: BOOK_CROCODILE_INFO
-  day: 0
+  day: 1
   canDrinkAlcohol: 0
+  anythingDrink: 0
   goodChicken:
   - openDay: 0
     spicy0: 0

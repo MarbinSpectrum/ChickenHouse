@@ -16,8 +16,9 @@ MonoBehaviour:
   bookImg: {fileID: 21300000, guid: 3ef0868445c92c7448dd9182d042ae28, type: 3}
   bookNameKey: BOOK_SEAOTTER_NAME
   bookInfoKey: BOOK_SEAOTTER_INFO
-  day: 8
+  day: 7
   canDrinkAlcohol: 1
+  anythingDrink: 0
   goodChicken:
   - openDay: 1
     spicy0: 0

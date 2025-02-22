@@ -7217,7 +7217,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 341f25b96154f3843b55e6dfab0cf2eb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e27c734abee24be458f4f1756f63ccab, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7226,7 +7226,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 6.76
+  m_PixelsPerUnitMultiplier: 4
 --- !u!222 &344542620
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -20586,7 +20586,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &934794476
 RectTransform:
   m_ObjectHideFlags: 0
@@ -29161,19 +29161,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8344259787968172007, guid: 640f26cc555164f44b12362a32bc710e, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8344259787968172007, guid: 640f26cc555164f44b12362a32bc710e, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8344259787968172007, guid: 640f26cc555164f44b12362a32bc710e, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8344259787968172007, guid: 640f26cc555164f44b12362a32bc710e, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 1.65
       objectReference: {fileID: 0}
     - target: {fileID: 8344259787968172007, guid: 640f26cc555164f44b12362a32bc710e, type: 3}
       propertyPath: m_LocalScale.x
@@ -29181,11 +29181,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8344259787968172007, guid: 640f26cc555164f44b12362a32bc710e, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 8344259787968172007, guid: 640f26cc555164f44b12362a32bc710e, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -2.825
       objectReference: {fileID: 0}
     - target: {fileID: 8344259788582316257, guid: 640f26cc555164f44b12362a32bc710e, type: 3}
       propertyPath: m_PresetInfoIsWorld
@@ -29301,11 +29301,11 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: bdbd9ff68f6467741968d03e8f3f097a, type: 3}
     - target: {fileID: 8344259788852980953, guid: 640f26cc555164f44b12362a32bc710e, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 27
       objectReference: {fileID: 0}
     - target: {fileID: 8344259788852980953, guid: 640f26cc555164f44b12362a32bc710e, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 7.9375
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 640f26cc555164f44b12362a32bc710e, type: 3}
@@ -30137,7 +30137,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 341f25b96154f3843b55e6dfab0cf2eb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e27c734abee24be458f4f1756f63ccab, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -30146,7 +30146,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 6.76
+  m_PixelsPerUnitMultiplier: 4
 --- !u!222 &1356001181
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -36383,7 +36383,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 341f25b96154f3843b55e6dfab0cf2eb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e27c734abee24be458f4f1756f63ccab, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -36392,7 +36392,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 6.76
+  m_PixelsPerUnitMultiplier: 4
 --- !u!222 &1641827281
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -38536,7 +38536,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 341f25b96154f3843b55e6dfab0cf2eb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e27c734abee24be458f4f1756f63ccab, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -38545,7 +38545,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 6.76
+  m_PixelsPerUnitMultiplier: 4
 --- !u!222 &1727819356
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -45275,7 +45275,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 341f25b96154f3843b55e6dfab0cf2eb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e27c734abee24be458f4f1756f63ccab, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -45284,7 +45284,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 6.76
+  m_PixelsPerUnitMultiplier: 4
 --- !u!222 &2055403052
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -46776,7 +46776,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 341f25b96154f3843b55e6dfab0cf2eb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e27c734abee24be458f4f1756f63ccab, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -46785,7 +46785,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 6.76
+  m_PixelsPerUnitMultiplier: 4
 --- !u!222 &2119529987
 CanvasRenderer:
   m_ObjectHideFlags: 0

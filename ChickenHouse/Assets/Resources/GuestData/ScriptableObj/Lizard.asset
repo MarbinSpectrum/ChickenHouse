@@ -16,7 +16,7 @@ MonoBehaviour:
   bookImg: {fileID: 21300000, guid: 6c4d282462ae23445b5d31b7badb667b, type: 3}
   bookNameKey: BOOK_LIZARD_NAME
   bookInfoKey: BOOK_LIZARD_INFO
-  day: 0
+  day: 4
   canDrinkAlcohol: 0
   anythingDrink: 0
   goodChicken:

@@ -1095,6 +1095,7 @@ MonoBehaviour:
     SerializationNodes: []
   textUI: {fileID: 1695335419794173790}
   stringKey: SAVE_CHECK_MSG
+  isOutLine: 0
 --- !u!1 &3334091581699165108
 GameObject:
   m_ObjectHideFlags: 0
@@ -1297,7 +1298,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 341f25b96154f3843b55e6dfab0cf2eb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e27c734abee24be458f4f1756f63ccab, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1306,7 +1307,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 6.76
+  m_PixelsPerUnitMultiplier: 4
 --- !u!1 &4875389227192976836
 GameObject:
   m_ObjectHideFlags: 0
@@ -1543,6 +1544,7 @@ MonoBehaviour:
     SerializationNodes: []
   textUI: {fileID: 6274426158243764855}
   stringKey: SAVING
+  isOutLine: 0
 --- !u!1 &5761175623244216938
 GameObject:
   m_ObjectHideFlags: 0
@@ -2084,6 +2086,7 @@ MonoBehaviour:
     SerializationNodes: []
   textUI: {fileID: 1859020280053713089}
   stringKey: NO
+  isOutLine: 0
 --- !u!1 &7091203680651808758
 GameObject:
   m_ObjectHideFlags: 0
@@ -2843,6 +2846,7 @@ MonoBehaviour:
     SerializationNodes: []
   textUI: {fileID: 8988349989115347731}
   stringKey: YES
+  isOutLine: 0
 --- !u!1 &9197051527405417569
 GameObject:
   m_ObjectHideFlags: 0

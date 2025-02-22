@@ -16,7 +16,7 @@ MonoBehaviour:
   bookImg: {fileID: 21300000, guid: a47fe51100fd23f4582832efa921cb36, type: 3}
   bookNameKey: BOOK_GRAFFE_NAME
   bookInfoKey: BOOK_GRAFFE_INFO
-  day: 0
+  day: 3
   canDrinkAlcohol: 0
   anythingDrink: 0
   goodChicken:

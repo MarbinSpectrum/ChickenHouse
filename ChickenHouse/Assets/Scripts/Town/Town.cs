@@ -82,25 +82,30 @@ public class Town : Mgr
 
     private void TownNpcInit()
     {
-        npcList[0].gameObject.SetActive(false);
-        return;
+        if (gameMgr?.playData == null)
+            return;
+
+        foreach (TownTalkObj obj in npcList)
+            obj.gameObject.SetActive(false);
+
         //해달 아줌마
-        //if ((QuestState)gameMgr.playData.quest[(int)Quest.SeaOtterQuest] == QuestState.Complete)
-        //    npcList[0].gameObject.SetActive(false);
-        //else if ((QuestState)gameMgr.playData.quest[(int)Quest.SeaOtterQuest] == QuestState.Run)
-        //{
-        //    npcList[0].gameObject.SetActive(true);
-        //    npcList[0].Init();
-        //}
-        //else if(2 <= gameMgr.playData.day && gameMgr.playData.day <= 5)
-        //{
-        //    npcList[0].gameObject.SetActive(true);
-        //    npcList[0].Init();
-        //}
-        //else
-        //{
-        //    npcList[0].gameObject.SetActive(false);
-        //}
+        if ((QuestState)gameMgr.playData.quest[(int)Quest.SeaOtterQuest] == QuestState.Complete)
+        {
+            //퀘스트 완료함
+            npcList[0].gameObject.SetActive(false);
+        }
+        else if ((QuestState)gameMgr.playData.quest[(int)Quest.SeaOtterQuest] == QuestState.Run)
+        {
+            //퀘스트 진행중임
+            npcList[0].gameObject.SetActive(true);
+            npcList[0].Init();
+        }
+        else if (2 <= gameMgr.playData.day && gameMgr.playData.day <= 5)
+        {
+            //등장날짜 2~5일
+            npcList[0].gameObject.SetActive(true);
+            npcList[0].Init();
+        }
     }
 
     public void ActTownMove(TownMap pPrevMap, TownMap pTownMap)
