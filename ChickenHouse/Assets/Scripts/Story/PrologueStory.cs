@@ -5,9 +5,10 @@ using UnityEngine.UI;
 
 public class PrologueStory : Mgr
 {
-    [SerializeField] private Animator creditorAni;
+    [SerializeField] private Animator   creditorAni;
     [SerializeField] private TalkBox_UI talkBox;
-    [SerializeField] private Button skipBtn;
+    [SerializeField] private Button     skipBtn;
+    [SerializeField] private CounterBG  counterBG;
 
     private bool skipTuto = false;
     private bool goInGame = false;
@@ -27,6 +28,8 @@ public class PrologueStory : Mgr
 
         soundMgr.MuteSE(false);
         soundMgr.PlayBGM(Sound.Prologue_BG);
+
+        counterBG.SetInteriorPlayData(CounterBG.CounterTime.Night);
 
         //첫 프롤로그는 스킵이 안되게
         bool actBtn = PlayerPrefs.GetInt("PROLOGUE", 0) == 1;

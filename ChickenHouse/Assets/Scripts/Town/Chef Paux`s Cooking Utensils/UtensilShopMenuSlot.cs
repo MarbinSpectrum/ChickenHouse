@@ -12,12 +12,6 @@ public class UtensilShopMenuSlot : Mgr
     [SerializeField] private TextMeshProUGUI itemInfo;
     [SerializeField] private Image           itemIcon;
     [SerializeField] private TextMeshProUGUI itemCost;
-    private struct TextColor
-    {
-        public Color badColor;
-        public Color goodColor;
-    }
-    [SerializeField] private TextColor      costColor;
 
     //아이템 구입 확인
     private OneParaDel fun;
@@ -39,12 +33,8 @@ public class UtensilShopMenuSlot : Mgr
         itemIcon.sprite = shopData.icon;
 
         int newMoney = (int)(shopData.money * (100f - gameMgr.playData.ShopSaleValue()) / 100f);
-        string moneyStr = LanguageMgr.GetMoneyStr(itemCost.fontSize, newMoney);
-        LanguageMgr.SetText(itemCost, moneyStr,true);
-        if (playData.money >= newMoney)
-            itemCost.color = costColor.goodColor;
-        else
-            itemCost.color = costColor.badColor;
+        string moneyStr = string.Format("{0:N0}", newMoney);
+        LanguageMgr.SetText(itemCost, moneyStr);
     }
 
     public void BuyItem()

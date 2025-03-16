@@ -9,7 +9,7 @@ public class LongNoseContractAD_UI : Mgr
     [SerializeField] private LongNoseContractSlot   shopMenuSlot;
     [SerializeField] private RectTransform          slotContents;
     [SerializeField] private LongNoseContractCheck  contractCheck;
-    [SerializeField] private TextMeshProUGUI        playerMoney;
+    [SerializeField] private Money_UI               playerMoney;
 
     [SerializeField] LongNose longNose;
     private List<LongNoseContractSlot> contractMenu = new List<LongNoseContractSlot>();
@@ -27,8 +27,7 @@ public class LongNoseContractAD_UI : Mgr
             return;
         longNose.UpdateList();
 
-        string moneyStr = LanguageMgr.GetMoneyStr(playerMoney.fontSize, playData.money);
-        LanguageMgr.SetText(playerMoney, moneyStr,true);
+        playerMoney.SetMoney(playData.money);
 
         slotContents.anchoredPosition = Vector2.zero;
 

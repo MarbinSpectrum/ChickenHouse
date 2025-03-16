@@ -8,8 +8,10 @@ public class BadEndStory : Mgr
     [SerializeField] private Animator       creditorAni;
     [SerializeField] private TalkBox_UI     talkBox;
     [SerializeField] private BlurFast       blurEffect;
-    [SerializeField] private GameObject  nightCounter;
-    [SerializeField] private GameObject morningCounter;
+    [SerializeField] private GameObject     nightCounter;
+    [SerializeField] private GameObject     morningCounter;
+    [SerializeField] private CounterBG      nightBG;
+    [SerializeField] private CounterBG      morningBG;
 
     private bool skipTuto = false;
     private bool goInGame = false;
@@ -20,6 +22,9 @@ public class BadEndStory : Mgr
     {
         soundMgr.MuteSE(false);
         soundMgr.PlayBGM(Sound.Prologue_BG);
+
+        nightBG.SetInteriorPlayData(CounterBG.CounterTime.Night);
+        morningBG.SetInteriorPlayData(CounterBG.CounterTime.Moring);
 
         Prologue1();
     }

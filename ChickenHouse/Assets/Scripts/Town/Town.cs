@@ -88,6 +88,7 @@ public class Town : Mgr
         foreach (TownTalkObj obj in npcList)
             obj.gameObject.SetActive(false);
 
+        return;
         //«ÿ¥ﬁ æ∆¡‹∏∂
         if ((QuestState)gameMgr.playData.quest[(int)Quest.SeaOtterQuest] == QuestState.Complete)
         {
@@ -150,6 +151,14 @@ public class Town : Mgr
                     soundMgr.PlayBGM(Sound.Shop_BG);
                 }
                 break;
+            case TownMap.Beaverior:
+                {
+                    Beaverior beaverior = townMap[pTownMap].GetComponent<Beaverior>();
+                    beaverior.SetInit();
+                    diaryBtn.gameObject.SetActive(false);
+                    soundMgr.PlayBGM(Sound.Shop_BG);
+                }
+                break;
         }
     }
 
@@ -172,6 +181,7 @@ public class Town : Mgr
                 case TownMap.NekoJobBank:
                 case TownMap.ChefPauxsCookingUtensils:
                 case TownMap.LongNoseCompany:
+                case TownMap.Beaverior:
                     moveAni.Play("FadeOn");
                     break;
 
@@ -187,6 +197,7 @@ public class Town : Mgr
                 case TownMap.NekoJobBank:
                 case TownMap.ChefPauxsCookingUtensils:
                 case TownMap.LongNoseCompany:
+                case TownMap.Beaverior:
                     moveAni.Play("CircleOff");
                     break;
             }

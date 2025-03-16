@@ -13,12 +13,6 @@ public class LongNoseContractSlot : Mgr
     [SerializeField] private TextMeshProUGUI    itemInfo;
     [SerializeField] private Image              itemIcon;
     [SerializeField] private TextMeshProUGUI    itemCost;
-    private struct TextColor
-    {
-        public Color badColor;
-        public Color goodColor;
-    }
-    [SerializeField] private TextColor costColor;
 
     //아이템 구입 확인
     private OneParaDel fun;
@@ -40,12 +34,8 @@ public class LongNoseContractSlot : Mgr
         itemIcon.sprite = shopData.icon;
 
         int newMoney = (int)(shopData.money * (100f - gameMgr.playData.ShopSaleValue()) / 100f);
-        string moneyStr = LanguageMgr.GetMoneyStr(itemCost.fontSize, newMoney);
+        string moneyStr = string.Format("{0:N0}", newMoney);
         LanguageMgr.SetText(itemCost, moneyStr);
-        if (playData.money >= shopData.money)
-            itemCost.color = costColor.goodColor;
-        else
-            itemCost.color = costColor.badColor;
     }
 
     public void BuyItem()

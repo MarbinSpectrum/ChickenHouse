@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class KitchenReady : Mgr
 {
-    [SerializeField] private StaffReady staffReady;
-    [SerializeField] private MenuReady  menuReady;
-    [SerializeField] private StartGame  startGame;
-    [SerializeField] private RectTransform dontClick;
+    [SerializeField] private StaffReady     staffReady;
+    [SerializeField] private MenuReady      menuReady;
+    [SerializeField] private StartGame      startGame;
+    [SerializeField] private RectTransform  dontClick;
+    [SerializeField] private CounterBG      counterBG;
 
     public struct MovePosList
     {
@@ -41,6 +42,9 @@ public class KitchenReady : Mgr
             startGame.Run();
             return;
         }
+
+        counterBG.SetInteriorPlayData(CounterBG.CounterTime.Lunch);
+
         canvasGroup.alpha = 1;
 
         staffReady.SetUI();

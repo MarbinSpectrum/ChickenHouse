@@ -416,6 +416,31 @@ public enum ShopItem
     Advertisement_4     = 304,      //광고 업그레이드(손님 딜레이 -15%,수익 +10%);
     Advertisement_5     = 305,      //광고 업그레이드(손님 딜레이 -20%,수익 +10%);
 
+    /** 인테리어 **/
+    Interior_Wall_0     = 401,
+    Interior_Wall_1     = 402,
+    Interior_Wall_2     = 403,
+    Interior_Wall_3     = 404,
+    Interior_Wall_4     = 405,
+
+    Interior_Desk_0     = 451,
+    Interior_Desk_1     = 452,
+    Interior_Desk_2     = 453,
+    Interior_Desk_3     = 454,
+    Interior_Desk_4     = 455,
+
+    Interior_Floor_0    = 501,
+    Interior_Floor_1    = 502,
+    Interior_Floor_2    = 503,
+    Interior_Floor_3    = 504,
+    Interior_Floor_4    = 505,
+
+    Interior_Table_0    = 551,
+    Interior_Table_1    = 552,
+    Interior_Table_2    = 553,
+    Interior_Table_3    = 554,
+    Interior_Table_4    = 555,
+
     MAX                 = 10000,
 }
 
@@ -534,6 +559,37 @@ public enum SideMenu
     ChickenNugget = 6,
 
     MAX,
+}
+
+public enum InteriorItem
+{
+    None = 0,
+
+    Interior_Wall_0 = 1,
+    Interior_Wall_1 = 2,
+    Interior_Wall_2 = 3,
+    Interior_Wall_3 = 4,
+    Interior_Wall_4 = 5,
+
+    Interior_Desk_0 = 51,
+    Interior_Desk_1 = 52,
+    Interior_Desk_2 = 53,
+    Interior_Desk_3 = 54,
+    Interior_Desk_4 = 55,
+
+    Interior_Floor_0 = 101,
+    Interior_Floor_1 = 102,
+    Interior_Floor_2 = 103,
+    Interior_Floor_3 = 104,
+    Interior_Floor_4 = 105,
+
+    Interior_Table_0 = 151,
+    Interior_Table_1 = 152,
+    Interior_Table_2 = 153,
+    Interior_Table_3 = 154,
+    Interior_Table_4 = 155,
+
+    MAX
 }
 
 public enum WorkerHandState
@@ -768,6 +824,8 @@ public enum TownMap
     ChefPauxsCookingUtensils = 2,
     /** 긴 코 광고 회사 **/
     LongNoseCompany = 3,
+    /** 비버리어 **/
+    Beaverior = 4,
 }
 
 public enum SceneChangeAni

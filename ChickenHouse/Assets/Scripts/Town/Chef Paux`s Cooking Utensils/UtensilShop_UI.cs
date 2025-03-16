@@ -10,7 +10,7 @@ public class UtensilShop_UI : Mgr
     [SerializeField] private RectTransform          slotContents;
     [SerializeField] private UtensilPurchaseCheck   purchaseCheck;
     [SerializeField] private Tab                    tabInfo;
-    [SerializeField] private TextMeshProUGUI        playerMoney;
+    [SerializeField] private Money_UI               playerMoney;
     [SerializeField]private ChefPauxsCookingUtensils chefPauxsCookingUtensils;
 
     private struct Tab
@@ -46,8 +46,8 @@ public class UtensilShop_UI : Mgr
         if (playData == null)
             return;
 
-        string moneyStr = LanguageMgr.GetMoneyStr(playerMoney.fontSize, playData.money);
-        LanguageMgr.SetText(playerMoney, moneyStr,true);
+        playerMoney.SetMoney(playData.money);
+
         nowMenu = pMenu;
         slotContents.anchoredPosition = Vector2.zero;
         for (int i = 0; i < tabInfo.tabImg.Length; i++)
@@ -56,6 +56,7 @@ public class UtensilShop_UI : Mgr
             {
                 tabInfo.tabImg[i].sprite = tabInfo.tabSelect;
                 tabInfo.tabText[i].color = tabInfo.selectColor;
+                tabInfo.tabImg[i].transform.SetAsLastSibling();
             }
             else
             {

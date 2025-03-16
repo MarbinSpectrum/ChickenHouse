@@ -11,7 +11,8 @@ public class Event0_Story : Mgr
     [SerializeField] private TalkBox_UI nightTalkBox;
     [SerializeField] private GameObject morning;
     [SerializeField] private GameObject night;
-
+    [SerializeField] private CounterBG  morningBG;
+    [SerializeField] private CounterBG  nightBG;
     [SerializeField] private RectTransform selectMenu;
 
     [SerializeField] private RectTransform      loseMsgBox;
@@ -26,6 +27,8 @@ public class Event0_Story : Mgr
     {
         selectMenu.gameObject.SetActive(false);
         loseMsgBox.gameObject.SetActive(false);
+        nightBG.SetInteriorPlayData(CounterBG.CounterTime.Night);
+        morningBG.SetInteriorPlayData(CounterBG.CounterTime.Moring);
 
         if ((QuestState)gameMgr.playData.quest[(int)Quest.Event_0_Quest] == QuestState.Not)
         {

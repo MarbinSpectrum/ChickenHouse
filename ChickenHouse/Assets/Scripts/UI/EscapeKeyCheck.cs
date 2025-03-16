@@ -15,12 +15,15 @@ public class EscapeKeyCheck : Mgr
     [SerializeField] private WorkerContractCheck workerContractCheck;
     [SerializeField] private UtensilPurchaseCheck utensilPurchaseCheck;
     [SerializeField] private LongNoseContractCheck longNoseContractCheck;
+    [SerializeField] private BeaveriorPurchaseCheck beaveriorPurchaseCheck;
     [SerializeField] private WakeupMsg wakeupMsg;
     [SerializeField] private GameObject warningMsgBox;
 
     [SerializeField] private NekoJobBank nekoJobBank;
     [SerializeField] private ChefPauxsCookingUtensils utensils;
     [SerializeField] private LongNose longNose;
+    [SerializeField] private Beaverior beaverior;
+
     private void Update()
     {
         if (Input.GetKeyUp(KeyCode.Escape))
@@ -64,6 +67,11 @@ public class EscapeKeyCheck : Mgr
             longNoseContractCheck.OpenNo();
             return;
         }
+        if (beaveriorPurchaseCheck != null && beaveriorPurchaseCheck.gameObject.activeSelf)
+        {
+            beaveriorPurchaseCheck.OpenNo();
+            return;
+        }
         if (wakeupMsg != null && wakeupMsg.gameObject.activeSelf)
         {
             wakeupMsg.CloseMsgBox();
@@ -91,6 +99,11 @@ public class EscapeKeyCheck : Mgr
         if (longNose != null && longNose.isOpen)
         {
             longNose.EscapeLongNose();
+            return;
+        }
+        if (beaverior != null && beaverior.isOpen)
+        {
+            beaverior.EscapeBeaverior();
             return;
         }
         if (diaryUI != null && diaryUI.isOpen)

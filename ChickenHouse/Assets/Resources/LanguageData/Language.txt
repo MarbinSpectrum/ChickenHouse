@@ -76,9 +76,11 @@ TULTUL_TOWN	털털마을	TulTul Town
 CHICKEN_RESTAURANT	치킨 가게	Chicken Restaurant
 NEKO_JOB_BANK	네코 직원 소개소	Neko Job Bank
 CHEF_PAUXS_COOKING_UTENSILS	파우 쉐프의 주방도구	Chef Paux`s Cooking Utensils
+BEAVERIOR	비버리어	Beaverior
 OPEN_RESTAURANT	영업 시작	Open Restaurant
 USE_SHOP	상점 이용	Use Shop
 EMPLOY_WORKER	직원 고용	Employ Staff
+RESTAURANT_DECOR	가게 꾸미기	Restaurant Decor
 OPEN_RESTAURANT_CHECK_MSG	영업을 시작합니까?	Are you opening the restaurant?
 EMPLOY	고용	Employ
 DEPOSIT	계약금	Deposit
@@ -137,6 +139,10 @@ KITCHEN_DRINKLIST_HEADER	음료 목록	Drink List
 KITCHEN_SIDE_UI_DRINK_HEADER	음료	Drink
 KITCHEN_SIDE_UI_SIDEMENU_HEADER	사이드 메뉴	SideMenu
 KITCHEN_SIDE_UI_EMPTY	준비안됨	Empty
+BEAVERIOR_TAB_1	창틀	Window
+BEAVERIOR_TAB_2	테이블	Table
+BEAVERIOR_TAB_3	카운터	Counter
+BEAVERIOR_TAB_4	바닥	Floor
 PIG_TALK_1	이거 이거 그런 서비스로 손님이 만족하겠나~ 쿠히힉!	Well, well, do you really think customers will be satisfied with that kind of service? Oink!
 PIG_TALK_2	쿠힉힉힉 돼지 사료도 이것보단 고급스럽겠구먼~	Oink! Oink! Oink! Even pig feed would be more high-end than this~
 PIG_TALK_3	아니 혹시 쿠힉! 그거 사장 얼굴을 본떠 만든 치킨인가? 완전 개판이구먼!	Wait, is that chicken made to look like the boss's face? It’s a complete mess!
@@ -924,9 +930,9 @@ COCKATIEL_ORDER_8	제가 치킨을 두가지 먹을 때마다 뿌링클과 후�
 COCKATIEL_ORDER_9	간장 치킨이랑 양념 치킨을 먹으면 괜찮을까요? 맛있을까요? 궁금하네요!	Would it be okay to eat soy chicken and hot chicken together? I wonder if it would taste good!
 COCKATIEL_ORDER_10	사장님은 어떤 치킨을 좋아하세요? 저는 바베큐 치킨이랑 뿌링클이요!	Boss, what kind of chicken do you like? I like barbecue chicken and prinkle !
 COCKATIEL_ORDER_11	항상 플라밍고랑 까마귀 씨가 만나면 싸우는거 있죠? 불닭이랑 시커먼 간장 같다니까요!	Whenever the flamingo and the crow meet, they always fight, you know? It's like the hell chicken and the dark soy sauce!
-COCKATIEL_SIDE_COLA	어릴때 간장이랑 콜라를 착각한적도 있는데!	When I was young, I once mistook soy sauce for cola!
+COCKATIEL_SIDE_COLA	저는 어릴때 간장이랑 콜라를 착각한적도 있어요!	When I was young, I once mistook soy sauce for cola!
 COCKATIEL_SIDE_SUPERPOWER	딸기맛 탄산 음료라 궁금한데요!	(딸기맛 탄산 음료)
-COCKATIEL_SIDE_LOVEMELON	친구가 일하는 카페에도 멜론 소다가 있는데!	(멜론맛 탄산 음료)
+COCKATIEL_SIDE_LOVEMELON	친구가 일하는 카페에도 멜론 소다가 있어요!	(멜론맛 탄산 음료)
 COCKATIEL_SIDE_SODASODA	외국에 사는 친구가 준 라무네 한번 더 마셔보고 싶네요!	(소다맛 탄산 음료)
 COCKATIEL_SIDE_RADISH	치킨 무는 왜 하필 네모난걸까요? 궁금하네요	Why is chicken radish square? I wonder!
 COCKATIEL_SIDE_PICKLE	오이는 싫지만 피클은 좋아요!	(피클)
@@ -1043,8 +1049,8 @@ DRINK_QUEST_SUMMARY_1	※ 콜라 10개 팔기	※ Selling 10 colas
 DRINK_QUEST_NAME_2	담백한 맥주	Plain beer
 DRINK_QUEST_INFO_2	맥주를 10개를 팔아보자.	Let's sell 10 beers.
 DRINK_QUEST_SUMMARY_2	※ 맥주 10개 팔기	※ Selling 10 beers
-EVENT_0_QUEST_NAME	레시피를 걸고 대결!	A duel for the recipe!
-EVENT_0_QUEST_INFO	건너편 가게가 치킨 레시피를 걸고\n대결을 걸어왔다.\n본때를 보여줘야 된다!	The shop across the street has challenged us to a duel with chicken recipes on the line.\nWe need to show them what we're made of!
+EVENT_0_QUEST_NAME	반대편 가게와 대결!	Compete Against the Opposing Store!
+EVENT_0_QUEST_INFO	건너편 가게가 대결을 걸어왔다.\n본때를 보여줘야 된다!	The store across the street has challenged you to a battle. You need to show them who's boss!
 EVENT_0_QUEST_SUMMARY	※ 대결에서 승리하자.	※ Let's win the duel.
 QUEST_DETAIL_1	남은 기간 : {0}일	Remaining days : {0}
 QUEST_DETAIL_2	치킨 {0}/{1}	Chicken {0}/{1}

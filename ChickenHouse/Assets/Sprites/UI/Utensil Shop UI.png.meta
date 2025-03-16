@@ -243,7 +243,7 @@ TextureImporter:
         height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 5, y: 5, z: 5, w: 5}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -284,7 +284,7 @@ TextureImporter:
         width: 210
         height: 225
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 20, y: 20, z: 20, w: 20}
       outline: []
       physicsShape: []
@@ -292,6 +292,174 @@ TextureImporter:
       bones: []
       spriteID: d152b00fa0c15b34790019bd19116a0d
       internalID: -260037167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Utensil Shop UI_8
+      rect:
+        serializedVersion: 2
+        x: 573
+        y: 574
+        width: 225
+        height: 127
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 13, y: 13, z: 13, w: 13}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 400d51dfc2db1b34ca225ee96c6d9665
+      internalID: -1888832190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Utensil Shop UI_11
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 129
+        width: 341
+        height: 174
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 184a5985a80e96d4ebb405876b5061cf
+      internalID: 1536115863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Utensil Shop UI_9
+      rect:
+        serializedVersion: 2
+        x: 694
+        y: 77
+        width: 117
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99e59e0ce6931624fbe299e985571ee7
+      internalID: 1983592735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Utensil Shop UI_10
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 64
+        width: 148
+        height: 57
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 10, y: 10, z: 10, w: 10}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4250883d3321ef747823fc4a01e985f5
+      internalID: 1750333707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Utensil Shop UI_12
+      rect:
+        serializedVersion: 2
+        x: 701
+        y: 457
+        width: 105
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a456273e590b174db7876d1e2cb783b
+      internalID: -261286223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Utensil Shop UI_13
+      rect:
+        serializedVersion: 2
+        x: 701
+        y: 366
+        width: 105
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5181c49153dcbf45bd28a9bdbb6cf71
+      internalID: 276303169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Utensil Shop UI_14
+      rect:
+        serializedVersion: 2
+        x: 835
+        y: 167
+        width: 339
+        height: 136
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51edff835ff987d4bb82337bd5b25a63
+      internalID: 389020734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Utensil Shop UI_15
+      rect:
+        serializedVersion: 2
+        x: 835
+        y: 134
+        width: 26
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3647a0d55906b524bac07c01350a7943
+      internalID: -915063650
       vertices: []
       indices: 
       edges: []
@@ -308,11 +476,19 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       Utensil Shop UI_5: -144135127
+      Utensil Shop UI_10: 1750333707
+      Utensil Shop UI_13: 276303169
+      Utensil Shop UI_11: 1536115863
+      Utensil Shop UI_12: -261286223
+      Utensil Shop UI_9: 1983592735
+      Utensil Shop UI_15: -915063650
       Utensil Shop UI_7: -260037167
       Utensil Shop UI_2: -907148601
       Utensil Shop UI_6: 938595586
       Utensil Shop UI_4: 1359499811
       Utensil Shop UI_0: -1860727763
+      Utensil Shop UI_14: 389020734
+      Utensil Shop UI_8: -1888832190
       Utensil Shop UI_3: -1986264323
       Utensil Shop UI_1: -69522763
   spritePackingTag: 

@@ -54,6 +54,13 @@ public class PlayData
     /** 퀘스트를 확인한 여부 **/
     public bool[] questCheck = new bool[(int)Quest.MAX];
 
+    /** 인테리어 상태 **/
+    public int useInteriorWall;
+    public int useInteriorDesk;
+    public int useInteriorFloor;
+    public int useInteriorTable;
+    public bool[] hasInterior = new bool[(int)InteriorItem.MAX];
+
     public const int DEFAULT_CHICKEN_PRICE = 1000;
     public const int CHICKEN_RES_VAIUE = 100;
     public const int DEFAULT_RENT_PRICE = 1000;
@@ -73,6 +80,8 @@ public class PlayData
         hasItem[(int)ShopItem.ChickenRadish] = true;
         sideMenu[(int)MenuSetPos.SideMenu0] = (int)SideMenu.ChickenRadish;
 
+        hasItem[(int)ShopItem.OIL_Zone_1] = true;
+
         //{
         //    hasItem[(int)ShopItem.Pickle] = true;
         //    hasItem[(int)ShopItem.Coleslaw] = true;
@@ -85,7 +94,14 @@ public class PlayData
         //    hasItem[(int)ShopItem.SodaSoda] = true;
         //}
 
-        hasItem[(int)ShopItem.OIL_Zone_1] = true;
+        hasInterior[(int)InteriorItem.Interior_Wall_0] = true;
+        hasInterior[(int)InteriorItem.Interior_Desk_0] = true;
+        hasInterior[(int)InteriorItem.Interior_Floor_0] = true;
+        hasInterior[(int)InteriorItem.Interior_Table_0] = true;
+        useInteriorWall = (int)InteriorItem.Interior_Wall_0;
+        useInteriorDesk = (int)InteriorItem.Interior_Desk_0;
+        useInteriorFloor = (int)InteriorItem.Interior_Floor_0;
+        useInteriorTable = (int)InteriorItem.Interior_Table_0;
 
         quest[(int)Quest.MainQuest_1] = 1;
     }

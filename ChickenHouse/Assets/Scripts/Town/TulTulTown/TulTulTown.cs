@@ -13,6 +13,7 @@ public class TulTulTown : Mgr
         JobBank,
         CookingUtensils,
         LongNose,
+        Beaverior,
 
         MAX
     }
@@ -44,6 +45,7 @@ public class TulTulTown : Mgr
     [SerializeField] private TownMove nekotownMove;
     [SerializeField] private TownMove chefPauxsCookingUtensilsMove;
     [SerializeField] private TownMove longnoseCompany;
+    [SerializeField] private TownMove beaverior;
 
     private Zone nowZone = Zone.None;
     private bool nowMove = false;
@@ -124,6 +126,20 @@ public class TulTulTown : Mgr
                         MoveZone(Zone.CookingUtensils);
                         soundMgr.PlaySE(Sound.Walk_SE);
                     }
+                    else if (dic == 1)
+                    {
+                        MoveZone(Zone.Beaverior);
+                        soundMgr.PlaySE(Sound.Walk_SE);
+                    }
+                }
+                break;
+            case Zone.Beaverior:
+                {
+                    if (dic == 0)
+                    {
+                        MoveZone(Zone.LongNose);
+                        soundMgr.PlaySE(Sound.Walk_SE);
+                    }
                 }
                 break;
         }
@@ -196,10 +212,19 @@ public class TulTulTown : Mgr
                 case Zone.LongNose:
                     {
                         moveBtn[0].gameObject.SetActive(true);
-                        moveBtn[1].gameObject.SetActive(false);
+                        moveBtn[1].gameObject.SetActive(true);
                         LanguageMgr.SetString(menuBtn.menuText, "ADVERTISEMENT_CONTRACT");
                         LanguageMgr.SetString(header.mainText, "TULTUL_TOWN");
                         LanguageMgr.SetString(header.subText, "LONG_NOSE_COMPANY");
+                    }
+                    break;
+                case Zone.Beaverior:
+                    {
+                        moveBtn[0].gameObject.SetActive(true);
+                        moveBtn[1].gameObject.SetActive(false);
+                        LanguageMgr.SetString(menuBtn.menuText, "RESTAURANT_DECOR");
+                        LanguageMgr.SetString(header.mainText, "TULTUL_TOWN");
+                        LanguageMgr.SetString(header.subText, "BEAVERIOR");
                     }
                     break;
             }
@@ -240,6 +265,11 @@ public class TulTulTown : Mgr
             case Zone.LongNose:
                 {
                     longnoseCompany.MoveTown();
+                }
+                break;
+            case Zone.Beaverior:
+                {
+                    beaverior.MoveTown();
                 }
                 break;
         }

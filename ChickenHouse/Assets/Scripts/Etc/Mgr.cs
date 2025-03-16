@@ -18,4 +18,5 @@ public class Mgr : SerializedMonoBehaviour
     public static GuestMgr      guestMgr    { get => GuestMgr.Instance; }
     public static SubMenuMgr    subMenuMgr  { get => SubMenuMgr.Instance; }
     public static CookLvMgr     cookLvMgr   { get => CookLvMgr.Instance; }
+    public static InteriorMgr   interiorMgr { get => InteriorMgr.Instance; }
 }

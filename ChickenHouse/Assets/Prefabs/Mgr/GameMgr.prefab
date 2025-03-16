@@ -14558,7 +14558,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1134346737887854748}
         m_TargetAssemblyTypeName: GameMgr, Assembly-CSharp
         m_MethodName: CloseRecordUI
-        m_Mode: 1
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
