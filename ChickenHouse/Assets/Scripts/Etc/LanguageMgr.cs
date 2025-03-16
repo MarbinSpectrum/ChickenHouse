@@ -18,7 +18,8 @@ public class LanguageMgr : AwakeSingleton<LanguageMgr>
         = new Dictionary<Language, Dictionary<string, string>>();
 
     private const string LANGUAGE_KEY = "LANGUAGE";
-    private const string MONEY_FORMAT = "{0:N0}<size={1}><b>C</b></size>";
+    public const string MONEY_FORMAT = "{0:N0}<size={1}><b>C</b></size>";
+    public const string COMMA_FORMAT = "{0:N0}";
 
     protected override void Awake()
     {

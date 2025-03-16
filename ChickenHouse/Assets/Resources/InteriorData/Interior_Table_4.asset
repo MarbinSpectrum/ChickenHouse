@@ -15,5 +15,5 @@ MonoBehaviour:
   img: {fileID: 21300000, guid: 823bdb40f4e6688489916379ed871627, type: 3}
   objImg1: {fileID: 21300000, guid: ef479a2cd1c9b4541969d3720b2e4f44, type: 3}
   objImg2: {fileID: 0}
-  nameKey: 
-  price: 0
+  nameKey: INTERIOR_TABLE_4
+  price: 5000

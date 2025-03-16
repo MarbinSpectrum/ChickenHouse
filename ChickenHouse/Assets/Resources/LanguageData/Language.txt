@@ -143,6 +143,7 @@ BEAVERIOR_TAB_1	창틀	Window
 BEAVERIOR_TAB_2	테이블	Table
 BEAVERIOR_TAB_3	카운터	Counter
 BEAVERIOR_TAB_4	바닥	Floor
+SELECT	선택하기	Select
 PIG_TALK_1	이거 이거 그런 서비스로 손님이 만족하겠나~ 쿠히힉!	Well, well, do you really think customers will be satisfied with that kind of service? Oink!
 PIG_TALK_2	쿠힉힉힉 돼지 사료도 이것보단 고급스럽겠구먼~	Oink! Oink! Oink! Even pig feed would be more high-end than this~
 PIG_TALK_3	아니 혹시 쿠힉! 그거 사장 얼굴을 본떠 만든 치킨인가? 완전 개판이구먼!	Wait, is that chicken made to look like the boss's face? It’s a complete mess!
@@ -993,6 +994,26 @@ WORKER_LV1_INFO	이력서 확인	Resume
 WORKER_LV2_INFO	이력서 확인	Resume
 WORKER_LV3_INFO	이력서 확인	Resume
 WORKER_LV4_INFO	이력서 확인	Resume
+INTERIOR_WALL_0	기본 창틀	Basic Window
+INTERIOR_WALL_1	레드-블랙 창틀	Red-Black Window
+INTERIOR_WALL_2	핑크-다이아몬드 창틀	Pink-Diamond Window
+INTERIOR_WALL_3	빈티지 창틀	Vintage Window
+INTERIOR_WALL_4	디스트레스드 창틀	Distressed Window
+INTERIOR_DESK_0	기본 카운터	Basic Counter
+INTERIOR_DESK_1	레드-블랙 카운터	Red-Black Counter
+INTERIOR_DESK_2	핑크-다이아몬드 카운터	Pink-Diamond Counter
+INTERIOR_DESK_3	빈티지 카운터	Vintage Counter
+INTERIOR_DESK_4	디스트레스드 카운터	Distressed Counter
+INTERIOR_FLOOR_0	기본 바닥	Basic Floor
+INTERIOR_FLOOR_1	레드-블랙 바닥	Red-Black Floor
+INTERIOR_FLOOR_2	핑크-다이아몬드 바닥	Pink-Diamond Floor
+INTERIOR_FLOOR_3	빈티지 바닥	Vintage Floor
+INTERIOR_FLOOR_4	디스트레스드 바닥	Distressed Floor
+INTERIOR_TABLE_0	기본 테이블	Basic Table
+INTERIOR_TABLE_1	레드-블랙 테이블	Red-Black Table
+INTERIOR_TABLE_2	핑크-다이아몬드 테이블	Pink-Diamond Table
+INTERIOR_TABLE_3	빈티지 테이블	Vintage Table
+INTERIOR_TABLE_4	디스트레스드 테이블	Distressed Table
 WORKER_SKILL_1	주방보조 경력자	Kitchen assistant Experience
 WORKER_SKILL_2	치킨가게 경력자	Chicken restaurant Experience
 WORKER_SKILL_3	튀김 전문가	Frying Expert

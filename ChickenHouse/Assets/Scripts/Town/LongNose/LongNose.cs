@@ -19,7 +19,7 @@ public class LongNose : Mgr
     [SerializeField] private RectTransform adUIBtn;
     [SerializeField] private LongNoseContractAD_UI longNoseContractUI;
     [SerializeField] private TownMove exitLongNose;
-    public List<ShopItem> itemList { get; private set; } = new List<ShopItem>();
+    public List<ADItem> itemList { get; private set; } = new List<ADItem>();
     public bool isOpen { private set; get; } = false;
     public bool run { private set; get; } = false;
 
@@ -65,25 +65,25 @@ public class LongNose : Mgr
 
     public void UpdateList()
     {
-        void AddItemList(ShopItem pItem)
+        void AddItemList(ADItem pItem)
         {
             PlayData playData = gameMgr.playData;
-            if (playData.hasItem[(int)pItem])
+            if (playData.hasAD[(int)pItem])
                 return;
             itemList.Add(pItem);
         }
 
         itemList.Clear();
-        if (gameMgr.playData.hasItem[(int)ShopItem.Advertisement_1] == false)
-            AddItemList(ShopItem.Advertisement_1);
-        else if (gameMgr.playData.hasItem[(int)ShopItem.Advertisement_2] == false)
-            AddItemList(ShopItem.Advertisement_2);
-        else if (gameMgr.playData.hasItem[(int)ShopItem.Advertisement_3] == false)
-            AddItemList(ShopItem.Advertisement_3);
-        else if (gameMgr.playData.hasItem[(int)ShopItem.Advertisement_4] == false)
-            AddItemList(ShopItem.Advertisement_4);
-        else if (gameMgr.playData.hasItem[(int)ShopItem.Advertisement_5] == false)
-            AddItemList(ShopItem.Advertisement_5);
+        if (gameMgr.playData.hasAD[(int)ADItem.Advertisement_1] == false)
+            AddItemList(ADItem.Advertisement_1);
+        else if (gameMgr.playData.hasAD[(int)ADItem.Advertisement_2] == false)
+            AddItemList(ADItem.Advertisement_2);
+        else if (gameMgr.playData.hasAD[(int)ADItem.Advertisement_3] == false)
+            AddItemList(ADItem.Advertisement_3);
+        else if (gameMgr.playData.hasAD[(int)ADItem.Advertisement_4] == false)
+            AddItemList(ADItem.Advertisement_4);
+        else if (gameMgr.playData.hasAD[(int)ADItem.Advertisement_5] == false)
+            AddItemList(ADItem.Advertisement_5);
     }
 
     private string GetNPC_Talk_Text()

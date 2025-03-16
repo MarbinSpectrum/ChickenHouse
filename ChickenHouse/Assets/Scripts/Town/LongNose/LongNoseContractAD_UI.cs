@@ -40,23 +40,22 @@ public class LongNoseContractAD_UI : Mgr
                 contractMenu.Add(slotMenu);
             }
 
-            contractMenu[i].SetData(longNose.itemList[i], (item) => ItemBuyCheckUI((ShopItem)item));
+            contractMenu[i].SetData(longNose.itemList[i], (item) => ItemBuyCheckUI((ADItem)item));
             contractMenu[i].gameObject.SetActive(true);
         }
     }
 
-    private void ItemBuyCheckUI(ShopItem pItem)
+    private void ItemBuyCheckUI(ADItem pADItem)
     {
         contractCheck.SetUI(() =>
         {
             soundMgr.PlaySE(Sound.GetMoney_SE);
 
-            PlayData playData = gameMgr.playData;
-            playData.hasItem[(int)pItem] = true;
+            gameMgr.playData.AddADItem(pADItem);
 
-            ShopData shopData = shopMgr.GetShopData(pItem);
-            int newMoney = (int)(shopData.money * (100f - gameMgr.playData.ShopSaleValue()) / 100f);
-            playData.money -= newMoney;
+            ADData adData = adItemMgr.GetADData(pADItem);
+            int newMoney = (int)(adData.price * (100f - gameMgr.playData.ShopSaleValue()) / 100f);
+            gameMgr.playData.money -= newMoney;
 
             SetMenu();
         });

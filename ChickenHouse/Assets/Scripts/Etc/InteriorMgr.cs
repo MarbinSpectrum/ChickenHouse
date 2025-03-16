@@ -34,116 +34,35 @@ public class InteriorMgr : AwakeSingleton<InteriorMgr>
         return null;
     }
 
-    public int GetInteriorItemPrice(InteriorItem pInteriorItem)
+    public static InteriorTab GetInteriorTab(InteriorItem pInteriorItem)
     {
-        //인테리어 소품 가격
-        InteriorData interiorData = GetInteriorData(pInteriorItem);
-        if (interiorData == null)
-            return 0;
-        return interiorData.price;
-    }
-
-    public static InteriorItem GetShopItemToInteriorItem(ShopItem shopItem)
-    {
-        //ShopItem -> InteriorItem
-        switch (shopItem)
-        {
-            case ShopItem.Interior_Wall_0:
-                return InteriorItem.Interior_Wall_0;
-            case ShopItem.Interior_Wall_1:
-                return InteriorItem.Interior_Wall_1;
-            case ShopItem.Interior_Wall_2:
-                return InteriorItem.Interior_Wall_2;
-            case ShopItem.Interior_Wall_3:
-                return InteriorItem.Interior_Wall_3;
-            case ShopItem.Interior_Wall_4:
-                return InteriorItem.Interior_Wall_4;
-
-            case ShopItem.Interior_Desk_0:
-                return InteriorItem.Interior_Desk_0;
-            case ShopItem.Interior_Desk_1:
-                return InteriorItem.Interior_Desk_1;
-            case ShopItem.Interior_Desk_2:
-                return InteriorItem.Interior_Desk_2;
-            case ShopItem.Interior_Desk_3:
-                return InteriorItem.Interior_Desk_3;
-            case ShopItem.Interior_Desk_4:
-                return InteriorItem.Interior_Desk_4;
-
-            case ShopItem.Interior_Floor_0:
-                return InteriorItem.Interior_Floor_0;
-            case ShopItem.Interior_Floor_1:
-                return InteriorItem.Interior_Floor_1;
-            case ShopItem.Interior_Floor_2:
-                return InteriorItem.Interior_Floor_2;
-            case ShopItem.Interior_Floor_3:
-                return InteriorItem.Interior_Floor_3;
-            case ShopItem.Interior_Floor_4:
-                return InteriorItem.Interior_Floor_4;
-
-            case ShopItem.Interior_Table_0:
-                return InteriorItem.Interior_Table_0;
-            case ShopItem.Interior_Table_1:
-                return InteriorItem.Interior_Table_1;
-            case ShopItem.Interior_Table_2:
-                return InteriorItem.Interior_Table_2;
-            case ShopItem.Interior_Table_3:
-                return InteriorItem.Interior_Table_3;
-            case ShopItem.Interior_Table_4:
-                return InteriorItem.Interior_Table_4;
-        }
-        return InteriorItem.None;
-    }
-
-    public static ShopItem GetInteriorItemToShopItem(InteriorItem pInteriorItem)
-    {
-        //InteriorItem -> ShopItem
         switch (pInteriorItem)
         {
             case InteriorItem.Interior_Wall_0:
-                return ShopItem.Interior_Wall_0;
             case InteriorItem.Interior_Wall_1:
-                return ShopItem.Interior_Wall_1;
             case InteriorItem.Interior_Wall_2:
-                return ShopItem.Interior_Wall_2;
             case InteriorItem.Interior_Wall_3:
-                return ShopItem.Interior_Wall_3;
             case InteriorItem.Interior_Wall_4:
-                return ShopItem.Interior_Wall_4;
-
-            case InteriorItem.Interior_Desk_0:
-                return ShopItem.Interior_Desk_0;
-            case InteriorItem.Interior_Desk_1:
-                return ShopItem.Interior_Desk_1;
-            case InteriorItem.Interior_Desk_2:
-                return ShopItem.Interior_Desk_2;
-            case InteriorItem.Interior_Desk_3:
-                return ShopItem.Interior_Desk_3;
-            case InteriorItem.Interior_Desk_4:
-                return ShopItem.Interior_Desk_4;
-
-            case InteriorItem.Interior_Floor_0:
-                return ShopItem.Interior_Floor_0;
-            case InteriorItem.Interior_Floor_1:
-                return ShopItem.Interior_Floor_1;
-            case InteriorItem.Interior_Floor_2:
-                return ShopItem.Interior_Floor_2;
-            case InteriorItem.Interior_Floor_3:
-                return ShopItem.Interior_Floor_3;
-            case InteriorItem.Interior_Floor_4:
-                return ShopItem.Interior_Floor_4;
-
+                return InteriorTab.Wall;
             case InteriorItem.Interior_Table_0:
-                return ShopItem.Interior_Table_0;
             case InteriorItem.Interior_Table_1:
-                return ShopItem.Interior_Table_1;
             case InteriorItem.Interior_Table_2:
-                return ShopItem.Interior_Table_2;
             case InteriorItem.Interior_Table_3:
-                return ShopItem.Interior_Table_3;
             case InteriorItem.Interior_Table_4:
-                return ShopItem.Interior_Table_4;
+                return InteriorTab.Table;
+            case InteriorItem.Interior_Floor_0:
+            case InteriorItem.Interior_Floor_1:
+            case InteriorItem.Interior_Floor_2:
+            case InteriorItem.Interior_Floor_3:
+            case InteriorItem.Interior_Floor_4:
+                return InteriorTab.Floor;
+            case InteriorItem.Interior_Desk_0:
+            case InteriorItem.Interior_Desk_1:
+            case InteriorItem.Interior_Desk_2:
+            case InteriorItem.Interior_Desk_3:
+            case InteriorItem.Interior_Desk_4:
+                return InteriorTab.Desk;
         }
-        return ShopItem.None;
+        return InteriorTab.None;
     }
 }

@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class LongNoseContractSlot : Mgr
 {
-    private ShopItem shopItem;
+    private ADItem ADItem;
 
     [SerializeField] private TextMeshProUGUI    itemName;
     [SerializeField] private TextMeshProUGUI    itemInfo;
@@ -17,24 +17,24 @@ public class LongNoseContractSlot : Mgr
     //아이템 구입 확인
     private OneParaDel fun;
 
-    public void SetData(ShopItem pShopItem, OneParaDel pFun = null)
+    public void SetData(ADItem pADItem, OneParaDel pFun = null)
     {
-        shopItem = pShopItem;
+        ADItem = pADItem;
         fun = pFun;
 
-        ShopData shopData = shopMgr.GetShopData(shopItem);
-        if (shopData == null)
+        ADData adData = adItemMgr.GetADData(ADItem);
+        if (adData == null)
             return;
         PlayData playData = gameMgr.playData;
         if (playData == null)
             return;
 
-        LanguageMgr.SetString(itemName, shopData.nameKey);
-        LanguageMgr.SetString(itemInfo, shopData.infoKey);
-        itemIcon.sprite = shopData.icon;
+        LanguageMgr.SetString(itemName, adData.nameKey);
+        LanguageMgr.SetString(itemInfo, adData.infoKey);
+        itemIcon.sprite = adData.img;
 
-        int newMoney = (int)(shopData.money * (100f - gameMgr.playData.ShopSaleValue()) / 100f);
-        string moneyStr = string.Format("{0:N0}", newMoney);
+        int newMoney = (int)(adData.price * (100f - gameMgr.playData.ShopSaleValue()) / 100f);
+        string moneyStr = string.Format(LanguageMgr.COMMA_FORMAT, newMoney);
         LanguageMgr.SetText(itemCost, moneyStr);
     }
 
@@ -44,17 +44,17 @@ public class LongNoseContractSlot : Mgr
         PlayData playData = gameMgr.playData;
         if (playData == null)
             return;
-        ShopData shopData = shopMgr.GetShopData(shopItem);
-        if (shopData == null)
+        ADData adData = adItemMgr.GetADData(ADItem);
+        if (adData == null)
             return;
 
-        int newMoney = (int)(shopData.money * (100f - gameMgr.playData.ShopSaleValue()) / 100f);
+        int newMoney = (int)(adData.price * (100f - gameMgr.playData.ShopSaleValue()) / 100f);
         if (playData.money < newMoney)
         {
             //돈이 부족하다.
             return;
         }
 
-        fun?.Invoke(shopItem);
+        fun?.Invoke(ADItem);
     }
 }

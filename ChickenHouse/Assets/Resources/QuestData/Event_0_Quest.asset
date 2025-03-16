@@ -17,4 +17,11 @@ MonoBehaviour:
   questInfoKey: EVENT_0_QUEST_INFO
   questSummaryKey: EVENT_0_QUEST_SUMMARY
   nextQuest: -1
-  rewards: cb000000
+  rewards:
+  - rewardType: 0
+    spicy: 6
+    drink: 0
+    sideMenu: 0
+    interiorItem: 0
+    shopItem: 0
+    ADItem: 0

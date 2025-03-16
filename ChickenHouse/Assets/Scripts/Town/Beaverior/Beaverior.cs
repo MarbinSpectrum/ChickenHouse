@@ -19,7 +19,7 @@ public class Beaverior : Mgr
     [SerializeField] private RectTransform adUIBtn;
     [SerializeField] private Beaverior_UI beaveriorUI;
     [SerializeField] private TownMove exitBeaverior;
-    public List<ShopItem> itemList { get; private set; } = new List<ShopItem>();
+    public List<InteriorItem> itemList { get; private set; } = new List<InteriorItem>();
     public bool isOpen { private set; get; } = false;
     public bool run { private set; get; } = false;
 
@@ -30,7 +30,7 @@ public class Beaverior : Mgr
         showMenu.gameObject.SetActive(false);
         header.gameObject.SetActive(false);
 
-        UpdateList();
+        UpdateList(InteriorTab.Wall);
 
         //메뉴 활성화 여부
         adUIBtn.gameObject.SetActive(itemList.Count != 0);
@@ -63,27 +63,54 @@ public class Beaverior : Mgr
         StartCoroutine(Run());
     }
 
-    public void UpdateList()
+    public void UpdateList(InteriorTab pTab)
     {
-        void AddItemList(ShopItem pItem)
+        void AddItemList(InteriorItem pItem)
         {
-            PlayData playData = gameMgr.playData;
-            if (playData.hasItem[(int)pItem])
-                return;
             itemList.Add(pItem);
         }
 
         itemList.Clear();
-        if (gameMgr.playData.hasItem[(int)ShopItem.Advertisement_1] == false)
-            AddItemList(ShopItem.Advertisement_1);
-        else if (gameMgr.playData.hasItem[(int)ShopItem.Advertisement_2] == false)
-            AddItemList(ShopItem.Advertisement_2);
-        else if (gameMgr.playData.hasItem[(int)ShopItem.Advertisement_3] == false)
-            AddItemList(ShopItem.Advertisement_3);
-        else if (gameMgr.playData.hasItem[(int)ShopItem.Advertisement_4] == false)
-            AddItemList(ShopItem.Advertisement_4);
-        else if (gameMgr.playData.hasItem[(int)ShopItem.Advertisement_5] == false)
-            AddItemList(ShopItem.Advertisement_5);
+        
+        switch(pTab)
+        {
+            case InteriorTab.Wall:
+                {
+                    AddItemList(InteriorItem.Interior_Wall_0);
+                    AddItemList(InteriorItem.Interior_Wall_1);
+                    AddItemList(InteriorItem.Interior_Wall_2);
+                    AddItemList(InteriorItem.Interior_Wall_3);
+                    AddItemList(InteriorItem.Interior_Wall_4);
+                }
+                break;
+            case InteriorTab.Desk:
+                {
+                    AddItemList(InteriorItem.Interior_Desk_0);
+                    AddItemList(InteriorItem.Interior_Desk_1);
+                    AddItemList(InteriorItem.Interior_Desk_2);
+                    AddItemList(InteriorItem.Interior_Desk_3);
+                    AddItemList(InteriorItem.Interior_Desk_4);
+                }
+                break;
+            case InteriorTab.Floor:
+                {
+                    AddItemList(InteriorItem.Interior_Floor_0);
+                    AddItemList(InteriorItem.Interior_Floor_1);
+                    AddItemList(InteriorItem.Interior_Floor_2);
+                    AddItemList(InteriorItem.Interior_Floor_3);
+                    AddItemList(InteriorItem.Interior_Floor_4);
+                }
+                break;
+            case InteriorTab.Table:
+                {
+                    AddItemList(InteriorItem.Interior_Table_0);
+                    AddItemList(InteriorItem.Interior_Table_1);
+                    AddItemList(InteriorItem.Interior_Table_2);
+                    AddItemList(InteriorItem.Interior_Table_3);
+                    AddItemList(InteriorItem.Interior_Table_4);
+                }
+                break;
+        }
     }
 
     private string GetNPC_Talk_Text()
@@ -110,7 +137,7 @@ public class Beaverior : Mgr
         soundMgr.PlaySE(Sound.Btn_SE);
         oner.talkBox.CloseTalkBox();
 
-        UpdateList();
+        UpdateList(InteriorTab.Wall);
         beaveriorUI.SetUI();
         beaveriorUI.gameObject.SetActive(true);
     }

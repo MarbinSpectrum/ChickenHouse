@@ -123,11 +123,9 @@ public class DiaryUI_Quest : Mgr
         QuestData questData = questMgr.GetQuestData(pQuest.quest);
         for (int i = 0; i < questData.rewards.Count; i++)
         {
-            ShopItem shopItem = questData.rewards[i];
-            if (shopItem == ShopItem.None)
-                continue;
-            ShopData shopData = shopMgr.GetShopData(shopItem);
-            string shopItemStr = LanguageMgr.GetText(shopData.nameKey);
+            QuestData.QuestRewardData questReward = questData.rewards[i];
+            string itemNameKey = questReward.GetRewardNameKey();
+            string shopItemStr = LanguageMgr.GetText(itemNameKey);
             rewardText += shopItemStr;
             if (i + 1 != questData.rewards.Count)
                 rewardText += ", ";

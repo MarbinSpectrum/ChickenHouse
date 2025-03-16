@@ -32,9 +32,9 @@ public class ChefPauxsCookingUtensils : Mgr
 
 
         //메뉴 활성화 여부
-        UpdateList(UtensilShopMenu.Fryer_Add);
+        UpdateList(UtensilShopTab.Fryer_Add);
         int cnt1 = itemList.Count;
-        UpdateList(UtensilShopMenu.Fryer_Buy);
+        UpdateList(UtensilShopTab.Fryer_Buy);
         int cnt2 = itemList.Count;
 
         buyBtn.gameObject.SetActive(cnt1 != 0 || cnt2 != 0);
@@ -84,7 +84,7 @@ public class ChefPauxsCookingUtensils : Mgr
         return string.Empty;
     }
 
-    public void UpdateList(UtensilShopMenu pMenu)
+    public void UpdateList(UtensilShopTab pMenu)
     {
         void AddItemList(ShopItem pItem)
         {
@@ -97,7 +97,7 @@ public class ChefPauxsCookingUtensils : Mgr
         itemList.Clear();
         switch (pMenu)
         {
-            case UtensilShopMenu.Fryer_Buy:
+            case UtensilShopTab.Fryer_Buy:
                 {
                     AddItemList(ShopItem.OIL_Zone_1);
                     AddItemList(ShopItem.OIL_Zone_2);
@@ -105,7 +105,7 @@ public class ChefPauxsCookingUtensils : Mgr
                     AddItemList(ShopItem.OIL_Zone_4);
                 }
                 break;
-            case UtensilShopMenu.Fryer_Add:
+            case UtensilShopTab.Fryer_Add:
                 {
                     if(gameMgr.playData.hasItem[(int)ShopItem.NEW_OIL_ZONE_1] == false)
                         AddItemList(ShopItem.NEW_OIL_ZONE_1);

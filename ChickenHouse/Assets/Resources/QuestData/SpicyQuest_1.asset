@@ -17,4 +17,11 @@ MonoBehaviour:
   questInfoKey: SPICY_QUEST_INFO_1
   questSummaryKey: SPICY_QUEST_SUMMARY_1
   nextQuest: 1001
-  rewards: c9000000
+  rewards:
+  - rewardType: 0
+    spicy: 2
+    drink: 0
+    sideMenu: 0
+    interiorItem: 0
+    shopItem: 0
+    ADItem: 0

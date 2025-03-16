@@ -23,24 +23,24 @@ public class UtensilShop_UI : Mgr
         public Sprite               tabDeSelect;
     }
 
-    private UtensilShopMenu nowMenu;
+    private UtensilShopTab nowTab;
     private List<UtensilShopMenuSlot> shopMenus = new List<UtensilShopMenuSlot>();
 
     public void SetUI()
     {
-        nowMenu = UtensilShopMenu.Fryer_Buy;
+        nowTab = UtensilShopTab.Fryer_Buy;
 
-        SelectMenu(nowMenu);
+        SelectMenu(nowTab);
     }
 
     public void SelectMenu(int menuNum)
     {
         //인스펙터로 끌어서 사용하는 함수
-        SelectMenu((UtensilShopMenu)menuNum);
+        SelectMenu((UtensilShopTab)menuNum);
         soundMgr.PlaySE(Sound.Btn_SE);
     }
 
-    private void SelectMenu(UtensilShopMenu pMenu)
+    private void SelectMenu(UtensilShopTab pMenu)
     {
         PlayData playData = gameMgr.playData;
         if (playData == null)
@@ -48,7 +48,7 @@ public class UtensilShop_UI : Mgr
 
         playerMoney.SetMoney(playData.money);
 
-        nowMenu = pMenu;
+        nowTab = pMenu;
         slotContents.anchoredPosition = Vector2.zero;
         for (int i = 0; i < tabInfo.tabImg.Length; i++)
         {
@@ -87,14 +87,13 @@ public class UtensilShop_UI : Mgr
         {
             soundMgr.PlaySE(Sound.GetMoney_SE);
 
-            PlayData playData = gameMgr.playData;
-            playData.hasItem[(int)pItem] = true;
+            gameMgr.playData.AddShopItem(pItem);
 
             ShopData shopData = shopMgr.GetShopData(pItem);
             int newMoney = (int)(shopData.money * (100f - gameMgr.playData.ShopSaleValue()) / 100f);
-            playData.money -= newMoney;
+            gameMgr.playData.money -= newMoney;
 
-            SelectMenu(nowMenu);
+            SelectMenu(nowTab);
         });
     }
 }

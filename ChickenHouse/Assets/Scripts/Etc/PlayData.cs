@@ -33,6 +33,10 @@ public class PlayData
     public long money;
     /** 보유 아이템 상태 **/
     public bool[] hasItem = new bool[(int)ShopItem.MAX];
+    public bool[] hasDrink = new bool[(int)Drink.MAX];
+    public bool[] hasSideMenu = new bool[(int)SideMenu.MAX];
+    public bool[] hasSpicy = new bool[(int)ChickenSpicy.MAX];
+    public bool[] hasAD = new bool[(int)ADItem.MAX];
 
     /** 직원 보유 상태 **/
     public bool[] hasWorker = new bool[(int)EWorker.MAX];
@@ -71,28 +75,16 @@ public class PlayData
     {
         cookLv = 1;
 
-        hasItem[(int)ShopItem.Recipe_0] = true;
+        hasSpicy[(int)ChickenSpicy.Hot] = true;
         spicy[(int)MenuSetPos.Spicy0] = (int)ChickenSpicy.Hot;
 
-        hasItem[(int)ShopItem.Cola] = true;
+        hasDrink[(int)Drink.Cola] = true;
         drink[(int)MenuSetPos.Drink0] = (int)Drink.Cola;
 
-        hasItem[(int)ShopItem.ChickenRadish] = true;
+        hasSideMenu[(int)SideMenu.ChickenRadish] = true;
         sideMenu[(int)MenuSetPos.SideMenu0] = (int)SideMenu.ChickenRadish;
 
         hasItem[(int)ShopItem.OIL_Zone_1] = true;
-
-        //{
-        //    hasItem[(int)ShopItem.Pickle] = true;
-        //    hasItem[(int)ShopItem.Coleslaw] = true;
-        //    hasItem[(int)ShopItem.CornSalad] = true;
-        //    hasItem[(int)ShopItem.FrenchFries] = true;
-        //    hasItem[(int)ShopItem.ChickenNugget] = true;
-
-        //    hasItem[(int)ShopItem.SuperPower] = true;
-        //    hasItem[(int)ShopItem.LoveMelon] = true;
-        //    hasItem[(int)ShopItem.SodaSoda] = true;
-        //}
 
         hasInterior[(int)InteriorItem.Interior_Wall_0] = true;
         hasInterior[(int)InteriorItem.Interior_Desk_0] = true;
@@ -218,13 +210,13 @@ public class PlayData
         else if (nowOilZone == ShopItem.OIL_Zone_4)
             rate += 40f;
 
-        if (hasItem[(int)ShopItem.Advertisement_2])
+        if (hasAD[(int)ADItem.Advertisement_2])
             rate += 10f;
-        if (hasItem[(int)ShopItem.Advertisement_3])
+        if (hasAD[(int)ADItem.Advertisement_3])
             rate += 10f;
-        if (hasItem[(int)ShopItem.Advertisement_4])
+        if (hasAD[(int)ADItem.Advertisement_4])
             rate += 10f;
-        if (hasItem[(int)ShopItem.Advertisement_5])
+        if (hasAD[(int)ADItem.Advertisement_5])
             rate += 10f;
         return rate;
     }
@@ -248,15 +240,15 @@ public class PlayData
         //게스트 딜레이 배율
         float rate = GuestSpawnSpeed();
 
-        if (hasItem[(int)ShopItem.Advertisement_5])
+        if (hasAD[(int)ADItem.Advertisement_5])
             rate += 5;
-        if (hasItem[(int)ShopItem.Advertisement_4])
+        if (hasAD[(int)ADItem.Advertisement_4])
             rate += 7f;
-        if (hasItem[(int)ShopItem.Advertisement_3])
+        if (hasAD[(int)ADItem.Advertisement_3])
             rate += 10f;
-        if (hasItem[(int)ShopItem.Advertisement_2])
+        if (hasAD[(int)ADItem.Advertisement_2])
             rate += 15;
-        if (hasItem[(int)ShopItem.Advertisement_1])
+        if (hasAD[(int)ADItem.Advertisement_1])
             rate += 20f;
 
         return rate;
@@ -265,28 +257,19 @@ public class PlayData
     public bool HasRecipe(ChickenSpicy pSpicy)
     {
         //해당 종류의 양념의 레시피를 가지고 있는지 여부
-        if (pSpicy == ChickenSpicy.None)
-            return true;
-
-        ShopItem shopItem = SpicyMgr.SpicyGetRecipe(pSpicy);
-        if (shopItem == ShopItem.None)
-            return false;
-
-        return hasItem[(int)shopItem];
+        return hasSpicy[(int)pSpicy];
     }
 
     public bool HasDrink(Drink pDrink)
     {
         //해당 종류의 음료를 가지고 있는지 여부
-        ShopItem shopItem = SubMenuMgr.GetDrinkToShopItem(pDrink);
-        return hasItem[(int)shopItem];
+        return hasDrink[(int)pDrink];
     }
 
     public bool HasSideMenu(SideMenu pSideMenu)
     {
         //해당 종류의 사이드메뉴를 가지고 있는지 여부
-        ShopItem shopItem = SubMenuMgr.GetSideMenuToShopItem(pSideMenu);
-        return hasItem[(int)shopItem];
+        return hasSideMenu[(int)pSideMenu];
     }
 
     public bool KitchenSetSpicy(ChickenSpicy pSpicy)
@@ -358,26 +341,105 @@ public class PlayData
         return Mathf.Max(0, DEFAULT_RENT_PRICE - lvValue);
     }
 
-    public void GetShopItem(ShopItem pShopItem)
+    public void AddQuestReward(QuestData.QuestRewardData pRewardData)
+    {
+        switch(pRewardData.getRewardType)
+        {
+            case QuestData.ERewardType.ShopItem:
+                AddShopItem((ShopItem)pRewardData.GetQuestReward());
+                return;
+            case QuestData.ERewardType.Spicy:
+                AddSpicyItem((ChickenSpicy)pRewardData.GetQuestReward());
+                return;
+            case QuestData.ERewardType.Drink:
+                AddDrink((Drink)pRewardData.GetQuestReward());
+                return;
+            case QuestData.ERewardType.SideMenu:
+                AddSideMenu((SideMenu)pRewardData.GetQuestReward());
+                return;
+            case QuestData.ERewardType.AD_Item:
+                AddADItem((ADItem)pRewardData.GetQuestReward());
+                return;
+            case QuestData.ERewardType.InteriorItem:
+                AddInterior((InteriorItem)pRewardData.GetQuestReward());
+                return;
+        }
+    }
+
+    public void AddShopItem(ShopItem pShopItem)
     {
         hasItem[(int)pShopItem] = true;
-        ChickenSpicy chickenSpicy = SpicyMgr.RecipeGetSpicy(pShopItem);
-        if (chickenSpicy != ChickenSpicy.None)
+    }
+
+    public void AddSpicyItem(ChickenSpicy pChickenSpicy)
+    {
+        hasSpicy[(int)pChickenSpicy] = true;
+        //양념을 새로 얻음 도감에 등록
+        BookMgr.ActSpicyData(pChickenSpicy);
+    }
+
+    public void AddDrink(Drink pDrink)
+    {
+        hasDrink[(int)pDrink] = true;
+        //음료를 새로 얻음 도감에 등록
+        BookMgr.ActDrinkData(pDrink);
+    }
+
+    public void AddSideMenu(SideMenu pSideMenu)
+    {
+        hasSideMenu[(int)pSideMenu] = true;
+        //사이드메뉴를 새로 얻음 도감에 등록
+        BookMgr.ActSideMenuData(pSideMenu);
+    }
+
+    public void AddADItem(ADItem pADItem)
+    {
+        //광고 등록
+        hasAD[(int)pADItem] = true;
+    }
+
+    public void AddInterior(InteriorItem pInteriorItem)
+    {
+        //인테리어 등록
+        hasInterior[(int)pInteriorItem] = true;
+    }
+
+    public void SetInterior(InteriorItem pInteriorItem)
+    {
+        //해당 인테리어 용품을 적용
+        InteriorTab interiorTab = InteriorMgr.GetInteriorTab(pInteriorItem);
+        switch (interiorTab)
         {
-            //양념을 새로 얻음 도감에 등록
-            BookMgr.ActSpicyData(chickenSpicy);
+            case InteriorTab.Wall:
+                useInteriorWall = (int)pInteriorItem;
+                break;
+            case InteriorTab.Table:
+                useInteriorTable = (int)pInteriorItem;
+                break;
+            case InteriorTab.Floor:
+                useInteriorFloor = (int)pInteriorItem;
+                break;
+            case InteriorTab.Desk:
+                useInteriorDesk = (int)pInteriorItem;
+                break;
         }
-        Drink drink = SubMenuMgr.GetShopItemToDrink(pShopItem);
-        if (drink != Drink.None)
+    }
+
+    public bool IsUseInterior(InteriorItem pInteriorItem)
+    {
+        //해당 인테리어 용품을 사용중인지 체크
+        InteriorTab interiorTab = InteriorMgr.GetInteriorTab(pInteriorItem);
+        switch (interiorTab)
         {
-            //음료를 새로 얻음 도감에 등록
-            BookMgr.ActDrinkData(drink);
+            case InteriorTab.Wall:
+                return useInteriorWall == (int)pInteriorItem;
+            case InteriorTab.Table:
+                return useInteriorTable == (int)pInteriorItem;
+            case InteriorTab.Floor:
+                return useInteriorFloor == (int)pInteriorItem;
+            case InteriorTab.Desk:
+                return useInteriorDesk == (int)pInteriorItem;
         }
-        SideMenu sideMenu = SubMenuMgr.GetShopItemToSideMenu(pShopItem);
-        if (sideMenu != SideMenu.None)
-        {
-            //사이드메뉴를 새로 얻음 도감에 등록
-            BookMgr.ActSideMenuData(sideMenu);
-        }
+        return false;
     }
 }

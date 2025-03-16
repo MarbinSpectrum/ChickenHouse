@@ -278,11 +278,11 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  table: {fileID: 5030008072450350944}
-  wall: {fileID: 5030008072313098010}
-  floor: {fileID: 5030008072706641259}
-  desk: {fileID: 2964724054981482481}
-  nightDeep: {fileID: 7303788765433350525}
+  oTable: {fileID: 5030008072450350946}
+  oWall: {fileID: 5030008072313098012}
+  oFloor: {fileID: 5030008072706641261}
+  oDesk: {fileID: 2456895125561104139}
+  oDeep: {fileID: 601982114969027498}
 --- !u!1 &5030008072450350946
 GameObject:
   m_ObjectHideFlags: 0

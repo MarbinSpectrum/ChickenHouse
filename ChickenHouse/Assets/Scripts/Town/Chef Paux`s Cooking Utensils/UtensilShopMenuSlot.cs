@@ -33,7 +33,7 @@ public class UtensilShopMenuSlot : Mgr
         itemIcon.sprite = shopData.icon;
 
         int newMoney = (int)(shopData.money * (100f - gameMgr.playData.ShopSaleValue()) / 100f);
-        string moneyStr = string.Format("{0:N0}", newMoney);
+        string moneyStr = string.Format(LanguageMgr.COMMA_FORMAT, newMoney);
         LanguageMgr.SetText(itemCost, moneyStr);
     }
 

@@ -365,10 +365,19 @@ public enum TalkBoxType
 
 }
 
-public enum UtensilShopMenu
+public enum UtensilShopTab
 {
     Fryer_Buy       = 0,    //튀김기 구매
     Fryer_Add       = 1,    //튀김기 추가
+}
+
+public enum InteriorTab
+{
+    None        = -1,
+    Wall        = 0,
+    Table       = 1,
+    Desk        = 2,
+    Floor       = 3,
 }
 
 public enum ShopItem
@@ -385,61 +394,6 @@ public enum ShopItem
     NEW_OIL_ZONE_1      = 151,      //기름통 추가
     NEW_OIL_ZONE_2      = 152,      //기름통 추가
     NEW_OIL_ZONE_3      = 153,      //기름통 추가
-
-    /** 레시피 **/
-    Recipe_0            = 200,      //양념치킨
-    Recipe_1            = 201,      //간장치킨
-    Recipe_2            = 202,      //불닭치킨
-    Recipe_3            = 203,      //프링클치킨
-    Recipe_4            = 204,      //까르보나라
-    Recipe_5            = 205,      //바베큐치킨
-
-    /** 음료 **/
-    Cola                = 231,      //콜라
-    Beer                = 232,      //맥주
-    SuperPower          = 234,      //딸기맛 탄산 음료 
-    LoveMelon           = 235,      //메론맛 탄산 음료
-    SodaSoda            = 236,      //소다맛 탄산 음료
-
-    /** 사이드 메뉴 **/
-    ChickenRadish       = 261,      //치킨무
-    Pickle              = 262,      //피클
-    Coleslaw            = 263,      //코우슬로
-    CornSalad           = 264,      //콘샐러드
-    FrenchFries         = 265,      //프랜치 프라이
-    ChickenNugget       = 266,      //치킨너겟
-
-    /** 광고 업그레이드 **/
-    Advertisement_1     = 301,      //광고 업그레이드(손님 딜레이 -5%);
-    Advertisement_2     = 302,      //광고 업그레이드(손님 딜레이 -7%,수익 +10%);
-    Advertisement_3     = 303,      //광고 업그레이드(손님 딜레이 -10%,수익 +10%);
-    Advertisement_4     = 304,      //광고 업그레이드(손님 딜레이 -15%,수익 +10%);
-    Advertisement_5     = 305,      //광고 업그레이드(손님 딜레이 -20%,수익 +10%);
-
-    /** 인테리어 **/
-    Interior_Wall_0     = 401,
-    Interior_Wall_1     = 402,
-    Interior_Wall_2     = 403,
-    Interior_Wall_3     = 404,
-    Interior_Wall_4     = 405,
-
-    Interior_Desk_0     = 451,
-    Interior_Desk_1     = 452,
-    Interior_Desk_2     = 453,
-    Interior_Desk_3     = 454,
-    Interior_Desk_4     = 455,
-
-    Interior_Floor_0    = 501,
-    Interior_Floor_1    = 502,
-    Interior_Floor_2    = 503,
-    Interior_Floor_3    = 504,
-    Interior_Floor_4    = 505,
-
-    Interior_Table_0    = 551,
-    Interior_Table_1    = 552,
-    Interior_Table_2    = 553,
-    Interior_Table_3    = 554,
-    Interior_Table_4    = 555,
 
     MAX                 = 10000,
 }
@@ -559,6 +513,20 @@ public enum SideMenu
     ChickenNugget = 6,
 
     MAX,
+}
+
+public enum ADItem
+{
+    None = 0,
+
+    /** 광고 업그레이드 **/
+    Advertisement_1 = 1,      //광고 업그레이드(손님 딜레이 -5%);
+    Advertisement_2 = 2,      //광고 업그레이드(손님 딜레이 -7%,수익 +10%);
+    Advertisement_3 = 3,      //광고 업그레이드(손님 딜레이 -10%,수익 +10%);
+    Advertisement_4 = 4,      //광고 업그레이드(손님 딜레이 -15%,수익 +10%);
+    Advertisement_5 = 5,      //광고 업그레이드(손님 딜레이 -20%,수익 +10%);
+
+    MAX
 }
 
 public enum InteriorItem

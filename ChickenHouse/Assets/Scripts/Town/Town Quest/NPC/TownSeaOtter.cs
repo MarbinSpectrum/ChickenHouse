@@ -64,12 +64,11 @@ public class TownSeaOtter : TownTalkObj
                 {
                     bool rewardWaitFlag = false;
                     rewardItem.gameObject.SetActive(true);
-                    ShopData shopData = shopMgr.GetShopData(questData.rewards[i]);
-                    rewardItem.SetUI(shopData, () => rewardWaitFlag = true);
+                    rewardItem.SetUI(questData.rewards[i], () => rewardWaitFlag = true);
                     yield return new WaitUntil(() => rewardWaitFlag);
                     rewardItem.gameObject.SetActive(false);
 
-                    gameMgr.playData.GetShopItem(questData.rewards[i]);
+                    gameMgr.playData.AddQuestReward(questData.rewards[i]);
                 }
             }
 

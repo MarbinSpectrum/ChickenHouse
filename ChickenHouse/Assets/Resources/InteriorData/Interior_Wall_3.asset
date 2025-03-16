@@ -15,5 +15,5 @@ MonoBehaviour:
   img: {fileID: 21300000, guid: 5ce69529d92bc674a988b9fd01518ac6, type: 3}
   objImg1: {fileID: 21300000, guid: 6e8961f0d625c1442b3e265af0e08798, type: 3}
   objImg2: {fileID: 21300000, guid: 5e112a68fc2cf65438b20f91a07de999, type: 3}
-  nameKey: 
-  price: 0
+  nameKey: INTERIOR_WALL_3
+  price: 5000

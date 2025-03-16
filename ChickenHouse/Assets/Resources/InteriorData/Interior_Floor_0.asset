@@ -15,5 +15,5 @@ MonoBehaviour:
   img: {fileID: 21300000, guid: 1d24ee464c82d6e4c9fb222471587734, type: 3}
   objImg1: {fileID: 21300000, guid: 72aa9793f052d9d4ab40548fad94ce35, type: 3}
   objImg2: {fileID: 0}
-  nameKey: 
-  price: 0
+  nameKey: INTERIOR_FLOOR_0
+  price: 5000

@@ -98,46 +98,6 @@ public class SubMenuMgr : AwakeSingleton<SubMenuMgr>
         return false;
     }
 
-    public static Drink GetShopItemToDrink(ShopItem shopItem)
-    {
-        //ShopItem->Drink
-        switch (shopItem)
-        {
-            case ShopItem.Cola:
-                return Drink.Cola;
-            case ShopItem.Beer:
-                return Drink.Beer;
-            case ShopItem.SuperPower:
-                return Drink.SuperPower;
-            case ShopItem.LoveMelon:
-                return Drink.LoveMelon;
-            case ShopItem.SodaSoda:
-                return Drink.SodaSoda;
-
-        }
-        return Drink.None;
-    }
-
-    public static ShopItem GetDrinkToShopItem(Drink pDrink)
-    {
-        //Drink->ShopItem
-        switch (pDrink)
-        {
-            case Drink.Cola:
-                return ShopItem.Cola;
-            case Drink.Beer:
-                return ShopItem.Beer;
-            case Drink.SuperPower:
-                return ShopItem.SuperPower;
-            case Drink.LoveMelon:
-                return ShopItem.LoveMelon;
-            case Drink.SodaSoda:
-                return ShopItem.SodaSoda;
-
-        }
-        return ShopItem.None;
-    }
-
     public SideMenuData GetSideMenuData(SideMenu pSideMenu)
     {
         //사이드 메뉴 정보 얻기
@@ -196,47 +156,5 @@ public class SubMenuMgr : AwakeSingleton<SubMenuMgr>
                 return SideMenu.ChickenNugget;
         }
         return SideMenu.None;
-    }
-
-    public static SideMenu GetShopItemToSideMenu(ShopItem shopItem)
-    {
-        //ShopItem -> SideMenu
-        switch (shopItem)
-        {
-            case ShopItem.ChickenRadish:
-                return SideMenu.ChickenRadish;
-            case ShopItem.Pickle:
-                return SideMenu.Pickle;
-            case ShopItem.Coleslaw:
-                return SideMenu.Coleslaw;
-            case ShopItem.CornSalad:
-                return SideMenu.CornSalad;
-            case ShopItem.FrenchFries:
-                return SideMenu.FrenchFries;
-            case ShopItem.ChickenNugget:
-                return SideMenu.ChickenNugget;
-        }
-        return SideMenu.None;
-    }
-
-    public static ShopItem GetSideMenuToShopItem(SideMenu pSideMenu)
-    {
-        //SideMenu -> ShopItem
-        switch (pSideMenu)
-        {
-            case SideMenu.ChickenRadish:
-                return ShopItem.ChickenRadish;
-            case SideMenu.Pickle:
-                return ShopItem.Pickle;
-            case SideMenu.Coleslaw:
-                return ShopItem.Coleslaw;
-            case SideMenu.CornSalad:
-                return ShopItem.CornSalad;
-            case SideMenu.FrenchFries:
-                return ShopItem.FrenchFries;
-            case SideMenu.ChickenNugget:
-                return ShopItem.ChickenNugget;
-        }
-        return ShopItem.None;
     }
 }

@@ -36,7 +36,7 @@ public class SceneMgr : AwakeSingleton<SceneMgr>
             PlayData    playData    = gameMgr.playData;
             QuestMgr    questMgr    = QuestMgr.Instance;
             ShopMgr     shopMgr     = ShopMgr.Instance;
-            List<ShopItem>  rewardList  = new List<ShopItem>();
+            List<QuestData.QuestRewardData>  rewardList  = new List<QuestData.QuestRewardData>();
             List<Quest>     nextQuest   = new List<Quest>();
             for(Quest quest = Quest.MainQuest_1; quest < Quest.MAX; quest++)
             {
@@ -51,9 +51,9 @@ public class SceneMgr : AwakeSingleton<SceneMgr>
                 {
                     playData.quest[(int)quest] = (int)QuestState.Complete;
                     QuestData       questData   = questMgr.GetQuestData(quest);
-                    List<ShopItem>  rewardItems = questData.rewards;
+                    List<QuestData.QuestRewardData> rewardItems = questData.rewards;
                     Quest           getNewQuest = questData.nextQuest;
-                    foreach(ShopItem reward in rewardItems)
+                    foreach(QuestData.QuestRewardData reward in rewardItems)
                         rewardList.Add(reward);
                     nextQuest.Add(getNewQuest);
                 }
@@ -68,12 +68,11 @@ public class SceneMgr : AwakeSingleton<SceneMgr>
             {
                 bool rewardWaitFlag = false;
                 rewardItem.gameObject.SetActive(true);
-                ShopData shopData = shopMgr.GetShopData(rewardList[i]);
-                rewardItem.SetUI(shopData,() => rewardWaitFlag = true);
+                rewardItem.SetUI(rewardList[i], () => rewardWaitFlag = true);
                 yield return new WaitUntil(() => rewardWaitFlag);
                 rewardItem.gameObject.SetActive(false);
 
-                playData.GetShopItem(rewardList[i]);
+                playData.AddQuestReward(rewardList[i]);
             }
         }
 

@@ -17,4 +17,11 @@ MonoBehaviour:
   questInfoKey: DRINK_QUEST_INFO_1
   questSummaryKey: DRINK_QUEST_SUMMARY_1
   nextQuest: 2001
-  rewards: e8000000
+  rewards:
+  - rewardType: 1
+    spicy: 0
+    drink: 2
+    sideMenu: 0
+    interiorItem: 0
+    shopItem: 0
+    ADItem: 0

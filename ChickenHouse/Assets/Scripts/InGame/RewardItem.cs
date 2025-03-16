@@ -12,14 +12,17 @@ public class RewardItem : Mgr
     [SerializeField] private Button             btn;
     private const float DEFAULT_WIDTH = 422.35f;
 
-    public void SetUI(ShopData pShopData, NoParaDel pFun)
+    public void SetUI(QuestData.QuestRewardData pRewardItem, NoParaDel pFun)
     {
         soundMgr.PlaySE(Sound.GetSpicy_SE);
-        rewardImg.sprite = pShopData.icon;
-        float newRate = (float)pShopData.icon.rect.height / (float)pShopData.icon.rect.width;
+        Sprite icon = pRewardItem.GetRewardIcon();
+        if (icon == null)
+            return;
+        rewardImg.sprite = icon;
+        float newRate = (float)icon.rect.height / (float)icon.rect.width;
         rewardImg.GetComponent<RectTransform>().sizeDelta = new Vector2(DEFAULT_WIDTH, DEFAULT_WIDTH * newRate);
 
-        string rewardName = LanguageMgr.GetText(pShopData.nameKey);
+        string rewardName = LanguageMgr.GetText(pRewardItem.GetRewardNameKey());
         rewardText.text = string.Format(LanguageMgr.GetText("GET_ITEM"), rewardName);
 
         btn.onClick.RemoveAllListeners();

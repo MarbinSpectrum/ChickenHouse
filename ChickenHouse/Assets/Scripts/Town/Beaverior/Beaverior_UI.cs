@@ -23,27 +23,38 @@ public class Beaverior_UI : Mgr
         public Sprite tabDeSelect;
     }
 
-    private List<BeaveriorSlot> contractMenu = new List<BeaveriorSlot>();
+    private InteriorTab nowTab;
+    private List<BeaveriorSlot> itemMenu = new List<BeaveriorSlot>();
 
     public void SetUI()
     {
-        SetMenu();
+        nowTab = InteriorTab.Wall;
+
+        SelectMenu(nowTab, true);
     }
 
-    private void SetMenu()
+    public void SelectMenu(int menuNum)
+    {
+        //인스펙터로 끌어서 사용하는 함수
+        SelectMenu((InteriorTab)menuNum, true);
+        soundMgr.PlaySE(Sound.Btn_SE);
+    }
+
+    private void SelectMenu(InteriorTab pMenu,bool moveTop)
     {
 
         PlayData playData = gameMgr.playData;
         if (playData == null)
             return;
-        beaverior.UpdateList();
 
         playerMoney.SetMoney(playData.money);
-
-        slotContents.anchoredPosition = Vector2.zero;
+        nowTab = pMenu;
+        beaverior.UpdateList(nowTab);
+        if(moveTop)
+            slotContents.anchoredPosition = Vector2.zero;
         for (int i = 0; i < tabInfo.tabImg.Length; i++)
         {
-            if (i == (int)0)
+            if (i == (int)nowTab)
             {
                 tabInfo.tabImg[i].sprite = tabInfo.tabSelect;
                 tabInfo.tabText[i].color = tabInfo.selectColor;
@@ -56,34 +67,76 @@ public class Beaverior_UI : Mgr
             }
         }
 
-        contractMenu.ForEach((x) => x.gameObject.SetActive(false));
+        itemMenu.ForEach((x) => x.gameObject.SetActive(false));
         for (int i = 0; i < beaverior.itemList.Count; i++)
         {
-            if (i >= contractMenu.Count)
+            if (i >= itemMenu.Count)
             {
                 BeaveriorSlot slotMenu = Instantiate(shopMenuSlot, slotContents);
-                contractMenu.Add(slotMenu);
+                itemMenu.Add(slotMenu);
             }
 
-            contractMenu[i].SetData(beaverior.itemList[i], (item) => ItemBuyCheckUI((ShopItem)item));
-            contractMenu[i].gameObject.SetActive(true);
+            itemMenu[i].SetData(beaverior.itemList[i], 
+                (item) => OpenPurchaseCheck((InteriorItem)item),
+                (item) => PurchaseBtn((InteriorItem)item));
+            itemMenu[i].gameObject.SetActive(true);
         }
     }
 
-    private void ItemBuyCheckUI(ShopItem pItem)
+    private void OpenPurchaseCheck(InteriorItem pInteriorItem)
     {
-        purchaseCheck.SetUI(() =>
+        bool isUse = gameMgr.playData.IsUseInterior(pInteriorItem);
+        purchaseCheck.SetUI(pInteriorItem, isUse, () =>
         {
-            soundMgr.PlaySE(Sound.GetMoney_SE);
-
+            //인스펙터로 끌어서 사용하는 함수
             PlayData playData = gameMgr.playData;
-            playData.hasItem[(int)pItem] = true;
+            if (playData == null)
+                return;
 
-            ShopData shopData = shopMgr.GetShopData(pItem);
-            int newMoney = (int)(shopData.money * (100f - gameMgr.playData.ShopSaleValue()) / 100f);
-            playData.money -= newMoney;
+            if (playData.hasInterior[(int)pInteriorItem])
+            {
+                playData.SetInterior(pInteriorItem);
+                SelectMenu(nowTab, true);
+                soundMgr.PlaySE(Sound.Btn_SE);
+            }
+            else
+            {
+                InteriorData interiorData = interiorMgr.GetInteriorData(pInteriorItem);
+                if (interiorData == null)
+                    return;
 
-            SetMenu();
+                int newMoney = (int)(interiorData.price * (100f - gameMgr.playData.ShopSaleValue()) / 100f);
+                if (playData.money < newMoney)
+                {
+                    //돈이 부족하다.
+                    return;
+                }
+
+                soundMgr.PlaySE(Sound.GetMoney_SE);
+
+                playData.AddInterior(pInteriorItem);
+                playData.money -= newMoney;
+                playData.SetInterior(pInteriorItem);
+                SelectMenu(nowTab, false);
+            }
         });
+    }
+
+    private void PurchaseBtn(InteriorItem pInteriorItem)
+    {
+        //인스펙터로 끌어서 사용하는 함수
+        PlayData playData = gameMgr.playData;
+        if (playData == null)
+            return;
+
+        if (playData.hasInterior[(int)pInteriorItem])
+        {
+            playData.SetInterior(pInteriorItem);
+            SelectMenu(nowTab, false);
+            soundMgr.PlaySE(Sound.Btn_SE);
+            return;
+        }
+
+        OpenPurchaseCheck(pInteriorItem);
     }
 }
